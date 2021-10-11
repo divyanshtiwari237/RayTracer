@@ -12,6 +12,7 @@ int main()
     {
         for(int i=0;i<imageWidth;i++)
         {
+            std::cerr<<"\rScanlines remaing"<<j<<' '<<std::flush;
             auto r = double(i)/(imageWidth -1);
             auto g = double(j)/(imageHeight-1);
             auto b = 0.25;
@@ -21,7 +22,9 @@ int main()
             int ib = static_cast<int>(255.999*b);
 
             std::cout<< ir<<" "<<ig<<" "<<ib<<" \n";
+            
 
         }
     }
+    std::cerr<<"\nDone.\n";
 }
