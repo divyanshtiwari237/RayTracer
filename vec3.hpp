@@ -22,17 +22,20 @@ class vec3
     {
         return e[0];
     }
+
     //getter for y-component
     double y()
     {
         return e[1];
     }
+
     //getter for z-component
     double z()
     {
         return e[2];
     }
 
+    // Overloaded + operator for vector addition
     vec3& operator+=(vec3 &v)
     {
         e[0]+=v.e[0];
@@ -41,6 +44,7 @@ class vec3
         return *this;
     }
 
+    // Overloaded * operator for vector scalar multiplication
     vec3& operator*=(double t)
     {
         e[0]*=t;
@@ -49,34 +53,38 @@ class vec3
         return *this;
     }
 
+    // Overloaded / operator for vector scalar division
     vec3& operator/=(double t)
     {
-        
         return *this*=1/t;
     }
 
-
+    //returns the negative of the vector
     vec3 operator-()
     {
         return vec3(-e[0],-e[1],-e[2]);
     }
+
+    //vector indexing
     double operator[](int i)
     {
         return e[i];
     }
+
+    //returns the magnitude of the vector
     double length() 
     {
         return sqrt(length_squared());
     }
+
+    //returns the squared magnitude of the vector
     double length_squared()
     {
         return e[0]*e[0]+e[1]*e[1]+e[2]*e[2];
     }
-    
-
 };
-using point3=vec3;
-using color = vec3;
+using point3=vec3;  //alias point of vec3
+using color = vec3;  //alias color of vec3
 
 
 #endif
