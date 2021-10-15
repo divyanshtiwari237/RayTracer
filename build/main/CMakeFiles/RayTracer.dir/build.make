@@ -94,6 +94,7 @@ main/RayTracer.exe: main/CMakeFiles/RayTracer.dir/main.cpp.obj
 main/RayTracer.exe: main/CMakeFiles/RayTracer.dir/build.make
 main/RayTracer.exe: utilities/libvector.a
 main/RayTracer.exe: utilities/libcolor.a
+main/RayTracer.exe: utilities/libvector.a
 main/RayTracer.exe: main/CMakeFiles/RayTracer.dir/linklibs.rsp
 main/RayTracer.exe: main/CMakeFiles/RayTracer.dir/objects1.rsp
 main/RayTracer.exe: main/CMakeFiles/RayTracer.dir/link.txt

@@ -39,16 +39,16 @@ class vec3
     vec3& operator+=(vec3 &);
    
     // Overloaded *= operator for vector scalar multiplication
-    vec3& operator*=(double );
+    vec3& operator*=(double);
     
     // Overloaded /= operator for vector scalar division
-    vec3& operator/=(double );
+    vec3& operator/=(double);
     
     //returns the negative of the vector
     vec3 operator-();
     
     //vector indexing
-    double& operator[](int );
+    double& operator[](int);
     
     //returns the magnitude of the vector
     double length();

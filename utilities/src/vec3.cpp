@@ -26,17 +26,17 @@ vec3 vec3::operator-()
     return vec3(-e[0],-e[1],-e[2]);
 }
 
- double& vec3::operator[](int i)
+double& vec3::operator[](int i)
  {
      return e[i];
  }
 
- double vec3:: length() 
+double vec3:: length() 
  {
     return sqrt(length_squared()); 
  }
 
- double vec3::length_squared()
+double vec3::length_squared()
  {
       return e[0]*e[0]+e[1]*e[1]+e[2]*e[2];
  }

@@ -18,6 +18,8 @@ int main()
             auto r = double(i)/(imageWidth -1);
             auto g = double(j)/(imageHeight-1);
             auto b = 0.25;
+            vec3 v =vec3(1,0,0);
+           // std::cout<<v[0];
 
             color pixelColor =color(r,g,b);
             writeColor(std::cout,pixelColor);
