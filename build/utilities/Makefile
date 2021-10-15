@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\projects\RayTracer\build\CMakeFiles C:\projects\RayTracer\build\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	cd /d C:\projects\RayTracer\build && $(CMAKE_COMMAND) -E cmake_progress_start C:\projects\RayTracer\build\CMakeFiles C:\projects\RayTracer\build\utilities\\CMakeFiles\progress.marks
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\projects\RayTracer\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,57 +102,94 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d C:\projects\RayTracer\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named vector
+# Convenience name for target.
+utilities/CMakeFiles/vector.dir/rule:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/CMakeFiles/vector.dir/rule
+.PHONY : utilities/CMakeFiles/vector.dir/rule
 
-# Build rule for target.
-vector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 vector
+# Convenience name for target.
+vector: utilities/CMakeFiles/vector.dir/rule
 .PHONY : vector
 
 # fast build rule for target.
 vector/fast:
-	$(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\vector.dir\build.make utilities/CMakeFiles/vector.dir/build
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\vector.dir\build.make utilities/CMakeFiles/vector.dir/build
 .PHONY : vector/fast
 
-#=============================================================================
-# Target rules for targets named color
+# Convenience name for target.
+utilities/CMakeFiles/color.dir/rule:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/CMakeFiles/color.dir/rule
+.PHONY : utilities/CMakeFiles/color.dir/rule
 
-# Build rule for target.
-color: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 color
+# Convenience name for target.
+color: utilities/CMakeFiles/color.dir/rule
 .PHONY : color
 
 # fast build rule for target.
 color/fast:
-	$(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/build
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/build
 .PHONY : color/fast
 
-#=============================================================================
-# Target rules for targets named RayTracer
+src/color.obj: src/color.cpp.obj
+.PHONY : src/color.obj
 
-# Build rule for target.
-RayTracer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 RayTracer
-.PHONY : RayTracer
+# target to build an object file
+src/color.cpp.obj:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/src/color.cpp.obj
+.PHONY : src/color.cpp.obj
 
-# fast build rule for target.
-RayTracer/fast:
-	$(MAKE) $(MAKESILENT) -f main\CMakeFiles\RayTracer.dir\build.make main/CMakeFiles/RayTracer.dir/build
-.PHONY : RayTracer/fast
+src/color.i: src/color.cpp.i
+.PHONY : src/color.i
+
+# target to preprocess a source file
+src/color.cpp.i:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/src/color.cpp.i
+.PHONY : src/color.cpp.i
+
+src/color.s: src/color.cpp.s
+.PHONY : src/color.s
+
+# target to generate assembly for a file
+src/color.cpp.s:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/src/color.cpp.s
+.PHONY : src/color.cpp.s
+
+src/vec3.obj: src/vec3.cpp.obj
+.PHONY : src/vec3.obj
+
+# target to build an object file
+src/vec3.cpp.obj:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\vector.dir\build.make utilities/CMakeFiles/vector.dir/src/vec3.cpp.obj
+.PHONY : src/vec3.cpp.obj
+
+src/vec3.i: src/vec3.cpp.i
+.PHONY : src/vec3.i
+
+# target to preprocess a source file
+src/vec3.cpp.i:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\vector.dir\build.make utilities/CMakeFiles/vector.dir/src/vec3.cpp.i
+.PHONY : src/vec3.cpp.i
+
+src/vec3.s: src/vec3.cpp.s
+.PHONY : src/vec3.s
+
+# target to generate assembly for a file
+src/vec3.cpp.s:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\vector.dir\build.make utilities/CMakeFiles/vector.dir/src/vec3.cpp.s
+.PHONY : src/vec3.cpp.s
 
 # Help Target
 help:
@@ -162,9 +199,14 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... RayTracer
 	@echo ... color
 	@echo ... vector
+	@echo ... src/color.obj
+	@echo ... src/color.i
+	@echo ... src/color.s
+	@echo ... src/vec3.obj
+	@echo ... src/vec3.i
+	@echo ... src/vec3.s
 .PHONY : help
 
 
@@ -176,6 +218,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d C:\projects\RayTracer\build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
