@@ -132,5 +132,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "utilities/CMakeFiles/vector.dir/DependInfo.cmake"
   "utilities/CMakeFiles/color.dir/DependInfo.cmake"
+  "utilities/CMakeFiles/ray.dir/DependInfo.cmake"
   "main/CMakeFiles/RayTracer.dir/DependInfo.cmake"
   )

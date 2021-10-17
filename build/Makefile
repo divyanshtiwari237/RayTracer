@@ -142,6 +142,19 @@ color/fast:
 .PHONY : color/fast
 
 #=============================================================================
+# Target rules for targets named ray
+
+# Build rule for target.
+ray: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ray
+.PHONY : ray
+
+# fast build rule for target.
+ray/fast:
+	$(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\ray.dir\build.make utilities/CMakeFiles/ray.dir/build
+.PHONY : ray/fast
+
+#=============================================================================
 # Target rules for targets named RayTracer
 
 # Build rule for target.
@@ -164,6 +177,7 @@ help:
 	@echo ... rebuild_cache
 	@echo ... RayTracer
 	@echo ... color
+	@echo ... ray
 	@echo ... vector
 .PHONY : help
 

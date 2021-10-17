@@ -143,6 +143,20 @@ color/fast:
 	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/build
 .PHONY : color/fast
 
+# Convenience name for target.
+utilities/CMakeFiles/ray.dir/rule:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 utilities/CMakeFiles/ray.dir/rule
+.PHONY : utilities/CMakeFiles/ray.dir/rule
+
+# Convenience name for target.
+ray: utilities/CMakeFiles/ray.dir/rule
+.PHONY : ray
+
+# fast build rule for target.
+ray/fast:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\ray.dir\build.make utilities/CMakeFiles/ray.dir/build
+.PHONY : ray/fast
+
 src/color.obj: src/color.cpp.obj
 .PHONY : src/color.obj
 
@@ -166,6 +180,30 @@ src/color.s: src/color.cpp.s
 src/color.cpp.s:
 	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\color.dir\build.make utilities/CMakeFiles/color.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
+
+src/ray.obj: src/ray.cpp.obj
+.PHONY : src/ray.obj
+
+# target to build an object file
+src/ray.cpp.obj:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\ray.dir\build.make utilities/CMakeFiles/ray.dir/src/ray.cpp.obj
+.PHONY : src/ray.cpp.obj
+
+src/ray.i: src/ray.cpp.i
+.PHONY : src/ray.i
+
+# target to preprocess a source file
+src/ray.cpp.i:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\ray.dir\build.make utilities/CMakeFiles/ray.dir/src/ray.cpp.i
+.PHONY : src/ray.cpp.i
+
+src/ray.s: src/ray.cpp.s
+.PHONY : src/ray.s
+
+# target to generate assembly for a file
+src/ray.cpp.s:
+	cd /d C:\projects\RayTracer\build && $(MAKE) $(MAKESILENT) -f utilities\CMakeFiles\ray.dir\build.make utilities/CMakeFiles/ray.dir/src/ray.cpp.s
+.PHONY : src/ray.cpp.s
 
 src/vec3.obj: src/vec3.cpp.obj
 .PHONY : src/vec3.obj
@@ -200,10 +238,14 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... color
+	@echo ... ray
 	@echo ... vector
 	@echo ... src/color.obj
 	@echo ... src/color.i
 	@echo ... src/color.s
+	@echo ... src/ray.obj
+	@echo ... src/ray.i
+	@echo ... src/ray.s
 	@echo ... src/vec3.obj
 	@echo ... src/vec3.i
 	@echo ... src/vec3.s

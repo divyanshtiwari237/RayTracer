@@ -16,7 +16,8 @@ class vec3
     // Constructor for the vec3 class
     vec3():e{0,0,0} {}
     vec3(double e0,double e1,double e2):e{e0,e1,e2}{}
-    
+    vec3(const vec3 &vector):e{vector.e[0],vector.e[1],vector.e[2]}{}
+
     //getter for x-component
     double x()
     {
@@ -48,7 +49,7 @@ class vec3
     vec3 operator-();
     
     //vector indexing
-    double& operator[](int);
+     double& operator[](int);
     
     //returns the magnitude of the vector
     double length();
