@@ -114,7 +114,7 @@ class vec3
     }
 
     //returns a unit vector in the direction of given vector
-    inline vec3 unit_vector(vec3 v)
+    static inline vec3 unit_vector(vec3 v)
     {
         return v/v.length();
     }

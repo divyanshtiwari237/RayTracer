@@ -139,4 +139,5 @@ main/CMakeFiles/RayTracer.dir/main.cpp.obj: \
  C:/msys64/mingw64/include/c++/10.3.0/cmath \
  C:/msys64/mingw64/x86_64-w64-mingw32/include/math.h \
  C:/projects/RayTracer/utilities/include/color.hpp \
- C:/projects/RayTracer/utilities/include/vec3.hpp
+ C:/projects/RayTracer/utilities/include/vec3.hpp \
+ C:/projects/RayTracer/utilities/include/ray.hpp
