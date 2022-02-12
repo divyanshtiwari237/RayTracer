@@ -1,6 +1,6 @@
 #include"ray.hpp"
 
-Ray::Ray(point3 &origin,vec3 &dir):
+Ray::Ray(point3 origin,vec3 dir):
 origin{origin},dir{dir}
 {}
 

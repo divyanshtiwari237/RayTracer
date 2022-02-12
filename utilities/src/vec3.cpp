@@ -1,6 +1,6 @@
 #include"vec3.hpp"
 
-vec3& vec3::operator+=(vec3 &v)
+vec3& vec3::operator+=(vec3 v)
 {
     e[0]+=v.e[0];
     e[1]+=v.e[1];

@@ -1,5 +1,5 @@
 utilities/CMakeFiles/color.dir/src/color.cpp.obj: \
- C:\projects\RayTracer\utilities\src\color.cpp \
+ C:/projects/RayTracer/utilities/src/color.cpp \
  C:/projects/RayTracer/utilities/include/color.hpp \
  C:/projects/RayTracer/utilities/include/vec3.hpp \
  C:/msys64/mingw64/include/c++/10.3.0/cmath \

@@ -3,15 +3,18 @@
 #include"color.hpp"
 #include"ray.hpp"
 
-color ray_color(const Ray& r)
+color ray_color(const Ray r)
 {
     vec3 unit_direction = vec3::unit_vector(r.dir);
     auto t = 0.5*(unit_direction.y()+1.0);
     color c1 =color(1.0,1.0,1.0);
     color c2 =color(0.5,0.7,1.0);
-    const color c =(1.0-t)*c1 + t*c2;
+    color c =(1.0-t)*c1 ;
+    color c3 = t*c2;
+    color c4 =c + c3;
 
-    return c;
+
+    return c4;
 
 }
 
@@ -31,7 +34,7 @@ int main()
     auto origin = point3(0,0,0);
     auto horizontal = vec3(viewport_width,0,0);
     auto vertical = vec3(0, viewport_height, 0);
-    auto lower_left_corner = (vec3(origin) - horizontal/2) - (vertical/2 + vec3(0, 0, focal_length));
+    auto lower_left_corner = origin - horizontal/2 - vertical/2 + vec3(0, 0, focal_length);
 
 
     //Render

@@ -1,5 +1,5 @@
 utilities/CMakeFiles/ray.dir/src/ray.cpp.obj: \
- C:\projects\RayTracer\utilities\src\ray.cpp \
+ C:/projects/RayTracer/utilities/src/ray.cpp \
  C:/projects/RayTracer/utilities/include/ray.hpp \
  C:/projects/RayTracer/utilities/include/vec3.hpp \
  C:/msys64/mingw64/include/c++/10.3.0/cmath \

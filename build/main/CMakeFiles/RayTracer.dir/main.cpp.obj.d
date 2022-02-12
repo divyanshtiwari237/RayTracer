@@ -1,5 +1,5 @@
 main/CMakeFiles/RayTracer.dir/main.cpp.obj: \
- C:\projects\RayTracer\main\main.cpp \
+ C:/projects/RayTracer/main/main.cpp \
  C:/msys64/mingw64/include/c++/10.3.0/iostream \
  C:/msys64/mingw64/include/c++/10.3.0/x86_64-w64-mingw32/bits/c++config.h \
  C:/msys64/mingw64/include/c++/10.3.0/x86_64-w64-mingw32/bits/os_defines.h \

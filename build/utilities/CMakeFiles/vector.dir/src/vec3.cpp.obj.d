@@ -1,5 +1,5 @@
 utilities/CMakeFiles/vector.dir/src/vec3.cpp.obj: \
- C:\projects\RayTracer\utilities\src\vec3.cpp \
+ C:/projects/RayTracer/utilities/src/vec3.cpp \
  C:/projects/RayTracer/utilities/include/vec3.hpp \
  C:/msys64/mingw64/include/c++/10.3.0/cmath \
  C:/msys64/mingw64/include/c++/10.3.0/x86_64-w64-mingw32/bits/c++config.h \

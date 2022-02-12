@@ -16,7 +16,7 @@ class vec3
     // Constructor for the vec3 class
     vec3():e{0,0,0} {}
     vec3(double e0,double e1,double e2):e{e0,e1,e2}{}
-    vec3(const vec3 &vector):e{vector.e[0],vector.e[1],vector.e[2]}{}
+    vec3(const vec3& vector):e{vector.e[0],vector.e[1],vector.e[2]}{}
 
     //getter for x-component
     double x()
@@ -37,7 +37,7 @@ class vec3
     }
 
     // Overloaded += operator for vector addition
-    vec3& operator+=(vec3 &);
+    vec3& operator+=(vec3 );
    
     // Overloaded *= operator for vector scalar multiplication
     vec3& operator*=(double);
@@ -58,55 +58,55 @@ class vec3
     double length_squared();
     
     //overloaded << operator to print entire vector at once
-    inline std::ostream &operator<<( vec3 &v)
+    inline std::ostream &operator<<( vec3 v)
     {
         std::cout<<v[0]<<" "<<v[1]<<" "<<v[2];
     }
 
     //+ operator used to add 2 vectors
-    inline friend vec3 operator+ (vec3 &u,vec3 &v)
+    inline friend vec3 operator+ (vec3 u,vec3 v)
     {
         return vec3(u[0]+v[0],u[1]+v[1],u[2]+v[2]);
     }
 
     //- operator used to substract 2 vectors
-    inline friend vec3 operator- (vec3 &u,vec3 &v)
+    inline friend vec3 operator- (vec3 u,vec3 v)
     {
         return vec3(u[0]-v[0],u[1]-v[1],u[2]-v[2]);
     }
 
     //* operator used to multiply 2 vectors term by term
-    inline friend vec3 operator* (vec3 &u,vec3 &v)
+    inline friend vec3 operator* (vec3 u,vec3 v)
     {
         return vec3(u[0]*v[0],u[1]*v[1],u[2]*v[2]);
     }
 
     //* operator used to multiply  vector with a scalar
-    inline friend vec3 operator* (vec3 &u,double t)
+    inline friend vec3 operator* (vec3 u,double t)
     {
         return vec3(u[0]*t,u[1]*t,u[2]*t);
     }
 
     //* operator used to multiply  vector with a scalar
-    inline friend vec3 operator* (double t,vec3 &u)
+    inline friend vec3 operator* (double t,vec3 u)
     {
         return u*t;
     }
 
     // / operator used to divide vector with a scalar
-    inline friend vec3 operator/ (vec3 &u,double t)
+    inline friend vec3 operator/ (vec3 u,double t)
     {
         return u*(1/t);
     }
 
     //calculates dot product of 2 vectos
-    inline double dot(vec3 &u,vec3&v)
+    inline double dot(vec3 u,vec3 v)
     {
         return(u[0]*v[0] +u[1]*v[1]+u[2]*v[2]);
     }
 
     //calculates cross product of 2 vectors
-    inline vec3 cross (vec3 &u,vec3&v)
+    inline vec3 cross (vec3 u,vec3 v)
     {
         return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
                     u.e[2] * v.e[0] - u.e[0] * v.e[2],

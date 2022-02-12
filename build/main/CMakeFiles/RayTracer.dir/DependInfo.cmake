@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "C:/projects/RayTracer/build/utilities/CMakeFiles/vector.dir/DependInfo.cmake"
   "C:/projects/RayTracer/build/utilities/CMakeFiles/color.dir/DependInfo.cmake"
+  "C:/projects/RayTracer/build/utilities/CMakeFiles/ray.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

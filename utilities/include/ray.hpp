@@ -10,7 +10,7 @@ class Ray
     vec3 dir; //direction cosine of the ray
 
     //Constructor for the Ray class
-    Ray(point3 &origin, vec3 &dir);
+    Ray(point3 origin, vec3 dir);
 
     //getter function of origin
     inline point3 getOrigin()
