@@ -3,9 +3,24 @@
 #include"color.hpp"
 #include"ray.hpp"
 
-color ray_color(const Ray r)
+bool hit_sphere(const point3 center, double radius ,  Ray r)
 {
-    vec3 unit_direction = vec3::unit_vector(r.dir);
+    vec3 oc = r.getOrigin()- center;
+    auto a = vec3::dot(r.dir,r.dir);
+    auto b = 2.0*vec3::dot(oc,r.dir);
+    auto c = vec3::dot(oc,oc) -radius*radius;
+    auto discriminant =b*b -4*a*c;
+    return (discriminant>0);
+
+
+}
+color ray_color( Ray r)
+{
+    if(hit_sphere(point3(0,0,-1),0.5,r))
+    {
+        return color(1,0,0);
+    }
+    vec3 unit_direction = vec3::unit_vector(r.getDir());
     auto t = 0.5*(unit_direction.y()+1.0);
     color c1 =color(1.0,1.0,1.0);
     color c2 =color(0.5,0.7,1.0);

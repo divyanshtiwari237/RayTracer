@@ -49,7 +49,8 @@ class vec3
     vec3 operator-();
     
     //vector indexing
-     double& operator[](int);
+    double&  operator[](int);
+    
     
     //returns the magnitude of the vector
     double length();
@@ -64,7 +65,7 @@ class vec3
     }
 
     //+ operator used to add 2 vectors
-    inline friend vec3 operator+ (vec3 u,vec3 v)
+    inline friend vec3 operator+  (vec3 u, vec3 v) 
     {
         return vec3(u[0]+v[0],u[1]+v[1],u[2]+v[2]);
     }
@@ -100,13 +101,13 @@ class vec3
     }
 
     //calculates dot product of 2 vectos
-    inline double dot(vec3 u,vec3 v)
+    static inline double dot(vec3 u,vec3 v)
     {
         return(u[0]*v[0] +u[1]*v[1]+u[2]*v[2]);
     }
 
     //calculates cross product of 2 vectors
-    inline vec3 cross (vec3 u,vec3 v)
+    static inline vec3 cross (vec3 u,vec3 v)
     {
         return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
                     u.e[2] * v.e[0] - u.e[0] * v.e[2],
