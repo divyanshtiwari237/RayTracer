@@ -3,34 +3,41 @@
 #include"color.hpp"
 #include"ray.hpp"
 
-bool hit_sphere(const point3 center, double radius ,  Ray r)
+double hit_sphere(const point3 center, double radius ,  Ray r)
 {
     vec3 oc = r.getOrigin()- center;
     auto a = vec3::dot(r.dir,r.dir);
     auto b = 2.0*vec3::dot(oc,r.dir);
     auto c = vec3::dot(oc,oc) -radius*radius;
     auto discriminant =b*b -4*a*c;
-    return (discriminant>0);
 
+    if(discriminant<0)
+    {
+        return -1.0;
+    }
 
+    else
+    {
+        return (-1*b - sqrt(discriminant))/(2.0*a);
+
+    }
 }
 color ray_color( Ray r)
 {
-    if(hit_sphere(point3(0,0,-1),0.5,r))
+    auto g =hit_sphere(point3(0,0,-1),0.5,r);
+
+    if(g !=-1.0)
     {
-        return color(1,0,0);
+        vec3 N =vec3::unit_vector(r.pointAt(g) - vec3(0,0,-1));
+        return 0.5*color(N.x()+1,N.y() +1,N.z()+1);
     }
+
     vec3 unit_direction = vec3::unit_vector(r.getDir());
     auto t = 0.5*(unit_direction.y()+1.0);
     color c1 =color(1.0,1.0,1.0);
     color c2 =color(0.5,0.7,1.0);
-    color c =(1.0-t)*c1 ;
-    color c3 = t*c2;
-    color c4 =c + c3;
 
-
-    return c4;
-
+    return (1.0-t)*c1 +t*c2;
 }
 
 int main()
