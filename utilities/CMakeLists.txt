@@ -14,8 +14,15 @@ add_library(
     include/ray.hpp
     src/ray.cpp
 )
+add_library(
+    hittable
+    include/hittable.hpp
+    src/hittable.cpp
+)
 target_link_libraries(color PRIVATE vector)
 target_link_libraries(ray PRIVATE vector)
+target_link_libraries(hittable PRIVATE ray)
 target_include_directories(vector PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(color PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(ray PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(hittable PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
