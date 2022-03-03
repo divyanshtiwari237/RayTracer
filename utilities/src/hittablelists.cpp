@@ -1,6 +1,6 @@
-#include "hittablelists.hpp"
+#include"hittablelists.hpp"
 
-bool Hittablelists::hit (Ray r, double t_min, double t_max, hitRecord& rec)
+bool HittableLists::hit (Ray r, double t_min, double t_max, hitRecord& rec)
 {
     hitRecord tempRec;
     bool hitAnything = false;
@@ -10,13 +10,13 @@ bool Hittablelists::hit (Ray r, double t_min, double t_max, hitRecord& rec)
     {
         if(object->hit(r,t_min,closestsoFar,tempRec))
         {
-            hit_anything=true;
+            hitAnything=true;
             closestsoFar =tempRec.t;
             rec = tempRec;
         }
     }
 
-    return hitAnyting;
+    return hitAnything;
 
 }
 

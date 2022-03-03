@@ -24,12 +24,22 @@ add_library(
     include/hittablelists.hpp
     src/hittablelists.cpp
 )
+add_library(
+    maths
+    include/maths.hpp
+    
+)
+
 target_link_libraries(color PRIVATE vector)
 target_link_libraries(ray PRIVATE vector)
 target_link_libraries(hittable PRIVATE ray)
 target_link_libraries(hittablelists PRIVATE hittable)
+target_link_libraries(maths PRIVATE ray)
+target_link_libraries(maths PRIVATE vector)
+
 target_include_directories(vector PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(color PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(ray PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(hittable PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(hittablelists PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(maths PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
