@@ -1,5 +1,5 @@
 #include"color.hpp"
-#include<iostream>
+#include<ostream>
 
 void writeColor(std:: ostream &out, color pixelColor)
 {
