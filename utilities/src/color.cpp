@@ -1,9 +1,19 @@
 #include"color.hpp"
+#include "maths.hpp"
 #include<ostream>
 
-void writeColor(std:: ostream &out, color pixelColor)
+void writeColor(std:: ostream &out, color pixelColor,int samplesperPixel)
 {
-    out<<static_cast<int>(255.999*pixelColor[0])<<" "
-       <<static_cast<int>(255.999*pixelColor[1])<<" "
-       <<static_cast<int>(255.999*pixelColor[2])<<"\n";
+    auto r = pixelColor.x();
+    auto g = pixelColor.y();
+    auto b = pixelColor.z();
+
+    // Divide the color by the number of samples.
+    auto scale = 1.0 / samplesperPixel;
+    r *= scale;
+    g *= scale;
+    b *= scale;
+    out<<static_cast<int>(256*clamp(r,0.0,0.999))<<" "
+       <<static_cast<int>(256*clamp(g,0.0,0.999))<<" "
+       <<static_cast<int>(256*clamp(b,0.0,0.999))<<"\n";
 }

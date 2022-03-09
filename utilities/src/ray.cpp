@@ -1,4 +1,5 @@
 #include"ray.hpp"
+#include"maths.hpp"
 
 Ray::Ray(point3 origin,vec3 dir):
 origin{origin},dir{dir}

@@ -4,6 +4,7 @@
 #include <cmath>
 #include <limits>
 #include <memory>
+#include<cstdlib>
 #include "ray.hpp"
 #include "vec3.hpp"
 
@@ -18,5 +19,19 @@ inline double degreestoRadians(double degrees) {
     return degrees * pi / 180.0;
 }
 
+inline double randomDouble()
+{
+    return rand()/(1+RAND_MAX);
+}
+inline double randomDouble(int min,int max)
+{
+    return min +(max-min)*randomDouble();
+}
+
+inline double clamp(double x, double min, double max) {
+    if (x < min) return min;
+    if (x > max) return max;
+    return x;
+}
 
 #endif 

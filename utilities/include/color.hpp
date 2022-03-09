@@ -3,6 +3,6 @@
 
 #include"vec3.hpp"
 
-void writeColor(std:: ostream &out, color pixelColor);
+void writeColor(std:: ostream &out, color pixelColor, int samplesperPixel);
 
 #endif
