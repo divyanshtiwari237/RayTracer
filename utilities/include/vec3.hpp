@@ -155,6 +155,11 @@ class vec3
         }
     }
 
+    inline static vec3 randomunitVector()
+    {
+        return unit_vector(randominunitSphere());
+    }
+
 
 };
 using point3 = vec3;  //alias point3 of vec3

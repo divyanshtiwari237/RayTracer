@@ -12,10 +12,10 @@ color ray_color( Ray r, HittableLists& world,int depth)
     }
     hitRecord rec;
 
-    if(world.hit(r,0,infinity,rec))
+    if(world.hit(r,0.001,infinity,rec))
     {
        
-        point3 target = rec.p +rec.normal + vec3::randominunitSphere();
+        point3 target = rec.p +rec.normal + vec3::randomunitVector();
         
         return 0.5 * ray_color(Ray(rec.p, target - rec.p), world,depth-1);
     }
@@ -27,7 +27,7 @@ color ray_color( Ray r, HittableLists& world,int depth)
 
 int main()
 {
-    std::ofstream obj("../../Images/cordiffuse.ppm");
+    std::ofstream obj("../../Images/lambertian.ppm");
     //image
     const auto aspect_ratio =16.0/9.0;
     const int image_width = 400;
