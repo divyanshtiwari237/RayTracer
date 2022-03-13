@@ -160,6 +160,22 @@ class vec3
         return unit_vector(randominunitSphere());
     }
 
+    inline static vec3 randominHemisphere(vec3 normal)
+    {
+    
+        vec3 inunitSphere = randominunitSphere();
+   
+        if (vec3::dot(inunitSphere,normal)>0.0) // In the same hemisphere as the normal
+        {
+            return inunitSphere;
+        }
+    
+        else
+        {
+            return -inunitSphere;
+        }
+}
+
 
 };
 using point3 = vec3;  //alias point3 of vec3

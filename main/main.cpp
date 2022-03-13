@@ -15,7 +15,7 @@ color ray_color( Ray r, HittableLists& world,int depth)
     if(world.hit(r,0.001,infinity,rec))
     {
        
-        point3 target = rec.p +rec.normal + vec3::randomunitVector();
+        point3 target = rec.p +rec.normal + vec3::randominHemisphere(rec.normal);
         
         return 0.5 * ray_color(Ray(rec.p, target - rec.p), world,depth-1);
     }
