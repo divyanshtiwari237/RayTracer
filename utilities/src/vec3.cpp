@@ -41,3 +41,5 @@ double vec3::length_squared()
       return e[0]*e[0]+e[1]*e[1]+e[2]*e[2];
  }
 
+ 
+

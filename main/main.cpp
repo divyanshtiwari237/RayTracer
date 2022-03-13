@@ -4,13 +4,20 @@
 #include "camera.hpp"
 #include"hittablelists.hpp"
 #include <fstream>
-color ray_color( Ray r, HittableLists& world)
+color ray_color( Ray r, HittableLists& world,int depth)
 {
+    if(depth<0)
+    {
+        return color(0,0,0);
+    }
     hitRecord rec;
 
     if(world.hit(r,0,infinity,rec))
     {
-        return 0.5*(rec.normal + color(1,1,1));
+       
+        point3 target = rec.p +rec.normal + vec3::randominunitSphere();
+        
+        return 0.5 * ray_color(Ray(rec.p, target - rec.p), world,depth-1);
     }
     vec3 unitDirection = vec3::unit_vector(r.getDir());
     auto t = 0.5*(unitDirection.y() + 1.0);
@@ -20,12 +27,13 @@ color ray_color( Ray r, HittableLists& world)
 
 int main()
 {
-    std::ofstream obj("../../Images/antialiasing.ppm");
+    std::ofstream obj("../../Images/cordiffuse.ppm");
     //image
     const auto aspect_ratio =16.0/9.0;
     const int image_width = 400;
     const int image_height = static_cast<int>(image_width/aspect_ratio);
     int samplesperPixel =100;
+    const int maxDepth = 50;
 
     //hittable objects
     HittableLists world;
@@ -48,10 +56,10 @@ int main()
         {
             color pixel_color(0, 0, 0);
             for (int s = 0; s < samplesperPixel; ++s) {
-                auto u = (i + randomDouble()) / (image_width-1);
-                auto v = (j + randomDouble()) / (image_height-1);
+                auto u = (i + vec3::randomDouble(-1,1)) / (image_width-1);
+                auto v = (j + vec3::randomDouble(-1,1)) / (image_height-1);
                 Ray r = cam.getRay(u, v);
-                pixel_color += ray_color(r, world);
+                pixel_color += ray_color(r, world,maxDepth);
             }
             writeColor(obj, pixel_color, samplesperPixel);
     }

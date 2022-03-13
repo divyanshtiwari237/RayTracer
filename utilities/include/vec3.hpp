@@ -1,6 +1,7 @@
 #ifndef VEC3_H
 #define VEC3_H
 
+
 #include<cmath>
 #include<iostream>
 
@@ -59,7 +60,7 @@ class vec3
     double length_squared();
     
     //overloaded << operator to print entire vector at once
-    inline std::ostream &operator<<( vec3 v)
+    inline std::ostream &operator<<(  vec3 v)
     {
         std::cout<<v[0]<<" "<<v[1]<<" "<<v[2];
     }
@@ -119,6 +120,41 @@ class vec3
     {
         return v/v.length();
     }
+
+    inline static double randomDouble()
+    {
+        return rand()/(1.0 +RAND_MAX);
+    }
+    
+    inline static double randomDouble(int min,int max)
+    {
+        return min +(max-min)*randomDouble();
+    }
+
+    inline static vec3 random()
+    {
+        return vec3(randomDouble(),randomDouble(),randomDouble());
+    }
+
+    inline static vec3 random(int min,int max)
+    {
+
+       
+        return vec3(randomDouble(min,max),randomDouble(min,max),randomDouble(min,max));
+
+    }
+
+    inline static vec3 randominunitSphere ()
+    {
+        while(true)
+        {
+            auto p = vec3::random(-1,1);
+            
+            if(p.length_squared()>1) continue;
+            return p;
+        }
+    }
+
 
 };
 using point3 = vec3;  //alias point3 of vec3
