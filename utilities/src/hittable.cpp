@@ -30,6 +30,7 @@ bool Sphere::hit(Ray r,double t_min,double t_max, hitRecord& rec)
     rec.t = root;
     rec.p = r.pointAt(rec.t);
     vec3 outwardNormal = (rec.p - center) / radius;
+    rec.matPtr = matPtr;
     rec.setfrontFace(r,outwardNormal);
     
     return true;

@@ -3,6 +3,8 @@
 
 #include "maths.hpp"
 
+struct hitRecord;
+
 class MATERIAL
 {
     public:
