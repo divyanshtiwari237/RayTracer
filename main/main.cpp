@@ -14,10 +14,14 @@ color ray_color( Ray r, HittableLists& world,int depth)
 
     if(world.hit(r,0.001,infinity,rec))
     {
-       
-        point3 target = rec.p +rec.normal + vec3::randominHemisphere(rec.normal);
+        Ray scattered;
+        color attenuation;
+
+        if (rec.matPtr->scatter(r, rec, attenuation, scattered))
+            return attenuation * ray_color(scattered, world, depth-1);
+
+        return color(0,0,0);
         
-        return 0.5 * ray_color(Ray(rec.p, target - rec.p), world,depth-1);
     }
     vec3 unitDirection = vec3::unit_vector(r.getDir());
     auto t = 0.5*(unitDirection.y() + 1.0);
@@ -27,7 +31,7 @@ color ray_color( Ray r, HittableLists& world,int depth)
 
 int main()
 {
-    std::ofstream obj("../../Images/lambertian.ppm");
+    std::ofstream obj("../../Images/metal.ppm");
     //image
     const auto aspect_ratio =16.0/9.0;
     const int image_width = 400;
@@ -38,8 +42,16 @@ int main()
     //hittable objects
     HittableLists world;
     
-    world.add(make_shared<Sphere>(point3(0,-100.5,-1),100));
-    world.add(make_shared<Sphere>(point3(0,0,-1),0.5));
+    auto materialGround = make_shared<Lambertian>(color(0.8, 0.8, 0.0));
+    auto materialCenter = make_shared<Lambertian>(color(0.7, 0.3, 0.3));
+    auto materialLeft   = make_shared<Metal>(color(0.8, 0.8, 0.8));
+    auto materialRight  = make_shared<Metal>(color(0.8, 0.6, 0.2));
+
+    world.add(make_shared<Sphere>(point3( 0.0, -100.5, -1.0), 100.0, materialGround));
+    world.add(make_shared<Sphere>(point3( 0.0,    0.0, -1.0),   0.5, materialCenter));
+    world.add(make_shared<Sphere>(point3(-1.0,    0.0, -1.0),   0.5, materialLeft));
+    world.add(make_shared<Sphere>(point3( 1.0,    0.0, -1.0),   0.5, materialRight));
+
     
     //Camera
 

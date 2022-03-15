@@ -3,14 +3,15 @@
 
 #include "ray.hpp"
 #include "maths.hpp"
+#include "material.hpp"
 
-class Material;
+struct Material;
 
 struct hitRecord
 {
     point3 p;
     vec3 normal;
-    shared_ptr<material> matPtr;
+    shared_ptr<Material> matPtr;
     double t;
     bool frontFace;
 
@@ -32,14 +33,14 @@ class Sphere: public Hittable
 {
     public:
         Sphere(){};
-        Sphere(point3 center, double r, shared_ptr<MATERIAL> matPtr): center(center),radius(r), matPtr(matPtr){};
+        Sphere(point3 center, double r, shared_ptr<Material> matPtr): center(center),radius(r), matPtr(matPtr){};
 
         virtual bool hit(Ray r, double t_min,double t_max, hitRecord& rec) override;
     
     public:
         point3 center;
         double radius;
-        shared_ptr<MATERIAL> matPtr;
+        shared_ptr<Material> matPtr;
 };
 
 #endif

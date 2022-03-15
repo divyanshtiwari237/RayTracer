@@ -174,7 +174,20 @@ class vec3
         {
             return -inunitSphere;
         }
-}
+    }
+
+    bool nearZero()
+    {
+        auto s = 1e-8;
+        return (fabs(e[0])<s && fabs(e[1])<s && fabs(e[2]));
+        
+    }
+
+    inline static vec3 reflect(vec3 v, vec3 n)
+    {
+        return v-2*vec3::dot(v,n)*n;
+    }
+
 
 
 };
