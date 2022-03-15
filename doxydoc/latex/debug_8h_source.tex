@@ -1,0 +1,69 @@
+\hypertarget{debug_8h_source}{}\doxysection{debug.\+h}
+\label{debug_8h_source}\index{/mnt/c/projects/doxygen/src/debug.h@{/mnt/c/projects/doxygen/src/debug.h}}
+\mbox{\hyperlink{debug_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DEBUG\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DEBUG\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classDebug}{Debug}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24   \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \textcolor{keyword}{enum} \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} \{ \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96aa1079d9a4345660aa3e283c322fd12f3}{Quiet}}        = 0x00000000,}
+\DoxyCodeLine{26                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96ac4d3bb469126ba5f5ba50c724219edf5}{FindMembers}}  = 0x00000001,}
+\DoxyCodeLine{27                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a6988d421a5b346541cb4f804054562a4}{Functions}}    = 0x00000002,}
+\DoxyCodeLine{28                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a442859fe9afb29937aeeac886b911f64}{Variables}}    = 0x00000004,}
+\DoxyCodeLine{29                      \mbox{\hyperlink{classPreprocessor}{Preprocessor}} = 0x00000008,}
+\DoxyCodeLine{30                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96ae45530210daeb78c35e1b4c078277c8f}{Classes}}      = 0x00000010,}
+\DoxyCodeLine{31                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96af158610d0a0e6dd08ec7cab215168fa5}{CommentCnv}}   = 0x00000020,}
+\DoxyCodeLine{32                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96afeb3ede15e44e56c363351c25efd2504}{CommentScan}}  = 0x00000040,}
+\DoxyCodeLine{33                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96ab57325adbf79149e4bd7a010d6e83499}{Validate}}     = 0x00000080,}
+\DoxyCodeLine{34                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a92b8cea26e6d5e2a5d3d04b63686bb2b}{PrintTree}}    = 0x00000100,}
+\DoxyCodeLine{35                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a9cbd5d3516ffd3fe86238779edb2f7c5}{Time}}         = 0x00000200,}
+\DoxyCodeLine{36                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a8dbe64e9ab683833c1ea7252649058a3}{ExtCmd}}       = 0x00000400,}
+\DoxyCodeLine{37                      \mbox{\hyperlink{classMarkdown}{Markdown}}     = 0x00000800,}
+\DoxyCodeLine{38                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a5e47cf9df9552fe30480288b70288d72}{FilterOutput}} = 0x00001000,}
+\DoxyCodeLine{39                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a0c1d42bd6b09e5427669a49f082e823b}{Lex}}          = 0x00002000,}
+\DoxyCodeLine{40                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96aa8db983f0b8626bee7c3f012c8b5d566}{Plantuml}}     = 0x00004000,}
+\DoxyCodeLine{41                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96afae1c4a49dc51808b18e3091bbc85e28}{FortranFixed2Free}} = 0x00008000,}
+\DoxyCodeLine{42                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a724abc65281c2d47105ebf8a31d6c397}{Cite}}         = 0x00010000,}
+\DoxyCodeLine{43                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a1e4864dcfb33d0155b7c8b2506fa7c62}{NoLineNo}}     = 0x00020000,}
+\DoxyCodeLine{44                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a19caf08ac865a4bd2241cbdf9d310ecc}{Rtf}}          = 0x00040000,}
+\DoxyCodeLine{45                      \mbox{\hyperlink{classQhp}{Qhp}}          = 0x00080000,}
+\DoxyCodeLine{46                      \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96a533ce7b02d8ce4b77e168009734b13d9}{Tag}}          = 0x00100000,}
+\DoxyCodeLine{47                    \};}
+\DoxyCodeLine{48     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDebug_a5d86ffebf96f9f75b6c957db5f831da3}{print}}(\mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} mask,\textcolor{keywordtype}{int} prio,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt,...);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{static} \textcolor{keywordtype}{int}  \mbox{\hyperlink{classDebug_a3a7f45cdbb37ba05e88fc17a4017f29b}{setFlag}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label);}
+\DoxyCodeLine{51     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDebug_a52481ac5c0428f788b176515da2d75b1}{clearFlag}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label);}
+\DoxyCodeLine{52     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDebug_a92b0668ebfb43903d82ad112bf6c84e1}{isFlagSet}}(\mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} mask);}
+\DoxyCodeLine{53     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDebug_a2d8ac411144a380f838a1766118c6a03}{printFlags}}();}
+\DoxyCodeLine{54     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDebug_a666b610770dd7b7c0a87f2415aefe7d9}{setPriority}}(\textcolor{keywordtype}{int} p);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDebug_ad34e8ad3d814a4cf8b29ce98fd7a96f5}{startTimer}}();}
+\DoxyCodeLine{57     \textcolor{keyword}{static} \textcolor{keywordtype}{double} \mbox{\hyperlink{classDebug_accc1a68a6e51b015caee0ab90ddb6e87}{elapsedTime}}();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   \textcolor{keyword}{private}:}
+\DoxyCodeLine{60     \textcolor{keyword}{static} \mbox{\hyperlink{classDebug_a9e0b892a8030a4f64076850777991c96}{DebugMask}} curMask;}
+\DoxyCodeLine{61     \textcolor{keyword}{static} \textcolor{keywordtype}{int} curPrio;}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,1309 @@
+\hypertarget{translator__fa_8h_source}{}\doxysection{translator\+\_\+fa.\+h}
+\label{translator__fa_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_fa.h@{/mnt/c/projects/doxygen/src/translator\_fa.h}}
+\mbox{\hyperlink{translator__fa_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ * Description : Doxygen Persian (Farsi) Translator}}
+\DoxyCodeLine{18 \textcolor{comment}{ * Author : Ali Nadalizadeh < nadalizadeh at gmail dot com >}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ * ChangeLog :}}
+\DoxyCodeLine{21 \textcolor{comment}{ *   Thu 06 Jul 2006 11:54:09 PM IRDT <nadalizadeh at gmail dot com>}}
+\DoxyCodeLine{22 \textcolor{comment}{ *   >> First version of persian language support has been completed.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ *   Mon 04 Feb 2008 11:52:09 AM IRDT <nadalizadeh at gmail dot com>}}
+\DoxyCodeLine{25 \textcolor{comment}{ *   >> Obsolete methods removed. Translated more string(s) to persian. Upgraded to 1\_5\_4 adapter.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ *   Fri 04 Jun 2010 04:05:24 PM IRDT <nadalizadeh at gmail dot com>}}
+\DoxyCodeLine{28 \textcolor{comment}{ *   >> Implement missing new methods since 1.6.0.}}
+\DoxyCodeLine{29 \textcolor{comment}{ *   >> Add English to Persian digit convertor. (for date/time digits)}}
+\DoxyCodeLine{30 \textcolor{comment}{ *}}
+\DoxyCodeLine{31 \textcolor{comment}{ * Translation feedbacks are really appreciated.}}
+\DoxyCodeLine{32 \textcolor{comment}{ */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_FA\_H}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define TRANSLATOR\_FA\_H}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define HtmlRightToLeft     QCString("{}<div dir=\(\backslash\)"{}rtl\(\backslash\)"{}>"{}})}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define HtmlLeftToRight     QCString("{}<div dir=\(\backslash\)"{}ltr\(\backslash\)"{}>"{}})}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define HtmlDivEnd          QCString("{}</div>"{}})}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorPersian}{TranslatorPersian}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__7__5}{TranslatorAdapter\_1\_7\_5}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44   \textcolor{keyword}{private}:}
+\DoxyCodeLine{47     \mbox{\hyperlink{classQCString}{QCString}} convertDigitsToFarsi(\mbox{\hyperlink{classQCString}{QCString}} str)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         \mbox{\hyperlink{classQCString}{QCString}} output;}
+\DoxyCodeLine{50         \textcolor{keyword}{const} \textcolor{keywordtype}{char} * PersianDigits[] = \{ \textcolor{stringliteral}{"{}۰"{}}, \textcolor{stringliteral}{"{}۱"{}}, \textcolor{stringliteral}{"{}۲"{}}, \textcolor{stringliteral}{"{}۳"{}}, \textcolor{stringliteral}{"{}۴"{}}, \textcolor{stringliteral}{"{}۵"{}}, \textcolor{stringliteral}{"{}۶"{}}, \textcolor{stringliteral}{"{}۷"{}}, \textcolor{stringliteral}{"{}۸"{}}, \textcolor{stringliteral}{"{}۹"{}} \};}
+\DoxyCodeLine{51         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} i=0; i<str.\mbox{\hyperlink{classQCString_ac52596733e9110b778019946d73fb268}{length}}(); i++)}
+\DoxyCodeLine{52         \{}
+\DoxyCodeLine{53             \textcolor{keywordflow}{if} (str.\mbox{\hyperlink{classQCString_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(i) >= \textcolor{charliteral}{'0'} \&\& str.\mbox{\hyperlink{classQCString_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(i) <= \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{54                 output += PersianDigits[ str.\mbox{\hyperlink{classQCString_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(i) -\/ \textcolor{charliteral}{'0'} ];}
+\DoxyCodeLine{55             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{56                 output += str.\mbox{\hyperlink{classQCString_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}(i);}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} output;}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62   \textcolor{keyword}{public}:}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9997bf6f7a1240bf3367da6c77833850}{idLanguage}}()}
+\DoxyCodeLine{73     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}persian"{}}; \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{89     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a486405a083d1d832118bf698ff7b4925}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_acc446fd2ca5cddd5fd3df5af2830b639}{trISOLang}}()}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}fa"{}};}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa22fe7e389285009a1be820fda33de36}{getLanguageString}}()}
+\DoxyCodeLine{100     \{}
+\DoxyCodeLine{101       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x429 Persian (Iran)"{}};}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{106     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9b0bf40e2fe0dfbdec5c06004aa60f69}{trRelatedFunctions}}()}
+\DoxyCodeLine{107     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع مربوط"{}}; \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a07c7418c5b1f8224d5d8ae10e8e95710}{trRelatedSubscript}}()}
+\DoxyCodeLine{111     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(لازم به ذکر است که اينها توابع عضو نيستند)"{}}; \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{114     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8f465f0ef7a9a77fa88444161bfac6b9}{trDetailedDescription}}()}
+\DoxyCodeLine{115     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيحات جزئی"{}}; \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_af887fdfd3839b41c2a906e60a0d308b0}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{119     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات تعریف گونه ها"{}}; \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a301503467f62955ec38142da88354d35}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{123     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های عضو Enumeration مستندات"{}}; \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_afeb2bd2198800ec9ba2793bd6981a402}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{127     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيحات توابع عضو"{}}; \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6814457943d64ada3cf182510632be7b}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{131     \{}
+\DoxyCodeLine{132       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{133       \{}
+\DoxyCodeLine{134         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Field مستندات"{}};}
+\DoxyCodeLine{135       \}}
+\DoxyCodeLine{136       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{137       \{}
+\DoxyCodeLine{138         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات متغيير های عضو"{}};}
+\DoxyCodeLine{139       \}}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab0b20b57c138cc952065dae5e6888256}{trMore}}()}
+\DoxyCodeLine{144     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}بيشتر..."{}}; \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{147     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a16bf12fdbe818dc6e925520d9520e5fc}{trListOfAllMembers}}()}
+\DoxyCodeLine{148     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست تمام اعضاء "{}}; \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{151     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a322f317eed71515472afb50d7d2a0892}{trMemberList}}()}
+\DoxyCodeLine{152     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست اعضاء"{}}; \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{155     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a67513595325c35e9a46231a1448eb83f}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{156     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اين ليستی کامل از همه اعضای  "{}}; \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab620c33aa490895490622705b3d07e6f}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{160     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}شامل همه ی اعضای به ارث برده شده می باشد."{}}; \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a99189372b115d4bbfb261c77a27b1c84}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{166     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}تولید شده توسط نرم افزار دی اکسیژن "{}};}
+\DoxyCodeLine{167       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} برای "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{168       result+=\textcolor{stringliteral}{"{} از کد برنامه "{}};}
+\DoxyCodeLine{169       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a305444c38ce87872d063b91c042aefcf}{trEnumName}}()}
+\DoxyCodeLine{174     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum نام"{}}; \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a1e6cb470865f7b249733ffccedfc7fd2}{trEnumValue}}()}
+\DoxyCodeLine{178     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum مقدار"{}}; \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6241e479305d29fe1c06b9d101fcf5c8}{trDefinedIn}}()}
+\DoxyCodeLine{182     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تعریف شده در"{}}; \}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{189     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_af3012bb59a2f8fe6600ebc8fde9bf9f9}{trModules}}()}
+\DoxyCodeLine{190     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modules"{}}; \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{193     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_abca5368d720066258cfe9c67badeba50}{trClassHierarchy}}()}
+\DoxyCodeLine{194     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}سلسله مراتب کلاس ها"{}}; \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{197     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2cd1595b863b8d413a2a072167925fa3}{trCompoundList}}()}
+\DoxyCodeLine{198     \{}
+\DoxyCodeLine{199       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{200       \{}
+\DoxyCodeLine{201         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختار های داده "{}};}
+\DoxyCodeLine{202       \}}
+\DoxyCodeLine{203       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{204       \{}
+\DoxyCodeLine{205         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست کلاس ها "{}};}
+\DoxyCodeLine{206       \}}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab4d7fc6fb4aeb339be129a5bf24ac181}{trFileList}}()}
+\DoxyCodeLine{211     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست فايل ها"{}}; \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab5bf3edbe6ca1000f54b568673f12f5e}{trCompoundMembers}}()}
+\DoxyCodeLine{215     \{}
+\DoxyCodeLine{216       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{217       \{}
+\DoxyCodeLine{218         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فضاهای داده ها"{}};}
+\DoxyCodeLine{219       \}}
+\DoxyCodeLine{220       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{221       \{}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اعضاء کلاس ها"{}};}
+\DoxyCodeLine{223       \}}
+\DoxyCodeLine{224     \}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{227     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ae2e04aaeaa466f4738ec0a4eecd0993c}{trFileMembers}}()}
+\DoxyCodeLine{228     \{}
+\DoxyCodeLine{229       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{230       \{}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globals"{}};}
+\DoxyCodeLine{232       \}}
+\DoxyCodeLine{233       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{234       \{}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اعضاء پرونده"{}};}
+\DoxyCodeLine{236       \}}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{240     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa7e751f8213d7f91c5bfb8ffd9e063c6}{trRelatedPages}}()}
+\DoxyCodeLine{241     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}صفحات مربوط"{}}; \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3b094f0a4aea8d77f42e7a1d29c2d4ca}{trExamples}}()}
+\DoxyCodeLine{245     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مثال ها"{}}; \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{248     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a5b1654a5ca3b6e6ab52c2ecc3cbd8389}{trSearch}}()}
+\DoxyCodeLine{249     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}جستجو"{}}; \}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_accf84f86aab540de5033dd5481629e97}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{253     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست و سلسله مراتب درختی کلاس ها به صورت مرتب شده :"{}};}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a116c293ed9aa27d912d194ab2f3643ae}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{258     \{}
+\DoxyCodeLine{259       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}ليست همه ي پرونده های "{}};}
+\DoxyCodeLine{260       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(مستند شده) "{}};}
+\DoxyCodeLine{261       result+=\textcolor{stringliteral}{"{} :"{}};}
+\DoxyCodeLine{262       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{263     \}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{266     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4ec6a990f0ab83400a806ccd4a518039}{trCompoundListDescription}}()}
+\DoxyCodeLine{267     \{}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{270       \{}
+\DoxyCodeLine{271         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست ساختارهای داده به همراه توضيحی کوتاه :"{}};}
+\DoxyCodeLine{272       \}}
+\DoxyCodeLine{273       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{274       \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست کلاس ها ، ساختارهای داده و ... به همراه توضيحات مختصر راجع به آنها :"{}};}
+\DoxyCodeLine{276       \}}
+\DoxyCodeLine{277     \}}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{280     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3eaf3947ae6aa9a5b3e1ecbb65cada75}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{281     \{}
+\DoxyCodeLine{282       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{} در ذيل ليست  "{}};}
+\DoxyCodeLine{283       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{284       \{}
+\DoxyCodeLine{285         result+=\textcolor{stringliteral}{"{}آن اعضايي که مستند شده اند "{}};}
+\DoxyCodeLine{286       \}}
+\DoxyCodeLine{287       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{288       \{}
+\DoxyCodeLine{289         result+=\textcolor{stringliteral}{"{}همه ی اعضاء "{}};}
+\DoxyCodeLine{290       \}}
+\DoxyCodeLine{291       result+=\textcolor{stringliteral}{"{} به همراه ارتباطشان با "{}};}
+\DoxyCodeLine{292       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{293       \{}
+\DoxyCodeLine{294         result+=\textcolor{stringliteral}{"{}ساختارهای داده "{}};}
+\DoxyCodeLine{295       \}}
+\DoxyCodeLine{296       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{297       \{}
+\DoxyCodeLine{298         result+=\textcolor{stringliteral}{"{}كلاس ها "{}};}
+\DoxyCodeLine{299       \}}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{302       \{}
+\DoxyCodeLine{303           result+=\textcolor{stringliteral}{"{}و مستندات ساختار داده برای هر عضو "{}};}
+\DoxyCodeLine{304       \}}
+\DoxyCodeLine{305         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{306       \{}
+\DoxyCodeLine{307           result+=\textcolor{stringliteral}{"{}و مستندات کلاس برای هر عضو "{}};}
+\DoxyCodeLine{308       \}}
+\DoxyCodeLine{309       result+=\textcolor{stringliteral}{"{}را مشاهده ميکنيد :"{}};}
+\DoxyCodeLine{310       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{314     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a006aa9dab7fbec82e868a1705d0828ee}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{315     \{}
+\DoxyCodeLine{316       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}ليست همه ی توابع ، متغيير ها، تعاريف و ... "{}};}
+\DoxyCodeLine{317       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(مستند شده) "{}};}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319       result+=\textcolor{stringliteral}{"{} به همراه ارتباط آنها "{}};}
+\DoxyCodeLine{320       result+=\textcolor{stringliteral}{"{}با پرونده هايی که به آن مربوط اند :"{}};}
+\DoxyCodeLine{321       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{322     \}}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{325     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a5690397f2d3d92f2a367d01206ee24aa}{trExamplesDescription}}()}
+\DoxyCodeLine{326     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست همه ی مثال ها :"{}}; \}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{329     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a19060171a5a33e915fd441280f7aa30e}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{330     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست تمام صفحات و مستندات مربوطه :"{}}; \}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{333     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6753fd1c637d103053fa6c0d525ed4e3}{trModulesDescription}}()}
+\DoxyCodeLine{334     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست تمام ماژول ها:"{}}; \}}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338 }
+\DoxyCodeLine{340     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a419e7d7cfc28884b44a1c9d22519f774}{trDocumentation}}()}
+\DoxyCodeLine{341     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات"{}}; \}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{346     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad4032490e3dd2b17ce5cff38aed220d3}{trModuleIndex}}()}
+\DoxyCodeLine{347     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست ماژول ها"{}}; \}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{352     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aef46d497bcbc6c64f9c056c2330cfd72}{trHierarchicalIndex}}()}
+\DoxyCodeLine{353     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست سلسله مراتب"{}}; \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{358     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a37e231221641621d2ce1e979ea0159da}{trCompoundIndex}}()}
+\DoxyCodeLine{359     \{}
+\DoxyCodeLine{360       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{361       \{}
+\DoxyCodeLine{362         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست ساختار داده ها"{}};}
+\DoxyCodeLine{363       \}}
+\DoxyCodeLine{364       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{365       \{}
+\DoxyCodeLine{366         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست کلاس های"{}};}
+\DoxyCodeLine{367       \}}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a95cbcdf1c33b3b9b19569f01d55c80cb}{trFileIndex}}()}
+\DoxyCodeLine{374     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست پرونده ها"{}}; \}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{379     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a69d2b7621f395bf43dbd6b318dd27e0c}{trModuleDocumentation}}()}
+\DoxyCodeLine{380     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات ماژول"{}}; \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{385     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aaaff17a573c5bc855698a4015590b7f4}{trClassDocumentation}}()}
+\DoxyCodeLine{386     \{}
+\DoxyCodeLine{387       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{388       \{}
+\DoxyCodeLine{389         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات ساختار داده ها"{}};}
+\DoxyCodeLine{390       \}}
+\DoxyCodeLine{391       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{392       \{}
+\DoxyCodeLine{393           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{394       \}}
+\DoxyCodeLine{395       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{396       \{}
+\DoxyCodeLine{397         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات کلاس ها"{}};}
+\DoxyCodeLine{398       \}}
+\DoxyCodeLine{399     \}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{404     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a1d32bedf28cc35d092947fa99a50445c}{trFileDocumentation}}()}
+\DoxyCodeLine{405     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات فایل"{}}; \}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{410     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa6727c823cb56954d8f6e775cb59a12d}{trExampleDocumentation}}()}
+\DoxyCodeLine{411     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات مثال"{}}; \}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{414     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_acd5b1141c16b0b7ae9eab15ac5ab6b41}{trReferenceManual}}()}
+\DoxyCodeLine{415     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}راهنمای مرجع"{}}; \}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7d38fb09487c597c91e720a3c9413e0d}{trDefines}}()}
+\DoxyCodeLine{421     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تعاريف"{}}; \}}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{426     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab8c3a5e7056ccdd34b9ae3c3b2ac3ed1}{trTypedefs}}()}
+\DoxyCodeLine{427     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تعریف گونه ها"{}}; \}}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{432     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a53840b14cf091887f04e70bc70e7b1d3}{trEnumerations}}()}
+\DoxyCodeLine{433     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تعاريف"{}}; \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{438     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a81b63d45cee8e558c668c48a76e2f6f3}{trFunctions}}()}
+\DoxyCodeLine{439     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع"{}}; \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4e336f7f7ddb0c3825acca38af8f88f8}{trVariables}}()}
+\DoxyCodeLine{445     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}متغيير ها"{}}; \}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{450     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a24187d5344e024b056f16db59add8af2}{trEnumerationValues}}()}
+\DoxyCodeLine{451     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}معرف ها"{}}; \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{456     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a87aecbc32bf74013ff13d3f18e7d7996}{trDefineDocumentation}}()}
+\DoxyCodeLine{457     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Define Documentation"{}}; \}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ae42af4bc6b62abd9053d5a272d9ef079}{trTypedefDocumentation}}()}
+\DoxyCodeLine{463     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedef"{}}; \}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a005b6d972851319c9dac4f3e687644a7}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{469     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات تعريف"{}}; \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{474     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_afa1fd94d571d0ac09585ddfc004c6473}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{475     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات معرف"{}}; \}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{480     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0f697beb0a1f01e3ffeec7c6ba60b52a}{trFunctionDocumentation}}()}
+\DoxyCodeLine{481     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيح تابع"{}}; \}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{486     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aabf3acd2c5852f0e6e2fda6b9d05f8b5}{trVariableDocumentation}}()}
+\DoxyCodeLine{487     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيح متغير"{}}; \}}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{492     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2415f824b684e8411944fe033350aaa0}{trCompounds}}()}
+\DoxyCodeLine{493     \{}
+\DoxyCodeLine{494       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{495       \{}
+\DoxyCodeLine{496         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختارهای داده"{}};}
+\DoxyCodeLine{497       \}}
+\DoxyCodeLine{498       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{499       \{}
+\DoxyCodeLine{500         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}کلاس ها"{}};}
+\DoxyCodeLine{501       \}}
+\DoxyCodeLine{502     \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{507     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4214a1394bbabd865074cf2480fc1092}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{508     \{}
+\DoxyCodeLine{509       \mbox{\hyperlink{classQCString}{QCString}} result = \mbox{\hyperlink{translator__fa_8h_a60a9932421ab5134a5820e7f662750b2}{HtmlDivEnd}} + \mbox{\hyperlink{translator__fa_8h_ab2be626abad8b188f5087b48d3d6ee85}{HtmlRightToLeft}} + \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}توليد شده در "{}}) +date ;}
+\DoxyCodeLine{510       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} برای "{}}+projName;}
+\DoxyCodeLine{511       result+=\textcolor{stringliteral}{"{} توسط"{}};}
+\DoxyCodeLine{512       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{513     \}}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{516     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3fa4796a4422eee79be76ef5a4569b57}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{517     \{}
+\DoxyCodeLine{518       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}+clName+\textcolor{stringliteral}{"{} نمودار وراثت برای  :"{}};}
+\DoxyCodeLine{519     \}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{522     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a11882019f58b798098757cd6d5b7a06b}{trWarning}}()}
+\DoxyCodeLine{523     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اخطار"{}}; \}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{526     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac895454bf86458bd4d67ecf413640db4}{trVersion}}()}
+\DoxyCodeLine{527     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نسخه"{}}; \}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{530     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a727c1b9a7df46be6a98c15eae1013a28}{trDate}}()}
+\DoxyCodeLine{531     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تاريخ"{}}; \}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{534     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a31b062d9d7a4e636d2bb11bb85bc30de}{trReturns}}()}
+\DoxyCodeLine{535     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خروجی"{}}; \}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3ab1ae84a89ff2b4f47cc4455c03af28}{trSeeAlso}}()}
+\DoxyCodeLine{539     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}See also"{}}; \}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a88687d733e667370e5c07d04c3997d9d}{trParameters}}()}
+\DoxyCodeLine{543     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}پارامترها"{}}; \}}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{546     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa6bdf30a3fc86ef8e6fd9f8e0f762496}{trExceptions}}()}
+\DoxyCodeLine{547     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}استثناء ها"{}}; \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{550     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a15b157e1798db76671972eaba9891f4f}{trGeneratedBy}}()}
+\DoxyCodeLine{551     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توليد شده توسط"{}}; \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{556 \textcolor{comment}{}}
+\DoxyCodeLine{558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aaaaafab70370a5654af554aa76762cf5}{trNamespaceList}}()}
+\DoxyCodeLine{559     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست فضاهای نام"{}}; \}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4a9b20695fd14d7f9ae59c35ef0d7eb4}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{563     \{}
+\DoxyCodeLine{564       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}در ذيل ليستی از همه ی فضاهای نام  "{}};}
+\DoxyCodeLine{565       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(مستند سازی شده) "{}};}
+\DoxyCodeLine{566       result+=\textcolor{stringliteral}{"{}به همراه توضيح کوتاه آنها مشاهده می کنيد :"{}};}
+\DoxyCodeLine{567       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{568     \}}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{573     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a84f30dd24c444b4392ac46eeaf5da3d1}{trFriends}}()}
+\DoxyCodeLine{574     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}کلاس های دوست"{}}; \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{577 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{579 \textcolor{comment}{}}
+\DoxyCodeLine{583     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_afb7f205623c05b7afcdf96f77f29dfd4}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{584     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات توابع مربوط و دوست"{}}; \}}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{587 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{589 \textcolor{comment}{}}
+\DoxyCodeLine{591     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_acd4dd652aff5a4095e7e9dffe58300ad}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{592                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{593                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{594     \{}
+\DoxyCodeLine{595       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{596       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{597       \{}
+\DoxyCodeLine{598         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result=\textcolor{stringliteral}{"{} کلاس"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{599         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result=\textcolor{stringliteral}{"{} ساختار داده"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{600         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result=\textcolor{stringliteral}{"{} Union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{601         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result=\textcolor{stringliteral}{"{} Interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{602         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result=\textcolor{stringliteral}{"{} Protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{603         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result=\textcolor{stringliteral}{"{} Category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{604         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result=\textcolor{stringliteral}{"{} استثناء"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{605         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{606       \}}
+\DoxyCodeLine{607       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} قالب"{}};}
+\DoxyCodeLine{608       result=\mbox{\hyperlink{classQCString}{QCString}}(clName) + \textcolor{stringliteral}{"{} مرجع"{}} +result ;}
+\DoxyCodeLine{609       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{610     \}}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{613     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a691fdbbd08005f31a65b8e03a2cbf724}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{614     \{}
+\DoxyCodeLine{615       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{616       result+=\textcolor{stringliteral}{"{} مرجع پرونده"{}};}
+\DoxyCodeLine{617       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{618     \}}
+\DoxyCodeLine{619 }
+\DoxyCodeLine{621     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a706a15b36b4a8d83a797b811c17ed4ff}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{622     \{}
+\DoxyCodeLine{623       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{624       result+=\textcolor{stringliteral}{"{} مرجع فضای نام"{}};}
+\DoxyCodeLine{625       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{626     \}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0d9fc639ccd65a8eeb3937244cd83e9d}{trPublicMembers}}()}
+\DoxyCodeLine{629     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع عمومی عضو کلاس"{}}; \}}
+\DoxyCodeLine{630     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a315b36adc469b400c7b2fbf3174483af}{trPublicSlots}}()}
+\DoxyCodeLine{631     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های عمومی Slot"{}}; \}}
+\DoxyCodeLine{632     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aeb894a64151a08b58293478659143fac}{trSignals}}()}
+\DoxyCodeLine{633     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}سيگنال ها"{}}; \}}
+\DoxyCodeLine{634     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab3ad0b254176ada367b51f9113fbf7b8}{trStaticPublicMembers}}()}
+\DoxyCodeLine{635     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع ثابت عمومی عضو کلاس"{}}; \}}
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_adc332494f4255078b53691fdbccaa005}{trProtectedMembers}}()}
+\DoxyCodeLine{637     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع خصوصی عضو کلاس"{}}; \}}
+\DoxyCodeLine{638     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9ad67452cbcc62ffecd3886f745970d9}{trProtectedSlots}}()}
+\DoxyCodeLine{639     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های محافظت شده Slot"{}}; \}}
+\DoxyCodeLine{640     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a189a87a1824b60c211d2f53fc787ad8b}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{641     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع ثابت محافظت شده عضو کلاس"{}}; \}}
+\DoxyCodeLine{642     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3b98f40cdc8ec5a67da33b74ebb88da6}{trPrivateMembers}}()}
+\DoxyCodeLine{643     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع خصوصی عضو کلاس"{}}; \}}
+\DoxyCodeLine{644     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a26c70a4dc0ec36e8513ffd7711ce8966}{trPrivateSlots}}()}
+\DoxyCodeLine{645     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های خصوصی Slot"{}}; \}}
+\DoxyCodeLine{646     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0b563e7b4b8395a7f521d7cb08b07bb1}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{647     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع خصوصی ثابت عضو کلاس"{}}; \}}
+\DoxyCodeLine{648 }
+\DoxyCodeLine{652     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{653     \{}
+\DoxyCodeLine{654       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{655       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{656       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{657       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{658       \{}
+\DoxyCodeLine{659         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{660         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{661                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{662 }
+\DoxyCodeLine{663         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{664         \{}
+\DoxyCodeLine{665           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{666             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{667           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{668             result+=\textcolor{stringliteral}{"{} و "{}};}
+\DoxyCodeLine{669         \}}
+\DoxyCodeLine{670       \}}
+\DoxyCodeLine{671       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{672     \}}
+\DoxyCodeLine{673 }
+\DoxyCodeLine{677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_acb93ef6516fa3a30171b96156dbba4ca}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{678     \{}
+\DoxyCodeLine{679       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.را به ارث می برد "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{680     \}}
+\DoxyCodeLine{681 }
+\DoxyCodeLine{685     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a29b16a0819f20f9d5c4afa710a45b98b}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{686     \{}
+\DoxyCodeLine{687       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.اين کلاس را به ارث برده است "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{688     \}}
+\DoxyCodeLine{689 }
+\DoxyCodeLine{693     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a41187ae168e667bf16d5b10d23930781}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{694     \{}
+\DoxyCodeLine{695       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplemented from "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{696     \}}
+\DoxyCodeLine{697 }
+\DoxyCodeLine{701     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_abb546b81293c52326fc04cc2b7fee8d9}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{702     \{}
+\DoxyCodeLine{703       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تعریف شده است "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}دوباره در "{}};}
+\DoxyCodeLine{704     \}}
+\DoxyCodeLine{705 }
+\DoxyCodeLine{707     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6d2cec6e6b01c46c98f3ae04c11e8ebf}{trNamespaceMembers}}()}
+\DoxyCodeLine{708     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اعضای فضاهای نام"{}}; \}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{711     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aacd921c664d9b611943e1fb8ee5a3fed}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{712     \{}
+\DoxyCodeLine{713       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}ليست همه اعضای فضای نام  "{}};}
+\DoxyCodeLine{714       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(مستند شده) "{}};}
+\DoxyCodeLine{715       result+=\textcolor{stringliteral}{"{} با ارتباطشان با"{}};}
+\DoxyCodeLine{716       result+=\textcolor{stringliteral}{"{}فضاهای نامی که به آن مربوط اند را مشاهده ميکنيد :"{}};}
+\DoxyCodeLine{717       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{718     \}}
+\DoxyCodeLine{722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_afcea2a6f3a94aac26b3217a4b612a3ff}{trNamespaceIndex}}()}
+\DoxyCodeLine{723     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست فضاهای نام"{}}; \}}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{728     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac2179ab0c1d7e3cce5f0d01a246ef087}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{729     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيحات فضای نام"{}}; \}}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{732 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{734 \textcolor{comment}{}}
+\DoxyCodeLine{738     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7c36286e4a3e5757a078b0ebb79f549d}{trNamespaces}}()}
+\DoxyCodeLine{739     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فضاهای نام"{}}; \}}
+\DoxyCodeLine{740 }
+\DoxyCodeLine{742 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{744 \textcolor{comment}{}}
+\DoxyCodeLine{748     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a327cf9ca691ef8e92366a68927501dfa}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{749         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{750     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{751       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{752       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}مستندات اين  "{}};}
+\DoxyCodeLine{753       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{754       \{}
+\DoxyCodeLine{755         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}کلاس"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{756         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}ساختار داده"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{757         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{758         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{759         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{760         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{761         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{762         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{763       \}}
+\DoxyCodeLine{764       result+=\textcolor{stringliteral}{"{} از روی پرونده "{}};}
+\DoxyCodeLine{765       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}های "{}};}
+\DoxyCodeLine{766       result+=\textcolor{stringliteral}{"{}زير توليد شده است :"{}};}
+\DoxyCodeLine{767       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{768     \}}
+\DoxyCodeLine{769 }
+\DoxyCodeLine{771 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{773 \textcolor{comment}{}}
+\DoxyCodeLine{775     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab606a7adc649c6915c84e55bc222cb77}{trReturnValues}}()}
+\DoxyCodeLine{776     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مقادير بازگشتی"{}}; \}}
+\DoxyCodeLine{777 }
+\DoxyCodeLine{780     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac338f79be2c8e48f92360ea8c4c649d9}{trMainPage}}()}
+\DoxyCodeLine{781     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}صفحه ی اصلی"{}}; \}}
+\DoxyCodeLine{782 }
+\DoxyCodeLine{786     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa8ad3161043decd8a31b14be69f42947}{trPageAbbreviation}}()}
+\DoxyCodeLine{787     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ص."{}}; \}}
+\DoxyCodeLine{788 }
+\DoxyCodeLine{790 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{792 \textcolor{comment}{}    \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4bc66c287c1dd655dcee774d08abf744}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{793     \{}
+\DoxyCodeLine{794       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.در خط @0 از پرونده @1 تعريف شده است"{}};}
+\DoxyCodeLine{795     \}}
+\DoxyCodeLine{796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a58a8c1a9e328df64d4e1f99ee4925596}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{797     \{}
+\DoxyCodeLine{798       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.در فايل @0 تعريف شده است"{}};}
+\DoxyCodeLine{799     \}}
+\DoxyCodeLine{800 }
+\DoxyCodeLine{802 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{804 \textcolor{comment}{}}
+\DoxyCodeLine{805     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6c920581d1949d25dee9794b4920cfe6}{trDeprecated}}()}
+\DoxyCodeLine{806     \{}
+\DoxyCodeLine{807       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}منسوخ شده"{}};}
+\DoxyCodeLine{808     \}}
+\DoxyCodeLine{809 }
+\DoxyCodeLine{811 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{813 \textcolor{comment}{}}
+\DoxyCodeLine{815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_abfd561efb71eea07491e07e79822807b}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{816     \{}
+\DoxyCodeLine{817       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Collaboration diagram for "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{818     \}}
+\DoxyCodeLine{820     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a92db86f63b63aec64b46b8b17d07be40}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{821     \{}
+\DoxyCodeLine{822       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نمودار شامل شدن ها برای "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{823     \}}
+\DoxyCodeLine{825     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa79e5feb5a3700ab483130fc027f194a}{trConstructorDocumentation}}()}
+\DoxyCodeLine{826     \{}
+\DoxyCodeLine{827       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات توباع آغازین و پایانی"{}};}
+\DoxyCodeLine{828     \}}
+\DoxyCodeLine{830     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a846d38ea7744f8cda16e9b9caeba77f9}{trGotoSourceCode}}()}
+\DoxyCodeLine{831     \{}
+\DoxyCodeLine{832       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}کد منبع اين پرونده."{}};}
+\DoxyCodeLine{833     \}}
+\DoxyCodeLine{835     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a568ffe99c6844c2e07fc8622a12346f5}{trGotoDocumentation}}()}
+\DoxyCodeLine{836     \{}
+\DoxyCodeLine{837       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضيحات اين پرونده."{}};}
+\DoxyCodeLine{838     \}}
+\DoxyCodeLine{840     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9b0460c74efe3db795c7f522c28c2764}{trPrecondition}}()}
+\DoxyCodeLine{841     \{}
+\DoxyCodeLine{842       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}پیش شرط"{}};}
+\DoxyCodeLine{843     \}}
+\DoxyCodeLine{845     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_af3070534573f75203e392eeb738886e1}{trPostcondition}}()}
+\DoxyCodeLine{846     \{}
+\DoxyCodeLine{847       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}پس شرط"{}};}
+\DoxyCodeLine{848     \}}
+\DoxyCodeLine{850     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_adcb0339741199a5b6c417bac790132c8}{trInvariant}}()}
+\DoxyCodeLine{851     \{}
+\DoxyCodeLine{852       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariant"{}};}
+\DoxyCodeLine{853     \}}
+\DoxyCodeLine{855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7313674664f323707e3e70ca1b5b008d}{trInitialValue}}()}
+\DoxyCodeLine{856     \{}
+\DoxyCodeLine{857       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مقدار اوليه :"{}};}
+\DoxyCodeLine{858     \}}
+\DoxyCodeLine{860     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a444230aaa4a6c28331f3bf1a1b76b371}{trCode}}()}
+\DoxyCodeLine{861     \{}
+\DoxyCodeLine{862       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}کد"{}};}
+\DoxyCodeLine{863     \}}
+\DoxyCodeLine{864     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a394f2fce8271d6df286203ba49d79cee}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{865     \{}
+\DoxyCodeLine{866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}سلسله مراتب گرافيکی کلاس"{}};}
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{868     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a77be25bb956d4add0db0a9e8ee69789c}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{869     \{}
+\DoxyCodeLine{870       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نمایش نمودار درختی گرافیکی کلاس"{}};}
+\DoxyCodeLine{871     \}}
+\DoxyCodeLine{872     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9d88de0c3296607f834709b2080da91a}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{873     \{}
+\DoxyCodeLine{874       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نمایش نمودار درختی متنی کلاس"{}};}
+\DoxyCodeLine{875     \}}
+\DoxyCodeLine{876     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad95853def268a2b37ab9aede0defc98f}{trPageIndex}}()}
+\DoxyCodeLine{877     \{}
+\DoxyCodeLine{878       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست صفحات"{}};}
+\DoxyCodeLine{879     \}}
+\DoxyCodeLine{880 }
+\DoxyCodeLine{882 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{884 \textcolor{comment}{}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a650f3b7c9a067df6959f5293aa19c921}{trNote}}()}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نکته"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7d889b5cfde0f76c474182738b0b383a}{trPublicTypes}}()}
+\DoxyCodeLine{890     \{}
+\DoxyCodeLine{891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های عمومی Type"{}};}
+\DoxyCodeLine{892     \}}
+\DoxyCodeLine{893     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a827e3613c9214d5027afac9ec289e33d}{trPublicAttribs}}()}
+\DoxyCodeLine{894     \{}
+\DoxyCodeLine{895       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{896       \{}
+\DoxyCodeLine{897         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فضاهای داده ها"{}};}
+\DoxyCodeLine{898       \}}
+\DoxyCodeLine{899       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{900       \{}
+\DoxyCodeLine{901         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) عمومی"{}};}
+\DoxyCodeLine{902       \}}
+\DoxyCodeLine{903     \}}
+\DoxyCodeLine{904     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4b823b50e43e2e78efc1b331c87300dc}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{905     \{}
+\DoxyCodeLine{906       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) عمومی ثابت"{}};}
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a835e8ca3ed52a59c24674ba5add81c64}{trProtectedTypes}}()}
+\DoxyCodeLine{909     \{}
+\DoxyCodeLine{910       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های حفاظت شده Type"{}};}
+\DoxyCodeLine{911     \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_adf5017cf2a60f0de76dc3a258b09ca88}{trProtectedAttribs}}()}
+\DoxyCodeLine{913     \{}
+\DoxyCodeLine{914       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) حفاظت شده"{}};}
+\DoxyCodeLine{915     \}}
+\DoxyCodeLine{916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8a03572ae8a57b1060b489bcb8e43596}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{917     \{}
+\DoxyCodeLine{918       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) حفاظت شده ثابت"{}};}
+\DoxyCodeLine{919     \}}
+\DoxyCodeLine{920     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac037bf765638cba146f863dc6c26aab1}{trPrivateTypes}}()}
+\DoxyCodeLine{921     \{}
+\DoxyCodeLine{922       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}های خصوصی Type"{}};}
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aed6e971495ac8d287fe4370791fef760}{trPrivateAttribs}}()}
+\DoxyCodeLine{925     \{}
+\DoxyCodeLine{926       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) خصوصی"{}};}
+\DoxyCodeLine{927     \}}
+\DoxyCodeLine{928     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4b231e7302371e3d14bd3aa7cc441600}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{929     \{}
+\DoxyCodeLine{930       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص (متغييرهای) خصوصی ثابت"{}};}
+\DoxyCodeLine{931     \}}
+\DoxyCodeLine{932 }
+\DoxyCodeLine{934 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{936 \textcolor{comment}{}}
+\DoxyCodeLine{938     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4ca4e6cbb7d59ad56019fc12d6cfc09c}{trTodo}}()}
+\DoxyCodeLine{939     \{}
+\DoxyCodeLine{940       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}برای انجام"{}};}
+\DoxyCodeLine{941     \}}
+\DoxyCodeLine{943     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aab0a2e82545289bc3d0695d290f8fd64}{trTodoList}}()}
+\DoxyCodeLine{944     \{}
+\DoxyCodeLine{945       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست کارهاي آينده"{}};}
+\DoxyCodeLine{946     \}}
+\DoxyCodeLine{947 }
+\DoxyCodeLine{949 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{951 \textcolor{comment}{}}
+\DoxyCodeLine{952     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a14dcd1fd4f6473824bb5e02ef829b697}{trReferencedBy}}()}
+\DoxyCodeLine{953     \{}
+\DoxyCodeLine{954       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} استفاده شده توسط "{}};}
+\DoxyCodeLine{955     \}}
+\DoxyCodeLine{956     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8bad9030e1abbb82fe0e41578bcf5953}{trRemarks}}()}
+\DoxyCodeLine{957     \{}
+\DoxyCodeLine{958       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ملاحظات"{}};}
+\DoxyCodeLine{959     \}}
+\DoxyCodeLine{960     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a1fccec011297288ab65f89b0ab06e8cf}{trAttention}}()}
+\DoxyCodeLine{961     \{}
+\DoxyCodeLine{962       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توجه"{}};}
+\DoxyCodeLine{963     \}}
+\DoxyCodeLine{964     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3d34d507d588120f567a671e8267283b}{trInclByDepGraph}}()}
+\DoxyCodeLine{965     \{}
+\DoxyCodeLine{966       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}این نمودار فایل هایی را که این فایل را به طور مستقیم یا غیر مستقیم استفاده کرده اند نشان می دهد"{}};}
+\DoxyCodeLine{967     \}}
+\DoxyCodeLine{968     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a4c64b118e150c4cd0aa2dd38c353b64a}{trSince}}()}
+\DoxyCodeLine{969     \{}
+\DoxyCodeLine{970       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}از"{}};}
+\DoxyCodeLine{971     \}}
+\DoxyCodeLine{972 }
+\DoxyCodeLine{974 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{976 \textcolor{comment}{}}
+\DoxyCodeLine{978     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a563a02fe67c38f1c64cc53ee67315da4}{trLegendTitle}}()}
+\DoxyCodeLine{979     \{}
+\DoxyCodeLine{980       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}راهنمای نمودار"{}};}
+\DoxyCodeLine{981     \}}
+\DoxyCodeLine{985     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a47aa2d45c5f247bf64bd8deda5ed5be3}{trLegendDocs}}()}
+\DoxyCodeLine{986     \{}
+\DoxyCodeLine{987       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{988         \textcolor{stringliteral}{"{}This page explains how to interpret the graphs that are generated "{}}}
+\DoxyCodeLine{989         \textcolor{stringliteral}{"{}by doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{990         \textcolor{stringliteral}{"{}Consider the following example:\(\backslash\)n"{}}}
+\DoxyCodeLine{991         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{992         \textcolor{stringliteral}{"{}/*! Invisible class because of truncation */\(\backslash\)n"{}}}
+\DoxyCodeLine{993         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{994         \textcolor{stringliteral}{"{}/*! Truncated class, inheritance relation is hidden */\(\backslash\)n"{}}}
+\DoxyCodeLine{995         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{996         \textcolor{stringliteral}{"{}/* Class not documented with doxygen comments */\(\backslash\)n"{}}}
+\DoxyCodeLine{997         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{998         \textcolor{stringliteral}{"{}/*! Class that is inherited using public inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{999         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1000         \textcolor{stringliteral}{"{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1001         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1002         \textcolor{stringliteral}{"{}/*! Class that is inherited using protected inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1003         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1004         \textcolor{stringliteral}{"{}/*! Class that is inherited using private inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1005         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}/*! Class that is used by the Inherited class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}/*! Super class that inherits a number of other classes */\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}                  public Undocumented\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}If the \(\backslash\)\(\backslash\)c MAX\_DOT\_GRAPH\_HEIGHT tag in the configuration file "{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}is set to 240 this will result in the following graph:"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}The boxes in the above graph have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}<li>\%A filled black box represents the struct or class for which the "{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}graph is generated.\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}<li>\%A box with a black border denotes a documented struct or class.\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}<li>\%A box with a gray border denotes an undocumented struct or class.\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}<li>\%A box with a red border denotes a documented struct or class for"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}which not all inheritance/containment relations are shown. \%A graph is "{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}truncated if it does not fit within the specified boundaries.\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}The arrows have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}<li>\%A dark blue arrow is used to visualize a public inheritance "{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}relation between two classes.\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}<li>\%A dark green arrow is used for protected inheritance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}<li>\%A dark red arrow is used for private inheritance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}<li>\%A purple dashed arrow is used if a class is contained or used "{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}by another class. The arrow is labeled with the variable(s) "{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}through which the pointed class or struct is accessible.\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}<li>\%A yellow dashed arrow denotes a relation between a template instance and "{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}the template class it was instantiated from. The arrow is labeled with "{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}the template parameters of the instance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1046     \}}
+\DoxyCodeLine{1048     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac0e80c41bbe9381ae4dc8b1ae577dd5e}{trLegend}}()}
+\DoxyCodeLine{1049     \{}
+\DoxyCodeLine{1050       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}راهنما"{}};}
+\DoxyCodeLine{1051     \}}
+\DoxyCodeLine{1052 }
+\DoxyCodeLine{1054 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1056 \textcolor{comment}{}}
+\DoxyCodeLine{1058     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0f11e9efb7202bd1fb8f2d51bd6910d4}{trTest}}()}
+\DoxyCodeLine{1059     \{}
+\DoxyCodeLine{1060       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}تست"{}};}
+\DoxyCodeLine{1061     \}}
+\DoxyCodeLine{1063     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a36515ff6487ffa6335f765ea0a715408}{trTestList}}()}
+\DoxyCodeLine{1064     \{}
+\DoxyCodeLine{1065       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test List"{}};}
+\DoxyCodeLine{1066     \}}
+\DoxyCodeLine{1067 }
+\DoxyCodeLine{1069 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1071 \textcolor{comment}{}}
+\DoxyCodeLine{1073     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a6ab6c59ae103a184db3fbf9d77a0a212}{trProperties}}()}
+\DoxyCodeLine{1074     \{}
+\DoxyCodeLine{1075       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خاصیت ها"{}};}
+\DoxyCodeLine{1076     \}}
+\DoxyCodeLine{1078     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0d277d3a4462f2c9205f8864fbddbc95}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1079     \{}
+\DoxyCodeLine{1080       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات خاصیت"{}};}
+\DoxyCodeLine{1081     \}}
+\DoxyCodeLine{1082 }
+\DoxyCodeLine{1084 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1086 \textcolor{comment}{}}
+\DoxyCodeLine{1088     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a41e5c2860a2f73546b9ce407472bac14}{trClasses}}()}
+\DoxyCodeLine{1089     \{}
+\DoxyCodeLine{1090       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1091       \{}
+\DoxyCodeLine{1092         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختار های داده"{}};}
+\DoxyCodeLine{1093       \}}
+\DoxyCodeLine{1094       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1095       \{}
+\DoxyCodeLine{1096         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}كلاس ها"{}};}
+\DoxyCodeLine{1097       \}}
+\DoxyCodeLine{1098     \}}
+\DoxyCodeLine{1100     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a232b217625bc53e116fa0fee7050f4f5}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1101     \{}
+\DoxyCodeLine{1102       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package "{}}+name;}
+\DoxyCodeLine{1103     \}}
+\DoxyCodeLine{1105     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab069ed7ed8bd3627485d4ad631f164bb}{trPackageListDescription}}()}
+\DoxyCodeLine{1106     \{}
+\DoxyCodeLine{1107       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست بسته ها به همراه توضیح مختر در صورت وجود :"{}};}
+\DoxyCodeLine{1108     \}}
+\DoxyCodeLine{1110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a5b382c85a1e0df2b09a9c35f3fcdb29d}{trPackages}}()}
+\DoxyCodeLine{1111     \{}
+\DoxyCodeLine{1112       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}بسته ها"{}};}
+\DoxyCodeLine{1113     \}}
+\DoxyCodeLine{1115     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a22e2b9347519495efc24b78d3fe811ee}{trDefineValue}}()}
+\DoxyCodeLine{1116     \{}
+\DoxyCodeLine{1117       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مقدار:"{}};}
+\DoxyCodeLine{1118     \}}
+\DoxyCodeLine{1119 }
+\DoxyCodeLine{1121 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1123 \textcolor{comment}{}}
+\DoxyCodeLine{1125     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2109e7fbe5a39211e8fa6b4ba46212b8}{trBug}}()}
+\DoxyCodeLine{1126     \{}
+\DoxyCodeLine{1127       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اشکال"{}};}
+\DoxyCodeLine{1128     \}}
+\DoxyCodeLine{1130     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa14e866e1bf12f10fe27e2a9037810d0}{trBugList}}()}
+\DoxyCodeLine{1131     \{}
+\DoxyCodeLine{1132       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ليست اشکالات"{}};}
+\DoxyCodeLine{1133     \}}
+\DoxyCodeLine{1134 }
+\DoxyCodeLine{1136 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1138 \textcolor{comment}{}}
+\DoxyCodeLine{1164     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a726bd8cac1d4e5623e5538b522c1bf31}{trRTFansicp}}()}
+\DoxyCodeLine{1165     \{}
+\DoxyCodeLine{1166       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1256"{}};}
+\DoxyCodeLine{1167     \}}
+\DoxyCodeLine{1168 }
+\DoxyCodeLine{1169 }
+\DoxyCodeLine{1173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a25e7ec74ce148545edb8fc74c098c7b9}{trRTFCharSet}}()}
+\DoxyCodeLine{1174     \{}
+\DoxyCodeLine{1175       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}178"{}};}
+\DoxyCodeLine{1176     \}}
+\DoxyCodeLine{1177 }
+\DoxyCodeLine{1179     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a554a8ee5a92be3505a476b5288e89de5}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1180     \{}
+\DoxyCodeLine{1181       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست"{}};}
+\DoxyCodeLine{1182     \}}
+\DoxyCodeLine{1183 }
+\DoxyCodeLine{1188     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aca05419884ed135f61766579a00bf85c}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1189     \{}
+\DoxyCodeLine{1190       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}کلاس"{}} : \textcolor{stringliteral}{"{}کلاس"{}}));}
+\DoxyCodeLine{1191       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ها"{}};}
+\DoxyCodeLine{1192       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1193     \}}
+\DoxyCodeLine{1194 }
+\DoxyCodeLine{1199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ae1ba6330d764c7b59e269630592b9528}{trFile}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1200     \{}
+\DoxyCodeLine{1201       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}پرونده"{}});}
+\DoxyCodeLine{1202       \textcolor{keywordflow}{if} (!singular) result=result+\textcolor{stringliteral}{"{} ها"{}};}
+\DoxyCodeLine{1203       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1204     \}}
+\DoxyCodeLine{1205 }
+\DoxyCodeLine{1210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab5e3fcb4a155c69efc60839ae578c781}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1211     \{}
+\DoxyCodeLine{1212       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}فضای نام "{}} : \textcolor{stringliteral}{"{}فضای نام "{}}));}
+\DoxyCodeLine{1213       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ها"{}};}
+\DoxyCodeLine{1214       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1215     \}}
+\DoxyCodeLine{1216 }
+\DoxyCodeLine{1221     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3d2da9079a432bb8dc7712df9ec62350}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1222     \{}
+\DoxyCodeLine{1223       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Group"{}} : \textcolor{stringliteral}{"{}group"{}}));}
+\DoxyCodeLine{1224       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1225       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1226     \}}
+\DoxyCodeLine{1227 }
+\DoxyCodeLine{1232     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0fce47b79f4f038344490bf3fe82e684}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1233     \{}
+\DoxyCodeLine{1234       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}صفحه"{}} : \textcolor{stringliteral}{"{}صفحه"{}}));}
+\DoxyCodeLine{1235       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{} ها "{}};}
+\DoxyCodeLine{1236       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1237     \}}
+\DoxyCodeLine{1238 }
+\DoxyCodeLine{1243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_af4f8bb66b2100cc0d3d97cd516919a72}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1244     \{}
+\DoxyCodeLine{1245       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}عضو"{}} : \textcolor{stringliteral}{"{}عضو"{}}));}
+\DoxyCodeLine{1246       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ها"{}};}
+\DoxyCodeLine{1247       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1248     \}}
+\DoxyCodeLine{1249 }
+\DoxyCodeLine{1254     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2110cb861f7c4e8237c6de68e5df714a}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1255     \{}
+\DoxyCodeLine{1256       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Global"{}} : \textcolor{stringliteral}{"{}global"{}}));}
+\DoxyCodeLine{1257       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1258       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1259     \}}
+\DoxyCodeLine{1260 }
+\DoxyCodeLine{1262 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1264 \textcolor{comment}{}}
+\DoxyCodeLine{1267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9ae6f695433e6fb8c5bd1838954f5f0f}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1268     \{}
+\DoxyCodeLine{1269       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Author"{}} : \textcolor{stringliteral}{"{}author"{}}));}
+\DoxyCodeLine{1270       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1271       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1272     \}}
+\DoxyCodeLine{1273 }
+\DoxyCodeLine{1275 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1277 \textcolor{comment}{}}
+\DoxyCodeLine{1280     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad74999932851a84177da4e46c440524b}{trReferences}}()}
+\DoxyCodeLine{1281     \{}
+\DoxyCodeLine{1282       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}را استفاده ميکند "{}};}
+\DoxyCodeLine{1283     \}}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1286 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1288 \textcolor{comment}{}}
+\DoxyCodeLine{1292     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a854a097b43de9a54c7fdaf50c94bc4b2}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1293     \{}
+\DoxyCodeLine{1294       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}را تکميل می کند "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1295     \}}
+\DoxyCodeLine{1296 }
+\DoxyCodeLine{1300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aad9ca32f47f8d0f5f4c8457c1a4a3931}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1301     \{}
+\DoxyCodeLine{1302       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}.تکميل شده است "{}}+\mbox{\hyperlink{classTranslatorPersian_abb541f30146fe59839d7f0cfdc2155bd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{} در"{}};}
+\DoxyCodeLine{1303     \}}
+\DoxyCodeLine{1304 }
+\DoxyCodeLine{1306 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1308 \textcolor{comment}{}}
+\DoxyCodeLine{1312     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2221609ba5858ee67a5f520a468a1728}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1313     \{}
+\DoxyCodeLine{1314       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فهرست"{}};}
+\DoxyCodeLine{1315     \}}
+\DoxyCodeLine{1316 }
+\DoxyCodeLine{1318 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1320 \textcolor{comment}{}}
+\DoxyCodeLine{1324     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ab03dd3cc89e6ca841d0df8366a6e769e}{trDeprecatedList}}()}
+\DoxyCodeLine{1325     \{}
+\DoxyCodeLine{1326       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست آیتم های از رده خارج"{}};}
+\DoxyCodeLine{1327     \}}
+\DoxyCodeLine{1328 }
+\DoxyCodeLine{1330 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1332 \textcolor{comment}{}}
+\DoxyCodeLine{1336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7270d6a4d299cc548507c03d3148b687}{trEvents}}()}
+\DoxyCodeLine{1337     \{}
+\DoxyCodeLine{1338       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}رویداد ها"{}};}
+\DoxyCodeLine{1339     \}}
+\DoxyCodeLine{1341     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad03ee316255eccb66cdeac5ebd27d194}{trEventDocumentation}}()}
+\DoxyCodeLine{1342     \{}
+\DoxyCodeLine{1343       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات رویداد"{}};}
+\DoxyCodeLine{1344     \}}
+\DoxyCodeLine{1345 }
+\DoxyCodeLine{1347 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1349 \textcolor{comment}{}}
+\DoxyCodeLine{1352     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa18da5cd0eb093b95704b059f8d9cad8}{trPackageTypes}}()}
+\DoxyCodeLine{1353     \{}
+\DoxyCodeLine{1354       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}انواع بسته ها"{}};}
+\DoxyCodeLine{1355     \}}
+\DoxyCodeLine{1359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa5f5695ba4b17723663c4e27c981d6ed}{trPackageFunctions}}()}
+\DoxyCodeLine{1360     \{}
+\DoxyCodeLine{1361       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع بسته ها"{}};}
+\DoxyCodeLine{1362     \}}
+\DoxyCodeLine{1363     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac67f93029f8853807beda35fa393ce45}{trPackageMembers}}()}
+\DoxyCodeLine{1364     \{}
+\DoxyCodeLine{1365       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}عضوها بسته ها"{}};}
+\DoxyCodeLine{1366     \}}
+\DoxyCodeLine{1370     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2d249cd0a5cd9a1b4fe033e68fc77000}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1371     \{}
+\DoxyCodeLine{1372       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static Package Functions"{}};}
+\DoxyCodeLine{1373     \}}
+\DoxyCodeLine{1377     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a849cc9bd373965760be5063531a605fa}{trPackageAttribs}}()}
+\DoxyCodeLine{1378     \{}
+\DoxyCodeLine{1379       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}خواص بسته ها"{}};}
+\DoxyCodeLine{1380     \}}
+\DoxyCodeLine{1384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8b4c1237b7e9932a8cc40520405e9a2e}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1385     \{}
+\DoxyCodeLine{1386       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static Package Attributes"{}};}
+\DoxyCodeLine{1387     \}}
+\DoxyCodeLine{1388 }
+\DoxyCodeLine{1390 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1392 \textcolor{comment}{}}
+\DoxyCodeLine{1396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ae3b273833467e4dfb2144066efaaca1d}{trAll}}()}
+\DoxyCodeLine{1397     \{}
+\DoxyCodeLine{1398       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}همه"{}};}
+\DoxyCodeLine{1399     \}}
+\DoxyCodeLine{1401     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa526db6e935668d1daa7c0a9c4ceb8b8}{trCallGraph}}()}
+\DoxyCodeLine{1402     \{}
+\DoxyCodeLine{1403       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نمودار صدا زدن برای این تابع :"{}};}
+\DoxyCodeLine{1404     \}}
+\DoxyCodeLine{1405 }
+\DoxyCodeLine{1407 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1409 \textcolor{comment}{}}
+\DoxyCodeLine{1413     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3193c6847115a6384ac397f6df616897}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1414     \{}
+\DoxyCodeLine{1415       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نتايج جستجو"{}};}
+\DoxyCodeLine{1416     \}}
+\DoxyCodeLine{1425     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7c30592c6e6a397917891053fd0a62f3}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1426     \{}
+\DoxyCodeLine{1427       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1428       \{}
+\DoxyCodeLine{1429         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}متاسفانه هیچ صفحه ای برای جستجو ی شما یافت نشد."{}};}
+\DoxyCodeLine{1430       \}}
+\DoxyCodeLine{1431       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1432       \{}
+\DoxyCodeLine{1433         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}یک سند برای این مورد یافت شد."{}};}
+\DoxyCodeLine{1434       \}}
+\DoxyCodeLine{1435       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1436       \{}
+\DoxyCodeLine{1437         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Found <b>\$num</b> documents matching your query. "{}}}
+\DoxyCodeLine{1438                \textcolor{stringliteral}{"{}Showing best matches first."{}};}
+\DoxyCodeLine{1439       \}}
+\DoxyCodeLine{1440     \}}
+\DoxyCodeLine{1444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a1f7b1920aac1412ab5f5bb99e4eb8bf1}{trSearchMatches}}()}
+\DoxyCodeLine{1445     \{}
+\DoxyCodeLine{1446       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Matches:"{}};}
+\DoxyCodeLine{1447     \}}
+\DoxyCodeLine{1448 }
+\DoxyCodeLine{1450 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1452 \textcolor{comment}{}}
+\DoxyCodeLine{1455     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7dca0aca24a6c2c76760fb85e95a1b9a}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1456     \{}
+\DoxyCodeLine{1457       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} کد و پرونده منبع"{}};}
+\DoxyCodeLine{1458     \}}
+\DoxyCodeLine{1459 }
+\DoxyCodeLine{1461 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1463 \textcolor{comment}{}}
+\DoxyCodeLine{1467     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a20accdb49d53063a089c569419215b4e}{trDirIndex}}()}
+\DoxyCodeLine{1468     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختار و سلسله مراتب شاخه ها"{}}; \}}
+\DoxyCodeLine{1469 }
+\DoxyCodeLine{1473     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3100df4d9e74a6ae67a17f70268caaf2}{trDirDocumentation}}()}
+\DoxyCodeLine{1474     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات دايرکتوری"{}}; \}}
+\DoxyCodeLine{1475 }
+\DoxyCodeLine{1479     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8c198763218e8e9a6f391f409e1146f5}{trDirectories}}()}
+\DoxyCodeLine{1480     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}شاخه ها"{}}; \}}
+\DoxyCodeLine{1481 }
+\DoxyCodeLine{1485     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad2b9d96aba9e84737c981986c7248083}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1486     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} مرجع شاخه ی"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1487 }
+\DoxyCodeLine{1491     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7ed31c1aaa90edc6cceb4ab37c873462}{trDir}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1492     \{}
+\DoxyCodeLine{1493       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}شاخه"{}});}
+\DoxyCodeLine{1494       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{} ها "{}}+result;}
+\DoxyCodeLine{1495       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1496     \}}
+\DoxyCodeLine{1497 }
+\DoxyCodeLine{1499 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1501 \textcolor{comment}{}}
+\DoxyCodeLine{1505     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8e0b7cf24f2cf4b77158904941cfe4f8}{trOverloadText}}()}
+\DoxyCodeLine{1506     \{}
+\DoxyCodeLine{1507        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}This is an overloaded member function, "{}}}
+\DoxyCodeLine{1508               \textcolor{stringliteral}{"{}provided for convenience. It differs from the above "{}}}
+\DoxyCodeLine{1509               \textcolor{stringliteral}{"{}function only in what argument(s) it accepts."{}};}
+\DoxyCodeLine{1510     \}}
+\DoxyCodeLine{1511 }
+\DoxyCodeLine{1513 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1515 \textcolor{comment}{}}
+\DoxyCodeLine{1517     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a598d36e9b6fe91aec00a1336a644f7dd}{trCallerGraph}}()}
+\DoxyCodeLine{1518     \{}
+\DoxyCodeLine{1519       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}نمودار صدا زننده های این تابع:"{}};}
+\DoxyCodeLine{1520     \}}
+\DoxyCodeLine{1522 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1524 \textcolor{comment}{}}
+\DoxyCodeLine{1526     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a2bd374a56b76f0d9559c265cd0f7d9ba}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1527     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات توابع عضو"{}}; \}}
+\DoxyCodeLine{1528 }
+\DoxyCodeLine{1530     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a1dac216e341c67144e19d96de69a5321}{trCompoundListFortran}}()}
+\DoxyCodeLine{1531     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست ساختار های داده"{}}; \}}
+\DoxyCodeLine{1532 }
+\DoxyCodeLine{1534     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a0e8a22b068be61351086db8eefdde1d0}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1535     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فیلدهای اطلاعات"{}}; \}}
+\DoxyCodeLine{1536 }
+\DoxyCodeLine{1538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a338b1e1fff787968f75c402eee15e0d6}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1539     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختارهای داده به همراه توضیح کوتاه :"{}}; \}}
+\DoxyCodeLine{1540 }
+\DoxyCodeLine{1542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a9a535268af1d6ed8279fc6011a03c8bf}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1543     \{}
+\DoxyCodeLine{1544       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توضیحات اعضا ساختارها به همراه مستندات ساختار داده ی مربوطه"{}};}
+\DoxyCodeLine{1545     \}}
+\DoxyCodeLine{1546 }
+\DoxyCodeLine{1550     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3d25b819fccf3b163af85f46cb024939}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1551     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data Type Index"{}}; \}}
+\DoxyCodeLine{1552 }
+\DoxyCodeLine{1556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a35b3a955ce79b76af01b8f4bdf6a971f}{trTypeDocumentation}}()}
+\DoxyCodeLine{1557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data Type Documentation"{}}; \}}
+\DoxyCodeLine{1558 }
+\DoxyCodeLine{1562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a3ffef49639f759ede302bc316ca0bafa}{trSubprograms}}()}
+\DoxyCodeLine{1563     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}توابع و زیربرنامه ها"{}}; \}}
+\DoxyCodeLine{1564 }
+\DoxyCodeLine{1568     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7c6c3e03c1c7d985a9ee1ba0a5efa719}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1569     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}مستندات توابع و زیربرنامه ها"{}}; \}}
+\DoxyCodeLine{1570 }
+\DoxyCodeLine{1574      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa2e3546529d921587ea817b48e1a9604}{trDataTypes}}()}
+\DoxyCodeLine{1575     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ساختار های داده"{}}; \}}
+\DoxyCodeLine{1576 }
+\DoxyCodeLine{1578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_afd9648acb0b50c362968dae4a5a9a4fa}{trModulesList}}()}
+\DoxyCodeLine{1579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}لیست ماژول ها"{}}; \}}
+\DoxyCodeLine{1580 }
+\DoxyCodeLine{1582     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_af5c8699a8b0145943768b40867049c1d}{trModulesListDescription}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1583     \{}
+\DoxyCodeLine{1584       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}لیست ماژول ها به همراه توضیحات کوتاه"{}};}
+\DoxyCodeLine{1585       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1586     \}}
+\DoxyCodeLine{1587 }
+\DoxyCodeLine{1589     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a399c07fbd4495967766dcff6a5fd14e4}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1590                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1591                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1592     \{}
+\DoxyCodeLine{1593       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1594       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1595       \{}
+\DoxyCodeLine{1596         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Module"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1597         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Type"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1598         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1599         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1600         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1601         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1602         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1603         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1604       \}}
+\DoxyCodeLine{1605       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Template"{}};}
+\DoxyCodeLine{1606       result+=\textcolor{stringliteral}{"{} Reference"{}};}
+\DoxyCodeLine{1607       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1608     \}}
+\DoxyCodeLine{1610     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a5afac4f8997767037abc56e9c9205480}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1611     \{}
+\DoxyCodeLine{1612       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1613       result+=\textcolor{stringliteral}{"{} Module Reference"{}};}
+\DoxyCodeLine{1614       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1615     \}}
+\DoxyCodeLine{1616 }
+\DoxyCodeLine{1618     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a77a9115ca4a5c9f88c4f08692a365fb9}{trModulesMembers}}()}
+\DoxyCodeLine{1619     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}اعضاء ماژول"{}}; \}}
+\DoxyCodeLine{1620 }
+\DoxyCodeLine{1622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a7657ea35e8614f527f2fca992d09c321}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1623     \{}
+\DoxyCodeLine{1624       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}لیست اعضاء ماژول ها به همراه مستندات ماژول مربوطه"{}};}
+\DoxyCodeLine{1625       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1626     \}}
+\DoxyCodeLine{1627 }
+\DoxyCodeLine{1631     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a01a3063763784bf67b21bad282c8a914}{trModulesIndex}}()}
+\DoxyCodeLine{1632     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modules Index"{}}; \}}
+\DoxyCodeLine{1633 }
+\DoxyCodeLine{1638     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_aa2d31e99887be189d227e4c58af3bcae}{trModule}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1639     \{}
+\DoxyCodeLine{1640       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}ماژول"{}});}
+\DoxyCodeLine{1641       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{} ها"{}};}
+\DoxyCodeLine{1642       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1643     \}}
+\DoxyCodeLine{1647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8a2a0f314a7b73aafc6b6b56241bbb89}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1648         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1649     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1650       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1651       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}The documentation for this "{}};}
+\DoxyCodeLine{1652       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1653       \{}
+\DoxyCodeLine{1654         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}module"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1655         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}type"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1656         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1657         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1658         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1659         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1660         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1661         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1662       \}}
+\DoxyCodeLine{1663       result+=\textcolor{stringliteral}{"{} was generated from the following file"{}};}
+\DoxyCodeLine{1664       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}s:"{}};}
+\DoxyCodeLine{1665       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1666     \}}
+\DoxyCodeLine{1671     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac61885d4032e8e00d3d96037cccc7959}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1672     \{}
+\DoxyCodeLine{1673       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Type"{}} : \textcolor{stringliteral}{"{}type"{}}));}
+\DoxyCodeLine{1674       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1675       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1676     \}}
+\DoxyCodeLine{1681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a22fb6406f917e03dcaf55e86853d51bc}{trSubprogram}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1682     \{}
+\DoxyCodeLine{1683       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}زیربرنامه"{}});}
+\DoxyCodeLine{1684       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{} ها "{}};}
+\DoxyCodeLine{1685       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1686     \}}
+\DoxyCodeLine{1687 }
+\DoxyCodeLine{1689     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ad49db74cbe27a29d473ac9bd126b04c0}{trTypeConstraints}}()}
+\DoxyCodeLine{1690     \{}
+\DoxyCodeLine{1691       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Type Constraints"{}};}
+\DoxyCodeLine{1692     \}}
+\DoxyCodeLine{1693 }
+\DoxyCodeLine{1695 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1697 \textcolor{comment}{}}
+\DoxyCodeLine{1699     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a8d609c6223fc18d9477569a1f74beefe}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1700     \{}
+\DoxyCodeLine{1701       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name) + \textcolor{stringliteral}{"{} Relation"{}};}
+\DoxyCodeLine{1702     \}}
+\DoxyCodeLine{1703 }
+\DoxyCodeLine{1705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a24ef149e27d80177e7eca6afefa440eb}{trLoading}}()}
+\DoxyCodeLine{1706     \{}
+\DoxyCodeLine{1707       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}در حال بارگذاری..."{}};}
+\DoxyCodeLine{1708     \}}
+\DoxyCodeLine{1709 }
+\DoxyCodeLine{1711     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a74d0965e05e6063668a776e2d02bc954}{trGlobalNamespace}}()}
+\DoxyCodeLine{1712     \{}
+\DoxyCodeLine{1713       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}فضای نام جهانی"{}};}
+\DoxyCodeLine{1714     \}}
+\DoxyCodeLine{1715 }
+\DoxyCodeLine{1717     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_a86abda5f0e1ef23e5453801b8260223f}{trSearching}}()}
+\DoxyCodeLine{1718     \{}
+\DoxyCodeLine{1719       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}در حال جستجو..."{}};}
+\DoxyCodeLine{1720     \}}
+\DoxyCodeLine{1721 }
+\DoxyCodeLine{1723     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_addaea0e6c495cf11ff8454962e1e8376}{trNoMatches}}()}
+\DoxyCodeLine{1724     \{}
+\DoxyCodeLine{1725       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}یافت نشد"{}};}
+\DoxyCodeLine{1726     \}}
+\DoxyCodeLine{1727 }
+\DoxyCodeLine{1729 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1731 \textcolor{comment}{}}
+\DoxyCodeLine{1736     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ae454a2a3f76e8fa910fc758fd9f17698}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1737     \{}
+\DoxyCodeLine{1738       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}پرونده ای در "{}}+name;}
+\DoxyCodeLine{1739     \}}
+\DoxyCodeLine{1740 }
+\DoxyCodeLine{1745     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_acbf49af95e26239b803cef149cfa80f5}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1746     \{}
+\DoxyCodeLine{1747       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Includes file in "{}}+name;}
+\DoxyCodeLine{1748     \}}
+\DoxyCodeLine{1749 }
+\DoxyCodeLine{1760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorPersian_ac226f015b06ad5461d33f2faaabb8143}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1761                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1762                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1763     \{}
+\DoxyCodeLine{1764       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}دوشنبه"{}},\textcolor{stringliteral}{"{}سه‌شنبه"{}},\textcolor{stringliteral}{"{}چهارشنبه"{}},\textcolor{stringliteral}{"{}پنجشنبه"{}},\textcolor{stringliteral}{"{}جمعه"{}},\textcolor{stringliteral}{"{}شنبه"{}},\textcolor{stringliteral}{"{}یکشنبه"{}} \};}
+\DoxyCodeLine{1765       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}ژانویه"{}},\textcolor{stringliteral}{"{}فوریه"{}},\textcolor{stringliteral}{"{}مارس"{}},\textcolor{stringliteral}{"{}آوریل"{}},\textcolor{stringliteral}{"{}می"{}},\textcolor{stringliteral}{"{}جون"{}},\textcolor{stringliteral}{"{}جولای"{}},\textcolor{stringliteral}{"{}آگوست"{}},\textcolor{stringliteral}{"{}سپتامبر"{}},\textcolor{stringliteral}{"{}اکتبر"{}},\textcolor{stringliteral}{"{}نوامبر"{}},\textcolor{stringliteral}{"{}دسامبر"{}} \};}
+\DoxyCodeLine{1766       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1767       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%d \%s \%d"{}},days[dayOfWeek-\/1],day,months[month-\/1],year);}
+\DoxyCodeLine{1768       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1769       \{}
+\DoxyCodeLine{1770         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1771         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1772         sdate+=stime;}
+\DoxyCodeLine{1773       \}}
+\DoxyCodeLine{1774       \textcolor{keywordflow}{return} convertDigitsToFarsi(sdate);}
+\DoxyCodeLine{1775     \}}
+\DoxyCodeLine{1776 }
+\DoxyCodeLine{1777 \};}
+\DoxyCodeLine{1778 }
+\DoxyCodeLine{1779 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,174 @@
+\hypertarget{defargs_8l}{}\doxysection{/mnt/c/projects/doxygen/src/defargs.l File Reference}
+\label{defargs_8l}\index{/mnt/c/projects/doxygen/src/defargs.l@{/mnt/c/projects/doxygen/src/defargs.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for defargs.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdefargsYY__state}{defargs\+YY\+\_\+state}}
+\item 
+class \mbox{\hyperlink{classKeywordHash}{Keyword\+Hash}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{defargs_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{defargs_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\item 
+\#define \mbox{\hyperlink{defargs_8l_adbe0797eba7c28545d6937f8f6bf1cf8}{LEX\+\_\+\+NO\+\_\+\+INPUT\+\_\+\+FILENAME}}
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a120c1ed986c6271250e689887e765840}{TOTAL\+\_\+\+KEYWORDS}}~28
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a7073af2fa16b860b734ab4554eacf3c3}{MIN\+\_\+\+WORD\+\_\+\+LENGTH}}~3
+\item 
+\#define \mbox{\hyperlink{defargs_8l_aec7b4994021c554c1761ea31d016b680}{MAX\+\_\+\+WORD\+\_\+\+LENGTH}}~9
+\item 
+\#define \mbox{\hyperlink{defargs_8l_a18a21935276b7118f4116df1ee70e3c9}{MIN\+\_\+\+HASH\+\_\+\+VALUE}}~3
+\item 
+\#define \mbox{\hyperlink{defargs_8l_adcb5e53d22730cfbca1e27236cd11aff}{MAX\+\_\+\+HASH\+\_\+\+VALUE}}~48
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{defargs_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{defargs_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ \mbox{\hyperlink{defargs_8l_adcc79fb659af7f9b25501a5c166cea53}{string\+To\+Argument\+List}} (\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, const \mbox{\hyperlink{classQCString}{QCString}} \&args\+String, \mbox{\hyperlink{classQCString}{QCString}} $\ast$extra\+Type\+Chars)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This scanner is used to convert a string into a list of function or template arguments. Each parsed argument results in a \mbox{\hyperlink{structArgument}{Argument}} struct, that is put into an \mbox{\hyperlink{classArgumentList}{Argument\+List}} in declaration order. Comment blocks for arguments can also be included in the string. The argument string does not contain new-\/lines (except inside any comment blocks). An \mbox{\hyperlink{structArgument}{Argument}} consists of the string fields\+: type,name,default value, and documentation The \mbox{\hyperlink{structArgument}{Argument}} list as a whole can be pure, constant or volatile.
+
+Examples of input strings are\+: \begin{DoxyVerb}*    "(int a,int b) const"
+*    "(const char *s="hello world",int=5) = 0"
+*    "<class T,class N>"
+*    "(char c,const char)"
+*  \end{DoxyVerb}
+
+
+Note\+: It is not always possible to distinguish between the name and type of an argument. In case of doubt the name is added to the type, and the match\+Argument\+List in \mbox{\hyperlink{util_8cpp}{util.\+cpp}} is be used to further determine the correct separation. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{defargs_8l_adbe0797eba7c28545d6937f8f6bf1cf8}\label{defargs_8l_adbe0797eba7c28545d6937f8f6bf1cf8}} 
+\index{defargs.l@{defargs.l}!LEX\_NO\_INPUT\_FILENAME@{LEX\_NO\_INPUT\_FILENAME}}
+\index{LEX\_NO\_INPUT\_FILENAME@{LEX\_NO\_INPUT\_FILENAME}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{LEX\_NO\_INPUT\_FILENAME}{LEX\_NO\_INPUT\_FILENAME}}
+{\footnotesize\ttfamily \#define LEX\+\_\+\+NO\+\_\+\+INPUT\+\_\+\+FILENAME}
+
+\mbox{\Hypertarget{defargs_8l_adcb5e53d22730cfbca1e27236cd11aff}\label{defargs_8l_adcb5e53d22730cfbca1e27236cd11aff}} 
+\index{defargs.l@{defargs.l}!MAX\_HASH\_VALUE@{MAX\_HASH\_VALUE}}
+\index{MAX\_HASH\_VALUE@{MAX\_HASH\_VALUE}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{MAX\_HASH\_VALUE}{MAX\_HASH\_VALUE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+HASH\+\_\+\+VALUE~48}
+
+\mbox{\Hypertarget{defargs_8l_aec7b4994021c554c1761ea31d016b680}\label{defargs_8l_aec7b4994021c554c1761ea31d016b680}} 
+\index{defargs.l@{defargs.l}!MAX\_WORD\_LENGTH@{MAX\_WORD\_LENGTH}}
+\index{MAX\_WORD\_LENGTH@{MAX\_WORD\_LENGTH}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{MAX\_WORD\_LENGTH}{MAX\_WORD\_LENGTH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+WORD\+\_\+\+LENGTH~9}
+
+\mbox{\Hypertarget{defargs_8l_a18a21935276b7118f4116df1ee70e3c9}\label{defargs_8l_a18a21935276b7118f4116df1ee70e3c9}} 
+\index{defargs.l@{defargs.l}!MIN\_HASH\_VALUE@{MIN\_HASH\_VALUE}}
+\index{MIN\_HASH\_VALUE@{MIN\_HASH\_VALUE}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{MIN\_HASH\_VALUE}{MIN\_HASH\_VALUE}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+HASH\+\_\+\+VALUE~3}
+
+\mbox{\Hypertarget{defargs_8l_a7073af2fa16b860b734ab4554eacf3c3}\label{defargs_8l_a7073af2fa16b860b734ab4554eacf3c3}} 
+\index{defargs.l@{defargs.l}!MIN\_WORD\_LENGTH@{MIN\_WORD\_LENGTH}}
+\index{MIN\_WORD\_LENGTH@{MIN\_WORD\_LENGTH}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{MIN\_WORD\_LENGTH}{MIN\_WORD\_LENGTH}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+WORD\+\_\+\+LENGTH~3}
+
+\mbox{\Hypertarget{defargs_8l_a120c1ed986c6271250e689887e765840}\label{defargs_8l_a120c1ed986c6271250e689887e765840}} 
+\index{defargs.l@{defargs.l}!TOTAL\_KEYWORDS@{TOTAL\_KEYWORDS}}
+\index{TOTAL\_KEYWORDS@{TOTAL\_KEYWORDS}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{TOTAL\_KEYWORDS}{TOTAL\_KEYWORDS}}
+{\footnotesize\ttfamily \#define TOTAL\+\_\+\+KEYWORDS~28}
+
+\mbox{\Hypertarget{defargs_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{defargs_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{defargs.l@{defargs.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{defargs_8l_aacfdca45fa4beb8b06172525a53c424a}\label{defargs_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{defargs.l@{defargs.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{defargs_8l_a85523a0c7d95c059d251b4e9829947aa}\label{defargs_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{defargs.l@{defargs.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{defargs_8l_ae78ac56cd1f29572e967ed7636952d15}\label{defargs_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{defargs.l@{defargs.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{defargs_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{defargs_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{defargs.l@{defargs.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{defargs_8l_a9484188abbc459dafcbd4c96425fa70b}\label{defargs_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{defargs.l@{defargs.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{defargs_8l_adcc79fb659af7f9b25501a5c166cea53}\label{defargs_8l_adcc79fb659af7f9b25501a5c166cea53}} 
+\index{defargs.l@{defargs.l}!stringToArgumentList@{stringToArgumentList}}
+\index{stringToArgumentList@{stringToArgumentList}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{stringToArgumentList()}{stringToArgumentList()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ string\+To\+Argument\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{args\+String,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} $\ast$}]{extra\+Type\+Chars }\end{DoxyParamCaption})}
+
+Converts an argument string into an \mbox{\hyperlink{classArgumentList}{Argument\+List}}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lang} & language of the current argument list \\
+\hline
+\mbox{\texttt{ in}}  & {\em args\+String} & the list of Arguments. \\
+\hline
+\mbox{\texttt{ out}}  & {\em extra\+Type\+Chars} & point to string to which trailing characters for complex types are written to \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{defargs_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{defargs_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{defargs.l@{defargs.l}!yylex@{yylex}}
+\index{yylex@{yylex}!defargs.l@{defargs.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+

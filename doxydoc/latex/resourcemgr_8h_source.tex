@@ -1,0 +1,63 @@
+\hypertarget{resourcemgr_8h_source}{}\doxysection{resourcemgr.\+h}
+\label{resourcemgr_8h_source}\index{/mnt/c/projects/doxygen/src/resourcemgr.h@{/mnt/c/projects/doxygen/src/resourcemgr.h}}
+\mbox{\hyperlink{resourcemgr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef RESOURCEMGR\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define RESOURCEMGR\_H}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{24 \textcolor{keyword}{struct }\mbox{\hyperlink{structResource}{Resource}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26   \textcolor{keyword}{enum} \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382e}{Type}} \{ \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382eaf197aa4cab57b5ab94f906de74015e27}{Verbatim}}, \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382ea2299c5780439f9fdb61c832e9fcbc242}{Luminance}}, \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382ead65c2cc7ea99cfab02ab5f4ef4663229}{LumAlpha}}, \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382ea29ef0680eea5f373388c8ead45694fd7}{CSS}}, \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382eabb7175dffd36169ed5e9dedf6e508bdf}{SVG}} \};}
+\DoxyCodeLine{27   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structResource_a8bbbf27d6106005f06d12e1489457188}{category}};}
+\DoxyCodeLine{28   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structResource_a0695b8faedc32497170802bea7cf8ac7}{name}};}
+\DoxyCodeLine{29   \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structResource_ac5775d3448fb9ed16c0ec90dbed87a71}{data}};}
+\DoxyCodeLine{30   \textcolor{keywordtype}{int} \mbox{\hyperlink{structResource_a0f8739be95e0d934239663ea7551060b}{size}};}
+\DoxyCodeLine{31   \mbox{\hyperlink{structResource_abde5e686869a8c7241557d18033b382e}{Type}} \mbox{\hyperlink{structResource_ae73282ad08d3c990c8a0ff353e231ab3}{type}};}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classResourceMgr}{ResourceMgr}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37   \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \textcolor{keyword}{static} \mbox{\hyperlink{classResourceMgr}{ResourceMgr}} \&\mbox{\hyperlink{classResourceMgr_a02fb3176893696eaf659d680c8b08064}{instance}}();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classResourceMgr_af1f39af9986eadf7af87bdc52e607f0e}{registerResources}}(std::initializer\_list<Resource> resources);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classResourceMgr_a64d65000b297d313a09e4c1cca1f17e0}{writeCategory}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&categoryName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&targetDir) \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classResourceMgr_a32b8297da656a43a255a3a1b27c210b9}{copyResource}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&targetDir) \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classResourceMgr_ad396917a059d354b1ff240b9af3a006c}{copyResourceAs}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&targetDir,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&targetName, \textcolor{keywordtype}{bool} append=\textcolor{keyword}{false}) \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classResourceMgr_aa60ef164e79a11cfa31de29221db11aa}{getAsString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keyword}{private}:}
+\DoxyCodeLine{58     \textcolor{keyword}{const} \mbox{\hyperlink{structResource}{Resource}} *get(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \mbox{\hyperlink{classResourceMgr}{ResourceMgr}}();}
+\DoxyCodeLine{61    \mbox{\hyperlink{classResourceMgr}{\string~ResourceMgr}}();}
+\DoxyCodeLine{62     \textcolor{keyword}{class }\mbox{\hyperlink{classResourceMgr_1_1Private}{Private}};}
+\DoxyCodeLine{63     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

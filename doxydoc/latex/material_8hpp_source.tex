@@ -1,0 +1,47 @@
+\hypertarget{material_8hpp_source}{}\doxysection{material.\+hpp}
+\label{material_8hpp_source}\index{utilities/include/material.hpp@{utilities/include/material.hpp}}
+\mbox{\hyperlink{material_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MATERIAL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MATERIAL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vec3_8hpp}{vec3.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{maths_8hpp}{maths.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{hittable_8hpp}{hittable.hpp}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{structhitRecord}{hitRecord}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classMaterial}{Material}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMaterial_a823ad478f98bf40292b9932f7f25e2ef}{scatter}}(\mbox{\hyperlink{classRay}{Ray}}\& rIn, \mbox{\hyperlink{structhitRecord}{hitRecord}}\& rec, \mbox{\hyperlink{classvec3}{color}}\& attenuation, \mbox{\hyperlink{classRay}{Ray}}\& scattered) =0;}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classLambertian}{Lambertian}}: \textcolor{keyword}{public} \mbox{\hyperlink{classMaterial}{Material}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{classLambertian_afeec4e588057754e79668828c809ba6b}{Lambertian}}(\mbox{\hyperlink{classvec3}{color}} a): \mbox{\hyperlink{classLambertian_ae154311fc98ee88f53b177bd933fc077}{albedo}}(a)\{\}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLambertian_aa6d9b1a36c58682bd24330b5d7f685cb}{scatter}}(\mbox{\hyperlink{classRay}{Ray}}\& rIn ,\mbox{\hyperlink{structhitRecord}{hitRecord}}\& rec, \mbox{\hyperlink{classvec3}{color}}\& attenuation, \mbox{\hyperlink{classRay}{Ray}}\& scattered) \textcolor{keyword}{override};}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         \mbox{\hyperlink{classvec3}{color}} \mbox{\hyperlink{classLambertian_ae154311fc98ee88f53b177bd933fc077}{albedo}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classMetal}{Metal}}: \textcolor{keyword}{public}  \mbox{\hyperlink{classMaterial}{Material}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     }
+\DoxyCodeLine{32     \mbox{\hyperlink{classMetal_a8a4360e60f185a082182c48e622a6a3f}{Metal}}(\mbox{\hyperlink{classvec3}{color}} a): \mbox{\hyperlink{classMetal_a58c13d7d626ae4ae78e2040711289767}{albedo}}(a)\{\}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMetal_a5466920048d55f39e0185a9906e239ab}{scatter}}( \mbox{\hyperlink{classRay}{Ray}}\& rIn ,\mbox{\hyperlink{structhitRecord}{hitRecord}}\& rec, \mbox{\hyperlink{classvec3}{color}}\& attenuation, \mbox{\hyperlink{classRay}{Ray}}\& scattered) \textcolor{keyword}{override};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{classvec3}{color}} \mbox{\hyperlink{classMetal_a58c13d7d626ae4ae78e2040711289767}{albedo}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,64 @@
+\hypertarget{cite_8h_source}{}\doxysection{cite.\+h}
+\label{cite_8h_source}\index{/mnt/c/projects/doxygen/src/cite.h@{/mnt/c/projects/doxygen/src/cite.h}}
+\mbox{\hyperlink{cite_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 2020 by Dimitri van Heesch}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Based on a patch by David Munger}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{7 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{8 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{9 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{10 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{13 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ */}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef CITE\_H}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define CITE\_H}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structCiteInfo}{CiteInfo}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \mbox{\hyperlink{structCiteInfo_ae3db077b33adfc490036d8d7685c2ddb}{\string~CiteInfo}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structCiteInfo_a73b0f4274d2fcf8f2486f0178203d369}{label}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structCiteInfo_a529432d49773c937493ebfedcdb27cbb}{text}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{classCitationManager}{CitationManager}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39   \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \textcolor{keyword}{static} \mbox{\hyperlink{classCitationManager}{CitationManager}} \&\mbox{\hyperlink{classCitationManager_a4934f7fbd6a387b7cc2ea0a12a2e04b5}{instance}}();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCitationManager_acbc101ba2926c6324a479b572ff3c377}{insert}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{48     \textcolor{keyword}{const} \mbox{\hyperlink{structCiteInfo}{CiteInfo}} *\mbox{\hyperlink{classCitationManager_a2904843bbc4e5d707386d5dce049692e}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label) \textcolor{keyword}{const};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCitationManager_aeea4b3347215e1eb97b639c96a1dcadd}{generatePage}}();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCitationManager_a5064df0802f4ce881cbe5d1d9757cc86}{clear}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCitationManager_ade88ab31021df991b8f2b6b31e9c24e4}{isEmpty}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{62     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classCitationManager_a37a4055f986c73a8de48cd5d19bdd2dc}{latexBibFiles}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classCitationManager_ade05cab342d2aec59e05a3b7ec166a19}{fileName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{65     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classCitationManager_a10ba17e783f502c2998a7432c84fd462}{anchorPrefix}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keyword}{private}:}
+\DoxyCodeLine{69     \mbox{\hyperlink{classCitationManager}{CitationManager}}();}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} insertCrossReferencesForBibFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&bibFile);}
+\DoxyCodeLine{71     \textcolor{keyword}{struct }\mbox{\hyperlink{structCitationManager_1_1Private}{Private}};}
+\DoxyCodeLine{72     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CITE\_H}}
+
+\end{DoxyCode}

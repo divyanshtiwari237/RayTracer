@@ -1,0 +1,111 @@
+\hypertarget{classreg_1_1Match}{}\doxysection{reg\+::Match Class Reference}
+\label{classreg_1_1Match}\index{reg::Match@{reg::Match}}
+
+
+{\ttfamily \#include $<$regex.\+h$>$}
+
+
+
+Collaboration diagram for reg\+::Match\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreg_1_1Match_a37a5c2911063058b342cc51cb480c85e}{Match}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classreg_1_1Match_a8ef72503a2d2337b2f594839ea10c819}{position}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classreg_1_1Match_ad3ac6e9dcc408056ba2e32861da9294e}{length}} () const
+\item 
+std\+::string \mbox{\hyperlink{classreg_1_1Match_a97649b62cb59c9a30ce309559ad0f818}{str}} () const
+\item 
+\mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} \mbox{\hyperlink{classreg_1_1Match_a8b332adf8f8813fda1d938314c92dfb8}{prefix}} () const
+\item 
+\mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} \mbox{\hyperlink{classreg_1_1Match_ab2301e49e73b68b27e4825fc38e04d41}{suffix}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classreg_1_1Match_a89c66a7065ac811107702a905b37da11}{size}} () const
+\item 
+const \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} \& \mbox{\hyperlink{classreg_1_1Match_a8320717bb5a3371ce6aa32dc0e5a8f39}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t index) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classreg_1_1Match_a0ce15d3df1c5aa85342f8949e00a8287}{Ex}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object representing the matching results. It consists of an array of \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} objects. The first entry of the array represents the whole match, any next elements represent each of the capture ranges.
+
+For example string {\ttfamily @42} and expression {\ttfamily @(\textbackslash{}\textbackslash{}d+)} will have two Submatches, match\mbox{[}0\mbox{]} will point to the input string as a whole, and match\mbox{[}1\mbox{]} will point to the number 42 only. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreg_1_1Match_a37a5c2911063058b342cc51cb480c85e}\label{classreg_1_1Match_a37a5c2911063058b342cc51cb480c85e}} 
+\index{reg::Match@{reg::Match}!Match@{Match}}
+\index{Match@{Match}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{Match()}{Match()}}
+{\footnotesize\ttfamily reg\+::\+Match\+::\+Match (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates an empty match object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreg_1_1Match_ad3ac6e9dcc408056ba2e32861da9294e}\label{classreg_1_1Match_ad3ac6e9dcc408056ba2e32861da9294e}} 
+\index{reg::Match@{reg::Match}!length@{length}}
+\index{length@{length}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily size\+\_\+t reg\+::\+Match\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the position of the match or std\+::string\+::npos if no length is set. \mbox{\Hypertarget{classreg_1_1Match_a8320717bb5a3371ce6aa32dc0e5a8f39}\label{classreg_1_1Match_a8320717bb5a3371ce6aa32dc0e5a8f39}} 
+\index{reg::Match@{reg::Match}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} \& reg\+::\+Match\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the n-\/th \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} object. Note that there is always 1 \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} object representing the whole match. \mbox{\Hypertarget{classreg_1_1Match_a8ef72503a2d2337b2f594839ea10c819}\label{classreg_1_1Match_a8ef72503a2d2337b2f594839ea10c819}} 
+\index{reg::Match@{reg::Match}!position@{position}}
+\index{position@{position}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily size\+\_\+t reg\+::\+Match\+::position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the position of the match or std\+::string\+::npos if no position is set. \mbox{\Hypertarget{classreg_1_1Match_a8b332adf8f8813fda1d938314c92dfb8}\label{classreg_1_1Match_a8b332adf8f8813fda1d938314c92dfb8}} 
+\index{reg::Match@{reg::Match}!prefix@{prefix}}
+\index{prefix@{prefix}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{prefix()}{prefix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} reg\+::\+Match\+::prefix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the part of the string before the match Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classreg_1_1Match_a89c66a7065ac811107702a905b37da11}\label{classreg_1_1Match_a89c66a7065ac811107702a905b37da11}} 
+\index{reg::Match@{reg::Match}!size@{size}}
+\index{size@{size}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t reg\+::\+Match\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of sub matches available in this match. \mbox{\Hypertarget{classreg_1_1Match_a97649b62cb59c9a30ce309559ad0f818}\label{classreg_1_1Match_a97649b62cb59c9a30ce309559ad0f818}} 
+\index{reg::Match@{reg::Match}!str@{str}}
+\index{str@{str}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string reg\+::\+Match\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return a string representing the matching part. \mbox{\Hypertarget{classreg_1_1Match_ab2301e49e73b68b27e4825fc38e04d41}\label{classreg_1_1Match_ab2301e49e73b68b27e4825fc38e04d41}} 
+\index{reg::Match@{reg::Match}!suffix@{suffix}}
+\index{suffix@{suffix}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{suffix()}{suffix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classreg_1_1SubMatch}{Sub\+Match}} reg\+::\+Match\+::suffix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the part of the string after the match Here is the call graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classreg_1_1Match_a0ce15d3df1c5aa85342f8949e00a8287}\label{classreg_1_1Match_a0ce15d3df1c5aa85342f8949e00a8287}} 
+\index{reg::Match@{reg::Match}!Ex@{Ex}}
+\index{Ex@{Ex}!reg::Match@{reg::Match}}
+\doxysubsubsection{\texorpdfstring{Ex}{Ex}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classreg_1_1Ex}{Ex}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{regex_8h}{regex.\+h}}\end{DoxyCompactItemize}

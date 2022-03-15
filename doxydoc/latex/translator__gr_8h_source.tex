@@ -1,0 +1,1780 @@
+\hypertarget{translator__gr_8h_source}{}\doxysection{translator\+\_\+gr.\+h}
+\label{translator__gr_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_gr.h@{/mnt/c/projects/doxygen/src/translator\_gr.h}}
+\mbox{\hyperlink{translator__gr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2014 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/*}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 15 Dec 2001 : Translation to greek by}}
+\DoxyCodeLine{20 \textcolor{comment}{ *               Harry Kalogirou <no email>}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 01 Jan 2009 : Greek maintenance by}}
+\DoxyCodeLine{23 \textcolor{comment}{ *               Paul Gessos <gessos.paul@gmail.com>}}
+\DoxyCodeLine{24 \textcolor{comment}{ *}}
+\DoxyCodeLine{25 \textcolor{comment}{ *}}
+\DoxyCodeLine{26 \textcolor{comment}{ * Δουλεύω με C, C++, Java, PHP και Python. Άλλες γλώσσες (π.χ. VHDL) μου είναι}}
+\DoxyCodeLine{27 \textcolor{comment}{ * άγνωστες.}}
+\DoxyCodeLine{28 \textcolor{comment}{ * Αν παρατηρήσετε σφάλματα ΠΑΡΑΚΑΛΩ ΠΟΛΥ επικοινωνήστε μαζί μου.}}
+\DoxyCodeLine{29 \textcolor{comment}{ */}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{/*  English to Greek keyword dictionary}}
+\DoxyCodeLine{32 \textcolor{comment}{    (Many words have more clear meaning in English than Greek)}}
+\DoxyCodeLine{33 \textcolor{comment}{    template -\/> πρότυπο}}
+\DoxyCodeLine{34 \textcolor{comment}{    instance -\/> υπόσταση}}
+\DoxyCodeLine{35 \textcolor{comment}{    module -\/> υπομονάδα}}
+\DoxyCodeLine{36 \textcolor{comment}{    interface -\/> διεπαφή (ενναλλακτικά μπορεί να χρησιμοποιηθεί: διασύνδεση)}}
+\DoxyCodeLine{37 \textcolor{comment}{    singleton -\/> μονοσύνολο}}
+\DoxyCodeLine{38 \textcolor{comment}{    service -\/> υπηρεσία}}
+\DoxyCodeLine{39 \textcolor{comment}{    exception -\/> εξαίρεση}}
+\DoxyCodeLine{40 \textcolor{comment}{    namespace -\/> χώρος ονομάτων}}
+\DoxyCodeLine{41 \textcolor{comment}{    enumeration -\/> απαρίθμηση}}
+\DoxyCodeLine{42 \textcolor{comment}{    concept -\/> έννοια}}
+\DoxyCodeLine{43 \textcolor{comment}{    signal -\/> σήμα}}
+\DoxyCodeLine{44 \textcolor{comment}{    instantiation -\/> ενσάρκωση}}
+\DoxyCodeLine{45 \textcolor{comment}{*/}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_GR\_H}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define TRANSLATOR\_GR\_H}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorGreek}{TranslatorGreek}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslator}{Translator}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53   \textcolor{keyword}{public}:}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad6e96c153aadb9ed725c5180bb9a1141}{idLanguage}}()}
+\DoxyCodeLine{64     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}greek"{}}; \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af5b068593587baa2134e0336aa449e56}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{fontspec\}\(\backslash\)n"{}}}
+\DoxyCodeLine{69              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[greek]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a66a15cb15998bb064abe6851080dc4c5}{trISOLang}}()}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}el"{}};}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7e5ced3b5f25d0c911ad4d6afcdbd2b4}{latexFontenc}}()}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1a866b7500545ee65995bb15b5079a6a}{latexFont}}()}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)setmainfont\{Libertinus Sans\}\(\backslash\)n"{}}}
+\DoxyCodeLine{84              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)setmonofont\{Courier New\}\(\backslash\)n"{}};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{90     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aaa6ef2ace977a5b61b084b7022497793}{trRelatedFunctions}}()}
+\DoxyCodeLine{91     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σχετικές συναρτήσεις"{}}; \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{94     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6bf6b5e060f9899d7867f39953bd1669}{trRelatedSubscript}}()}
+\DoxyCodeLine{95     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Σημειώστε ότι αυτές δεν είναι συναρτήσεις μέλη.)"{}}; \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac8ebc41faf7de8de1d3c8b0f67ec50c6}{trDetailedDescription}}()}
+\DoxyCodeLine{99     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λεπτομερής Περιγραφή"{}}; \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a9933756c915b042df0a1f56acb61ee4a}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{103     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Μελών Ορισμών Τύπων"{}}; \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{106     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad0d81f90ab38c616d625c2e3bfc6120d}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{107     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Απαριθμήσεων Μελών"{}}; \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ada0eb85b90676e184d395511a8ebe262}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{111     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Συναρτήσεων Μελών"{}}; \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{114     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab55e7b1781abf40f4244438c8b2c30bb}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{117       \{}
+\DoxyCodeLine{118         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Πεδίων"{}};}
+\DoxyCodeLine{119       \}}
+\DoxyCodeLine{120       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{121       \{}
+\DoxyCodeLine{122         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Δεδομένων Μελών"{}};}
+\DoxyCodeLine{123       \}}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab1feb11262f8ac7c080d358d9ea372b9}{trMore}}()}
+\DoxyCodeLine{128     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Περισσότερα..."{}}; \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ada67ff2f0fd9f989bcbf71163adff13b}{trListOfAllMembers}}()}
+\DoxyCodeLine{132     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα όλων των μελών"{}}; \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{135     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a643d5a68f002a17ff0a0e8d977e301eb}{trMemberList}}()}
+\DoxyCodeLine{136     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα μελών"{}}; \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a545216f64dd38c43e5f53da7185c24f6}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{140     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί η πλήρης λίστα των μελών της"{}}; \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa70e8195bc5e3a97e754581217f8ce24}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{144     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, περιλαμβανομένων όλων των κληρονομημένων μελών."{}}; \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a37eaf74b98fb2544609e5367c91d7e4f}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{150     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Δημιουργήθηκε αυτόματα από το Doxygen"{}};}
+\DoxyCodeLine{151       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} για "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{152       result+=\textcolor{stringliteral}{"{} από τον πηγαίο κώδικα."{}};}
+\DoxyCodeLine{153       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_add0bebecd3eb4223e44eb3ebbba3afc1}{trEnumName}}()}
+\DoxyCodeLine{158     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}όνομα απαρίθμησης"{}}; \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afd8eaa8133b7945efe82766718a907c0}{trEnumValue}}()}
+\DoxyCodeLine{162     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}τιμή απαρίθμησης"{}}; \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae7e21f38c1855e6e726479933ecc71bc}{trDefinedIn}}()}
+\DoxyCodeLine{166     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ορισμένο στο "{}}; \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2176cdc8c9af22c9b1f996ff482e994b}{trModules}}()}
+\DoxyCodeLine{174     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υπομονάδες"{}}; \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac3fbec508f79dae21937a0268c2bf176}{trClassHierarchy}}()}
+\DoxyCodeLine{178     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχία Κλάσεων"{}}; \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8c7ff45b5ffe928c2a2933152c83dddd}{trCompoundList}}()}
+\DoxyCodeLine{182     \{}
+\DoxyCodeLine{183       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{184       \{}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δομές Δεδομένων"{}};}
+\DoxyCodeLine{186       \}}
+\DoxyCodeLine{187       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{188       \{}
+\DoxyCodeLine{189         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Κλάσεων"{}};}
+\DoxyCodeLine{190       \}}
+\DoxyCodeLine{191     \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_adca938edba09db1d0d70b284a4e3712e}{trFileList}}()}
+\DoxyCodeLine{195     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Αρχείων"{}}; \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{198     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac7c04725fc9fe4eb0e8390c29697d6c3}{trCompoundMembers}}()}
+\DoxyCodeLine{199     \{}
+\DoxyCodeLine{200       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{201       \{}
+\DoxyCodeLine{202         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Δομών Δεδομένων"{}};}
+\DoxyCodeLine{203       \}}
+\DoxyCodeLine{204       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{205       \{}
+\DoxyCodeLine{206         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Κλάσεων"{}};}
+\DoxyCodeLine{207       \}}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a88d4ef183d59d532a1ce0ce3bc96b04d}{trFileMembers}}()}
+\DoxyCodeLine{212     \{}
+\DoxyCodeLine{213       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{214       \{}
+\DoxyCodeLine{215         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Καθολικοί ορισμοί"{}};}
+\DoxyCodeLine{216       \}}
+\DoxyCodeLine{217       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{218       \{}
+\DoxyCodeLine{219         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Αρχείων"{}};}
+\DoxyCodeLine{220       \}}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{224     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae229dd5cc8b9c00e336402ce02da95ae}{trRelatedPages}}()}
+\DoxyCodeLine{225     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σχετικές Σελίδες"{}}; \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{228     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a75dd2ea0dc31e3738676cf56d598a479}{trExamples}}()}
+\DoxyCodeLine{229     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Παραδείγματα"{}}; \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{232     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad1b7dd119aac742f95d86e9af19664e7}{trSearch}}()}
+\DoxyCodeLine{233     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αναζήτηση"{}}; \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{236     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a9848fe30201b92f324a145141406722f}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{237     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αυτή η λίστα κληρονομικότητας είναι μερικώς ταξινομημένη αλφαβητικά:"{}}; \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{240     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3da397b2bd5fd0a3e8055ff4ca6bbbe3}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{241     \{}
+\DoxyCodeLine{242       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθεί μια λίστα όλων των "{}};}
+\DoxyCodeLine{243       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{244       result+=\textcolor{stringliteral}{"{}αρχείων με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{245       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{249     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a807afd594171efe507995437fecbe912}{trCompoundListDescription}}()}
+\DoxyCodeLine{250     \{}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{253       \{}
+\DoxyCodeLine{254         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι δομές δεδομένων με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{255       \}}
+\DoxyCodeLine{256       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{257       \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι κλάσεις με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{259       \}}
+\DoxyCodeLine{260       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{261       \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι κλάσεις, οι δομές, "{}}}
+\DoxyCodeLine{263                \textcolor{stringliteral}{"{}οι ενώσεις και οι διασυνδέσεις με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{264       \}}
+\DoxyCodeLine{265     \}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{268     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6ac2639eb1841db2b53271e76cf0377c}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{269     \{}
+\DoxyCodeLine{270       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθεί η λίστα όλων των "{}};}
+\DoxyCodeLine{271       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{272       \{}
+\DoxyCodeLine{273         result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{274       \}}
+\DoxyCodeLine{275       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{276       \{}
+\DoxyCodeLine{277         result+=\textcolor{stringliteral}{"{}μελών δομών δεδομένων και ενώσεων "{}};}
+\DoxyCodeLine{278       \}}
+\DoxyCodeLine{279       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{280       \{}
+\DoxyCodeLine{281         result+=\textcolor{stringliteral}{"{}κλάσεων"{}};}
+\DoxyCodeLine{282       \}}
+\DoxyCodeLine{283       result+=\textcolor{stringliteral}{"{} με συνδέσμους "{}};}
+\DoxyCodeLine{284       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{285       \{}
+\DoxyCodeLine{286         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{287         \{}
+\DoxyCodeLine{288           result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση των δομών/ενώσεων για κάθε πεδίο:"{}};}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{291         \{}
+\DoxyCodeLine{292           result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση των κλάσεων για κάθε πεδίο:"{}};}
+\DoxyCodeLine{293         \}}
+\DoxyCodeLine{294       \}}
+\DoxyCodeLine{295       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{296       \{}
+\DoxyCodeLine{297         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{298         \{}
+\DoxyCodeLine{299           result+=\textcolor{stringliteral}{"{}στις δομές/ενώσεις που ανήκουν:"{}};}
+\DoxyCodeLine{300         \}}
+\DoxyCodeLine{301         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{302         \{}
+\DoxyCodeLine{303           result+=\textcolor{stringliteral}{"{}στις κλάσεις που ανήκουν:"{}};}
+\DoxyCodeLine{304         \}}
+\DoxyCodeLine{305       \}}
+\DoxyCodeLine{306       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{307     \}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{310     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aab12edf2228a59e9c419d18b66a35841}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{311     \{}
+\DoxyCodeLine{312       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθεί η λίστα όλων των "{}};}
+\DoxyCodeLine{313       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{316       \{}
+\DoxyCodeLine{317         result+=\textcolor{stringliteral}{"{}συναρτήσεων, μεταβλητών, ορισμών, απαριθμήσεων, και ορισμών τύπων"{}};}
+\DoxyCodeLine{318       \}}
+\DoxyCodeLine{319       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{320       \{}
+\DoxyCodeLine{321         result+=\textcolor{stringliteral}{"{}μελών αρχείων"{}};}
+\DoxyCodeLine{322       \}}
+\DoxyCodeLine{323       result+=\textcolor{stringliteral}{"{} με συνδέσμους "{}};}
+\DoxyCodeLine{324       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{325         result+=\textcolor{stringliteral}{"{}στα αρχεία που ανήκουν:"{}};}
+\DoxyCodeLine{326       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{327         result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση:"{}};}
+\DoxyCodeLine{328       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{329     \}}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{332     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a49adb03bcbfb71c475a3668107ab787b}{trExamplesDescription}}()}
+\DoxyCodeLine{333     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί η λίστα με τα παραδείγματα:"{}}; \}}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a01064bad2a5ebc39a3efb3de5d92eba3}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{337     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί η λίστα όλων των σχετικών σελίδων τεκμηρίωσης:"{}}; \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{340     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a48ca418b3d81aa9616e661a8e111a1fc}{trModulesDescription}}()}
+\DoxyCodeLine{341     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί η λίστα όλων των υπομονάδων:"{}}; \}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345 }
+\DoxyCodeLine{347     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa1cf992ba34da1bfa4a82b7eafdc0805}{trDocumentation}}()}
+\DoxyCodeLine{348     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση"{}}; \}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5177542dcd2672621da881ca54bf5a96}{trModuleIndex}}()}
+\DoxyCodeLine{354     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο υπομονάδων"{}}; \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad5ae833189bc03970a6a6e89d1e467a8}{trHierarchicalIndex}}()}
+\DoxyCodeLine{360     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχικό Ευρετήριο"{}}; \}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{365     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aab861363a10aca53a2fb665ffe0787ed}{trCompoundIndex}}()}
+\DoxyCodeLine{366     \{}
+\DoxyCodeLine{367       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{368       \{}
+\DoxyCodeLine{369         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο δομών δεδομένων"{}};}
+\DoxyCodeLine{370       \}}
+\DoxyCodeLine{371       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{372       \{}
+\DoxyCodeLine{373         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συμπαγές Ευρετήριο"{}};}
+\DoxyCodeLine{374       \}}
+\DoxyCodeLine{375     \}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0d250daa1d5b1081dfc1ee500b80301c}{trFileIndex}}()}
+\DoxyCodeLine{381     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Αρχείων"{}}; \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad8b6ccefccf8d6a87af8437148d3156a}{trModuleDocumentation}}()}
+\DoxyCodeLine{387     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Υπομονάδων"{}}; \}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a278d73aa90131d7ac5f893085f9bd44e}{trClassDocumentation}}()}
+\DoxyCodeLine{393     \{}
+\DoxyCodeLine{394       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{395       \{}
+\DoxyCodeLine{396         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Δομών Δεδομένων"{}};}
+\DoxyCodeLine{397       \}}
+\DoxyCodeLine{398       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{399       \{}
+\DoxyCodeLine{400           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorGreek_a026009b579929bdcb8243f834d492aa8}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{401       \}}
+\DoxyCodeLine{402       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{403       \{}
+\DoxyCodeLine{404         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Κλάσεων"{}};}
+\DoxyCodeLine{405       \}}
+\DoxyCodeLine{406     \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{411     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac6d05e86fd82dc01932c65e15962397d}{trFileDocumentation}}()}
+\DoxyCodeLine{412     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Αρχείων"{}}; \}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a13cb9634c1dc8804684f526ac7112400}{trExampleDocumentation}}()}
+\DoxyCodeLine{418     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Παραδειγμάτων"{}}; \}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{421     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a18322b04acc6ec820b3d55ed90f1eacc}{trReferenceManual}}()}
+\DoxyCodeLine{422     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εγχειρίδιο Τεκμηρίωσης"{}}; \}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{427     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa76fcea9156eb62e7f8bc9f5017ab458}{trDefines}}()}
+\DoxyCodeLine{428     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ορισμοί"{}}; \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{433     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5ae744d0289867d766dc5883ac3b3496}{trTypedefs}}()}
+\DoxyCodeLine{434     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ορισμοί Τύπων"{}}; \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{439     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6e2f224959a511e14182e562954df9c2}{trEnumerations}}()}
+\DoxyCodeLine{440     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Απαριθμήσεις"{}}; \}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{445     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3174185269432d1d4de032e309da3dd1}{trFunctions}}()}
+\DoxyCodeLine{446     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συναρτήσεις"{}}; \}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{451     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac66d1f4971d580d34fa95c8f5429bc8b}{trVariables}}()}
+\DoxyCodeLine{452     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μεταβλητές"{}}; \}}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{457     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af751a24fe2f3d4fbb39561736b6ae69c}{trEnumerationValues}}()}
+\DoxyCodeLine{458     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τιμές Απαριθμήσεων"{}}; \}}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7126098408e67d0ba77d683cb85e2384}{trDefineDocumentation}}()}
+\DoxyCodeLine{464     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Ορισμών"{}}; \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{469     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a71d95e4ed45922566dc7f1a7eb554233}{trTypedefDocumentation}}()}
+\DoxyCodeLine{470     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Ορισμών Τύπων"{}}; \}}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{475     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af3c34fa216232353568ce0b9fd902aa5}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{476     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Απαριθμήσεων"{}}; \}}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{481     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a02e6675a5b8fb7c0362a9c874eed394b}{trFunctionDocumentation}}()}
+\DoxyCodeLine{482     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Συναρτήσεων"{}}; \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{487     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5de7ff594f0fa5e5c9ca9d87ede6b0f3}{trVariableDocumentation}}()}
+\DoxyCodeLine{488     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Μεταβλητών"{}}; \}}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{493     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a086a20bfe04ebf6416da1c170b12defb}{trCompounds}}()}
+\DoxyCodeLine{494     \{}
+\DoxyCodeLine{495       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{496       \{}
+\DoxyCodeLine{497         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δομές Δεδομένων"{}};}
+\DoxyCodeLine{498       \}}
+\DoxyCodeLine{499       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{500       \{}
+\DoxyCodeLine{501         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κλάσεις"{}};}
+\DoxyCodeLine{502       \}}
+\DoxyCodeLine{503     \}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a913c66c008a76fca4d73bcb0de1f5915}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{509     \{}
+\DoxyCodeLine{510       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Δημιουργήθηκε στις "{}}+date;}
+\DoxyCodeLine{511       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} για "{}}+projName;}
+\DoxyCodeLine{512       result+=\textcolor{stringliteral}{"{} από"{}};}
+\DoxyCodeLine{513       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{514     \}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{517     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aab1643056adc84d814b1c3d3c742596d}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{518     \{}
+\DoxyCodeLine{519       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διάγραμμα κληρονομικότητας για την "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{520     \}}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{523     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a82cf5aab5f2ce247f5911eba5ddce2fb}{trWarning}}()}
+\DoxyCodeLine{524     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προειδοποίηση"{}}; \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{527     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a32b03703244deaf8a9221b5428f41f57}{trVersion}}()}
+\DoxyCodeLine{528     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Έκδοση"{}}; \}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{531     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a66b91d2c8c37e0d31c33e4e66788e0a7}{trDate}}()}
+\DoxyCodeLine{532     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ημερομηνία"{}}; \}}
+\DoxyCodeLine{533 }
+\DoxyCodeLine{535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8b6770f55ba967c94cfcc1060dfa1dc3}{trReturns}}()}
+\DoxyCodeLine{536     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Επιστρέφει"{}}; \}}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{539     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a37a05671b56d7f57078890b9958bbdbe}{trSeeAlso}}()}
+\DoxyCodeLine{540     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κοιτάξτε επίσης "{}}; \}}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{543     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a650335006e8ec633636e2348ead4e47a}{trParameters}}()}
+\DoxyCodeLine{544     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Παράμετροι"{}}; \}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{547     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5eef51c517972bf9585fb4b6cbd6998f}{trExceptions}}()}
+\DoxyCodeLine{548     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εξαίρεση"{}}; \}}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{551     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a97490b40f9a93f24b17ba9f6957e33d5}{trGeneratedBy}}()}
+\DoxyCodeLine{552     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δημιουργήθηκε από "{}}; \}}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{555 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{557 \textcolor{comment}{}}
+\DoxyCodeLine{559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae1333c6af679d9ec5bae803e5d425ba7}{trNamespaceList}}()}
+\DoxyCodeLine{560     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Χώρων Ονομάτων"{}}; \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{563     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a710f99f08eb348480ec387e6d0711b28}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{564     \{}
+\DoxyCodeLine{565       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθέι η λίστα όλων των "{}};}
+\DoxyCodeLine{566       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{567       result+=\textcolor{stringliteral}{"{}Χώρων Ονομάτων με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{568       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af3fe53c50bd85e7c18823547b25af4d7}{trFriends}}()}
+\DoxyCodeLine{575     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Φίλοι"{}}; \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{578 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{580 \textcolor{comment}{}}
+\DoxyCodeLine{584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6e90d9667c4cf90aa0f8022f2ec74b83}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Φιλικών και Συσχετιζόμενων Συναρτήσεων"{}}; \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{588 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{590 \textcolor{comment}{}}
+\DoxyCodeLine{592     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a48b358581051e307bc1ac62cd4e22dcb}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{593                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{594                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{595     \{}
+\DoxyCodeLine{596       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Τεκμηρίωση"{}};}
+\DoxyCodeLine{597       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Προτύπου"{}};}
+\DoxyCodeLine{598       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{599       \{}
+\DoxyCodeLine{600         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Κλάσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{601         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Δομής "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{602         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Ένωσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{603         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Διεπαφής "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{604         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Πρωτοκόλλου "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{605         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Κατηγορίας "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{606         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Εξαίρεσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{607         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{608       \}}
+\DoxyCodeLine{609       result+=clName;}
+\DoxyCodeLine{610       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{611     \}}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{614     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a525ab7f727dd39f74af1da77dbb6dbb9}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{615     \{}
+\DoxyCodeLine{616       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Τεκμηρίωση Αρχείου "{}};}
+\DoxyCodeLine{617       result+=fileName;}
+\DoxyCodeLine{618       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{619     \}}
+\DoxyCodeLine{620 }
+\DoxyCodeLine{622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afa14e30e745d33ca743e8fdc426efc42}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{623     \{}
+\DoxyCodeLine{624       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Τεκμηρίωση Χώρου Ονομάτων "{}};}
+\DoxyCodeLine{625       result+=namespaceName;}
+\DoxyCodeLine{626       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{627     \}}
+\DoxyCodeLine{628 }
+\DoxyCodeLine{629     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af9f36d6769dc9d255aa2687f358c0b92}{trPublicMembers}}()}
+\DoxyCodeLine{630     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δημόσιες Μέθοδοι"{}}; \}}
+\DoxyCodeLine{631     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a867bf231be11dd813d69e9969b8a647b}{trPublicSlots}}()}
+\DoxyCodeLine{632     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δημόσιες Υποδοχές"{}}; \}}
+\DoxyCodeLine{633     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3736e4f7acff83054e5b565bedec14d7}{trSignals}}()}
+\DoxyCodeLine{634     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σήματα"{}}; \}}
+\DoxyCodeLine{635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a72101f89ae18fb27acc6c252e1092b80}{trStaticPublicMembers}}()}
+\DoxyCodeLine{636     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικές Δημόσιες Μέθοδοι"{}}; \}}
+\DoxyCodeLine{637     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae0f69a50729e3b890705382639a5fddf}{trProtectedMembers}}()}
+\DoxyCodeLine{638     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προστατευμένες Μέθοδοι"{}}; \}}
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a51076f8c36095ff863ed2d01c08efd45}{trProtectedSlots}}()}
+\DoxyCodeLine{640     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προστατευμένες Υποδοχές"{}}; \}}
+\DoxyCodeLine{641     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a13bc70a944399d1bfe6d64100c418651}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{642     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικές Προστατευμένες Μέθοδοι"{}}; \}}
+\DoxyCodeLine{643     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aab238b3e55323ea12db6ae70777f4718}{trPrivateMembers}}()}
+\DoxyCodeLine{644     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιωτικές Μέθοδοι"{}}; \}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a484b71536f89a109d9080701c95b0639}{trPrivateSlots}}()}
+\DoxyCodeLine{646     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιωτικές Υποδοχές"{}}; \}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aff413fec06f6e2c28a0b677f0fdb05d7}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{648     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικές Ιδιωτικές Μέθοδοι"{}}; \}}
+\DoxyCodeLine{649 }
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{654     \{}
+\DoxyCodeLine{655       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{656       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{657       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{658       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{659       \{}
+\DoxyCodeLine{660         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{661         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{662                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{664         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{665         \{}
+\DoxyCodeLine{666           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{667             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{668           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{669             result+=\textcolor{stringliteral}{"{}, και "{}};}
+\DoxyCodeLine{670         \}}
+\DoxyCodeLine{671       \}}
+\DoxyCodeLine{672       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{673     \}}
+\DoxyCodeLine{674 }
+\DoxyCodeLine{678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6a9bd657b94b41190ccd80bdcd261f25}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{679     \{}
+\DoxyCodeLine{680       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Κληρονομεί "{}})+(numEntries==1?\textcolor{stringliteral}{"{}την "{}}:\textcolor{stringliteral}{"{}τις "{}})+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{681     \}}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a27fc0764a3c58e99d12159432a7f38cb}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{687     \{}
+\DoxyCodeLine{688       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Κληρονομείται από "{}})+(numEntries==1?\textcolor{stringliteral}{"{}την "{}}:\textcolor{stringliteral}{"{}τις "{}})+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{689     \}}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1b4f84ad052156793fc5e4005a40685e}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{695     \{}
+\DoxyCodeLine{696       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Επαναϋλοποιείται από "{}})+(numEntries==1?\textcolor{stringliteral}{"{}την "{}}:\textcolor{stringliteral}{"{}τις "{}})+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{697     \}}
+\DoxyCodeLine{698 }
+\DoxyCodeLine{702     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad886eac93bffb6854142e9af86919563}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{703     \{}
+\DoxyCodeLine{704       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Επαναϋλοποιείται "{}})+(numEntries==1?\textcolor{stringliteral}{"{}στην "{}}:\textcolor{stringliteral}{"{}στις "{}})+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{705     \}}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8974604fd14909af39fd8269edc90b79}{trNamespaceMembers}}()}
+\DoxyCodeLine{709     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Χώρου Ονομάτων"{}}; \}}
+\DoxyCodeLine{710 }
+\DoxyCodeLine{712     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1db58f872d81040b982f13486375bab3}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{713     \{}
+\DoxyCodeLine{714       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθεί η λίστα όλων των "{}};}
+\DoxyCodeLine{715       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{716       result+=\textcolor{stringliteral}{"{}μελών χώρων ονομάτων με συνδέσμους "{}};}
+\DoxyCodeLine{717       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{718         result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση του χώρου ονομάτων για κάθε μέλος:"{}};}
+\DoxyCodeLine{719       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{720         result+=\textcolor{stringliteral}{"{}στους χώρους ονομάτων που ανήκουν:"{}};}
+\DoxyCodeLine{721       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{722     \}}
+\DoxyCodeLine{726     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aadd8a53b4412e5d98e3ce677de665815}{trNamespaceIndex}}()}
+\DoxyCodeLine{727     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Χώρων Ονομάτων"{}}; \}}
+\DoxyCodeLine{728 }
+\DoxyCodeLine{732     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a05b26b5fada7f317227a4fd2fcc76b00}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{733     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Χώρων Ονομάτων"{}}; \}}
+\DoxyCodeLine{734 }
+\DoxyCodeLine{736 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{738 \textcolor{comment}{}}
+\DoxyCodeLine{742     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a837c963b7763a2bbf4ffdd3c347d01ba}{trNamespaces}}()}
+\DoxyCodeLine{743     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Χώροι Ονομάτων"{}}; \}}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{746 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{748 \textcolor{comment}{}}
+\DoxyCodeLine{752     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae5d424334b6cf190a6558e37b3f64e66}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{753         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{754     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{755       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{756       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Η τεκμηρίωση για "{}};}
+\DoxyCodeLine{757       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{758       \{}
+\DoxyCodeLine{759         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}αυτή την κλάση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{760         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}αυτή τη δομή"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{761         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}αυτή την ένωση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{762         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}αυτή τη διεπαφή"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{763         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}αυτό το πρωτόκολλο"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{764         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}αυτή την κατηγορία"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{765         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}αυτή την εξαίρεση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{766         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{767       \}}
+\DoxyCodeLine{768       result+=\textcolor{stringliteral}{"{} δημιουργήθηκε από "{}};}
+\DoxyCodeLine{769       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}το ακόλουθο αρχείο:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}τα ακόλουθα αρχεία:"{}};}
+\DoxyCodeLine{770       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{771     \}}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{774 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{776 \textcolor{comment}{}}
+\DoxyCodeLine{778     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad1259d069425e4f8ce5126966b31f447}{trReturnValues}}()}
+\DoxyCodeLine{779     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τιμές Επιστροφής"{}}; \}}
+\DoxyCodeLine{780 }
+\DoxyCodeLine{783     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1a8c7b3c8fb2f74bea7206a45b3dfaae}{trMainPage}}()}
+\DoxyCodeLine{784     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κύρια Σελίδα"{}}; \}}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{789     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3b1dea6a2273f2630cf2712af37938a0}{trPageAbbreviation}}()}
+\DoxyCodeLine{790     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}σελ."{}}; \}}
+\DoxyCodeLine{791 }
+\DoxyCodeLine{793 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{795 \textcolor{comment}{}}
+\DoxyCodeLine{796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3f6d419d244f211a2eda0bab80adbd9c}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{797     \{}
+\DoxyCodeLine{798       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ορισμός στη γραμμή @0 του αρχείου @1."{}};}
+\DoxyCodeLine{799     \}}
+\DoxyCodeLine{800     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aefabf36bfe9652e31953874e7585f4cf}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{801     \{}
+\DoxyCodeLine{802       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ορισμός στο αρχείο @0."{}};}
+\DoxyCodeLine{803     \}}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{806 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{808 \textcolor{comment}{}}
+\DoxyCodeLine{809     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae8c125f89492e3ececf7eba6d3d04e79}{trDeprecated}}()}
+\DoxyCodeLine{810     \{}
+\DoxyCodeLine{811       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αποσυρμένο"{}};}
+\DoxyCodeLine{812     \}}
+\DoxyCodeLine{813 }
+\DoxyCodeLine{815 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{817 \textcolor{comment}{}}
+\DoxyCodeLine{819     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a716f11f58039203be9707d1da07d5f14}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{820     \{}
+\DoxyCodeLine{821       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διάγραμμα Συνεργασίας για την κλάση "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{822     \}}
+\DoxyCodeLine{824     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a611d1d0086a980649a363a30f223c8d6}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{825     \{}
+\DoxyCodeLine{826       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διάγραμμα εξάρτησης αρχείου συμπερίληψης για το "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{827     \}}
+\DoxyCodeLine{829     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a407ce909b6f54b042b82697a21e1cac7}{trConstructorDocumentation}}()}
+\DoxyCodeLine{830     \{}
+\DoxyCodeLine{831       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Constructor \& Destructor"{}};}
+\DoxyCodeLine{832     \}}
+\DoxyCodeLine{834     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aea1f7a75598561ebdcc8b400451548e0}{trGotoSourceCode}}()}
+\DoxyCodeLine{835     \{}
+\DoxyCodeLine{836       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πήγαινε στον πηγαίο κώδικα του αρχείου."{}};}
+\DoxyCodeLine{837     \}}
+\DoxyCodeLine{839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ada7b8649bb7ee14feafe5ed80064e83a}{trGotoDocumentation}}()}
+\DoxyCodeLine{840     \{}
+\DoxyCodeLine{841       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πήγαινε στην τεκμηρίωση του αρχείου."{}};}
+\DoxyCodeLine{842     \}}
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6b8f76e8323537ee0d27e15514278c83}{trPrecondition}}()}
+\DoxyCodeLine{845     \{}
+\DoxyCodeLine{846       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προϋποθέσεις"{}};}
+\DoxyCodeLine{847     \}}
+\DoxyCodeLine{849     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aba12a6d6c1105097806b579fe057150a}{trPostcondition}}()}
+\DoxyCodeLine{850     \{}
+\DoxyCodeLine{851       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μεταϋποθέσεις"{}};}
+\DoxyCodeLine{852     \}}
+\DoxyCodeLine{854     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afc20af712ce07a81c1ec4fbcb5660b50}{trInvariant}}()}
+\DoxyCodeLine{855     \{}
+\DoxyCodeLine{856       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αμετάβλητα"{}};}
+\DoxyCodeLine{857     \}}
+\DoxyCodeLine{859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7fbf0b897f0cd94f5e492b7f2b1505df}{trInitialValue}}()}
+\DoxyCodeLine{860     \{}
+\DoxyCodeLine{861       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχική τιμή:"{}};}
+\DoxyCodeLine{862     \}}
+\DoxyCodeLine{864     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a9c126d8fef6827918e098bbbf06aaf1d}{trCode}}()}
+\DoxyCodeLine{865     \{}
+\DoxyCodeLine{866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}κώδικας"{}};}
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{868     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a97145c4afcb4a2f285fc8f9ca4417b85}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{869     \{}
+\DoxyCodeLine{870       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Γραφική Αναπαράσταση Της Ιεραρχίας Των Κλάσεων"{}};}
+\DoxyCodeLine{871     \}}
+\DoxyCodeLine{872     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0039b1fa1d0facc1548b63de5df2b3cb}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{873     \{}
+\DoxyCodeLine{874       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πήγαινε στην γραφική αναπαράσταση της ιεραρχίας των κλάσεων"{}};}
+\DoxyCodeLine{875     \}}
+\DoxyCodeLine{876     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1d83f1794bb5c21b7b160401a32551a6}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{877     \{}
+\DoxyCodeLine{878       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πήγαινε στην με κείμενο αναπαράσταση της ιεραρχίας των κλάσεων"{}};}
+\DoxyCodeLine{879     \}}
+\DoxyCodeLine{880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae73e3f2b39b75790f685139ad150487b}{trPageIndex}}()}
+\DoxyCodeLine{881     \{}
+\DoxyCodeLine{882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Σελίδων"{}};}
+\DoxyCodeLine{883     \}}
+\DoxyCodeLine{884 }
+\DoxyCodeLine{886 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{888 \textcolor{comment}{}}
+\DoxyCodeLine{889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aabd8d05ba29709351b4573478f687cdd}{trNote}}()}
+\DoxyCodeLine{890     \{}
+\DoxyCodeLine{891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σημείωση"{}};}
+\DoxyCodeLine{892     \}}
+\DoxyCodeLine{893     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afb2691a33de23d48d0a00df7df32e2c0}{trPublicTypes}}()}
+\DoxyCodeLine{894     \{}
+\DoxyCodeLine{895       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δημόσιοι Τυποι"{}};}
+\DoxyCodeLine{896     \}}
+\DoxyCodeLine{897     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac8e363c22b6d28bc1478c61cc900a032}{trPublicAttribs}}()}
+\DoxyCodeLine{898     \{}
+\DoxyCodeLine{899       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{900       \{}
+\DoxyCodeLine{901         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πεδία Δεδομένων"{}};}
+\DoxyCodeLine{902       \}}
+\DoxyCodeLine{903       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{904       \{}
+\DoxyCodeLine{905         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δημόσια Χαρακτηριστικά"{}};}
+\DoxyCodeLine{906       \}}
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae83da0a80a0637ed8d0ad264efac0e83}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{909     \{}
+\DoxyCodeLine{910       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικά Δημόσια Χαρακτηριστικά"{}};}
+\DoxyCodeLine{911     \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae453c361959087f65cd0ec532c70ad89}{trProtectedTypes}}()}
+\DoxyCodeLine{913     \{}
+\DoxyCodeLine{914       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προστατευμένοι Τύποι"{}};}
+\DoxyCodeLine{915     \}}
+\DoxyCodeLine{916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a4e45e1d4d46a41e1c2d8cdc292584d7e}{trProtectedAttribs}}()}
+\DoxyCodeLine{917     \{}
+\DoxyCodeLine{918       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προστατευμένα Χαρακτηριστικά"{}};}
+\DoxyCodeLine{919     \}}
+\DoxyCodeLine{920     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8e0c15a57928c29b0aa1cde2d49b14b4}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{921     \{}
+\DoxyCodeLine{922       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικά Προστατευμένα Χαρακτηριστικά"{}};}
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac49259687476cf288ad5a240dde8ae3a}{trPrivateTypes}}()}
+\DoxyCodeLine{925     \{}
+\DoxyCodeLine{926       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιωτικοί Τύποι"{}};}
+\DoxyCodeLine{927     \}}
+\DoxyCodeLine{928     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae62694f433864b2c911a74654e188719}{trPrivateAttribs}}()}
+\DoxyCodeLine{929     \{}
+\DoxyCodeLine{930       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιωτικα Χαρακτηριστικά"{}};}
+\DoxyCodeLine{931     \}}
+\DoxyCodeLine{932     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a30f17f441ccea6133af4574eef758e7a}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{933     \{}
+\DoxyCodeLine{934       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικά Ιδιωτικα Χαρακτηριστικά"{}};}
+\DoxyCodeLine{935     \}}
+\DoxyCodeLine{936 }
+\DoxyCodeLine{938 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{940 \textcolor{comment}{}}
+\DoxyCodeLine{942     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7ecac9d464c292ef422ddb4daec87508}{trTodo}}()}
+\DoxyCodeLine{943     \{}
+\DoxyCodeLine{944       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προς Υλοποίηση"{}};}
+\DoxyCodeLine{945     \}}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8fbef85f69b94ea042894fee635664ba}{trTodoList}}()}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα των Προς Υλοποίηση"{}};}
+\DoxyCodeLine{950     \}}
+\DoxyCodeLine{951 }
+\DoxyCodeLine{953 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{955 \textcolor{comment}{}}
+\DoxyCodeLine{956     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a92eca2deb6ef210b2822dee041406b9d}{trReferencedBy}}()}
+\DoxyCodeLine{957     \{}
+\DoxyCodeLine{958       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αναφορά από"{}};}
+\DoxyCodeLine{959     \}}
+\DoxyCodeLine{960     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a86815af80e53c458a8a2d99eab6bee5a}{trRemarks}}()}
+\DoxyCodeLine{961     \{}
+\DoxyCodeLine{962       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Παρατήρηση"{}};}
+\DoxyCodeLine{963     \}}
+\DoxyCodeLine{964     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a79dfeada6e6e69e0ba5a47af572f0f85}{trAttention}}()}
+\DoxyCodeLine{965     \{}
+\DoxyCodeLine{966       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Προσοχή"{}};}
+\DoxyCodeLine{967     \}}
+\DoxyCodeLine{968     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa7c0675f32b388b79c0a87fdfad0509b}{trInclByDepGraph}}()}
+\DoxyCodeLine{969     \{}
+\DoxyCodeLine{970       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Το διάγραμμα αυτό παρουσιάζει ποιά αρχεία άμεσα ή "{}}}
+\DoxyCodeLine{971              \textcolor{stringliteral}{"{}έμμεσα περιλαμβάνουν αυτό το αρχείο:"{}};}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8e947d9581a829508cd9b2c10bf89c75}{trSince}}()}
+\DoxyCodeLine{974     \{}
+\DoxyCodeLine{975       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Από"{}};}
+\DoxyCodeLine{976     \}}
+\DoxyCodeLine{977 }
+\DoxyCodeLine{979 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{981 \textcolor{comment}{}}
+\DoxyCodeLine{983     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af54ac5af8e5297d99495009ebec00e07}{trLegendTitle}}()}
+\DoxyCodeLine{984     \{}
+\DoxyCodeLine{985       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υπόμνημα Διαγραμμάτων"{}};}
+\DoxyCodeLine{986     \}}
+\DoxyCodeLine{990     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa4677a698af31214ecc1575e141c3578}{trLegendDocs}}()}
+\DoxyCodeLine{991     \{}
+\DoxyCodeLine{992       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{993         \textcolor{stringliteral}{"{}Αυτή η σελίδα εξηγεί το πως ερμηνεύονται τα διαγράμματα που δημιουργούνται "{}}}
+\DoxyCodeLine{994         \textcolor{stringliteral}{"{}από το doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{995         \textcolor{stringliteral}{"{}Θεωρείστε το παρακάτω παράδειγμα:"{}}}
+\DoxyCodeLine{996         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{997         \textcolor{stringliteral}{"{}/*! Invisible class because of truncation */\(\backslash\)n"{}}}
+\DoxyCodeLine{998         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{999         \textcolor{stringliteral}{"{}/*! Truncated class, inheritance relation is hidden */\(\backslash\)n"{}}}
+\DoxyCodeLine{1000         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1001         \textcolor{stringliteral}{"{}/* Class not documented with doxygen comments */\(\backslash\)n"{}}}
+\DoxyCodeLine{1002         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1003         \textcolor{stringliteral}{"{}/*! Class that is inherited using public inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1004         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1005         \textcolor{stringliteral}{"{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}/*! Class that is inherited using protected inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}/*! Class that is inherited using private inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}/*! Class that is used by the Inherited class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}/*! Super class that inherits a number of other classes */\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}Αυτό οδηγεί στο επόμενο διάγραμμα:"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center></p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}Τα κουτιά στο παραπάνω διάγραμμα έχουν την ακόλουθη σημασία:\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}<li>Ένα γεμισμένο μαύρο κουτί αναπαριστά τη δομή ή την κλάση για την οποία"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}αφορά το διάγραμμα.\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}<li>Ένα κουτί με μαύρο περίγραμμα αναπαριστά μία τεκμηριωμένη δομή ή κλάση.\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}<li>Ένα κουτί με γκρίζο περίγραμμα αναπαριστά μία μη τεκμηριωμένη δομή ή κλάση.\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}<li>Ένα κουτί με κόκκινο περίγραμμα αναπαριστά μία τεκμηριωμένη δομή ή κλάση για "{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}την οποία δεν παρουσιάζονται όλες οι σχέσεις κληρονομικότητας και περιεχομένου. \%Ένα "{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}διάγραμμα μειώνεται αν δεν χωράει στις ορισμένες διαστάσεις."{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}Τα βέλη έχουν τις ακόλουθες σημασίες:\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}<li>Ένα βαθύ μπλε βέλος χρησιμοποιείται για να παρουσιάσει μία δημόσια σχέση κληρονομικότητας "{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}μεταξύ δύο κλάσεων.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}<li>Ένα βαθύ πράσινο βέλος χρησιμοποιείται για προστατευμένη κληρονομικότητα.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}<li>Ένα βαθύ κόκκινο βέλος χρησιμοποιείται για ιδιωτική κληρονομικότητα.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}<li>Ένα μωβ διακεκομένο βέλος χρησιμοποιείται αν μία κλάση περιέχεται ή χρησιμοποιείται "{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}από μία άλλη κλάση. Το βέλος ονομάζεται από το όνομα της μεταβλητής(ων) "{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}μέσω της οποίας η κλάση ή δομή είναι προσβάσιμη.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}<li>Ένα κίτρινο διακεκομμένο βέλος χρησιμοποιείται για μια σχέση μεταξύ ενός προτύπου αντικειμένου και "{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}της πρότυπης κλάσης από την οποία δημιουργήθηκε. Το βέλος ονομάζεται με τις παραμέτρους του προτύπου "{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}του αντικειμένου.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1053     \}}
+\DoxyCodeLine{1055     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2b97b07324a04602c4f1a4102ab2564d}{trLegend}}()}
+\DoxyCodeLine{1056     \{}
+\DoxyCodeLine{1057       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}υπόμνημα"{}};}
+\DoxyCodeLine{1058     \}}
+\DoxyCodeLine{1059 }
+\DoxyCodeLine{1061 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1063 \textcolor{comment}{}}
+\DoxyCodeLine{1065     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad7c08067e2309c97d590cac94cfd24ee}{trTest}}()}
+\DoxyCodeLine{1066     \{}
+\DoxyCodeLine{1067       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δοκιμαστικό"{}};}
+\DoxyCodeLine{1068     \}}
+\DoxyCodeLine{1070     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aeb73968eb636bf905515ff4d662979d1}{trTestList}}()}
+\DoxyCodeLine{1071     \{}
+\DoxyCodeLine{1072       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Δοκιμαστικών"{}};}
+\DoxyCodeLine{1073     \}}
+\DoxyCodeLine{1074 }
+\DoxyCodeLine{1076 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1078 \textcolor{comment}{}}
+\DoxyCodeLine{1080     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afd66c8609a06dae918eca632386bc0c5}{trProperties}}()}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιότητες"{}};}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1085     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad05f93bad4987001974fedddc09be219}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1086     \{}
+\DoxyCodeLine{1087       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Ιδιοτήτων"{}};}
+\DoxyCodeLine{1088     \}}
+\DoxyCodeLine{1089 }
+\DoxyCodeLine{1091 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1093 \textcolor{comment}{}}
+\DoxyCodeLine{1095     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7618d01245d2566527c86729b6fec050}{trClasses}}()}
+\DoxyCodeLine{1096     \{}
+\DoxyCodeLine{1097       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1098       \{}
+\DoxyCodeLine{1099         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δομές Δεδομένων"{}};}
+\DoxyCodeLine{1100       \}}
+\DoxyCodeLine{1101       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1102       \{}
+\DoxyCodeLine{1103         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κλάσεις"{}};}
+\DoxyCodeLine{1104       \}}
+\DoxyCodeLine{1105     \}}
+\DoxyCodeLine{1107     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab23049289a483e195367c3f0438dcd29}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1108     \{}
+\DoxyCodeLine{1109       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πακέτο "{}}+name;}
+\DoxyCodeLine{1110     \}}
+\DoxyCodeLine{1112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a42741f5f19bc980bc37ea978db55fa19}{trPackageListDescription}}()}
+\DoxyCodeLine{1113     \{}
+\DoxyCodeLine{1114       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί η λίστα των πακέτων με σύντομη περιγραφή (αν υπάρχει):"{}};}
+\DoxyCodeLine{1115     \}}
+\DoxyCodeLine{1117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aaa60df56a2b291bbff3ec287cf04f953}{trPackages}}()}
+\DoxyCodeLine{1118     \{}
+\DoxyCodeLine{1119       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πακέτα"{}};}
+\DoxyCodeLine{1120     \}}
+\DoxyCodeLine{1122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6ed8fdfda39fe8f43341cd81817c3ad0}{trDefineValue}}()}
+\DoxyCodeLine{1123     \{}
+\DoxyCodeLine{1124       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τιμή:"{}};}
+\DoxyCodeLine{1125     \}}
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1128 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1130 \textcolor{comment}{}}
+\DoxyCodeLine{1132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a36e32ed6f3a383fbc5f0fce7c6c9071c}{trBug}}()}
+\DoxyCodeLine{1133     \{}
+\DoxyCodeLine{1134       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πρόβλημα"{}};}
+\DoxyCodeLine{1135     \}}
+\DoxyCodeLine{1137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad4bae874aef6051ba63c5766391adf09}{trBugList}}()}
+\DoxyCodeLine{1138     \{}
+\DoxyCodeLine{1139       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Προβλημάτων"{}};}
+\DoxyCodeLine{1140     \}}
+\DoxyCodeLine{1141 }
+\DoxyCodeLine{1143 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1145 \textcolor{comment}{}}
+\DoxyCodeLine{1171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a61f354a3621da4c121345eae8b2846e4}{trRTFansicp}}()}
+\DoxyCodeLine{1172     \{}
+\DoxyCodeLine{1173       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1253"{}};}
+\DoxyCodeLine{1174     \}}
+\DoxyCodeLine{1175 }
+\DoxyCodeLine{1176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad0dd15513d087613c8bd4face022a927}{latexCommandName}}()}
+\DoxyCodeLine{1177     \{}
+\DoxyCodeLine{1178       \mbox{\hyperlink{classQCString}{QCString}} latex\_command = \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_CMD\_NAME);}
+\DoxyCodeLine{1179       \textcolor{keywordflow}{if} (latex\_command.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latex\_command = \textcolor{stringliteral}{"{}latex"{}};}
+\DoxyCodeLine{1180       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{1181       \{}
+\DoxyCodeLine{1182         \textcolor{keywordflow}{if} (latex\_command == \textcolor{stringliteral}{"{}latex"{}}) latex\_command = \textcolor{stringliteral}{"{}xelatex"{}};}
+\DoxyCodeLine{1183       \}}
+\DoxyCodeLine{1184       \textcolor{keywordflow}{return} latex\_command;}
+\DoxyCodeLine{1185     \}}
+\DoxyCodeLine{1186 }
+\DoxyCodeLine{1189     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a34c20fb3ca506b053c375cd1a0a1feaa}{trRTFCharSet}}()}
+\DoxyCodeLine{1190     \{}
+\DoxyCodeLine{1191       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}161"{}};}
+\DoxyCodeLine{1192     \}}
+\DoxyCodeLine{1193 }
+\DoxyCodeLine{1195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a638872784be97651695123fba852387e}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1196     \{}
+\DoxyCodeLine{1197       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο"{}};}
+\DoxyCodeLine{1198     \}}
+\DoxyCodeLine{1199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac9cdc65db78dedc2e73e0017b21f46ed}{getLanguageString}}()}
+\DoxyCodeLine{1200     \{}
+\DoxyCodeLine{1201       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x408 Greece"{}};}
+\DoxyCodeLine{1202     \}}
+\DoxyCodeLine{1203 }
+\DoxyCodeLine{1208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af7ebcac7b128a0f2b6b2cebdf92e982a}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1209     \{}
+\DoxyCodeLine{1210       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Κλάση"{}} : \textcolor{stringliteral}{"{}κλάση"{}}));}
+\DoxyCodeLine{1211       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1212       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1213     \}}
+\DoxyCodeLine{1214 }
+\DoxyCodeLine{1219     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad17af66495dad72776b8105237b5ed7b}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1220     \{}
+\DoxyCodeLine{1221       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Αρχεί"{}} : \textcolor{stringliteral}{"{}αρχεί"{}}));}
+\DoxyCodeLine{1222       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}α"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ο"{}};}
+\DoxyCodeLine{1223       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1224     \}}
+\DoxyCodeLine{1225 }
+\DoxyCodeLine{1230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ace34ca7159fe2b92c2d5dda9a42598e8}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1231     \{}
+\DoxyCodeLine{1232       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Χ"{}} : \textcolor{stringliteral}{"{}χ"{}}));}
+\DoxyCodeLine{1233       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ώροι"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ώρος"{}};}
+\DoxyCodeLine{1234       result+=\textcolor{stringliteral}{"{} ονομάτων"{}};}
+\DoxyCodeLine{1235       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1236     \}}
+\DoxyCodeLine{1237 }
+\DoxyCodeLine{1242     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ace0c2736bdab9426536ad9f7db1c47a2}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1243     \{}
+\DoxyCodeLine{1244       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Ομάδ"{}} : \textcolor{stringliteral}{"{}ομάδ"{}}));}
+\DoxyCodeLine{1245       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ες"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}α"{}};}
+\DoxyCodeLine{1246       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1247     \}}
+\DoxyCodeLine{1248 }
+\DoxyCodeLine{1253     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab33b0e9ea6a0ae4816ac8616cb32356d}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1254     \{}
+\DoxyCodeLine{1255       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Σελίδ"{}} : \textcolor{stringliteral}{"{}σελίδ"{}}));}
+\DoxyCodeLine{1256       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ες"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}α"{}};}
+\DoxyCodeLine{1257       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1258     \}}
+\DoxyCodeLine{1259 }
+\DoxyCodeLine{1264     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a901c69bdd4917178151850bca6972525}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1265     \{}
+\DoxyCodeLine{1266       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Μέλ"{}} : \textcolor{stringliteral}{"{}μέλ"{}}));}
+\DoxyCodeLine{1267       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}η"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ος"{}};}
+\DoxyCodeLine{1268       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1269     \}}
+\DoxyCodeLine{1270 }
+\DoxyCodeLine{1275     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a07d0ebd30a35e4c1cfa6ec97de0ce306}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1276     \{}
+\DoxyCodeLine{1277       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Καθολικ"{}} : \textcolor{stringliteral}{"{}καθολικ"{}}));}
+\DoxyCodeLine{1278       \textcolor{keywordflow}{if} (!singular) result+=\textcolor{stringliteral}{"{}ές"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ή"{}};}
+\DoxyCodeLine{1279       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1280     \}}
+\DoxyCodeLine{1281 }
+\DoxyCodeLine{1283 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1285 \textcolor{comment}{}}
+\DoxyCodeLine{1288     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aef3b638fa37328fce32969531aaa06a8}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1289     \{}
+\DoxyCodeLine{1290       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Συγραφ"{}} : \textcolor{stringliteral}{"{}συγραφ"{}}));}
+\DoxyCodeLine{1291       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}έας"{}};}
+\DoxyCodeLine{1292       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1293     \}}
+\DoxyCodeLine{1294 }
+\DoxyCodeLine{1296 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1298 \textcolor{comment}{}}
+\DoxyCodeLine{1301     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a499e6f16ac7b87a751d8a3703a202e99}{trReferences}}()}
+\DoxyCodeLine{1302     \{}
+\DoxyCodeLine{1303       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αναφορές"{}};}
+\DoxyCodeLine{1304     \}}
+\DoxyCodeLine{1305 }
+\DoxyCodeLine{1307 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1309 \textcolor{comment}{}}
+\DoxyCodeLine{1313     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad64ceaa558279f1b67804889286beaa5}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1314     \{}
+\DoxyCodeLine{1315       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υλοποιεί "{}}+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1316     \}}
+\DoxyCodeLine{1317 }
+\DoxyCodeLine{1321     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8fdacd5a6741161cc42567debd0f59d7}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1322     \{}
+\DoxyCodeLine{1323       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υλοποιείται από "{}}+\mbox{\hyperlink{classTranslatorGreek_afb975a900ede5cf426effbd69025ba9a}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1324     \}}
+\DoxyCodeLine{1325 }
+\DoxyCodeLine{1327 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1329 \textcolor{comment}{}}
+\DoxyCodeLine{1333     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae2fa69fe45a2c3625163018619f9ae44}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1334     \{}
+\DoxyCodeLine{1335       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πίνακας Περιεχομένων"{}};}
+\DoxyCodeLine{1336     \}}
+\DoxyCodeLine{1337 }
+\DoxyCodeLine{1339 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1341 \textcolor{comment}{}}
+\DoxyCodeLine{1345     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afe33ff0d5a6a6ac3cc62d8f55f64a137}{trDeprecatedList}}()}
+\DoxyCodeLine{1346     \{}
+\DoxyCodeLine{1347       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Καταργημένων"{}};}
+\DoxyCodeLine{1348     \}}
+\DoxyCodeLine{1349 }
+\DoxyCodeLine{1351 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1353 \textcolor{comment}{}}
+\DoxyCodeLine{1357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5df9b859596cb0b5836cbaf9c04d6572}{trEvents}}()}
+\DoxyCodeLine{1358     \{}
+\DoxyCodeLine{1359       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συμβάντα"{}};}
+\DoxyCodeLine{1360     \}}
+\DoxyCodeLine{1362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a267fa4466f72a89df428d4fa1cc518b0}{trEventDocumentation}}()}
+\DoxyCodeLine{1363     \{}
+\DoxyCodeLine{1364       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Συμβάντων"{}};}
+\DoxyCodeLine{1365     \}}
+\DoxyCodeLine{1366 }
+\DoxyCodeLine{1368 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1370 \textcolor{comment}{}}
+\DoxyCodeLine{1373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a380a110ec43538fef2ce37e1f1278df8}{trPackageTypes}}()}
+\DoxyCodeLine{1374     \{}
+\DoxyCodeLine{1375       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τύποι Πακέτων"{}};}
+\DoxyCodeLine{1376     \}}
+\DoxyCodeLine{1380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5abd033a6057b00554cc5fea2aadc32e}{trPackageFunctions}}()}
+\DoxyCodeLine{1381     \{}
+\DoxyCodeLine{1382       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συναρτήσεις Πακέτου"{}};}
+\DoxyCodeLine{1383     \}}
+\DoxyCodeLine{1384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a56153559fad2adb2cd88617fdae401c3}{trPackageMembers}}()}
+\DoxyCodeLine{1385     \{}
+\DoxyCodeLine{1386       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Πακέτου"{}};}
+\DoxyCodeLine{1387     \}}
+\DoxyCodeLine{1391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3c9f4a9332454f3252e1beae2df12b37}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1392     \{}
+\DoxyCodeLine{1393       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικές Συναρτήσεις Πακέτου"{}};}
+\DoxyCodeLine{1394     \}}
+\DoxyCodeLine{1398     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a16fab3dbe3a2b78ae4131630f34d5c7f}{trPackageAttribs}}()}
+\DoxyCodeLine{1399     \{}
+\DoxyCodeLine{1400       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μεταβλητές Πακέτου"{}};}
+\DoxyCodeLine{1401     \}}
+\DoxyCodeLine{1405     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a934d1a1e2c7d425c5482109510fbd383}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1406     \{}
+\DoxyCodeLine{1407       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Στατικές Μεταβλητές Πακέτου"{}};}
+\DoxyCodeLine{1408     \}}
+\DoxyCodeLine{1409 }
+\DoxyCodeLine{1411 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1413 \textcolor{comment}{}}
+\DoxyCodeLine{1417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5082c13f8ead248e0a2890d82b4ce2c9}{trAll}}()}
+\DoxyCodeLine{1418     \{}
+\DoxyCodeLine{1419       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Όλα"{}};}
+\DoxyCodeLine{1420     \}}
+\DoxyCodeLine{1422     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af0054eed6fe9bc9b1ce396b013510c99}{trCallGraph}}()}
+\DoxyCodeLine{1423     \{}
+\DoxyCodeLine{1424       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Το διάγραμμα δείχνει ποιές συναρτήσεις καλούνται από αυτή:"{}};}
+\DoxyCodeLine{1425     \}}
+\DoxyCodeLine{1426 }
+\DoxyCodeLine{1428 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1430 \textcolor{comment}{}}
+\DoxyCodeLine{1434     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad18014591c79c8e61748f7bec954a8ac}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1435     \{}
+\DoxyCodeLine{1436       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αποτελέσματα Αναζήτησης"{}};}
+\DoxyCodeLine{1437     \}}
+\DoxyCodeLine{1446     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_abaaed403a2ffb2b088276daf6984e468}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1447     \{}
+\DoxyCodeLine{1448       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1449       \{}
+\DoxyCodeLine{1450         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συγγνώμη, δεν υπάρχει κείμενο που να ταιριάζει με την αίτησή σας."{}};}
+\DoxyCodeLine{1451       \}}
+\DoxyCodeLine{1452       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1453       \{}
+\DoxyCodeLine{1454         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Βρέθηκε <b>1</b> κείμενο που ταιριάζει με την αίτησή σας."{}};}
+\DoxyCodeLine{1455       \}}
+\DoxyCodeLine{1456       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1457       \{}
+\DoxyCodeLine{1458         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Βρέθηκαν <b>\$num</b> κείμενα που ταιριάζουν με την αίτησή σας. "{}}}
+\DoxyCodeLine{1459                \textcolor{stringliteral}{"{}Πρώτα εμφανίζονται τα κείμενα που ταιριάζουν πιο πολύ."{}};}
+\DoxyCodeLine{1460       \}}
+\DoxyCodeLine{1461     \}}
+\DoxyCodeLine{1465     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_abab362105ce2f228bc767c390bb10d8d}{trSearchMatches}}()}
+\DoxyCodeLine{1466     \{}
+\DoxyCodeLine{1467       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ταίριαξαν:"{}};}
+\DoxyCodeLine{1468     \}}
+\DoxyCodeLine{1469 }
+\DoxyCodeLine{1471 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1473 \textcolor{comment}{}}
+\DoxyCodeLine{1476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a21ef7d1e395a1a1171e172bdf0e22fd7}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1477     \{}
+\DoxyCodeLine{1478       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχείο κώδικα "{}} + filename;}
+\DoxyCodeLine{1479     \}}
+\DoxyCodeLine{1480 }
+\DoxyCodeLine{1482 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1484 \textcolor{comment}{}}
+\DoxyCodeLine{1488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aeeb3efbd6779bb55f597401e9ad0b52e}{trDirIndex}}()}
+\DoxyCodeLine{1489     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχία Καταλόγου"{}}; \}}
+\DoxyCodeLine{1490 }
+\DoxyCodeLine{1494     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a02ec83db473704443c1f50668b5cfd27}{trDirDocumentation}}()}
+\DoxyCodeLine{1495     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Καταλόγου"{}}; \}}
+\DoxyCodeLine{1496 }
+\DoxyCodeLine{1500     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1ee5ab25e11186483ca236f6b2cfcdff}{trDirectories}}()}
+\DoxyCodeLine{1501     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κατάλογοι"{}}; \}}
+\DoxyCodeLine{1502 }
+\DoxyCodeLine{1506     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a92ab44ea2466237e9d888690358ea69a}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1507     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Αναφορά του Καταλόγου "{}}) + dirName; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1508 }
+\DoxyCodeLine{1512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab1793dde0ab01b6db9ad15658de398f5}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1513     \{}
+\DoxyCodeLine{1514       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Κατάλογο"{}} : \textcolor{stringliteral}{"{}κατάλογο"{}}));}
+\DoxyCodeLine{1515       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}ς"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ι"{}};}
+\DoxyCodeLine{1516       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1517     \}}
+\DoxyCodeLine{1518 }
+\DoxyCodeLine{1520 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1522 \textcolor{comment}{}}
+\DoxyCodeLine{1526     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a50bb4aebcb733c3c1f2427cdb17ea186}{trOverloadText}}()}
+\DoxyCodeLine{1527     \{}
+\DoxyCodeLine{1528        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αυτή είναι μια υπερφορτωμένη συνάρτηση-\/μέλος, "{}}}
+\DoxyCodeLine{1529               \textcolor{stringliteral}{"{}που παρέχεται για ευκολία. Διαφέρει από την παραπάνω "{}}}
+\DoxyCodeLine{1530               \textcolor{stringliteral}{"{}συνάρτηση μόνο στον τύπο των παραμέτρων που δέχεται."{}};}
+\DoxyCodeLine{1531     \}}
+\DoxyCodeLine{1532 }
+\DoxyCodeLine{1534 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1536 \textcolor{comment}{}}
+\DoxyCodeLine{1538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aeee0da136977509024184c1bd8a138e3}{trCallerGraph}}()}
+\DoxyCodeLine{1539     \{}
+\DoxyCodeLine{1540       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Το διάγραμμα δείχνει από ποιές συναρτήσεις καλείται αυτή η συνάρτηση:"{}};}
+\DoxyCodeLine{1541     \}}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1546     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2cf94f7118f6f7a7cca9e4b74de74633}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1547     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Απαρίθμησης"{}}; \}}
+\DoxyCodeLine{1548 }
+\DoxyCodeLine{1550 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1552 \textcolor{comment}{}}
+\DoxyCodeLine{1554     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a40aa92ad0e860be1ca884aedfcbc7af7}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1555     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Συνάρτησης/Υπορουτίνας Μέλους"{}}; \}}
+\DoxyCodeLine{1556 }
+\DoxyCodeLine{1558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad4920d1174a3b7b4eaca8daa3fb3d12a}{trCompoundListFortran}}()}
+\DoxyCodeLine{1559     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Τύπων Δεδομένων"{}}; \}}
+\DoxyCodeLine{1560 }
+\DoxyCodeLine{1562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afa4cafc980d744e0a9500def6edb6ba6}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1563     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πεδία Δεδομένων"{}}; \}}
+\DoxyCodeLine{1564 }
+\DoxyCodeLine{1566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7f4b66ce35a016c70795c10795165241}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1567     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εδώ είναι οι τύποι δεδομένων με σύντομη περιγραφή:"{}}; \}}
+\DoxyCodeLine{1568 }
+\DoxyCodeLine{1570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3f5a79f73690b4aad02b63b77cad5e11}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1571     \{}
+\DoxyCodeLine{1572       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Εδώ είναι η λίστα όλων των "{}};}
+\DoxyCodeLine{1573       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1574       \{}
+\DoxyCodeLine{1575         result+=\textcolor{stringliteral}{"{}τεκμηριωμένων "{}};}
+\DoxyCodeLine{1576       \}}
+\DoxyCodeLine{1577       result+=\textcolor{stringliteral}{"{}μελών τύπων δεδομένων"{}};}
+\DoxyCodeLine{1578       result+=\textcolor{stringliteral}{"{} με συνδέσεις "{}};}
+\DoxyCodeLine{1579       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1580       \{}
+\DoxyCodeLine{1581          result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση της δομής δεδομένων για κάθε μέλος"{}};}
+\DoxyCodeLine{1582       \}}
+\DoxyCodeLine{1583       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1584       \{}
+\DoxyCodeLine{1585          result+=\textcolor{stringliteral}{"{}στους τύπους δεδομένων που ανήκουν:"{}};}
+\DoxyCodeLine{1586       \}}
+\DoxyCodeLine{1587       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1588     \}}
+\DoxyCodeLine{1589 }
+\DoxyCodeLine{1593     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3768a65c59f253ca17881ce265f5b23e}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1594     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Περιεχόμενα Τύπων Δεδομένων"{}}; \}}
+\DoxyCodeLine{1595 }
+\DoxyCodeLine{1599     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_adbf889d433a3a4b96cb5477884a61033}{trTypeDocumentation}}()}
+\DoxyCodeLine{1600     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Τύπων Δεδομένων"{}}; \}}
+\DoxyCodeLine{1601 }
+\DoxyCodeLine{1605     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab4d674e3cde5cc46bf59c74b2a2cf364}{trSubprograms}}()}
+\DoxyCodeLine{1606     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συναρτήσεις/Υπορουτίνες"{}}; \}}
+\DoxyCodeLine{1607 }
+\DoxyCodeLine{1611     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a60dfbe2aabeaade3e43bf976f95e7ae4}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1612     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Συνάρτησης/Υπορουτίνας"{}}; \}}
+\DoxyCodeLine{1613 }
+\DoxyCodeLine{1617      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a449e141ff0362337ca545fd1aa3f27f0}{trDataTypes}}()}
+\DoxyCodeLine{1618     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τύποι Δεδομένων"{}}; \}}
+\DoxyCodeLine{1619 }
+\DoxyCodeLine{1621     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a617664ec46372e2557437c484b0c9585}{trModulesList}}()}
+\DoxyCodeLine{1622     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Υπομονάδων"{}}; \}}
+\DoxyCodeLine{1623 }
+\DoxyCodeLine{1625     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2cff10ec76d16787fb67b6b14f8338e7}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1626     \{}
+\DoxyCodeLine{1627       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Εδώ είναι μια λίστα με όλες τις "{}};}
+\DoxyCodeLine{1628       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένες "{}};}
+\DoxyCodeLine{1629       result+=\textcolor{stringliteral}{"{}υπομονάδες με σύντομή περιγραφή:"{}};}
+\DoxyCodeLine{1630       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1631     \}}
+\DoxyCodeLine{1632 }
+\DoxyCodeLine{1634     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a111e5f4de3b88f06560451bc95749fd2}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1635                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1636                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1637     \{}
+\DoxyCodeLine{1638       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1639       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1640       \{}
+\DoxyCodeLine{1641         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Υπομονάδα"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1642         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Τύπος"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1643         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Ένωση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1644         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Διεπαφή"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1645         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Πρωτόκολλο"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1646         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Κατηγορία"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1647         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Εξαίρεση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1648         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1649       \}}
+\DoxyCodeLine{1650       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Πρότυπο"{}};}
+\DoxyCodeLine{1651       result+=\textcolor{stringliteral}{"{} Δήλωση"{}};}
+\DoxyCodeLine{1652       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1653     \}}
+\DoxyCodeLine{1655     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab3f9c78f7d69905a840ea0b2e0cd940c}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1656     \{}
+\DoxyCodeLine{1657       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1658       result+=\textcolor{stringliteral}{"{} Δηλώσεις Υπομονάδων"{}};}
+\DoxyCodeLine{1659       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1660     \}}
+\DoxyCodeLine{1661 }
+\DoxyCodeLine{1663     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a132b48c2bd5949fc1d7815794358c258}{trModulesMembers}}()}
+\DoxyCodeLine{1664     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υπομονάδες Μέλη"{}}; \}}
+\DoxyCodeLine{1665 }
+\DoxyCodeLine{1667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af9a120937bf57581baa327cff7360f25}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1668     \{}
+\DoxyCodeLine{1669       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Εδώ είναι μια λίστα με όλες τις "{}};}
+\DoxyCodeLine{1670       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένες "{}};}
+\DoxyCodeLine{1671       result+=\textcolor{stringliteral}{"{}μέλη υπομονάδες με συνδέσεις "{}};}
+\DoxyCodeLine{1672       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1673       \{}
+\DoxyCodeLine{1674         result+=\textcolor{stringliteral}{"{}στην τεκμηρίωση της υπομονάδας για κάθε μέλος:"{}};}
+\DoxyCodeLine{1675       \}}
+\DoxyCodeLine{1676       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1677       \{}
+\DoxyCodeLine{1678         result+=\textcolor{stringliteral}{"{}στις υπομονάδες που ανήκουν:"{}};}
+\DoxyCodeLine{1679       \}}
+\DoxyCodeLine{1680       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1681     \}}
+\DoxyCodeLine{1682 }
+\DoxyCodeLine{1686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1a764773f34e724b6efe31a37a4f79de}{trModulesIndex}}()}
+\DoxyCodeLine{1687     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Περιεχόμενα Υπομονάδων"{}}; \}}
+\DoxyCodeLine{1688 }
+\DoxyCodeLine{1693     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a10bca707981aa855996bab1d0748d6c4}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1694     \{}
+\DoxyCodeLine{1695       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Υπομονάδ"{}} : \textcolor{stringliteral}{"{}υπομονάδ"{}}));}
+\DoxyCodeLine{1696       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ες"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}α"{}};}
+\DoxyCodeLine{1697       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1698     \}}
+\DoxyCodeLine{1702     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7d3a753214e3d7d92b7b9c12eefea3fb}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1703         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1704     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1705       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1706       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Η τεκμηρίωση για "{}};}
+\DoxyCodeLine{1707       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1708       \{}
+\DoxyCodeLine{1709         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}αυτή την υπομονάδα"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1710         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}αυτό τον τύπο δεδομένων"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1711         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}αυτή την ένωση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1712         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}αυτή τη διεπαφή"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1713         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}αυτό το πρωτόκολλο"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1714         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}αυτή την κατηγορία"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1715         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}αυτή την εξαίρεση"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1716         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1717       \}}
+\DoxyCodeLine{1718       result+=\textcolor{stringliteral}{"{} δημιουργήθηκε από "{}};}
+\DoxyCodeLine{1719       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}το παρακάτω αρχείο:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}τα παρακάτω αρχεία:"{}};}
+\DoxyCodeLine{1720       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1721     \}}
+\DoxyCodeLine{1726     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a81b20626140b61ce3826c7792dde2428}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1727     \{}
+\DoxyCodeLine{1728       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Τύπο"{}} : \textcolor{stringliteral}{"{}τύπο"{}}));}
+\DoxyCodeLine{1729       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ι"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ος"{}};}
+\DoxyCodeLine{1730       result+= first\_capital ? \textcolor{stringliteral}{"{} Δεδομένων"{}} : \textcolor{stringliteral}{"{}  δεδομένων"{}};}
+\DoxyCodeLine{1731       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1732     \}}
+\DoxyCodeLine{1737     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab8d1819d32196a120a7152921d0f0356}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1738     \{}
+\DoxyCodeLine{1739       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Υποπρ"{}} : \textcolor{stringliteral}{"{}υποπρ"{}}));}
+\DoxyCodeLine{1740       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ογράμματα"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}όγραμμα"{}};}
+\DoxyCodeLine{1741       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1742     \}}
+\DoxyCodeLine{1743 }
+\DoxyCodeLine{1745     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab3b7298a2ed8b1b269b74b2cbfd03113}{trTypeConstraints}}()}
+\DoxyCodeLine{1746     \{}
+\DoxyCodeLine{1747       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Περιορισμοί Τύπων Δεδομένων"{}};}
+\DoxyCodeLine{1748     \}}
+\DoxyCodeLine{1749 }
+\DoxyCodeLine{1751 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1753 \textcolor{comment}{}}
+\DoxyCodeLine{1755     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3b5b4c77ee8aca4042ae8ab215cf7040}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1756     \{}
+\DoxyCodeLine{1757       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σχέση του "{}}+\mbox{\hyperlink{classQCString}{QCString}}(name);}
+\DoxyCodeLine{1758     \}}
+\DoxyCodeLine{1759 }
+\DoxyCodeLine{1761     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac37245ea6f3ca1f99ef21838fafd97f6}{trLoading}}()}
+\DoxyCodeLine{1762     \{}
+\DoxyCodeLine{1763       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Φόρτωση..."{}};}
+\DoxyCodeLine{1764     \}}
+\DoxyCodeLine{1765 }
+\DoxyCodeLine{1767     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7570d2ce3b530c2719b53bf4e1de6607}{trGlobalNamespace}}()}
+\DoxyCodeLine{1768     \{}
+\DoxyCodeLine{1769       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Γενικός χώρος ονομάτων"{}};}
+\DoxyCodeLine{1770     \}}
+\DoxyCodeLine{1771 }
+\DoxyCodeLine{1773     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aca2f77e74095b3752ae75e20359b3887}{trSearching}}()}
+\DoxyCodeLine{1774     \{}
+\DoxyCodeLine{1775       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αναζήτηση..."{}};}
+\DoxyCodeLine{1776     \}}
+\DoxyCodeLine{1777 }
+\DoxyCodeLine{1779     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa54e6e997c2c6cffeefc08ed6b54713d}{trNoMatches}}()}
+\DoxyCodeLine{1780     \{}
+\DoxyCodeLine{1781       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δεν βρέθηκαν αποτελέσματα αναζήτησης"{}};}
+\DoxyCodeLine{1782     \}}
+\DoxyCodeLine{1783 }
+\DoxyCodeLine{1785 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1787 \textcolor{comment}{}}
+\DoxyCodeLine{1792     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_acc7d4af9b523aa352eebed7eb50a0386}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1793     \{}
+\DoxyCodeLine{1794       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχείο σε "{}}+name;}
+\DoxyCodeLine{1795     \}}
+\DoxyCodeLine{1796 }
+\DoxyCodeLine{1801     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1534b7f5b7b7e15ce51a6541008644c5}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1802     \{}
+\DoxyCodeLine{1803       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εσωκλείει το αρχείο στο "{}}+name;}
+\DoxyCodeLine{1804     \}}
+\DoxyCodeLine{1805 }
+\DoxyCodeLine{1816     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3570152536e37ff51b9c660f72c27d4f}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1817                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1818                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1819     \{}
+\DoxyCodeLine{1820       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Δευ"{}},\textcolor{stringliteral}{"{}Τρι"{}},\textcolor{stringliteral}{"{}Τετ"{}},\textcolor{stringliteral}{"{}Πεμ"{}},\textcolor{stringliteral}{"{}Παρ"{}},\textcolor{stringliteral}{"{}Σαβ"{}},\textcolor{stringliteral}{"{}Κυρ"{}} \};}
+\DoxyCodeLine{1821       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Ιαν"{}},\textcolor{stringliteral}{"{}Φεβ"{}},\textcolor{stringliteral}{"{}Μαρ"{}},\textcolor{stringliteral}{"{}Απρ"{}},\textcolor{stringliteral}{"{}Μαι"{}},\textcolor{stringliteral}{"{}Ιουν"{}},\textcolor{stringliteral}{"{}Ιουλ"{}},\textcolor{stringliteral}{"{}Αυγ"{}},\textcolor{stringliteral}{"{}Σεπ"{}},\textcolor{stringliteral}{"{}Οκτ"{}},\textcolor{stringliteral}{"{}Νοε"{}},\textcolor{stringliteral}{"{}Δεκ"{}} \};}
+\DoxyCodeLine{1822       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1823       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%.2d \%s \%d"{}},days[dayOfWeek-\/1],day,months[month-\/1],year);}
+\DoxyCodeLine{1824       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1825       \{}
+\DoxyCodeLine{1826         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1827         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1828         sdate+=stime;}
+\DoxyCodeLine{1829       \}}
+\DoxyCodeLine{1830       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1831     \}}
+\DoxyCodeLine{1832 }
+\DoxyCodeLine{1834 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1836 \textcolor{comment}{}}
+\DoxyCodeLine{1838     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a54adea7d74a346cd8e75bca56cba492f}{trCiteReferences}}()}
+\DoxyCodeLine{1839     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αναφορές Βιβλιογραφίας"{}}; \}}
+\DoxyCodeLine{1840 }
+\DoxyCodeLine{1842     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a4a609170471165d9d23deccca5344930}{trCopyright}}()}
+\DoxyCodeLine{1843     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}}; \}}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af133e31c36a901baeaa99af1d5fe5f7b}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1847     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Διάγραμμα εξάρτησης φακέλων για "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1848 }
+\DoxyCodeLine{1849 }
+\DoxyCodeLine{1851 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1853 \textcolor{comment}{}}
+\DoxyCodeLine{1855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a454dd6d523be69b77963252a6037dca2}{trDetailLevel}}()}
+\DoxyCodeLine{1856     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Επίπεδο λεπτομέρειας"{}}; \}}
+\DoxyCodeLine{1857 }
+\DoxyCodeLine{1859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a35c1deba9bd237da80d6483544046c77}{trTemplateParameters}}()}
+\DoxyCodeLine{1860     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Παράμετροι Προτύπου"{}}; \}}
+\DoxyCodeLine{1861 }
+\DoxyCodeLine{1863     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ad9b5d1ec791b3097993f1b01ea6ade97}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1864     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}και "{}}+number+\textcolor{stringliteral}{"{} ακόμη..."{}}; \}}
+\DoxyCodeLine{1865 }
+\DoxyCodeLine{1867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a58e142d40f39efcf9b22a3267cf8619c}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1868     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Η τεκμηρίωση αυτής της απαρίθμησης δημιουργήθηκε από "{}};}
+\DoxyCodeLine{1869       \textcolor{keywordflow}{if} (single) result += \textcolor{stringliteral}{"{}τo αρχείo"{}}; \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}τα αρχεία"{}};}
+\DoxyCodeLine{1870       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1871       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1872     \}}
+\DoxyCodeLine{1873 }
+\DoxyCodeLine{1875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a925114d8a01ec37682b2ab3e6413546e}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1876     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Αναφορά Απαρίθμησης "{}}) + name; \}}
+\DoxyCodeLine{1877 }
+\DoxyCodeLine{1879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af2911fdecee7270519ffa950dc1d4ca7}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1880     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} κληρονόμησαν από "{}}+what; \}}
+\DoxyCodeLine{1881 }
+\DoxyCodeLine{1885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a64fd58b24240fc6ffe848cd892d5048d}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1886     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Επιπρόσθετες Κληρονομημένες Μέθοδοι"{}}; \}}
+\DoxyCodeLine{1887 }
+\DoxyCodeLine{1889 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1891 \textcolor{comment}{}}
+\DoxyCodeLine{1896     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_adb0f9d5be27cefb6fb0cc3b593ec1ae7}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1897     \{}
+\DoxyCodeLine{1898       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}ενεργοποιήσετε"{}} : \textcolor{stringliteral}{"{}απενεργοποιήσετε"{}};}
+\DoxyCodeLine{1899       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κάντε κλικ για να "{}}+opt+\textcolor{stringliteral}{"{} το συγχρονισμό του παραθύρου"{}};}
+\DoxyCodeLine{1900     \}}
+\DoxyCodeLine{1901 }
+\DoxyCodeLine{1906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac39f8dfb0baf27a7f26d9e3652ee9528}{trProvidedByCategory}}()}
+\DoxyCodeLine{1907     \{}
+\DoxyCodeLine{1908       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Παρέχεται από την κατηγορία @0."{}};}
+\DoxyCodeLine{1909     \}}
+\DoxyCodeLine{1910 }
+\DoxyCodeLine{1915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aeeaee16fc9fbd829814d61445bc042e6}{trExtendsClass}}()}
+\DoxyCodeLine{1916     \{}
+\DoxyCodeLine{1917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κληρονομει την κλάση @0."{}};}
+\DoxyCodeLine{1918     \}}
+\DoxyCodeLine{1919 }
+\DoxyCodeLine{1923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ace6f4bf3a4694cc004b7d64bdb267010}{trClassMethods}}()}
+\DoxyCodeLine{1924     \{}
+\DoxyCodeLine{1925       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέθοδοι Κλάσης"{}};}
+\DoxyCodeLine{1926     \}}
+\DoxyCodeLine{1927 }
+\DoxyCodeLine{1931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a68dffd25921753ff383084a7b9740efd}{trInstanceMethods}}()}
+\DoxyCodeLine{1932     \{}
+\DoxyCodeLine{1933       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέθοδοι Υπόστασης"{}};}
+\DoxyCodeLine{1934     \}}
+\DoxyCodeLine{1935 }
+\DoxyCodeLine{1938     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a4360800445c3e95505325fcd92a08ac4}{trMethodDocumentation}}()}
+\DoxyCodeLine{1939     \{}
+\DoxyCodeLine{1940       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Μεθόδου"{}};}
+\DoxyCodeLine{1941     \}}
+\DoxyCodeLine{1942 }
+\DoxyCodeLine{1944 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1946 \textcolor{comment}{}}
+\DoxyCodeLine{1948     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a686a44a233660607aac5b9018a666645}{trInterfaces}}()}
+\DoxyCodeLine{1949     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εξαγόμενες Διεπαφές"{}}; \}}
+\DoxyCodeLine{1950 }
+\DoxyCodeLine{1952     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0b33a7139d6831f9592a05dbe8263558}{trServices}}()}
+\DoxyCodeLine{1953     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συμπεριλαμβανόμενες Υπηρεσίες"{}}; \}}
+\DoxyCodeLine{1954 }
+\DoxyCodeLine{1956     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3e20decab3dc1713ff5eefd2363aa671}{trConstantGroups}}()}
+\DoxyCodeLine{1957     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ομάδες Σταθερών"{}}; \}}
+\DoxyCodeLine{1958 }
+\DoxyCodeLine{1960     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_adcdb77eb15057a66bb0fffab63edb738}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1961     \{}
+\DoxyCodeLine{1962       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1963       result+=\textcolor{stringliteral}{"{} Τεκμηρίωση Ομάδας Σταθερών"{}};}
+\DoxyCodeLine{1964       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1965     \}}
+\DoxyCodeLine{1967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2dfb15ffee4d1ff483ff51aa058b0d1d}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1968     \{}
+\DoxyCodeLine{1969       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1970       result+=\textcolor{stringliteral}{"{} Τεκμηρίωση Υπηρεσίας"{}};}
+\DoxyCodeLine{1971       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1972     \}}
+\DoxyCodeLine{1974     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a29f1ab176c8166ee4be855b053f6c1ce}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1975     \{}
+\DoxyCodeLine{1976       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1977       result+=\textcolor{stringliteral}{"{} Τεκμηρίωση Μονοσύνολου"{}};}
+\DoxyCodeLine{1978       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1979     \}}
+\DoxyCodeLine{1981     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a3a57af3347ef4189a44f2dac550ec968}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1982     \{}
+\DoxyCodeLine{1983       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1984       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Η τεκμηρίωση για την υπηρεσία αυτή "{}}}
+\DoxyCodeLine{1985                                 \textcolor{stringliteral}{"{}δημιουργήθηκε από "{}};}
+\DoxyCodeLine{1986       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}το ακόλουθο αρχείο:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}τα ακόλουθα αρχεία:"{}};}
+\DoxyCodeLine{1987       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1988     \}}
+\DoxyCodeLine{1990     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a713979e553e9d66e16358246c6be4206}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1991     \{}
+\DoxyCodeLine{1992       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1993       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Η τεκμηρίωση για αυτό το μονοσύνολο "{}}}
+\DoxyCodeLine{1994                                 \textcolor{stringliteral}{"{}δημιουργήθηκε από "{}};}
+\DoxyCodeLine{1995       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}το ακόλουθο αρχείο:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}τα ακόλουθα αρχεία:"{}};}
+\DoxyCodeLine{1996       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1997     \}}
+\DoxyCodeLine{1998 }
+\DoxyCodeLine{2000 \textcolor{comment}{// new since 1.8.15}}
+\DoxyCodeLine{2002 \textcolor{comment}{}}
+\DoxyCodeLine{2004     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a183ec0310fb5dee89634c59b85ea9415}{trDesignUnitHierarchy}}()}
+\DoxyCodeLine{2005     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχία Μονάδας Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2007     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae8716e516b7dd15783d26e064b42bff6}{trDesignUnitList}}()}
+\DoxyCodeLine{2008     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Μονάδας Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2010     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a80965b04e44bd9f41f03411f5354a13c}{trDesignUnitMembers}}()}
+\DoxyCodeLine{2011     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Μονάδας Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2013     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0d84766a48953b8d24a28544143ca2c5}{trDesignUnitListDescription}}()}
+\DoxyCodeLine{2014     \{}
+\DoxyCodeLine{2015         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθεί μια λίστα από τα μέλη της μονάδας σχεδιασμού με συνδέσμους στις Οντότητες στις οποίες ανήκουν:"{}};}
+\DoxyCodeLine{2016     \}}
+\DoxyCodeLine{2018     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1bb08b51ca36fb83a4594ce382f55d47}{trDesignUnitIndex}}()}
+\DoxyCodeLine{2019     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Μονάδων Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2021     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8ed0ffa70f1dbbfe2d394031edd7e31a}{trDesignUnits}}()}
+\DoxyCodeLine{2022     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μονάδες Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2024     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aa2edef89d4c53153c2b4a385e5f7b5f1}{trFunctionAndProc}}()}
+\DoxyCodeLine{2025     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συναρτήσεις/Διαδικασίες/Διεργασίες"{}}; \}}
+\DoxyCodeLine{2027     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a490ddb8345625b64ffcc1a3ed3bebd44}{trVhdlType}}(\mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} type,\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{2028     \{}
+\DoxyCodeLine{2029       \textcolor{keywordflow}{switch}(type)}
+\DoxyCodeLine{2030       \{}
+\DoxyCodeLine{2031         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}{VhdlDocGen::LIBRARY}}:}
+\DoxyCodeLine{2032           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Βιβλιοθήκη"{}};}
+\DoxyCodeLine{2033           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Βιβλιοθήκες"{}};}
+\DoxyCodeLine{2034         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}{VhdlDocGen::PACKAGE}}:}
+\DoxyCodeLine{2035           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πακέτο"{}};}
+\DoxyCodeLine{2036           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πακέτα"{}};}
+\DoxyCodeLine{2037         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}{VhdlDocGen::SIGNAL}}:}
+\DoxyCodeLine{2038           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σήμα"{}};}
+\DoxyCodeLine{2039           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σήματα"{}};}
+\DoxyCodeLine{2040         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}{VhdlDocGen::COMPONENT}}:}
+\DoxyCodeLine{2041           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εξάρτημα"{}};}
+\DoxyCodeLine{2042           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εξαρτήματα"{}};}
+\DoxyCodeLine{2043         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}{VhdlDocGen::CONSTANT}}:}
+\DoxyCodeLine{2044           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σταθερά"{}};}
+\DoxyCodeLine{2045           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σταθερές"{}};}
+\DoxyCodeLine{2046         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}{VhdlDocGen::ENTITY}}:}
+\DoxyCodeLine{2047           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Οντότητα"{}};}
+\DoxyCodeLine{2048           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Οντότητες"{}};}
+\DoxyCodeLine{2049         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}{VhdlDocGen::TYPE}}:}
+\DoxyCodeLine{2050           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τύπος"{}};}
+\DoxyCodeLine{2051           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τύποι"{}};}
+\DoxyCodeLine{2052         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}{VhdlDocGen::SUBTYPE}}:}
+\DoxyCodeLine{2053           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υποτύπος"{}};}
+\DoxyCodeLine{2054           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Υποτύποι"{}};}
+\DoxyCodeLine{2055         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}{VhdlDocGen::FUNCTION}}:}
+\DoxyCodeLine{2056           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συνάρτηση"{}};}
+\DoxyCodeLine{2057           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συναρτήσεις"{}};}
+\DoxyCodeLine{2058         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}{VhdlDocGen::RECORD}}:}
+\DoxyCodeLine{2059           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εγγραφή"{}};}
+\DoxyCodeLine{2060           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εγγραφές"{}};}
+\DoxyCodeLine{2061         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}{VhdlDocGen::PROCEDURE}}:}
+\DoxyCodeLine{2062           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διαδικασία"{}};}
+\DoxyCodeLine{2063           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διαδικασίες"{}};}
+\DoxyCodeLine{2064         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}{VhdlDocGen::ARCHITECTURE}}:}
+\DoxyCodeLine{2065           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχιτεκτονική"{}};}
+\DoxyCodeLine{2066           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχιτεκτονικές"{}};}
+\DoxyCodeLine{2067         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}{VhdlDocGen::ATTRIBUTE}}:}
+\DoxyCodeLine{2068           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιότητα"{}};}
+\DoxyCodeLine{2069           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιδιότητες"{}};}
+\DoxyCodeLine{2070         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}{VhdlDocGen::PROCESS}}:}
+\DoxyCodeLine{2071           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διεργασία"{}};}
+\DoxyCodeLine{2072           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διεργασίες"{}};}
+\DoxyCodeLine{2073         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}{VhdlDocGen::PORT}}:}
+\DoxyCodeLine{2074           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πόρτα"{}};}
+\DoxyCodeLine{2075           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πόρτες"{}};}
+\DoxyCodeLine{2076         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}{VhdlDocGen::USE}}:}
+\DoxyCodeLine{2077           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}χρήση διάταξης"{}};}
+\DoxyCodeLine{2078           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Χρήση Διατάξεων"{}};}
+\DoxyCodeLine{2079         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}{VhdlDocGen::GENERIC}}:}
+\DoxyCodeLine{2080           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Γενίκευση"{}};}
+\DoxyCodeLine{2081           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Γενικεύσεις"{}};}
+\DoxyCodeLine{2082         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}{VhdlDocGen::PACKAGE\_BODY}}:}
+\DoxyCodeLine{2083           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σώμα Πακέτου"{}};}
+\DoxyCodeLine{2084         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}{VhdlDocGen::UNITS}}:}
+\DoxyCodeLine{2085           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μονάδες"{}};}
+\DoxyCodeLine{2086         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}{VhdlDocGen::SHAREDVARIABLE}}:}
+\DoxyCodeLine{2087           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κοινόχρηστη Μεταβλητή"{}};}
+\DoxyCodeLine{2088           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κοινόχρηστες Μεταβλητές"{}};}
+\DoxyCodeLine{2089         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}{VhdlDocGen::VFILE}}:}
+\DoxyCodeLine{2090           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχείο"{}};}
+\DoxyCodeLine{2091           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αρχεία"{}};}
+\DoxyCodeLine{2092         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}{VhdlDocGen::GROUP}}:}
+\DoxyCodeLine{2093           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ομάδα"{}};}
+\DoxyCodeLine{2094           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ομάδες"{}};}
+\DoxyCodeLine{2095         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}{VhdlDocGen::INSTANTIATION}}:}
+\DoxyCodeLine{2096           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ενσάρκωση"{}};}
+\DoxyCodeLine{2097           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ενσαρκώσεις"{}};}
+\DoxyCodeLine{2098         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}{VhdlDocGen::ALIAS}}:}
+\DoxyCodeLine{2099           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συνώνυμο"{}};}
+\DoxyCodeLine{2100           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Συνώνυμα"{}};}
+\DoxyCodeLine{2101         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}{VhdlDocGen::CONFIG}}:}
+\DoxyCodeLine{2102           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ρύθμιση"{}};}
+\DoxyCodeLine{2103           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ρυθμίσεις"{}};}
+\DoxyCodeLine{2104         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}{VhdlDocGen::MISCELLANEOUS}}:}
+\DoxyCodeLine{2105           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διάφορα"{}};}
+\DoxyCodeLine{2106         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}{VhdlDocGen::UCF\_CONST}}:}
+\DoxyCodeLine{2107           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Εξαναγκασμοί"{}};}
+\DoxyCodeLine{2108         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{2109           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Κλάση"{}};}
+\DoxyCodeLine{2110       \}}
+\DoxyCodeLine{2111     \}}
+\DoxyCodeLine{2112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a6effd78717c4b1a0e883668201275774}{trCustomReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{2113     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Τεκμηρίωση "{}})+name; \}}
+\DoxyCodeLine{2114 }
+\DoxyCodeLine{2115     \textcolor{comment}{/* Slice */}}
+\DoxyCodeLine{2116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae3b4db7f27b710dde44badf42b374d95}{trConstants}}()}
+\DoxyCodeLine{2117     \{}
+\DoxyCodeLine{2118         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Σταθερές"{}};}
+\DoxyCodeLine{2119     \}}
+\DoxyCodeLine{2120     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a8cfb62823ee42035c7b5e27b351623fd}{trConstantDocumentation}}()}
+\DoxyCodeLine{2121     \{}
+\DoxyCodeLine{2122         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Σταθεράς"{}};}
+\DoxyCodeLine{2123     \}}
+\DoxyCodeLine{2124     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a65cbf35f2a4578efe6c2d3af596fcef0}{trSequences}}()}
+\DoxyCodeLine{2125     \{}
+\DoxyCodeLine{2126         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθίες"{}};}
+\DoxyCodeLine{2127     \}}
+\DoxyCodeLine{2128     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aeea18378aec6189369d2474d9d40f572}{trSequenceDocumentation}}()}
+\DoxyCodeLine{2129     \{}
+\DoxyCodeLine{2130         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Ακολουθίας"{}};}
+\DoxyCodeLine{2131     \}}
+\DoxyCodeLine{2132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a660f71f15c7a48f125038ed4bbbfc321}{trDictionaries}}()}
+\DoxyCodeLine{2133     \{}
+\DoxyCodeLine{2134         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λεξικά"{}};}
+\DoxyCodeLine{2135     \}}
+\DoxyCodeLine{2136     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_adea0a6c4015e361c88a53571ebab69ef}{trDictionaryDocumentation}}()}
+\DoxyCodeLine{2137     \{}
+\DoxyCodeLine{2138         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Λεξικού"{}};}
+\DoxyCodeLine{2139     \}}
+\DoxyCodeLine{2140     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_acc06f27027edb83f31cfc881d4000372}{trSliceInterfaces}}()}
+\DoxyCodeLine{2141     \{}
+\DoxyCodeLine{2142         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Διεπαφές"{}};}
+\DoxyCodeLine{2143     \}}
+\DoxyCodeLine{2144     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_abca290ca01b4f4ea6e225bfe3b75a90e}{trInterfaceIndex}}()}
+\DoxyCodeLine{2145     \{}
+\DoxyCodeLine{2146         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Διεπαφής"{}};}
+\DoxyCodeLine{2147     \}}
+\DoxyCodeLine{2148     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ab6ea87c21018ed98cfbf3a4332305188}{trInterfaceList}}()}
+\DoxyCodeLine{2149     \{}
+\DoxyCodeLine{2150         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Διεπαφής"{}};}
+\DoxyCodeLine{2151     \}}
+\DoxyCodeLine{2152     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a25226996c25c7e0a1548b76daf8f8218}{trInterfaceListDescription}}()}
+\DoxyCodeLine{2153     \{}
+\DoxyCodeLine{2154         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι διεπαφές με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{2155     \}}
+\DoxyCodeLine{2156     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a34c6e328bee4609499cee30283429262}{trInterfaceHierarchy}}()}
+\DoxyCodeLine{2157     \{}
+\DoxyCodeLine{2158         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχία Διεπαφής"{}};}
+\DoxyCodeLine{2159     \}}
+\DoxyCodeLine{2160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a5cee2c43df7d8dee9a508ee691fe552b}{trInterfaceHierarchyDescription}}()}
+\DoxyCodeLine{2161     \{}
+\DoxyCodeLine{2162         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αυτή η λίστα ιεραρχίας είναι ταξινομημένη χονδροειδώς και όχι αυστηρά αλφαβητικά:"{}};}
+\DoxyCodeLine{2163     \}}
+\DoxyCodeLine{2164     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a2db45f73134b8b633029d7cef6ab9617}{trInterfaceDocumentation}}()}
+\DoxyCodeLine{2165     \{}
+\DoxyCodeLine{2166         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Διεπαφής"{}};}
+\DoxyCodeLine{2167     \}}
+\DoxyCodeLine{2168     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a4106d7cf5d070fa9edd41b04272fc1ce}{trStructs}}()}
+\DoxyCodeLine{2169     \{}
+\DoxyCodeLine{2170         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Δομές"{}};}
+\DoxyCodeLine{2171     \}}
+\DoxyCodeLine{2172     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a47816fe408613f5a2feb520aee5d0e63}{trStructIndex}}()}
+\DoxyCodeLine{2173     \{}
+\DoxyCodeLine{2174         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Δομής"{}};}
+\DoxyCodeLine{2175     \}}
+\DoxyCodeLine{2176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac15c4e410d57cae7540d23d96c88d849}{trStructList}}()}
+\DoxyCodeLine{2177     \{}
+\DoxyCodeLine{2178         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Δομής"{}};}
+\DoxyCodeLine{2179     \}}
+\DoxyCodeLine{2180     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a064bb1e73db235b384c6d77db5b85aec}{trStructListDescription}}()}
+\DoxyCodeLine{2181     \{}
+\DoxyCodeLine{2182         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι δομές με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{2183     \}}
+\DoxyCodeLine{2184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae19caecf6a7f3a879e28717f28a27644}{trStructDocumentation}}()}
+\DoxyCodeLine{2185     \{}
+\DoxyCodeLine{2186         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Δομής"{}};}
+\DoxyCodeLine{2187     \}}
+\DoxyCodeLine{2188     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a50b76a20526d55218ef3a7ca4e0a9605}{trExceptionIndex}}()}
+\DoxyCodeLine{2189     \{}
+\DoxyCodeLine{2190         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Εξαιρέσεων"{}};}
+\DoxyCodeLine{2191     \}}
+\DoxyCodeLine{2192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aee9ef1836840ace52fe276c23b63e2b6}{trExceptionList}}()}
+\DoxyCodeLine{2193     \{}
+\DoxyCodeLine{2194         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Εξαίρεσης"{}};}
+\DoxyCodeLine{2195     \}}
+\DoxyCodeLine{2196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a55cc4bba5e201035db77b248624d4d03}{trExceptionListDescription}}()}
+\DoxyCodeLine{2197     \{}
+\DoxyCodeLine{2198         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ακολουθούν οι εξαιρέσεις με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{2199     \}}
+\DoxyCodeLine{2200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae4f57774f0b3cdee8bda696eb9653fcf}{trExceptionHierarchy}}()}
+\DoxyCodeLine{2201     \{}
+\DoxyCodeLine{2202         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ιεραρχία Εξαίρεσης"{}};}
+\DoxyCodeLine{2203     \}}
+\DoxyCodeLine{2204     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a9bd131ece4293405a6168891e285ef8e}{trExceptionHierarchyDescription}}()}
+\DoxyCodeLine{2205     \{}
+\DoxyCodeLine{2206         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Αυτή η λίστα ιεραρχίας είναι ταξινομημένη χονδροειδώς και όχι αυστηρά αλφαβητικά:"{}};}
+\DoxyCodeLine{2207     \}}
+\DoxyCodeLine{2208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae7fa32e2393d7b70b1c0b06d3c344345}{trExceptionDocumentation}}()}
+\DoxyCodeLine{2209     \{}
+\DoxyCodeLine{2210         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Εξαίρεσης"{}};}
+\DoxyCodeLine{2211     \}}
+\DoxyCodeLine{2212     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0331f489559170f9d5e4ed476e636c77}{trCompoundReferenceSlice}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName, \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType, \textcolor{keywordtype}{bool} isLocal)}
+\DoxyCodeLine{2213     \{}
+\DoxyCodeLine{2214       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Τεκμηρίωση "{}};}
+\DoxyCodeLine{2215       \textcolor{keywordflow}{if} (isLocal)}
+\DoxyCodeLine{2216         result+=compType == \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}} ? \textcolor{stringliteral}{"{}Τοπικού "{}} : \textcolor{stringliteral}{"{}Τοπικής "{}};}
+\DoxyCodeLine{2217       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{2218       \{}
+\DoxyCodeLine{2219         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}Κλάσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2220         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}Δομής "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2221         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}Ένωσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2222         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}Διεπαφής "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2223         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}Πρωτοκόλλου "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2224         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}Κατηγορίας "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2225         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}Εξαίρεσης "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2226         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2227       \}}
+\DoxyCodeLine{2228       result+=clName;}
+\DoxyCodeLine{2229       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2230     \}}
+\DoxyCodeLine{2231     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a1aa9779a52153498f4106b25b22094b8}{trOperations}}()}
+\DoxyCodeLine{2232     \{}
+\DoxyCodeLine{2233         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Πράξεις"{}};}
+\DoxyCodeLine{2234     \}}
+\DoxyCodeLine{2235     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7400c120d03d10a5093fe457892b09aa}{trOperationDocumentation}}()}
+\DoxyCodeLine{2236     \{}
+\DoxyCodeLine{2237         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Πράξης"{}};}
+\DoxyCodeLine{2238     \}}
+\DoxyCodeLine{2239     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_aaab4cb6e0b7b1583e58dc010569eb3e3}{trDataMembers}}()}
+\DoxyCodeLine{2240     \{}
+\DoxyCodeLine{2241         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Μέλη Δεδομένων"{}};}
+\DoxyCodeLine{2242     \}}
+\DoxyCodeLine{2243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ac7038d4f890c96ef03d77cd2b3365bbd}{trDataMemberDocumentation}}()}
+\DoxyCodeLine{2244     \{}
+\DoxyCodeLine{2245         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Μέλους Δεδομένων"{}};}
+\DoxyCodeLine{2246     \}}
+\DoxyCodeLine{2247 }
+\DoxyCodeLine{2249 \textcolor{comment}{// new since 1.8.19}}
+\DoxyCodeLine{2251 \textcolor{comment}{}}
+\DoxyCodeLine{2253     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a026009b579929bdcb8243f834d492aa8}{trDesignUnitDocumentation}}()}
+\DoxyCodeLine{2254     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Μονάδας Σχεδιασμού"{}}; \}}
+\DoxyCodeLine{2255 }
+\DoxyCodeLine{2257 \textcolor{comment}{// new since 1.9.2}}
+\DoxyCodeLine{2259 \textcolor{comment}{}}
+\DoxyCodeLine{2261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_af670e8d170d879eea2c19f6ea0399e8a}{trConcept}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{2262     \{}
+\DoxyCodeLine{2263       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Έννοι"{}} : \textcolor{stringliteral}{"{}έννοι"{}}));}
+\DoxyCodeLine{2264       result+=singular ? \textcolor{stringliteral}{"{}α"{}} : \textcolor{stringliteral}{"{}ες"{}};}
+\DoxyCodeLine{2265       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2266     \}}
+\DoxyCodeLine{2268     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae1a0fb5c055cd22bd4560c0d5949f1e7}{trConceptReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&conceptName)}
+\DoxyCodeLine{2269     \{}
+\DoxyCodeLine{2270       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Αναφορά Έννοιας "{}});}
+\DoxyCodeLine{2271       result+=conceptName;}
+\DoxyCodeLine{2272       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2273     \}}
+\DoxyCodeLine{2274 }
+\DoxyCodeLine{2276     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a7db495de9d9448e2713fee8456129e8f}{trConceptList}}()}
+\DoxyCodeLine{2277     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Λίστα Έννοιας"{}}; \}}
+\DoxyCodeLine{2278 }
+\DoxyCodeLine{2280     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a0b66460e47ef04797179c9083fca5104}{trConceptIndex}}()}
+\DoxyCodeLine{2281     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ευρετήριο Έννοιας"{}}; \}}
+\DoxyCodeLine{2282 }
+\DoxyCodeLine{2284     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_ae85ecde0a7c17762d2b2c2ac560bda2b}{trConceptDocumentation}}()}
+\DoxyCodeLine{2285     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Τεκμηρίωση Έννοιας"{}}; \}}
+\DoxyCodeLine{2286 }
+\DoxyCodeLine{2288     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_a9d7bd58b08af45f280d3d97ef6ec0fbc}{trConceptListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{2289     \{}
+\DoxyCodeLine{2290       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ακολουθεί μια λίστα από όλες τις "{}};}
+\DoxyCodeLine{2291       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}τεκμηριωμένες "{}};}
+\DoxyCodeLine{2292       result+=\textcolor{stringliteral}{"{}έννοιες με σύντομες περιγραφές:"{}};}
+\DoxyCodeLine{2293       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2294     \}}
+\DoxyCodeLine{2295 }
+\DoxyCodeLine{2297     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorGreek_afd0c7639c133b37d2df0ceb25e82ffde}{trConceptDefinition}}()}
+\DoxyCodeLine{2298     \{}
+\DoxyCodeLine{2299       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ορισμός Έννοιας"{}};}
+\DoxyCodeLine{2300     \}}
+\DoxyCodeLine{2301 \};}
+\DoxyCodeLine{2302 }
+\DoxyCodeLine{2303 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

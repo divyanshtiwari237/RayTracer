@@ -1,0 +1,57 @@
+\hypertarget{formula_8h_source}{}\doxysection{formula.\+h}
+\label{formula_8h_source}\index{/mnt/c/projects/doxygen/src/formula.h@{/mnt/c/projects/doxygen/src/formula.h}}
+\mbox{\hyperlink{formula_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef FORMULA\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define FORMULA\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classFormulaManager}{FormulaManager}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keyword}{struct }\mbox{\hyperlink{structFormulaManager_1_1DisplaySize}{DisplaySize}}}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32       \mbox{\hyperlink{structFormulaManager_1_1DisplaySize_ad5a9712eaf203bad16da48e1c2c64310}{DisplaySize}}(\textcolor{keywordtype}{int} w,\textcolor{keywordtype}{int} h) : \mbox{\hyperlink{structFormulaManager_1_1DisplaySize_a9b9b7df4cefe8c29a0247c8cdd53a2b3}{width}}(w), \mbox{\hyperlink{structFormulaManager_1_1DisplaySize_a32d9a08877548d15bb8ad2b70a71533f}{height}}(h) \{\}}
+\DoxyCodeLine{33       \textcolor{keywordtype}{int} \mbox{\hyperlink{structFormulaManager_1_1DisplaySize_a9b9b7df4cefe8c29a0247c8cdd53a2b3}{width}};}
+\DoxyCodeLine{34       \textcolor{keywordtype}{int} \mbox{\hyperlink{structFormulaManager_1_1DisplaySize_a32d9a08877548d15bb8ad2b70a71533f}{height}};}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36     \textcolor{keyword}{enum class} \mbox{\hyperlink{classFormulaManager_aa538ca4ffea4dd937920ebdd41222e69}{Format}} \{ Bitmap, Vector \};}
+\DoxyCodeLine{37     \textcolor{keyword}{enum class} \mbox{\hyperlink{classFormulaManager_ae7fe54b64ef2fa9eff2494118fab761e}{HighDPI}} \{ On, Off \};}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \mbox{\hyperlink{classFormulaManager}{FormulaManager}} \&\mbox{\hyperlink{classFormulaManager_ab5c33a247a1b081414e3350552beb6ee}{instance}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFormulaManager_a769906384fd9bb5b0c23f9bae39a36c8}{readFormulas}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dir,\textcolor{keywordtype}{bool} doCompare=\textcolor{keyword}{false});}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFormulaManager_a5a181349991e3e72a331b231c9c25f8b}{clear}}();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFormulaManager_ac1e44f1f4cd734472318429fd997c8b7}{addFormula}}(\textcolor{keyword}{const} std::string \&formulaText);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFormulaManager_afa2063845ec6a069ffd6fca5a6b23629}{generateImages}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outputDir,\mbox{\hyperlink{classFormulaManager_aa538ca4ffea4dd937920ebdd41222e69}{Format}} format,\mbox{\hyperlink{classFormulaManager_ae7fe54b64ef2fa9eff2494118fab761e}{HighDPI}} hd = \mbox{\hyperlink{classFormulaManager_ae7fe54b64ef2fa9eff2494118fab761ead15305d7a4e34e02489c74a5ef542f36}{HighDPI::Off}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{43     std::string \mbox{\hyperlink{classFormulaManager_a1f0550bcc73743b9e496a3f7293f1048}{findFormula}}(\textcolor{keywordtype}{int} formulaId) \textcolor{keyword}{const};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classFormulaManager_a4b5c2d7e0c8001ae48514de0b468eb87}{hasFormulas}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{45     DisplaySize \mbox{\hyperlink{classFormulaManager_a5dc29a95efb4665339ba57ef3eb0665c}{displaySize}}(\textcolor{keywordtype}{int} formulaId) \textcolor{keyword}{const};}
+\DoxyCodeLine{46   \textcolor{keyword}{private}:}
+\DoxyCodeLine{47     \mbox{\hyperlink{classFormulaManager}{FormulaManager}}();}
+\DoxyCodeLine{48     \textcolor{keyword}{struct }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{49     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

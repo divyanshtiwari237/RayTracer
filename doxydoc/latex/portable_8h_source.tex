@@ -1,0 +1,65 @@
+\hypertarget{portable_8h_source}{}\doxysection{portable.\+h}
+\label{portable_8h_source}\index{/mnt/c/projects/doxygen/src/portable.h@{/mnt/c/projects/doxygen/src/portable.h}}
+\mbox{\hyperlink{portable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PORTABLE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PORTABLE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }Buf;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#if defined(\_WIN32)}}
+\DoxyCodeLine{13 \textcolor{keyword}{typedef} \_\_int64 \mbox{\hyperlink{portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}};}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{15 \textcolor{keyword}{typedef} off\_t \mbox{\hyperlink{portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}};}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacePortable}{Portable}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24   \textcolor{keywordtype}{int}            \mbox{\hyperlink{namespacePortable_ab30a636186b72a67d57e9f7f1e917e99}{system}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&command,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&args,\textcolor{keywordtype}{bool} commandHasConsole=\textcolor{keyword}{true});}
+\DoxyCodeLine{25   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   \mbox{\hyperlink{namespacePortable_a5944f5ca01ff6e756c447e11583b73a0}{pid}}();}
+\DoxyCodeLine{26   \mbox{\hyperlink{classQCString}{QCString}}       \mbox{\hyperlink{namespacePortable_ae1a7516287ca7c75eebc3fa7aa12e970}{getenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&variable);}
+\DoxyCodeLine{27   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_abd244447df22d110ad410b69c357fdf3}{setenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&variable,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&value);}
+\DoxyCodeLine{28   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_ac2e29048cffc72c3bed439cff5b02cd4}{unsetenv}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&variable);}
+\DoxyCodeLine{29   \mbox{\hyperlink{portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} \mbox{\hyperlink{namespacePortable_a508bfa22b32f24c3920ab65097fd9d59}{fseek}}(FILE *f,\mbox{\hyperlink{portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} offset, \textcolor{keywordtype}{int} whence);}
+\DoxyCodeLine{30   \mbox{\hyperlink{portable_8h_a25423a5b429a3ee0610315d93938bd0b}{portable\_off\_t}} \mbox{\hyperlink{namespacePortable_aa76fa3c0c598edac56b9fd5aa2aa1c30}{ftell}}(FILE *f);}
+\DoxyCodeLine{31   FILE *         \mbox{\hyperlink{namespacePortable_a4dbb08c3de409bd1a73be3da6d93ac57}{fopen}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&mode);}
+\DoxyCodeLine{32   \textcolor{keywordtype}{int}            \mbox{\hyperlink{namespacePortable_af099fa6239b4961887192d8eadfd2a44}{fclose}}(FILE *f);}
+\DoxyCodeLine{33   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_a394e935b6fd1899b26f8987f89a4cbfb}{unlink}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{34   \mbox{\hyperlink{classQCString}{QCString}}       \mbox{\hyperlink{namespacePortable_a0f30be3f0aed0b88804816f3e6310ee4}{pathSeparator}}();}
+\DoxyCodeLine{35   \mbox{\hyperlink{classQCString}{QCString}}       \mbox{\hyperlink{namespacePortable_a33ec52ac55c4d58e0748239920ee3e14}{pathListSeparator}}();}
+\DoxyCodeLine{36   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *   \mbox{\hyperlink{namespacePortable_a4c4c43977edb27e33f873fbacf11d528}{ghostScriptCommand}}();}
+\DoxyCodeLine{37   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *   \mbox{\hyperlink{namespacePortable_acf75def6ec394875d4a3c380ffc301b7}{commandExtension}}();}
+\DoxyCodeLine{38   \textcolor{keywordtype}{bool}           \mbox{\hyperlink{namespacePortable_a8c6ba49e769f2990693fa40528d3c50e}{fileSystemIsCaseSensitive}}();}
+\DoxyCodeLine{39   FILE *         \mbox{\hyperlink{namespacePortable_a15b92ac03be9e8f4d95d5e881342d83c}{popen}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&type);}
+\DoxyCodeLine{40   \textcolor{keywordtype}{int}            \mbox{\hyperlink{namespacePortable_a6cde8cab8c3dc3397ea5c6030fbf6e84}{pclose}}(FILE *stream);}
+\DoxyCodeLine{41   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_ada9653ce1cfc72cc4923aac726435962}{sysTimerStart}}();}
+\DoxyCodeLine{42   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_a3131c9d07ca7ce1ad22542ce9e417068}{sysTimerStop}}();}
+\DoxyCodeLine{43   \textcolor{keywordtype}{double}         \mbox{\hyperlink{namespacePortable_a248b5a87e07edc01e5ae424b6597142f}{getSysElapsedTime}}();}
+\DoxyCodeLine{44   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_a7e7faa33c4307edc0f95a742bad3a736}{sleep}}(\textcolor{keywordtype}{int} ms);}
+\DoxyCodeLine{45   \textcolor{keywordtype}{bool}           \mbox{\hyperlink{namespacePortable_a08dc4d7f652408d7fc2eaba792796cb1}{isAbsolutePath}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{46   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_a7b0d9dbb919f445905c42fabb783c6f9}{correct\_path}}();}
+\DoxyCodeLine{47   \textcolor{keywordtype}{void}           \mbox{\hyperlink{namespacePortable_aff6714c1d9aaed257fc48a7a535b1fd5}{setShortDir}}();}
+\DoxyCodeLine{48   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *   \mbox{\hyperlink{namespacePortable_ada69eeb681c8f036f6a3327478acbd75}{strnstr}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *haystack, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *needle, \textcolor{keywordtype}{size\_t} haystack\_len);}
+\DoxyCodeLine{49   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *   \mbox{\hyperlink{namespacePortable_aec45ff95f54eed28050e42d3638907cf}{devNull}}();}
+\DoxyCodeLine{50   \textcolor{keywordtype}{bool}           \mbox{\hyperlink{namespacePortable_a39228795dec07d8121645b0348e91712}{checkForExecutable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{51   \textcolor{keywordtype}{size\_t}         \mbox{\hyperlink{namespacePortable_a724f5508f1314342da28cc51b867431b}{recodeUtf8StringToW}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inputStr,uint16\_t **buf);}
+\DoxyCodeLine{52 \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{56   \textcolor{keywordtype}{void} *         \mbox{\hyperlink{portable_8h_a7bc4daae6d2c3e89837c44e2c3d4dac6}{portable\_iconv\_open}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *tocode, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fromcode);}
+\DoxyCodeLine{57   \textcolor{keywordtype}{size\_t}         \mbox{\hyperlink{portable_8h_a5fc5ec1eedfa06b27448863f69ee2e1d}{portable\_iconv}} (\textcolor{keywordtype}{void} *cd, \textcolor{keyword}{const} \textcolor{keywordtype}{char}** inbuf, \textcolor{keywordtype}{size\_t} *inbytesleft,}
+\DoxyCodeLine{58                                  \textcolor{keywordtype}{char}* * outbuf, \textcolor{keywordtype}{size\_t} *outbytesleft);}
+\DoxyCodeLine{59   \textcolor{keywordtype}{int}            \mbox{\hyperlink{portable_8h_a3f98144680118aada1a93d2d4ba6173b}{portable\_iconv\_close}} (\textcolor{keywordtype}{void} *cd);}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}

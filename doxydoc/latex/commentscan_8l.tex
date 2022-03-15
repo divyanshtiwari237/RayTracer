@@ -1,0 +1,272 @@
+\hypertarget{commentscan_8l}{}\doxysection{/mnt/c/projects/doxygen/src/commentscan.l File Reference}
+\label{commentscan_8l}\index{/mnt/c/projects/doxygen/src/commentscan.l@{/mnt/c/projects/doxygen/src/commentscan.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}qcstring.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}condparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docgroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}formula.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reflist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}section.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for commentscan.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDocCmdMap}{Doc\+Cmd\+Map}}
+\item 
+class \mbox{\hyperlink{classGuardedSection}{Guarded\+Section}}
+\item 
+struct \mbox{\hyperlink{structcommentscanYY__state}{commentscan\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{structCommentScanner_1_1Private}{Comment\+Scanner\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_a15b85de192a189d5a31cdd518e001e6e}{YY\+\_\+\+NEVER\+\_\+\+INTERACTIVE}}~1
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_a86da2f5e3360caa90276fc24433d9512}{unput\+\_\+string}}(yytext,  yyleng)~do \{ for (\mbox{\hyperlink{classint}{int}} i=(\mbox{\hyperlink{classint}{int}})yyleng-\/1;i$>$=0;i-\/-\/) unput(yytext\mbox{[}i\mbox{]}); \} while(0)
+\item 
+\#define \mbox{\hyperlink{commentscan_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{commentscan_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\item 
+typedef bool($\ast$ \mbox{\hyperlink{commentscan_8l_a5f0ef51d0304321a0f49bce394f3b4d2}{Doc\+Cmd\+Func}}) (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&opt\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4}{Command\+Spacing}} \{ \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a8bcda43732b0928d269955e0f09ff76f}{Invisible}}
+, \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a0125cf5f3ca38b312ca5d3b511c45a13}{Inline}}
+, \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4ae1e4c8c9ccd9fc39c391da4bcd093fb2}{Block}}
+, \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a7fe49e9268fa9267e7a61d78e1764645}{XRef}}
+ \}
+\item 
+enum \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186}{XRef\+Kind}} \{ \newline
+\mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a42ee2c25e3f8d7da014fe8ef030d62dd}{XRef\+\_\+\+Item}}
+, \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5cbe7af7984f6187caabf98d9f63d827}{XRef\+\_\+\+Todo}}
+, \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a6e296b7c7d8b1ef41da86ac5ce6a7fde}{XRef\+\_\+\+Test}}
+, \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a8496a070226e4b7041f46e5012f8deb7}{XRef\+\_\+\+Bug}}
+, \newline
+\mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5b64b43dd14f6ef0daa85168b4240917}{XRef\+\_\+\+Deprecated}}
+, \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186ae309e5d84833a7111c361e657e75bc88}{XRef\+\_\+\+None}}
+ \}
+\item 
+enum \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45}{Output\+Context}} \{ \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a7798ee65e8ba26c91dcea378c28347a6}{Output\+Doc}}
+, \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ab0588c8b5fb2c84034afe1809365f040}{Output\+Brief}}
+, \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a160009fd71296a63860f66209dbcc705}{Output\+XRef}}
+, \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ae2467e74f0b442984f8de771f0e8b5d0}{Output\+Inbody}}
+ \}
+\item 
+enum \mbox{\hyperlink{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7f}{Guard\+Type}} \{ \mbox{\hyperlink{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa516af97241cebc813e221d2cff34aee3}{Guard\+\_\+\+If}}
+, \mbox{\hyperlink{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa81117f2b12c03ae4546521b5bf7c8ac5}{Guard\+\_\+\+If\+Not}}
+, \mbox{\hyperlink{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa05f0ba790ed71e77b4064fb2b8350e9a}{Guard\+\_\+\+Skip}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{commentscan_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{commentscan_8l_a86da2f5e3360caa90276fc24433d9512}\label{commentscan_8l_a86da2f5e3360caa90276fc24433d9512}} 
+\index{commentscan.l@{commentscan.l}!unput\_string@{unput\_string}}
+\index{unput\_string@{unput\_string}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{unput\_string}{unput\_string}}
+{\footnotesize\ttfamily \#define unput\+\_\+string(\begin{DoxyParamCaption}\item[{}]{yytext,  }\item[{}]{yyleng }\end{DoxyParamCaption})~do \{ for (\mbox{\hyperlink{classint}{int}} i=(\mbox{\hyperlink{classint}{int}})yyleng-\/1;i$>$=0;i-\/-\/) unput(yytext\mbox{[}i\mbox{]}); \} while(0)}
+
+\mbox{\Hypertarget{commentscan_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{commentscan_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{commentscan.l@{commentscan.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{commentscan_8l_aacfdca45fa4beb8b06172525a53c424a}\label{commentscan_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{commentscan.l@{commentscan.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{commentscan_8l_a15b85de192a189d5a31cdd518e001e6e}\label{commentscan_8l_a15b85de192a189d5a31cdd518e001e6e}} 
+\index{commentscan.l@{commentscan.l}!YY\_NEVER\_INTERACTIVE@{YY\_NEVER\_INTERACTIVE}}
+\index{YY\_NEVER\_INTERACTIVE@{YY\_NEVER\_INTERACTIVE}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NEVER\_INTERACTIVE}{YY\_NEVER\_INTERACTIVE}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NEVER\+\_\+\+INTERACTIVE~1}
+
+\mbox{\Hypertarget{commentscan_8l_a85523a0c7d95c059d251b4e9829947aa}\label{commentscan_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{commentscan.l@{commentscan.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{commentscan_8l_ae78ac56cd1f29572e967ed7636952d15}\label{commentscan_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{commentscan.l@{commentscan.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{commentscan_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{commentscan_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{commentscan.l@{commentscan.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{commentscan_8l_a5f0ef51d0304321a0f49bce394f3b4d2}\label{commentscan_8l_a5f0ef51d0304321a0f49bce394f3b4d2}} 
+\index{commentscan.l@{commentscan.l}!DocCmdFunc@{DocCmdFunc}}
+\index{DocCmdFunc@{DocCmdFunc}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{DocCmdFunc}{DocCmdFunc}}
+{\footnotesize\ttfamily typedef bool($\ast$ Doc\+Cmd\+Func) (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner, const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&opt\+List)}
+
+\mbox{\Hypertarget{commentscan_8l_a9484188abbc459dafcbd4c96425fa70b}\label{commentscan_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{commentscan.l@{commentscan.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{commentscan_8l_abef2fa9b94f622b395476cf09af989c4}\label{commentscan_8l_abef2fa9b94f622b395476cf09af989c4}} 
+\index{commentscan.l@{commentscan.l}!CommandSpacing@{CommandSpacing}}
+\index{CommandSpacing@{CommandSpacing}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{CommandSpacing}{CommandSpacing}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commentscan_8l_abef2fa9b94f622b395476cf09af989c4}{Command\+Spacing}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Invisible@{Invisible}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Invisible@{Invisible}}}\mbox{\Hypertarget{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a8bcda43732b0928d269955e0f09ff76f}\label{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a8bcda43732b0928d269955e0f09ff76f}} 
+Invisible&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Inline@{Inline}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Inline@{Inline}}}\mbox{\Hypertarget{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a0125cf5f3ca38b312ca5d3b511c45a13}\label{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a0125cf5f3ca38b312ca5d3b511c45a13}} 
+Inline&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Block@{Block}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Block@{Block}}}\mbox{\Hypertarget{commentscan_8l_abef2fa9b94f622b395476cf09af989c4ae1e4c8c9ccd9fc39c391da4bcd093fb2}\label{commentscan_8l_abef2fa9b94f622b395476cf09af989c4ae1e4c8c9ccd9fc39c391da4bcd093fb2}} 
+Block&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef@{XRef}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef@{XRef}}}\mbox{\Hypertarget{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a7fe49e9268fa9267e7a61d78e1764645}\label{commentscan_8l_abef2fa9b94f622b395476cf09af989c4a7fe49e9268fa9267e7a61d78e1764645}} 
+XRef&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7f}\label{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7f}} 
+\index{commentscan.l@{commentscan.l}!GuardType@{GuardType}}
+\index{GuardType@{GuardType}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{GuardType}{GuardType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7f}{Guard\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Guard\_If@{Guard\_If}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Guard\_If@{Guard\_If}}}\mbox{\Hypertarget{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa516af97241cebc813e221d2cff34aee3}\label{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa516af97241cebc813e221d2cff34aee3}} 
+Guard\+\_\+\+If&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Guard\_IfNot@{Guard\_IfNot}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Guard\_IfNot@{Guard\_IfNot}}}\mbox{\Hypertarget{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa81117f2b12c03ae4546521b5bf7c8ac5}\label{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa81117f2b12c03ae4546521b5bf7c8ac5}} 
+Guard\+\_\+\+If\+Not&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Guard\_Skip@{Guard\_Skip}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!Guard\_Skip@{Guard\_Skip}}}\mbox{\Hypertarget{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa05f0ba790ed71e77b4064fb2b8350e9a}\label{commentscan_8l_a83faa6554b2d8d0f095551b84f726c7fa05f0ba790ed71e77b4064fb2b8350e9a}} 
+Guard\+\_\+\+Skip&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45}\label{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45}} 
+\index{commentscan.l@{commentscan.l}!OutputContext@{OutputContext}}
+\index{OutputContext@{OutputContext}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{OutputContext}{OutputContext}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45}{Output\+Context}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutputDoc@{OutputDoc}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!OutputDoc@{OutputDoc}}}\mbox{\Hypertarget{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a7798ee65e8ba26c91dcea378c28347a6}\label{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a7798ee65e8ba26c91dcea378c28347a6}} 
+Output\+Doc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutputBrief@{OutputBrief}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!OutputBrief@{OutputBrief}}}\mbox{\Hypertarget{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ab0588c8b5fb2c84034afe1809365f040}\label{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ab0588c8b5fb2c84034afe1809365f040}} 
+Output\+Brief&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutputXRef@{OutputXRef}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!OutputXRef@{OutputXRef}}}\mbox{\Hypertarget{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a160009fd71296a63860f66209dbcc705}\label{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45a160009fd71296a63860f66209dbcc705}} 
+Output\+XRef&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutputInbody@{OutputInbody}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!OutputInbody@{OutputInbody}}}\mbox{\Hypertarget{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ae2467e74f0b442984f8de771f0e8b5d0}\label{commentscan_8l_acc0f0d2f60038c5acff5f6480bc80e45ae2467e74f0b442984f8de771f0e8b5d0}} 
+Output\+Inbody&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186}} 
+\index{commentscan.l@{commentscan.l}!XRefKind@{XRefKind}}
+\index{XRefKind@{XRefKind}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{XRefKind}{XRefKind}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{commentscan_8l_a30f370adb2525f6629a44ad8fb972186}{XRef\+Kind}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_Item@{XRef\_Item}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_Item@{XRef\_Item}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a42ee2c25e3f8d7da014fe8ef030d62dd}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a42ee2c25e3f8d7da014fe8ef030d62dd}} 
+XRef\+\_\+\+Item&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_Todo@{XRef\_Todo}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_Todo@{XRef\_Todo}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5cbe7af7984f6187caabf98d9f63d827}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5cbe7af7984f6187caabf98d9f63d827}} 
+XRef\+\_\+\+Todo&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_Test@{XRef\_Test}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_Test@{XRef\_Test}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a6e296b7c7d8b1ef41da86ac5ce6a7fde}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a6e296b7c7d8b1ef41da86ac5ce6a7fde}} 
+XRef\+\_\+\+Test&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_Bug@{XRef\_Bug}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_Bug@{XRef\_Bug}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a8496a070226e4b7041f46e5012f8deb7}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a8496a070226e4b7041f46e5012f8deb7}} 
+XRef\+\_\+\+Bug&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_Deprecated@{XRef\_Deprecated}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_Deprecated@{XRef\_Deprecated}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5b64b43dd14f6ef0daa85168b4240917}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186a5b64b43dd14f6ef0daa85168b4240917}} 
+XRef\+\_\+\+Deprecated&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{XRef\_None@{XRef\_None}!commentscan.l@{commentscan.l}}\index{commentscan.l@{commentscan.l}!XRef\_None@{XRef\_None}}}\mbox{\Hypertarget{commentscan_8l_a30f370adb2525f6629a44ad8fb972186ae309e5d84833a7111c361e657e75bc88}\label{commentscan_8l_a30f370adb2525f6629a44ad8fb972186ae309e5d84833a7111c361e657e75bc88}} 
+XRef\+\_\+\+None&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{commentscan_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{commentscan_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{commentscan.l@{commentscan.l}!yylex@{yylex}}
+\index{yylex@{yylex}!commentscan.l@{commentscan.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+

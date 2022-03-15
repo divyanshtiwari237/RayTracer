@@ -1,0 +1,96 @@
+\hypertarget{classOutlineParserInterface}{}\doxysection{Outline\+Parser\+Interface Class Reference}
+\label{classOutlineParserInterface}\index{OutlineParserInterface@{OutlineParserInterface}}
+
+
+Abstract interface for outline parsers.  
+
+
+
+
+{\ttfamily \#include $<$parserintf.\+h$>$}
+
+
+
+Inheritance diagram for Outline\+Parser\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Outline\+Parser\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classOutlineParserInterface_ab512faefb6cb0aabd1edf46846db5319}{$\sim$\+Outline\+Parser\+Interface}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}{parse\+Input}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, const char $\ast$file\+Buf, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&root, \mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$clang\+Parser)=0
+\item 
+virtual bool \mbox{\hyperlink{classOutlineParserInterface_a0df8efc6ad67956cf54b7dec68c932b4}{needs\+Preprocessing}} (const \mbox{\hyperlink{classQCString}{QCString}} \&extension) const =0
+\item 
+virtual void \mbox{\hyperlink{classOutlineParserInterface_a69a5b6af5318cae09594b6a48d6b0d99}{parse\+Prototype}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract interface for outline parsers. 
+
+By implementing the methods of this interface one can add a new language parser to doxygen. The parser implementation can make use of the comment block parser to parse the contents of special comment blocks. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classOutlineParserInterface_ab512faefb6cb0aabd1edf46846db5319}\label{classOutlineParserInterface_ab512faefb6cb0aabd1edf46846db5319}} 
+\index{OutlineParserInterface@{OutlineParserInterface}!````~OutlineParserInterface@{$\sim$OutlineParserInterface}}
+\index{````~OutlineParserInterface@{$\sim$OutlineParserInterface}!OutlineParserInterface@{OutlineParserInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$OutlineParserInterface()}{~OutlineParserInterface()}}
+{\footnotesize\ttfamily virtual Outline\+Parser\+Interface\+::$\sim$\+Outline\+Parser\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOutlineParserInterface_a0df8efc6ad67956cf54b7dec68c932b4}\label{classOutlineParserInterface_a0df8efc6ad67956cf54b7dec68c932b4}} 
+\index{OutlineParserInterface@{OutlineParserInterface}!needsPreprocessing@{needsPreprocessing}}
+\index{needsPreprocessing@{needsPreprocessing}!OutlineParserInterface@{OutlineParserInterface}}
+\doxysubsubsection{\texorpdfstring{needsPreprocessing()}{needsPreprocessing()}}
+{\footnotesize\ttfamily virtual bool Outline\+Parser\+Interface\+::needs\+Preprocessing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{extension }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Returns TRUE if the language identified by {\itshape extension} needs the C preprocessor to be run before feed the result to the input parser. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}{parse\+Input()}} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{classNullOutlineParser_ace7722224db7d0aea6817ce217050468}{Null\+Outline\+Parser}}, \mbox{\hyperlink{classMarkdownOutlineParser_a5bc6a6ff0b95dec00d1dd81ab7278252}{Markdown\+Outline\+Parser}}, \mbox{\hyperlink{classVHDLOutlineParser_ab82a8a552abea4291fba5796463fe76a}{VHDLOutline\+Parser}}, \mbox{\hyperlink{classFortranOutlineParser_a99eeacbe2118084031ba53c28d3fe324}{Fortran\+Outline\+Parser}}, \mbox{\hyperlink{classLexOutlineParser_a3bf81ea753ad82a279a2c48acd666bd9}{Lex\+Outline\+Parser}}, \mbox{\hyperlink{classPythonOutlineParser_af9e1a2e462079def013d0a2989eb2c8c}{Python\+Outline\+Parser}}, and \mbox{\hyperlink{classCOutlineParser_ad24e798117e9abe1d2926ea5fc69babc}{COutline\+Parser}}.
+
+\mbox{\Hypertarget{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}\label{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}} 
+\index{OutlineParserInterface@{OutlineParserInterface}!parseInput@{parseInput}}
+\index{parseInput@{parseInput}!OutlineParserInterface@{OutlineParserInterface}}
+\doxysubsubsection{\texorpdfstring{parseInput()}{parseInput()}}
+{\footnotesize\ttfamily virtual void Outline\+Parser\+Interface\+::parse\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{const char $\ast$}]{file\+Buf,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&}]{root,  }\item[{\mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$}]{clang\+Parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Parses a single input file with the goal to build an \mbox{\hyperlink{classEntry}{Entry}} tree. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Name} & The full name of the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Buf} & The contents of the file (zero terminated). \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em root} & The root of the tree of \mbox{\hyperlink{classEntry}{Entry}} $\ast$nodes representing the information extracted from the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em clang\+Parser} & The clang translation unit parser object or nullptr if disabled. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classNullOutlineParser_a09c07047416aef052e3d950e35c0a069}{Null\+Outline\+Parser}}, \mbox{\hyperlink{classFortranOutlineParser_afa7fb7add92a862b32f22032e69fe583}{Fortran\+Outline\+Parser}}, \mbox{\hyperlink{classLexOutlineParser_aa15a62641b1eea32bfb8e3e2c88e03a6}{Lex\+Outline\+Parser}}, \mbox{\hyperlink{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}{Markdown\+Outline\+Parser}}, \mbox{\hyperlink{classPythonOutlineParser_a82b613d877eb78866fe172fbf85fc667}{Python\+Outline\+Parser}}, \mbox{\hyperlink{classCOutlineParser_ab29ff7519601510e414da9fae6a82c28}{COutline\+Parser}}, and \mbox{\hyperlink{classVHDLOutlineParser_afe98061778ab170da03108ad813fa2e2}{VHDLOutline\+Parser}}.
+
+\mbox{\Hypertarget{classOutlineParserInterface_a69a5b6af5318cae09594b6a48d6b0d99}\label{classOutlineParserInterface_a69a5b6af5318cae09594b6a48d6b0d99}} 
+\index{OutlineParserInterface@{OutlineParserInterface}!parsePrototype@{parsePrototype}}
+\index{parsePrototype@{parsePrototype}!OutlineParserInterface@{OutlineParserInterface}}
+\doxysubsubsection{\texorpdfstring{parsePrototype()}{parsePrototype()}}
+{\footnotesize\ttfamily virtual void Outline\+Parser\+Interface\+::parse\+Prototype (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Callback function called by the comment block scanner. It provides a string {\itshape text} containing the prototype of a function or variable. The parser should parse this and store the information in the \mbox{\hyperlink{classEntry}{Entry}} node that corresponds with the node for which the comment block parser was invoked. 
+
+Implemented in \mbox{\hyperlink{classNullOutlineParser_aeaa6f849822a258ab63ce182a96d8e1e}{Null\+Outline\+Parser}}, \mbox{\hyperlink{classFortranOutlineParser_ab018695dfe0b2e1c71671ae7c425c2ab}{Fortran\+Outline\+Parser}}, \mbox{\hyperlink{classLexOutlineParser_ad381cb1e25cb3fc68a0d639c85fff348}{Lex\+Outline\+Parser}}, \mbox{\hyperlink{classMarkdownOutlineParser_aa01f3200563b06e0f9a6364f522685c8}{Markdown\+Outline\+Parser}}, \mbox{\hyperlink{classPythonOutlineParser_ad4163b5fd2c8ae60b73141e17049fe14}{Python\+Outline\+Parser}}, \mbox{\hyperlink{classCOutlineParser_af5ec7bd6a3a1dc91c3939b61134b6618}{COutline\+Parser}}, and \mbox{\hyperlink{classVHDLOutlineParser_a6d25f36c3435b43a357c22163590dd3b}{VHDLOutline\+Parser}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{parserintf_8h}{parserintf.\+h}}\end{DoxyCompactItemize}

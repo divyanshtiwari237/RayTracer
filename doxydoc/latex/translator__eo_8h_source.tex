@@ -1,0 +1,1408 @@
+\hypertarget{translator__eo_8h_source}{}\doxysection{translator\+\_\+eo.\+h}
+\label{translator__eo_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_eo.h@{/mnt/c/projects/doxygen/src/translator\_eo.h}}
+\mbox{\hyperlink{translator__eo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18  \textcolor{comment}{/* Tradukita kaj ĝisdatigata de Ander Martinez. */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_EO\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TRANSLATOR\_EO\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorEsperanto}{TranslatorEsperanto}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__4}{TranslatorAdapter\_1\_8\_4}}}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47   \textcolor{keyword}{public}:}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aaf20d4da9ce48d26d7e82cd0464d6e02}{idLanguage}}()}
+\DoxyCodeLine{58     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}esperanto"{}}; \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{74     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aefc408ed06698996a0ec7d0cb8c2100e}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{75     \{}
+\DoxyCodeLine{76       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[esperanto]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aee9ae87606a2ce938c5be97c9b5a81da}{trISOLang}}()}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}eo"{}};}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{comment}{// using fallback see translator.h}}
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ae91bc1956d90025f04708bf9304b5009}{getLanguageString}}()}
+\DoxyCodeLine{86     \{}
+\DoxyCodeLine{87       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x409 English (United States)"{}};}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{92     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a07f2ed82c85c638c9f43e084b260e050}{trRelatedFunctions}}()}
+\DoxyCodeLine{93     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rilataj Funkcioj"{}}; \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{96     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a44140994ab557e4aaa96b8a55d13c124}{trRelatedSubscript}}()}
+\DoxyCodeLine{97     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Atentu ke tiuj ĉi ne estas membraj funkcioj.)"{}}; \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{100     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a5bb25f0469f6b11aba1fe557853d4c3f}{trDetailedDescription}}()}
+\DoxyCodeLine{101     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Detala Priskribo"{}}; \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{104     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aaa5441db3c6b69cb7a129dca3ac3e079}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{105     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado de la Membraj Tipodifinoj"{}}; \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{108     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af9b6f8fc75b87af05679f9ccefc59239}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{109     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado de la Membraj Enumeracioj"{}}; \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9d7012af2114f7ccf3cd82802f1a1ada}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{113     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado de la Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a75ba8e9c22cbc90f0518bc54c9b569f7}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{119       \{}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kampa Dokumentado"{}};}
+\DoxyCodeLine{121       \}}
+\DoxyCodeLine{122       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{123       \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado de la Membraj Datumoj"{}};}
+\DoxyCodeLine{125       \}}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{129     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a986f70fe60b13570f668b9c773291e45}{trMore}}()}
+\DoxyCodeLine{130     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pli..."{}}; \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad66219a0993a456c9c64c508d6f741b6}{trListOfAllMembers}}()}
+\DoxyCodeLine{134     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Listo de ĉiuj membroj"{}}; \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a88067bc066b2b8988ec775e5042ccb1c}{trMemberList}}()}
+\DoxyCodeLine{138     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membra Listo"{}}; \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a4ef06f65207704a83291152c38f06659}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{142     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiu ĉi estas la kompleta membraro de "{}}; \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{145     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3d07fe2e4b9828bd5dc7f79b4f991edd}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{146     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, inkluzive ĉiujn hereditajn membrojn."{}}; \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{151     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_afb363a7ad8d194692ca89b87519f9cb2}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{152     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Generita aŭtomate de Doxygen"{}};}
+\DoxyCodeLine{153       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} por "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{154       result+=\textcolor{stringliteral}{"{} el la fontkodo."{}};}
+\DoxyCodeLine{155       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9a80623f29d15788da50f7565accf638}{trEnumName}}()}
+\DoxyCodeLine{160     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum nomo"{}}; \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{163     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2a6670acd98110ded878f2e121db6292}{trEnumValue}}()}
+\DoxyCodeLine{164     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum valoro"{}}; \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a44a7ef84e3267d8323120fa86d6be742}{trDefinedIn}}()}
+\DoxyCodeLine{168     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}difinita en"{}}; \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{175     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a15e0a790a35172799fe4e09f017ac2ff}{trModules}}()}
+\DoxyCodeLine{176     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduloj"{}}; \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{179     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a94649e92409f1ded8916d04e80f5c67b}{trClassHierarchy}}()}
+\DoxyCodeLine{180     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasa Hierarkio"{}}; \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad20787929e1c083e6ba51464533cd354}{trCompoundList}}()}
+\DoxyCodeLine{184     \{}
+\DoxyCodeLine{185       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{186       \{}
+\DoxyCodeLine{187         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumstruktoroj"{}};}
+\DoxyCodeLine{188       \}}
+\DoxyCodeLine{189       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{190       \{}
+\DoxyCodeLine{191         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasaro"{}};}
+\DoxyCodeLine{192       \}}
+\DoxyCodeLine{193     \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1c5b706e4fe6d9a16216935cfa5fc5f5}{trFileList}}()}
+\DoxyCodeLine{197     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosieraro"{}}; \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad69f34aac00b6774393c27d8044f195c}{trCompoundMembers}}()}
+\DoxyCodeLine{201     \{}
+\DoxyCodeLine{202       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{203       \{}
+\DoxyCodeLine{204         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumkampoj"{}};}
+\DoxyCodeLine{205       \}}
+\DoxyCodeLine{206       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{207       \{}
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasaj membroj"{}};}
+\DoxyCodeLine{209       \}}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac8ac2bc0441c95505fe1d7dbeb012ffe}{trFileMembers}}()}
+\DoxyCodeLine{214     \{}
+\DoxyCodeLine{215       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{216       \{}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mallokalaĵoj"{}};}
+\DoxyCodeLine{218       \}}
+\DoxyCodeLine{219       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{220       \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosieraj Membroj"{}};}
+\DoxyCodeLine{222       \}}
+\DoxyCodeLine{223     \}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{226     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a24142866311df63cceb6e2a778dbd93d}{trRelatedPages}}()}
+\DoxyCodeLine{227     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rilataj Paĝoj"{}}; \}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a513d25a076a168b30900b4b570f6d427}{trExamples}}()}
+\DoxyCodeLine{231     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ekzemploj"{}}; \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{234     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7389902c0ecda3c83b255eb3dc2b6ad3}{trSearch}}()}
+\DoxyCodeLine{235     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Serĉi"{}}; \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{238     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad2ab174a287912a744a21ddedc366116}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{239     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiu ĉi heredada listo estas plimalpli, "{}}}
+\DoxyCodeLine{240              \textcolor{stringliteral}{"{}sed ne tute, ordigita alfabete:"{}};}
+\DoxyCodeLine{241     \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a930891243adea12fb2cd64fdd0f8b7d2}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{245     \{}
+\DoxyCodeLine{246       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{247       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{248       result+=\textcolor{stringliteral}{"{}dosieroj kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{249       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{250     \}}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{253     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab570aa9fa545080dc4e05cf9602c3775}{trCompoundListDescription}}()}
+\DoxyCodeLine{254     \{}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{257       \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen datumstrukturoj kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{259       \}}
+\DoxyCodeLine{260       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{261       \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen la klasoj kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{263       \}}
+\DoxyCodeLine{264       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{265       \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen la klasoj, strukturoj, kunigoj kaj interfacoj "{}}}
+\DoxyCodeLine{267                \textcolor{stringliteral}{"{}kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{268       \}}
+\DoxyCodeLine{269     \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{272     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6e758456aa5b51f99d19b015ef44fddc}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{273     \{}
+\DoxyCodeLine{274       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{275       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{276       \{}
+\DoxyCodeLine{277         result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{278       \}}
+\DoxyCodeLine{279       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{280       \{}
+\DoxyCodeLine{281         result+=\textcolor{stringliteral}{"{}strukturaj kaj kunigaj kampoj"{}};}
+\DoxyCodeLine{282       \}}
+\DoxyCodeLine{283       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{284       \{}
+\DoxyCodeLine{285         result+=\textcolor{stringliteral}{"{}klasaj membroj"{}};}
+\DoxyCodeLine{286       \}}
+\DoxyCodeLine{287       result+=\textcolor{stringliteral}{"{} kun ligiloj al "{}};}
+\DoxyCodeLine{288       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{289       \{}
+\DoxyCodeLine{290         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{291         \{}
+\DoxyCodeLine{292           result+=\textcolor{stringliteral}{"{}la struktura/kuniga dokumentado por ĉiu kampo:"{}};}
+\DoxyCodeLine{293         \}}
+\DoxyCodeLine{294         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{295         \{}
+\DoxyCodeLine{296           result+=\textcolor{stringliteral}{"{}la klasa dokumentado por ĉiu membro:"{}};}
+\DoxyCodeLine{297         \}}
+\DoxyCodeLine{298       \}}
+\DoxyCodeLine{299       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{300       \{}
+\DoxyCodeLine{301         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{302         \{}
+\DoxyCodeLine{303           result+=\textcolor{stringliteral}{"{}la strukturoj/kunigoj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{304         \}}
+\DoxyCodeLine{305         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{306         \{}
+\DoxyCodeLine{307           result+=\textcolor{stringliteral}{"{}la klasoj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{308         \}}
+\DoxyCodeLine{309       \}}
+\DoxyCodeLine{310       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{311     \}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{314     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9fe1e36b574401b2945b55e50a8fa578}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{315     \{}
+\DoxyCodeLine{316       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{317       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{320       \{}
+\DoxyCodeLine{321         result+=\textcolor{stringliteral}{"{}funkcioj, variabloj, difinoj, enumeracioj kaj tipodifinoj"{}};}
+\DoxyCodeLine{322       \}}
+\DoxyCodeLine{323       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{324       \{}
+\DoxyCodeLine{325         result+=\textcolor{stringliteral}{"{}dosieraj membroj"{}};}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       result+=\textcolor{stringliteral}{"{} kun ligiloj al "{}};}
+\DoxyCodeLine{328       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{329         result+=\textcolor{stringliteral}{"{}la dosieroj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{330       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{331         result+=\textcolor{stringliteral}{"{}la dokumentado:"{}};}
+\DoxyCodeLine{332       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{333     \}}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac008de4220cb69145992cdf4018ea647}{trExamplesDescription}}()}
+\DoxyCodeLine{337     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen listo de ĉiuj la ekzemploj:"{}}; \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{340     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a816c2a3ff7df0820200c845eaddf9f78}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{341     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen listo de ĉiuj rilataj dokumentadaj paĝoj:"{}}; \}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{344     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1dcad5d3d0d2ae276718269e8d9cb814}{trModulesDescription}}()}
+\DoxyCodeLine{345     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen listo de ĉiuj la moduloj:"{}}; \}}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{350     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab47462bd860190599b818609056a8643}{trDocumentation}}()}
+\DoxyCodeLine{351     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado"{}}; \}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{356     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a57ac90bfce144ec06f088679d2e3a415}{trModuleIndex}}()}
+\DoxyCodeLine{357     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modula Indekso"{}}; \}}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a83b46757b333f7ac4353f0d9296f7c4b}{trHierarchicalIndex}}()}
+\DoxyCodeLine{363     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarkia Indekso"{}}; \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{368     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1a30d922db5853fc24ddbee5e25643d6}{trCompoundIndex}}()}
+\DoxyCodeLine{369     \{}
+\DoxyCodeLine{370       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{371       \{}
+\DoxyCodeLine{372         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumstruktura Indekso"{}};}
+\DoxyCodeLine{373       \}}
+\DoxyCodeLine{374       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{375       \{}
+\DoxyCodeLine{376         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasa Indekso"{}};}
+\DoxyCodeLine{377       \}}
+\DoxyCodeLine{378     \}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{383     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adb708248ddcb1af159c782a4538bddb4}{trFileIndex}}()}
+\DoxyCodeLine{384     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosiera Indekso"{}}; \}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{389     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa185921e557e4d14e6ea7464b7857701}{trModuleDocumentation}}()}
+\DoxyCodeLine{390     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modula Dokumentado"{}}; \}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{395     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_afdcc46ecc7822a943d4bf94537902c07}{trClassDocumentation}}()}
+\DoxyCodeLine{396     \{}
+\DoxyCodeLine{397       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{398       \{}
+\DoxyCodeLine{399         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumstruktura Dokumentado"{}};}
+\DoxyCodeLine{400       \}}
+\DoxyCodeLine{401       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{402       \{}
+\DoxyCodeLine{403           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{404       \}}
+\DoxyCodeLine{405       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{406       \{}
+\DoxyCodeLine{407         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasa Dokumentado"{}};}
+\DoxyCodeLine{408       \}}
+\DoxyCodeLine{409     \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{414     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac034c1189fce0edf6795349561fc57d9}{trFileDocumentation}}()}
+\DoxyCodeLine{415     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosiera Dokumentado"{}}; \}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7dce1c7d8ff2e4d85a78af267910e2a2}{trExampleDocumentation}}()}
+\DoxyCodeLine{421     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ekzempla Dokumentado"{}}; \}}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{424     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9b8a1f51e09f673a37d428d7b78f2bbe}{trReferenceManual}}()}
+\DoxyCodeLine{425     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referenca Manlibro"{}}; \}}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{430     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad11e7d859d5f65bb8a7b103c16199677}{trDefines}}()}
+\DoxyCodeLine{431     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Difinoj"{}}; \}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{436     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad11700d76f090f935aefb8a68d261bdb}{trTypedefs}}()}
+\DoxyCodeLine{437     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipdifinoj"{}}; \}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{442     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a4516abfec3cb93bffb52458786385a1d}{trEnumerations}}()}
+\DoxyCodeLine{443     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeracioj"{}}; \}}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{448     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7187bbeb5e16bf35077cce750936d226}{trFunctions}}()}
+\DoxyCodeLine{449     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcioj"{}}; \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{454     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a77cae50e36d73971334f4a7cd410a3fe}{trVariables}}()}
+\DoxyCodeLine{455     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Variabloj"{}}; \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{460     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a88eeb34ec5b98f853be2350e19fc2339}{trEnumerationValues}}()}
+\DoxyCodeLine{461     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeraciilo"{}}; \}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{466     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a03b4baa7a56aa31c9584647ae06a2b21}{trDefineDocumentation}}()}
+\DoxyCodeLine{467     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Difina Dokumentado"{}}; \}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{472     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1f0f386b78a28105ea308692ae3b68e9}{trTypedefDocumentation}}()}
+\DoxyCodeLine{473     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipdifina Dokumentado"{}}; \}}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{478     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2a3990913417db1f8be6654aa74821c6}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{479     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeracitipa Dokumentado"{}}; \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{484     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac2f58ec4eed5be0075bc70f79cb5772b}{trFunctionDocumentation}}()}
+\DoxyCodeLine{485     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcia Dokumentado"{}}; \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{490     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7a4e348f9c7ed6ece589630356ef6724}{trVariableDocumentation}}()}
+\DoxyCodeLine{491     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Variabla Dokumentado"{}}; \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{496     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a22a4810210f05b5ac3e7c9fcb16b998a}{trCompounds}}()}
+\DoxyCodeLine{497     \{}
+\DoxyCodeLine{498       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{499       \{}
+\DoxyCodeLine{500         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumstrukturoj"{}};}
+\DoxyCodeLine{501       \}}
+\DoxyCodeLine{502       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{503       \{}
+\DoxyCodeLine{504         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasoj"{}};}
+\DoxyCodeLine{505       \}}
+\DoxyCodeLine{506     \}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{511     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acb437a368044c9263d01413de58dae4d}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{512     \{}
+\DoxyCodeLine{513       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Generita la "{}}+date;}
+\DoxyCodeLine{514       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} por "{}}+projName;}
+\DoxyCodeLine{515       result+=\textcolor{stringliteral}{"{} de"{}};}
+\DoxyCodeLine{516       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{517     \}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{520     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ae252836b2c455a673b3e4ad27dee9e33}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{521     \{}
+\DoxyCodeLine{522       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Heredada diagramo por "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{523     \}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{526     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abc40b1a2f2da32686ea72d3ed27fba6b}{trWarning}}()}
+\DoxyCodeLine{527     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Averto"{}}; \}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{530     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab1a9b9428bee02a9063968208f02c6fd}{trVersion}}()}
+\DoxyCodeLine{531     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Versio"{}}; \}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{534     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa6300cccf6a558dd119b7101c2d67dc0}{trDate}}()}
+\DoxyCodeLine{535     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dato"{}}; \}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abcd7cef459fb821b61d635108bf482b0}{trReturns}}()}
+\DoxyCodeLine{539     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liveras"{}}; \}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a58153d1b8e5313cf38b8288b2616f0b2}{trSeeAlso}}()}
+\DoxyCodeLine{543     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vido ankaŭ"{}}; \}}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{546     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa3844e21e452b085f7d988de483c797d}{trParameters}}()}
+\DoxyCodeLine{547     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametroj"{}}; \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{550     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8cf8110f205bb7439a509230eff8e410}{trExceptions}}()}
+\DoxyCodeLine{551     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Esceptoj"{}}; \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a54dbf82638c95258f87b06c4722d2c30}{trGeneratedBy}}()}
+\DoxyCodeLine{555     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generita de"{}}; \}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{558 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{560 \textcolor{comment}{}}
+\DoxyCodeLine{562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6e05e1ffb5ad5550994b79f4195acdda}{trNamespaceList}}()}
+\DoxyCodeLine{563     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nomspacaro"{}}; \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adfdc62a7a70ff8aec5ca8b3e51a025cd}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{567     \{}
+\DoxyCodeLine{568       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{569       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{570       result+=\textcolor{stringliteral}{"{}nomspacoj kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{571       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{572     \}}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{577     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6fd48cc860f6c5bb35b02b33046ec4d2}{trFriends}}()}
+\DoxyCodeLine{578     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Amikoj"{}}; \}}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{581 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{583 \textcolor{comment}{}}
+\DoxyCodeLine{587     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_affe0b146565b051bfbb81ecb248e32f7}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{588     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado pri amikoj kaj rilatitaj funkcioj"{}}; \}}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{591 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{593 \textcolor{comment}{}}
+\DoxyCodeLine{595     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_afd3d2f543abad6ec61e1d3d99bd9a46c}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{596                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{597                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{598     \{}
+\DoxyCodeLine{599       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referenco de la "{}};}
+\DoxyCodeLine{600       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} ŝablono de la "{}};}
+\DoxyCodeLine{601       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{602       \{}
+\DoxyCodeLine{603         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}klaso "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{604         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}strukturo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{605         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}kunigo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{606         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaco "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{607         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokolo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{608         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorio "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{609         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}escepto "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{610         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{611       \}}
+\DoxyCodeLine{612       result+=clName;}
+\DoxyCodeLine{613       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{614     \}}
+\DoxyCodeLine{615 }
+\DoxyCodeLine{617     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a56d219345f8b6aaf636aa19d2e4d1f72}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{618     \{}
+\DoxyCodeLine{619       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{620       result+=\textcolor{stringliteral}{"{} Dosiera referenco"{}};}
+\DoxyCodeLine{621       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{622     \}}
+\DoxyCodeLine{623 }
+\DoxyCodeLine{625     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad23cdd16189d525698302cfee169c3d9}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{626     \{}
+\DoxyCodeLine{627       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{628       result+=\textcolor{stringliteral}{"{} Nomspaca referenco"{}};}
+\DoxyCodeLine{629       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{630     \}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{632     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3ccb48f368746a35a450413f8939c1d4}{trPublicMembers}}()}
+\DoxyCodeLine{633     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikaj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{634     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a840eb9d04a6820d3686b39288674fee7}{trPublicSlots}}()}
+\DoxyCodeLine{635     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pubikaj Ingoj"{}}; \}}
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a27e4039527584b20d5e07eae0232b324}{trSignals}}()}
+\DoxyCodeLine{637     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signaloj"{}}; \}}
+\DoxyCodeLine{638     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab99eb6ed072087ee16a50c1d4a18a976}{trStaticPublicMembers}}()}
+\DoxyCodeLine{639     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Publikaj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{640     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9a02e23c9ab2f9cad7a4d02caf9d1019}{trProtectedMembers}}()}
+\DoxyCodeLine{641     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protektitaj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{642     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac58f2d29d3cc1ff6832b180b909e8e2c}{trProtectedSlots}}()}
+\DoxyCodeLine{643     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protektitaj Ingoj"{}}; \}}
+\DoxyCodeLine{644     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa43164a9a4c01ad5f741679260ff4c89}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{645     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Protektitaj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{646     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a133dbf7cee2ff236ff7459373051ea48}{trPrivateMembers}}()}
+\DoxyCodeLine{647     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privataj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{648     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab7d431ce4b76073ca1a9e5ee6bebdf8b}{trPrivateSlots}}()}
+\DoxyCodeLine{649     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privataj Ingoj"{}}; \}}
+\DoxyCodeLine{650     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_accc5cd88aa3a1556fdf0179c20eb7896}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{651     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Privataj Membraj Funkcioj"{}}; \}}
+\DoxyCodeLine{652 }
+\DoxyCodeLine{656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{657     \{}
+\DoxyCodeLine{658       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{659       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{660       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{661       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{662       \{}
+\DoxyCodeLine{663         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{664         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{665                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{666 }
+\DoxyCodeLine{667         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{668         \{}
+\DoxyCodeLine{669           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{670             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{671           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{672             result+=\textcolor{stringliteral}{"{}, kaj "{}};}
+\DoxyCodeLine{673         \}}
+\DoxyCodeLine{674       \}}
+\DoxyCodeLine{675       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{676     \}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab9f5f68fe85c51c1b2ff0abd5507c453}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{682     \{}
+\DoxyCodeLine{683       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Heredas de "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{684     \}}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{689     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7727b762854d482dfe963773d9908001}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{690     \{}
+\DoxyCodeLine{691       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Heredita de "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{692     \}}
+\DoxyCodeLine{693 }
+\DoxyCodeLine{697     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abd97eb0cf95223e5c7190ddf96b05678}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{698     \{}
+\DoxyCodeLine{699       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rerealigita el "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{700     \}}
+\DoxyCodeLine{701 }
+\DoxyCodeLine{705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a018d967a3005fb2a9f2d7e3bc2d774f3}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{706     \{}
+\DoxyCodeLine{707       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rerealigita en "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{708     \}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{711     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9568ffcb795c221e55444fa3e15121a3}{trNamespaceMembers}}()}
+\DoxyCodeLine{712     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nomspacaj Membroj"{}}; \}}
+\DoxyCodeLine{713 }
+\DoxyCodeLine{715     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9aae161ea89e2381e0e8ae6d5cc89cb1}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{716     \{}
+\DoxyCodeLine{717       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{718       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{719       result+=\textcolor{stringliteral}{"{}nomspacaj membroj kun ligiloj al "{}};}
+\DoxyCodeLine{720       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{721         result+=\textcolor{stringliteral}{"{}la nomspaca dokumentado de ĉiu membro:"{}};}
+\DoxyCodeLine{722       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{723         result+=\textcolor{stringliteral}{"{}la nomspacoj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{724       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{725     \}}
+\DoxyCodeLine{729     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aaf3b6083774b083405a1c7fdc17a6f0a}{trNamespaceIndex}}()}
+\DoxyCodeLine{730     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nomspaca Indekso"{}}; \}}
+\DoxyCodeLine{731 }
+\DoxyCodeLine{735     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3fe31ab35327545772e6983fd328bfe8}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{736     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nomspaca Dokumentado"{}}; \}}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{739 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{741 \textcolor{comment}{}}
+\DoxyCodeLine{745     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2d4be8d79a33fedbea3692d1599651fa}{trNamespaces}}()}
+\DoxyCodeLine{746     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nomspacoj"{}}; \}}
+\DoxyCodeLine{747 }
+\DoxyCodeLine{749 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{751 \textcolor{comment}{}}
+\DoxyCodeLine{755     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8abbc306ce28a8af6bb66f359bae833c}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{756         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{757     \{ \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{758       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}La dokumentado por tiu ĉi "{}};}
+\DoxyCodeLine{759       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{760       \{}
+\DoxyCodeLine{761         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}klaso"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{762         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}strukturo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{763         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}kunigo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{764         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaco"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{765         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokolo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{766         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorio"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{767         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}escepto"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{768         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{769       \}}
+\DoxyCodeLine{770       result+=\textcolor{stringliteral}{"{} generitas el la "{}};}
+\DoxyCodeLine{771       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}sekva dosiero:"{}};}
+\DoxyCodeLine{772       \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}sekvaj dosieroj:"{}};}
+\DoxyCodeLine{773       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{774     \}}
+\DoxyCodeLine{775 }
+\DoxyCodeLine{777 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{779 \textcolor{comment}{}}
+\DoxyCodeLine{781     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7d4e9c8f00ac450f74dc37f012a3d1f4}{trReturnValues}}()}
+\DoxyCodeLine{782     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liveraĵoj"{}}; \}}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{786     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ae9336dcf682a4cc86705d8b21115d065}{trMainPage}}()}
+\DoxyCodeLine{787     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ĉefa Paĝo"{}}; \}}
+\DoxyCodeLine{788 }
+\DoxyCodeLine{792     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adc33adbd7cddcd25afc66c69d8742c0d}{trPageAbbreviation}}()}
+\DoxyCodeLine{793     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}p."{}}; \}}
+\DoxyCodeLine{794 }
+\DoxyCodeLine{796 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{798 \textcolor{comment}{}}
+\DoxyCodeLine{799     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af349c158fccca7ea78141260222679e9}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{800     \{}
+\DoxyCodeLine{801       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Difinita sur la lineo @0 de la dosiero @1."{}};}
+\DoxyCodeLine{802     \}}
+\DoxyCodeLine{803     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a322c59cbcdbe802bd89ee2f068f62ae5}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{804     \{}
+\DoxyCodeLine{805       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Difinita en la dosiero @0."{}};}
+\DoxyCodeLine{806     \}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{809 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{811 \textcolor{comment}{}}
+\DoxyCodeLine{812     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af78d3fae62b14f370a799f54259727ee}{trDeprecated}}()}
+\DoxyCodeLine{813     \{}
+\DoxyCodeLine{814       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Evitinda"{}};}
+\DoxyCodeLine{815     \}}
+\DoxyCodeLine{816 }
+\DoxyCodeLine{818 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{820 \textcolor{comment}{}}
+\DoxyCodeLine{822     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3dfa22a196e5a31b45bd17544daf8b68}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{823     \{}
+\DoxyCodeLine{824       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kunlaborada diagramo por "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{825     \}}
+\DoxyCodeLine{827     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7013fa033b04aafabba9e3bd901191bb}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{828     \{}
+\DoxyCodeLine{829       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Inkluzivaĵa dependeca diagramo por "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{830     \}}
+\DoxyCodeLine{832     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a20b10c355271089e3e01bb835348b26a}{trConstructorDocumentation}}()}
+\DoxyCodeLine{833     \{}
+\DoxyCodeLine{834       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstruila kaj Detruila Dokumentado"{}};}
+\DoxyCodeLine{835     \}}
+\DoxyCodeLine{837     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6ad2d4886f628b6b7c521243e0cf858c}{trGotoSourceCode}}()}
+\DoxyCodeLine{838     \{}
+\DoxyCodeLine{839       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iri al la fontkodo de tiu ĉi dosiero."{}};}
+\DoxyCodeLine{840     \}}
+\DoxyCodeLine{842     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ae48ffbd0ef53537a198afcb648200669}{trGotoDocumentation}}()}
+\DoxyCodeLine{843     \{}
+\DoxyCodeLine{844       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iri al la dokumentado de tiu ĉi dosiero."{}};}
+\DoxyCodeLine{845     \}}
+\DoxyCodeLine{847     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa4b41339f0be5b0d6dba7329b961dcdf}{trPrecondition}}()}
+\DoxyCodeLine{848     \{}
+\DoxyCodeLine{849       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Antaŭkondiĉo"{}};}
+\DoxyCodeLine{850     \}}
+\DoxyCodeLine{852     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ad3388df73569dd88b00dca3d2b707bb1}{trPostcondition}}()}
+\DoxyCodeLine{853     \{}
+\DoxyCodeLine{854       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Postkondiĉo"{}};}
+\DoxyCodeLine{855     \}}
+\DoxyCodeLine{857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abafa635227781832f7089c17abe00f28}{trInvariant}}()}
+\DoxyCodeLine{858     \{}
+\DoxyCodeLine{859       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Malvariaĵo"{}};}
+\DoxyCodeLine{860     \}}
+\DoxyCodeLine{862     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af63d27bf9c500689f6bca09372589781}{trInitialValue}}()}
+\DoxyCodeLine{863     \{}
+\DoxyCodeLine{864       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Komenca valoro:"{}};}
+\DoxyCodeLine{865     \}}
+\DoxyCodeLine{867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7a4b04a1bd7248b932ea9cfc91d09f17}{trCode}}()}
+\DoxyCodeLine{868     \{}
+\DoxyCodeLine{869       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}kodo"{}};}
+\DoxyCodeLine{870     \}}
+\DoxyCodeLine{871     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a449caf656b42de37f0e78d9d898d05a3}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{872     \{}
+\DoxyCodeLine{873       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafika Klasa Hierarkio"{}};}
+\DoxyCodeLine{874     \}}
+\DoxyCodeLine{875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abe180690708de84930802928441a9450}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{876     \{}
+\DoxyCodeLine{877       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iri al la grafika klasa hierarkio"{}};}
+\DoxyCodeLine{878     \}}
+\DoxyCodeLine{879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2dd443a1b2d97a06bd1d2a822a1f5fbb}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{880     \{}
+\DoxyCodeLine{881       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iri al la teksta klasa hierarkio"{}};}
+\DoxyCodeLine{882     \}}
+\DoxyCodeLine{883     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a89ae3a788a4f45f3c303edced121645a}{trPageIndex}}()}
+\DoxyCodeLine{884     \{}
+\DoxyCodeLine{885       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paĝa Indekso"{}};}
+\DoxyCodeLine{886     \}}
+\DoxyCodeLine{887 }
+\DoxyCodeLine{889 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{891 \textcolor{comment}{}}
+\DoxyCodeLine{892     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a13aa870d047b67a58efe36938d3dfe25}{trNote}}()}
+\DoxyCodeLine{893     \{}
+\DoxyCodeLine{894       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Noto"{}};}
+\DoxyCodeLine{895     \}}
+\DoxyCodeLine{896     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af67cc3df26c9e7c9bfb93321c0976eb4}{trPublicTypes}}()}
+\DoxyCodeLine{897     \{}
+\DoxyCodeLine{898       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikaj Tipoj"{}};}
+\DoxyCodeLine{899     \}}
+\DoxyCodeLine{900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3d8704177020568bd93346251235c5a5}{trPublicAttribs}}()}
+\DoxyCodeLine{901     \{}
+\DoxyCodeLine{902       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{903       \{}
+\DoxyCodeLine{904         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumkampoj"{}};}
+\DoxyCodeLine{905       \}}
+\DoxyCodeLine{906       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{907       \{}
+\DoxyCodeLine{908         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikaj Atributoj"{}};}
+\DoxyCodeLine{909       \}}
+\DoxyCodeLine{910     \}}
+\DoxyCodeLine{911     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a145ebc5b91c53f80c8d944a203e7b202}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{912     \{}
+\DoxyCodeLine{913       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Publikaj Atributoj"{}};}
+\DoxyCodeLine{914     \}}
+\DoxyCodeLine{915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a876f771499e8dd5461c72f1eebcd3e7b}{trProtectedTypes}}()}
+\DoxyCodeLine{916     \{}
+\DoxyCodeLine{917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protektitaj Tipoj"{}};}
+\DoxyCodeLine{918     \}}
+\DoxyCodeLine{919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acb3a816334cfd48277fb62ceacdb33f3}{trProtectedAttribs}}()}
+\DoxyCodeLine{920     \{}
+\DoxyCodeLine{921       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protektitaj Atributoj"{}};}
+\DoxyCodeLine{922     \}}
+\DoxyCodeLine{923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a04f4509ee8b8e8f488468e689fa2e457}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{924     \{}
+\DoxyCodeLine{925       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Protektitaj Atributoj"{}};}
+\DoxyCodeLine{926     \}}
+\DoxyCodeLine{927     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7f766f229c93aeac0da0eb73e6659b4d}{trPrivateTypes}}()}
+\DoxyCodeLine{928     \{}
+\DoxyCodeLine{929       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privataj Tipoj"{}};}
+\DoxyCodeLine{930     \}}
+\DoxyCodeLine{931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2a96191dab22b309ddf72753e50612d2}{trPrivateAttribs}}()}
+\DoxyCodeLine{932     \{}
+\DoxyCodeLine{933       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privataj Atributoj"{}};}
+\DoxyCodeLine{934     \}}
+\DoxyCodeLine{935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9a3360f99fec9d1d08f9c403647316d1}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{936     \{}
+\DoxyCodeLine{937       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Privataj Atributoj"{}};}
+\DoxyCodeLine{938     \}}
+\DoxyCodeLine{939 }
+\DoxyCodeLine{941 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{943 \textcolor{comment}{}}
+\DoxyCodeLine{945     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acfd25371a763020fa716e1a5c6aa0d80}{trTodo}}()}
+\DoxyCodeLine{946     \{}
+\DoxyCodeLine{947       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Farendaĵo"{}};}
+\DoxyCodeLine{948     \}}
+\DoxyCodeLine{950     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adee876dc6b5451cee57c7f9fe6741ef7}{trTodoList}}()}
+\DoxyCodeLine{951     \{}
+\DoxyCodeLine{952       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Farendaĵaro"{}};}
+\DoxyCodeLine{953     \}}
+\DoxyCodeLine{954 }
+\DoxyCodeLine{956 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{958 \textcolor{comment}{}}
+\DoxyCodeLine{959     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3fc3830bec902de3e3ce397b5e4ded15}{trReferencedBy}}()}
+\DoxyCodeLine{960     \{}
+\DoxyCodeLine{961       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referencita de"{}};}
+\DoxyCodeLine{962     \}}
+\DoxyCodeLine{963     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa7cff1659127973d5013aa432421e4a7}{trRemarks}}()}
+\DoxyCodeLine{964     \{}
+\DoxyCodeLine{965       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rimarkoj"{}};}
+\DoxyCodeLine{966     \}}
+\DoxyCodeLine{967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acae29cf00369e85916f6e379e3b48d2d}{trAttention}}()}
+\DoxyCodeLine{968     \{}
+\DoxyCodeLine{969       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atentu"{}};}
+\DoxyCodeLine{970     \}}
+\DoxyCodeLine{971     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a31ab7e25690222ce69882e53d9131304}{trInclByDepGraph}}()}
+\DoxyCodeLine{972     \{}
+\DoxyCodeLine{973       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiu ĉi diagramo montras kiuj dosieroj rekte aŭ malrekte "{}}}
+\DoxyCodeLine{974              \textcolor{stringliteral}{"{}inkluzivas tiun ĉi dosieron:"{}};}
+\DoxyCodeLine{975     \}}
+\DoxyCodeLine{976     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6103692fd9fd8f3214dd18068e6030c8}{trSince}}()}
+\DoxyCodeLine{977     \{}
+\DoxyCodeLine{978       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}De"{}};}
+\DoxyCodeLine{979     \}}
+\DoxyCodeLine{980 }
+\DoxyCodeLine{982 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{984 \textcolor{comment}{}}
+\DoxyCodeLine{986     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acd5e077a228a4d37153fbee54c8d7f60}{trLegendTitle}}()}
+\DoxyCodeLine{987     \{}
+\DoxyCodeLine{988       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Diagrama Klarigeto"{}};}
+\DoxyCodeLine{989     \}}
+\DoxyCodeLine{993     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1a9bf399e70260dbc87fee4e87070354}{trLegendDocs}}()}
+\DoxyCodeLine{994     \{}
+\DoxyCodeLine{995       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{996         \textcolor{stringliteral}{"{}Tiu ĉi paĝo klarigas kiel interpreti la diagramojn generitajn "{}}}
+\DoxyCodeLine{997         \textcolor{stringliteral}{"{}de doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{998         \textcolor{stringliteral}{"{}Konsideru la sekvan ekzemplon:\(\backslash\)n"{}}}
+\DoxyCodeLine{999         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1000         \textcolor{stringliteral}{"{}/*! Nevidebla klaso pro trunkado */\(\backslash\)n"{}}}
+\DoxyCodeLine{1001         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1002         \textcolor{stringliteral}{"{}/*! Trunkita klaso, hereda rilato kaŝiĝas */\(\backslash\)n"{}}}
+\DoxyCodeLine{1003         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1004         \textcolor{stringliteral}{"{}/* Klaso ne dokumentita per komentoj de doxygen */\(\backslash\)n"{}}}
+\DoxyCodeLine{1005         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}/*! Klaso de kiu herediĝas per publika heredado */\(\backslash\)n"{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}/*! Ŝablona klaso */\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}/*! Klaso de kiu herediĝas per protektita heredado */\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}/*! Klaso de kiu herediĝas per privata heredado */\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}/*! Klaso uzata de la klaso Inherited */\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}/*! Supra klaso kiu heredas de kelkaj aliaj klasoj */\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}Tio ĉi liveros la sekvan diagramon:"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}La skatoloj de la supra diagramo havas la sekvajn signifojn:\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}<li>\%Plene griza skatolo reprezentas la strukturon aŭ klason "{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}kies diagramo generiĝis.\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}<li>\%Skatolo kun nigra bordero montras dokumentitan strukturon aŭ klason.\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}<li>\%Skatolo kun griza bordero montras nedokumentitan strukturon aŭ klason.\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}<li>\%Skatolo kun ruĝa bordero montras dokumentitan strukturon aŭ klason por "{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}kiu ne ĉiuj heredadoj/enhavoj montriĝas. \%Diagramo estas trunkota "{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}se ĝi ne adaptiĝas en la donitajn limojn.\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}La sagoj havas la sekvajn signifojn:\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}<li>\%Malhelblua sago uzatas por montri publika heredado "{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}inter du klasoj.\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}<li>\%Malhelverda sago uzatas por protektita heredado.\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}<li>\%Malhelruĝa sago uzatas por privata heredado.\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}<li>\%Purpura streka sago uzatas se klaso enhavatas aŭ uzatas "{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}de alia klaso. La sago estas etikedatas kun la variablo(j) "{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}tra kiu la montrita klaso aŭ strukturo estas alirebla.\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}<li>\%Flava streka sago montras rilato inter ŝablona apero kaj "{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}la ŝablona klaso el kiu ĝi realigitas. La sago etikeditas kun "{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}la parametroj de la ŝablona apero.\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1053     \}}
+\DoxyCodeLine{1055     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adff9d013d482382d8c423c9e11655dc9}{trLegend}}()}
+\DoxyCodeLine{1056     \{}
+\DoxyCodeLine{1057       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}klarigeto"{}};}
+\DoxyCodeLine{1058     \}}
+\DoxyCodeLine{1059 }
+\DoxyCodeLine{1061 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1063 \textcolor{comment}{}}
+\DoxyCodeLine{1065     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adb6d0fb6fd2f3112a0ed1662ebf8be29}{trTest}}()}
+\DoxyCodeLine{1066     \{}
+\DoxyCodeLine{1067       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testo"{}};}
+\DoxyCodeLine{1068     \}}
+\DoxyCodeLine{1070     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a27ad64bb9dc23c6c225bab7864377926}{trTestList}}()}
+\DoxyCodeLine{1071     \{}
+\DoxyCodeLine{1072       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testa Listo"{}};}
+\DoxyCodeLine{1073     \}}
+\DoxyCodeLine{1074 }
+\DoxyCodeLine{1076 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1078 \textcolor{comment}{}}
+\DoxyCodeLine{1080     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a56c69bb5ef4c824566027094d5c14d82}{trProperties}}()}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atributoj"{}};}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1085     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3192b87132574e06385fdc85d2803122}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1086     \{}
+\DoxyCodeLine{1087       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atributa Dokumentado"{}};}
+\DoxyCodeLine{1088     \}}
+\DoxyCodeLine{1089 }
+\DoxyCodeLine{1091 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1093 \textcolor{comment}{}}
+\DoxyCodeLine{1095     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8dd3e76e6aa882bd0045da4976a321c1}{trClasses}}()}
+\DoxyCodeLine{1096     \{}
+\DoxyCodeLine{1097       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1098       \{}
+\DoxyCodeLine{1099         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumstrukturoj"{}};}
+\DoxyCodeLine{1100       \}}
+\DoxyCodeLine{1101       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1102       \{}
+\DoxyCodeLine{1103         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasoj"{}};}
+\DoxyCodeLine{1104       \}}
+\DoxyCodeLine{1105     \}}
+\DoxyCodeLine{1107     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1c3e3807fd142da6f3c79b234cef45c8}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1108     \{}
+\DoxyCodeLine{1109       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵo "{}}+name;}
+\DoxyCodeLine{1110     \}}
+\DoxyCodeLine{1112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab1d738264efc454a6f73e25dc4d40660}{trPackageListDescription}}()}
+\DoxyCodeLine{1113     \{}
+\DoxyCodeLine{1114       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen listo de pakaĵoj kun mallongaj priskriboj (se ekzistas):"{}};}
+\DoxyCodeLine{1115     \}}
+\DoxyCodeLine{1117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a40962b94c0d1e5a79680402fc626cd65}{trPackages}}()}
+\DoxyCodeLine{1118     \{}
+\DoxyCodeLine{1119       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵoj"{}};}
+\DoxyCodeLine{1120     \}}
+\DoxyCodeLine{1122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a39f666357409aac0485e92bb5cbc7548}{trDefineValue}}()}
+\DoxyCodeLine{1123     \{}
+\DoxyCodeLine{1124       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valoro:"{}};}
+\DoxyCodeLine{1125     \}}
+\DoxyCodeLine{1126 }
+\DoxyCodeLine{1128 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1130 \textcolor{comment}{}}
+\DoxyCodeLine{1132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aefa841351e1f876d13477f8738937c4e}{trBug}}()}
+\DoxyCodeLine{1133     \{}
+\DoxyCodeLine{1134       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cimo"{}};}
+\DoxyCodeLine{1135     \}}
+\DoxyCodeLine{1137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a282cf1d72cc91e3d8a9789c6d235c46b}{trBugList}}()}
+\DoxyCodeLine{1138     \{}
+\DoxyCodeLine{1139       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cima Listo"{}};}
+\DoxyCodeLine{1140     \}}
+\DoxyCodeLine{1141 }
+\DoxyCodeLine{1143 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1145 \textcolor{comment}{}}
+\DoxyCodeLine{1171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a67812d3ba72d5596dfe4bfb645ac18c7}{trRTFansicp}}()}
+\DoxyCodeLine{1172     \{}
+\DoxyCodeLine{1173       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1174     \}}
+\DoxyCodeLine{1175 }
+\DoxyCodeLine{1176 }
+\DoxyCodeLine{1180     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2ed462105731513920d8dbc72e91b244}{trRTFCharSet}}()}
+\DoxyCodeLine{1181     \{}
+\DoxyCodeLine{1182       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1"{}};}
+\DoxyCodeLine{1183     \}}
+\DoxyCodeLine{1184 }
+\DoxyCodeLine{1186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa601ba0856f4fbdead70ed2b8bcdc132}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1187     \{}
+\DoxyCodeLine{1188       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indekso"{}};}
+\DoxyCodeLine{1189     \}}
+\DoxyCodeLine{1190 }
+\DoxyCodeLine{1195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a893e5c3f579754e4b2ed35dbb3e651fd}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1196     \{}
+\DoxyCodeLine{1197       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Klaso"{}} : \textcolor{stringliteral}{"{}klaso"{}}));}
+\DoxyCodeLine{1198       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1199       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1200     \}}
+\DoxyCodeLine{1201 }
+\DoxyCodeLine{1206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a36b38699194a3beda80339da0c4be51b}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1207     \{}
+\DoxyCodeLine{1208       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Dosiero"{}} : \textcolor{stringliteral}{"{}dosiero"{}}));}
+\DoxyCodeLine{1209       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1210       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1211     \}}
+\DoxyCodeLine{1212 }
+\DoxyCodeLine{1217     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa71e252bf8eb50244529418f7e709f66}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1218     \{}
+\DoxyCodeLine{1219       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Nomspaco"{}} : \textcolor{stringliteral}{"{}nomspaco"{}}));}
+\DoxyCodeLine{1220       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1221       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1222     \}}
+\DoxyCodeLine{1223 }
+\DoxyCodeLine{1228     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac4b9a81e483496deda1e696121caf83d}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1229     \{}
+\DoxyCodeLine{1230       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Grupo"{}} : \textcolor{stringliteral}{"{}grupo"{}}));}
+\DoxyCodeLine{1231       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1232       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1233     \}}
+\DoxyCodeLine{1234 }
+\DoxyCodeLine{1239     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a38852098b37cca15810bf0e0e1bc0943}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1240     \{}
+\DoxyCodeLine{1241       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Paĝo"{}} : \textcolor{stringliteral}{"{}paĝo"{}}));}
+\DoxyCodeLine{1242       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1243       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1244     \}}
+\DoxyCodeLine{1245 }
+\DoxyCodeLine{1250     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a50dde730d8596825c32099a7044fc19c}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1251     \{}
+\DoxyCodeLine{1252       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Membro"{}} : \textcolor{stringliteral}{"{}membro"{}}));}
+\DoxyCodeLine{1253       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1254       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1255     \}}
+\DoxyCodeLine{1256 }
+\DoxyCodeLine{1261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa57abfc6ad2c677dab6bfac46ea83ba1}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1262     \{}
+\DoxyCodeLine{1263       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Mallokalaĵo"{}} : \textcolor{stringliteral}{"{}mallokalaĵo"{}}));}
+\DoxyCodeLine{1264       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1265       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1266     \}}
+\DoxyCodeLine{1267 }
+\DoxyCodeLine{1269 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1271 \textcolor{comment}{}}
+\DoxyCodeLine{1274     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac54a34dda9e8ffffbbce95d6449f24d3}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1275     \{}
+\DoxyCodeLine{1276       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Aŭtoro"{}} : \textcolor{stringliteral}{"{}aŭtoro"{}}));}
+\DoxyCodeLine{1277       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1278       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1279     \}}
+\DoxyCodeLine{1280 }
+\DoxyCodeLine{1282 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1284 \textcolor{comment}{}}
+\DoxyCodeLine{1287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a68c7c42c8d6d7264aa411cb4b2d6d28e}{trReferences}}()}
+\DoxyCodeLine{1288     \{}
+\DoxyCodeLine{1289       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referencoj"{}};}
+\DoxyCodeLine{1290     \}}
+\DoxyCodeLine{1291 }
+\DoxyCodeLine{1293 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1295 \textcolor{comment}{}}
+\DoxyCodeLine{1299     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ac3b1faab05e25b5d0f73f33ae471a0e4}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1300     \{}
+\DoxyCodeLine{1301       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Realigas "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1302     \}}
+\DoxyCodeLine{1303 }
+\DoxyCodeLine{1307     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a08455b98b0573a17c8866e2ef41d0c6f}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1308     \{}
+\DoxyCodeLine{1309       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Realigita en "{}}+\mbox{\hyperlink{classTranslatorEsperanto_ab326ed2611d30516ca383721afb9c208}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1310     \}}
+\DoxyCodeLine{1311 }
+\DoxyCodeLine{1313 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1315 \textcolor{comment}{}}
+\DoxyCodeLine{1319     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab7cde3f01f068b2404b8163d1491f953}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1320     \{}
+\DoxyCodeLine{1321       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enhava Tabelo"{}};}
+\DoxyCodeLine{1322     \}}
+\DoxyCodeLine{1323 }
+\DoxyCodeLine{1325 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1327 \textcolor{comment}{}}
+\DoxyCodeLine{1331     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a749b791bb5fad96fd98f42f570c50fb1}{trDeprecatedList}}()}
+\DoxyCodeLine{1332     \{}
+\DoxyCodeLine{1333       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Evitindaĵa Listo"{}};}
+\DoxyCodeLine{1334     \}}
+\DoxyCodeLine{1335 }
+\DoxyCodeLine{1337 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1339 \textcolor{comment}{}}
+\DoxyCodeLine{1343     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a88572a98550e5ae9a575d5d6dd987a10}{trEvents}}()}
+\DoxyCodeLine{1344     \{}
+\DoxyCodeLine{1345       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Eventoj"{}};}
+\DoxyCodeLine{1346     \}}
+\DoxyCodeLine{1348     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9ac54cbfd7723d0d083b0c5668d03e84}{trEventDocumentation}}()}
+\DoxyCodeLine{1349     \{}
+\DoxyCodeLine{1350       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Eventa Dokumentado"{}};}
+\DoxyCodeLine{1351     \}}
+\DoxyCodeLine{1352 }
+\DoxyCodeLine{1354 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1356 \textcolor{comment}{}}
+\DoxyCodeLine{1359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a4163807b2b49ac35266860abbaece978}{trPackageTypes}}()}
+\DoxyCodeLine{1360     \{}
+\DoxyCodeLine{1361       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵaj Tipoj"{}};}
+\DoxyCodeLine{1362     \}}
+\DoxyCodeLine{1366     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8889d9314d449c6ca131f239801d146f}{trPackageFunctions}}()}
+\DoxyCodeLine{1367     \{}
+\DoxyCodeLine{1368       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵaj Funkcioj"{}};}
+\DoxyCodeLine{1369     \}}
+\DoxyCodeLine{1370     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a60a90b290145c50a6adea83a564394fb}{trPackageMembers}}()}
+\DoxyCodeLine{1371     \{}
+\DoxyCodeLine{1372       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵaj Membroj"{}};}
+\DoxyCodeLine{1373     \}}
+\DoxyCodeLine{1377     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab63dad7875e7eea669c8e32022ab5e55}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1378     \{}
+\DoxyCodeLine{1379       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Pakaĵaj Funkcioj"{}};}
+\DoxyCodeLine{1380     \}}
+\DoxyCodeLine{1384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9bc87c6e193c5670427256073ca6f9cd}{trPackageAttribs}}()}
+\DoxyCodeLine{1385     \{}
+\DoxyCodeLine{1386       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakaĵaj Atributoj"{}};}
+\DoxyCodeLine{1387     \}}
+\DoxyCodeLine{1391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1faa66dfea6d77be4503a698529dfde3}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1392     \{}
+\DoxyCodeLine{1393       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikaj Pakaĵaj Atributoj"{}};}
+\DoxyCodeLine{1394     \}}
+\DoxyCodeLine{1395 }
+\DoxyCodeLine{1397 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1399 \textcolor{comment}{}}
+\DoxyCodeLine{1403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab14013b6f99fd35b51013a95de39a30f}{trAll}}()}
+\DoxyCodeLine{1404     \{}
+\DoxyCodeLine{1405       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ĉiuj"{}};}
+\DoxyCodeLine{1406     \}}
+\DoxyCodeLine{1408     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a934ffa0b64e4eb73b7380c01f05605dd}{trCallGraph}}()}
+\DoxyCodeLine{1409     \{}
+\DoxyCodeLine{1410       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen la vokdiagramo por tiu ĉi funkcio:"{}};}
+\DoxyCodeLine{1411     \}}
+\DoxyCodeLine{1412 }
+\DoxyCodeLine{1414 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1416 \textcolor{comment}{}}
+\DoxyCodeLine{1420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adbb5abac3a003e01ccf7aecbaf1d5a0d}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1421     \{}
+\DoxyCodeLine{1422       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Serĉaj Rezultoj"{}};}
+\DoxyCodeLine{1423     \}}
+\DoxyCodeLine{1432     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a440bac7fb317541f7b17690c3734011c}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1433     \{}
+\DoxyCodeLine{1434       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1435       \{}
+\DoxyCodeLine{1436         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pardonu, nenio dokumento kongruas vian peton."{}};}
+\DoxyCodeLine{1437       \}}
+\DoxyCodeLine{1438       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1439       \{}
+\DoxyCodeLine{1440         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Trafita <b>unu</b> dokumenton kongruantan vian peton."{}};}
+\DoxyCodeLine{1441       \}}
+\DoxyCodeLine{1442       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1443       \{}
+\DoxyCodeLine{1444         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Trafitaj <b>\$num</b> dokumentojn kongruantajn vian peton. "{}}}
+\DoxyCodeLine{1445                \textcolor{stringliteral}{"{}Montriĝos plej bonaj kongruoj unue."{}};}
+\DoxyCodeLine{1446       \}}
+\DoxyCodeLine{1447     \}}
+\DoxyCodeLine{1451     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a58dbaf7411a0a85d50d71868c4b19cca}{trSearchMatches}}()}
+\DoxyCodeLine{1452     \{}
+\DoxyCodeLine{1453       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kongruoj:"{}};}
+\DoxyCodeLine{1454     \}}
+\DoxyCodeLine{1455 }
+\DoxyCodeLine{1457 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1459 \textcolor{comment}{}}
+\DoxyCodeLine{1462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2ad5789d4a2b742a9c867c890f466f5d}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1463     \{}
+\DoxyCodeLine{1464       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} Fonta Dosiero"{}};}
+\DoxyCodeLine{1465     \}}
+\DoxyCodeLine{1466 }
+\DoxyCodeLine{1468 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1470 \textcolor{comment}{}}
+\DoxyCodeLine{1474     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0539c4bfc07fc94c412513ce7a7549c2}{trDirIndex}}()}
+\DoxyCodeLine{1475     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosieruja Hierarkio"{}}; \}}
+\DoxyCodeLine{1476 }
+\DoxyCodeLine{1480     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a914c3a2f269f518a7d893d41a4d35cb0}{trDirDocumentation}}()}
+\DoxyCodeLine{1481     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosieruja Dokumentado"{}}; \}}
+\DoxyCodeLine{1482 }
+\DoxyCodeLine{1486     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9ce964f818ab4851185aada0a0c68301}{trDirectories}}()}
+\DoxyCodeLine{1487     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosierujoj"{}}; \}}
+\DoxyCodeLine{1488 }
+\DoxyCodeLine{1492     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a49fde7331899af8ce3f727e7eb9e639a}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1493     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} Dosieruja Referenco"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1494 }
+\DoxyCodeLine{1498     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af611cf5731a4cfea37726f1018ee9002}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1499     \{}
+\DoxyCodeLine{1500       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Dosierujo"{}} : \textcolor{stringliteral}{"{}dosierujo"{}}));}
+\DoxyCodeLine{1501       \textcolor{keywordflow}{if} (!singular) result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1502       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1503     \}}
+\DoxyCodeLine{1504 }
+\DoxyCodeLine{1506 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1508 \textcolor{comment}{}}
+\DoxyCodeLine{1512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a156f40236449926da6b59b70156b2fe5}{trOverloadText}}()}
+\DoxyCodeLine{1513     \{}
+\DoxyCodeLine{1514        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiu ĉi estas superŝarĝita membra funkcio, "{}}}
+\DoxyCodeLine{1515               \textcolor{stringliteral}{"{}donita por faciligo. Ĝi nur malsamas de la supra "{}}}
+\DoxyCodeLine{1516               \textcolor{stringliteral}{"{}funkcio nur pro la argumento(j) kiujn ili akceptas."{}};}
+\DoxyCodeLine{1517     \}}
+\DoxyCodeLine{1518 }
+\DoxyCodeLine{1520 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1522 \textcolor{comment}{}}
+\DoxyCodeLine{1524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a361937df0af87f541e38ba116e903d6c}{trCallerGraph}}()}
+\DoxyCodeLine{1525     \{}
+\DoxyCodeLine{1526       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen la vokdiagramo por tiu ĉi funkcio:"{}};}
+\DoxyCodeLine{1527     \}}
+\DoxyCodeLine{1528 }
+\DoxyCodeLine{1532     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a42b3855c9bba0a257e7a08854ee1bef9}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1533     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeraciila Dokumentado"{}}; \}}
+\DoxyCodeLine{1534 }
+\DoxyCodeLine{1536 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1538 \textcolor{comment}{}}
+\DoxyCodeLine{1540     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7179a0237fa045d31d80cb8e5756a9a0}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1541     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentado de Membraj Funkcioj/Subrutinoj"{}}; \}}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aa092624e80f31849f9bdea2bb9525a74}{trCompoundListFortran}}()}
+\DoxyCodeLine{1545     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumtipa Listo"{}}; \}}
+\DoxyCodeLine{1546 }
+\DoxyCodeLine{1548     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1ed5571b1d73b6b5e41b9b964262391e}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1549     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumkampoj"{}}; \}}
+\DoxyCodeLine{1550 }
+\DoxyCodeLine{1552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8f45ee46afb9c344bcac707fdea19978}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1553     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jen la datumtipoj kun mallongaj priskriboj:"{}}; \}}
+\DoxyCodeLine{1554 }
+\DoxyCodeLine{1556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a426cd70cbaa9b17f50e54e55a3fc56da}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1557     \{}
+\DoxyCodeLine{1558       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{1559       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1560       \{}
+\DoxyCodeLine{1561         result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{1562       \}}
+\DoxyCodeLine{1563       result+=\textcolor{stringliteral}{"{}datumtipaj membroj"{}};}
+\DoxyCodeLine{1564       result+=\textcolor{stringliteral}{"{} kun ligiloj al "{}};}
+\DoxyCodeLine{1565       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1566       \{}
+\DoxyCodeLine{1567          result+=\textcolor{stringliteral}{"{}la datumstruktura dokumentado de ĉiu membro"{}};}
+\DoxyCodeLine{1568       \}}
+\DoxyCodeLine{1569       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1570       \{}
+\DoxyCodeLine{1571          result+=\textcolor{stringliteral}{"{}la datumtipoj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{1572       \}}
+\DoxyCodeLine{1573       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1574     \}}
+\DoxyCodeLine{1575 }
+\DoxyCodeLine{1579     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a788be4348065c9fb576fea95b43f11df}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1580     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumtipa Indekso"{}}; \}}
+\DoxyCodeLine{1581 }
+\DoxyCodeLine{1585     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a52f784558e4b2cdbfbe54e4716282053}{trTypeDocumentation}}()}
+\DoxyCodeLine{1586     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumtipa Dokumentado"{}}; \}}
+\DoxyCodeLine{1587 }
+\DoxyCodeLine{1591     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0ae660e142d8d6f3f5cfa32603f06cdf}{trSubprograms}}()}
+\DoxyCodeLine{1592     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcioj/Subrutinoj"{}}; \}}
+\DoxyCodeLine{1593 }
+\DoxyCodeLine{1597     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af23c0e2e3a44505272cb75d9cb1aa0c9}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1598     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcia/Subrutina Dokumentado"{}}; \}}
+\DoxyCodeLine{1599 }
+\DoxyCodeLine{1603      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8586ba9bf80b0952286207eedde6b28a}{trDataTypes}}()}
+\DoxyCodeLine{1604     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datumtipoj"{}}; \}}
+\DoxyCodeLine{1605 }
+\DoxyCodeLine{1607     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a89daa1eba9924f2a94983146fbb8df1d}{trModulesList}}()}
+\DoxyCodeLine{1608     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modula Listo"{}}; \}}
+\DoxyCodeLine{1609 }
+\DoxyCodeLine{1611     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abb06ef2a2cb73f9628a998973236028a}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1612     \{}
+\DoxyCodeLine{1613       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{1614       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{1615       result+=\textcolor{stringliteral}{"{}moduloj kun mallongaj priskriboj:"{}};}
+\DoxyCodeLine{1616       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1617     \}}
+\DoxyCodeLine{1618 }
+\DoxyCodeLine{1620     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a4d462109259431847a4426c6ea9e56c1}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1621                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1622                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1623     \{}
+\DoxyCodeLine{1624       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referenco de la "{}};}
+\DoxyCodeLine{1625       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} ŝablono de la "{}};}
+\DoxyCodeLine{1626       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1627       \{}
+\DoxyCodeLine{1628         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}modulo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1629         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tipo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1630         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}kunigo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1631         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaco "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1632         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokolo "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1633         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorio "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1634         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}escepto "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1635         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1636       \}}
+\DoxyCodeLine{1637       result+=clName;}
+\DoxyCodeLine{1638       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1639     \}}
+\DoxyCodeLine{1641     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6ed7eee00496b569440c4e8b36334f26}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1642     \{}
+\DoxyCodeLine{1643       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1644       result+=\textcolor{stringliteral}{"{} Modula Referenco"{}};}
+\DoxyCodeLine{1645       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1646     \}}
+\DoxyCodeLine{1647 }
+\DoxyCodeLine{1649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a7945639d2093d6c631741a447bab98fc}{trModulesMembers}}()}
+\DoxyCodeLine{1650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulaj Membroj"{}}; \}}
+\DoxyCodeLine{1651 }
+\DoxyCodeLine{1653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a87624c7debaf425b8df52f56990fb5d3}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1654     \{}
+\DoxyCodeLine{1655       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Jen listo de ĉiuj "{}};}
+\DoxyCodeLine{1656       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentitaj "{}};}
+\DoxyCodeLine{1657       result+=\textcolor{stringliteral}{"{}modulaj membroj kun ligiloj al la "{}};}
+\DoxyCodeLine{1658       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1659       \{}
+\DoxyCodeLine{1660         result+=\textcolor{stringliteral}{"{}modula dokumentado de ĉiu membro:"{}};}
+\DoxyCodeLine{1661       \}}
+\DoxyCodeLine{1662       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1663       \{}
+\DoxyCodeLine{1664         result+=\textcolor{stringliteral}{"{}moduloj al kiuj ili apartenas:"{}};}
+\DoxyCodeLine{1665       \}}
+\DoxyCodeLine{1666       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1667     \}}
+\DoxyCodeLine{1668 }
+\DoxyCodeLine{1672     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0d77c837692e59480c02555d10678aad}{trModulesIndex}}()}
+\DoxyCodeLine{1673     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indekso de Moduloj"{}}; \}}
+\DoxyCodeLine{1674 }
+\DoxyCodeLine{1679     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a889ab29e279e06bd315d868881aa949a}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1680     \{}
+\DoxyCodeLine{1681       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modulo"{}} : \textcolor{stringliteral}{"{}modulo"{}}));}
+\DoxyCodeLine{1682       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1683       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1684     \}}
+\DoxyCodeLine{1688     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adf797c9ded435d6664dd74389121726d}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1689         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1690     \{}
+\DoxyCodeLine{1691       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1692       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}La dokumentado por tiu ĉi "{}};}
+\DoxyCodeLine{1693       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1694       \{}
+\DoxyCodeLine{1695         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}modulo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1696         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tipo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1697         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}kunigo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1698         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaco"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1699         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokolo"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1700         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorio"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1701         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}escepto"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1702         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1703       \}}
+\DoxyCodeLine{1704       result+=\textcolor{stringliteral}{"{} kreiĝis el la "{}};}
+\DoxyCodeLine{1705       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}sekva dosiero:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}sekvaj dosieroj:"{}};}
+\DoxyCodeLine{1706       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1707     \}}
+\DoxyCodeLine{1712     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aae2b9f269ff0e15114595963a0c69668}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1713     \{}
+\DoxyCodeLine{1714       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tipo"{}} : \textcolor{stringliteral}{"{}tipo"{}}));}
+\DoxyCodeLine{1715       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1716       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1717     \}}
+\DoxyCodeLine{1722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ab36ab22a0d3e817a6c65f66f7241b3ff}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1723     \{}
+\DoxyCodeLine{1724       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Subprogramo"{}} : \textcolor{stringliteral}{"{}subprogramo"{}}));}
+\DoxyCodeLine{1725       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}j"{}};}
+\DoxyCodeLine{1726       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1727     \}}
+\DoxyCodeLine{1728 }
+\DoxyCodeLine{1730     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1b9dc9900d36bd5378d34c9ba0af613f}{trTypeConstraints}}()}
+\DoxyCodeLine{1731     \{}
+\DoxyCodeLine{1732       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipaj Limigoj"{}};}
+\DoxyCodeLine{1733     \}}
+\DoxyCodeLine{1734 }
+\DoxyCodeLine{1736 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1738 \textcolor{comment}{}}
+\DoxyCodeLine{1740     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af5853e597535c0ccae493ffae4bab9ca}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1741     \{}
+\DoxyCodeLine{1742       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Rilato"{}};}
+\DoxyCodeLine{1743     \}}
+\DoxyCodeLine{1744 }
+\DoxyCodeLine{1746     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a9a503569ae3e9a35671eb3959f4a13c5}{trLoading}}()}
+\DoxyCodeLine{1747     \{}
+\DoxyCodeLine{1748       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ŝarĝante..."{}};}
+\DoxyCodeLine{1749     \}}
+\DoxyCodeLine{1750 }
+\DoxyCodeLine{1752     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a1db5c2fce7468f05a5ead5d306992a85}{trGlobalNamespace}}()}
+\DoxyCodeLine{1753     \{}
+\DoxyCodeLine{1754       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Malloka Nomspaco"{}};}
+\DoxyCodeLine{1755     \}}
+\DoxyCodeLine{1756 }
+\DoxyCodeLine{1758     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_acb3030e8a7b1bb0aa477ba4ddf8c4a5c}{trSearching}}()}
+\DoxyCodeLine{1759     \{}
+\DoxyCodeLine{1760       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Serĉante..."{}};}
+\DoxyCodeLine{1761     \}}
+\DoxyCodeLine{1762 }
+\DoxyCodeLine{1764     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0309a695d6169e00ce7c0df1fc7ff5a1}{trNoMatches}}()}
+\DoxyCodeLine{1765     \{}
+\DoxyCodeLine{1766       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nenia kongruo"{}};}
+\DoxyCodeLine{1767     \}}
+\DoxyCodeLine{1768 }
+\DoxyCodeLine{1770 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1772 \textcolor{comment}{}}
+\DoxyCodeLine{1777     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_af56b2aafd2570ecd220638a6f098b2f7}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1778     \{}
+\DoxyCodeLine{1779       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dosiero en "{}}+name;}
+\DoxyCodeLine{1780     \}}
+\DoxyCodeLine{1781 }
+\DoxyCodeLine{1786     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a4158d5517a463c6e3942ad0883b4a73c}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1787     \{}
+\DoxyCodeLine{1788       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Inkluzivas dosieron en "{}}+name;}
+\DoxyCodeLine{1789     \}}
+\DoxyCodeLine{1790 }
+\DoxyCodeLine{1801     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_ae5b7d474f4957605a820853cc5c9b93f}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1802                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1803                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1804     \{}
+\DoxyCodeLine{1805       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}lundo"{}},\textcolor{stringliteral}{"{}mardo"{}},\textcolor{stringliteral}{"{}merkredo"{}},}
+\DoxyCodeLine{1806                                         \textcolor{stringliteral}{"{}ĵaŭdo"{}},\textcolor{stringliteral}{"{}vendredo"{}},\textcolor{stringliteral}{"{}sabato"{}},}
+\DoxyCodeLine{1807                                         \textcolor{stringliteral}{"{}dimanĉo"{}} \};}
+\DoxyCodeLine{1808 }
+\DoxyCodeLine{1809       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Januaro"{}}, \textcolor{stringliteral}{"{}Februaro"{}}, \textcolor{stringliteral}{"{}Marto"{}},}
+\DoxyCodeLine{1810                                         \textcolor{stringliteral}{"{}Aprilo"{}}, \textcolor{stringliteral}{"{}Majo"{}}, \textcolor{stringliteral}{"{}Junio"{}},}
+\DoxyCodeLine{1811                                         \textcolor{stringliteral}{"{}Julio"{}}, \textcolor{stringliteral}{"{}Aŭgusto"{}}, \textcolor{stringliteral}{"{}Septembro"{}},}
+\DoxyCodeLine{1812                                         \textcolor{stringliteral}{"{}Oktobro"{}}, \textcolor{stringliteral}{"{}Novembro"{}},}
+\DoxyCodeLine{1813                                         \textcolor{stringliteral}{"{}Decembro"{}}}
+\DoxyCodeLine{1814                                     \};}
+\DoxyCodeLine{1815       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1816       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s, \%d-\/a de \%s \%d"{}},days[dayOfWeek-\/1],day,months[month-\/1],year);}
+\DoxyCodeLine{1817       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1818       \{}
+\DoxyCodeLine{1819         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1820         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1821         sdate+=stime;}
+\DoxyCodeLine{1822       \}}
+\DoxyCodeLine{1823       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1824     \}}
+\DoxyCodeLine{1825 }
+\DoxyCodeLine{1827 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1829 \textcolor{comment}{}}
+\DoxyCodeLine{1831     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3f1000ae8776cc92805ad7321bc466f7}{trCiteReferences}}()}
+\DoxyCodeLine{1832     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bibliografiaj Referencoj"{}}; \}}
+\DoxyCodeLine{1833 }
+\DoxyCodeLine{1835     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a624058f0eadff71121dfe7792878c736}{trCopyright}}()}
+\DoxyCodeLine{1836     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kopirajto"{}}; \}}
+\DoxyCodeLine{1837 }
+\DoxyCodeLine{1839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a5568d7cc45195ec497ead6eb8e8e8f78}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1840     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Dosieruja dependa diagramo por "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1841 }
+\DoxyCodeLine{1843 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1845 \textcolor{comment}{}}
+\DoxyCodeLine{1847     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a10ec6d7d10dc3bd98166c17b831f9264}{trDetailLevel}}()}
+\DoxyCodeLine{1848     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}detala nivelo"{}}; \}}
+\DoxyCodeLine{1849 }
+\DoxyCodeLine{1851     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a93ee32cd327e2c858892d3068f628bb5}{trTemplateParameters}}()}
+\DoxyCodeLine{1852     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametroj de ŝablonoj"{}}; \}}
+\DoxyCodeLine{1853 }
+\DoxyCodeLine{1855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a6e7c58663437fff2ff2937bdcbc72fe8}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1856     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}kaj "{}}+number+\textcolor{stringliteral}{"{} pli..."{}}; \}}
+\DoxyCodeLine{1857 }
+\DoxyCodeLine{1859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_abf13ca341f52a58c933d7fd8450dc1ad}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1860     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}La dokumentaro por tiu ĉi enum estis generita el la sekva dosiero"{}};}
+\DoxyCodeLine{1861       \textcolor{keywordflow}{if} (!single) result += \textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1862       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1863       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1864     \}}
+\DoxyCodeLine{1865 }
+\DoxyCodeLine{1867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a199ef94b4cdbcd47bf511c5e42cb492b}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1868     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Enum Referenco"{}}; \}}
+\DoxyCodeLine{1869 }
+\DoxyCodeLine{1871     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_adb6791ae6b086833354e56976b8da821}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1872     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} heredita el "{}}+what; \}}
+\DoxyCodeLine{1873 }
+\DoxyCodeLine{1877     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_aef57799418ceda7d5e030c1f0f4e0a2a}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1878     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kromaj Hereditaj Membroj"{}}; \}}
+\DoxyCodeLine{1879 }
+\DoxyCodeLine{1881 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1883 \textcolor{comment}{}}
+\DoxyCodeLine{1888     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a3e16b5facc6017269b0b67c393cfc954}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1889     \{}
+\DoxyCodeLine{1890       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}aktivigi"{}} : \textcolor{stringliteral}{"{}malaktivigi"{}};}
+\DoxyCodeLine{1891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}klaku por "{}}+opt+\textcolor{stringliteral}{"{} panelan sinkronigon"{}};}
+\DoxyCodeLine{1892     \}}
+\DoxyCodeLine{1893 }
+\DoxyCodeLine{1898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0884c67bbbd62a57dff458c7e0bbccdc}{trProvidedByCategory}}()}
+\DoxyCodeLine{1899     \{}
+\DoxyCodeLine{1900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Provizita de kategorio @0."{}};}
+\DoxyCodeLine{1901     \}}
+\DoxyCodeLine{1902 }
+\DoxyCodeLine{1907     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a0402120451d994d7d2eec8d50cd9ec7a}{trExtendsClass}}()}
+\DoxyCodeLine{1908     \{}
+\DoxyCodeLine{1909       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Etendi klason @0."{}};}
+\DoxyCodeLine{1910     \}}
+\DoxyCodeLine{1911 }
+\DoxyCodeLine{1915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a8ab3d64e0f5a2bb24e8164e4ec35817a}{trClassMethods}}()}
+\DoxyCodeLine{1916     \{}
+\DoxyCodeLine{1917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasaj Metodoj"{}};}
+\DoxyCodeLine{1918     \}}
+\DoxyCodeLine{1919 }
+\DoxyCodeLine{1923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a2f78ff2e2f94b3c82fbbeaec27454b75}{trInstanceMethods}}()}
+\DoxyCodeLine{1924     \{}
+\DoxyCodeLine{1925       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aperaj Metodoj"{}};}
+\DoxyCodeLine{1926     \}}
+\DoxyCodeLine{1927 }
+\DoxyCodeLine{1930     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorEsperanto_a11d39ce9aa3daa1eb9623243a36abde1}{trMethodDocumentation}}()}
+\DoxyCodeLine{1931     \{}
+\DoxyCodeLine{1932       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentaro de la Metodo"{}};}
+\DoxyCodeLine{1933     \}}
+\DoxyCodeLine{1934 \};}
+\DoxyCodeLine{1935 }
+\DoxyCodeLine{1936 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,78 @@
+\hypertarget{symbolresolver_8h_source}{}\doxysection{symbolresolver.\+h}
+\label{symbolresolver_8h_source}\index{/mnt/c/projects/doxygen/src/symbolresolver.h@{/mnt/c/projects/doxygen/src/symbolresolver.h}}
+\mbox{\hyperlink{symbolresolver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef SYMBOLRESOLVER\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define SYMBOLRESOLVER\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{classdef_8h}{classdef.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolResolver}{SymbolResolver}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keyword}{explicit} \mbox{\hyperlink{classSymbolResolver_a893c0b5fc95228994463e34b3b755bca}{SymbolResolver}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fileScope = 0);}
+\DoxyCodeLine{34    \mbox{\hyperlink{classSymbolResolver_a40f6b85e30e458772ef6c5534344b0d5}{\string~SymbolResolver}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// actions}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{47     \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classSymbolResolver_a7d24640728b220c0b98554dbc7aa9d5f}{resolveClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *scope,}
+\DoxyCodeLine{48                                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,}
+\DoxyCodeLine{49                                  \textcolor{keywordtype}{bool} maybeUnlinkable=\textcolor{keyword}{false},}
+\DoxyCodeLine{50                                  \textcolor{keywordtype}{bool} mayBeHidden=\textcolor{keyword}{false});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}} *\mbox{\hyperlink{classSymbolResolver_ab3249c001539f0f9de46a3ec8098fbea}{resolveClassMutable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *scope,}
+\DoxyCodeLine{56                                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,}
+\DoxyCodeLine{57                                          \textcolor{keywordtype}{bool} mayBeUnlinkable=\textcolor{keyword}{false},}
+\DoxyCodeLine{58                                          \textcolor{keywordtype}{bool} mayBeHidden=\textcolor{keyword}{false})}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60       \textcolor{keywordflow}{return} \mbox{\hyperlink{classdef_8cpp_a2d0bf73f7801534e7e2b6e5fc03ed6f5}{toClassDefMutable}}(\mbox{\hyperlink{classSymbolResolver_a7d24640728b220c0b98554dbc7aa9d5f}{resolveClass}}(scope,name,mayBeUnlinkable,mayBeHidden));}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} \mbox{\hyperlink{classSymbolResolver_a2d50ab34b5f003b3ee4c1283a414eca0}{isAccessibleFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *scope,}
+\DoxyCodeLine{68                          \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *item);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{int} \mbox{\hyperlink{classSymbolResolver_a63c2a4c6c16e4b5f9f527ab147c0ea2e}{isAccessibleFromWithExpScope}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *scope,}
+\DoxyCodeLine{76                                      \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *item,}
+\DoxyCodeLine{77                                      \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&explicitScopePart}
+\DoxyCodeLine{78                                     );}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSymbolResolver_accc9cb1dfddba4432265a175e5875d55}{setFileScope}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{comment}{// getters}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{88     \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *\mbox{\hyperlink{classSymbolResolver_ae434934a4e3459b50310c2a1dc9dd17b}{getTypedef}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{93     \mbox{\hyperlink{classQCString}{QCString}}   \mbox{\hyperlink{classSymbolResolver_a82dea93383a1eeb7005e54e013358ee0}{getTemplateSpec}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{98     \mbox{\hyperlink{classQCString}{QCString}}   \mbox{\hyperlink{classSymbolResolver_a6f023b174a5e9064fb4afdf69a02f284}{getResolvedType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{keyword}{private}:}
+\DoxyCodeLine{101     \textcolor{keyword}{struct }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{102     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

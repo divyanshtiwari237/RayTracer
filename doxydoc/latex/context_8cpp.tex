@@ -1,0 +1,336 @@
+\hypertarget{context_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/context.cpp File Reference}
+\label{context_8cpp}\index{/mnt/c/projects/doxygen/src/context.cpp@{/mnt/c/projects/doxygen/src/context.cpp}}
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}context.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}index.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmldocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotcallgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotclassgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgfxhierarchytable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotgroupcollaboration.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dotincldepgraph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}diagram.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}example.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resourcemgr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+Include dependency graph for context.\+cpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structContextGlobals}{Context\+Globals}}
+\item 
+class \mbox{\hyperlink{classCachedItem}{Cached\+Item$<$ T, TOwner, creator $>$}}
+\item 
+class \mbox{\hyperlink{classPropertyMap}{Property\+Map$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classGenericConstIterator}{Generic\+Const\+Iterator}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classTemplate}{Template}} List iterator support. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGenericNodeListContext}{Generic\+Node\+List\+Context}}
+\begin{DoxyCompactList}\small\item\em standard template list implementation \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classConfigContext_1_1Private}{Config\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classDoxygenContext_1_1Private}{Doxygen\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classTranslateContext_1_1Private}{Translate\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classDefinitionContext}{Definition\+Context$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structDefinitionContext_1_1Cachable}{Definition\+Context$<$ T $>$\+::\+Cachable}}
+\item 
+class \mbox{\hyperlink{classIncludeInfoContext_1_1Private}{Include\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classIncludeInfoListContext_1_1Private}{Include\+Info\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassContext_1_1Private}{Class\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNamespaceContext_1_1Private}{Namespace\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classFileContext_1_1Private}{File\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classDirContext_1_1Private}{Dir\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classPageContext_1_1Private}{Page\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classTextGeneratorHtml}{Text\+Generator\+Html}}
+\item 
+class \mbox{\hyperlink{classTextGeneratorLatex}{Text\+Generator\+Latex}}
+\item 
+class \mbox{\hyperlink{classTextGeneratorFactory}{Text\+Generator\+Factory}}
+\item 
+class \mbox{\hyperlink{classMemberContext_1_1Private}{Member\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classConceptContext_1_1Private}{Concept\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classModuleContext_1_1Private}{Module\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassListContext_1_1Private}{Class\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassIndexContext_1_1Private}{Class\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassHierarchyContext_1_1Private}{Class\+Hierarchy\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNestingNodeContext_1_1Private}{Nesting\+Node\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNestingContext_1_1Private}{Nesting\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassTreeContext_1_1Private}{Class\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classConceptListContext_1_1Private}{Concept\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNamespaceListContext_1_1Private}{Namespace\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNamespaceTreeContext_1_1Private}{Namespace\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classFileListContext_1_1Private}{File\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classDirListContext_1_1Private}{Dir\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classUsedFilesContext_1_1Private}{Used\+Files\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classFileTreeContext_1_1Private}{File\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classPageTreeContext_1_1Private}{Page\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classPageListContext_1_1Private}{Page\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classExampleListContext_1_1Private}{Example\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classModuleListContext_1_1Private}{Module\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classConceptTreeContext_1_1Private}{Concept\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classModuleTreeContext_1_1Private}{Module\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classExampleTreeContext_1_1Private}{Example\+Tree\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNavPathElemContext_1_1Private}{Nav\+Path\+Elem\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classGlobalsIndexContext_1_1Private}{Globals\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classClassMembersIndexContext_1_1Private}{Class\+Members\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classNamespaceMembersIndexContext_1_1Private}{Namespace\+Members\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classInheritanceGraphContext_1_1Private}{Inheritance\+Graph\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classInheritanceNodeContext_1_1Private}{Inheritance\+Node\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classInheritanceListContext_1_1Private}{Inheritance\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classMemberListContext_1_1Private}{Member\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classMemberInfoContext_1_1Private}{Member\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classAllMembersListContext_1_1Private}{All\+Members\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classMemberGroupInfoContext_1_1Private}{Member\+Group\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classMemberGroupListContext_1_1Private}{Member\+Group\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classMemberListInfoContext_1_1Private}{Member\+List\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classInheritedMemberInfoContext_1_1Private}{Inherited\+Member\+Info\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classInheritedMemberInfoListContext_1_1Private}{Inherited\+Member\+Info\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classArgumentContext_1_1Private}{Argument\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classArgumentListContext_1_1Private}{Argument\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolContext_1_1Private}{Symbol\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolListContext_1_1Private}{Symbol\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolGroupContext_1_1Private}{Symbol\+Group\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolGroupListContext_1_1Private}{Symbol\+Group\+List\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolIndexContext_1_1Private}{Symbol\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSymbolIndicesContext_1_1Private}{Symbol\+Indices\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSearchIndexContext_1_1Private}{Search\+Index\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classSearchIndicesContext_1_1Private}{Search\+Indices\+Context\+::\+Private}}
+\item 
+class \mbox{\hyperlink{classHtmlEscaper}{Html\+Escaper}}
+\item 
+class \mbox{\hyperlink{classLatexSpaceless}{Latex\+Spaceless}}
+\item 
+class \mbox{\hyperlink{classHtmlSpaceless}{Html\+Spaceless}}
+\item 
+class \mbox{\hyperlink{classLatexEscaper}{Latex\+Escaper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}{BASE\+\_\+\+PROPERTIES}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}{Context\+Output\+Format}} \{ \newline
+\mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}{Context\+Output\+Format\+\_\+\+Unspecified}} =0
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}{Context\+Output\+Format\+\_\+\+Html}}
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}{Context\+Output\+Format\+\_\+\+Latex}}
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}{Context\+Output\+Format\+\_\+\+Rtf}}
+, \newline
+\mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}{Context\+Output\+Format\+\_\+\+Man\+Page}}
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}{Context\+Output\+Format\+\_\+\+Doc\+Book}}
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}{Context\+Output\+Format\+\_\+\+Xml}}
+, \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}{Context\+Output\+Format\+\_\+\+Tag\+File}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTemplateVariant}{Template\+Variant}} \mbox{\hyperlink{context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}{create\+Linked\+Text}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$def, const \mbox{\hyperlink{classQCString}{QCString}} \&rel\+Path, const \mbox{\hyperlink{classQCString}{QCString}} \&text)
+\item 
+void \mbox{\hyperlink{context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}{generate\+Output\+Via\+Template}} ()
+\item 
+void \mbox{\hyperlink{context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generate\+Template\+Files}} (const \mbox{\hyperlink{classQCString}{QCString}} \&template\+Dir)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structContextGlobals}{Context\+Globals}} \mbox{\hyperlink{context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}{g\+\_\+globals}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}\label{context_8cpp_a40cbe664f17fa66f38a8ebf9eaa4846f}} 
+\index{context.cpp@{context.cpp}!BASE\_PROPERTIES@{BASE\_PROPERTIES}}
+\index{BASE\_PROPERTIES@{BASE\_PROPERTIES}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{BASE\_PROPERTIES}{BASE\_PROPERTIES}}
+{\footnotesize\ttfamily \#define BASE\+\_\+\+PROPERTIES}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}name"{}},               \&Private::name                \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}bareName"{}},           \&Private::bareName            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}relPath"{}},            \&Private::relPath             \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}fileName"{}},           \&Private::fileName            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}anchor"{}},             \&Private::anchor              \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}details"{}},            \&Private::details             \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}brief"{}},              \&Private::brief               \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}inbodyDocs"{}},         \&Private::inbodyDocs          \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}sourceFileName"{}},     \&Private::sourceFileName      \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isLinkable"{}},         \&Private::isLinkable          \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isLinkableInProject"{}},\&Private::isLinkableInProject \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}dynSectionId"{}},       \&Private::dynSectionId        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}language"{}},           \&Private::language            \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}sourceDef"{}},          \&Private::sourceDef           \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}navigationPath"{}},     \&Private::navigationPath      \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}partOfGroups"{}},       \&Private::partOfGroups        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}compoundKind"{}},       \&Private::compoundKind        \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}isReference"{}},        \&Private::isReference         \}, \(\backslash\)}
+\DoxyCodeLine{  \{  \textcolor{stringliteral}{"{}externalReference"{}},  \&Private::externalReference   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}} 
+\index{context.cpp@{context.cpp}!ContextOutputFormat@{ContextOutputFormat}}
+\index{ContextOutputFormat@{ContextOutputFormat}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{ContextOutputFormat}{ContextOutputFormat}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1}{Context\+Output\+Format}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Unspecified@{ContextOutputFormat\_Unspecified}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9abf21de69feed2c6f676df9b559a606}} 
+Context\+Output\+Format\+\_\+\+Unspecified&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Html@{ContextOutputFormat\_Html}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Html@{ContextOutputFormat\_Html}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a82524d29e81ed8a2bed01b8a3d5c1907}} 
+Context\+Output\+Format\+\_\+\+Html&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Latex@{ContextOutputFormat\_Latex}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a9ee75cde73bf122410169b195a4e4b27}} 
+Context\+Output\+Format\+\_\+\+Latex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Rtf@{ContextOutputFormat\_Rtf}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a21acae5c3cf5955073705be0b27bcbf9}} 
+Context\+Output\+Format\+\_\+\+Rtf&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_ManPage@{ContextOutputFormat\_ManPage}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a5dc655b75e02731b5e408bcbf6f1e91b}} 
+Context\+Output\+Format\+\_\+\+Man\+Page&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_DocBook@{ContextOutputFormat\_DocBook}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1ae68bf3f78bcd37d8599ddb31398028b5}} 
+Context\+Output\+Format\+\_\+\+Doc\+Book&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_Xml@{ContextOutputFormat\_Xml}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a02f8fd6f2e6edcfb2d9fc27f85fbbfc3}} 
+Context\+Output\+Format\+\_\+\+Xml&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}!context.cpp@{context.cpp}}\index{context.cpp@{context.cpp}!ContextOutputFormat\_TagFile@{ContextOutputFormat\_TagFile}}}\mbox{\Hypertarget{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}\label{context_8cpp_a4f32b70a766a3e8905b24c3492be21a1a71672733eaefb155e90648db372eae14}} 
+Context\+Output\+Format\+\_\+\+Tag\+File&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}\label{context_8cpp_af7cb7d854ab5d5628a7bfc3ac0df3b5d}} 
+\index{context.cpp@{context.cpp}!createLinkedText@{createLinkedText}}
+\index{createLinkedText@{createLinkedText}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{createLinkedText()}{createLinkedText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTemplateVariant}{Template\+Variant}} create\+Linked\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{def,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}\label{context_8cpp_a8434e7e4dd13bb6f45b499a6f5de33b2}} 
+\index{context.cpp@{context.cpp}!generateOutputViaTemplate@{generateOutputViaTemplate}}
+\index{generateOutputViaTemplate@{generateOutputViaTemplate}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{generateOutputViaTemplate()}{generateOutputViaTemplate()}}
+{\footnotesize\ttfamily void generate\+Output\+Via\+Template (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}\label{context_8cpp_aacc5dd43bcfb240b2d37ec8821fd0b6a}} 
+\index{context.cpp@{context.cpp}!generateTemplateFiles@{generateTemplateFiles}}
+\index{generateTemplateFiles@{generateTemplateFiles}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{generateTemplateFiles()}{generateTemplateFiles()}}
+{\footnotesize\ttfamily void generate\+Template\+Files (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{template\+Dir }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}\label{context_8cpp_acf3eaf0c0891c3c3f010ef4bcc3be944}} 
+\index{context.cpp@{context.cpp}!g\_globals@{g\_globals}}
+\index{g\_globals@{g\_globals}!context.cpp@{context.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_globals}{g\_globals}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structContextGlobals}{Context\+Globals}} g\+\_\+globals}
+

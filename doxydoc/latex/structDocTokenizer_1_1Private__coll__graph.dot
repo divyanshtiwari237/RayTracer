@@ -1,0 +1,51 @@
+digraph "DocTokenizer::Private"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{DocTokenizer::Private\n||}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +yyscanner" ,arrowhead="odiamond"];
+  Node2 [label="{yyguts_t *\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +extra" ,arrowhead="odiamond"];
+  Node3 [label="{doctokenizerYY_state\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structdoctokenizerYY__state.html",tooltip=" "];
+  Node4 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +autoListLevel\n+commentState\n+sharpCount\n+yyLineNr" ,arrowhead="odiamond"];
+  Node4 [label="{int\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classint.html",tooltip=" "];
+  Node5 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +token" ,arrowhead="odiamond"];
+  Node5 [label="{TokenInfo\n||+ TokenInfo()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structTokenInfo.html",tooltip="Data associated with a token used by the comment block parser."];
+  Node6 -> Node5 [color="grey25",fontsize="10",style="solid",label=" +attribsStr\n+chars\n+name\n+sectionId\n+simpleSectName\n+simpleSectText\n+text\n+verb" ,arrowhead="odiamond"];
+  Node6 [label="{QCString\n||+ QCString()\l+ ~QCString()\l+ QCString()\l+ operator=()\l+ QCString()\l+ operator=()\l+ QCString()\l+ QCString()\l+ QCString()\l+ QCString()\land 69 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classQCString.html",tooltip=" "];
+  Node7 -> Node5 [color="grey25",fontsize="10",style="solid",label=" +emptyTag\n+endTag\n+isEMailAddr\n+isEnumList" ,arrowhead="odiamond"];
+  Node7 [label="{bool\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node5 [color="grey25",fontsize="10",style="solid",label=" +id\n+indent" ,arrowhead="odiamond"];
+  Node8 -> Node5 [color="grey25",fontsize="10",style="solid",label=" +attribs" ,arrowhead="odiamond"];
+  Node8 [label="{HtmlAttribList\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHtmlAttribList.html",tooltip="Class representing a list of HTML attributes."];
+  Node9 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal"];
+  Node9 [label="{std::vector\< T \>\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node10 -> Node9 [color="grey25",fontsize="10",style="solid",label=" +elements" ,arrowhead="odiamond"];
+  Node10 [label="{T\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node11 -> Node5 [color="grey25",fontsize="10",style="solid",label=" +paramDir" ,arrowhead="odiamond"];
+  Node11 [label="{ParamDir\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node12 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +inputPos" ,arrowhead="odiamond"];
+  Node12 [label="{yy_size_t\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node13 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +inputString" ,arrowhead="odiamond"];
+  Node13 [label="{char\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node6 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +endMarker\n+fileName\n+secLabel\n+secTitle" ,arrowhead="odiamond"];
+  Node7 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +insidePre\n+markdownSupport" ,arrowhead="odiamond"];
+  Node14 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +definition" ,arrowhead="odiamond"];
+  Node14 [label="{Definition\n||+ definitionType()\l+ codeSymbolType()\l+ isAlias()\l+ name()\l+ isAnonymous()\l+ displayName()\l+ localName()\l+ qualifiedName()\l+ symbolName()\l+ getOutputFileBase()\land 50 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDefinition.html",tooltip=" "];
+  Node15 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +secType" ,arrowhead="odiamond"];
+  Node15 [label="{SectionType\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node16 -> Node3 [color="grey25",fontsize="10",style="solid",label=" +lexerStack" ,arrowhead="odiamond"];
+  Node16 [label="{std::stack\< std::unique\l_ptr\< DocLexerContext \> \>\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node17 -> Node16 [color="grey25",fontsize="10",style="solid",label=" +elements" ,arrowhead="odiamond"];
+  Node17 [label="{std::unique_ptr\< DocLexer\lContext \>\n||+ operator-\>()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node18 -> Node17 [color="grey25",fontsize="10",style="solid",label=" +ptr" ,arrowhead="odiamond"];
+  Node18 [label="{DocLexerContext\n||+ DocLexerContext()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structDocLexerContext.html",tooltip=" "];
+  Node5 -> Node18 [color="grey25",fontsize="10",style="solid",label=" +token" ,arrowhead="odiamond"];
+  Node4 -> Node18 [color="grey25",fontsize="10",style="solid",label=" +autoListLevel\n+rule" ,arrowhead="odiamond"];
+  Node12 -> Node18 [color="grey25",fontsize="10",style="solid",label=" +inputPos" ,arrowhead="odiamond"];
+  Node19 -> Node18 [color="grey25",fontsize="10",style="solid",label=" +inputString" ,arrowhead="odiamond"];
+  Node19 [label="{const char *\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+  Node20 -> Node18 [color="grey25",fontsize="10",style="solid",label=" +state" ,arrowhead="odiamond"];
+  Node20 [label="{YY_BUFFER_STATE\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",tooltip=" "];
+}

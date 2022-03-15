@@ -1,0 +1,69 @@
+\hypertarget{dotincldepgraph_8h_source}{}\doxysection{dotincldepgraph.\+h}
+\label{dotincldepgraph_8h_source}\index{/mnt/c/projects/doxygen/src/dotincldepgraph.h@{/mnt/c/projects/doxygen/src/dotincldepgraph.h}}
+\mbox{\hyperlink{dotincldepgraph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTINCLDEPGRAPH\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTINCLDEPGRAPH\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{filedef_8h}{filedef.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotnode_8h}{dotnode.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgraph_8h}{dotgraph.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classDotInclDepGraph}{DotInclDepGraph}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDotGraph}{DotGraph}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{classDotInclDepGraph_aa6f427f748bd461630a7656583fc729e}{DotInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keywordtype}{bool} inverse);}
+\DoxyCodeLine{34     \mbox{\hyperlink{classDotInclDepGraph_af6d8bd77179230c06b11a35a14f9f390}{\string~DotInclDepGraph}}();}
+\DoxyCodeLine{35     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotInclDepGraph_a197a7b8e9b068d122b062c80b21784e4}{writeGraph}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t, \mbox{\hyperlink{dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} gf, \mbox{\hyperlink{dotgraph_8h_a8680135da08a5ef57cebe20060912dcc}{EmbeddedOutputFormat}} ef,}
+\DoxyCodeLine{36                         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&path,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{37                         \textcolor{keywordtype}{bool} writeImageMap=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\textcolor{keywordtype}{int} graphId=-\/1);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotInclDepGraph_afe9784772becb74106aa3978a52105eb}{isTrivial}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotInclDepGraph_ab00dfe31a3deec8e36ed043b0cd3be6f}{isTooBig}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotInclDepGraph_acd9c22a1f88a178e369914f0c8fb55b0}{numNodes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotInclDepGraph_a28fef240bd687173e6e9184e82bcf391}{writeXML}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotInclDepGraph_a8c2162d40ea8f7ab188a37247b5b2bb5}{writeDocbook}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotInclDepGraph_a73e5e31d46e0e11b9001e7e9ab9af5ed}{getBaseName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotInclDepGraph_aa75fd04af6247cc2c06dfcf9e08b9af1}{getMapLabel}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotInclDepGraph_a5680810e83ae24a26dd73a109db71265}{computeTheGraph}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49   \textcolor{keyword}{private}:}
+\DoxyCodeLine{50     \mbox{\hyperlink{classQCString}{QCString}} diskName() \textcolor{keyword}{const};}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} buildGraph(\mbox{\hyperlink{classDotNode}{DotNode}} *n,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keywordtype}{int} distance);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} determineVisibleNodes(\mbox{\hyperlink{classDotNodeDeque}{DotNodeDeque}} \&queue,\textcolor{keywordtype}{int} \&maxNodes);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} determineTruncatedNodes(\mbox{\hyperlink{classDotNodeDeque}{DotNodeDeque}} \&queue);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{classDotNode}{DotNode}}        *m\_startNode;}
+\DoxyCodeLine{56     \mbox{\hyperlink{classDotNodeMap}{DotNodeMap}}      m\_usedNodes;}
+\DoxyCodeLine{57     \mbox{\hyperlink{classQCString}{QCString}}        m\_inclDepFileName;}
+\DoxyCodeLine{58     \mbox{\hyperlink{classQCString}{QCString}}        m\_inclByDepFileName;}
+\DoxyCodeLine{59     \textcolor{keywordtype}{bool}            m\_inverse;}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{using} \mbox{\hyperlink{dotincldepgraph_8h_a4deee14cbdac8080eda9d059abe1722e}{DotInclDepGraphPtr}} = std::shared\_ptr<DotInclDepGraph>;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

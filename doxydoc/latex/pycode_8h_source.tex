@@ -1,0 +1,67 @@
+\hypertarget{pycode_8h_source}{}\doxysection{pycode.\+h}
+\label{pycode_8h_source}\index{/mnt/c/projects/doxygen/src/pycode.h@{/mnt/c/projects/doxygen/src/pycode.h}}
+\mbox{\hyperlink{pycode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 \textcolor{comment}{/*  This code is based on the work done by the MoxyPyDoxy team}}
+\DoxyCodeLine{16 \textcolor{comment}{ *  (Linda Leong, Mike Rivera, Kim Truong, and Gabriel Estrada)}}
+\DoxyCodeLine{17 \textcolor{comment}{ *  in Spring 2005 as part of CS 179E: Compiler Design Project}}
+\DoxyCodeLine{18 \textcolor{comment}{ *  at the University of California, Riverside; the course was}}
+\DoxyCodeLine{19 \textcolor{comment}{ *  taught by Peter H. Froehlich <phf@acm.org>.}}
+\DoxyCodeLine{20 \textcolor{comment}{ */}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifndef PYCODE\_H}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define PYCODE\_H}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parserintf_8h}{parserintf.h}}"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}};}
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}};}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classPythonCodeParser}{PythonCodeParser}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCodeParserInterface}{CodeParserInterface}}}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36   \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{classPythonCodeParser_a7104fd0fa8b8761e10dc96c4b053b1f5}{PythonCodeParser}}();}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \mbox{\hyperlink{classPythonCodeParser_a599fd4b7c99ba6112bb058d79f6a141d}{\string~PythonCodeParser}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPythonCodeParser_acee2e88b013522f5669570e0dd669f68}{parseCode}}(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&codeOutIntf,}
+\DoxyCodeLine{40                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&scopeName,}
+\DoxyCodeLine{41                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&input,}
+\DoxyCodeLine{42                    \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang,}
+\DoxyCodeLine{43                    \textcolor{keywordtype}{bool} isExampleBlock,}
+\DoxyCodeLine{44                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&exampleName=\mbox{\hyperlink{classQCString}{QCString}}(),}
+\DoxyCodeLine{45                    \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fileDef=0,}
+\DoxyCodeLine{46                    \textcolor{keywordtype}{int} startLine=-\/1,}
+\DoxyCodeLine{47                    \textcolor{keywordtype}{int} endLine=-\/1,}
+\DoxyCodeLine{48                    \textcolor{keywordtype}{bool} inlineFragment=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{49                    \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *memberDef=0,}
+\DoxyCodeLine{50                    \textcolor{keywordtype}{bool} showLineNumbers=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},}
+\DoxyCodeLine{51                    \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *searchCtx=0,}
+\DoxyCodeLine{52                    \textcolor{keywordtype}{bool} collectXrefs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}}
+\DoxyCodeLine{53                   );}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPythonCodeParser_ac3176cf889b4573ea6aed6869d10267c}{resetCodeParserState}}();}
+\DoxyCodeLine{55   \textcolor{keyword}{private}:}
+\DoxyCodeLine{56     \textcolor{keyword}{struct }\mbox{\hyperlink{structPythonCodeParser_1_1Private}{Private}};}
+\DoxyCodeLine{57     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

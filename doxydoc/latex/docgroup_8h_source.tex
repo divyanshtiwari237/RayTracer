@@ -1,0 +1,59 @@
+\hypertarget{docgroup_8h_source}{}\doxysection{docgroup.\+h}
+\label{docgroup_8h_source}\index{/mnt/c/projects/doxygen/src/docgroup.h@{/mnt/c/projects/doxygen/src/docgroup.h}}
+\mbox{\hyperlink{docgroup_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOCGROUP\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOCGROUP\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{membergroup_8h}{membergroup.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classEntry}{Entry}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classDocGroup}{DocGroup}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26   \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{classDocGroup_a4b3497cc6cc6a5f8c9aa20dcbad4d9a9}{DocGroup}}() \{\};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_af3ca5770267b6242e2b95d15c47a0db9}{enterFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int});}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a15c99d30cd779d86716ffb2f341db5e1}{leaveFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_ae49d781442d3cbceed9b62859b3d4b89}{enterCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a14c0151b77e31de76f50ea2cb9d3e5cb}{leaveCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&,\textcolor{keywordtype}{int},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \& \textcolor{comment}{/*name*/});}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a9cb5ab2169da2f5bf14816e9c10e8290}{open}}(\mbox{\hyperlink{classEntry}{Entry}} *e,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&,\textcolor{keywordtype}{int},\textcolor{keywordtype}{bool} implicit=\textcolor{keyword}{false});}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a7610569d96adb6bd19ed159a5f53a26c}{close}}(\mbox{\hyperlink{classEntry}{Entry}} *e,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keywordtype}{bool} foundInline,\textcolor{keywordtype}{bool} implicit=\textcolor{keyword}{false});}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a4fb2f5bfdd28daeceb60dbb262e08097}{initGroupInfo}}(\mbox{\hyperlink{classEntry}{Entry}} *e);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDocGroup_aa6a996a17a2a292dd6f0a2936a1d9910}{isEmpty}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_ac8ca201268362991329a26c5725f174b}{clearHeader}}();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a9c704ca73aa365da5c61e2b320f8cdd8}{appendHeader}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char});}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDocGroup_a9b79815ce3108572e1405da479f34e3d}{addDocs}}(\mbox{\hyperlink{classEntry}{Entry}} *e);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keyword}{private}:}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} findExistingGroup(\textcolor{keyword}{const} \mbox{\hyperlink{structMemberGroupInfo}{MemberGroupInfo}} *info);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int}              m\_openCount = 0;}
+\DoxyCodeLine{45     \mbox{\hyperlink{classQCString}{QCString}}         m\_memberGroupHeader;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int}              m\_memberGroupId = 0;}
+\DoxyCodeLine{47     \mbox{\hyperlink{classQCString}{QCString}}         m\_memberGroupRelates;}
+\DoxyCodeLine{48     \mbox{\hyperlink{classQCString}{QCString}}         m\_memberGroupDocs;}
+\DoxyCodeLine{49     std::vector<Grouping> m\_autoGroupStack;}
+\DoxyCodeLine{50     \mbox{\hyperlink{classQCString}{QCString}}         m\_compoundName;}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

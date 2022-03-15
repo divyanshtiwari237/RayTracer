@@ -1,0 +1,476 @@
+\hypertarget{configimpl_8h_source}{}\doxysection{configimpl.\+h}
+\label{configimpl_8h_source}\index{/mnt/c/projects/doxygen/src/configimpl.h@{/mnt/c/projects/doxygen/src/configimpl.h}}
+\mbox{\hyperlink{configimpl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{9 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{10 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{11 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{15 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef CONFIGIMPL\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define CONFIGIMPL\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classConfigImpl}{ConfigImpl}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \textcolor{keyword}{public}:}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     \textcolor{keyword}{enum} \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}}}
+\DoxyCodeLine{43     \{}
+\DoxyCodeLine{44       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaade872bcb27f40e3380fb20be7cea9e57}{O\_Info}},      }
+\DoxyCodeLine{45       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa18c0785bb1948fb57402ee80324ef1a7}{O\_List}},      }
+\DoxyCodeLine{46       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa1ba2565ddffed94550a83a5b537e6a31}{O\_Enum}},      }
+\DoxyCodeLine{47       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa3aa84b958a247d79889f28f4244a7d7f}{O\_String}},    }
+\DoxyCodeLine{48       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaac029c8062b88308de12914e88e12dcd8}{O\_Int}},       }
+\DoxyCodeLine{49       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa306962172c18f2b309fb729e66e32e81}{O\_Bool}},      }
+\DoxyCodeLine{50       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaab60c019594029c214e601ec24988d6ac}{O\_Obsolete}},  }
+\DoxyCodeLine{51       \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa116df5f47c0442ad31ca0193cf540701}{O\_Disabled}}   }
+\DoxyCodeLine{52     \};}
+\DoxyCodeLine{53     \textcolor{keyword}{enum}}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{58       \mbox{\hyperlink{classConfigOption_a843270e309a4227d54b459dca07f1c86aa40e4123355dbeb41dc6ca0c68c0d346}{MAX\_OPTION\_LENGTH}} = 23}
+\DoxyCodeLine{59     \};}
+\DoxyCodeLine{60     \mbox{\hyperlink{classConfigOption_a3ce6753bba05ab1ee7e5eaaec6d8f1ac}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} t) : \mbox{\hyperlink{classConfigOption_a64896a35334d6ab865f8038fb65024ac}{m\_kind}}(t)}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62       \mbox{\hyperlink{classConfigOption_aa3ef6fe13a480dad1404aee1bb0f2d11}{m\_spaces}}.\mbox{\hyperlink{classQCString_a2061c09e8d70cd279d9cc9feef33d2bb}{fill}}(\textcolor{charliteral}{' '},40);}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \mbox{\hyperlink{classConfigOption_ae9ef259a262e4422ade948313b6dd74a}{\string~ConfigOption}}()}
+\DoxyCodeLine{65     \{}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69     \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} \mbox{\hyperlink{classConfigOption_af9d4d56d36500792b82fce5b11202a60}{kind}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classConfigOption_a64896a35334d6ab865f8038fb65024ac}{m\_kind}}; \}}
+\DoxyCodeLine{70     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}}; \}}
+\DoxyCodeLine{71     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a3c4dc05a2249a17ad0df0e943da4decd}{docs}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}}; \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a8a744f63445f4cd0ce86d7f423bc7161}{dependsOn}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classConfigOption_a5146ef81dc662e3c5b2f1e9d1f3c600e}{m\_dependency}}; \}}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a290d4454155543728847a75ade256a32}{addDependency}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *dep) \{ \mbox{\hyperlink{classConfigOption_a5146ef81dc662e3c5b2f1e9d1f3c600e}{m\_dependency}} = dep; \}}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a0ac357ec83d2014603c8d70a00c27a33}{setEncoding}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&e) \{ \mbox{\hyperlink{classConfigOption_a4953007ad225b5996adf18275f59e922}{m\_encoding}} = e; \}}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a5baa3fb6c4fb6ec667eb91172f3f398a}{setUserComment}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&u) \{ \mbox{\hyperlink{classConfigOption_a5e54ead18c124c6c6c03ed3b678a7103}{m\_userComment}} += u; \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a5847d1259b18ad354fcfd5e2e0cd0563}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool} upd) = 0;}
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a2cb1ed2a9d82594e3e90425cea09ed84}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t) = 0;}
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a33dbcfdb94648f726afd2e85462c184a}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t) = 0;}
+\DoxyCodeLine{82     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_af1d26523f37d742316ddc4c0f9add4fc}{convertStrToVal}}() \{\}}
+\DoxyCodeLine{83     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_aaf0c9e86e3c98248442e907e12513dd5}{emptyValueToDefault}}() \{\}}
+\DoxyCodeLine{84     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_aeb6ac539f2fe79e07f2baefd5c4d89c1}{substEnvVars}}() = 0;}
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a1dabfad39230674fc07f5f535392fd35}{init}}() \{\}}
+\DoxyCodeLine{86     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigOption_afc4350edf24b61a7e14b43159cba0b01}{isDefault}}() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_af1841ab62c57c5ec4e594950f25115cd}{writeBoolValue}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} v,\textcolor{keywordtype}{bool} initSpace = \textcolor{keyword}{true});}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a71ca02feacb0119f2130c0b07c2fe755}{writeIntValue}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{int} i,\textcolor{keywordtype}{bool} initSpace = \textcolor{keyword}{true});}
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_ad429c027e06c526dbbc69d228c0a43f9}{writeStringValue}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{bool} initSpace = \textcolor{keyword}{true});}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigOption_a84a2aa61638b8af08560219e2a5140f1}{writeStringList}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&l);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_aa3ef6fe13a480dad1404aee1bb0f2d11}{m\_spaces}};}
+\DoxyCodeLine{94     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}};}
+\DoxyCodeLine{95     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}};}
+\DoxyCodeLine{96     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a5146ef81dc662e3c5b2f1e9d1f3c600e}{m\_dependency}};}
+\DoxyCodeLine{97     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a4953007ad225b5996adf18275f59e922}{m\_encoding}};}
+\DoxyCodeLine{98     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigOption_a5e54ead18c124c6c6c03ed3b678a7103}{m\_userComment}};}
+\DoxyCodeLine{99     \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} \mbox{\hyperlink{classConfigOption_a64896a35334d6ab865f8038fb65024ac}{m\_kind}};}
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{104 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigInfo}{ConfigInfo}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106   \textcolor{keyword}{public}:}
+\DoxyCodeLine{107     \mbox{\hyperlink{classConfigInfo_ab6f35b01ca89e544443687839171a835}{ConfigInfo}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{108       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaade872bcb27f40e3380fb20be7cea9e57}{O\_Info}})}
+\DoxyCodeLine{109     \{}
+\DoxyCodeLine{110       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{111       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInfo_a1bf361cf6b656a23efb9712b0438a02d}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t, \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInfo_afb4e3b3f1e948d6a10bf59a143b27c03}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInfo_ab0c5bbf605e788cb43e1cb6abeddaa7a}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInfo_ac8e7248d13bb1c291c9e1547ff1a1fa0}{substEnvVars}}() \{\}}
+\DoxyCodeLine{117 \};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{121 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigList}{ConfigList}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{122 \{}
+\DoxyCodeLine{123   \textcolor{keyword}{public}:}
+\DoxyCodeLine{124     \textcolor{keyword}{enum} \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9}{WidgetType}} \{ \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9aa9954588024495126e9800e6a8fe6609}{String}}, \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9ad849531b1086e92d907f6eaeca605d19}{File}}, \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9af9f869ef1f20f387f022bc6a95362f36}{Dir}}, \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9a6e2af7234864ed6dede734bc8fd09003}{FileAndDir}} \};}
+\DoxyCodeLine{125     \mbox{\hyperlink{classConfigList_aae0b9ca88cb622aec4b31270c1c1f944}{ConfigList}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{126       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa18c0785bb1948fb57402ee80324ef1a7}{O\_List}})}
+\DoxyCodeLine{127     \{}
+\DoxyCodeLine{128       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{129       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{130       m\_widgetType = \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9aa9954588024495126e9800e6a8fe6609}{String}};}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a708f7e2019c42d2d1d8957ee33b94518}{addValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *v) \{ m\_defaultValue.push\_back(v); \}}
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a0e85c4f20ca576934f53e7d6a9361896}{setWidgetType}}(\mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9}{WidgetType}} w) \{ m\_widgetType = w; \}}
+\DoxyCodeLine{134     \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9}{WidgetType}} \mbox{\hyperlink{classConfigList_adffbf5f943f39a95d16140d3d2d8eec9}{widgetType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_widgetType; \}}
+\DoxyCodeLine{135     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} *\mbox{\hyperlink{classConfigList_a57f2766d4e2db152d2dac6fe513b9e85}{valueRef}}() \{ \textcolor{keywordflow}{return} \&m\_value; \}}
+\DoxyCodeLine{136     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classConfigList_a9855bd9a3bb810cd78b1ea8300c9e712}{getDefault}}() \{ \textcolor{keywordflow}{return} m\_defaultValue; \}}
+\DoxyCodeLine{137     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a3122ec1f15da9b4bce1bdb5396c3a8ae}{emptyValueToDefault}}() \{ \textcolor{keywordflow}{if} (m\_value.empty() \&\& !m\_defaultValue.empty()) m\_value=m\_defaultValue; \};}
+\DoxyCodeLine{138     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a9cbe380af830dcc1ab7f8a3bf5a4bf34}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{139     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_ad3b0339fd3f4828aa8a696572fc74042}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{140     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_acccd31cfc102c38f707d2faaef2579e6}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a46cdc3f64d1799a802fb2d00af2e3f65}{substEnvVars}}();}
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigList_a48019d23edc37549f47d41ce41c43298}{init}}() \{ m\_value = m\_defaultValue; \}}
+\DoxyCodeLine{143     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigList_a1c833bdc72f8e2c16661e97b74e50d79}{isDefault}}();}
+\DoxyCodeLine{144   \textcolor{keyword}{private}:}
+\DoxyCodeLine{145     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} m\_value;}
+\DoxyCodeLine{146     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} m\_defaultValue;}
+\DoxyCodeLine{147     \mbox{\hyperlink{classConfigList_a562e3dbe5fc70f1af7ed4e748dae0ae9}{WidgetType}} m\_widgetType;}
+\DoxyCodeLine{148 \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{152 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigEnum}{ConfigEnum}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{153 \{}
+\DoxyCodeLine{154   \textcolor{keyword}{public}:}
+\DoxyCodeLine{155     \mbox{\hyperlink{classConfigEnum_a96e17cf6e6f6e69461f8a19e3f29b421}{ConfigEnum}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *defVal)}
+\DoxyCodeLine{156       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa1ba2565ddffed94550a83a5b537e6a31}{O\_Enum}})}
+\DoxyCodeLine{157     \{}
+\DoxyCodeLine{158       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{159       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{160       m\_value = defVal;}
+\DoxyCodeLine{161       m\_defValue = defVal;}
+\DoxyCodeLine{162     \}}
+\DoxyCodeLine{163     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_a6131fd01c26d5adbe380a9a6832c3ff1}{addValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *v) \{ m\_valueRange.push\_back(v); \}}
+\DoxyCodeLine{164     \textcolor{keyword}{const} std::vector<QCString> \&\mbox{\hyperlink{classConfigEnum_a74f5bf4c5a11458bf09fadc23ec36780}{values}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_valueRange; \}}
+\DoxyCodeLine{165     \mbox{\hyperlink{classQCString}{QCString}} *\mbox{\hyperlink{classConfigEnum_a63af270856c22528eaa62970056d583f}{valueRef}}() \{ \textcolor{keywordflow}{return} \&m\_value; \}}
+\DoxyCodeLine{166     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_a6bce69a7f2e47d115ad136e56aca8158}{substEnvVars}}();}
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_a6fb23952d32b6329ab08f46e1dde07e4}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{168     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_ac89caaf4f5f0d224f36f4992df981aa1}{convertStrToVal}}();}
+\DoxyCodeLine{169     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_a2cf5f98e8dc957d9a9320a0009f42864}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_a40124de24a356dec8baca16fa6e52868}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{171     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigEnum_af827841fdcc6612dd7ff2fb6ec92eaad}{init}}() \{ m\_value = m\_defValue; \}}
+\DoxyCodeLine{172     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigEnum_a9aba2161750c21c36b11a30f19272b5e}{isDefault}}() \{ \textcolor{keywordflow}{return} m\_value == m\_defValue; \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174   \textcolor{keyword}{private}:}
+\DoxyCodeLine{175     std::vector<QCString> m\_valueRange;}
+\DoxyCodeLine{176     \mbox{\hyperlink{classQCString}{QCString}} m\_value;}
+\DoxyCodeLine{177     \mbox{\hyperlink{classQCString}{QCString}} m\_defValue;}
+\DoxyCodeLine{178 \};}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{182 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigString}{ConfigString}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{183 \{}
+\DoxyCodeLine{184   \textcolor{keyword}{public}:}
+\DoxyCodeLine{185     \textcolor{keyword}{enum} \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1}{WidgetType}} \{ \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1a11c4b738a4bf25daac178bdcafb7ee1d}{String}}, \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1af6654c1bae7f98471bc56277441a6792}{File}}, \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1a49f5b7433b27cfc3141075bb4501bcad}{Dir}}, \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1a9612c37242b61f3f1b221ceb22be3ad0}{Image}}, \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1a18caab78eb44d557d100fbffe7e6b882}{FileAndDir}} \};}
+\DoxyCodeLine{186     \mbox{\hyperlink{classConfigString_af35e791e48a93c96bdba2df9ca848f28}{ConfigString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{187       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa3aa84b958a247d79889f28f4244a7d7f}{O\_String}})}
+\DoxyCodeLine{188     \{}
+\DoxyCodeLine{189       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{190       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{191       m\_widgetType = \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1a11c4b738a4bf25daac178bdcafb7ee1d}{String}};}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193    \mbox{\hyperlink{classConfigString_a562abfad9e8a9f7ecb1bcdac06150390}{\string~ConfigString}}()}
+\DoxyCodeLine{194     \{}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_a35abeb5e79ca5812affa17d5ff67f5ee}{setWidgetType}}(\mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1}{WidgetType}} w) \{ m\_widgetType = w; \}}
+\DoxyCodeLine{197     \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1}{WidgetType}} \mbox{\hyperlink{classConfigString_a7cad733ff76bb0fc898c9daffb578fd2}{widgetType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_widgetType; \}}
+\DoxyCodeLine{198     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_aabfc2165fcdafd51ec0668d3fe4f7b35}{setDefaultValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *v) \{ m\_defValue = v; \}}
+\DoxyCodeLine{199     \mbox{\hyperlink{classQCString}{QCString}} *\mbox{\hyperlink{classConfigString_a995a4f0d9d2799e285fd454dddb6b0f4}{valueRef}}() \{ \textcolor{keywordflow}{return} \&m\_value; \}}
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_aed7721dd931b4a3a68a4913a2536a6db}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{201     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_ad867c23a1818b9c1e6b869f039c028a7}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{202     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_a027fe9f4c7d81d3a13ad77c956da5cbf}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{203     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_a39a8a773cf8ef1c5b31fa1e02b49cb32}{substEnvVars}}();}
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_ace07ea2ad1492f238771682286a7b79e}{init}}() \{ m\_value = m\_defValue; \}}
+\DoxyCodeLine{205     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigString_a384bcc7b37cda8eefcfda7d341d11032}{emptyValueToDefault}}() \{ \textcolor{keywordflow}{if} (m\_value.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) m\_value=m\_defValue; \};}
+\DoxyCodeLine{206     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigString_abbe6207eae166ead7743528230a7e612}{isDefault}}() \{ \textcolor{keywordflow}{return} m\_value.\mbox{\hyperlink{classQCString_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}() == m\_defValue.\mbox{\hyperlink{classQCString_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}(); \}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208   \textcolor{keyword}{private}:}
+\DoxyCodeLine{209     \mbox{\hyperlink{classQCString}{QCString}} m\_value;}
+\DoxyCodeLine{210     \mbox{\hyperlink{classQCString}{QCString}} m\_defValue;}
+\DoxyCodeLine{211     \mbox{\hyperlink{classConfigString_a6d65e61d6dcbd73f014d16ef4b7721d1}{WidgetType}} m\_widgetType;}
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{216 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigInt}{ConfigInt}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{217 \{}
+\DoxyCodeLine{218   \textcolor{keyword}{public}:}
+\DoxyCodeLine{219     \mbox{\hyperlink{classConfigInt_a07aa951c7f1a25bc0eec264b74015fb9}{ConfigInt}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,\textcolor{keywordtype}{int} \mbox{\hyperlink{classConfigInt_ae9fc76f1f588da6c5e4867b1943167fe}{minVal}},\textcolor{keywordtype}{int} \mbox{\hyperlink{classConfigInt_a491b02657945f80a7ffb5cb9b3562ab7}{maxVal}},\textcolor{keywordtype}{int} defVal)}
+\DoxyCodeLine{220       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaac029c8062b88308de12914e88e12dcd8}{O\_Int}})}
+\DoxyCodeLine{221     \{}
+\DoxyCodeLine{222       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{223       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{224       m\_value = defVal;}
+\DoxyCodeLine{225       m\_defValue = defVal;}
+\DoxyCodeLine{226       m\_minVal = \mbox{\hyperlink{classConfigInt_ae9fc76f1f588da6c5e4867b1943167fe}{minVal}};}
+\DoxyCodeLine{227       m\_maxVal = \mbox{\hyperlink{classConfigInt_a491b02657945f80a7ffb5cb9b3562ab7}{maxVal}};}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229     \mbox{\hyperlink{classQCString}{QCString}} *\mbox{\hyperlink{classConfigInt_a1f025760eadf112578d6451710286929}{valueStringRef}}() \{ \textcolor{keywordflow}{return} \&m\_valueString; \}}
+\DoxyCodeLine{230     \textcolor{keywordtype}{int} *\mbox{\hyperlink{classConfigInt_a26b63e65bd4757c0501700371b9ef4c4}{valueRef}}() \{ \textcolor{keywordflow}{return} \&m\_value; \}}
+\DoxyCodeLine{231     \textcolor{keywordtype}{int} \mbox{\hyperlink{classConfigInt_ae9fc76f1f588da6c5e4867b1943167fe}{minVal}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_minVal; \}}
+\DoxyCodeLine{232     \textcolor{keywordtype}{int} \mbox{\hyperlink{classConfigInt_a491b02657945f80a7ffb5cb9b3562ab7}{maxVal}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_maxVal; \}}
+\DoxyCodeLine{233     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_ac4e9191ee5da6cef185c07dd686f94fb}{convertStrToVal}}();}
+\DoxyCodeLine{234     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_a9c8052e1163a97d8d798b317c2eb1cbf}{substEnvVars}}();}
+\DoxyCodeLine{235     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_a65df95daea7d8d1b58523f739847ed37}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool} upd);}
+\DoxyCodeLine{236     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_a25c42e0cf7031053742a8ec81f7d8bc9}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{237     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_a6a81d2852044a20b2754658fc8785971}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{238     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigInt_a20733b898775fb0b75c9a3e70662c3bf}{init}}() \{ m\_value = m\_defValue; \}}
+\DoxyCodeLine{239     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigInt_aad563253b5fa945c3e695db152c2a7b9}{isDefault}}() \{ \textcolor{keywordflow}{return} m\_value == m\_defValue; \}}
+\DoxyCodeLine{240   \textcolor{keyword}{private}:}
+\DoxyCodeLine{241     \textcolor{keywordtype}{int} m\_value;}
+\DoxyCodeLine{242     \textcolor{keywordtype}{int} m\_defValue;}
+\DoxyCodeLine{243     \textcolor{keywordtype}{int} m\_minVal;}
+\DoxyCodeLine{244     \textcolor{keywordtype}{int} m\_maxVal;}
+\DoxyCodeLine{245     \mbox{\hyperlink{classQCString}{QCString}} m\_valueString;}
+\DoxyCodeLine{246 \};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{250 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigBool}{ConfigBool}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{251 \{}
+\DoxyCodeLine{252   \textcolor{keyword}{public}:}
+\DoxyCodeLine{253     \mbox{\hyperlink{classConfigBool_a0250b41f09141944729a556c4d5f8146}{ConfigBool}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,\textcolor{keywordtype}{bool} defVal)}
+\DoxyCodeLine{254       : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa306962172c18f2b309fb729e66e32e81}{O\_Bool}})}
+\DoxyCodeLine{255     \{}
+\DoxyCodeLine{256       \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}};}
+\DoxyCodeLine{257       \mbox{\hyperlink{classConfigOption_a28fdea8e9fdf86e73faae697454c17ab}{m\_doc}} = doc;}
+\DoxyCodeLine{258       m\_value = defVal;}
+\DoxyCodeLine{259       m\_defValue = defVal;}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261     \mbox{\hyperlink{classQCString}{QCString}} *\mbox{\hyperlink{classConfigBool_a68ac670d16fb28e4dd4df321457c7b29}{valueStringRef}}() \{ \textcolor{keywordflow}{return} \&m\_valueString; \}}
+\DoxyCodeLine{262     \textcolor{keywordtype}{bool} *\mbox{\hyperlink{classConfigBool_a46d53a46ed6d14a02838a901a9deed3b}{valueRef}}() \{ \textcolor{keywordflow}{return} \&m\_value; \}}
+\DoxyCodeLine{263     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_a5ebdef58b033f43ea09b1e5b0b44e330}{convertStrToVal}}();}
+\DoxyCodeLine{264     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_af9c3c0887533842db8cf9201a5b63486}{substEnvVars}}();}
+\DoxyCodeLine{265     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_acfabddfc8b65f1850cb7b1bdfcfb6ae1}{setValueString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&v) \{ m\_valueString = v; \}}
+\DoxyCodeLine{266     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_ac9dc61afb0dc7efcad228a2c74a6f017}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keywordtype}{bool} upd);}
+\DoxyCodeLine{267     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_ab22513e290b2f06559b66e88a97e8aa3}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{268     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_ab1e4bbba7140206c035f4ace92cf36fa}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{269     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigBool_a087fdcc229617e80faf798e90fe17439}{init}}() \{ m\_value = m\_defValue; \}}
+\DoxyCodeLine{270     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigBool_af3440309ac03468f45e99cbfa2847003}{isDefault}}() \{ \textcolor{keywordflow}{return} m\_value == m\_defValue; \}}
+\DoxyCodeLine{271   \textcolor{keyword}{private}:}
+\DoxyCodeLine{272     \textcolor{keywordtype}{bool} m\_value;}
+\DoxyCodeLine{273     \textcolor{keywordtype}{bool} m\_defValue;}
+\DoxyCodeLine{274     \mbox{\hyperlink{classQCString}{QCString}} m\_valueString;}
+\DoxyCodeLine{275 \};}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{279 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigObsolete}{ConfigObsolete}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{280 \{}
+\DoxyCodeLine{281   \textcolor{keyword}{public}:}
+\DoxyCodeLine{282     \mbox{\hyperlink{classConfigObsolete_a2af9cb643b1db43c0d51ae973ab870d2}{ConfigObsolete}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}},\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} \mbox{\hyperlink{classConfigObsolete_a7514acb34d8d15c46be2715d63e2680c}{orgType}}) : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaab60c019594029c214e601ec24988d6ac}{O\_Obsolete}}), m\_orgType(\mbox{\hyperlink{classConfigObsolete_a7514acb34d8d15c46be2715d63e2680c}{orgType}})}
+\DoxyCodeLine{283     \{ \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}}; \}}
+\DoxyCodeLine{284     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigObsolete_afb6de1eb8ff7b8ea9bd2097f463cc195}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{285     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigObsolete_a71f1b1ddac59b6ac9d83735af96e8de6}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{286     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigObsolete_ad518d3cc183444c72391f3e6c07e93e3}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{287     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigObsolete_ad301e76c69eb68f61604856fa4180865}{substEnvVars}}() \{\}}
+\DoxyCodeLine{288     \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} \mbox{\hyperlink{classConfigObsolete_a7514acb34d8d15c46be2715d63e2680c}{orgType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_orgType; \}}
+\DoxyCodeLine{289     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} *\mbox{\hyperlink{classConfigObsolete_a596ef255d6bfee502d9a164538e13742}{valueListRef}}() \{ \textcolor{keywordflow}{return} \&m\_listvalue; \}}
+\DoxyCodeLine{290     \mbox{\hyperlink{classQCString}{QCString}} *\mbox{\hyperlink{classConfigObsolete_a5b2f5633d6d13cfe0c2873ab683db80e}{valueStringRef}}() \{ \textcolor{keywordflow}{return} \&m\_valueString; \}}
+\DoxyCodeLine{291     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigObsolete_a2e839595ae2612b8ebec3b0652c6caf6}{markAsPresent}}() \{ m\_present = \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{292     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigObsolete_a2fb91ca94787c2b9767f7010f11571ea}{isPresent}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_present; \}}
+\DoxyCodeLine{293   \textcolor{keyword}{private}:}
+\DoxyCodeLine{294     \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{OptionType}} m\_orgType;}
+\DoxyCodeLine{295     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} m\_listvalue;}
+\DoxyCodeLine{296     \mbox{\hyperlink{classQCString}{QCString}} m\_valueString;}
+\DoxyCodeLine{297     \textcolor{keywordtype}{bool} m\_present = \textcolor{keyword}{false};}
+\DoxyCodeLine{298 \};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{302 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigDisabled}{ConfigDisabled}} : \textcolor{keyword}{public} \mbox{\hyperlink{classConfigOption}{ConfigOption}}}
+\DoxyCodeLine{303 \{}
+\DoxyCodeLine{304   \textcolor{keyword}{public}:}
+\DoxyCodeLine{305     \mbox{\hyperlink{classConfigDisabled_a82bb5fed35515825e100630d2d974926}{ConfigDisabled}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}}) : \mbox{\hyperlink{classConfigOption}{ConfigOption}}(\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fdaa116df5f47c0442ad31ca0193cf540701}{O\_Disabled}})}
+\DoxyCodeLine{306     \{ \mbox{\hyperlink{classConfigOption_a4f081d447f2443212d0d032da63b20d7}{m\_name}} = \mbox{\hyperlink{classConfigOption_ab89196927c521e95680eb5efdc562187}{name}}; \}}
+\DoxyCodeLine{307     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigDisabled_a52dbec8aba16fc335f184dc27067869d}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{308     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigDisabled_a662f961c584bb4fe517e0387f9165117}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{309     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigDisabled_aa1fb803ba5142ee7920088ad5362055b}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) \{\}}
+\DoxyCodeLine{310     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigDisabled_abee32dc488cf8350c44fa2203efd126d}{substEnvVars}}() \{\}}
+\DoxyCodeLine{311 \};}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313 \textcolor{comment}{// some convenience macros for access the config options}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define ConfigImpl\_getString(val)  ConfigImpl::instance()-\/>getString(\_\_FILE\_\_,\_\_LINE\_\_,val)}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#define ConfigImpl\_getInt(val)     ConfigImpl::instance()-\/>getInt(\_\_FILE\_\_,\_\_LINE\_\_,val)}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define ConfigImpl\_getList(val)    ConfigImpl::instance()-\/>getList(\_\_FILE\_\_,\_\_LINE\_\_,val)}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define ConfigImpl\_getEnum(val)    ConfigImpl::instance()-\/>getEnum(\_\_FILE\_\_,\_\_LINE\_\_,val)}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#define ConfigImpl\_getBool(val)    ConfigImpl::instance()-\/>getBool(\_\_FILE\_\_,\_\_LINE\_\_,val)}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 }
+\DoxyCodeLine{321 \textcolor{keyword}{using} \mbox{\hyperlink{configimpl_8h_aa0ece99d9324f0261354e12217c6888f}{ConfigOptionList}} = std::vector< std::unique\_ptr<ConfigOption> >;}
+\DoxyCodeLine{322 \textcolor{keyword}{using} \mbox{\hyperlink{configimpl_8h_aad500d29f5bc4a52cf7a6b5e4d3c2bf8}{ConfigOptionMap}}  = std::unordered\_map< std::string, ConfigOption* >;}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{335 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigImpl}{ConfigImpl}}}
+\DoxyCodeLine{336 \{}
+\DoxyCodeLine{337   \textcolor{keyword}{public}:}
+\DoxyCodeLine{339     \textcolor{comment}{// public API}}
+\DoxyCodeLine{341 \textcolor{comment}{}}
+\DoxyCodeLine{343     \textcolor{keyword}{static} \mbox{\hyperlink{classConfigImpl}{ConfigImpl}} *\mbox{\hyperlink{classConfigImpl_a501e98a30e96c9930ac4b1791b80c09a}{instance}}()}
+\DoxyCodeLine{344     \{}
+\DoxyCodeLine{345       \textcolor{keywordflow}{if} (m\_instance==0) m\_instance = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigImpl_af661fbf44e03c43d5ae7c3e30ef33a18}{ConfigImpl}};}
+\DoxyCodeLine{346       \textcolor{keywordflow}{return} m\_instance;}
+\DoxyCodeLine{347     \}}
+\DoxyCodeLine{349     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a11be9a99f82898b014f311b5fd9437c1}{deleteInstance}}()}
+\DoxyCodeLine{350     \{}
+\DoxyCodeLine{351       \textcolor{keyword}{delete} m\_instance;}
+\DoxyCodeLine{352       m\_instance=0;}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{364     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classConfigImpl_afb11a49a6e7c717d0242fedf10a36309}{getString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} num,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \textcolor{keyword}{const};}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{370     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \&\mbox{\hyperlink{classConfigImpl_a8ee52acd5fe0eebe4410be051ebb4363}{getList}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} num,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \textcolor{keyword}{const};}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{376     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classConfigImpl_a5c8800850fd2447c50f320ffb4ee0357}{getEnum}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} num,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \textcolor{keyword}{const};}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{382     \textcolor{keywordtype}{int}      \&\mbox{\hyperlink{classConfigImpl_adb74a4b0533fcb0452aa355bc0f931b6}{getInt}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} num,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \textcolor{keyword}{const};}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{388     \textcolor{keywordtype}{bool}     \&\mbox{\hyperlink{classConfigImpl_ad598f15be45d231f792b68314f7b0468}{getBool}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\textcolor{keywordtype}{int} num,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name) \textcolor{keyword}{const};}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{393     \mbox{\hyperlink{classConfigOption}{ConfigOption}} *\mbox{\hyperlink{classConfigImpl_a6ee5f5279077a8be14ca6e22d525f104}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)\textcolor{keyword}{ const}}
+\DoxyCodeLine{394 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{395       \textcolor{keyword}{auto} it = m\_dict.find(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{396       \textcolor{keywordflow}{return} it!=m\_dict.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{397     \}}
+\DoxyCodeLine{398     \textcolor{comment}{/* @\} */}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{408     \mbox{\hyperlink{classConfigInfo}{ConfigInfo}}   *\mbox{\hyperlink{classConfigImpl_aac7264ca82b6c9265c39ee010056a2f2}{addInfo}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{409     \{}
+\DoxyCodeLine{410       \mbox{\hyperlink{classConfigInfo}{ConfigInfo}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigInfo}{ConfigInfo}}(name,doc);}
+\DoxyCodeLine{411       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{412       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{413     \}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{418     \mbox{\hyperlink{classConfigString}{ConfigString}} *\mbox{\hyperlink{classConfigImpl_a9f6352eef16a95f0af17e28d8cc472a8}{addString}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{419                             \textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{420     \{}
+\DoxyCodeLine{421       \mbox{\hyperlink{classConfigString}{ConfigString}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigString}{ConfigString}}(name,doc);}
+\DoxyCodeLine{422       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{423       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{424       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{425     \}}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{431     \mbox{\hyperlink{classConfigEnum}{ConfigEnum}}   *\mbox{\hyperlink{classConfigImpl_a09d7a6327e02376011d6c4a28e8b384c}{addEnum}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{432                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,}
+\DoxyCodeLine{433                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *defVal)}
+\DoxyCodeLine{434     \{}
+\DoxyCodeLine{435       \mbox{\hyperlink{classConfigEnum}{ConfigEnum}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigEnum}{ConfigEnum}}(name,doc,defVal);}
+\DoxyCodeLine{436       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{437       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{438       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{439     \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{444     \mbox{\hyperlink{classConfigList}{ConfigList}}   *\mbox{\hyperlink{classConfigImpl_a52d03dcef339e7d828141b75223c0f08}{addList}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{445                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc)}
+\DoxyCodeLine{446     \{}
+\DoxyCodeLine{447       \mbox{\hyperlink{classConfigList}{ConfigList}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigList}{ConfigList}}(name,doc);}
+\DoxyCodeLine{448       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{449       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{450       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{451     \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{458     \mbox{\hyperlink{classConfigInt}{ConfigInt}}    *\mbox{\hyperlink{classConfigImpl_a00e4c51763bed0ccb6e017308c46a8f7}{addInt}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{459                          \textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,}
+\DoxyCodeLine{460                          \textcolor{keywordtype}{int} minVal,\textcolor{keywordtype}{int} maxVal,\textcolor{keywordtype}{int} defVal)}
+\DoxyCodeLine{461     \{}
+\DoxyCodeLine{462       \mbox{\hyperlink{classConfigInt}{ConfigInt}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigInt}{ConfigInt}}(name,doc,minVal,maxVal,defVal);}
+\DoxyCodeLine{463       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{464       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{465       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{466     \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{472     \mbox{\hyperlink{classConfigBool}{ConfigBool}}   *\mbox{\hyperlink{classConfigImpl_aadfbf98b2e5762c07fa871bc76ebce81}{addBool}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{473                           \textcolor{keyword}{const} \textcolor{keywordtype}{char} *doc,}
+\DoxyCodeLine{474                           \textcolor{keywordtype}{bool} defVal)}
+\DoxyCodeLine{475     \{}
+\DoxyCodeLine{476       \mbox{\hyperlink{classConfigBool}{ConfigBool}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigBool}{ConfigBool}}(name,doc,defVal);}
+\DoxyCodeLine{477       m\_options.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{478       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{479       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{480     \}}
+\DoxyCodeLine{482     \mbox{\hyperlink{classConfigOption}{ConfigOption}} *\mbox{\hyperlink{classConfigImpl_adf9c8d995aff187d5be5489e62c0f738}{addObsolete}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{ConfigOption::OptionType}} orgType)}
+\DoxyCodeLine{483     \{}
+\DoxyCodeLine{484       \mbox{\hyperlink{classConfigObsolete}{ConfigObsolete}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigObsolete}{ConfigObsolete}}(name,orgType);}
+\DoxyCodeLine{485       m\_obsolete.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{486       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{487       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{488     \}}
+\DoxyCodeLine{490     \mbox{\hyperlink{classConfigOption}{ConfigOption}} *\mbox{\hyperlink{classConfigImpl_a376d29ff41f6772b2ccfd055af34d9bb}{addDisabled}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name)}
+\DoxyCodeLine{491     \{}
+\DoxyCodeLine{492       \mbox{\hyperlink{classConfigDisabled}{ConfigDisabled}} *result = \textcolor{keyword}{new} \mbox{\hyperlink{classConfigDisabled}{ConfigDisabled}}(name);}
+\DoxyCodeLine{493       m\_disabled.push\_back(std::unique\_ptr<ConfigOption>(result));}
+\DoxyCodeLine{494       m\_dict.insert(std::make\_pair(name,result));}
+\DoxyCodeLine{495       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{496     \}}
+\DoxyCodeLine{503     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_aa7948af854eb611524c208def210db01}{writeTemplate}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{bool} shortIndex,\textcolor{keywordtype}{bool} updateOnly);}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a3f46654689a6f0ca4e728b0fd5b46245}{compareDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{513     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a87163252416c500d2000ad78353400a2}{writeXMLDoxyfile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a5a85a09dc81100da9de0dcb148e63c65}{setHeader}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *header) \{ m\_header = header; \}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{518     \textcolor{comment}{// internal API}}
+\DoxyCodeLine{520 \textcolor{comment}{}}
+\DoxyCodeLine{524     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a866e373ff4207d492e15ca578e53a551}{convertStrToVal}}();}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{528     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_ae0072f7a4546b40a6c445e826bb6e027}{emptyValueToDefault}}();}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{533     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a56797aabb7ab52c9bd60f32634e41a5b}{substituteEnvironmentVars}}();}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{536     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a50654e77279eecd43b0dd91cb21420e5}{init}}();}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{542     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigImpl_a574ffab8ab91f47f27b9f142cbf1bdc4}{parseString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fn,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str,\textcolor{keywordtype}{bool} upd = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{548     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classConfigImpl_a5d06627b2afb76668e8315613a76b9d3}{parse}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fn,\textcolor{keywordtype}{bool} upd = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{553     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a0e1887e271fe89b5f3e2154e344ad4b1}{create}}();}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{557     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a7a016d2f1ef3643494fb1b1e3201e928}{appendStartComment}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&u)}
+\DoxyCodeLine{558     \{}
+\DoxyCodeLine{559       m\_startComment += u;}
+\DoxyCodeLine{560     \}}
+\DoxyCodeLine{563     \textcolor{keywordtype}{void} \mbox{\hyperlink{classConfigImpl_a33e3594e6a4848cd7803990e15b452de}{appendUserComment}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&u)}
+\DoxyCodeLine{564     \{}
+\DoxyCodeLine{565       m\_userComment += u;}
+\DoxyCodeLine{566     \}}
+\DoxyCodeLine{570     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigImpl_a6e909c1b38e02a4536e16a33790ddca0}{takeStartComment}}()}
+\DoxyCodeLine{571     \{}
+\DoxyCodeLine{572       \mbox{\hyperlink{classQCString}{QCString}} result=m\_startComment;}
+\DoxyCodeLine{573       m\_startComment.\mbox{\hyperlink{classQCString_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{574       \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\(\backslash\)r"{}},\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{575     \}}
+\DoxyCodeLine{579     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigImpl_a998060bb7c8a5948956b7ccf192d62da}{takeUserComment}}()}
+\DoxyCodeLine{580     \{}
+\DoxyCodeLine{581       \mbox{\hyperlink{classQCString}{QCString}} result=m\_userComment;}
+\DoxyCodeLine{582       m\_userComment.\mbox{\hyperlink{classQCString_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{583       \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8cpp_a99187f0723aa35b7f06be3a5506b1285}{substitute}}(result,\textcolor{stringliteral}{"{}\(\backslash\)r"{}},\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{584     \}}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{587 }
+\DoxyCodeLine{588     \mbox{\hyperlink{classConfigImpl_af661fbf44e03c43d5ae7c3e30ef33a18}{ConfigImpl}}()}
+\DoxyCodeLine{589     \{}
+\DoxyCodeLine{590       m\_initialized = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{591       \mbox{\hyperlink{classConfigImpl_a0e1887e271fe89b5f3e2154e344ad4b1}{create}}();}
+\DoxyCodeLine{592     \}}
+\DoxyCodeLine{593    \mbox{\hyperlink{classConfigImpl_ad4dcaa753a82ac3ca99038b3fa0a00ca}{\string~ConfigImpl}}()}
+\DoxyCodeLine{594     \{}
+\DoxyCodeLine{595     \}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597   \textcolor{keyword}{private}:}
+\DoxyCodeLine{598     \mbox{\hyperlink{configimpl_8h_aa0ece99d9324f0261354e12217c6888f}{ConfigOptionList}} m\_options;}
+\DoxyCodeLine{599     \mbox{\hyperlink{configimpl_8h_aa0ece99d9324f0261354e12217c6888f}{ConfigOptionList}} m\_obsolete;}
+\DoxyCodeLine{600     \mbox{\hyperlink{configimpl_8h_aa0ece99d9324f0261354e12217c6888f}{ConfigOptionList}} m\_disabled;}
+\DoxyCodeLine{601     \mbox{\hyperlink{configimpl_8h_aad500d29f5bc4a52cf7a6b5e4d3c2bf8}{ConfigOptionMap}}  m\_dict;}
+\DoxyCodeLine{602     \textcolor{keyword}{static} \mbox{\hyperlink{classConfigImpl}{ConfigImpl}} *m\_instance;}
+\DoxyCodeLine{603     \mbox{\hyperlink{classQCString}{QCString}} m\_startComment;}
+\DoxyCodeLine{604     \mbox{\hyperlink{classQCString}{QCString}} m\_userComment;}
+\DoxyCodeLine{605     \textcolor{keywordtype}{bool} m\_initialized;}
+\DoxyCodeLine{606     \mbox{\hyperlink{classQCString}{QCString}} m\_header;}
+\DoxyCodeLine{607 \};}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{609 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

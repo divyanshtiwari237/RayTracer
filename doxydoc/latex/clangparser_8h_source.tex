@@ -1,0 +1,79 @@
+\hypertarget{clangparser_8h_source}{}\doxysection{clangparser.\+h}
+\label{clangparser_8h_source}\index{/mnt/c/projects/doxygen/src/clangparser.h@{/mnt/c/projects/doxygen/src/clangparser.h}}
+\mbox{\hyperlink{clangparser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLANGPARSER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLANGPARSER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classClangParser}{ClangParser}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceclang}{clang}} \{ \textcolor{keyword}{namespace }tooling \{}
+\DoxyCodeLine{15   \textcolor{keyword}{class }CompilationDatabase;}
+\DoxyCodeLine{16 \} \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{classClangTUParser}{ClangTUParser}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23   \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{classClangTUParser_a2ae7d7d6cd684002b29fe2e71832fb59}{ClangTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClangParser}{ClangParser}} \&parser,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{25     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClangTUParser_a916b7d9bae60790c26067bb9da3fc3b3}{\string~ClangTUParser}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClangTUParser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{parse}}();}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClangTUParser_a6cc2a92490b9356caccec16a1691d6f6}{switchToFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClangTUParser_a08401778d9cffa32a18d6fa4d386c52b}{filesInSameTU}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43     std::string \mbox{\hyperlink{classClangTUParser_a0b5cf16c806e0589d6e94a9167fa06cc}{lookup}}(\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *symbol);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClangTUParser_a2ad9346acb0e075b32e697f21574155e}{writeSources}}(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} detectFunctionBody(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} writeLineNumber(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line,\textcolor{keywordtype}{bool} writeLineAnchor);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} codifyLines(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *text,}
+\DoxyCodeLine{55                      \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fontClass=0);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} writeMultiLineCodeLink(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,}
+\DoxyCodeLine{57                                 \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{58                                 \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} linkIdentifier(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,}
+\DoxyCodeLine{60                         \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{61                         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text,\textcolor{keywordtype}{int} tokenIndex);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} linkMacro(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,}
+\DoxyCodeLine{63                    \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{64                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} linkInclude(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,}
+\DoxyCodeLine{66                    \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&line,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \&column,}
+\DoxyCodeLine{67                    \textcolor{keyword}{const} \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{68     \mbox{\hyperlink{classClangTUParser_a2ae7d7d6cd684002b29fe2e71832fb59}{ClangTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClangTUParser}{ClangTUParser}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{69     \mbox{\hyperlink{classClangTUParser}{ClangTUParser}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{classClangTUParser}{ClangTUParser}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{70     \textcolor{keyword}{class }\mbox{\hyperlink{classClangTUParser_1_1Private}{Private}};}
+\DoxyCodeLine{71     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{classClangParser}{ClangParser}}}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classClangTUParser}{ClangTUParser}};}
+\DoxyCodeLine{78   \textcolor{keyword}{public}:}
+\DoxyCodeLine{80     \textcolor{keyword}{static} \mbox{\hyperlink{classClangParser}{ClangParser}} *\mbox{\hyperlink{classClangParser_add1060dd5febd4664f6038a87d87b8cd}{instance}}();}
+\DoxyCodeLine{81     std::unique\_ptr<ClangTUParser> \mbox{\hyperlink{classClangParser_a2aa7186d8f16b07b3496e5769d46b077}{createTUParser}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd) \textcolor{keyword}{const};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \textcolor{keyword}{private}:}
+\DoxyCodeLine{84     \textcolor{keyword}{const} clang::tooling::CompilationDatabase *database() \textcolor{keyword}{const};}
+\DoxyCodeLine{85     \textcolor{keyword}{class }\mbox{\hyperlink{classClangParser_1_1Private}{Private}};}
+\DoxyCodeLine{86     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{87     \mbox{\hyperlink{classClangParser}{ClangParser}}();}
+\DoxyCodeLine{88     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClangParser}{\string~ClangParser}}();}
+\DoxyCodeLine{89     \textcolor{keyword}{static} \mbox{\hyperlink{classClangParser}{ClangParser}} *s\_instance;}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

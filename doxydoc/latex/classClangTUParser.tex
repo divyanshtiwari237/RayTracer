@@ -1,0 +1,106 @@
+\hypertarget{classClangTUParser}{}\doxysection{Clang\+TUParser Class Reference}
+\label{classClangTUParser}\index{ClangTUParser@{ClangTUParser}}
+
+
+Clang parser object for a single translation unit, which consists of a source file and the directly or indirectly included headers.  
+
+
+
+
+{\ttfamily \#include $<$clangparser.\+h$>$}
+
+
+
+Collaboration diagram for Clang\+TUParser\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classClangTUParser_1_1Private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classClangTUParser_a2ae7d7d6cd684002b29fe2e71832fb59}{Clang\+TUParser}} (const \mbox{\hyperlink{classClangParser}{Clang\+Parser}} \&parser, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd)
+\item 
+virtual \mbox{\hyperlink{classClangTUParser_a916b7d9bae60790c26067bb9da3fc3b3}{$\sim$\+Clang\+TUParser}} ()
+\item 
+void \mbox{\hyperlink{classClangTUParser_a83aab5c9a3514bd9fdcc7f811f76f3b6}{parse}} ()
+\item 
+void \mbox{\hyperlink{classClangTUParser_a6cc2a92490b9356caccec16a1691d6f6}{switch\+To\+File}} (const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd)
+\item 
+\mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \mbox{\hyperlink{classClangTUParser_a08401778d9cffa32a18d6fa4d386c52b}{files\+In\+Same\+TU}} () const
+\item 
+std\+::string \mbox{\hyperlink{classClangTUParser_a0b5cf16c806e0589d6e94a9167fa06cc}{lookup}} (\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} line, const char $\ast$symbol)
+\item 
+void \mbox{\hyperlink{classClangTUParser_a2ad9346acb0e075b32e697f21574155e}{write\+Sources}} (\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&ol, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clang parser object for a single translation unit, which consists of a source file and the directly or indirectly included headers. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classClangTUParser_a2ae7d7d6cd684002b29fe2e71832fb59}\label{classClangTUParser_a2ae7d7d6cd684002b29fe2e71832fb59}} 
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\index{ClangTUParser@{ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{ClangTUParser()}{ClangTUParser()}}
+{\footnotesize\ttfamily Clang\+TUParser\+::\+Clang\+TUParser (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClangParser}{Clang\+Parser}} \&}]{parser,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classClangTUParser_a916b7d9bae60790c26067bb9da3fc3b3}\label{classClangTUParser_a916b7d9bae60790c26067bb9da3fc3b3}} 
+\index{ClangTUParser@{ClangTUParser}!````~ClangTUParser@{$\sim$ClangTUParser}}
+\index{````~ClangTUParser@{$\sim$ClangTUParser}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{$\sim$ClangTUParser()}{~ClangTUParser()}}
+{\footnotesize\ttfamily Clang\+TUParser\+::$\sim$\+Clang\+TUParser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClangTUParser_a08401778d9cffa32a18d6fa4d386c52b}\label{classClangTUParser_a08401778d9cffa32a18d6fa4d386c52b}} 
+\index{ClangTUParser@{ClangTUParser}!filesInSameTU@{filesInSameTU}}
+\index{filesInSameTU@{filesInSameTU}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{filesInSameTU()}{filesInSameTU()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} Clang\+TUParser\+::files\+In\+Same\+TU (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns the list of files for this translation unit \mbox{\Hypertarget{classClangTUParser_a0b5cf16c806e0589d6e94a9167fa06cc}\label{classClangTUParser_a0b5cf16c806e0589d6e94a9167fa06cc}} 
+\index{ClangTUParser@{ClangTUParser}!lookup@{lookup}}
+\index{lookup@{lookup}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{lookup()}{lookup()}}
+{\footnotesize\ttfamily std\+::string Clang\+TUParser\+::lookup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}}]{line,  }\item[{const char $\ast$}]{symbol }\end{DoxyParamCaption})}
+
+Looks for {\itshape symbol} which should be found at {\itshape line}. returns a clang unique reference to the symbol. \mbox{\Hypertarget{classClangTUParser_a83aab5c9a3514bd9fdcc7f811f76f3b6}\label{classClangTUParser_a83aab5c9a3514bd9fdcc7f811f76f3b6}} 
+\index{ClangTUParser@{ClangTUParser}!parse@{parse}}
+\index{parse@{parse}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::parse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Parse the file given at construction time as a translation unit This file should already be preprocessed by doxygen preprocessor at the time of calling. \mbox{\Hypertarget{classClangTUParser_a6cc2a92490b9356caccec16a1691d6f6}\label{classClangTUParser_a6cc2a92490b9356caccec16a1691d6f6}} 
+\index{ClangTUParser@{ClangTUParser}!switchToFile@{switchToFile}}
+\index{switchToFile@{switchToFile}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{switchToFile()}{switchToFile()}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::switch\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+Switches to another file within the translation unit started with start(). 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fd} & The file definition with the name of the file to switch to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classClangTUParser_a2ad9346acb0e075b32e697f21574155e}\label{classClangTUParser_a2ad9346acb0e075b32e697f21574155e}} 
+\index{ClangTUParser@{ClangTUParser}!writeSources@{writeSources}}
+\index{writeSources@{writeSources}!ClangTUParser@{ClangTUParser}}
+\doxysubsubsection{\texorpdfstring{writeSources()}{writeSources()}}
+{\footnotesize\ttfamily void Clang\+TUParser\+::write\+Sources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd }\end{DoxyParamCaption})}
+
+writes the syntax highlighted source code for a file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ol} & The output generator list to write to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em fd} & The file to write sources for. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{clangparser_8h}{clangparser.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{clangparser_8cpp}{clangparser.\+cpp}}\end{DoxyCompactItemize}

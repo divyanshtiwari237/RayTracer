@@ -1,0 +1,66 @@
+\hypertarget{dotgfxhierarchytable_8h_source}{}\doxysection{dotgfxhierarchytable.\+h}
+\label{dotgfxhierarchytable_8h_source}\index{/mnt/c/projects/doxygen/src/dotgfxhierarchytable.h@{/mnt/c/projects/doxygen/src/dotgfxhierarchytable.h}}
+\mbox{\hyperlink{dotgfxhierarchytable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTGFXHIERARCHYTABLE\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTGFXHIERARCHYTABLE\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{classdef_8h}{classdef.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgraph_8h}{dotgraph.h}}"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotnode_8h}{dotnode.h}}"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classDotGfxHierarchyTable}{DotGfxHierarchyTable}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDotGraph}{DotGraph}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classDotGfxHierarchyTable_a3e9a28f1f5867cc3d2de69b7db30c15f}{DotGfxHierarchyTable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&prefix=\textcolor{stringliteral}{"{}"{}},\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} ct=\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}});}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotGfxHierarchyTable_a7a98b48366bc0fc41ee0d43eb425087a}{createGraph}}(\mbox{\hyperlink{classDotNode}{DotNode}} *rootNode,\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&path,}
+\DoxyCodeLine{36                      \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotGfxHierarchyTable_a47c5aeaf257c00ebecc958a4c78c5de9}{writeGraph}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&path, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{38     \textcolor{keyword}{const} std::vector<DotNode*> \mbox{\hyperlink{classDotGfxHierarchyTable_a69d80de93b7cc6481722f0a79d7fc6c0}{subGraphs}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_rootSubgraphs; \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotGfxHierarchyTable_a3127137f89e6a80d66b2441e03430f13}{getBaseName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotGfxHierarchyTable_ab22aafaac0423feee50feaced673e431}{getMapLabel}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotGfxHierarchyTable_aa8719b5ae6b5ab73e9f2eb0d551976e4}{computeTheGraph}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keyword}{private}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} addHierarchy(\mbox{\hyperlink{classDotNode}{DotNode}} *n,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visited);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} addClassList(\textcolor{keyword}{const} \mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}} \&cl,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visited);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{using} \mbox{\hyperlink{classDotNodeMap}{DotNodeMap}} = std::unordered\_multimap< std::string, std::unique\_ptr<DotNode> >;}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int}                    m\_graphId;}
+\DoxyCodeLine{51     \mbox{\hyperlink{classQCString}{QCString}}               m\_prefix;}
+\DoxyCodeLine{52     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} m\_classType;}
+\DoxyCodeLine{53     std::vector<DotNode*>  m\_rootNodes;}
+\DoxyCodeLine{54     \mbox{\hyperlink{classDotNodeMap}{DotNodeMap}}             m\_usedNodes;}
+\DoxyCodeLine{55     std::vector<DotNode*>  m\_rootSubgraphs;}
+\DoxyCodeLine{56     \mbox{\hyperlink{classDotNode}{DotNode}} *              m\_rootSubgraphNode;}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{using} \mbox{\hyperlink{dotgfxhierarchytable_8h_a7dd98bc274b7e1bfe83bd6b54922e329}{DotGfxHierarchyTablePtr}} = std::shared\_ptr<DotGfxHierarchyTable>;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,1405 @@
+\hypertarget{context_8h_source}{}\doxysection{context.\+h}
+\label{context_8h_source}\index{/mnt/c/projects/doxygen/src/context.h@{/mnt/c/projects/doxygen/src/context.h}}
+\mbox{\hyperlink{context_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef CONTEXT\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define CONTEXT\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{template_8h}{template.h}}"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{classdef_8h}{classdef.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{searchindex__js_8h}{searchindex\_js.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memberlist_8h}{memberlist.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgfxhierarchytable_8h}{dotgfxhierarchytable.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classPageDef}{PageDef}};}
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}};}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classPageLinkedRefMap}{PageLinkedRefMap}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupDef}{GroupDef}};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupLinkedMap}{GroupLinkedMap}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupList}{GroupList}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptDef}{ConceptDef}};}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptLinkedMap}{ConceptLinkedMap}};}
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptLinkedRefMap}{ConceptLinkedRefMap}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceDef}{NamespaceDef}};}
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceLinkedMap}{NamespaceLinkedMap}};}
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceLinkedRefMap}{NamespaceLinkedRefMap}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}};}
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}};}
+\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberNameInfoLinkedMap}{MemberNameInfoLinkedMap}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{classDirDef}{DirDef}};}
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classDirLinkedMap}{DirLinkedMap}};}
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{classDirList}{DirList}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{classFileList}{FileList}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{struct }\mbox{\hyperlink{structIncludeInfo}{IncludeInfo}};}
+\DoxyCodeLine{56 \textcolor{keyword}{class }\mbox{\hyperlink{classIncludeInfoList}{IncludeInfoList}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberList}{MemberList}};}
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{60 \textcolor{keyword}{struct }\mbox{\hyperlink{structArgument}{Argument}};}
+\DoxyCodeLine{61 \textcolor{keyword}{class }\mbox{\hyperlink{classArgumentList}{ArgumentList}};}
+\DoxyCodeLine{62 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberInfo}{MemberInfo}};}
+\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classDotNode}{DotNode}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroup}{MemberGroup}};}
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroupList}{MemberGroupList}};}
+\DoxyCodeLine{67 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroupRefList}{MemberGroupRefList}};}
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberVector}{MemberVector}};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{classConfigContext}{ConfigContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74   \textcolor{keyword}{public}:}
+\DoxyCodeLine{75     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classConfigContext_a5d509e30e0f236cbb4b76f6d862aaa9b}{alloc}}()}
+\DoxyCodeLine{76     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ConfigContext>()); \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classConfigContext_a898a6968ac9b8fc8521c37f4859cfd9f}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classConfigContext_a0003162f24eb254fa89987e544af14c4}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classConfigContext_aa47de610f115c02c603e507905909237}{ConfigContext}}();}
+\DoxyCodeLine{83     \textcolor{keyword}{virtual} \mbox{\hyperlink{classConfigContext_a62e5201ac8dcce3018cd0de1e5145c56}{\string~ConfigContext}}();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keyword}{private}:}
+\DoxyCodeLine{86     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{87     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{88 \};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{class }\mbox{\hyperlink{classDoxygenContext}{DoxygenContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94   \textcolor{keyword}{public}:}
+\DoxyCodeLine{95     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classDoxygenContext_aca6cb9ab052176ec827af2fc93691806}{alloc}}()}
+\DoxyCodeLine{96     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<DoxygenContext>()); \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{99     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classDoxygenContext_acc4f6d73fc89d5f833bde66d0a22ef16}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{100     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classDoxygenContext_a5d01f51334d555581feeed4427ee4888}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \mbox{\hyperlink{classDoxygenContext_a44e67cfff3dd84aeb88b522c37362a5f}{DoxygenContext}}();}
+\DoxyCodeLine{103     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDoxygenContext_aa918f84ccc2ffc4837f9211bdaf70c20}{\string~DoxygenContext}}();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keyword}{private}:}
+\DoxyCodeLine{106     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{107     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{108 \};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslateContext}{TranslateContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{113 \{}
+\DoxyCodeLine{114   \textcolor{keyword}{public}:}
+\DoxyCodeLine{115     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classTranslateContext_ae35d2cbba7b82c4a7eab0672bb76c6f9}{alloc}}()}
+\DoxyCodeLine{116     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<TranslateContext>()); \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{119     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classTranslateContext_a866130a2e4d3d60d07aa0bab97d6fa19}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classTranslateContext_a96b5fdebfbee6f985e4aa4a3d1323af0}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \mbox{\hyperlink{classTranslateContext_a296cf68f8e584c2529ef538f8801f449}{TranslateContext}}();}
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTranslateContext_aa4498f8fad11c6ac400c4d17f676bd9a}{\string~TranslateContext}}();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125   \textcolor{keyword}{private}:}
+\DoxyCodeLine{126     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{127     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{128 \};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{keyword}{class }\mbox{\hyperlink{classUsedFilesContext}{UsedFilesContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134   \textcolor{keyword}{public}:}
+\DoxyCodeLine{135     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classUsedFilesContext_a4bb3cf555b7f86b97bc0704c869d5f27}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd)}
+\DoxyCodeLine{136     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<UsedFilesContext>(cd)); \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classUsedFilesContext_a91b3f62eaacde3f1be94ccf580a0e779}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{140     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classUsedFilesContext_a35be73612ba9a70f7bf6584378e62310}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classUsedFilesContext_ac32da9fa75f6a45e40cbe4cfec984851}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUsedFilesContext_af0bb8fb6482b8d642507b457ccf7d303}{addFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{144     \mbox{\hyperlink{classUsedFilesContext_af16069e6111ae789ebbfb45a53a9af87}{UsedFilesContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{145     \textcolor{keyword}{virtual} \mbox{\hyperlink{classUsedFilesContext_af062d86dbb80ff4b307d10446c5f80ea}{\string~UsedFilesContext}}();}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147   \textcolor{keyword}{private}:}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{150     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{151 \};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{keyword}{class }\mbox{\hyperlink{classIncludeInfoContext}{IncludeInfoContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{156 \{}
+\DoxyCodeLine{157   \textcolor{keyword}{public}:}
+\DoxyCodeLine{158     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classIncludeInfoContext_a7db7c0449d4c5fda93b47ac6a2a6c1a0}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{structIncludeInfo}{IncludeInfo}} *info,\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang)}
+\DoxyCodeLine{159     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<IncludeInfoContext>(info,lang)); \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classIncludeInfoContext_a472b782487198d6835587793a8a8a39b}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{163     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classIncludeInfoContext_ad632eecfa9bd72cc0217bb014ff9c43e}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     \mbox{\hyperlink{classIncludeInfoContext_a7a030378c71405d4c4570c6d902b71ad}{IncludeInfoContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{structIncludeInfo}{IncludeInfo}} *,\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang);}
+\DoxyCodeLine{166     \textcolor{keyword}{virtual} \mbox{\hyperlink{classIncludeInfoContext_a4e19f9bcd3873a472fe6b6a64bfe718e}{\string~IncludeInfoContext}}();}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168   \textcolor{keyword}{private}:}
+\DoxyCodeLine{169     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{170     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{171 \};}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{keyword}{class }\mbox{\hyperlink{classIncludeInfoListContext}{IncludeInfoListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{176 \{}
+\DoxyCodeLine{177   \textcolor{keyword}{public}:}
+\DoxyCodeLine{178     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classIncludeInfoListContext_a109479cdbe3d09db05b4b5a5cd27e339}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classIncludeInfoList}{IncludeInfoList}} \&list,\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang)}
+\DoxyCodeLine{179     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<IncludeInfoListContext>(list,lang)); \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{182     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classIncludeInfoListContext_af984dcf0bcc00f04c2bd3060c098f4d5}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classIncludeInfoListContext_af2fa33bfb4db5f5fdf8f00792bad5737}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classIncludeInfoListContext_a26d7cf28598d8b999af8449e6a5a6596}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \mbox{\hyperlink{classIncludeInfoListContext_a9689e229172d29e4478619610fe1a8a2}{IncludeInfoListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classIncludeInfoList}{IncludeInfoList}} \&list,\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang);}
+\DoxyCodeLine{187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classIncludeInfoListContext_afc8bf76120f50837fc288a0a132b543d}{\string~IncludeInfoListContext}}();}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189   \textcolor{keyword}{private}:}
+\DoxyCodeLine{190     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{191     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{192 \};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{keyword}{class }\mbox{\hyperlink{classClassContext}{ClassContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198   \textcolor{keyword}{public}:}
+\DoxyCodeLine{199     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassContext_a442a79f20793cb4eefc7ebc9d64f4de2}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd)}
+\DoxyCodeLine{200     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassContext>(cd)); \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassContext_afcce1549495dc39de6b03ec72b328a84}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{204     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassContext_aadb4e45171cd7b295868dc50bf0dfdf7}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \mbox{\hyperlink{classClassContext_a23156a1aed98ec8e06ec0f0a5780418d}{ClassContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *);}
+\DoxyCodeLine{207     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassContext_ac63cc579634f4c036436888a5cdd50f5}{\string~ClassContext}}();}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209   \textcolor{keyword}{private}:}
+\DoxyCodeLine{210     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{211     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{212 \};}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptContext}{ConceptContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{218 \{}
+\DoxyCodeLine{219   \textcolor{keyword}{public}:}
+\DoxyCodeLine{220     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classConceptContext_a1fe95a87ec2b96f6233b4918249020f0}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classConceptDef}{ConceptDef}} *cd)}
+\DoxyCodeLine{221     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ConceptContext>(cd)); \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{224     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classConceptContext_ae41922bb622d489138c0238e7a823426}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{225     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classConceptContext_a547fe94c3e827ba5ae03c924d47aa85e}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227     \mbox{\hyperlink{classConceptContext_a2b01337c334a6ec28c8e72ff4dc93a34}{ConceptContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classConceptDef}{ConceptDef}} *);}
+\DoxyCodeLine{228     \textcolor{keyword}{virtual} \mbox{\hyperlink{classConceptContext_a47268d5bbdd2f76d71bed630f15f8ea7}{\string~ConceptContext}}();}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230   \textcolor{keyword}{private}:}
+\DoxyCodeLine{231     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{232     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{233 \};}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceContext}{NamespaceContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{238 \{}
+\DoxyCodeLine{239   \textcolor{keyword}{public}:}
+\DoxyCodeLine{240     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classNamespaceContext_aef752ffd4e3571c74031d59b66415a13}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd)}
+\DoxyCodeLine{241     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<NamespaceContext>(nd)); \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNamespaceContext_a47270ecc46396756b3e634058e6d8752}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{245     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classNamespaceContext_af65d40b49e366e762ce505c2d9f7c2be}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247     \mbox{\hyperlink{classNamespaceContext_a1ce0a5387bd6feb67f83520eb6aec87b}{NamespaceContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *);}
+\DoxyCodeLine{248     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNamespaceContext_abd8907b6bcf3ba7405dc38d8be411011}{\string~NamespaceContext}}();}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250   \textcolor{keyword}{private}:}
+\DoxyCodeLine{251     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{252     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{253 \};}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{keyword}{class }\mbox{\hyperlink{classFileContext}{FileContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{258 \{}
+\DoxyCodeLine{259   \textcolor{keyword}{public}:}
+\DoxyCodeLine{260     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classFileContext_aba2fe05cd43c591a894840482ed32e79}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd)}
+\DoxyCodeLine{261     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<FileContext>(fd)); \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{264     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classFileContext_afb6792e6e3fc2445f6b08f9f67ca42c7}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{265     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classFileContext_a80b1bc648755cf7f373d95ed802e9818}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267     \mbox{\hyperlink{classFileContext_a9b00c73addffbd37423826f4c8097668}{FileContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *);}
+\DoxyCodeLine{268     \textcolor{keyword}{virtual} \mbox{\hyperlink{classFileContext_a6455f484130484fc44553d9a9996939d}{\string~FileContext}}();}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270   \textcolor{keyword}{private}:}
+\DoxyCodeLine{271     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{272     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{273 \};}
+\DoxyCodeLine{274 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 \textcolor{keyword}{class }\mbox{\hyperlink{classDirContext}{DirContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{277 \{}
+\DoxyCodeLine{278   \textcolor{keyword}{public}:}
+\DoxyCodeLine{279     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classDirContext_a64f8438477e791b7ef247198b5e0d2fa}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *dd)}
+\DoxyCodeLine{280     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<DirContext>(dd)); \}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classDirContext_a17336b238b9c4dc8d0752c728de01a9a}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{284     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classDirContext_ab897c56f18ff3340a7225ff5d53d063e}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286     \mbox{\hyperlink{classDirContext_a11ceed0f3cbe6d9d04d2b9b5b1e6db5f}{DirContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *);}
+\DoxyCodeLine{287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDirContext_a5025d02e2fae4436539719dfc7455ac9}{\string~DirContext}}();}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289   \textcolor{keyword}{private}:}
+\DoxyCodeLine{290     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{291     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{292 \};}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{keyword}{class }\mbox{\hyperlink{classPageContext}{PageContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{298 \{}
+\DoxyCodeLine{299   \textcolor{keyword}{public}:}
+\DoxyCodeLine{300     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classPageContext_a428d9546525e916035785da72f540df1}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageDef}{PageDef}} *pd,\textcolor{keywordtype}{bool} \mbox{\hyperlink{index_8h_aec03800047ada46460eb75113cfee322ad124df548e4254793c5f5d59fcc31484}{isMainPage}},\textcolor{keywordtype}{bool} isExample)}
+\DoxyCodeLine{301     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<PageContext>(pd,\mbox{\hyperlink{index_8h_aec03800047ada46460eb75113cfee322ad124df548e4254793c5f5d59fcc31484}{isMainPage}},isExample)); \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{304     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classPageContext_a9b85fa3bbbddacf25110f02b4be7305a}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{305     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classPageContext_ae4fbfe6ac74d2b54a74531d67adf5fef}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307     \mbox{\hyperlink{classPageContext_a113798a258fedd8274be69b1539da9b7}{PageContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageDef}{PageDef}} *,\textcolor{keywordtype}{bool} \mbox{\hyperlink{index_8h_aec03800047ada46460eb75113cfee322ad124df548e4254793c5f5d59fcc31484}{isMainPage}},\textcolor{keywordtype}{bool} isExample);}
+\DoxyCodeLine{308     \textcolor{keyword}{virtual} \mbox{\hyperlink{classPageContext_aca1d31ceb0f708f2e838ce92f3c19b44}{\string~PageContext}}();}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310   \textcolor{keyword}{private}:}
+\DoxyCodeLine{311     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{312     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{313 \};}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberContext}{MemberContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{318 \{}
+\DoxyCodeLine{319   \textcolor{keyword}{public}:}
+\DoxyCodeLine{320     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classMemberContext_afc674588c2fd7f1acb9e5207d307ab57}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md)}
+\DoxyCodeLine{321     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<MemberContext>(md)); \}}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{324     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberContext_ac1bb68a1303a676be29c2d7de5f7ce4d}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{325     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classMemberContext_a095e662f14e005c627cf09243ac5b946}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327     \mbox{\hyperlink{classMemberContext_a246c875fd8559a4e56954552a38560da}{MemberContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *);}
+\DoxyCodeLine{328     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberContext_ab81164f4ae6b5fc8c8fdd956f5d71762}{\string~MemberContext}}();}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330   \textcolor{keyword}{private}:}
+\DoxyCodeLine{331     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{332     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{333 \};}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338 \textcolor{keyword}{class }\mbox{\hyperlink{classModuleContext}{ModuleContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{339 \{}
+\DoxyCodeLine{340   \textcolor{keyword}{public}:}
+\DoxyCodeLine{341     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classModuleContext_af7072ec5119d14d657153a56cefdfd3a}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd)}
+\DoxyCodeLine{342     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ModuleContext>(gd)); \}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{345     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classModuleContext_a9a6a2d606b94400816da61fa77d6ce7c}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{346     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classModuleContext_a886303349134dd792bed01dae3fc367e}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348     \mbox{\hyperlink{classModuleContext_ac377ea36413c78f7bfc77ea1aeeed11d}{ModuleContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *);}
+\DoxyCodeLine{349     \textcolor{keyword}{virtual} \mbox{\hyperlink{classModuleContext_a51b9f169eeb6742a4d909ba7a3421730}{\string~ModuleContext}}();}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351   \textcolor{keyword}{private}:}
+\DoxyCodeLine{352     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{353     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{354 \};}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358 \textcolor{keyword}{class }\mbox{\hyperlink{classClassListContext}{ClassListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{359 \{}
+\DoxyCodeLine{360   \textcolor{keyword}{public}:}
+\DoxyCodeLine{361     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classClassListContext_ac646f62fa86d99e57d51e45d058c045a}{alloc}}()}
+\DoxyCodeLine{362     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ClassListContext>()); \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{365     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classClassListContext_a99641cf5b95d03c30a11c73baa2d7789}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{366     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassListContext_adec67b614e3d6b2335104fa7351f72c7}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classClassListContext_aed24eda5059f8ef408bc3053c84a3cd8}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369     \mbox{\hyperlink{classClassListContext_a228ba7f21a25b4074f3319e6ffced660}{ClassListContext}}();}
+\DoxyCodeLine{370     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassListContext_a6fe1917994ab56e88ee397c03749b35f}{\string~ClassListContext}}();}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372   \textcolor{keyword}{private}:}
+\DoxyCodeLine{373     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{374     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{375 \};}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379 \textcolor{keyword}{class }\mbox{\hyperlink{classClassIndexContext}{ClassIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{380 \{}
+\DoxyCodeLine{381   \textcolor{keyword}{public}:}
+\DoxyCodeLine{382     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassIndexContext_a091a849376bd2cb2f5fccf56541dd8b5}{alloc}}()}
+\DoxyCodeLine{383     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassIndexContext>()); \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassIndexContext_a1b30de7812f8349da875d12d7f8e8bb2}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{387     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassIndexContext_a8413738a251eb50de31f2b4c5dda0816}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389     \mbox{\hyperlink{classClassIndexContext_a2142273c51ac9fa9c3ad347fe11a2189}{ClassIndexContext}}();}
+\DoxyCodeLine{390     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassIndexContext_abae1fbf0934b50f01d86cdc33165d8ae}{\string~ClassIndexContext}}();}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392   \textcolor{keyword}{private}:}
+\DoxyCodeLine{393     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{394     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{395 \};}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 \textcolor{keyword}{class }\mbox{\hyperlink{classInheritanceGraphContext}{InheritanceGraphContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{400 \{}
+\DoxyCodeLine{401   \textcolor{keyword}{public}:}
+\DoxyCodeLine{402     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classInheritanceGraphContext_aaa83de75259219bf5bae85eaa85ad1b6}{alloc}}(\mbox{\hyperlink{dotgfxhierarchytable_8h_a7dd98bc274b7e1bfe83bd6b54922e329}{DotGfxHierarchyTablePtr}} hierarchy,\mbox{\hyperlink{classDotNode}{DotNode}} *n,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id})}
+\DoxyCodeLine{403     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<InheritanceGraphContext>(hierarchy,n,\textcolor{keywordtype}{id})); \}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{406     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classInheritanceGraphContext_a219cc07f98cce342df9ae5ed3d366f96}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{407     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classInheritanceGraphContext_ab87ce6e89e9a9a4b3243fab2d9f8e2a1}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \mbox{\hyperlink{classInheritanceGraphContext_a8b3956da637a529aaf27be1d5b1e7e10}{InheritanceGraphContext}}(\mbox{\hyperlink{dotgfxhierarchytable_8h_a7dd98bc274b7e1bfe83bd6b54922e329}{DotGfxHierarchyTablePtr}} hierarchy,\mbox{\hyperlink{classDotNode}{DotNode}} *n,\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{410     \textcolor{keyword}{virtual} \mbox{\hyperlink{classInheritanceGraphContext_aa2fb8cc7c74bf1f51299dfc18c4a7a12}{\string~InheritanceGraphContext}}();}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412   \textcolor{keyword}{private}:}
+\DoxyCodeLine{413     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{414     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{415 \};}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{419 \textcolor{keyword}{class }\mbox{\hyperlink{classClassInheritanceNodeContext}{ClassInheritanceNodeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{420 \{}
+\DoxyCodeLine{421   \textcolor{keyword}{public}:}
+\DoxyCodeLine{422     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassInheritanceNodeContext_aeb5832d98ec3b165743f936bc2a87630}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd)}
+\DoxyCodeLine{423     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassInheritanceNodeContext>(cd)); \}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{426     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassInheritanceNodeContext_ab9e28ce0eda88525b3333194868f0671}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{427     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassInheritanceNodeContext_a44343edc7b3682904099ab726d90db62}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429     \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassInheritanceNodeContext_aa85c1baed60f6e46205809db6ae5d88b}{addChildren}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&bcl,\textcolor{keywordtype}{bool} hideSuper);}
+\DoxyCodeLine{430     \mbox{\hyperlink{classClassInheritanceNodeContext_a9e9d664c94c5449907aa2e5824176db6}{ClassInheritanceNodeContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *);}
+\DoxyCodeLine{431     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassInheritanceNodeContext_a07525ae88882edf8ec144afbf51010ee}{\string~ClassInheritanceNodeContext}}();}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433   \textcolor{keyword}{private}:}
+\DoxyCodeLine{434     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{435     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{436 \};}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440 \textcolor{keyword}{class }\mbox{\hyperlink{classClassInheritanceContext}{ClassInheritanceContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{441 \{}
+\DoxyCodeLine{442   \textcolor{keyword}{public}:}
+\DoxyCodeLine{443     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classClassInheritanceContext_a946357ed73e400e0f0a9e27c6671d4f1}{alloc}}()}
+\DoxyCodeLine{444     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ClassInheritanceContext>()); \}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{447     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classClassInheritanceContext_aee981cb6c8cd40e69283fb4ccb18e3d4}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{448     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassInheritanceContext_ae4ca6e28f083ed523484e15464685438}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{449     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classClassInheritanceContext_aabb52ac13f27b01818bf572905bb6e6e}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451     \mbox{\hyperlink{classClassInheritanceContext_aa5d6a79327f00c90ccbfd9955bc2dcbd}{ClassInheritanceContext}}();}
+\DoxyCodeLine{452     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassInheritanceContext_ade8e7ab926ad1d79ca39ee3247150dea}{\string~ClassInheritanceContext}}();}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454   \textcolor{keyword}{private}:}
+\DoxyCodeLine{455     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{456     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{457 \};}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \textcolor{keyword}{class }\mbox{\hyperlink{classClassHierarchyContext}{ClassHierarchyContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{462 \{}
+\DoxyCodeLine{463   \textcolor{keyword}{public}:}
+\DoxyCodeLine{464     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassHierarchyContext_a1ef8faf70d384252924b1fcc191b5c70}{alloc}}()}
+\DoxyCodeLine{465     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassHierarchyContext>()); \}}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassHierarchyContext_a49622e993c440be97c67cafb7036284e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{469     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassHierarchyContext_aea7634ab2ddce8e9e351b603e04932d2}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471     \mbox{\hyperlink{classClassHierarchyContext_a8d0b3be61a0f991ace089b467071b86c}{ClassHierarchyContext}}();}
+\DoxyCodeLine{472     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassHierarchyContext_a214e8b819e635d58f63a95369b88a419}{\string~ClassHierarchyContext}}();}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474   \textcolor{keyword}{private}:}
+\DoxyCodeLine{475     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{476     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{477 \};}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 \textcolor{keyword}{enum class} \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9}{ContextTreeType}}}
+\DoxyCodeLine{482 \{}
+\DoxyCodeLine{483   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9ab3ba0fe968ce39dcfc6fe8cc0f1b02da}{Namespace}},           \textcolor{comment}{// NamespaceTreeContext}}
+\DoxyCodeLine{484   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9a810d2675b73c39beb4c5735f143579ce}{ClassInheritance}},    \textcolor{comment}{// ClassHierarchyContext}}
+\DoxyCodeLine{485   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9a19e887a21bc7c1d34e613ccbc33332f0}{ClassNesting}},        \textcolor{comment}{// ClassTreeContext}}
+\DoxyCodeLine{486   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9ae55f75a29310d7b60f7ac1d390c8ae42}{Module}},              \textcolor{comment}{// ModuleTreeContext}}
+\DoxyCodeLine{487   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9a0b27918290ff5323bea1e3b78a9cf04e}{File}},                \textcolor{comment}{// FileTreeContext}}
+\DoxyCodeLine{488   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9a193cfc9be3b995831c6af2fea6650e60}{Page}},                \textcolor{comment}{// PageTreeContext}}
+\DoxyCodeLine{489   \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9ad99a604c79ce3c2e76a2f43488d5d4c3}{Concept}},             \textcolor{comment}{// ContextTreeContext}}
+\DoxyCodeLine{490   \mbox{\hyperlink{structExample}{Example}}              \textcolor{comment}{// ExampleTreeContext}}
+\DoxyCodeLine{491 \};}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{keyword}{class }\mbox{\hyperlink{classNestingNodeContext}{NestingNodeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{494 \{}
+\DoxyCodeLine{495   \textcolor{keyword}{public}:}
+\DoxyCodeLine{496     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classNestingNodeContext_a04112dbde6bd6bc05f4354400abc025f}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNestingNodeContext}{NestingNodeContext}} *parent,\mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9}{ContextTreeType}} type,}
+\DoxyCodeLine{497                                      \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,}
+\DoxyCodeLine{498                                      \textcolor{keywordtype}{int} index,\textcolor{keywordtype}{int} level,}
+\DoxyCodeLine{499                                      \textcolor{keywordtype}{bool} addClasses,\textcolor{keywordtype}{bool} addConcepts,}
+\DoxyCodeLine{500                                      \textcolor{keywordtype}{bool} inherit,\textcolor{keywordtype}{bool} hideSuper,}
+\DoxyCodeLine{501                                      \mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses)}
+\DoxyCodeLine{502     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<NestingNodeContext>}
+\DoxyCodeLine{503              (parent,type,def,index,level,addClasses,addConcepts,inherit,hideSuper,visitedClasses)); \}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classNestingNodeContext_a232047e13fe2412170b9a803da486752}{id}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{508     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNestingNodeContext_a916a3fc33d870b5f74b547f725d2b20c}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{509     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classNestingNodeContext_a02f21988b7c8fe002f03b2c528055591}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{511     \mbox{\hyperlink{classNestingNodeContext_ae099f7d054dc2230d19c25fa13af7d2c}{NestingNodeContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNestingNodeContext}{NestingNodeContext}} *parent,}
+\DoxyCodeLine{512                        \mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9}{ContextTreeType}} type,}
+\DoxyCodeLine{513                        \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *,\textcolor{keywordtype}{int} index,\textcolor{keywordtype}{int} level,}
+\DoxyCodeLine{514                        \textcolor{keywordtype}{bool} addClasses,\textcolor{keywordtype}{bool} addConcepts,}
+\DoxyCodeLine{515                        \textcolor{keywordtype}{bool} inherit,\textcolor{keywordtype}{bool} hideSuper,}
+\DoxyCodeLine{516                        \mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{517     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNestingNodeContext_a39f5ab6d7d5db2dc81ef6c8d4b986133}{\string~NestingNodeContext}}();}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519   \textcolor{keyword}{private}:}
+\DoxyCodeLine{520     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{521     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{522 \};}
+\DoxyCodeLine{523 }
+\DoxyCodeLine{524 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526 \textcolor{keyword}{class }\mbox{\hyperlink{classNestingContext}{NestingContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{527 \{}
+\DoxyCodeLine{528   \textcolor{keyword}{public}:}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classNestingContext_a034e06d9ea3df71185b59c193ea87d9f}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNestingNodeContext}{NestingNodeContext}} *parent,\mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9}{ContextTreeType}} type,\textcolor{keywordtype}{int} level)}
+\DoxyCodeLine{531     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<NestingContext>(parent,type,level)); \}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{533     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{534     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classNestingContext_aff12b76d3c7695127eb2dc1d18cde176}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNestingContext_a638c90887b275d441c804b4f11cf6c7b}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classNestingContext_a2e61a6434cd2d29113b9949d36468f74}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a02226a4aaa82bcbd70148e38e05590d9}{addNamespaces}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceLinkedMap}{NamespaceLinkedMap}} \&nsLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\textcolor{keywordtype}{bool} \mbox{\hyperlink{classNestingContext_a4131b8fa122fcf1933c3d6f099e8db2d}{addClasses}},\textcolor{keywordtype}{bool} \mbox{\hyperlink{classNestingContext_a6d53321cdce3f56ef4caf5cae41946c6}{addConcepts}},\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{539     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a02226a4aaa82bcbd70148e38e05590d9}{addNamespaces}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceLinkedRefMap}{NamespaceLinkedRefMap}} \&nsLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\textcolor{keywordtype}{bool} \mbox{\hyperlink{classNestingContext_a4131b8fa122fcf1933c3d6f099e8db2d}{addClasses}},\textcolor{keywordtype}{bool} \mbox{\hyperlink{classNestingContext_a6d53321cdce3f56ef4caf5cae41946c6}{addConcepts}},\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{540     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a4131b8fa122fcf1933c3d6f099e8db2d}{addClasses}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}} \&clLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{541     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a4131b8fa122fcf1933c3d6f099e8db2d}{addClasses}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassLinkedRefMap}{ClassLinkedRefMap}} \&clLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{542     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a6d53321cdce3f56ef4caf5cae41946c6}{addConcepts}}(\textcolor{keyword}{const} \mbox{\hyperlink{classConceptLinkedMap}{ConceptLinkedMap}} \&cnLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{543     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a6d53321cdce3f56ef4caf5cae41946c6}{addConcepts}}(\textcolor{keyword}{const} \mbox{\hyperlink{classConceptLinkedRefMap}{ConceptLinkedRefMap}} \&cnLinkedMap,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{544     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_ac54bade950c4c5dc9f025dd9748b35d3}{addDirs}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirLinkedMap}{DirLinkedMap}} \&,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{545     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_ac54bade950c4c5dc9f025dd9748b35d3}{addDirs}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirList}{DirList}} \&,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{546     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a68e42d59f8cf15a35e5f38eac1d2adeb}{addFiles}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}} \&,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{547     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a68e42d59f8cf15a35e5f38eac1d2adeb}{addFiles}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileList}{FileList}} \&,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{548     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a433e589795ddab5a96faf2b6f5ef7784}{addPages}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{549     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a433e589795ddab5a96faf2b6f5ef7784}{addPages}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedRefMap}{PageLinkedRefMap}} \&pages,\textcolor{keywordtype}{bool} rootOnly,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{550     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a6e3c579e7f2fa93bcac3fc0912dd4287}{addModules}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupLinkedMap}{GroupLinkedMap}} \&modules,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{551     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a6e3c579e7f2fa93bcac3fc0912dd4287}{addModules}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupList}{GroupList}} \&modules,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{552     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a87e7df8cf13d4ab917144066e7e94a46}{addClassHierarchy}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}} \&clLinkedMap,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{553     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_a6dc77f2be6dbe97a698dbeb5f66eb0b1}{addDerivedClasses}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&bcl,\textcolor{keywordtype}{bool} hideSuper,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{554     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNestingContext_ae4af0cd2dee599195b18382ad953c075}{addMembers}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberVector}{MemberVector}} \&mv,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses);}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556     \mbox{\hyperlink{classNestingContext_a564012efb4fd2dab20ebf4a5e7a5582d}{NestingContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classNestingNodeContext}{NestingNodeContext}} *parent,\mbox{\hyperlink{context_8h_a74df7450438043c0c7b7a8aad44301b9}{ContextTreeType}} type,\textcolor{keywordtype}{int} level);}
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNestingContext_a8716e036b7a3d7ea18d867ccfb0bde9f}{\string~NestingContext}}();}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559   \textcolor{keyword}{private}:}
+\DoxyCodeLine{560     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{561     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{562 \};}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566 \textcolor{keyword}{class }\mbox{\hyperlink{classClassTreeContext}{ClassTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{567 \{}
+\DoxyCodeLine{568   \textcolor{keyword}{public}:}
+\DoxyCodeLine{569     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassTreeContext_a5aa0fd9ce454c2c656fc16d37b75dfc9}{alloc}}()}
+\DoxyCodeLine{570     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassTreeContext>()); \}}
+\DoxyCodeLine{571 }
+\DoxyCodeLine{572     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{573     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassTreeContext_ad968e49122ae7353cce68f954a5d4e3b}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassTreeContext_aa9018116562a4e05ce2d4f3ef760dd09}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576     \mbox{\hyperlink{classClassTreeContext_a7c49475614860a2f2615904106aad621}{ClassTreeContext}}();}
+\DoxyCodeLine{577     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassTreeContext_aefee99bb762c07485c7c3e3f066a64f4}{\string~ClassTreeContext}}();}
+\DoxyCodeLine{578 }
+\DoxyCodeLine{579   \textcolor{keyword}{private}:}
+\DoxyCodeLine{580     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{581     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{582 \};}
+\DoxyCodeLine{583 }
+\DoxyCodeLine{584 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptListContext}{ConceptListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{587 \{}
+\DoxyCodeLine{588   \textcolor{keyword}{public}:}
+\DoxyCodeLine{589     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classConceptListContext_a30f15583c0ad0d4f20c51fca3c8dea1f}{alloc}}()}
+\DoxyCodeLine{590     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ConceptListContext>()); \}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{592     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{593     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classConceptListContext_acbcc8a7643e8975b07dd24d5700539d7}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classConceptListContext_a01e7072b9c376f424a13a07822dec8aa}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{595     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classConceptListContext_aa9659cfed8bdd729e95d61ffe42ee373}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597     \mbox{\hyperlink{classConceptListContext_abc975e3965f360d2166dfaa49ff189ec}{ConceptListContext}}();}
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classConceptListContext_a4199f02498bcd513e960c9d7ed459fc5}{\string~ConceptListContext}}();}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{600   \textcolor{keyword}{private}:}
+\DoxyCodeLine{601     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{602     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{603 \};}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{607 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceListContext}{NamespaceListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{608 \{}
+\DoxyCodeLine{609   \textcolor{keyword}{public}:}
+\DoxyCodeLine{610     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classNamespaceListContext_a5de8529be3d23112eb263821e088806a}{alloc}}()}
+\DoxyCodeLine{611     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<NamespaceListContext>()); \}}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{613     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{614     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classNamespaceListContext_a994bd3d4d44711535c201cd85bd96608}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{615     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNamespaceListContext_a5636ad245f4499e67febae19f801765c}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{616     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classNamespaceListContext_a31befd12885895763e3e8bf82b472065}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{618     \mbox{\hyperlink{classNamespaceListContext_a7c13739c760bbbd20c5bc6792f28773e}{NamespaceListContext}}();}
+\DoxyCodeLine{619     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNamespaceListContext_a9cc74044205c4c1cae48594f6c3c1edc}{\string~NamespaceListContext}}();}
+\DoxyCodeLine{620 }
+\DoxyCodeLine{621   \textcolor{keyword}{private}:}
+\DoxyCodeLine{622     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{623     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{624 \};}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{626 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceTreeContext}{NamespaceTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{629 \{}
+\DoxyCodeLine{630   \textcolor{keyword}{public}:}
+\DoxyCodeLine{631     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classNamespaceTreeContext_a122131b9d01180ec42a6732ffd2c20ed}{alloc}}()}
+\DoxyCodeLine{632     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<NamespaceTreeContext>()); \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNamespaceTreeContext_a2632c7182db21666d13138426573d820}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classNamespaceTreeContext_ab6c065477ec1746e364272a67d153b1e}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{638     \mbox{\hyperlink{classNamespaceTreeContext_ac2fd8bf9f5cbd9e73165b358e914d7dd}{NamespaceTreeContext}}();}
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNamespaceTreeContext_ac5234d56140df7f0055dda9cb2f41b14}{\string~NamespaceTreeContext}}();}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{641   \textcolor{keyword}{private}:}
+\DoxyCodeLine{642     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{643     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{644 \};}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{647 }
+\DoxyCodeLine{648 \textcolor{keyword}{class }\mbox{\hyperlink{classDirListContext}{DirListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{649 \{}
+\DoxyCodeLine{650   \textcolor{keyword}{public}:}
+\DoxyCodeLine{651     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classDirListContext_aebebfb6731b85e79f1065c59be90af92}{alloc}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<DirListContext>()); \}}
+\DoxyCodeLine{653 }
+\DoxyCodeLine{654     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{655     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classDirListContext_ac2551826be3e2bf29b6c0647e0b99efe}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classDirListContext_a2e2373bd9bde5f3dee2dd38b4b9bad87}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{657     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classDirListContext_adaf9973274759f264e69160714da53aa}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{658 }
+\DoxyCodeLine{659     \mbox{\hyperlink{classDirListContext_aef3d6600a5fb619a860ade31cbf27170}{DirListContext}}();}
+\DoxyCodeLine{660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDirListContext_a79ec7418882d9d51cb666236a88fd679}{\string~DirListContext}}();}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662   \textcolor{keyword}{private}:}
+\DoxyCodeLine{663     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{664     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{665 \};}
+\DoxyCodeLine{666 }
+\DoxyCodeLine{667 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669 \textcolor{keyword}{class }\mbox{\hyperlink{classFileListContext}{FileListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{670 \{}
+\DoxyCodeLine{671   \textcolor{keyword}{public}:}
+\DoxyCodeLine{672     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classFileListContext_a43c1da87fbe4cdee290546432622a4e1}{alloc}}()}
+\DoxyCodeLine{673     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<FileListContext>()); \}}
+\DoxyCodeLine{674 }
+\DoxyCodeLine{675     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{676     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFileListContext_ab237815297cd5a42347a4dfde2bf6ea6}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classFileListContext_ab34acfe64792391b2a93930319a98ea3}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classFileListContext_a7f5f07db2174daa9375ecff2de61a2af}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{680     \mbox{\hyperlink{classFileListContext_a4b413bf158de3be2a782d59172dde54e}{FileListContext}}();}
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classFileListContext_a89b733a97588813e024e3720952c4acc}{\string~FileListContext}}();}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{683   \textcolor{keyword}{private}:}
+\DoxyCodeLine{684     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{685     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{686 \};}
+\DoxyCodeLine{687 }
+\DoxyCodeLine{688 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{689 }
+\DoxyCodeLine{690 \textcolor{keyword}{class }\mbox{\hyperlink{classFileTreeContext}{FileTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{691 \{}
+\DoxyCodeLine{692   \textcolor{keyword}{public}:}
+\DoxyCodeLine{693     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classFileTreeContext_aab1c62fa1c8d6b5e0459fae771978a78}{alloc}}()}
+\DoxyCodeLine{694     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<FileTreeContext>()); \}}
+\DoxyCodeLine{695 }
+\DoxyCodeLine{696     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{697     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classFileTreeContext_a6b3b94dea5d2a7b0caa3a286dd1b0360}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{698     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classFileTreeContext_a4281c7e91bad93812d735d2149fa165b}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{699 }
+\DoxyCodeLine{700     \mbox{\hyperlink{classFileTreeContext_a32759b531dbdb3127f3f968fdd6b69d8}{FileTreeContext}}();}
+\DoxyCodeLine{701     \textcolor{keyword}{virtual} \mbox{\hyperlink{classFileTreeContext_a84bf28f3f4b03a6adf0d6be889c6fadb}{\string~FileTreeContext}}();}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{703   \textcolor{keyword}{private}:}
+\DoxyCodeLine{704     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{705     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{706 \};}
+\DoxyCodeLine{707 }
+\DoxyCodeLine{708 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{710 \textcolor{keyword}{class }\mbox{\hyperlink{classPageListContext}{PageListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{711 \{}
+\DoxyCodeLine{712   \textcolor{keyword}{public}:}
+\DoxyCodeLine{713     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classPageListContext_ab45d2d0bad2394181d806fbb52fbd8e9}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages)}
+\DoxyCodeLine{714     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<PageListContext>(pages)); \}}
+\DoxyCodeLine{715 }
+\DoxyCodeLine{716     \textcolor{comment}{// TemplateListIntf methods}}
+\DoxyCodeLine{717     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classPageListContext_a29a64e95b9384a2cf8aad8ef4e5e0db8}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{718     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classPageListContext_a624f3c25c409aac64005e56db282273e}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{719     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classPageListContext_ae263d16768e1d5300859fb24365ff83f}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{721     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPageListContext_a9813e8127be0f65afff1ae0ccffaa153}{addPages}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages);}
+\DoxyCodeLine{722 }
+\DoxyCodeLine{723     \mbox{\hyperlink{classPageListContext_a38e742f01e7c90cf3ba4b4515dc1bd6a}{PageListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages);}
+\DoxyCodeLine{724     \textcolor{keyword}{virtual} \mbox{\hyperlink{classPageListContext_a6006921e101a7e624bcac0f72ef64cea}{\string~PageListContext}}();}
+\DoxyCodeLine{725 }
+\DoxyCodeLine{726   \textcolor{keyword}{private}:}
+\DoxyCodeLine{727     \textcolor{keyword}{class }\mbox{\hyperlink{classPageListContext_1_1Private}{Private}};}
+\DoxyCodeLine{728     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{729 \};}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{731 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{732 }
+\DoxyCodeLine{733 \textcolor{keyword}{class }\mbox{\hyperlink{classPageTreeContext}{PageTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{734 \{}
+\DoxyCodeLine{735   \textcolor{keyword}{public}:}
+\DoxyCodeLine{736     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classPageTreeContext_a92a030dda17dcbbda0c37aaa0a8ea662}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages)}
+\DoxyCodeLine{737     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<PageTreeContext>(pages)); \}}
+\DoxyCodeLine{738 }
+\DoxyCodeLine{739     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{740     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classPageTreeContext_aa98cb8cf6fd123c12d7284b801a8f46c}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{741     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classPageTreeContext_a68217a73ab5a6a6c25bdfe89f294ad01}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{742 }
+\DoxyCodeLine{743     \mbox{\hyperlink{classPageTreeContext_ac4914e50f0e7585b26e639a85fa45090}{PageTreeContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}} \&pages);}
+\DoxyCodeLine{744     \textcolor{keyword}{virtual} \mbox{\hyperlink{classPageTreeContext_a7374a728f5455c72b42602eadf44eee8}{\string~PageTreeContext}}();}
+\DoxyCodeLine{745 }
+\DoxyCodeLine{746   \textcolor{keyword}{private}:}
+\DoxyCodeLine{747     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{748     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{749 \};}
+\DoxyCodeLine{750 }
+\DoxyCodeLine{751 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{752 }
+\DoxyCodeLine{753 \textcolor{keyword}{class }\mbox{\hyperlink{classModuleNodeContext}{ModuleNodeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{754 \{}
+\DoxyCodeLine{755   \textcolor{keyword}{public}:}
+\DoxyCodeLine{756     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classModuleNodeContext_a774cbd12641da06caab408c54e712d12}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd)}
+\DoxyCodeLine{757     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ModuleNodeContext>(gd)); \}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{759     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classModuleNodeContext_a9321278977c08672e7abaddb3b129ccd}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{761     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classModuleNodeContext_a576b6a3f06046d0dd711d7f01855422f}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{762 }
+\DoxyCodeLine{763     \mbox{\hyperlink{classModuleNodeContext_abe6a34d73432d7f4b7fab2442a7af84c}{ModuleNodeContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *);}
+\DoxyCodeLine{764     \textcolor{keyword}{virtual} \mbox{\hyperlink{classModuleNodeContext_abb227799f216d5b7a2da571154508cf6}{\string~ModuleNodeContext}}();}
+\DoxyCodeLine{765 }
+\DoxyCodeLine{766   \textcolor{keyword}{private}:}
+\DoxyCodeLine{767     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{768     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{769 \};}
+\DoxyCodeLine{770 }
+\DoxyCodeLine{771 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{773 \textcolor{keyword}{class }\mbox{\hyperlink{classModuleListContext}{ModuleListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{774 \{}
+\DoxyCodeLine{775   \textcolor{keyword}{public}:}
+\DoxyCodeLine{776     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classModuleListContext_afb3cac25b3433e338341356b47d9ac8e}{alloc}}()}
+\DoxyCodeLine{777     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ModuleListContext>()); \}}
+\DoxyCodeLine{778 }
+\DoxyCodeLine{779     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{780     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classModuleListContext_a056fa0231dd7453f43dcd512f78f10f9}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{781     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classModuleListContext_ad65834646a5165dcb2cd9f42f37664c3}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{782     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classModuleListContext_a32fc180b8577c40f13c278e966cc80da}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{784     \textcolor{keywordtype}{void} \mbox{\hyperlink{classModuleListContext_a25aca5de284be1a0ef87cfcea78dc7c8}{addModules}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupLinkedMap}{GroupLinkedMap}} \&);}
+\DoxyCodeLine{785     \textcolor{keywordtype}{void} \mbox{\hyperlink{classModuleListContext_a94c78ad4a69fefc92435c334578a5dfe}{addModules}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupList}{GroupList}} \&);}
+\DoxyCodeLine{786 }
+\DoxyCodeLine{787     \mbox{\hyperlink{classModuleListContext_a74e03e6922dfd6bdf4c77f614e1cc5c0}{ModuleListContext}}();}
+\DoxyCodeLine{788     \textcolor{keyword}{virtual} \mbox{\hyperlink{classModuleListContext_a235ed053e14e9b59e36471b62508710a}{\string~ModuleListContext}}();}
+\DoxyCodeLine{789 }
+\DoxyCodeLine{790   \textcolor{keyword}{private}:}
+\DoxyCodeLine{791     \textcolor{keyword}{class }\mbox{\hyperlink{classModuleListContext_1_1Private}{Private}};}
+\DoxyCodeLine{792     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{793 \};}
+\DoxyCodeLine{794 }
+\DoxyCodeLine{795 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{796 }
+\DoxyCodeLine{797 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptTreeContext}{ConceptTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{798 \{}
+\DoxyCodeLine{799   \textcolor{keyword}{public}:}
+\DoxyCodeLine{800     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classConceptTreeContext_acf1f64c88625d458275097d541a54afc}{alloc}}()}
+\DoxyCodeLine{801     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ConceptTreeContext>()); \}}
+\DoxyCodeLine{802 }
+\DoxyCodeLine{803     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{804     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classConceptTreeContext_a5048f70e7961277fd93fb0e3d99a41b9}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{805     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classConceptTreeContext_a1aaa3344a13dc383fa64bdfe83f81594}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{806 }
+\DoxyCodeLine{807     \mbox{\hyperlink{classConceptTreeContext_a4691999f8a41eaa3ea03293bd2d299aa}{ConceptTreeContext}}();}
+\DoxyCodeLine{808     \textcolor{keyword}{virtual} \mbox{\hyperlink{classConceptTreeContext_adaea6e95bf9314481a1b40527dcfd0ca}{\string~ConceptTreeContext}}();}
+\DoxyCodeLine{809 }
+\DoxyCodeLine{810   \textcolor{keyword}{private}:}
+\DoxyCodeLine{811     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{812     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{813 \};}
+\DoxyCodeLine{814 }
+\DoxyCodeLine{815 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{816 }
+\DoxyCodeLine{817 \textcolor{keyword}{class }\mbox{\hyperlink{classModuleTreeContext}{ModuleTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{818 \{}
+\DoxyCodeLine{819   \textcolor{keyword}{public}:}
+\DoxyCodeLine{820     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classModuleTreeContext_ac802afc864901c56fda47def69c71280}{alloc}}()}
+\DoxyCodeLine{821     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ModuleTreeContext>()); \}}
+\DoxyCodeLine{822 }
+\DoxyCodeLine{823     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{824     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classModuleTreeContext_ae7e798d2ec2bfd76aed5366e2e006a31}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{825     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classModuleTreeContext_a9d9bdb28b21c70982922573faf5d649d}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{827     \mbox{\hyperlink{classModuleTreeContext_a3a11f705e3f4a36bb73d37ffc891ff28}{ModuleTreeContext}}();}
+\DoxyCodeLine{828     \textcolor{keyword}{virtual} \mbox{\hyperlink{classModuleTreeContext_aeeb511cd17ff4f5f51349d19b2a4b1ba}{\string~ModuleTreeContext}}();}
+\DoxyCodeLine{829 }
+\DoxyCodeLine{830   \textcolor{keyword}{private}:}
+\DoxyCodeLine{831     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{832     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{833 \};}
+\DoxyCodeLine{834 }
+\DoxyCodeLine{835 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{836 }
+\DoxyCodeLine{837 \textcolor{keyword}{class }\mbox{\hyperlink{classExampleListContext}{ExampleListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{838 \{}
+\DoxyCodeLine{839   \textcolor{keyword}{public}:}
+\DoxyCodeLine{840     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classExampleListContext_acf15bbda604ae4193d42fc4370076e18}{alloc}}()}
+\DoxyCodeLine{841     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ExampleListContext>()); \}}
+\DoxyCodeLine{842 }
+\DoxyCodeLine{843     \textcolor{comment}{// TemplateListIntf methods}}
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classExampleListContext_a59f45b7df046bf5ebe12b6d6bddcd113}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{845     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classExampleListContext_ac77741cff508ad6d434e7203631c09ba}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classExampleListContext_a64181ce1f0b90a068be93b3c5a37db3d}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{847 }
+\DoxyCodeLine{848     \mbox{\hyperlink{classExampleListContext_a4a3f48b3f46dc071f9ad63c06d964083}{ExampleListContext}}();}
+\DoxyCodeLine{849     \textcolor{keyword}{virtual} \mbox{\hyperlink{classExampleListContext_acb13cd952448b8435684a3431d040cad}{\string~ExampleListContext}}();}
+\DoxyCodeLine{850 }
+\DoxyCodeLine{851   \textcolor{keyword}{private}:}
+\DoxyCodeLine{852     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{853     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{854 \};}
+\DoxyCodeLine{855 }
+\DoxyCodeLine{856 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{857 }
+\DoxyCodeLine{858 }
+\DoxyCodeLine{859 \textcolor{keyword}{class }\mbox{\hyperlink{classExampleTreeContext}{ExampleTreeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{860 \{}
+\DoxyCodeLine{861   \textcolor{keyword}{public}:}
+\DoxyCodeLine{862     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classExampleTreeContext_a3a75dd19b7736cff012585cd3cf4c192}{alloc}}()}
+\DoxyCodeLine{863     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ExampleTreeContext>()); \}}
+\DoxyCodeLine{864 }
+\DoxyCodeLine{865     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{866     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classExampleTreeContext_a3763619e3baf082389ef024b963d5549}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{867     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classExampleTreeContext_a4c5cf7c9d1de49e4b722e5f1949fdb5a}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{868 }
+\DoxyCodeLine{869     \mbox{\hyperlink{classExampleTreeContext_afe2994d900baec142bf92f9a07b0fa53}{ExampleTreeContext}}();}
+\DoxyCodeLine{870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classExampleTreeContext_a5ee93037c056999d294a43ca4acd939c}{\string~ExampleTreeContext}}();}
+\DoxyCodeLine{871 }
+\DoxyCodeLine{872   \textcolor{keyword}{private}:}
+\DoxyCodeLine{873     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{874     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{875 \};}
+\DoxyCodeLine{876 }
+\DoxyCodeLine{877 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{878 }
+\DoxyCodeLine{879 \textcolor{keyword}{class }\mbox{\hyperlink{classGlobalsIndexContext}{GlobalsIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{880 \{}
+\DoxyCodeLine{881   \textcolor{keyword}{public}:}
+\DoxyCodeLine{882     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classGlobalsIndexContext_abd78d3aa2af3741a8c12c537230ee8de}{alloc}}()}
+\DoxyCodeLine{883     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<GlobalsIndexContext>()); \}}
+\DoxyCodeLine{884 }
+\DoxyCodeLine{885     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{886     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classGlobalsIndexContext_abfff36c36dcb3520b5c820ac0acb7590}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{887     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classGlobalsIndexContext_a815545f532a12abc582a2defebd16c9c}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{888 }
+\DoxyCodeLine{889     \mbox{\hyperlink{classGlobalsIndexContext_abad9bbb73ec5291ac82eada6db440523}{GlobalsIndexContext}}();}
+\DoxyCodeLine{890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classGlobalsIndexContext_ad67a0c43ae3b5970d31a6a5517f714e4}{\string~GlobalsIndexContext}}();}
+\DoxyCodeLine{891 }
+\DoxyCodeLine{892   \textcolor{keyword}{private}:}
+\DoxyCodeLine{893     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{894     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{895 \};}
+\DoxyCodeLine{896 }
+\DoxyCodeLine{897 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{898 }
+\DoxyCodeLine{899 \textcolor{keyword}{class }\mbox{\hyperlink{classClassMembersIndexContext}{ClassMembersIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{900 \{}
+\DoxyCodeLine{901   \textcolor{keyword}{public}:}
+\DoxyCodeLine{902     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classClassMembersIndexContext_a4b76b2f5fd60b1dda84a82b74efa17c2}{alloc}}()}
+\DoxyCodeLine{903     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ClassMembersIndexContext>()); \}}
+\DoxyCodeLine{904 }
+\DoxyCodeLine{905     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classClassMembersIndexContext_a6ed67b6b615b4d4d1d88e2f4589d7708}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{907     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classClassMembersIndexContext_ae25ac482f944723a2d4491585b91e171}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{908 }
+\DoxyCodeLine{909     \mbox{\hyperlink{classClassMembersIndexContext_aac7898a58664690c2f1da827fc932f66}{ClassMembersIndexContext}}();}
+\DoxyCodeLine{910     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassMembersIndexContext_a7a41c9f1248b816e7896512a046367df}{\string~ClassMembersIndexContext}}();}
+\DoxyCodeLine{911 }
+\DoxyCodeLine{912   \textcolor{keyword}{private}:}
+\DoxyCodeLine{913     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{914     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{915 \};}
+\DoxyCodeLine{916 }
+\DoxyCodeLine{917 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{918 }
+\DoxyCodeLine{919 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceMembersIndexContext}{NamespaceMembersIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{920 \{}
+\DoxyCodeLine{921   \textcolor{keyword}{public}:}
+\DoxyCodeLine{922     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classNamespaceMembersIndexContext_ac95c1fc3b8e44527a11eeb7faceff22d}{alloc}}()}
+\DoxyCodeLine{923     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<NamespaceMembersIndexContext>()); \}}
+\DoxyCodeLine{924 }
+\DoxyCodeLine{925     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{926     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNamespaceMembersIndexContext_a7600a8a176006c0d1ebd1a663c1eec53}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{927     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classNamespaceMembersIndexContext_aefaf08af5d314cdc3d09d00b67e8709b}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{928 }
+\DoxyCodeLine{929     \mbox{\hyperlink{classNamespaceMembersIndexContext_a9334f73b75e9673c11ff2b343376d7d8}{NamespaceMembersIndexContext}}();}
+\DoxyCodeLine{930     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNamespaceMembersIndexContext_ae99846a54a84b0d5fe5ecc2baf14ec30}{\string~NamespaceMembersIndexContext}}();}
+\DoxyCodeLine{931 }
+\DoxyCodeLine{932   \textcolor{keyword}{private}:}
+\DoxyCodeLine{933     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{934     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{935 \};}
+\DoxyCodeLine{936 }
+\DoxyCodeLine{937 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{938 }
+\DoxyCodeLine{939 \textcolor{keyword}{class }\mbox{\hyperlink{classNavPathElemContext}{NavPathElemContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{940 \{}
+\DoxyCodeLine{941   \textcolor{keyword}{public}:}
+\DoxyCodeLine{942     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classNavPathElemContext_a8bc34037fcc42cc384ec5c896bf9902f}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def)}
+\DoxyCodeLine{943     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<NavPathElemContext>(def)); \}}
+\DoxyCodeLine{944 }
+\DoxyCodeLine{945     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{946     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classNavPathElemContext_a4b009199399255aeb41d17a8a8bb6701}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classNavPathElemContext_ad1aa6f2c0a5fe0b8a24dc3d7fac9bc07}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{948 }
+\DoxyCodeLine{949     \mbox{\hyperlink{classNavPathElemContext_a97e3e5fcb90238c6c89c11097911cf6d}{NavPathElemContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def);}
+\DoxyCodeLine{950     \textcolor{keyword}{virtual} \mbox{\hyperlink{classNavPathElemContext_a560252eb6ad2018ae3ff7b357eb6c95a}{\string~NavPathElemContext}}();}
+\DoxyCodeLine{951 }
+\DoxyCodeLine{952   \textcolor{keyword}{private}:}
+\DoxyCodeLine{953     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{954     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{955 \};}
+\DoxyCodeLine{956 }
+\DoxyCodeLine{957 }
+\DoxyCodeLine{958 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{959 }
+\DoxyCodeLine{960 \textcolor{keyword}{class }\mbox{\hyperlink{classInheritanceNodeContext}{InheritanceNodeContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{961 \{}
+\DoxyCodeLine{962   \textcolor{keyword}{public}:}
+\DoxyCodeLine{963     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classInheritanceNodeContext_a1ceb74ce41702b19818f6e66860ca2db}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{964     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<InheritanceNodeContext>(cd,name)); \}}
+\DoxyCodeLine{965 }
+\DoxyCodeLine{966     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classInheritanceNodeContext_a45e4f4a96b14298f10472c7344f7e038}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{968     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classInheritanceNodeContext_a8712404c40400b726c733283395a5527}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{969 }
+\DoxyCodeLine{970     \mbox{\hyperlink{classInheritanceNodeContext_ae19fd730f323defb8ecde8cf95371262}{InheritanceNodeContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{971     \textcolor{keyword}{virtual} \mbox{\hyperlink{classInheritanceNodeContext_a911628dbe8ff957e9e2d21455d62f046}{\string~InheritanceNodeContext}}();}
+\DoxyCodeLine{972 }
+\DoxyCodeLine{973   \textcolor{keyword}{private}:}
+\DoxyCodeLine{974     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{975     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{976 \};}
+\DoxyCodeLine{977 }
+\DoxyCodeLine{978 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{979 }
+\DoxyCodeLine{980 \textcolor{keyword}{class }\mbox{\hyperlink{classInheritanceListContext}{InheritanceListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{981 \{}
+\DoxyCodeLine{982   \textcolor{keyword}{public}:}
+\DoxyCodeLine{983     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classInheritanceListContext_a1c6a8e4e0e8a6ff3f51e9aa811657572}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&list,\textcolor{keywordtype}{bool} baseClasses)}
+\DoxyCodeLine{984     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<InheritanceListContext>(list,baseClasses)); \}}
+\DoxyCodeLine{985 }
+\DoxyCodeLine{986     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{987     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classInheritanceListContext_a9e7eb87dbe6ed43f0b9c179a581c3c31}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{988     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classInheritanceListContext_ae33ab048a20dac8441e2c5d4e869981e}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{989     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classInheritanceListContext_ac4bd3566a4cd9c1d0a7a16f023a16cb5}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{990 }
+\DoxyCodeLine{991     \mbox{\hyperlink{classInheritanceListContext_a6e590e24ca8621809364a9cc95370e28}{InheritanceListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&list,\textcolor{keywordtype}{bool} baseClasses);}
+\DoxyCodeLine{992     \textcolor{keyword}{virtual} \mbox{\hyperlink{classInheritanceListContext_afd5fc05ed9631c926046acaed433ddbe}{\string~InheritanceListContext}}();}
+\DoxyCodeLine{993 }
+\DoxyCodeLine{994   \textcolor{keyword}{private}:}
+\DoxyCodeLine{995     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{996     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{997 \};}
+\DoxyCodeLine{998 }
+\DoxyCodeLine{999 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1000 }
+\DoxyCodeLine{1001 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberListContext}{MemberListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1002 \{}
+\DoxyCodeLine{1003   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1004     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberListContext_ae07304e95ba19587338a3734d473db0f}{alloc}}()}
+\DoxyCodeLine{1005     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberListContext>()); \}}
+\DoxyCodeLine{1006     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberListContext_ab4437db0e56dc0f8d34e6e41e0f10260}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}} *ml)}
+\DoxyCodeLine{1007     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberListContext>(ml)); \}}
+\DoxyCodeLine{1008     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberListContext_af9021a22074a3f3cdd61ab3686c55adf}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberVector}{MemberVector}} \&ml)}
+\DoxyCodeLine{1009     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberListContext>(ml)); \}}
+\DoxyCodeLine{1010 }
+\DoxyCodeLine{1011     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1012     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMemberListContext_a7bdb18bbf3ee7686f466312fbf1e39c1}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1013     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberListContext_a5db3121252dc617d43e254ec15594c77}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1014     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classMemberListContext_a0293f82a150435ea73bdae1aea1deba9}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1015 }
+\DoxyCodeLine{1016     \mbox{\hyperlink{classMemberListContext_a077a8c0f862bcfc9df2f61e29bd9e228}{MemberListContext}}();}
+\DoxyCodeLine{1017     \mbox{\hyperlink{classMemberListContext_a077a8c0f862bcfc9df2f61e29bd9e228}{MemberListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}} *ml);}
+\DoxyCodeLine{1018     \mbox{\hyperlink{classMemberListContext_a077a8c0f862bcfc9df2f61e29bd9e228}{MemberListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberVector}{MemberVector}} \&ml);}
+\DoxyCodeLine{1019     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberListContext_a8d2478d596e9e6ea2e9339d5ee6544d7}{\string~MemberListContext}}();}
+\DoxyCodeLine{1020 }
+\DoxyCodeLine{1021   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1022     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1023     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1024 \};}
+\DoxyCodeLine{1025 }
+\DoxyCodeLine{1026 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1027 }
+\DoxyCodeLine{1028 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroupInfoContext}{MemberGroupInfoContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1029 \{}
+\DoxyCodeLine{1030   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1031     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classMemberGroupInfoContext_af2c3525e4be0a3b3fde187667be8114a}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroup}{MemberGroup}} *mg)}
+\DoxyCodeLine{1032     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<MemberGroupInfoContext>(def,relPath,mg)); \}}
+\DoxyCodeLine{1033 }
+\DoxyCodeLine{1034     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1035     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberGroupInfoContext_aa4d62794d0c2e9daeafe09583c4cb3b6}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1036     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classMemberGroupInfoContext_a1d3d3d3eac7a9563fa839c6c4a0322b1}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1037 }
+\DoxyCodeLine{1038     \mbox{\hyperlink{classMemberGroupInfoContext_a67639c884298c62906102aebe2c9358b}{MemberGroupInfoContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroup}{MemberGroup}} *mg);}
+\DoxyCodeLine{1039     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberGroupInfoContext_a3076f848ea73ec35d2db940946b67b76}{\string~MemberGroupInfoContext}}();}
+\DoxyCodeLine{1040 }
+\DoxyCodeLine{1041   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1042     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1043     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1044 \};}
+\DoxyCodeLine{1045 }
+\DoxyCodeLine{1046 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1047 }
+\DoxyCodeLine{1048 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroupListContext}{MemberGroupListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1049 \{}
+\DoxyCodeLine{1050   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1051     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberGroupListContext_abca256eaf56078f023ffe363b9b7b0ec}{alloc}}()}
+\DoxyCodeLine{1052     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberGroupListContext>()); \}}
+\DoxyCodeLine{1053     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberGroupListContext_a475e24ae8bb5d9fad9eb30fb2b15188e}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupRefList}{MemberGroupRefList}} \&list)}
+\DoxyCodeLine{1054     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberGroupListContext>(def,relPath,list)); \}}
+\DoxyCodeLine{1055     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classMemberGroupListContext_a6825dcfd7b46b44c56f9a12357e67534}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupList}{MemberGroupList}} \&list,\textcolor{keywordtype}{bool} subGrouping)}
+\DoxyCodeLine{1056     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<MemberGroupListContext>(def,relPath,list,subGrouping)); \}}
+\DoxyCodeLine{1057 }
+\DoxyCodeLine{1058     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1059     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMemberGroupListContext_ac1641e32936a9f7e55582c1ed7ca995f}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1060     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberGroupListContext_ad3889d73dd3a26de88f137949d31993d}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1061     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classMemberGroupListContext_aed19278143f47a7a30fded1ddc0f36d4}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1062 }
+\DoxyCodeLine{1063     \mbox{\hyperlink{classMemberGroupListContext_a1af62e8116b06399bd839c6dc4cec439}{MemberGroupListContext}}();}
+\DoxyCodeLine{1064     \mbox{\hyperlink{classMemberGroupListContext_a1af62e8116b06399bd839c6dc4cec439}{MemberGroupListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupRefList}{MemberGroupRefList}} \&list);}
+\DoxyCodeLine{1065     \mbox{\hyperlink{classMemberGroupListContext_a1af62e8116b06399bd839c6dc4cec439}{MemberGroupListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupList}{MemberGroupList}} \&list,\textcolor{keywordtype}{bool} subGrouping);}
+\DoxyCodeLine{1066     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberGroupListContext_a1fc2c075804b245e574549539c451b9c}{\string~MemberGroupListContext}}();}
+\DoxyCodeLine{1067 }
+\DoxyCodeLine{1068   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1069     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1070     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1071 \};}
+\DoxyCodeLine{1072 }
+\DoxyCodeLine{1073 }
+\DoxyCodeLine{1074 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1075 }
+\DoxyCodeLine{1076 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberListInfoContext}{MemberListInfoContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1077 \{}
+\DoxyCodeLine{1078   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1079     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classMemberListInfoContext_ae198d69d926ba6774152de7cad1a855d}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{1080                           \textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}} *ml,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,}
+\DoxyCodeLine{1081                           \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&subtitle=\mbox{\hyperlink{classQCString}{QCString}}())}
+\DoxyCodeLine{1082     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<MemberListInfoContext>(def,relPath,ml,title,subtitle)); \}}
+\DoxyCodeLine{1083 }
+\DoxyCodeLine{1084     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1085     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberListInfoContext_a8feeabedb0721df40c597da7c9f511cf}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1086     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classMemberListInfoContext_a4d4fd37b1a7d88cae1d5c05cb7fb0782}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1087 }
+\DoxyCodeLine{1088     \mbox{\hyperlink{classMemberListInfoContext_a472c11496c32a44011caf5aa3191f336}{MemberListInfoContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{1089                           \textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}} *ml,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,}
+\DoxyCodeLine{1090                           \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&subtitle=\mbox{\hyperlink{classQCString}{QCString}}());}
+\DoxyCodeLine{1091     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberListInfoContext_a4254b20ed1cace2335dcd524c7c84af7}{\string~MemberListInfoContext}}();}
+\DoxyCodeLine{1092 }
+\DoxyCodeLine{1093   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1094     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1095     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1096 \};}
+\DoxyCodeLine{1097 }
+\DoxyCodeLine{1098 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1099 }
+\DoxyCodeLine{1100 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberInfoContext}{MemberInfoContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1101 \{}
+\DoxyCodeLine{1102   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1103     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classMemberInfoContext_ae978a5b979e6501dfba4a447e1691d4e}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberInfo}{MemberInfo}} *mi)}
+\DoxyCodeLine{1104     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<MemberInfoContext>(mi)); \}}
+\DoxyCodeLine{1105 }
+\DoxyCodeLine{1106     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1107     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classMemberInfoContext_af70c3c2f66bbe3df0326f7b3dc101a4b}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1108     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classMemberInfoContext_aef07279dfefb94fa61b206c844cac132}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1109 }
+\DoxyCodeLine{1110     \mbox{\hyperlink{classMemberInfoContext_ae1160d43c265b74fc32d6b7d0e477e2e}{MemberInfoContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberInfo}{MemberInfo}} *mi);}
+\DoxyCodeLine{1111     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberInfoContext_ab6f7ed6cfb3cc7941ddedace29e4ffec}{\string~MemberInfoContext}}();}
+\DoxyCodeLine{1112 }
+\DoxyCodeLine{1113   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1114     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1115     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1116 \};}
+\DoxyCodeLine{1117 }
+\DoxyCodeLine{1118 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1119 }
+\DoxyCodeLine{1120 \textcolor{keyword}{class }\mbox{\hyperlink{classInheritedMemberInfoContext}{InheritedMemberInfoContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1121 \{}
+\DoxyCodeLine{1122   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1123     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classInheritedMemberInfoContext_ac57bb227880acb64035b5bc0cb1b7265}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,std::unique\_ptr<MemberList> \&\&ml,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title)}
+\DoxyCodeLine{1124     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<InheritedMemberInfoContext>(cd,std::move(ml),title)); \}}
+\DoxyCodeLine{1125 }
+\DoxyCodeLine{1126     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classInheritedMemberInfoContext_a291d49e50d8e4ce40e56cc9cc05815df}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1128     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classInheritedMemberInfoContext_a157b0b3afd5eda783943514306dcb958}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1129 }
+\DoxyCodeLine{1130     \mbox{\hyperlink{classInheritedMemberInfoContext_a08845e3078861d9e4546930b46e22385}{InheritedMemberInfoContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,std::unique\_ptr<MemberList> \&\&ml,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title);}
+\DoxyCodeLine{1131     \textcolor{keyword}{virtual} \mbox{\hyperlink{classInheritedMemberInfoContext_a304d48a2c639e36bfba4f140aa74f3bd}{\string~InheritedMemberInfoContext}}();}
+\DoxyCodeLine{1132 }
+\DoxyCodeLine{1133   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1134     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1135     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1136 \};}
+\DoxyCodeLine{1137 }
+\DoxyCodeLine{1138 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1139 }
+\DoxyCodeLine{1140 \textcolor{keyword}{class }\mbox{\hyperlink{classInheritedMemberInfoListContext}{InheritedMemberInfoListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1141 \{}
+\DoxyCodeLine{1142   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1143     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classInheritedMemberInfoListContext_a929adb6ea80bc0419a443cbd2d86cb3c}{alloc}}()}
+\DoxyCodeLine{1144     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<InheritedMemberInfoListContext>()); \}}
+\DoxyCodeLine{1145     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInheritedMemberInfoListContext_a7eefd347157aeec514c08e902c5b7c84}{addMemberList}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,\textcolor{keywordtype}{bool} additionalList=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}});}
+\DoxyCodeLine{1146 }
+\DoxyCodeLine{1147     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1148     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classInheritedMemberInfoListContext_a23248d99bfb73eedfd137c7084ae9818}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classInheritedMemberInfoListContext_a1ab29cccd1eeb0559535436f390408c4}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1150     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classInheritedMemberInfoListContext_aa624680f4f7fa9289a25e0be31fb31cc}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1151 }
+\DoxyCodeLine{1152     \mbox{\hyperlink{classInheritedMemberInfoListContext_a51cdfe7c39e946f0d53566356b82c1a3}{InheritedMemberInfoListContext}}();}
+\DoxyCodeLine{1153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classInheritedMemberInfoListContext_a49e1523c66a53db4841bf88acd11039d}{\string~InheritedMemberInfoListContext}}();}
+\DoxyCodeLine{1154 }
+\DoxyCodeLine{1155   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1156     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1157     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1158 \};}
+\DoxyCodeLine{1159 }
+\DoxyCodeLine{1160 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1161 }
+\DoxyCodeLine{1162 \textcolor{keyword}{class }\mbox{\hyperlink{classAllMembersListContext}{AllMembersListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1163 \{}
+\DoxyCodeLine{1164   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1165     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classAllMembersListContext_aed564dd10e3ff1721968e809173a3f35}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberNameInfoLinkedMap}{MemberNameInfoLinkedMap}} \&ml)}
+\DoxyCodeLine{1166     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<AllMembersListContext>(ml)); \}}
+\DoxyCodeLine{1167 }
+\DoxyCodeLine{1168     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1169     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classAllMembersListContext_aafe1e8294ce4147004903c5f44949e4f}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1170     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classAllMembersListContext_afb9734d37c94e6d98a9b773aa31d93ea}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classAllMembersListContext_a51d8263a7ce3a54867ddfe3fbbefa8c9}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1172 }
+\DoxyCodeLine{1173     \mbox{\hyperlink{classAllMembersListContext_afc3b0474fdca8e64d1ccc42b3e10d0c0}{AllMembersListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberNameInfoLinkedMap}{MemberNameInfoLinkedMap}} \&ml);}
+\DoxyCodeLine{1174     \textcolor{keyword}{virtual} \mbox{\hyperlink{classAllMembersListContext_ac6353f0942d3271bc64d41f56588a593}{\string~AllMembersListContext}}();}
+\DoxyCodeLine{1175 }
+\DoxyCodeLine{1176   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1177     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1178     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1179 \};}
+\DoxyCodeLine{1180 }
+\DoxyCodeLine{1181 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1182 }
+\DoxyCodeLine{1183 \textcolor{keyword}{class }\mbox{\hyperlink{classArgumentContext}{ArgumentContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1184 \{}
+\DoxyCodeLine{1185   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1186     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classArgumentContext_a28361e77b18b208080583d7476481b95}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&arg,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath)}
+\DoxyCodeLine{1187     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<ArgumentContext>(arg,def,relPath)); \}}
+\DoxyCodeLine{1188 }
+\DoxyCodeLine{1189     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1190     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classArgumentContext_a6604ba086a176223234933cee610eb74}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1191     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classArgumentContext_adbf76f57681cce3a0c77d0d74d4456b7}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1192 }
+\DoxyCodeLine{1193     \mbox{\hyperlink{classArgumentContext_a090670484b73c2be876fdd6f0459548c}{ArgumentContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&arg,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath);}
+\DoxyCodeLine{1194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classArgumentContext_aec799a64c5700db3bdf9d2fcd71f47aa}{\string~ArgumentContext}}();}
+\DoxyCodeLine{1195 }
+\DoxyCodeLine{1196   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1197     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1198     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1199 \};}
+\DoxyCodeLine{1200 }
+\DoxyCodeLine{1201 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1202 }
+\DoxyCodeLine{1203 \textcolor{keyword}{class }\mbox{\hyperlink{classArgumentListContext}{ArgumentListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1204 \{}
+\DoxyCodeLine{1205   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1206     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classArgumentListContext_a07e86b1fc52abe2a4d80208e321b4977}{alloc}}()}
+\DoxyCodeLine{1207     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ArgumentListContext>()); \}}
+\DoxyCodeLine{1208     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classArgumentListContext_a62e0e07a90b3aed20b58ba020ed96d62}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath)}
+\DoxyCodeLine{1209     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<ArgumentListContext>(al,def,relPath)); \}}
+\DoxyCodeLine{1210 }
+\DoxyCodeLine{1211     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1212     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classArgumentListContext_ae209d1f74e1c813797ccdfbee509c20b}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classArgumentListContext_a5635b82812aeb5bbe4aff0aeb455bef4}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classArgumentListContext_a5afb64084cb9fe856e80e8b5f3217566}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1215 }
+\DoxyCodeLine{1216     \mbox{\hyperlink{classArgumentListContext_a1dfa6bfe12615aa08d500080396123d6}{ArgumentListContext}}();}
+\DoxyCodeLine{1217     \mbox{\hyperlink{classArgumentListContext_a1dfa6bfe12615aa08d500080396123d6}{ArgumentListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath);}
+\DoxyCodeLine{1218     \textcolor{keyword}{virtual} \mbox{\hyperlink{classArgumentListContext_a7da6bab85720d3e3b363aec6f7143884}{\string~ArgumentListContext}}();}
+\DoxyCodeLine{1219 }
+\DoxyCodeLine{1220   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1221     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1222     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1223 \};}
+\DoxyCodeLine{1224 }
+\DoxyCodeLine{1225 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1226 }
+\DoxyCodeLine{1227 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolContext}{SymbolContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1228 \{}
+\DoxyCodeLine{1229   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1230     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classSymbolContext_a9405d61600bbace4b9a6a1a63c818ff4}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *prev,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *next)}
+\DoxyCodeLine{1231     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<SymbolContext>(def,prev,next)); \}}
+\DoxyCodeLine{1232 }
+\DoxyCodeLine{1233     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1234     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolContext_acc6237d3d7d26275b994ede447b2413f}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1235     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classSymbolContext_a07d86c635858fa50a84d41afef15bd23}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1236 }
+\DoxyCodeLine{1237     \mbox{\hyperlink{classSymbolContext_ac7d82d4ed373b8e9a948fd730d9507af}{SymbolContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *prev,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *next);}
+\DoxyCodeLine{1238     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolContext_aa6633f2c35e8f6e136b1bbb3a6d2a5bb}{\string~SymbolContext}}();}
+\DoxyCodeLine{1239 }
+\DoxyCodeLine{1240   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1241     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1242     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1243 \};}
+\DoxyCodeLine{1244 }
+\DoxyCodeLine{1245 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1246 }
+\DoxyCodeLine{1247 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolListContext}{SymbolListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1248 \{}
+\DoxyCodeLine{1249   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1250     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classSymbolListContext_a9c42dbf48f84c13994e2d2b167daa97b}{alloc}}(\textcolor{keyword}{const} SearchIndexList::const\_iterator \&start,}
+\DoxyCodeLine{1251                                     \textcolor{keyword}{const} SearchIndexList::const\_iterator \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})}
+\DoxyCodeLine{1252     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<SymbolListContext>(start,\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})); \}}
+\DoxyCodeLine{1253 }
+\DoxyCodeLine{1254     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1255     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSymbolListContext_a81bdf3a891600b38dda9d2377b65f5f9}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolListContext_a18cd00e3be3182837b1542fc75a287ee}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1257     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classSymbolListContext_a8ddd816a219c7304fa798f9ff700cec1}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1258 }
+\DoxyCodeLine{1259     \mbox{\hyperlink{classSymbolListContext_acfcce0c1025cf294455dfb394331a2c4}{SymbolListContext}}(\textcolor{keyword}{const} SearchIndexList::const\_iterator \&start,}
+\DoxyCodeLine{1260                       \textcolor{keyword}{const} SearchIndexList::const\_iterator \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}});}
+\DoxyCodeLine{1261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolListContext_afad0f01b9fa4729ab1bbb29fc7f5b84c}{\string~SymbolListContext}}();}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1263   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1264     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1265     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1266 \};}
+\DoxyCodeLine{1267 }
+\DoxyCodeLine{1268 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1269 }
+\DoxyCodeLine{1270 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolGroupContext}{SymbolGroupContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1271 \{}
+\DoxyCodeLine{1272   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1273     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classSymbolGroupContext_acacc7a81540160892799f9da49a0ea5b}{alloc}}(\textcolor{keyword}{const} SearchIndexList::const\_iterator \&start,}
+\DoxyCodeLine{1274                                      \textcolor{keyword}{const} SearchIndexList::const\_iterator \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})}
+\DoxyCodeLine{1275     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<SymbolGroupContext>(start,\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})); \}}
+\DoxyCodeLine{1276 }
+\DoxyCodeLine{1277     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1278     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolGroupContext_a3326a40c219840f78bb6728d40139ac2}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1279     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classSymbolGroupContext_aee4e5718a0b38b9ad90d5b585d8c87a6}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1280 }
+\DoxyCodeLine{1281     \mbox{\hyperlink{classSymbolGroupContext_adfbf84bed4b64715b7f3a2ac58fd9575}{SymbolGroupContext}}(\textcolor{keyword}{const} SearchIndexList::const\_iterator \&start,}
+\DoxyCodeLine{1282                        \textcolor{keyword}{const} SearchIndexList::const\_iterator \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}});}
+\DoxyCodeLine{1283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolGroupContext_a4f33b49047fb8d3c5a985af3f504b8de}{\string~SymbolGroupContext}}();}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1285   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1286     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1287     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1288 \};}
+\DoxyCodeLine{1289 }
+\DoxyCodeLine{1290 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1291 }
+\DoxyCodeLine{1292 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolGroupListContext}{SymbolGroupListContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1293 \{}
+\DoxyCodeLine{1294   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1295     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classSymbolGroupListContext_a45a185e7f1915d1507d77a40be980b46}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{SearchIndexList}} \&sil)}
+\DoxyCodeLine{1296     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<SymbolGroupListContext>(sil)); \}}
+\DoxyCodeLine{1297 }
+\DoxyCodeLine{1298     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1299     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSymbolGroupListContext_a95f1b1c66ad1d1dca39ad6cb7de025ad}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolGroupListContext_acf2a6dd357a6baeb0bd0069ff32d3fd9}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1301     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classSymbolGroupListContext_a8613faa642fb401c67b313f2881bbb48}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1302 }
+\DoxyCodeLine{1303     \mbox{\hyperlink{classSymbolGroupListContext_a1cf6323b537f54f54e7e84e8fe96b207}{SymbolGroupListContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{SearchIndexList}} \&sil);}
+\DoxyCodeLine{1304     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolGroupListContext_a44cf2d59ab48cd480e373dcc3b57ab49}{\string~SymbolGroupListContext}}();}
+\DoxyCodeLine{1305 }
+\DoxyCodeLine{1306   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1307     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1308     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1309 \};}
+\DoxyCodeLine{1310 }
+\DoxyCodeLine{1311 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1312 }
+\DoxyCodeLine{1313 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolIndexContext}{SymbolIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1314 \{}
+\DoxyCodeLine{1315   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1316     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classSymbolIndexContext_a5b2e235bada2e36c8e239624e65603b8}{alloc}}(\textcolor{keyword}{const} std::string \&letter,}
+\DoxyCodeLine{1317                                      \textcolor{keyword}{const} \mbox{\hyperlink{searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{SearchIndexList}} \&\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1318     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<SymbolIndexContext>(letter,\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},name)); \}}
+\DoxyCodeLine{1319 }
+\DoxyCodeLine{1320     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1321     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolIndexContext_a0d85a70790edccb2d348de0b5ba74f6b}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1322     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classSymbolIndexContext_a9ccc65572cc4944e5c779d8f83883e1c}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1323 }
+\DoxyCodeLine{1324     \mbox{\hyperlink{classSymbolIndexContext_a093761c9b6df87804a19e94859a90da1}{SymbolIndexContext}}(\textcolor{keyword}{const} std::string \&letter,\textcolor{keyword}{const} \mbox{\hyperlink{searchindex__js_8h_aa8e98984f8edbf9500ef5f6172a4a369}{SearchIndexList}} \&\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{1325     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolIndexContext_a002162f2932aef4d2f87bc84657bc515}{\string~SymbolIndexContext}}();}
+\DoxyCodeLine{1326 }
+\DoxyCodeLine{1327   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1328     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1329     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1330 \};}
+\DoxyCodeLine{1331 }
+\DoxyCodeLine{1332 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1333 }
+\DoxyCodeLine{1334 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolIndicesContext}{SymbolIndicesContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1335 \{}
+\DoxyCodeLine{1336   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1337     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classSymbolIndicesContext_a9d430d998aa547b06316b552b4dd2e75}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{structSearchIndexInfo}{SearchIndexInfo}} \&info)}
+\DoxyCodeLine{1338     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<SymbolIndicesContext>(info)); \}}
+\DoxyCodeLine{1339 }
+\DoxyCodeLine{1340     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1341     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSymbolIndicesContext_a23ac64cd6b1861cc85b444cd299dfefe}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1342     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSymbolIndicesContext_a3487925a33749814d4ed594aade41e1b}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1343     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classSymbolIndicesContext_a5b4a900ece00b0b5a8be9480370029f9}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1344 }
+\DoxyCodeLine{1345     \mbox{\hyperlink{classSymbolIndicesContext_a80f7e25aa581c21ced069df92fb3960d}{SymbolIndicesContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{structSearchIndexInfo}{SearchIndexInfo}} \&info);}
+\DoxyCodeLine{1346     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSymbolIndicesContext_a2fc2f38e858792a2fbddb56abada5780}{\string~SymbolIndicesContext}}();}
+\DoxyCodeLine{1347 }
+\DoxyCodeLine{1348   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1349     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1350     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1351 \};}
+\DoxyCodeLine{1352 }
+\DoxyCodeLine{1353 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1354 }
+\DoxyCodeLine{1355 \textcolor{keyword}{class }\mbox{\hyperlink{classSearchIndexContext}{SearchIndexContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateStructIntf}{TemplateStructIntf}}}
+\DoxyCodeLine{1356 \{}
+\DoxyCodeLine{1357   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1358     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_affdade7103de096c55af606a9522ae2a}{TemplateStructIntfPtr}} \mbox{\hyperlink{classSearchIndexContext_a60285ba08e1262deae1ccb3da68a862a}{alloc}}(\textcolor{keyword}{const} \mbox{\hyperlink{structSearchIndexInfo}{SearchIndexInfo}} \&info)}
+\DoxyCodeLine{1359     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateStructIntf>(std::make\_shared<SearchIndexContext>(info)); \}}
+\DoxyCodeLine{1360 }
+\DoxyCodeLine{1361     \textcolor{comment}{// TemplateStructIntf methods}}
+\DoxyCodeLine{1362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSearchIndexContext_a9eeb382b0f186cddb8aaf3a601eb0137}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \textcolor{keyword}{const};}
+\DoxyCodeLine{1363     \textcolor{keyword}{virtual} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} \mbox{\hyperlink{classSearchIndexContext_a72c264ac48a3281aae4ab20dd312d2c3}{fields}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1364 }
+\DoxyCodeLine{1365     \mbox{\hyperlink{classSearchIndexContext_a5d4ca0019e5bf84cff2ac20ae354cdb4}{SearchIndexContext}}(\textcolor{keyword}{const} \mbox{\hyperlink{structSearchIndexInfo}{SearchIndexInfo}} \&info);}
+\DoxyCodeLine{1366     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSearchIndexContext_a3dffa187690f49c14a113bf36cfeca5c}{\string~SearchIndexContext}}();}
+\DoxyCodeLine{1367 }
+\DoxyCodeLine{1368   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1369     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1370     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1371 \};}
+\DoxyCodeLine{1372 }
+\DoxyCodeLine{1373 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1374 }
+\DoxyCodeLine{1375 \textcolor{keyword}{class }\mbox{\hyperlink{classSearchIndicesContext}{SearchIndicesContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTemplateListIntf}{TemplateListIntf}}}
+\DoxyCodeLine{1376 \{}
+\DoxyCodeLine{1377   \textcolor{keyword}{public}:}
+\DoxyCodeLine{1378     \textcolor{keyword}{static} \mbox{\hyperlink{template_8h_ae5beb53f70c1a65115b28f16df375128}{TemplateListIntfPtr}} \mbox{\hyperlink{classSearchIndicesContext_aae3fac5d0924f0b4a580b36051e37421}{alloc}}()}
+\DoxyCodeLine{1379     \{ \textcolor{keywordflow}{return} std::static\_pointer\_cast<TemplateListIntf>(std::make\_shared<SearchIndicesContext>()); \}}
+\DoxyCodeLine{1380 }
+\DoxyCodeLine{1381     \textcolor{comment}{// TemplateListIntf}}
+\DoxyCodeLine{1382     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSearchIndicesContext_aeeff3d98fd54210eb4d08e8ff5195093}{count}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1383     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateVariant}{TemplateVariant}} \mbox{\hyperlink{classSearchIndicesContext_a0d9f0c82ece3f7f424876264b2bd559c}{at}}(\textcolor{keywordtype}{size\_t} index) \textcolor{keyword}{const};}
+\DoxyCodeLine{1384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTemplateListIntf_afeab7c121c6545469289135e53a77e5c}{TemplateListIntf::ConstIteratorPtr}} \mbox{\hyperlink{classSearchIndicesContext_ad30bd8ab754cbcd36c2fada930fb0897}{createIterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{1385 }
+\DoxyCodeLine{1386     \mbox{\hyperlink{classSearchIndicesContext_a19a2d502d732886c7424dc7e52f0a0c2}{SearchIndicesContext}}();}
+\DoxyCodeLine{1387     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSearchIndicesContext_aa6833144011792ebc333975346f04efc}{\string~SearchIndicesContext}}();}
+\DoxyCodeLine{1388 }
+\DoxyCodeLine{1389   \textcolor{keyword}{private}:}
+\DoxyCodeLine{1390     \textcolor{keyword}{class }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{1391     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{1392 \};}
+\DoxyCodeLine{1393 }
+\DoxyCodeLine{1394 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1395 }
+\DoxyCodeLine{1396 \textcolor{keywordtype}{void} \mbox{\hyperlink{context_8h_a8434e7e4dd13bb6f45b499a6f5de33b2}{generateOutputViaTemplate}}();}
+\DoxyCodeLine{1397 \textcolor{keywordtype}{void} \mbox{\hyperlink{context_8h_aacc5dd43bcfb240b2d37ec8821fd0b6a}{generateTemplateFiles}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&templateDir);}
+\DoxyCodeLine{1398 }
+\DoxyCodeLine{1399 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

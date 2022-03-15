@@ -1,0 +1,354 @@
+\hypertarget{vhdldocgen_8h_source}{}\doxysection{vhdldocgen.\+h}
+\label{vhdldocgen_8h_source}\index{/mnt/c/projects/doxygen/src/vhdldocgen.h@{/mnt/c/projects/doxygen/src/vhdldocgen.h}}
+\mbox{\hyperlink{vhdldocgen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef VHDLDOCGEN\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define VHDLDOCGEN\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{layout_8h}{layout.h}}"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arguments_8h}{arguments.h}}"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{entry_8h}{entry.h}}"{}}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classEntry}{Entry}};}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDef}{ClassDef}};}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberList}{MemberList}};}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classOutputList}{OutputList}};}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupDef}{GroupDef}};}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceDef}{NamespaceDef}};}
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{40 \textcolor{keyword}{struct }\mbox{\hyperlink{structArgument}{Argument}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{struct }\mbox{\hyperlink{structVhdlConfNode}{VhdlConfNode}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44   \mbox{\hyperlink{structVhdlConfNode_aeceed445ddfcfd325d23d2fc764e603e}{VhdlConfNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&a,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&b,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&config,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&cs,\textcolor{keywordtype}{bool} leaf)}
+\DoxyCodeLine{45   \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{structVhdlConfNode_a5dfd0b52022b21363f60709dfce7623d}{arch}}=a;              \textcolor{comment}{// architecture  e.g. for iobuffer}}
+\DoxyCodeLine{47     \mbox{\hyperlink{structVhdlConfNode_a5dfd0b52022b21363f60709dfce7623d}{arch}}=\mbox{\hyperlink{structVhdlConfNode_a5dfd0b52022b21363f60709dfce7623d}{arch}}.\mbox{\hyperlink{classQCString_a33688239622e659cfb469fbd62c9cccb}{lower}}();}
+\DoxyCodeLine{48     \mbox{\hyperlink{structVhdlConfNode_a0a77b95ba7755c964cee04586ea18523}{binding}}=b;           \textcolor{comment}{// binding e.g.  use entity work.xxx(bev)}}
+\DoxyCodeLine{49     \mbox{\hyperlink{structVhdlConfNode_a0a77b95ba7755c964cee04586ea18523}{binding}}=\mbox{\hyperlink{structVhdlConfNode_a0a77b95ba7755c964cee04586ea18523}{binding}}.\mbox{\hyperlink{classQCString_a33688239622e659cfb469fbd62c9cccb}{lower}}();}
+\DoxyCodeLine{50     \mbox{\hyperlink{structVhdlConfNode_aae66e539683b80ab09430a03f6b24aae}{confVhdl}}=config;     \textcolor{comment}{// configuration foo is bar}}
+\DoxyCodeLine{51     \mbox{\hyperlink{structVhdlConfNode_acec3e9f2d52721d4a229c1cbf1f5c61b}{compSpec}}=cs;}
+\DoxyCodeLine{52     \mbox{\hyperlink{structVhdlConfNode_ac5465303d990494eb98a12d4666ab368}{isInlineConf}}=\textcolor{keyword}{false};  \textcolor{comment}{// primary configuration?}}
+\DoxyCodeLine{53     \mbox{\hyperlink{structVhdlConfNode_a963695dba442c5aa442570969a61a3bc}{isLeaf}}=leaf;}
+\DoxyCodeLine{54   \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structVhdlConfNode_aae66e539683b80ab09430a03f6b24aae}{confVhdl}};}
+\DoxyCodeLine{57   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structVhdlConfNode_a5dfd0b52022b21363f60709dfce7623d}{arch}};}
+\DoxyCodeLine{58   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structVhdlConfNode_a0a77b95ba7755c964cee04586ea18523}{binding}};}
+\DoxyCodeLine{59   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structVhdlConfNode_acec3e9f2d52721d4a229c1cbf1f5c61b}{compSpec}};}
+\DoxyCodeLine{60   \textcolor{keywordtype}{int} \mbox{\hyperlink{structVhdlConfNode_a3d98980a9818f52a3753602281d19b8e}{level}} = 0;}
+\DoxyCodeLine{61   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structVhdlConfNode_a963695dba442c5aa442570969a61a3bc}{isLeaf}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{62   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structVhdlConfNode_ac5465303d990494eb98a12d4666ab368}{isInlineConf}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classVhdlDocGen}{VhdlDocGen}}}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70   \textcolor{keyword}{public}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{enum} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{VhdlClasses}}       \textcolor{comment}{// Overlays: Protection}}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74       \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}{ENTITYCLASS}},         \textcolor{comment}{// Overlays: Public}}
+\DoxyCodeLine{75       \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a4cdc00f213301fb089eb3906a07efd20}{PACKBODYCLASS}},       \textcolor{comment}{// Overlays: Protected}}
+\DoxyCodeLine{76       \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae0c7e4401e472ec3153e9793e240a431}{ARCHITECTURECLASS}},   \textcolor{comment}{// Overlays: Private}}
+\DoxyCodeLine{77       \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae69513dd677b13d97b6a2e3ae445d1ef}{PACKAGECLASS}}         \textcolor{comment}{// Overlays: Package}}
+\DoxyCodeLine{78     \};}
+\DoxyCodeLine{79     \textcolor{keyword}{static} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{VhdlClasses}} \mbox{\hyperlink{classVhdlDocGen_ab1ab1504610c798f4924026a48bb4301}{convert}}(\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot)}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81       \textcolor{keywordflow}{switch} (prot)}
+\DoxyCodeLine{82       \{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{case} \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}}:    \textcolor{keywordflow}{return} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}{ENTITYCLASS}};}
+\DoxyCodeLine{84         \textcolor{keywordflow}{case} \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4deda72414112a6a45ab0b4b73e8b83d0b0f5}{Protected}}: \textcolor{keywordflow}{return} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a4cdc00f213301fb089eb3906a07efd20}{PACKBODYCLASS}};}
+\DoxyCodeLine{85         \textcolor{keywordflow}{case} \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}}:   \textcolor{keywordflow}{return} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae0c7e4401e472ec3153e9793e240a431}{ARCHITECTURECLASS}};}
+\DoxyCodeLine{86         \textcolor{keywordflow}{case} \mbox{\hyperlink{types_8h_a55cbcb91fc25e3a2e785b8a30309843ca209802fb858e2c83205027dbbb5d9e6c}{Package}}:   \textcolor{keywordflow}{return} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae69513dd677b13d97b6a2e3ae445d1ef}{PACKAGECLASS}};}
+\DoxyCodeLine{87       \}}
+\DoxyCodeLine{88       \textcolor{keywordflow}{return} \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}{ENTITYCLASS}};}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keyword}{enum} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6}{VhdlKeyWords}}}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}{LIBRARY}}=1,}
+\DoxyCodeLine{94       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}{ENTITY}},}
+\DoxyCodeLine{95       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}{PACKAGE\_BODY}},}
+\DoxyCodeLine{96       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}{ARCHITECTURE}},}
+\DoxyCodeLine{97       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}{PACKAGE}},}
+\DoxyCodeLine{98       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}{ATTRIBUTE}},}
+\DoxyCodeLine{99       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}{SIGNAL}},}
+\DoxyCodeLine{100       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}{COMPONENT}},}
+\DoxyCodeLine{101       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}{CONSTANT}},}
+\DoxyCodeLine{102       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}{TYPE}},}
+\DoxyCodeLine{103       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}{SUBTYPE}},}
+\DoxyCodeLine{104       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}{FUNCTION}},}
+\DoxyCodeLine{105       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}{RECORD}},}
+\DoxyCodeLine{106       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}{PROCEDURE}},}
+\DoxyCodeLine{107       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}{USE}},}
+\DoxyCodeLine{108       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}{PROCESS}},}
+\DoxyCodeLine{109       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}{PORT}},}
+\DoxyCodeLine{110       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}{UNITS}},}
+\DoxyCodeLine{111       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}{GENERIC}},}
+\DoxyCodeLine{112       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}{INSTANTIATION}},}
+\DoxyCodeLine{113       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}{GROUP}},}
+\DoxyCodeLine{114       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}{VFILE}},}
+\DoxyCodeLine{115       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}{SHAREDVARIABLE}},}
+\DoxyCodeLine{116       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}{CONFIG}},}
+\DoxyCodeLine{117       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}{ALIAS}},}
+\DoxyCodeLine{118       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}{MISCELLANEOUS}},}
+\DoxyCodeLine{119       \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}{UCF\_CONST}}}
+\DoxyCodeLine{120     \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \mbox{\hyperlink{classVhdlDocGen_a9c81282909ce97e85d0f42a4e2bd3b1e}{VhdlDocGen}}();}
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classVhdlDocGen_acc05e81acd9943236e3530a0beba9f86}{\string~VhdlDocGen}}();}
+\DoxyCodeLine{124     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a987fee1e906fac322dda62613525a8f9}{init}}();}
+\DoxyCodeLine{125     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ac5508320d1d3754b484107c49cfec5a7}{convertFileNameToClassName}}(\mbox{\hyperlink{classQCString}{QCString}} name);}
+\DoxyCodeLine{126     \textcolor{comment}{// -\/-\/-\/ used by vhdlscanner.l -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ac7d0f125a2bffca08e8c52644bf8c6f2}{isSubClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}}* cd,\mbox{\hyperlink{classClassDef}{ClassDef}} *scd, \textcolor{keywordtype}{bool} followInstances,\textcolor{keywordtype}{int} level);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ae1c14782849e08d5ef42d9ae8290c18b}{getIndexWord}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&,\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{131     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}     \mbox{\hyperlink{classVhdlDocGen_a82a05cf7bd081febd19a0065eed17098}{deleteCharRev}}(\mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{132     \textcolor{keyword}{static} \textcolor{keywordtype}{void}     \mbox{\hyperlink{classVhdlDocGen_ae4bf0d0561d8ef807b56c1f29765713e}{deleteAllChars}}(\mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{133     \textcolor{keyword}{static} \textcolor{keywordtype}{void}     \mbox{\hyperlink{classVhdlDocGen_a9f4758858cac73d07721ea31f42bea8e}{parseFuncProto}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&text,}
+\DoxyCodeLine{134                                    \mbox{\hyperlink{classQCString}{QCString}}\& name,}
+\DoxyCodeLine{135                                    \mbox{\hyperlink{classQCString}{QCString}}\& ret,}
+\DoxyCodeLine{136                                    \textcolor{keywordtype}{bool} doc=\textcolor{keyword}{false});}
+\DoxyCodeLine{137     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_ab8681769cd2f027fbf46a4836d3825e9}{computeVhdlComponentRelations}}();}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classVhdlDocGen_af24155445ad4e0328e60f78bf4a4a41f}{findKeyWord}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& word);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keyword}{static} \mbox{\hyperlink{classClassDef}{ClassDef}}* \mbox{\hyperlink{classVhdlDocGen_ad890048820909df255f6ee3f95d6ed80}{getPackageName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& name);}
+\DoxyCodeLine{144     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}* \mbox{\hyperlink{classVhdlDocGen_ab6898e9270508ce95ad8ebb5ecbedaa6}{findMember}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& className,}
+\DoxyCodeLine{145                                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& memName);}
+\DoxyCodeLine{146     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a00216e37afbb1841a9631a80379b7f0a}{findAllPackages}}(\mbox{\hyperlink{classClassDef}{ClassDef}}*);}
+\DoxyCodeLine{147     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}* \mbox{\hyperlink{classVhdlDocGen_a358ec24d6f67dee4fb2f983181a314fe}{findMemberDef}}(\mbox{\hyperlink{classClassDef}{ClassDef}}* cd,}
+\DoxyCodeLine{148                                 \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& key,}
+\DoxyCodeLine{149                                 \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} type);}
+\DoxyCodeLine{150     \textcolor{keyword}{static} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classVhdlDocGen_aa09142ff1ca07603f8bb2150ce9ceab5}{getClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{151     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}* \mbox{\hyperlink{classVhdlDocGen_a765683cbd1cf5a8e7374b64a9ac37d98}{findFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& name,}
+\DoxyCodeLine{152                                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& package);}
+\DoxyCodeLine{153     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ad5d4c791af3f2943467c7c7af558d83a}{getClassTitle}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}*);}
+\DoxyCodeLine{154     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a67f47b8dc11d967ee47e9bda86fff7e0}{writeInlineClassLink}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}*,}
+\DoxyCodeLine{155                                      \mbox{\hyperlink{classOutputList}{OutputList}} \&ol);}
+\DoxyCodeLine{156     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a76fe2943fccabc70c52ad3b6e31f4fa5}{writeTagFile}}(\mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}} *mdef,\mbox{\hyperlink{classTextStream}{TextStream}} \&tagFile);}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_adb04cd03e2039ecab3a0a8f31ee4c890}{isConstraint}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{159     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a57efdf5bddd0b36667c8aa21256ebac7}{isConfig}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{160     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_af13dd5eb831c1df008b0fd41928f4b7c}{isAlias}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{161     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a3f582b69841bae3ec6f1281604b6f0c8}{isLibrary}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{162     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ae3c19429669d382581ba37aee5f39278}{isGeneric}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{163     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a73186f5d1ba5e6c11c6f006708da79a6}{isPort}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{164     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ad3fdc795bf951ef11221894512b8bc6c}{isComponent}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{165     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_aca017e059b8a2972c2cad968800c0564}{isPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{166     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a65218023c4970a90f3bce70938a99781}{isEntity}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{167     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a2c3cdcd27394531385ccd8c56257edc1}{isConstant}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{168     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a8ab98ceef0a36aea7a15c548ec9aa455}{isVType}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{169     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ab57f7d02afdd7034f78894b20e6ff4aa}{isSubType}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{170     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a8808d28bf43d889892a8b6bad0793d7d}{isVhdlFunction}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{171     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a212ea7da7de8f22c3ca1dd14a38a67ef}{isProcess}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{172     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a07199651d2f493ee3afe42975df77efb}{isSignal}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{173     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a2dc9e668acc7c79f211709e2a0eeccad}{isAttribute}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{174     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a7fb01b11d2a225ee8d8c43a56862be8b}{isSignals}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{175     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_aed906dd71cdcb8aca1bc6e3f9fba9732}{isProcedure}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{176     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ac0634a061165ad22c27eef2ac12057d0}{isRecord}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{177     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a0281ffc4e374d27d703419ae289e3b8c}{isArchitecture}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{178     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a4861484cc952d96afcfe277cf958aff0}{isUnit}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{179     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ab6e9aff43352b39d31806d0616e2c7af}{isPackageBody}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{180     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a877e8a81695500e7ad5ed8d76fdbaffc}{isVariable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{181     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a7ac9c26b1b0fb7402cc58acaf569df89}{isFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{182     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a069c8ad206be372bd948cc8e964218ed}{isGroup}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{183     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_ab9e42b2cf2d969dcc943ec355d4fa6b2}{isCompInst}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{184     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a55ef68e914c38033a48b6fdac2907689}{isMisc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef);}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a802a7b8116fa1b8b46895c25a32c5677}{prepareComment}}(\mbox{\hyperlink{classQCString}{QCString}}\&);}
+\DoxyCodeLine{189     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_aacccadab8f7d60dc0e4b2892ea724c2b}{formatString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\&,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a0b58904c2803fe64c007b6c3ddda086e}{writeFormatString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\&,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{192     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a9ca249e8052f477d893edfc767948fcf}{writeFunctionProto}}(\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{193     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a31b60db653850e1be9084b27153e6758}{writeProcessProto}}(\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{194     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a4ab757dead7796d93d5a534ae1c11e69}{writeProcedureProto}}(\mbox{\hyperlink{classOutputList}{OutputList}}\& ol, \textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{195     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_aee87f24daab068f794ea908f33a86c3f}{writeFuncProcDocu}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef, \mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keywordtype}{bool} type=\textcolor{keyword}{false});}
+\DoxyCodeLine{196     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_ae7d4d0c22eac6e04a900b847c702a157}{writeRecordProto}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef, \mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al);}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a0218e5158efa51df8490073c645c9a79}{writeVHDLTypeDocumentation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}* mdef, \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}}* d, \mbox{\hyperlink{classOutputList}{OutputList}} \&ol);}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a0fdb360018252bfc77e0560b42a3f996}{writeVhdlDeclarations}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}}*,\mbox{\hyperlink{classOutputList}{OutputList}}\&,\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}}*,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}*,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}}*,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}}*);}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a9fc8f146887a439926769c00ae340b82}{writeVHDLDeclaration}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}}* mdef,\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,}
+\DoxyCodeLine{203         \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd,}
+\DoxyCodeLine{204         \textcolor{keywordtype}{bool} inGroup);}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_aba5dbc3ce14a37e99708ff89832eae5d}{writePlainVHDLDeclarations}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}}* ml,\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,}
+\DoxyCodeLine{207         \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd,}
+\DoxyCodeLine{208         uint64\_t specifier);}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a3d47aa601581ef4b2c8e52588c3b4c44}{writeVHDLDeclarations}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberList}{MemberList}}* ml,\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,}
+\DoxyCodeLine{211         \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd,}
+\DoxyCodeLine{212         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&subtitle,\textcolor{keywordtype}{bool} showEnumValues,\textcolor{keywordtype}{int} type);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a0ac2f4932405d6a1773bea6eb84885ec}{writeClassType}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *,\mbox{\hyperlink{classOutputList}{OutputList}} \&ol ,\mbox{\hyperlink{classQCString}{QCString}} \& cname);}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a1876213c101b31a44336d48b6b33e9ec}{convertArgumentListToString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keywordtype}{bool} f);}
+\DoxyCodeLine{217     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a6524e8718f3f956610df4dfc71be204c}{getProcessNumber}}();}
+\DoxyCodeLine{218     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a2e65f831a03ff54d13240da96843cd60}{getRecordNumber}}();}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a2c4458b0e27e9b97db254d082d1487d2}{getClassName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}*);}
+\DoxyCodeLine{221     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{isNumber}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{222     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a4325f5840fe29089b4d3ea4b8c8b0fef}{getProtectionName}}(\textcolor{keywordtype}{int} prot);}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a51c5847b18dcbf1006b7edf507438d03}{parseUCF}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*  input,\mbox{\hyperlink{classEntry}{Entry}}* entity,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&f,\textcolor{keywordtype}{bool} vendor);}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}*  \mbox{\hyperlink{classVhdlDocGen_ab13551a402d45747996978c41713af58}{findArchitecture}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a084d328a5d3f98e4846a0b0f1499d151}{correctMemberProperties}}(\mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}} *md);}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a73cd0ecf85d410591c6e1e952eef2b17}{writeSource}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}} *mdef,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \& cname);}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}  \mbox{\hyperlink{classVhdlDocGen_a4584e2262b81979f6d9b88c070c78753}{parseForConfig}}(\mbox{\hyperlink{classQCString}{QCString}} \& entity,\mbox{\hyperlink{classQCString}{QCString}} \& arch);}
+\DoxyCodeLine{233     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}  \mbox{\hyperlink{classVhdlDocGen_a411f4f042964d6e24c0376f1378da1a8}{parseForBinding}}(\mbox{\hyperlink{classQCString}{QCString}} \& entity,\mbox{\hyperlink{classQCString}{QCString}} \& arch);}
+\DoxyCodeLine{234     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a4892ca19efc7055ce4b5c3004ce550ed}{addBaseClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}}* cd,\mbox{\hyperlink{classClassDef}{ClassDef}} *ent);}
+\DoxyCodeLine{235     \textcolor{keyword}{static} \mbox{\hyperlink{classClassDef}{ClassDef}}* \mbox{\hyperlink{classVhdlDocGen_a34f3686f7bccb7f7d9ef304724198661}{findVhdlClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&className );}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a4c14772902ff4d4bf2a55291debd628e}{writeOverview}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol);}
+\DoxyCodeLine{238     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a658c57fb74c0fde61d0002a979710416}{writeOverview}}();}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240  \textcolor{comment}{// flowcharts}}
+\DoxyCodeLine{241     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a2de08afddfa24b4a037c36ac329185ff}{createFlowChart}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}}*);}
+\DoxyCodeLine{242     \textcolor{comment}{//static void addFlowImage(const TextStream \&,const QCString \&);}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a7808cdf56c299daceed3212b65b8a031}{setFlowMember}}( \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *flowMember);}
+\DoxyCodeLine{245     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *\mbox{\hyperlink{classVhdlDocGen_a12b2126cfa1cf80aeab17ae40d673d67}{getFlowMember}}();}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247     \textcolor{keyword}{static}  \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVhdlDocGen_a7b7df19eb23b1532bc1d05c7ffe6cd76}{isVhdlClass}} (\textcolor{keyword}{const} \mbox{\hyperlink{classEntry}{Entry}} *cu)}
+\DoxyCodeLine{248     \{}
+\DoxyCodeLine{249       \textcolor{keywordflow}{return} cu-\/>\mbox{\hyperlink{classEntry_a3019e7d39a5c382fb924e22913198133}{spec}}==\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}{VhdlDocGen::ENTITY}}       ||}
+\DoxyCodeLine{250              cu-\/>\mbox{\hyperlink{classEntry_a3019e7d39a5c382fb924e22913198133}{spec}}==\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}{VhdlDocGen::PACKAGE}}      ||}
+\DoxyCodeLine{251              cu-\/>\mbox{\hyperlink{classEntry_a3019e7d39a5c382fb924e22913198133}{spec}}==\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}{VhdlDocGen::ARCHITECTURE}} ||}
+\DoxyCodeLine{252              cu-\/>\mbox{\hyperlink{classEntry_a3019e7d39a5c382fb924e22913198133}{spec}}==\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}{VhdlDocGen::PACKAGE\_BODY}};}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classVhdlDocGen_a60e16e249eaf1829c224b054ff743ce7}{resetCodeVhdlParserState}}();}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257   \textcolor{keyword}{private}:}
+\DoxyCodeLine{258     \textcolor{keyword}{static} \textcolor{keywordtype}{void} findAllArchitectures(std::vector<QCString>\& ql,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{259     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} compareArgList(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&);}
+\DoxyCodeLine{260     \textcolor{keyword}{static} \textcolor{keywordtype}{void} writeVhdlLink(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}* cdd ,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\mbox{\hyperlink{classQCString}{QCString}}\& type,\mbox{\hyperlink{classQCString}{QCString}}\& name,\mbox{\hyperlink{classQCString}{QCString}}\& beh);}
+\DoxyCodeLine{261     \textcolor{keyword}{static} \textcolor{keywordtype}{void} writeStringLink(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *mdef,\mbox{\hyperlink{classQCString}{QCString}} mem,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol);}
+\DoxyCodeLine{262     \textcolor{keyword}{static} \textcolor{keywordtype}{void} writeRecUnitDocu( \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md, \mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\mbox{\hyperlink{classQCString}{QCString}} largs);}
+\DoxyCodeLine{263     \textcolor{keyword}{static} \textcolor{keywordtype}{void}  writeRecordUnit(\mbox{\hyperlink{classQCString}{QCString}} \& largs,\mbox{\hyperlink{classQCString}{QCString}} \& ltype,\mbox{\hyperlink{classOutputList}{OutputList}}\& ol,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}} *mdef);}
+\DoxyCodeLine{264 \};}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{267 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ VHDL Flowcharts -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{268 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271 \textcolor{comment}{//\#define DEBUGFLOW}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{class }\mbox{\hyperlink{classFlowChart}{FlowChart}}}
+\DoxyCodeLine{274 \{}
+\DoxyCodeLine{275   \textcolor{keyword}{public}:}
+\DoxyCodeLine{276     \textcolor{keyword}{enum} \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572c}{nodeTypes}} \{}
+\DoxyCodeLine{277       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca016ebee2535fd749ec83e830c93dae86}{IF\_NO}}        = 1<<1,}
+\DoxyCodeLine{278       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572caf7a5717aa5bac2f250ab4e68a487912b}{ELSIF\_NO}}     = 1<<2,}
+\DoxyCodeLine{279       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca23ef4fff80ce6ee01198e2eed1d74ec2}{ELSE\_NO}}      = 1<<3,}
+\DoxyCodeLine{280       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572caddeba7e93199e159a70560537023be3d}{CASE\_NO}}      = 1<<4,}
+\DoxyCodeLine{281       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572cadb18b146f68f17a2005af45fd53a41d3}{WHEN\_NO}}      = 1<<5,}
+\DoxyCodeLine{282       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca816c3e602bf735d34804cdbd1f32adf0}{EXIT\_NO}}      = 1<<6,}
+\DoxyCodeLine{283       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572cacd28dbdea10a3dc04788bb5b7f93237a}{END\_NO}}       = 1<<7,}
+\DoxyCodeLine{284       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca568c64d6bc279ed6097e26de53523adc}{TEXT\_NO}}      = 1<<8,}
+\DoxyCodeLine{285       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca1d1feec1c0b7fc94f2de8265155467ec}{START\_NO}}     = 1<<9,}
+\DoxyCodeLine{286       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca179994ac1a96f9177e2bb34d949c16a4}{ENDIF\_NO}}     = 1<<10,}
+\DoxyCodeLine{287       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca20ebc89c9bca7b02af08669632b9a658}{FOR\_NO}}       = 1<<11,}
+\DoxyCodeLine{288       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca83a7f901b277a6663270779a1b4619ed}{WHILE\_NO}}     = 1<<12,}
+\DoxyCodeLine{289       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca7596c90f02f7c88a6322c09b60ee76a1}{END\_LOOP}}     = 1<<13,}
+\DoxyCodeLine{290       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca8b7e33a5f0231ba2cb96929a1bb3ec59}{END\_CASE}}     = 1<<14,}
+\DoxyCodeLine{291       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca73080a94b50b9b7a1bf22af6585a2290}{VARIABLE\_NO}}  = 1<<15,}
+\DoxyCodeLine{292       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572caa39522dcbdd9d427c18655f88105f980}{RETURN\_NO}}    = 1<<16,}
+\DoxyCodeLine{293       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca5d1c9a27d84209bf8c7fab031bb52ca4}{LOOP\_NO}}      = 1<<17,}
+\DoxyCodeLine{294       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca34ecdc72ac6ea03993ca144ae7708be6}{NEXT\_NO}}      = 1<<18,}
+\DoxyCodeLine{295       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca194e2cbae1607787b49c794d6bb53f56}{EMPTY\_NO}}     = 1<<19,}
+\DoxyCodeLine{296       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca4ba88b16997134fe34ee6632fc1eb059}{COMMENT\_NO}}   = 1<<20,}
+\DoxyCodeLine{297       \mbox{\hyperlink{classFlowChart_acd787d5c3faa541b938e0d58c800572ca229deca6bd13999614f83433c29798fc}{BEGIN\_NO}}     = 1<<21}
+\DoxyCodeLine{298     \};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ create svg -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{301     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a7848f4e846cafbec9e8a6ecca50d4fb2}{createSVG}}();}
+\DoxyCodeLine{302     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a357656058fb2c63131f8fb984e8830e5}{startDot}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{303     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_ae96af3cb14ae04f7587a9ceb48d9f2fa}{endDot}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{304     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a45411d390f8310e821828edefffa0759}{codify}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str);}
+\DoxyCodeLine{305     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a8dce4c5ff38314428145e71a788e5331}{writeShape}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}} \&fl);}
+\DoxyCodeLine{306     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a20d4f7b89091aeb52c0349fd9e553409}{writeEdge}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keywordtype}{int} fl\_from,\textcolor{keywordtype}{int} fl\_to,\textcolor{keywordtype}{int} i,\textcolor{keywordtype}{bool} bFrom=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\textcolor{keywordtype}{bool} bTo=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{307     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a20d4f7b89091aeb52c0349fd9e553409}{writeEdge}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}} \&fl\_from,\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}} \&fl\_to,\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{308     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_ad0135f07f9ef7ebdbef4b5f09a255397}{writeFlowLinks}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{310     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFlowChart_aa01a87c51143a53315d534acc1340693}{getNodeName}}(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{311     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a6fc7dfce3416355a82991f015431b854}{colTextNodes}}();}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a948abd6948d3e24f3e9dec7eff2c3a18}{getNextIfLink}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}}\&,\textcolor{keywordtype}{size\_t});}
+\DoxyCodeLine{314     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a660d99edcee9c4dd556b42b8aa1dd4da}{getNextNode}}(\textcolor{keywordtype}{size\_t} index,\textcolor{keywordtype}{int} stamp);}
+\DoxyCodeLine{315     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_aba76e82b248e1113568acd458e2b7b21}{findNode}}(\textcolor{keywordtype}{size\_t} index,\textcolor{keywordtype}{int} stamp,\textcolor{keywordtype}{int} type);}
+\DoxyCodeLine{316     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a23431ea304445dd70df98e4c0a367ec8}{findNode}}(\textcolor{keywordtype}{size\_t} index,\textcolor{keywordtype}{int} type);}
+\DoxyCodeLine{317     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a82fc425100d1cf68c08bad05195bf2f3}{findNextLoop}}(\textcolor{keywordtype}{size\_t} j,\textcolor{keywordtype}{int} stamp);}
+\DoxyCodeLine{318     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a0305aa29048ee638ab09b4dc4bf28a9f}{findPrevLoop}}(\textcolor{keywordtype}{size\_t} j,\textcolor{keywordtype}{int} stamp,\textcolor{keywordtype}{bool} endif=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{319     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classFlowChart_a590a484692d935d4850c7e6bce508d01}{findLabel}}(\textcolor{keywordtype}{size\_t} j,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&);}
+\DoxyCodeLine{320     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a64f98636bae1290688ea4bc06d02e86f}{delFlowList}}();}
+\DoxyCodeLine{321     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{classFlowChart_a45109b9f0963e9c0b92a467e0ce63f12}{getNodeType}}(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a5e2d1232239471126aade777574d9d34}{addFlowChart}}(\textcolor{keywordtype}{int} type,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&text,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&exp,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label=\mbox{\hyperlink{classQCString}{QCString}}());}
+\DoxyCodeLine{324     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a9ddf7f6aff23849c4bbb90afbabd38c1}{moveToPrevLevel}}();}
+\DoxyCodeLine{325     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{classFlowChart_a50ac682c2637e445a71ef5154f75747d}{getTimeStamp}}();}
+\DoxyCodeLine{326     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a66989e6892ad6bbb539241dedbfc4f9e}{writeFlowChart}}();}
+\DoxyCodeLine{327     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a33fa889d7e70cd1c2cab56a16790d9b5}{alignFuncProc}}(\mbox{\hyperlink{classQCString}{QCString}} \& q,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al,\textcolor{keywordtype}{bool} isFunc);}
+\DoxyCodeLine{328     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFlowChart_aaadfeca7904b4d69db2cda56d753d7a6}{convertNameToFileName}}();}
+\DoxyCodeLine{329     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a9b95266661529a9ec041d5e91f4c302f}{printNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}}\& n);}
+\DoxyCodeLine{330     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_a25647e6b336425f3f5ccef2ecea0dcf1}{printFlowTree}}();}
+\DoxyCodeLine{331     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_abe5bc298b8ac3b911af947e2b29089f5}{buildCommentNodes}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{332     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classFlowChart_ab657e2797fb2f8d57ca202215fc2003d}{alignCommentNode}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\mbox{\hyperlink{classQCString}{QCString}} com);}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334     \textcolor{keyword}{static} \textcolor{keywordtype}{void}  \mbox{\hyperlink{classFlowChart_acf7119e47c96291250aee1c5c98ac794}{printUmlTree}}();}
+\DoxyCodeLine{335     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFlowChart_aefb4ef8e7f1dd80f48ceee263197a572}{printPlantUmlNode}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFlowChart}{FlowChart}} \&flo,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337     \mbox{\hyperlink{classFlowChart_ad62b02a6d1de25c45eb027c0238f7075}{FlowChart}}(\textcolor{keywordtype}{int} typ,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ex,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label=\mbox{\hyperlink{classQCString}{QCString}}());}
+\DoxyCodeLine{338     \mbox{\hyperlink{classFlowChart_a8ca4b8277b81de3a54fd53c8b82c01bf}{\string~FlowChart}}();}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{keyword}{private}:}
+\DoxyCodeLine{341     \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = 0;}
+\DoxyCodeLine{342     \textcolor{keywordtype}{int} stamp = 0;}
+\DoxyCodeLine{343     \textcolor{keywordtype}{int} type = 0;}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345     \textcolor{keywordtype}{int} line = 0;}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347     \mbox{\hyperlink{classQCString}{QCString}} label;}
+\DoxyCodeLine{348     \mbox{\hyperlink{classQCString}{QCString}} text;}
+\DoxyCodeLine{349     \mbox{\hyperlink{classQCString}{QCString}} exp;}
+\DoxyCodeLine{350 \};}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352 \textcolor{keyword}{extern} std::vector<FlowChart> \mbox{\hyperlink{vhdldocgen_8h_a58b3784e26a172c464443fb55a30364d}{flowList}};}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

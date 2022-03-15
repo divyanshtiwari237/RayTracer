@@ -1,0 +1,272 @@
+\hypertarget{scopedtypevariant_8h_source}{}\doxysection{scopedtypevariant.\+h}
+\label{scopedtypevariant_8h_source}\index{/mnt/c/projects/doxygen/src/scopedtypevariant.h@{/mnt/c/projects/doxygen/src/scopedtypevariant.h}}
+\mbox{\hyperlink{scopedtypevariant_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef SCOPEDTYPEVARIANT\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define SCOPEDTYPEVARIANT\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{definition_8h}{definition.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classLocalDef}{LocalDef}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLocalDef_ae8f9b2d7b294134d474b0ac1c72ea41f}{insertBaseClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) \{ m\_baseClasses.push\_back(name); \}}
+\DoxyCodeLine{31     std::vector<QCString> \mbox{\hyperlink{classLocalDef_a4ed8113c3b0036e4cdd6f2e9b06bd03d}{baseClasses}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_baseClasses; \}}
+\DoxyCodeLine{32   \textcolor{keyword}{private}:}
+\DoxyCodeLine{33     std::vector<QCString> m\_baseClasses;}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}}}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47   \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \textcolor{keyword}{enum} \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714}{Variant}}}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51       \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a9d5652984dd2da6232d2a429b8ae70e6}{Global}},}
+\DoxyCodeLine{52       \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}},}
+\DoxyCodeLine{53       \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a47e9648b6ac5be72bd5719514ffcf429}{Dummy}}}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{56     \mbox{\hyperlink{classScopedTypeVariant_a370e2e317a3cd50fd50b8b465e0c2ca8}{ScopedTypeVariant}}() : m\_variant(\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a47e9648b6ac5be72bd5719514ffcf429}{Dummy}})}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58       m\_u.globalDef = 0;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{61     \textcolor{keyword}{explicit} \mbox{\hyperlink{classScopedTypeVariant_a54f6ee7b8a9aac8179bbfcc4dd19e058}{ScopedTypeVariant}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d)}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63       \textcolor{keywordflow}{if} (d)}
+\DoxyCodeLine{64       \{}
+\DoxyCodeLine{65         m\_name = d-\/>\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{66         m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a9d5652984dd2da6232d2a429b8ae70e6}{Global}};}
+\DoxyCodeLine{67         m\_u.globalDef = d;}
+\DoxyCodeLine{68       \}}
+\DoxyCodeLine{69       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{70       \{}
+\DoxyCodeLine{71         m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a47e9648b6ac5be72bd5719514ffcf429}{Dummy}};}
+\DoxyCodeLine{72         m\_u.globalDef = 0;}
+\DoxyCodeLine{73       \}}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{76     \textcolor{keyword}{explicit} \mbox{\hyperlink{classScopedTypeVariant_a357301fbd8bdd91ca469624a56807852}{ScopedTypeVariant}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classScopedTypeVariant_a9575908a0f5dba51df6ecff29a264f26}{name}})}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78       m\_name = \mbox{\hyperlink{classScopedTypeVariant_a9575908a0f5dba51df6ecff29a264f26}{name}};}
+\DoxyCodeLine{79       m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}};}
+\DoxyCodeLine{80       m\_u.localDef = \textcolor{keyword}{new} \mbox{\hyperlink{classLocalDef}{LocalDef}};}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{83     \mbox{\hyperlink{classScopedTypeVariant_ac38fd96814c55a445929db687efc2757}{ScopedTypeVariant}}(\textcolor{keyword}{const} \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&stv)}
+\DoxyCodeLine{84     \{}
+\DoxyCodeLine{85       m\_variant = stv.m\_variant;}
+\DoxyCodeLine{86       m\_name    = stv.m\_name;}
+\DoxyCodeLine{87       \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}})}
+\DoxyCodeLine{88       \{}
+\DoxyCodeLine{89         m\_u.localDef = \textcolor{keyword}{new} \mbox{\hyperlink{classLocalDef}{LocalDef}}(*stv.m\_u.\mbox{\hyperlink{classScopedTypeVariant_a22602cd45d23e22e343cb3be7b3e05b0}{localDef}});}
+\DoxyCodeLine{90       \}}
+\DoxyCodeLine{91       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a9d5652984dd2da6232d2a429b8ae70e6}{Global}})}
+\DoxyCodeLine{92       \{}
+\DoxyCodeLine{93         m\_u.globalDef = stv.m\_u.\mbox{\hyperlink{classScopedTypeVariant_a1fdef8791c67f284b80b7f1c655943b0}{globalDef}};}
+\DoxyCodeLine{94       \}}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{97     \mbox{\hyperlink{classScopedTypeVariant_a87ff4918b9095b90007051955d318d54}{ScopedTypeVariant}}(\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&\&stv) noexcept : \mbox{\hyperlink{classScopedTypeVariant_a87ff4918b9095b90007051955d318d54}{ScopedTypeVariant}}()}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99       \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(*\textcolor{keyword}{this},stv);}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{102     \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&\mbox{\hyperlink{classScopedTypeVariant_a7c7feb73299e88535cc7a3cb4db17816}{operator=}}(\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} stv)}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104       \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(*\textcolor{keyword}{this},stv);}
+\DoxyCodeLine{105       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{108    \mbox{\hyperlink{classScopedTypeVariant_ad9aacbc5a88816541d0e610aabe696cb}{\string~ScopedTypeVariant}}()}
+\DoxyCodeLine{109     \{}
+\DoxyCodeLine{110       \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}})}
+\DoxyCodeLine{111       \{}
+\DoxyCodeLine{112         \textcolor{keyword}{delete} m\_u.localDef;}
+\DoxyCodeLine{113       \}}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{116     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&first,\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&second)}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118       \textcolor{keyword}{using} std::swap; \textcolor{comment}{// enable ADL}}
+\DoxyCodeLine{119       \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(first.m\_variant,second.m\_variant);}
+\DoxyCodeLine{120       \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(first.m\_name,second.m\_name);}
+\DoxyCodeLine{121       \mbox{\hyperlink{classScopedTypeVariant_a16d20ebc5e4c2147d11c0fb0b6f295d4}{swap}}(first.m\_u.\mbox{\hyperlink{classScopedTypeVariant_a1fdef8791c67f284b80b7f1c655943b0}{globalDef}},second.m\_u.\mbox{\hyperlink{classScopedTypeVariant_a1fdef8791c67f284b80b7f1c655943b0}{globalDef}});}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScopedTypeVariant_a62ad87991397fefb0643530b25987e65}{setGlobal}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def)}
+\DoxyCodeLine{125     \{}
+\DoxyCodeLine{126       \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}})}
+\DoxyCodeLine{127       \{}
+\DoxyCodeLine{128         \textcolor{keyword}{delete} m\_u.localDef;}
+\DoxyCodeLine{129       \}}
+\DoxyCodeLine{130       m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a9d5652984dd2da6232d2a429b8ae70e6}{Global}};}
+\DoxyCodeLine{131       m\_name = def-\/>\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}();}
+\DoxyCodeLine{132       m\_u.globalDef = def;}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{135     \mbox{\hyperlink{classLocalDef}{LocalDef}} *\mbox{\hyperlink{classScopedTypeVariant_a575d811f64b93c162d1fa3cc07714cea}{setLocal}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classScopedTypeVariant_a9575908a0f5dba51df6ecff29a264f26}{name}})}
+\DoxyCodeLine{136     \{}
+\DoxyCodeLine{137       \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}})}
+\DoxyCodeLine{138       \{}
+\DoxyCodeLine{139         \textcolor{keyword}{delete} m\_u.localDef;}
+\DoxyCodeLine{140       \}}
+\DoxyCodeLine{141       m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}};}
+\DoxyCodeLine{142       m\_name = \mbox{\hyperlink{classScopedTypeVariant_a9575908a0f5dba51df6ecff29a264f26}{name}};}
+\DoxyCodeLine{143       m\_u.localDef = \textcolor{keyword}{new} \mbox{\hyperlink{classLocalDef}{LocalDef}};}
+\DoxyCodeLine{144       \textcolor{keywordflow}{return} m\_u.localDef;}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{147     \textcolor{keywordtype}{void} \mbox{\hyperlink{classScopedTypeVariant_a14dd70ab5488d2218ba9f88c5dd4c594}{setDummy}}()}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149       \textcolor{keywordflow}{if} (m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}})}
+\DoxyCodeLine{150       \{}
+\DoxyCodeLine{151         \textcolor{keyword}{delete} m\_u.localDef;}
+\DoxyCodeLine{152       \}}
+\DoxyCodeLine{153       m\_variant = \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a47e9648b6ac5be72bd5719514ffcf429}{Dummy}};}
+\DoxyCodeLine{154       m\_name = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{155       m\_u.localDef=0;}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157     \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714}{Variant}} \mbox{\hyperlink{classScopedTypeVariant_a838f81b32bf4b106f146908ac3f822ca}{type}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_variant; \}}
+\DoxyCodeLine{158     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classScopedTypeVariant_a9575908a0f5dba51df6ecff29a264f26}{name}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_name; \}}
+\DoxyCodeLine{159     \mbox{\hyperlink{classLocalDef}{LocalDef}} *\mbox{\hyperlink{classScopedTypeVariant_a6f73759cc66a80de309f988f81a0475f}{localDef}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a88a2e8a838f81ccf787113feec85f831}{Local}} ? m\_u.localDef : 0; \}}
+\DoxyCodeLine{160     \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{classScopedTypeVariant_a8a5026edb5b2a84d7a612419e7737c04}{globalDef}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_variant==\mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714a9d5652984dd2da6232d2a429b8ae70e6}{Global}} ? m\_u.globalDef : 0; \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162   \textcolor{keyword}{private}:}
+\DoxyCodeLine{163     \mbox{\hyperlink{classScopedTypeVariant_ac4cc26225ec9b01cb6b672a8e8458714}{Variant}} m\_variant;}
+\DoxyCodeLine{164     \mbox{\hyperlink{classQCString}{QCString}} m\_name;}
+\DoxyCodeLine{165     \textcolor{keyword}{union}}
+\DoxyCodeLine{166     \{}
+\DoxyCodeLine{167       \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{classScopedTypeVariant_a1fdef8791c67f284b80b7f1c655943b0}{globalDef}};}
+\DoxyCodeLine{168       \mbox{\hyperlink{classLocalDef}{LocalDef}} *\mbox{\hyperlink{classScopedTypeVariant_a22602cd45d23e22e343cb3be7b3e05b0}{localDef}};}
+\DoxyCodeLine{169     \} m\_u;}
+\DoxyCodeLine{170 \};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{179 \textcolor{keyword}{class }\mbox{\hyperlink{classVariableContext}{VariableContext}}}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181   \textcolor{keyword}{public}:}
+\DoxyCodeLine{182     \textcolor{keyword}{using} \mbox{\hyperlink{classVariableContext_acaf108f97a14c38cfcc698654e947e7d}{Scope}} = std::unordered\_map<std::string,ScopedTypeVariant>;}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVariableContext_ae1d858d3ad4778e79ac69a021474edab}{pushScope}}()}
+\DoxyCodeLine{185     \{}
+\DoxyCodeLine{186       m\_scopes.push\_back(\mbox{\hyperlink{classVariableContext_acaf108f97a14c38cfcc698654e947e7d}{Scope}}());}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVariableContext_a648ebfb9146a61b70dffe684aec77940}{popScope}}()}
+\DoxyCodeLine{189     \{}
+\DoxyCodeLine{190       \textcolor{keywordflow}{if} (!m\_scopes.empty())}
+\DoxyCodeLine{191       \{}
+\DoxyCodeLine{192         m\_scopes.pop\_back();}
+\DoxyCodeLine{193       \}}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVariableContext_a37579e37d7d730884861f71a1b9f0439}{clear}}()}
+\DoxyCodeLine{196     \{}
+\DoxyCodeLine{197       m\_scopes.clear();}
+\DoxyCodeLine{198       m\_globalScope.clear();}
+\DoxyCodeLine{199     \}}
+\DoxyCodeLine{200     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVariableContext_af762830da74924aa08900310e554e253}{clearExceptGlobal}}()}
+\DoxyCodeLine{201     \{}
+\DoxyCodeLine{202       m\_scopes.clear();}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVariableContext_a8ecf50e05c0af1f854d21a2d0574dbcf}{addVariable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} stv)}
+\DoxyCodeLine{205     \{}
+\DoxyCodeLine{206       \mbox{\hyperlink{classVariableContext_acaf108f97a14c38cfcc698654e947e7d}{Scope}} *scope = m\_scopes.empty() ? \&m\_globalScope : \&m\_scopes.back();}
+\DoxyCodeLine{207       scope-\/>emplace(std::make\_pair(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}(),std::move(stv))); \textcolor{comment}{// add it to a list}}
+\DoxyCodeLine{208     \}}
+\DoxyCodeLine{209     \textcolor{keyword}{const} \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} *\mbox{\hyperlink{classVariableContext_aa4cfe2b318b52c33b4e28b5840275d85}{findVariable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{210     \{}
+\DoxyCodeLine{211       \textcolor{keyword}{const} \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} *result = 0;}
+\DoxyCodeLine{212       \textcolor{keywordflow}{if} (name.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214       \textcolor{comment}{// search from inner to outer scope}}
+\DoxyCodeLine{215       \textcolor{keyword}{auto} it = std::rbegin(m\_scopes);}
+\DoxyCodeLine{216       \textcolor{keywordflow}{while} (it != std::rend(m\_scopes))}
+\DoxyCodeLine{217       \{}
+\DoxyCodeLine{218         \textcolor{keyword}{auto} it2 = it-\/>find(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{219         \textcolor{keywordflow}{if} (it2 != \mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{std::end}}(*it))}
+\DoxyCodeLine{220         \{}
+\DoxyCodeLine{221           result = \&it2-\/>second;}
+\DoxyCodeLine{222           \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{223         \}}
+\DoxyCodeLine{224         ++it;}
+\DoxyCodeLine{225       \}}
+\DoxyCodeLine{226       \textcolor{comment}{// nothing found -\/> also try the global scope}}
+\DoxyCodeLine{227       \textcolor{keyword}{auto} it2 = m\_globalScope.find(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{228       \textcolor{keywordflow}{if} (it2 != m\_globalScope.end())}
+\DoxyCodeLine{229       \{}
+\DoxyCodeLine{230         result = \&it2-\/>second;}
+\DoxyCodeLine{231       \}}
+\DoxyCodeLine{232       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVariableContext_a3b01492065b015f3b275ea2b9d02d2be}{atGlobalScope}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_scopes.empty(); \}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236   \textcolor{keyword}{private}:}
+\DoxyCodeLine{237     \mbox{\hyperlink{classScope}{Scope}}              m\_globalScope;}
+\DoxyCodeLine{238     std::vector<Scope> m\_scopes;}
+\DoxyCodeLine{239 \};}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244 \textcolor{keyword}{class }\mbox{\hyperlink{classCallContext}{CallContext}}}
+\DoxyCodeLine{245 \{}
+\DoxyCodeLine{246   \textcolor{keyword}{public}:}
+\DoxyCodeLine{247     \textcolor{keyword}{struct }\mbox{\hyperlink{structCallContext_1_1Ctx}{Ctx}}}
+\DoxyCodeLine{248     \{}
+\DoxyCodeLine{249       \mbox{\hyperlink{structCallContext_1_1Ctx_a0acc4793cb2cbaca7f8e3a7c7c2f8dd6}{Ctx}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name\_,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&type\_) : \mbox{\hyperlink{structCallContext_1_1Ctx_a25706b50d9a1377bc3c8d955047ad4fc}{name}}(name\_), \mbox{\hyperlink{structCallContext_1_1Ctx_a4f7150e244df309082ff5cc1abb0806f}{type}}(type\_) \{\}}
+\DoxyCodeLine{250       \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structCallContext_1_1Ctx_a25706b50d9a1377bc3c8d955047ad4fc}{name}};}
+\DoxyCodeLine{251       \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structCallContext_1_1Ctx_a4f7150e244df309082ff5cc1abb0806f}{type}};}
+\DoxyCodeLine{252       \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \mbox{\hyperlink{structCallContext_1_1Ctx_a725fa748acce00d5e41f9c1f00c7be95}{stv}};}
+\DoxyCodeLine{253     \};}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     \mbox{\hyperlink{classCallContext_acf102c125585ad2e1bbfd53f71bdf736}{CallContext}}()}
+\DoxyCodeLine{256     \{}
+\DoxyCodeLine{257       \mbox{\hyperlink{classCallContext_a7869d538aef25757711715bbd042ab62}{clear}}();}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCallContext_a8757d0d18b9145ac439489a6d48e5109}{setScope}}(\textcolor{keyword}{const} \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \&stv)}
+\DoxyCodeLine{260     \{}
+\DoxyCodeLine{261       \mbox{\hyperlink{structCallContext_1_1Ctx}{Ctx}} \&ctx = m\_stvList.back();}
+\DoxyCodeLine{262       ctx.\mbox{\hyperlink{structCallContext_1_1Ctx_a725fa748acce00d5e41f9c1f00c7be95}{stv}}=std::move(stv);}
+\DoxyCodeLine{263     \}}
+\DoxyCodeLine{264     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCallContext_a07e1b8e1caa5f45e713f857e97389c3f}{pushScope}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name\_,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&type\_)}
+\DoxyCodeLine{265     \{}
+\DoxyCodeLine{266       m\_stvList.push\_back(\mbox{\hyperlink{structCallContext_1_1Ctx}{Ctx}}(name\_,type\_));}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCallContext_a98d314bb7b43761f9fd100f76ccbf6b2}{popScope}}(\mbox{\hyperlink{classQCString}{QCString}} \&name\_,\mbox{\hyperlink{classQCString}{QCString}} \&type\_)}
+\DoxyCodeLine{269     \{}
+\DoxyCodeLine{270       \textcolor{keywordflow}{if} (m\_stvList.size()>1)}
+\DoxyCodeLine{271       \{}
+\DoxyCodeLine{272         \textcolor{keyword}{const} \mbox{\hyperlink{structCallContext_1_1Ctx}{Ctx}} \&ctx = m\_stvList.back();}
+\DoxyCodeLine{273         name\_ = ctx.\mbox{\hyperlink{structCallContext_1_1Ctx_a25706b50d9a1377bc3c8d955047ad4fc}{name}};}
+\DoxyCodeLine{274         type\_ = ctx.\mbox{\hyperlink{structCallContext_1_1Ctx_a4f7150e244df309082ff5cc1abb0806f}{type}};}
+\DoxyCodeLine{275         m\_stvList.pop\_back();}
+\DoxyCodeLine{276       \}}
+\DoxyCodeLine{277     \}}
+\DoxyCodeLine{278     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCallContext_a7869d538aef25757711715bbd042ab62}{clear}}()}
+\DoxyCodeLine{279     \{}
+\DoxyCodeLine{280       m\_stvList.clear();}
+\DoxyCodeLine{281       m\_stvList.push\_back(\mbox{\hyperlink{structCallContext_1_1Ctx}{Ctx}}(\mbox{\hyperlink{classQCString}{QCString}}(),\mbox{\hyperlink{classQCString}{QCString}}()));}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{283     \textcolor{keyword}{const} \mbox{\hyperlink{classScopedTypeVariant}{ScopedTypeVariant}} \mbox{\hyperlink{classCallContext_a59fbf46a5795170aaea214c2a47c9553}{getScope}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{284 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{285       \textcolor{keywordflow}{return} m\_stvList.back().stv;}
+\DoxyCodeLine{286     \}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288   \textcolor{keyword}{private}:}
+\DoxyCodeLine{289     std::vector<Ctx> m\_stvList;}
+\DoxyCodeLine{290 \};}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

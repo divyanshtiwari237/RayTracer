@@ -1,0 +1,91 @@
+\hypertarget{htmlhelp_8h_source}{}\doxysection{htmlhelp.\+h}
+\label{htmlhelp_8h_source}\index{/mnt/c/projects/doxygen/src/htmlhelp.h@{/mnt/c/projects/doxygen/src/htmlhelp.h}}
+\mbox{\hyperlink{htmlhelp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * The code is this file is largely based on a contribution from}}
+\DoxyCodeLine{15 \textcolor{comment}{ * Harm van der Heijden <H.v.d.Heijden@phys.tue.nl>}}
+\DoxyCodeLine{16 \textcolor{comment}{ * Please send thanks to him and bug reports to me :-\/)}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef HTMLHELP\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define HTMLHELP\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{index_8h}{index.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classHtmlHelp}{HtmlHelp}}  : \textcolor{keyword}{public} \mbox{\hyperlink{classIndexIntf}{IndexIntf}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{37     \textcolor{keyword}{enum} ImageNumber \{}
+\DoxyCodeLine{38       BOOK\_CLOSED=1,    BOOK\_OPEN,}
+\DoxyCodeLine{39       BOOK\_CLOSED\_NEW,  BOOK\_OPEN\_NEW,}
+\DoxyCodeLine{40       FOLDER\_CLOSED,    FOLDER\_OPEN,}
+\DoxyCodeLine{41       FOLDER\_CLOSED\_NEW,FOLDER\_OPEN\_NEW,}
+\DoxyCodeLine{42       QUERY,            QUERY\_NEW,}
+\DoxyCodeLine{43       TEXT,             TEXT\_NEW,}
+\DoxyCodeLine{44       WEB\_DOC,          WEB\_DOC\_NEW,}
+\DoxyCodeLine{45       WEB\_LINK,         WEB\_LINK\_NEW,}
+\DoxyCodeLine{46       INFO,             INFO\_NEW,}
+\DoxyCodeLine{47       LINK,             LINK\_NEW,}
+\DoxyCodeLine{48       BOOKLET,          BOOKLET\_NEW,}
+\DoxyCodeLine{49       EMAIL,            EMAIL\_NEW,}
+\DoxyCodeLine{50       EMAIL2,           EMAIL2\_NEW,}
+\DoxyCodeLine{51       IMAGE,            IMAGE\_NEW,}
+\DoxyCodeLine{52       AUDIO,            AUDIO\_NEW,}
+\DoxyCodeLine{53       MUSIC,            MUSIC\_NEW,}
+\DoxyCodeLine{54       VIDEO,            VIDEO\_NEW,}
+\DoxyCodeLine{55       INDEX,            INDEX\_NEW,}
+\DoxyCodeLine{56       IDEA,             IDEA\_NEW,}
+\DoxyCodeLine{57       NOTE,             NOTE\_NEW,}
+\DoxyCodeLine{58       TOOL,             TOOL\_NEW}
+\DoxyCodeLine{59     \};}
+\DoxyCodeLine{60   \textcolor{keyword}{public}:}
+\DoxyCodeLine{61     \textcolor{comment}{//static HtmlHelp *getInstance();}}
+\DoxyCodeLine{62     \mbox{\hyperlink{classHtmlHelp_a0d86f84971a446fc8c61c1a64f8eaaf8}{HtmlHelp}}();}
+\DoxyCodeLine{63     \mbox{\hyperlink{classHtmlHelp_a53ff23898ba7e49de5ce6dba03675f82}{\string~HtmlHelp}}();}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_acf6cb7c477c71f2031b5831f979991d5}{initialize}}();}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_a66375adceef242d73c6554bd7fba6cf7}{finalize}}();}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_aca0008f8813f28f23ca5bcaea25a7bec}{incContentsDepth}}();}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_ad76b300748e818d96676f0743738090d}{decContentsDepth}}();}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_a69d35ed016d93b74813c510e63a72cb3}{addContentsItem}}(\textcolor{keywordtype}{bool} isDir,}
+\DoxyCodeLine{69                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,}
+\DoxyCodeLine{70                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref,}
+\DoxyCodeLine{71                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},}
+\DoxyCodeLine{72                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor,}
+\DoxyCodeLine{73                          \textcolor{keywordtype}{bool} separateIndex,}
+\DoxyCodeLine{74                          \textcolor{keywordtype}{bool} addToNavIndex,}
+\DoxyCodeLine{75                          \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *def);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_a247f8e8a9f527f64cbd47875876ee62b}{addIndexItem}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *context,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md,}
+\DoxyCodeLine{77                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sectionAnchor, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title);}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_a06d4ceaf4d108051a76d49986f56b8a0}{addIndexFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_a01a6226c4a4e8c587a78af168e5e3938}{addImageFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlHelp_ac6c55156ed17cff5a6cb350df9182d06}{addStyleSheetFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classHtmlHelp_af2b3923cd07004204fb0c542100b28e8}{hhcFileName}} = \textcolor{stringliteral}{"{}index.hhc"{}};}
+\DoxyCodeLine{83     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classHtmlHelp_a110521fd634c3c63e47cfe47e210a848}{hhkFileName}} = \textcolor{stringliteral}{"{}index.hhk"{}};}
+\DoxyCodeLine{84     \textcolor{keyword}{static} \textcolor{keyword}{inline} \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classHtmlHelp_a314fc3c639cdd9af2fa9969db847a176}{hhpFileName}} = \textcolor{stringliteral}{"{}index.hhp"{}};}
+\DoxyCodeLine{85   \textcolor{keyword}{private}:}
+\DoxyCodeLine{86     \textcolor{keyword}{class }\mbox{\hyperlink{classHtmlHelp_1_1Private}{Private}};}
+\DoxyCodeLine{87     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{88     \mbox{\hyperlink{classQCString}{QCString}} recode(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* HTMLHELP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{93 }
+
+\end{DoxyCode}

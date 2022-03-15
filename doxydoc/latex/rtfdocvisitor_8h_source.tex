@@ -1,0 +1,191 @@
+\hypertarget{rtfdocvisitor_8h_source}{}\doxysection{rtfdocvisitor.\+h}
+\label{rtfdocvisitor_8h_source}\index{/mnt/c/projects/doxygen/src/rtfdocvisitor.h@{/mnt/c/projects/doxygen/src/rtfdocvisitor.h}}
+\mbox{\hyperlink{rtfdocvisitor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{9 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{10 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{11 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{15 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef RTFDOCVISITOR\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define RTFDOCVISITOR\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{docvisitor_8h}{docvisitor.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}};}
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classRTFDocVisitor}{RTFDocVisitor}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDocVisitor}{DocVisitor}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classRTFDocVisitor_a776ecb7fab3e8e5a0c5b2cf1db252f59}{RTFDocVisitor}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&ci,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&langExt);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{37     \textcolor{comment}{// visitor functions for leaf nodes}}
+\DoxyCodeLine{38     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocWord}{DocWord}} *);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocLinkedWord}{DocLinkedWord}} *);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocWhiteSpace}{DocWhiteSpace}} *);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocSymbol}{DocSymbol}} *);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocEmoji}{DocEmoji}} *);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocURL}{DocURL}} *);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocLineBreak}{DocLineBreak}} *);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocHorRuler}{DocHorRuler}} *);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocStyleChange}{DocStyleChange}} *);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocVerbatim}{DocVerbatim}} *);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocAnchor}{DocAnchor}} *);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocInclude}{DocInclude}} *);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocIncOperator}{DocIncOperator}} *);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocFormula}{DocFormula}} *);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocIndexEntry}{DocIndexEntry}} *);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocSimpleSectSep}{DocSimpleSectSep}} *);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a9c5a705acc9d352e4666daa1701710cf}{visit}}(\mbox{\hyperlink{classDocCite}{DocCite}} *);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{59     \textcolor{comment}{// visitor functions for compound nodes}}
+\DoxyCodeLine{60     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocAutoList}{DocAutoList}} *);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocAutoList}{DocAutoList}} *);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocAutoListItem}{DocAutoListItem}} *);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocAutoListItem}{DocAutoListItem}} *);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocPara}{DocPara}} *);}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocPara}{DocPara}} *);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocRoot}{DocRoot}} *);}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocRoot}{DocRoot}} *);}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSimpleSect}{DocSimpleSect}} *);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSimpleSect}{DocSimpleSect}} *);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocTitle}{DocTitle}} *);}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocTitle}{DocTitle}} *);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSimpleList}{DocSimpleList}} *);}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSimpleList}{DocSimpleList}} *);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSimpleListItem}{DocSimpleListItem}} *);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSimpleListItem}{DocSimpleListItem}} *);}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSection}{DocSection}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSection}{DocSection}} *);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlList}{DocHtmlList}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlList}{DocHtmlList}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlListItem}{DocHtmlListItem}} *);}
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlListItem}{DocHtmlListItem}} *);}
+\DoxyCodeLine{84     \textcolor{comment}{//void visitPre(DocHtmlPre *);}}
+\DoxyCodeLine{85     \textcolor{comment}{//void visitPost(DocHtmlPre *);}}
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescList}{DocHtmlDescList}} *);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescList}{DocHtmlDescList}} *);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescTitle}{DocHtmlDescTitle}} *);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescTitle}{DocHtmlDescTitle}} *);}
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescData}{DocHtmlDescData}} *);}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescData}{DocHtmlDescData}} *);}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlTable}{DocHtmlTable}} *t);}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlTable}{DocHtmlTable}} *t);}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlCaption}{DocHtmlCaption}} *);}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlCaption}{DocHtmlCaption}} *);}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlRow}{DocHtmlRow}} *);}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlRow}{DocHtmlRow}} *) ;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *);}
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocInternal}{DocInternal}} *);}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocInternal}{DocInternal}} *);}
+\DoxyCodeLine{102     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHRef}{DocHRef}} *);}
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHRef}{DocHRef}} *);}
+\DoxyCodeLine{104     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlHeader}{DocHtmlHeader}} *);}
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlHeader}{DocHtmlHeader}} *) ;}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocImage}{DocImage}} *);}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocImage}{DocImage}} *);}
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocDotFile}{DocDotFile}} *);}
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocDotFile}{DocDotFile}} *);}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocMscFile}{DocMscFile}} *);}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocMscFile}{DocMscFile}} *);}
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocDiaFile}{DocDiaFile}} *);}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocDiaFile}{DocDiaFile}} *);}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocLink}{DocLink}} *);}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocLink}{DocLink}} *);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocRef}{DocRef}} *ref);}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocRef}{DocRef}} *);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSecRefItem}{DocSecRefItem}} *);}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSecRefItem}{DocSecRefItem}} *);}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocSecRefList}{DocSecRefList}} *);}
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocSecRefList}{DocSecRefList}} *);}
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocParamSect}{DocParamSect}} *);}
+\DoxyCodeLine{123     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocParamSect}{DocParamSect}} *);}
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocParamList}{DocParamList}} *);}
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocParamList}{DocParamList}} *);}
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocXRefItem}{DocXRefItem}} *);}
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocXRefItem}{DocXRefItem}} *);}
+\DoxyCodeLine{128     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocInternalRef}{DocInternalRef}} *);}
+\DoxyCodeLine{129     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocInternalRef}{DocInternalRef}} *);}
+\DoxyCodeLine{130     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocText}{DocText}} *);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocText}{DocText}} *);}
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocHtmlBlockQuote}{DocHtmlBlockQuote}} *);}
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocHtmlBlockQuote}{DocHtmlBlockQuote}} *);}
+\DoxyCodeLine{134     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocVhdlFlow}{DocVhdlFlow}} *);}
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocVhdlFlow}{DocVhdlFlow}} *);}
+\DoxyCodeLine{136     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_a4b7d827c3a649ffc314d0aad7a02d22e}{visitPre}}(\mbox{\hyperlink{classDocParBlock}{DocParBlock}} *);}
+\DoxyCodeLine{137     \textcolor{keywordtype}{void} \mbox{\hyperlink{classRTFDocVisitor_ae29ed191e7d8072b5201b0acb2f9cc73}{visitPost}}(\mbox{\hyperlink{classDocParBlock}{DocParBlock}} *);}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139   \textcolor{keyword}{private}:}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{142     \textcolor{comment}{// helper functions}}
+\DoxyCodeLine{143     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{keywordtype}{void} filter(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str,\textcolor{keywordtype}{bool} verbatim=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{146     \textcolor{keywordtype}{void} startLink(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},}
+\DoxyCodeLine{147                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor);}
+\DoxyCodeLine{148     \textcolor{keywordtype}{void} endLink(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref);}
+\DoxyCodeLine{149     \mbox{\hyperlink{classQCString}{QCString}} getStyle(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \textcolor{keywordtype}{int} indentLevel() \textcolor{keyword}{const};}
+\DoxyCodeLine{152     \textcolor{keywordtype}{void} incIndentLevel();}
+\DoxyCodeLine{153     \textcolor{keywordtype}{void} decIndentLevel();}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155     \textcolor{keywordtype}{void} includePicturePreRTF(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name, \textcolor{keywordtype}{bool} isTypeRTF, \textcolor{keywordtype}{bool} hasCaption, \textcolor{keywordtype}{bool} inlineImage = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{156     \textcolor{keywordtype}{void} includePicturePostRTF(\textcolor{keywordtype}{bool} isTypeRTF, \textcolor{keywordtype}{bool} hasCaption, \textcolor{keywordtype}{bool} inlineImage = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} writeDotFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \textcolor{keywordtype}{bool} hasCaption,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{158     \textcolor{keywordtype}{void} writeDotFile(\mbox{\hyperlink{classDocDotFile}{DocDotFile}} *);}
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} writeMscFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \textcolor{keywordtype}{bool} hasCaption,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{160     \textcolor{keywordtype}{void} writeMscFile(\mbox{\hyperlink{classDocMscFile}{DocMscFile}} *);}
+\DoxyCodeLine{161     \textcolor{keywordtype}{void} writeDiaFile(\mbox{\hyperlink{classDocDiaFile}{DocDiaFile}} *);}
+\DoxyCodeLine{162     \textcolor{keywordtype}{void} writePlantUMLFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \textcolor{keywordtype}{bool} hasCaption);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{165     \textcolor{comment}{// state variables}}
+\DoxyCodeLine{166     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \mbox{\hyperlink{classTextStream}{TextStream}} \&m\_t;}
+\DoxyCodeLine{169     \mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&m\_ci;}
+\DoxyCodeLine{170     \textcolor{keywordtype}{bool} m\_insidePre = \textcolor{keyword}{false};}
+\DoxyCodeLine{171     \textcolor{keywordtype}{bool} m\_hide = \textcolor{keyword}{false};}
+\DoxyCodeLine{172     \textcolor{keywordtype}{bool} m\_lastIsPara = \textcolor{keyword}{false};}
+\DoxyCodeLine{173     \mbox{\hyperlink{classQCString}{QCString}} m\_langExt;}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxIndentLevels = 13;}
+\DoxyCodeLine{176     \textcolor{keywordtype}{int} m\_indentLevel = 0;}
+\DoxyCodeLine{177     \textcolor{keyword}{struct }RTFListItemInfo}
+\DoxyCodeLine{178     \{}
+\DoxyCodeLine{179       \textcolor{keywordtype}{bool} isEnum = \textcolor{keyword}{false};}
+\DoxyCodeLine{180       \textcolor{keywordtype}{int} number = 1;}
+\DoxyCodeLine{181       \textcolor{keywordtype}{char} type = \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{182     \};}
+\DoxyCodeLine{183     RTFListItemInfo m\_listItemInfo[maxIndentLevels];}
+\DoxyCodeLine{184 \};}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

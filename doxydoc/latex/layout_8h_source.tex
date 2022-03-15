@@ -1,0 +1,227 @@
+\hypertarget{layout_8h_source}{}\doxysection{layout.\+h}
+\label{layout_8h_source}\index{/mnt/c/projects/doxygen/src/layout.h@{/mnt/c/projects/doxygen/src/layout.h}}
+\mbox{\hyperlink{layout_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{9 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{10 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{11 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{15 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef LAYOUT\_H}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define LAYOUT\_H}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classLayoutParser}{LayoutParser}};}
+\DoxyCodeLine{27 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}};}
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberList}{MemberList}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutDocEntry}{LayoutDocEntry}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{virtual} \mbox{\hyperlink{structLayoutDocEntry_a1af8607f2effafbf7af22a6f00961c5a}{\string~LayoutDocEntry}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34   \textcolor{keyword}{enum} \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} \{}
+\DoxyCodeLine{35               \textcolor{comment}{// Generic items for all pages}}
+\DoxyCodeLine{36               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ad113af7f7c2413cff5354fc6ed746956}{MemberGroups}},}
+\DoxyCodeLine{37               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a8d0222ff2f6825914db0db01f8bceff6}{MemberDeclStart}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a86996316d6fc6af00b124848132eb21a}{MemberDeclEnd}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ab482bcce02c17a13918450b1b5f37ad3}{MemberDecl}},}
+\DoxyCodeLine{38               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01af9234baa6bf74434335bac1587060f42}{MemberDefStart}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a275cf74bc12218ae684dd1b62c89da65}{MemberDefEnd}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a7c2ce8318cc385cbce9a8abf885c6a7b}{MemberDef}},}
+\DoxyCodeLine{39               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a930451480f9ac7b573197b54d0baf00d}{BriefDesc}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ad8cd7024c3ea31d2fb37c527d628788b}{DetailedDesc}},}
+\DoxyCodeLine{40               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a6b83a603803659762aac3ab11675c21e}{AuthorSection}},}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42               \textcolor{comment}{// Class specific items}}
+\DoxyCodeLine{43               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aa287e1f1552ee99abdc83dc5030a3062}{ClassIncludes}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a589fc4b135bc724fe66927dc59528c55}{ClassInlineClasses}},}
+\DoxyCodeLine{44               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a11fbb679ff742a68c4d2428d79cf839a}{ClassInheritanceGraph}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01abb6c12027ab80eef9a5cd50023f45b03}{ClassNestedClasses}},}
+\DoxyCodeLine{45               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a4e1809d4121e03106d09ffc033d3a79b}{ClassCollaborationGraph}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a57e3b4c383119884c8cb7c379ff8330f}{ClassAllMembersLink}},}
+\DoxyCodeLine{46               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a31993a2224000e6b3c2c2a270973d687}{ClassUsedFiles}},}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48               \textcolor{comment}{// Concept specific items}}
+\DoxyCodeLine{49               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a9e1624b87f51ddc9f695b44a27acb4b3}{ConceptDefinition}},}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51               \textcolor{comment}{// Namespace specific items}}
+\DoxyCodeLine{52               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a564498f711f5c4f7ad6e4d2684e8f08c}{NamespaceNestedNamespaces}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01af7ab6a0e1b8e4a713b0c072627d236e8}{NamespaceNestedConstantGroups}},}
+\DoxyCodeLine{53               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ad9abcb1691f5dd7d5882ccc4039e2a09}{NamespaceClasses}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a87fa4cbacaa1250a02c094a40bd0b203}{NamespaceConcepts}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a509111cd2daf5aab0732423f017dd1a4}{NamespaceInterfaces}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01abbe2940d4c82608d6296270ae0d551a5}{NamespaceStructs}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a0295d38fa18ae4e0bf2a246159261b05}{NamespaceExceptions}},}
+\DoxyCodeLine{54               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01afc9d8ac1ff8091c91414b286fdf5fcb5}{NamespaceInlineClasses}},}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56               \textcolor{comment}{// File specific items}}
+\DoxyCodeLine{57               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a3127f65f1e6ae4ea5821c92b1333b078}{FileClasses}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aa113b984dbb902244df9df68adc24506}{FileConcepts}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a8b1494d0e08877050640ee101ca0152b}{FileInterfaces}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a92914e81d0e5bc96fe2982bc0958643f}{FileStructs}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a2f25c5e8666b78e5432c5902bca9c8f2}{FileExceptions}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ac0449c835f98ac5d6c606750fa8b7cd0}{FileConstantGroups}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ac8955e5a0783f456cabdafd2e19e4c3a}{FileNamespaces}},}
+\DoxyCodeLine{58               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aaf79961a0a2671adf87074db636cd5f3}{FileIncludes}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a4e8f3eec4812444aaaf0c4a194ab2a97}{FileIncludeGraph}},}
+\DoxyCodeLine{59               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aa2569563d48d242c1fc0f423833c64ff}{FileIncludedByGraph}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a33e748ee1c0f8e6388e47e924ac064a8}{FileSourceLink}},}
+\DoxyCodeLine{60               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a242518def58a8fb0e5fa99244debfad4}{FileInlineClasses}},}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62               \textcolor{comment}{// Group specific items}}
+\DoxyCodeLine{63               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aa8c2258d542e5c3f1a1f72c6bb2fb6b5}{GroupClasses}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aa0db90e298b91c793e4108777dd83a55}{GroupConcepts}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a5e4d582865bd474031332418157dac8a}{GroupInlineClasses}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ace902a92d26f3e4ce9b5f7483f1d97e4}{GroupNamespaces}},}
+\DoxyCodeLine{64               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ae93324aaf2c5a0bb2216cdb448f898b1}{GroupDirs}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ae688f1b9a360b8f18651fd3ea20d7954}{GroupNestedGroups}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01addb5ada32040cfafcc4614de770437a8}{GroupFiles}},}
+\DoxyCodeLine{65               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01aef05d6101aa292988cdcb23470729fa0}{GroupGraph}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a5f994801eb384ec1bc84a252dd8d6353}{GroupPageDocs}},}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67               \textcolor{comment}{// Directory specific items}}
+\DoxyCodeLine{68               \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a621e7242302b4f6b37bfb982ea5f41d1}{DirSubDirs}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ae76eee5ec75efa499c40f25ffc855cd6}{DirFiles}}, \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a7e327a8e014bd2d269318e4a09880705}{DirGraph}}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70             \};}
+\DoxyCodeLine{71   \textcolor{keyword}{virtual} \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} \mbox{\hyperlink{structLayoutDocEntry_a26ca17b3f0f887a7901cee4fb81dace2}{kind}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutDocEntrySimple}{LayoutDocEntrySimple}} : \mbox{\hyperlink{structLayoutDocEntry}{LayoutDocEntry}}}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77   \textcolor{keyword}{public}:}
+\DoxyCodeLine{78     \mbox{\hyperlink{structLayoutDocEntrySimple_aca8a78abdd4bb324e1d3a2503ac79788}{LayoutDocEntrySimple}}(\mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} k) : m\_kind(k) \{\}}
+\DoxyCodeLine{79     \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} \mbox{\hyperlink{structLayoutDocEntrySimple_a4bb55bc63952e23401ec0c6b660cae58}{kind}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_kind; \}}
+\DoxyCodeLine{80   \textcolor{keyword}{private}:}
+\DoxyCodeLine{81     \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} m\_kind;}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutDocEntrySection}{LayoutDocEntrySection}}: \textcolor{keyword}{public} \mbox{\hyperlink{structLayoutDocEntrySimple}{LayoutDocEntrySimple}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86   \mbox{\hyperlink{structLayoutDocEntrySection_a9b9b6e896d6ed807088a6800cfa6dafe}{LayoutDocEntrySection}}(\mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} k,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&tl) :}
+\DoxyCodeLine{87     \mbox{\hyperlink{structLayoutDocEntrySimple}{LayoutDocEntrySimple}}(k), m\_title(tl) \{\}}
+\DoxyCodeLine{88   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutDocEntrySection_a363185aa61931f8aa77b4a6c71b6c62b}{title}}(\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang) \textcolor{keyword}{const};}
+\DoxyCodeLine{89 \textcolor{keyword}{private}:}
+\DoxyCodeLine{90   \mbox{\hyperlink{classQCString}{QCString}} m\_title;}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{94 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutDocEntryMemberDecl}{LayoutDocEntryMemberDecl}}: \textcolor{keyword}{public} \mbox{\hyperlink{structLayoutDocEntry}{LayoutDocEntry}}}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96   \mbox{\hyperlink{structLayoutDocEntryMemberDecl_a10fad7cf84e33c32c4db54d26d5ed26f}{LayoutDocEntryMemberDecl}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} tp,}
+\DoxyCodeLine{97                            \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&tl,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ss)}
+\DoxyCodeLine{98     : \mbox{\hyperlink{structLayoutDocEntryMemberDecl_a9a03c58c4e1d6e007eabd27834106db4}{type}}(tp), m\_title(tl), m\_subscript(ss) \{\}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} \mbox{\hyperlink{structLayoutDocEntryMemberDecl_ae4bc970e938122f32a0a1e46ec1f8379}{kind}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01ab482bcce02c17a13918450b1b5f37ad3}{MemberDecl}}; \}}
+\DoxyCodeLine{101   \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} \mbox{\hyperlink{structLayoutDocEntryMemberDecl_a9a03c58c4e1d6e007eabd27834106db4}{type}};}
+\DoxyCodeLine{102   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutDocEntryMemberDecl_a20f84bd3015b092b218ec7eb7f66897e}{title}}(\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang) \textcolor{keyword}{const};}
+\DoxyCodeLine{103   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutDocEntryMemberDecl_ac0d8d0be507c58dd5c3fe02fd986369b}{subtitle}}(\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang) \textcolor{keyword}{const};}
+\DoxyCodeLine{104 \textcolor{keyword}{private}:}
+\DoxyCodeLine{105   \mbox{\hyperlink{classQCString}{QCString}} m\_title;}
+\DoxyCodeLine{106   \mbox{\hyperlink{classQCString}{QCString}} m\_subscript;}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutDocEntryMemberDef}{LayoutDocEntryMemberDef}}: \textcolor{keyword}{public} \mbox{\hyperlink{structLayoutDocEntry}{LayoutDocEntry}}}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112   \mbox{\hyperlink{structLayoutDocEntryMemberDef_ad362098564d3956bc5f596021afd7464}{LayoutDocEntryMemberDef}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} tp,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&tl)}
+\DoxyCodeLine{113     : \mbox{\hyperlink{structLayoutDocEntryMemberDef_a2c77d5fc0d714e32ef1b282e67c338d3}{type}}(tp), m\_title(tl) \{\}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115   \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01}{Kind}} \mbox{\hyperlink{structLayoutDocEntryMemberDef_a914a5a2b69f5c40fc0aa8cb0316ac5f6}{kind}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{structLayoutDocEntry_a89dcbe762ed7e7f7790d8c034cf8ea01a7c2ce8318cc385cbce9a8abf885c6a7b}{MemberDef}}; \}}
+\DoxyCodeLine{116   \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} \mbox{\hyperlink{structLayoutDocEntryMemberDef_a2c77d5fc0d714e32ef1b282e67c338d3}{type}};}
+\DoxyCodeLine{117   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutDocEntryMemberDef_aad1a0162e48008f3ff91f4a3330c06be}{title}}(\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang) \textcolor{keyword}{const};}
+\DoxyCodeLine{118 \textcolor{keyword}{private}:}
+\DoxyCodeLine{119   \mbox{\hyperlink{classQCString}{QCString}} m\_title;}
+\DoxyCodeLine{120 \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keyword}{using} \mbox{\hyperlink{layout_8h_a9c5fd65331b31fb2296490bbff30b043}{LayoutNavEntryList}} = std::vector< std::unique\_ptr<LayoutNavEntry> >;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{125 \textcolor{keyword}{struct }\mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}}}
+\DoxyCodeLine{126 \{}
+\DoxyCodeLine{127   \textcolor{keyword}{public}:}
+\DoxyCodeLine{128     \textcolor{keyword}{enum} \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7c}{Kind}} \{}
+\DoxyCodeLine{129       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caaa9db70924904b6cbac27c5a04421cc5}{None}} = -\/1,}
+\DoxyCodeLine{130       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca53e72568b7ada7fcd9e75c1bb5052d54}{MainPage}},}
+\DoxyCodeLine{131       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7cacab077172e44567b5b1e7890cde1d0b4}{Pages}},}
+\DoxyCodeLine{132       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca7ec847f42f630b812ad30b4b12430270}{Modules}},}
+\DoxyCodeLine{133       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caf7440b574ac1a75aea7befa7e1352397}{Namespaces}},}
+\DoxyCodeLine{134       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caa6f9e295b343cd7e5946dd4748ac376a}{NamespaceList}},}
+\DoxyCodeLine{135       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca2df3b63f6d451886e365304c100ff5bc}{NamespaceMembers}},}
+\DoxyCodeLine{136       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca492a81213966d9cb7a4637607bf7f9c7}{Concepts}},}
+\DoxyCodeLine{137       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caf38912c22195a9dc01304137f0a34a8b}{Classes}},}
+\DoxyCodeLine{138       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca199cdf6052f9ae748faef03b07990b48}{ClassList}},}
+\DoxyCodeLine{139       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7cae0fbb0d44ffcf8d8831afa4af6fc478c}{ClassIndex}},}
+\DoxyCodeLine{140       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca8b7c480240f9d989b78901ced52c4904}{ClassHierarchy}},}
+\DoxyCodeLine{141       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caae821e8f40e4e3fde63033c09e16056c}{ClassMembers}},}
+\DoxyCodeLine{142       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7cab1480dfc4c8e7a36c0b649f9b546d5ef}{Interfaces}},}
+\DoxyCodeLine{143       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca6662099f1fac198387fecd0dda00e6a2}{InterfaceList}},}
+\DoxyCodeLine{144       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7cadea8eb685d909533db8e7928d5539367}{InterfaceIndex}},}
+\DoxyCodeLine{145       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca23c857a0886a7d796a167824b3ca98c5}{InterfaceHierarchy}},}
+\DoxyCodeLine{146       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca58b96fc55b1b8e56fd0ca40b57b4ac61}{Structs}},}
+\DoxyCodeLine{147       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca52e9116d0ff9c50288262f78694dc655}{StructList}},}
+\DoxyCodeLine{148       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca559e47254aa532351cc8e7adc21f9336}{StructIndex}},}
+\DoxyCodeLine{149       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca43d3f4a092225e685601669d8b33096c}{Exceptions}},}
+\DoxyCodeLine{150       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca9e761530542ee0b876f003909e665e66}{ExceptionList}},}
+\DoxyCodeLine{151       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca4efed3a46b83dea3bd4842a2e638c82b}{ExceptionIndex}},}
+\DoxyCodeLine{152       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca1622f77138f3b387e768c58b361f4c17}{ExceptionHierarchy}},}
+\DoxyCodeLine{153       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7cac9d7b0d03cbbe31ba776a25c88ea2efe}{Files}},}
+\DoxyCodeLine{154       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca24f73f0ccb94bb9f8b1f0ef2a7c10009}{FileList}},}
+\DoxyCodeLine{155       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca0120a75799ad6e2b2eaff7b010f384c6}{FileGlobals}},}
+\DoxyCodeLine{156       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca8dd2b8dbead139cad91e6d0ac3334350}{Examples}},}
+\DoxyCodeLine{157       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca8c9dd04b1066a22886eeb09e825e38e4}{User}},}
+\DoxyCodeLine{158       \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7ca4a4df83d473483c0b7761cf169df3f30}{UserGroup}}}
+\DoxyCodeLine{159     \};}
+\DoxyCodeLine{160     \mbox{\hyperlink{structLayoutNavEntry_a62bd340ca3c463af9f42796bcfe25ebb}{LayoutNavEntry}}(\mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *\mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}},\mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7c}{Kind}} k,\textcolor{keywordtype}{bool} vs,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&bf,}
+\DoxyCodeLine{161                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&tl,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{structLayoutNavEntry_aa298e94a9e75f9d394fd7a1121f89d84}{intro}},\textcolor{keywordtype}{bool} prepend=\textcolor{keyword}{false})}
+\DoxyCodeLine{162       : m\_parent(\mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}}), m\_kind(k), m\_visible(vs), m\_baseFile(bf), m\_title(tl), m\_intro(\mbox{\hyperlink{structLayoutNavEntry_aa298e94a9e75f9d394fd7a1121f89d84}{intro}})}
+\DoxyCodeLine{163     \{}
+\DoxyCodeLine{164       \textcolor{keywordflow}{if} (\mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}})}
+\DoxyCodeLine{165       \{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{if} (prepend) \mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}}-\/>\mbox{\hyperlink{structLayoutNavEntry_a39a0c214375c9766d91d79ef80365ab6}{prependChild}}(\textcolor{keyword}{this}); \textcolor{keywordflow}{else} \mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}}-\/>\mbox{\hyperlink{structLayoutNavEntry_a17dc5d09c4df07c0d49275ed2d95e789}{addChild}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{167       \}}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169     \mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *\mbox{\hyperlink{structLayoutNavEntry_a61a2adf7ec0abb42e49fa07b77eb1690}{parent}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_parent; \}}
+\DoxyCodeLine{170     \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7c}{Kind}} \mbox{\hyperlink{structLayoutNavEntry_abc02648d40526f9a5675f78aac5f2773}{kind}}()\textcolor{keyword}{ const                }\{ \textcolor{keywordflow}{return} m\_kind; \}}
+\DoxyCodeLine{171     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutNavEntry_ab16c1e7918e22efc6c62837a0e37551d}{baseFile}}()\textcolor{keyword}{ const        }\{ \textcolor{keywordflow}{return} m\_baseFile; \}}
+\DoxyCodeLine{172     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutNavEntry_a006dfaa93d3dee670dd4ae22d28a1db7}{title}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} m\_title; \}}
+\DoxyCodeLine{173     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutNavEntry_aa298e94a9e75f9d394fd7a1121f89d84}{intro}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} m\_intro; \}}
+\DoxyCodeLine{174     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structLayoutNavEntry_a1c873f2a034fd33d3c1ddcfcd0c2ecf0}{url}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{175     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structLayoutNavEntry_a14dabfdf60d47142677768a4b0735214}{visible}}()                   \{ \textcolor{keywordflow}{return} m\_visible; \}}
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} \mbox{\hyperlink{structLayoutNavEntry_ac705591582b67407e51fbb366eab2c4d}{clear}}()                     \{ m\_children.clear(); \}}
+\DoxyCodeLine{177     \textcolor{keywordtype}{void} \mbox{\hyperlink{structLayoutNavEntry_a17dc5d09c4df07c0d49275ed2d95e789}{addChild}}(\mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *e) \{ m\_children.push\_back(std::unique\_ptr<LayoutNavEntry>(e)); \}}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{structLayoutNavEntry_a39a0c214375c9766d91d79ef80365ab6}{prependChild}}(\mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *e) \{ m\_children.insert(m\_children.begin(),std::unique\_ptr<LayoutNavEntry>(e)); \}}
+\DoxyCodeLine{179     \textcolor{keyword}{const} \mbox{\hyperlink{layout_8h_a9c5fd65331b31fb2296490bbff30b043}{LayoutNavEntryList}} \&\mbox{\hyperlink{structLayoutNavEntry_a2111e544a2355f2b2a6592819b21b232}{children}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_children; \}}
+\DoxyCodeLine{180     \mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *\mbox{\hyperlink{structLayoutNavEntry_ab983afb4157621ae3548364755a75002}{find}}(\mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7c}{LayoutNavEntry::Kind}} k,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}=\mbox{\hyperlink{classQCString}{QCString}}()) \textcolor{keyword}{const};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182   \textcolor{keyword}{private}:}
+\DoxyCodeLine{183     \mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}}() : m\_parent(0), m\_kind(\mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7caaa9db70924904b6cbac27c5a04421cc5}{None}}), m\_visible(true) \{\}}
+\DoxyCodeLine{184     \mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *m\_parent;}
+\DoxyCodeLine{185     \mbox{\hyperlink{structLayoutNavEntry_aef36305dd829f7cde87ca203ae647c7c}{Kind}} m\_kind;}
+\DoxyCodeLine{186     \textcolor{keywordtype}{bool} m\_visible;}
+\DoxyCodeLine{187     \mbox{\hyperlink{classQCString}{QCString}} m\_baseFile;}
+\DoxyCodeLine{188     \mbox{\hyperlink{classQCString}{QCString}} m\_title;}
+\DoxyCodeLine{189     \mbox{\hyperlink{classQCString}{QCString}} m\_intro;}
+\DoxyCodeLine{190     \mbox{\hyperlink{layout_8h_a9c5fd65331b31fb2296490bbff30b043}{LayoutNavEntryList}} m\_children;}
+\DoxyCodeLine{191     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classLayoutDocManager}{LayoutDocManager}};}
+\DoxyCodeLine{192 \};}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{keyword}{using} \mbox{\hyperlink{layout_8h_aebfe37d33bf77cb4568888a05a80c36c}{LayoutDocEntryList}} = std::vector< std::unique\_ptr<LayoutDocEntry> >;}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{197 \textcolor{keyword}{class }\mbox{\hyperlink{classLayoutDocManager}{LayoutDocManager}}}
+\DoxyCodeLine{198 \{}
+\DoxyCodeLine{199     \textcolor{keyword}{class }\mbox{\hyperlink{classLayoutDocManager_1_1Private}{Private}};}
+\DoxyCodeLine{200   \textcolor{keyword}{public}:}
+\DoxyCodeLine{201     \textcolor{keyword}{enum} \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94}{LayoutPart}}}
+\DoxyCodeLine{202     \{}
+\DoxyCodeLine{203       \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94af04aaf5f50f41b63cb93aaaee57d8d03}{Undefined}} = -\/1,}
+\DoxyCodeLine{204       \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94a797b00e87a4a6eacc27a6452d4d8eb57}{Class}}, \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94af9798bb27645d017748b10e8a6729aef}{Concept}}, \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94ad342856294e002e934e11e0b7b1de590}{Namespace}}, \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94afda79cb94a5e0b00b5928c2946421043}{File}}, \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94a6e34173fdd2293ad484e27cfb5eeffd9}{Group}}, \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94a02b696ad1d3b28cc595a6e9fb537c85f}{Directory}},}
+\DoxyCodeLine{205       \mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94a5d59ec29416e7a603f2a68ee9e718ed5}{NrParts}}}
+\DoxyCodeLine{206     \};}
+\DoxyCodeLine{208     \textcolor{keyword}{static} \mbox{\hyperlink{classLayoutDocManager}{LayoutDocManager}} \&\mbox{\hyperlink{classLayoutDocManager_a87bc2288833b8769bd03e47c58fbba6a}{instance}}();}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{211     \textcolor{keyword}{const} \mbox{\hyperlink{layout_8h_aebfe37d33bf77cb4568888a05a80c36c}{LayoutDocEntryList}} \&\mbox{\hyperlink{classLayoutDocManager_ae0416762a9e6d28e22e8f46102579f32}{docEntries}}(\mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94}{LayoutPart}} part) \textcolor{keyword}{const};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214     \mbox{\hyperlink{structLayoutNavEntry}{LayoutNavEntry}} *\mbox{\hyperlink{classLayoutDocManager_ad70cfcbfc25b8f303a59cd8f76c61465}{rootNavEntry}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLayoutDocManager_a03dc5870a20d29063731ac6ef96d883c}{parse}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{218     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLayoutDocManager_a920748477d4262faf758d21ddbe2329d}{init}}();}
+\DoxyCodeLine{219   \textcolor{keyword}{private}:}
+\DoxyCodeLine{220     \textcolor{keywordtype}{void} addEntry(\mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94}{LayoutPart}} p,\mbox{\hyperlink{structLayoutDocEntry}{LayoutDocEntry}}*e);}
+\DoxyCodeLine{221     \textcolor{keywordtype}{void} clear(\mbox{\hyperlink{classLayoutDocManager_aee13a925ea1f915c542ecd7f579ebc94}{LayoutPart}} p);}
+\DoxyCodeLine{222     \mbox{\hyperlink{classLayoutDocManager}{LayoutDocManager}}();}
+\DoxyCodeLine{223     \mbox{\hyperlink{classLayoutDocManager}{\string~LayoutDocManager}}();}
+\DoxyCodeLine{224     std::unique\_ptr<Private> d;}
+\DoxyCodeLine{225     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classLayoutParser}{LayoutParser}};}
+\DoxyCodeLine{226 \};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{keywordtype}{void} \mbox{\hyperlink{layout_8h_a8ccb483586d18bd75a15720be22f90cb}{writeDefaultLayoutFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{231 }
+
+\end{DoxyCode}

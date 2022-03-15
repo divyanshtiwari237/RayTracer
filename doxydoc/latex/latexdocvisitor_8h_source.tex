@@ -1,0 +1,286 @@
+\hypertarget{latexdocvisitor_8h_source}{}\doxysection{latexdocvisitor.\+h}
+\label{latexdocvisitor_8h_source}\index{/mnt/c/projects/doxygen/src/latexdocvisitor.h@{/mnt/c/projects/doxygen/src/latexdocvisitor.h}}
+\mbox{\hyperlink{latexdocvisitor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef LATEXDOCVISITOR\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define LATEXDOCVISITOR\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{docvisitor_8h}{docvisitor.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classLatexCodeGenerator}{LatexCodeGenerator}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classLatexDocVisitor}{LatexDocVisitor}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDocVisitor}{DocVisitor}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31   \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{classLatexDocVisitor_a7d511769482012965e88f89e346f9c82}{LatexDocVisitor}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\mbox{\hyperlink{classLatexCodeGenerator}{LatexCodeGenerator}} \&ci,}
+\DoxyCodeLine{33                     \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&langExt,\textcolor{keywordtype}{bool} insideTabbing);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{36     \textcolor{comment}{// visitor functions for leaf nodes}}
+\DoxyCodeLine{37     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocWord}{DocWord}} *);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocLinkedWord}{DocLinkedWord}} *);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocWhiteSpace}{DocWhiteSpace}} *);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocSymbol}{DocSymbol}} *);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocEmoji}{DocEmoji}} *);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocURL}{DocURL}} *);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocLineBreak}{DocLineBreak}} *);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocHorRuler}{DocHorRuler}} *);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocStyleChange}{DocStyleChange}} *);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocVerbatim}{DocVerbatim}} *);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocAnchor}{DocAnchor}} *);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocInclude}{DocInclude}} *);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocIncOperator}{DocIncOperator}} *);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocFormula}{DocFormula}} *);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocIndexEntry}{DocIndexEntry}} *);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocSimpleSectSep}{DocSimpleSectSep}} *);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a8ae2ff00d6dce705978a4bda7e6109de}{visit}}(\mbox{\hyperlink{classDocCite}{DocCite}} *);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{58     \textcolor{comment}{// visitor functions for compound nodes}}
+\DoxyCodeLine{59     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocAutoList}{DocAutoList}} *);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocAutoList}{DocAutoList}} *);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocAutoListItem}{DocAutoListItem}} *);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocAutoListItem}{DocAutoListItem}} *);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocPara}{DocPara}} *);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocPara}{DocPara}} *);}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocRoot}{DocRoot}} *);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocRoot}{DocRoot}} *);}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSimpleSect}{DocSimpleSect}} *);}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSimpleSect}{DocSimpleSect}} *);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocTitle}{DocTitle}} *);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocTitle}{DocTitle}} *);}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSimpleList}{DocSimpleList}} *);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSimpleList}{DocSimpleList}} *);}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSimpleListItem}{DocSimpleListItem}} *);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSimpleListItem}{DocSimpleListItem}} *);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSection}{DocSection}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSection}{DocSection}} *);}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlList}{DocHtmlList}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlList}{DocHtmlList}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlListItem}{DocHtmlListItem}} *);}
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlListItem}{DocHtmlListItem}} *);}
+\DoxyCodeLine{83     \textcolor{comment}{//void visitPre(DocHtmlPre *);}}
+\DoxyCodeLine{84     \textcolor{comment}{//void visitPost(DocHtmlPre *);}}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescList}{DocHtmlDescList}} *);}
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescList}{DocHtmlDescList}} *);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescTitle}{DocHtmlDescTitle}} *);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescTitle}{DocHtmlDescTitle}} *);}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlDescData}{DocHtmlDescData}} *);}
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlDescData}{DocHtmlDescData}} *);}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlTable}{DocHtmlTable}} *t);}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlTable}{DocHtmlTable}} *t);}
+\DoxyCodeLine{93     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlCaption}{DocHtmlCaption}} *);}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlCaption}{DocHtmlCaption}} *);}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlRow}{DocHtmlRow}} *);}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlRow}{DocHtmlRow}} *) ;}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *);}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *);}
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocInternal}{DocInternal}} *);}
+\DoxyCodeLine{100     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocInternal}{DocInternal}} *);}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHRef}{DocHRef}} *);}
+\DoxyCodeLine{102     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHRef}{DocHRef}} *);}
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlHeader}{DocHtmlHeader}} *);}
+\DoxyCodeLine{104     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlHeader}{DocHtmlHeader}} *) ;}
+\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocImage}{DocImage}} *);}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocImage}{DocImage}} *);}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocDotFile}{DocDotFile}} *);}
+\DoxyCodeLine{108     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocDotFile}{DocDotFile}} *);}
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocMscFile}{DocMscFile}} *);}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocMscFile}{DocMscFile}} *);}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocDiaFile}{DocDiaFile}} *);}
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocDiaFile}{DocDiaFile}} *);}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocLink}{DocLink}} *lnk);}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocLink}{DocLink}} *);}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocRef}{DocRef}} *ref);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocRef}{DocRef}} *);}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSecRefItem}{DocSecRefItem}} *);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSecRefItem}{DocSecRefItem}} *);}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocSecRefList}{DocSecRefList}} *);}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocSecRefList}{DocSecRefList}} *);}
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocParamSect}{DocParamSect}} *);}
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocParamSect}{DocParamSect}} *);}
+\DoxyCodeLine{123     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocParamList}{DocParamList}} *);}
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocParamList}{DocParamList}} *);}
+\DoxyCodeLine{125     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocXRefItem}{DocXRefItem}} *);}
+\DoxyCodeLine{126     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocXRefItem}{DocXRefItem}} *);}
+\DoxyCodeLine{127     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocInternalRef}{DocInternalRef}} *);}
+\DoxyCodeLine{128     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocInternalRef}{DocInternalRef}} *);}
+\DoxyCodeLine{129     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocText}{DocText}} *);}
+\DoxyCodeLine{130     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocText}{DocText}} *);}
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocHtmlBlockQuote}{DocHtmlBlockQuote}} *);}
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocHtmlBlockQuote}{DocHtmlBlockQuote}} *);}
+\DoxyCodeLine{133     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocVhdlFlow}{DocVhdlFlow}} *);}
+\DoxyCodeLine{134     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocVhdlFlow}{DocVhdlFlow}} *);}
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a7671b8a83c79b7d8c6423d99847b69f2}{visitPre}}(\mbox{\hyperlink{classDocParBlock}{DocParBlock}} *);}
+\DoxyCodeLine{136     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLatexDocVisitor_a10d7a4926f063f3575028741f6a3b9d2}{visitPost}}(\mbox{\hyperlink{classDocParBlock}{DocParBlock}} *);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138   \textcolor{keyword}{private}:}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{keyword}{struct }\mbox{\hyperlink{structActiveRowSpan_a698aeabc13a8244fb3bc729f1ab50caf}{ActiveRowSpan}}}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142       ActiveRowSpan(\mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *c,\textcolor{keywordtype}{size\_t} rs,\textcolor{keywordtype}{size\_t} cs,\textcolor{keywordtype}{size\_t} col)}
+\DoxyCodeLine{143         : cell(c), rowSpan(rs), colSpan(cs), column(col) \{\}}
+\DoxyCodeLine{144       \mbox{\hyperlink{classDocHtmlCell}{DocHtmlCell}} *cell;}
+\DoxyCodeLine{145       \textcolor{keywordtype}{size\_t} rowSpan;}
+\DoxyCodeLine{146       \textcolor{keywordtype}{size\_t} colSpan;}
+\DoxyCodeLine{147       \textcolor{keywordtype}{size\_t} column;}
+\DoxyCodeLine{148     \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{keyword}{typedef} std::vector<ActiveRowSpan> RowSpanList;}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{153     \textcolor{comment}{// helper functions}}
+\DoxyCodeLine{154     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156     \textcolor{keywordtype}{void} filter(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} retainNewLine = \textcolor{keyword}{false});}
+\DoxyCodeLine{157     \textcolor{keywordtype}{void} startLink(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},}
+\DoxyCodeLine{158                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor,\textcolor{keywordtype}{bool} refToTable=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{159     \textcolor{keywordtype}{void} endLink(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},}
+\DoxyCodeLine{160                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor,\textcolor{keywordtype}{bool} refToTable=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{161     \mbox{\hyperlink{classQCString}{QCString}} escapeMakeIndexChars(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{162     \textcolor{keywordtype}{void} startDotFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&width,}
+\DoxyCodeLine{163                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&height, \textcolor{keywordtype}{bool} hasCaption,}
+\DoxyCodeLine{164                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{165     \textcolor{keywordtype}{void} endDotFile(\textcolor{keywordtype}{bool} hasCaption);}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{void} startMscFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&width,}
+\DoxyCodeLine{168                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&height, \textcolor{keywordtype}{bool} hasCaption,}
+\DoxyCodeLine{169                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{170     \textcolor{keywordtype}{void} endMscFile(\textcolor{keywordtype}{bool} hasCaption);}
+\DoxyCodeLine{171     \textcolor{keywordtype}{void} writeMscFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \mbox{\hyperlink{classDocVerbatim}{DocVerbatim}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \textcolor{keywordtype}{void} startDiaFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&width,}
+\DoxyCodeLine{174                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&height, \textcolor{keywordtype}{bool} hasCaption,}
+\DoxyCodeLine{175                       \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} endDiaFile(\textcolor{keywordtype}{bool} hasCaption);}
+\DoxyCodeLine{177     \textcolor{keywordtype}{void} writeDiaFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \mbox{\hyperlink{classDocVerbatim}{DocVerbatim}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} writePlantUMLFile(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \mbox{\hyperlink{classDocVerbatim}{DocVerbatim}} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keywordtype}{void} incIndentLevel();}
+\DoxyCodeLine{181     \textcolor{keywordtype}{void} decIndentLevel();}
+\DoxyCodeLine{182     \textcolor{keywordtype}{int} indentLevel() \textcolor{keyword}{const};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{185     \textcolor{comment}{// state variables}}
+\DoxyCodeLine{186     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188     \mbox{\hyperlink{classTextStream}{TextStream}} \&m\_t;}
+\DoxyCodeLine{189     \mbox{\hyperlink{classLatexCodeGenerator}{LatexCodeGenerator}} \&m\_ci;}
+\DoxyCodeLine{190     \textcolor{keywordtype}{bool} m\_insidePre;}
+\DoxyCodeLine{191     \textcolor{keywordtype}{bool} m\_insideItem;}
+\DoxyCodeLine{192     \textcolor{keywordtype}{bool} m\_hide;}
+\DoxyCodeLine{193     \textcolor{keywordtype}{bool} m\_hideCaption;}
+\DoxyCodeLine{194     \textcolor{keywordtype}{bool} m\_insideTabbing;}
+\DoxyCodeLine{195     \mbox{\hyperlink{classQCString}{QCString}} m\_langExt;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keyword}{struct }TableState}
+\DoxyCodeLine{198     \{}
+\DoxyCodeLine{199       RowSpanList rowSpans;}
+\DoxyCodeLine{200       \textcolor{keywordtype}{size\_t} numCols = 0;}
+\DoxyCodeLine{201       \textcolor{keywordtype}{size\_t} currentColumn = 0;}
+\DoxyCodeLine{202       \textcolor{keywordtype}{bool} inRowSpan = \textcolor{keyword}{false};}
+\DoxyCodeLine{203       \textcolor{keywordtype}{bool} inColSpan = \textcolor{keyword}{false};}
+\DoxyCodeLine{204       \textcolor{keywordtype}{bool} firstRow = \textcolor{keyword}{false};}
+\DoxyCodeLine{205     \};}
+\DoxyCodeLine{206     std::stack<TableState> m\_tableStateStack; \textcolor{comment}{// needed for nested tables}}
+\DoxyCodeLine{207     RowSpanList m\_emptyRowSpanList;}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} maxIndentLevels = 13;}
+\DoxyCodeLine{210     \textcolor{keywordtype}{int} m\_indentLevel = 0;}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keyword}{struct }LatexListItemInfo}
+\DoxyCodeLine{213     \{}
+\DoxyCodeLine{214       \textcolor{keywordtype}{bool} isEnum = \textcolor{keyword}{false};}
+\DoxyCodeLine{215     \};}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     LatexListItemInfo m\_listItemInfo[maxIndentLevels];}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219     \textcolor{keywordtype}{void} pushTableState()}
+\DoxyCodeLine{220     \{}
+\DoxyCodeLine{221       m\_tableStateStack.push(TableState());}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223     \textcolor{keywordtype}{void} popTableState()}
+\DoxyCodeLine{224     \{}
+\DoxyCodeLine{225       m\_tableStateStack.pop();}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227     \textcolor{keywordtype}{size\_t} currentColumn()\textcolor{keyword}{ const}}
+\DoxyCodeLine{228 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{229       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().currentColumn : 0;}
+\DoxyCodeLine{230     \}}
+\DoxyCodeLine{231     \textcolor{keywordtype}{void} setCurrentColumn(\textcolor{keywordtype}{size\_t} col)}
+\DoxyCodeLine{232     \{}
+\DoxyCodeLine{233       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().currentColumn = col;}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235     \textcolor{keywordtype}{size\_t} numCols()\textcolor{keyword}{ const}}
+\DoxyCodeLine{236 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{237       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().numCols : 0;}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239     \textcolor{keywordtype}{void} setNumCols(\textcolor{keywordtype}{size\_t} num)}
+\DoxyCodeLine{240     \{}
+\DoxyCodeLine{241       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().numCols = num;}
+\DoxyCodeLine{242     \}}
+\DoxyCodeLine{243     \textcolor{keywordtype}{bool} inRowSpan()\textcolor{keyword}{ const}}
+\DoxyCodeLine{244 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{245       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().inRowSpan : \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247     \textcolor{keywordtype}{void} setInRowSpan(\textcolor{keywordtype}{bool} b)}
+\DoxyCodeLine{248     \{}
+\DoxyCodeLine{249       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().inRowSpan = b;}
+\DoxyCodeLine{250     \}}
+\DoxyCodeLine{251     \textcolor{keywordtype}{bool} inColSpan()\textcolor{keyword}{ const}}
+\DoxyCodeLine{252 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{253       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().inColSpan : \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255     \textcolor{keywordtype}{void} setInColSpan(\textcolor{keywordtype}{bool} b)}
+\DoxyCodeLine{256     \{}
+\DoxyCodeLine{257       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().inColSpan = b;}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259     \textcolor{keywordtype}{bool} firstRow()\textcolor{keyword}{ const}}
+\DoxyCodeLine{260 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{261       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().firstRow : \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263     \textcolor{keywordtype}{void} setFirstRow(\textcolor{keywordtype}{bool} b)}
+\DoxyCodeLine{264     \{}
+\DoxyCodeLine{265       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().firstRow = b;}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267     RowSpanList \&rowSpans()}
+\DoxyCodeLine{268     \{}
+\DoxyCodeLine{269       \textcolor{keywordflow}{return} !m\_tableStateStack.empty() ? m\_tableStateStack.top().rowSpans : m\_emptyRowSpanList;}
+\DoxyCodeLine{270     \}}
+\DoxyCodeLine{271     \textcolor{keywordtype}{void} addRowSpan(ActiveRowSpan \&\&span)}
+\DoxyCodeLine{272     \{}
+\DoxyCodeLine{273       \textcolor{keywordflow}{if} (!m\_tableStateStack.empty()) m\_tableStateStack.top().rowSpans.push\_back(std::move(span));}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275     \textcolor{keywordtype}{bool} insideTable()\textcolor{keyword}{ const}}
+\DoxyCodeLine{276 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{277       \textcolor{keywordflow}{return} !m\_tableStateStack.empty();}
+\DoxyCodeLine{278     \}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280 \};}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

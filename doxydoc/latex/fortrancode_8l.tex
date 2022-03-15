@@ -1,0 +1,208 @@
+\hypertarget{fortrancode_8l}{}\doxysection{/mnt/c/projects/doxygen/src/fortrancode.l File Reference}
+\label{fortrancode_8l}\index{/mnt/c/projects/doxygen/src/fortrancode.l@{/mnt/c/projects/doxygen/src/fortrancode.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tooltip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fortrancode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fortranscanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}containers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for fortrancode.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classUseEntry}{Use\+Entry}}
+\item 
+class \mbox{\hyperlink{classUseMap}{Use\+Map}}
+\item 
+class \mbox{\hyperlink{classScope}{Scope}}
+\item 
+struct \mbox{\hyperlink{structfortrancodeYY__state}{fortrancode\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{structFortranCodeParser_1_1Private}{Fortran\+Code\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a234e2efe67eececd88b140b46ea37463}{DBG\+\_\+\+CTX}}(x)~do \{ \} while(0)
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_ac3eedc6d2e3e4c9b2bacd0f1ebeab98a}{YY\+\_\+\+NO\+\_\+\+TOP\+\_\+\+STATE}}~1
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a6198b2fcf96178b24ad4efff2a3debb0}{YY\+\_\+\+USER\+\_\+\+ACTION}}~\{\mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}}; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}}; \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} += static\+\_\+cast$<$\mbox{\hyperlink{classint}{int}}$>$(yyleng);\}
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a9a0fdbfa8e6dc0e59c2015a0f1e663c2}{YY\+\_\+\+FTN\+\_\+\+RESET}}~\{\mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}} = 0; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = 0; \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} = 1;\}
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_a633f0b53ce61259dee93c2398f1674f0}{YY\+\_\+\+FTN\+\_\+\+REJECT}}~\{\mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} = \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}}; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}}; REJECT;\}
+\item 
+\#define \mbox{\hyperlink{fortrancode_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{fortrancode_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortrancode_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+void \mbox{\hyperlink{fortrancode_8l_a6d406247f02e0a3b020e03500932fb0c}{parse\+Fortran\+Code}} (\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&od, const char $\ast$, const \mbox{\hyperlink{classQCString}{QCString}} \&s, bool ex\+Block, const char $\ast$ex\+Name, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd, \mbox{\hyperlink{classint}{int}} start\+Line, \mbox{\hyperlink{classint}{int}} end\+Line, bool inline\+Fragment, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$, bool, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$search\+Ctx, bool collect\+XRefs, \mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}} format)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortrancode_8l_aa03f3d753568cdfbab5825c0d7cd3547}{fixed\+Comment\+After}} = 72
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}} = 0
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = 0
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fortrancode_8l_a234e2efe67eececd88b140b46ea37463}\label{fortrancode_8l_a234e2efe67eececd88b140b46ea37463}} 
+\index{fortrancode.l@{fortrancode.l}!DBG\_CTX@{DBG\_CTX}}
+\index{DBG\_CTX@{DBG\_CTX}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{DBG\_CTX}{DBG\_CTX}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+CTX(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{ \} while(0)}
+
+\mbox{\Hypertarget{fortrancode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{fortrancode_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{fortrancode.l@{fortrancode.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{fortrancode_8l_a633f0b53ce61259dee93c2398f1674f0}\label{fortrancode_8l_a633f0b53ce61259dee93c2398f1674f0}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_FTN\_REJECT@{YY\_FTN\_REJECT}}
+\index{YY\_FTN\_REJECT@{YY\_FTN\_REJECT}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_FTN\_REJECT}{YY\_FTN\_REJECT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+FTN\+\_\+\+REJECT~\{\mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} = \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}}; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}}; REJECT;\}}
+
+\mbox{\Hypertarget{fortrancode_8l_a9a0fdbfa8e6dc0e59c2015a0f1e663c2}\label{fortrancode_8l_a9a0fdbfa8e6dc0e59c2015a0f1e663c2}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_FTN\_RESET@{YY\_FTN\_RESET}}
+\index{YY\_FTN\_RESET@{YY\_FTN\_RESET}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_FTN\_RESET}{YY\_FTN\_RESET}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+FTN\+\_\+\+RESET~\{\mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}} = 0; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = 0; \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} = 1;\}}
+
+\mbox{\Hypertarget{fortrancode_8l_aacfdca45fa4beb8b06172525a53c424a}\label{fortrancode_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{fortrancode_8l_a85523a0c7d95c059d251b4e9829947aa}\label{fortrancode_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{fortrancode_8l_ac3eedc6d2e3e4c9b2bacd0f1ebeab98a}\label{fortrancode_8l_ac3eedc6d2e3e4c9b2bacd0f1ebeab98a}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_NO\_TOP\_STATE@{YY\_NO\_TOP\_STATE}}
+\index{YY\_NO\_TOP\_STATE@{YY\_NO\_TOP\_STATE}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_TOP\_STATE}{YY\_NO\_TOP\_STATE}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+TOP\+\_\+\+STATE~1}
+
+\mbox{\Hypertarget{fortrancode_8l_ae78ac56cd1f29572e967ed7636952d15}\label{fortrancode_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{fortrancode_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{fortrancode_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]
+\begin{DoxyItemize}
+\item continuation lines not always recognized
+\begin{DoxyItemize}
+\item merging of use-\/statements with same module name and different only-\/names
+\item rename part of use-\/statement
+\item links to interface functions
+\item references to variables 
+\end{DoxyItemize}
+\end{DoxyItemize}\end{DoxyRefDesc}
+\mbox{\Hypertarget{fortrancode_8l_a6198b2fcf96178b24ad4efff2a3debb0}\label{fortrancode_8l_a6198b2fcf96178b24ad4efff2a3debb0}} 
+\index{fortrancode.l@{fortrancode.l}!YY\_USER\_ACTION@{YY\_USER\_ACTION}}
+\index{YY\_USER\_ACTION@{YY\_USER\_ACTION}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{YY\_USER\_ACTION}{YY\_USER\_ACTION}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+USER\+\_\+\+ACTION~\{\mbox{\hyperlink{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}{yy\+\_\+old\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}}; \mbox{\hyperlink{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}{yy\+\_\+my\+\_\+start}} = \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}}; \mbox{\hyperlink{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}{yy\+\_\+end}} += static\+\_\+cast$<$\mbox{\hyperlink{classint}{int}}$>$(yyleng);\}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{fortrancode_8l_a9484188abbc459dafcbd4c96425fa70b}\label{fortrancode_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{fortrancode.l@{fortrancode.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fortrancode_8l_a6d406247f02e0a3b020e03500932fb0c}\label{fortrancode_8l_a6d406247f02e0a3b020e03500932fb0c}} 
+\index{fortrancode.l@{fortrancode.l}!parseFortranCode@{parseFortranCode}}
+\index{parseFortranCode@{parseFortranCode}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{parseFortranCode()}{parseFortranCode()}}
+{\footnotesize\ttfamily void parse\+Fortran\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&}]{od,  }\item[{const char $\ast$}]{,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{bool}]{ex\+Block,  }\item[{const char $\ast$}]{ex\+Name,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{\mbox{\hyperlink{classint}{int}}}]{start\+Line,  }\item[{\mbox{\hyperlink{classint}{int}}}]{end\+Line,  }\item[{bool}]{inline\+Fragment,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{,  }\item[{bool}]{,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{search\+Ctx,  }\item[{bool}]{collect\+XRefs,  }\item[{\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}}}]{format }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fortrancode_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{fortrancode_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{fortrancode.l@{fortrancode.l}!yylex@{yylex}}
+\index{yylex@{yylex}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{fortrancode_8l_aa03f3d753568cdfbab5825c0d7cd3547}\label{fortrancode_8l_aa03f3d753568cdfbab5825c0d7cd3547}} 
+\index{fortrancode.l@{fortrancode.l}!fixedCommentAfter@{fixedCommentAfter}}
+\index{fixedCommentAfter@{fixedCommentAfter}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{fixedCommentAfter}{fixedCommentAfter}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classint}{int}} fixed\+Comment\+After = 72}
+
+\mbox{\Hypertarget{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}\label{fortrancode_8l_adc3fff33a8db22a36f05baec1001a010}} 
+\index{fortrancode.l@{fortrancode.l}!yy\_end@{yy\_end}}
+\index{yy\_end@{yy\_end}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{yy\_end}{yy\_end}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yy\+\_\+end = 1}
+
+\mbox{\Hypertarget{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}\label{fortrancode_8l_a66a71125f0f01a2a8d1a3608807695fa}} 
+\index{fortrancode.l@{fortrancode.l}!yy\_my\_start@{yy\_my\_start}}
+\index{yy\_my\_start@{yy\_my\_start}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{yy\_my\_start}{yy\_my\_start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yy\+\_\+my\+\_\+start = 0}
+
+\mbox{\Hypertarget{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}\label{fortrancode_8l_ab0517027b61f63c8a563733d6e813ad1}} 
+\index{fortrancode.l@{fortrancode.l}!yy\_old\_start@{yy\_old\_start}}
+\index{yy\_old\_start@{yy\_old\_start}!fortrancode.l@{fortrancode.l}}
+\doxysubsubsection{\texorpdfstring{yy\_old\_start}{yy\_old\_start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yy\+\_\+old\+\_\+start = 0}
+

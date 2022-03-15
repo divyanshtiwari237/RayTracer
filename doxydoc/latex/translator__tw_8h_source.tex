@@ -1,0 +1,1452 @@
+\hypertarget{translator__tw_8h_source}{}\doxysection{translator\+\_\+tw.\+h}
+\label{translator__tw_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_tw.h@{/mnt/c/projects/doxygen/src/translator\_tw.h}}
+\mbox{\hyperlink{translator__tw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * The translation into Chinesetraditional was provided by}}
+\DoxyCodeLine{17 \textcolor{comment}{ *   Daniel YC Lin (dlin.tw <at> gmail.com) since v1.2.16-\/v1.5.5}}
+\DoxyCodeLine{18 \textcolor{comment}{ */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_TW\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TRANSLATOR\_TW\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// When defining a translator class for the new language, follow}}
+\DoxyCodeLine{24 \textcolor{comment}{// the description in the documentation.  One of the steps says}}
+\DoxyCodeLine{25 \textcolor{comment}{// that you should copy the translator\_en.h (this) file to your}}
+\DoxyCodeLine{26 \textcolor{comment}{// translator\_xx.h new file.  Your new language should use the}}
+\DoxyCodeLine{27 \textcolor{comment}{// Translator class as the base class.  This means that you need to}}
+\DoxyCodeLine{28 \textcolor{comment}{// implement exactly the same (pure virtual) methods as the}}
+\DoxyCodeLine{29 \textcolor{comment}{// TranslatorEnglish does.  Because of this, it is a good idea to}}
+\DoxyCodeLine{30 \textcolor{comment}{// start with the copy of TranslatorEnglish and replace the strings}}
+\DoxyCodeLine{31 \textcolor{comment}{// one by one.}}
+\DoxyCodeLine{32 \textcolor{comment}{//}}
+\DoxyCodeLine{33 \textcolor{comment}{// It is not necessary to include "{}translator.h"{} or}}
+\DoxyCodeLine{34 \textcolor{comment}{// "{}translator\_adapter.h"{} here.  The files are included in the}}
+\DoxyCodeLine{35 \textcolor{comment}{// language.cpp correctly.  Not including any of the mentioned}}
+\DoxyCodeLine{36 \textcolor{comment}{// files frees the maintainer from thinking about whether the}}
+\DoxyCodeLine{37 \textcolor{comment}{// first, the second, or both files should be included or not, and}}
+\DoxyCodeLine{38 \textcolor{comment}{// why.  This holds namely for localized translators because their}}
+\DoxyCodeLine{39 \textcolor{comment}{// base class is changed occasionally to adapter classes when the}}
+\DoxyCodeLine{40 \textcolor{comment}{// Translator class changes the interface, or back to the}}
+\DoxyCodeLine{41 \textcolor{comment}{// Translator class (by the local maintainer) when the localized}}
+\DoxyCodeLine{42 \textcolor{comment}{// translator is made up-\/to-\/date again.}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorChinesetraditional}{TranslatorChinesetraditional}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__15}{TranslatorAdapter\_1\_8\_15}}}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46   \textcolor{keyword}{public}:}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{56     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9bc148d1e1b9c00b90e35b935e3bd069}{idLanguage}}()}
+\DoxyCodeLine{57     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}chinese-\/traditional"{}}; \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a61b66ec8d48398beab664080f41f30b0}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{CJKutf8\}\(\backslash\)n"{}};}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a98a1eb93c4d1ab29d05afcdef3ec33bc}{latexFontenc}}()}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a76884101bd57a4a09883de76da69aa3f}{latexDocumentPre}}()}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{CJK\}\{UTF8\}\{min\}\(\backslash\)n"{}};}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a50297eafc68fea68a1db8e384dfd415c}{latexDocumentPost}}()}
+\DoxyCodeLine{86     \{}
+\DoxyCodeLine{87       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{CJK\}\(\backslash\)n"{}};}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab9c51823cd35480af26170a7fb752f06}{trISOLang}}()}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}zh-\/Hant"{}};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a44266c9ed199f804c51ab5b9cfcb5b4c}{getLanguageString}}()}
+\DoxyCodeLine{94     \{}
+\DoxyCodeLine{95       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x404 Chinese (Taiwan)"{}};}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aca72bb636f7b1d0f89ef3bf76a0ac3a0}{trRelatedFunctions}}()}
+\DoxyCodeLine{102     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}相關函式"{}}; \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{105     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1e290a366815e1a6f81ab8f7ecb0e860}{trRelatedSubscript}}()}
+\DoxyCodeLine{106     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(註：這些不是成員函式)"{}}; \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{109     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae444fc9b33fcfbf93481265d27ed7721}{trDetailedDescription}}()}
+\DoxyCodeLine{110     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳細描述"{}}; \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a61aa7fe0392853be8c7db7243aa854de}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{114     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型態定義成員說明文件"{}}; \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac3b40e07275582cfee780a2d5b448e37}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{118     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉型態成員說明文件"{}}; \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{121     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a777b4cf186ed3ac42c624183568fd61b}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{122     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}函式成員說明文件"{}}; \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{125     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a61381745fb939687e8a569ec137cc60c}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{126     \{}
+\DoxyCodeLine{127       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{128       \{}
+\DoxyCodeLine{129         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}欄位說明文件"{}};}
+\DoxyCodeLine{130       \}}
+\DoxyCodeLine{131       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{132       \{}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料成員說明文件"{}};}
+\DoxyCodeLine{134       \}}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad91d5ea9f31d47efac43960215ce6179}{trMore}}()}
+\DoxyCodeLine{139     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}更多..."{}}; \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2cf1edd61c495a0858c2a40a97a8212a}{trListOfAllMembers}}()}
+\DoxyCodeLine{143     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全部成員列表"{}}; \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4d1801a929911c35cf61bd97b7fdcbbc}{trMemberList}}()}
+\DoxyCodeLine{147     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}成員列表"{}}; \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2c635ff592e3ca67083d33a8aae4d6be}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{151     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}完整成員列表，類別為"{}}; \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a790281b961ba62ba8135fc4bb483e8f3}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{155     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, 包含所有繼承的成員"{}}; \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab32819d34c78acae9a8b7bfd6f3a2d49}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{161     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}本文件由Doxygen"{}};}
+\DoxyCodeLine{162       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} 自 "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{163       result+=\textcolor{stringliteral}{"{} 的原始碼中自動產生."{}};}
+\DoxyCodeLine{164       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{168     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8709752d130f7edea050ea7daccf2cf1}{trEnumName}}()}
+\DoxyCodeLine{169     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉型態名稱"{}}; \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{172     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a91000e25a060911c81b829f8fb34c3fb}{trEnumValue}}()}
+\DoxyCodeLine{173     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉值"{}}; \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af8a311b8bf69fb4f6985a3e542796337}{trDefinedIn}}()}
+\DoxyCodeLine{177     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}被定義於"{}}; \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a54add4c4469735d158f47f009506f1d6}{trModules}}()}
+\DoxyCodeLine{185     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組"{}}; \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{188     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1576ed9649d2871cfbd7870d056cc61b}{trClassHierarchy}}()}
+\DoxyCodeLine{189     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別階層"{}}; \}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab08d522825cf6d53f1f1c19bc8f4a3b5}{trCompoundList}}()}
+\DoxyCodeLine{193     \{}
+\DoxyCodeLine{194       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{195       \{}
+\DoxyCodeLine{196         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料結構"{}};}
+\DoxyCodeLine{197       \}}
+\DoxyCodeLine{198       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{199       \{}
+\DoxyCodeLine{200         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}複合列表"{}};}
+\DoxyCodeLine{201       \}}
+\DoxyCodeLine{202     \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{205     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1b1a43ae6c4c90d95b8d32f3be8c867e}{trFileList}}()}
+\DoxyCodeLine{206     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}檔案列表"{}}; \}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{209     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aff1bc2d63df22b6b462c4ff59e23366d}{trCompoundMembers}}()}
+\DoxyCodeLine{210     \{}
+\DoxyCodeLine{211       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{212       \{}
+\DoxyCodeLine{213         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料欄位"{}};}
+\DoxyCodeLine{214       \}}
+\DoxyCodeLine{215       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{216       \{}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}複合成員"{}};}
+\DoxyCodeLine{218       \}}
+\DoxyCodeLine{219     \}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad0cd759b12e0438aa93db58352555760}{trFileMembers}}()}
+\DoxyCodeLine{223     \{}
+\DoxyCodeLine{224       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{225       \{}
+\DoxyCodeLine{226         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全域資料"{}};}
+\DoxyCodeLine{227       \}}
+\DoxyCodeLine{228       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{229       \{}
+\DoxyCodeLine{230         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}檔案成員"{}};}
+\DoxyCodeLine{231       \}}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{235     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a56b731c25ed22e469f9208ab8bef48ca}{trRelatedPages}}()}
+\DoxyCodeLine{236     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}相關頁面"{}}; \}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a538d7aac5d4193d83cf4495b9138ba8e}{trExamples}}()}
+\DoxyCodeLine{240     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}範例"{}}; \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae3af377f58ca738dfeb56712ab26bf7f}{trSearch}}()}
+\DoxyCodeLine{244     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}搜尋"{}}; \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aba1f0ee51ae8b31443664d66d88f9b0e}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{248     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}這個繼承列表經過簡略的字母排序: "{}};}
+\DoxyCodeLine{249     \}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa34262ed886cea267620f0ebb7fcb153}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{253     \{}
+\DoxyCodeLine{254       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}這是附帶簡略說明"{}};}
+\DoxyCodeLine{255       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}且經過文件化"{}};}
+\DoxyCodeLine{256       result+=\textcolor{stringliteral}{"{}的檔案列表:"{}};}
+\DoxyCodeLine{257       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8a8e007367fd06cca98c81ddf4a430b0}{trCompoundListDescription}}()}
+\DoxyCodeLine{262     \{}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{265       \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}這是附帶簡略說明的資料結構:"{}};}
+\DoxyCodeLine{267       \}}
+\DoxyCodeLine{268       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{269       \{}
+\DoxyCodeLine{270         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}這是附帶簡略說明的類別，結構，"{}}}
+\DoxyCodeLine{271                \textcolor{stringliteral}{"{}聯合型態(unions)及介面(interfaces):"{}};}
+\DoxyCodeLine{272       \}}
+\DoxyCodeLine{273     \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{276     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae46a126dc342120850c389eef0b8142d}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{277     \{}
+\DoxyCodeLine{278       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}這是全部"{}};}
+\DoxyCodeLine{279       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{280       \{}
+\DoxyCodeLine{281         result+=\textcolor{stringliteral}{"{}文件化過"{}};}
+\DoxyCodeLine{282       \}}
+\DoxyCodeLine{283       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{284       \{}
+\DoxyCodeLine{285         result+=\textcolor{stringliteral}{"{}結構及聯合型態欄位"{}};}
+\DoxyCodeLine{286       \}}
+\DoxyCodeLine{287       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{288       \{}
+\DoxyCodeLine{289         result+=\textcolor{stringliteral}{"{}類別成員"{}};}
+\DoxyCodeLine{290       \}}
+\DoxyCodeLine{291       result+=\textcolor{stringliteral}{"{}, 並且帶有連結至"{}};}
+\DoxyCodeLine{292       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{293       \{}
+\DoxyCodeLine{294         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{295         \{}
+\DoxyCodeLine{296           result+=\textcolor{stringliteral}{"{}每個欄位的結構/聯合型態說明文件:"{}};}
+\DoxyCodeLine{297         \}}
+\DoxyCodeLine{298         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{299         \{}
+\DoxyCodeLine{300           result+=\textcolor{stringliteral}{"{}每個成員的類別說明文件:"{}};}
+\DoxyCodeLine{301         \}}
+\DoxyCodeLine{302       \}}
+\DoxyCodeLine{303       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{304       \{}
+\DoxyCodeLine{305         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{306         \{}
+\DoxyCodeLine{307           result+=\textcolor{stringliteral}{"{}這些結構/聯合型態所屬:"{}};}
+\DoxyCodeLine{308         \}}
+\DoxyCodeLine{309         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{310         \{}
+\DoxyCodeLine{311           result+=\textcolor{stringliteral}{"{}這些類別所屬:"{}};}
+\DoxyCodeLine{312         \}}
+\DoxyCodeLine{313       \}}
+\DoxyCodeLine{314       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{318     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2a6653d648b8d2143da0089c6560fa02}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{319     \{}
+\DoxyCodeLine{320       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}這是全部"{}};}
+\DoxyCodeLine{321       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}文件化的"{}};}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{324       \{}
+\DoxyCodeLine{325         result+=\textcolor{stringliteral}{"{}函式，變數，定義，列舉，及型態定義"{}};}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{328       \{}
+\DoxyCodeLine{329         result+=\textcolor{stringliteral}{"{}檔案成員"{}};}
+\DoxyCodeLine{330       \}}
+\DoxyCodeLine{331       result+=\textcolor{stringliteral}{"{}，並且帶有連結至"{}};}
+\DoxyCodeLine{332       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{333         result+=\textcolor{stringliteral}{"{}這些檔案所屬:"{}};}
+\DoxyCodeLine{334       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{335         result+=\textcolor{stringliteral}{"{}說明文件:"{}};}
+\DoxyCodeLine{336       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{337     \}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{340     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad43b688fcc63d744ab0631338551b334}{trExamplesDescription}}()}
+\DoxyCodeLine{341     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}所有範例列表:"{}}; \}}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{344     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab2e776ba63d174c19e000c6e50dc585e}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{345     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}所有相關文件頁面列表:"{}}; \}}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{348     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a01d9d192e4bc1a127942d94ac0f79f65}{trModulesDescription}}()}
+\DoxyCodeLine{349     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}所有模組列表:"{}}; \}}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353 }
+\DoxyCodeLine{355     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_adb29a4b3089d770c0b1ec8351fad1ed8}{trDocumentation}}()}
+\DoxyCodeLine{356     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}說明文件"{}}; \}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aeda555d82882d5ba994b3ab492ec8903}{trModuleIndex}}()}
+\DoxyCodeLine{362     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組索引"{}}; \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a40a00739f96d6ca0c88bfa677c86e992}{trHierarchicalIndex}}()}
+\DoxyCodeLine{368     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}階層索引"{}}; \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a7dc1fe9022bd659c8b0e8ed6b659c4ff}{trCompoundIndex}}()}
+\DoxyCodeLine{374     \{}
+\DoxyCodeLine{375       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{376       \{}
+\DoxyCodeLine{377         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料結構索引"{}};}
+\DoxyCodeLine{378       \}}
+\DoxyCodeLine{379       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{380       \{}
+\DoxyCodeLine{381         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}複合索引"{}};}
+\DoxyCodeLine{382       \}}
+\DoxyCodeLine{383     \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{388     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6a3cacc21a0a190f46eef8d37a1b5d20}{trFileIndex}}()}
+\DoxyCodeLine{389     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}檔案索引"{}}; \}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{394     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2fa6ec38cec31f9282b3d697ff02e135}{trModuleDocumentation}}()}
+\DoxyCodeLine{395     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組說明文件"{}}; \}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{400     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a023c78624554447745aca5c07d76212f}{trClassDocumentation}}()}
+\DoxyCodeLine{401     \{}
+\DoxyCodeLine{402       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{403       \{}
+\DoxyCodeLine{404         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料結構說明文件"{}};}
+\DoxyCodeLine{405       \}}
+\DoxyCodeLine{406       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{407       \{}
+\DoxyCodeLine{408           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{409       \}}
+\DoxyCodeLine{410       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{411       \{}
+\DoxyCodeLine{412         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別說明文件"{}};}
+\DoxyCodeLine{413       \}}
+\DoxyCodeLine{414     \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{419     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad7dc1ff0496b4035b4d12ac73df6b38c}{trFileDocumentation}}()}
+\DoxyCodeLine{420     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}檔案說明文件"{}}; \}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{425     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9854b2d04ca29b03620b861fa4e68a47}{trExampleDocumentation}}()}
+\DoxyCodeLine{426     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}範例說明文件"{}}; \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a226c40197d5f7a2afe8841eff0e5e210}{trReferenceManual}}()}
+\DoxyCodeLine{430     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}參考手冊"{}}; \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{435     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ade896d737b8e80dd3d5573be1c37ebce}{trDefines}}()}
+\DoxyCodeLine{436     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定義"{}}; \}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{441     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac2de12d719aed877943718f00ba68b9a}{trTypedefs}}()}
+\DoxyCodeLine{442     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型態定義"{}}; \}}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{447     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac5d2459582f0db8bcc212d2d5aca954b}{trEnumerations}}()}
+\DoxyCodeLine{448     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉型態"{}}; \}}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{453     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8289959dba838e5c9796e564f760b193}{trFunctions}}()}
+\DoxyCodeLine{454     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}函式"{}}; \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{459     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af9364497af3826f519b7e5811e9e6a0d}{trVariables}}()}
+\DoxyCodeLine{460     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}變數"{}}; \}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{465     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa7461e7db8825b28727eb0df9dfc1095}{trEnumerationValues}}()}
+\DoxyCodeLine{466     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉值"{}}; \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{471     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a51894f95d55c54f919a7066f2889b4be}{trDefineDocumentation}}()}
+\DoxyCodeLine{472     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定義巨集說明文件"{}}; \}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{477     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6aaadc23c3996b49a87da3b5aa23e099}{trTypedefDocumentation}}()}
+\DoxyCodeLine{478     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型態定義說明文件"{}}; \}}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{483     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa761127e4fdb1b34969289831f7c817c}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{484     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉型態說明文件"{}}; \}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{489     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab4f1b9601ba176651ff6aa46e9380fb0}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{490     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列舉值說明文件"{}}; \}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{495     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aaf0f3a0b1de5254a585b8d52e23ac099}{trFunctionDocumentation}}()}
+\DoxyCodeLine{496     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}函式說明文件"{}}; \}}
+\DoxyCodeLine{497 }
+\DoxyCodeLine{501     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae5208cf0363e243cbdfe3a807617a5eb}{trVariableDocumentation}}()}
+\DoxyCodeLine{502     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}變數說明文件"{}}; \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{507     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a209bcee5ed6aa0f9115fa0a72b836680}{trCompounds}}()}
+\DoxyCodeLine{508     \{}
+\DoxyCodeLine{509       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{510       \{}
+\DoxyCodeLine{511         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料結構"{}};}
+\DoxyCodeLine{512       \}}
+\DoxyCodeLine{513       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{514       \{}
+\DoxyCodeLine{515         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}複合項目"{}};}
+\DoxyCodeLine{516       \}}
+\DoxyCodeLine{517     \}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{522     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a74fcbe8cdcc95a1a0644f5c0d3a43efc}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{523     \{}
+\DoxyCodeLine{524       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}產生日期:"{}}+date;}
+\DoxyCodeLine{525       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{}, 專案:"{}}+projName;}
+\DoxyCodeLine{526       result+=\textcolor{stringliteral}{"{}, 產生器:"{}};}
+\DoxyCodeLine{527       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{528     \}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{531     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a07fc97a7cefd289a118bca01dc1cebfe}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{532     \{}
+\DoxyCodeLine{533       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別"{}}+clName+\textcolor{stringliteral}{"{}的繼承圖:"{}};}
+\DoxyCodeLine{534     \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{537     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5007553b6683b60e83d5f09198943f8f}{trWarning}}()}
+\DoxyCodeLine{538     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}警告"{}}; \}}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{541     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a45e0e25d032f75149f367710c81eaf60}{trVersion}}()}
+\DoxyCodeLine{542     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}版本"{}}; \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{545     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab03266211496908f24b94b4b3143ddb9}{trDate}}()}
+\DoxyCodeLine{546     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}日期"{}}; \}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{549     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad88945dcceb6d0e446b8ff4e2767133a}{trReturns}}()}
+\DoxyCodeLine{550     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}傳回值"{}}; \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{553     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac0396dc7e8551600fb718e8a555fa392}{trSeeAlso}}()}
+\DoxyCodeLine{554     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}參閱"{}}; \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0470e477f7a67716fe4c4f7f232ba1d2}{trParameters}}()}
+\DoxyCodeLine{558     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}參數"{}}; \}}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{561     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad24c0dcf0138acddae4d8ecf43f4717d}{trExceptions}}()}
+\DoxyCodeLine{562     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}例外"{}}; \}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{565     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aeb5bb752c5fd1b1338aa6da084c65caa}{trGeneratedBy}}()}
+\DoxyCodeLine{566     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}產生者:"{}}; \}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{569 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{571 \textcolor{comment}{}}
+\DoxyCodeLine{573     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6035de5fac1c09cffbad24fbb359791c}{trNamespaceList}}()}
+\DoxyCodeLine{574     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}命名空間(name space)列表"{}}; \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{577     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5b8b57ddcb0596a4a01b750ee003fdab}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{578     \{}
+\DoxyCodeLine{579       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}這是所有附帶簡略說明的"{}};}
+\DoxyCodeLine{580       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}文件化的"{}};}
+\DoxyCodeLine{581       result+=\textcolor{stringliteral}{"{}命名空間(namespaces):"{}};}
+\DoxyCodeLine{582       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{583     \}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3b2466a051e3ce2d5a61c97fd219e6da}{trFriends}}()}
+\DoxyCodeLine{589     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別朋友(Friends)"{}}; \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{592 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{594 \textcolor{comment}{}}
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a81f57cd0b4950a7dee0c05399f68a851}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{599     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別朋友及相關函式說明文件"{}}; \}}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{602 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{604 \textcolor{comment}{}}
+\DoxyCodeLine{606     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a712d323f0ad840cf71d8687bfeaaf89f}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{607                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{608                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{609     \{}
+\DoxyCodeLine{610       \mbox{\hyperlink{classQCString}{QCString}} result=clName+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{611       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{612       \{}
+\DoxyCodeLine{613         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} 類別"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{614         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} 結構"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{615         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} 聯合"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{616         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} 介面"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{617         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} 協定"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{618         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} 分類"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{619         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} 例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{620         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{621       \}}
+\DoxyCodeLine{622       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} 樣版"{}};}
+\DoxyCodeLine{623       result+=\textcolor{stringliteral}{"{} 參考文件"{}};}
+\DoxyCodeLine{624       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{625     \}}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aeaa84abdcd3f7891ef3a542cfe9014bb}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{629     \{}
+\DoxyCodeLine{630       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{631       result+=\textcolor{stringliteral}{"{} 檔案參考文件"{}};}
+\DoxyCodeLine{632       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{633     \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa09bd8f3f159627b0eb018eaf64408b2}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{637     \{}
+\DoxyCodeLine{638       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{639       result+=\textcolor{stringliteral}{"{} 命名空間(Namespace)參考文件"{}};}
+\DoxyCodeLine{640       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{641     \}}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{643     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a62541b62178c26cd4ec03c321749d432}{trPublicMembers}}()}
+\DoxyCodeLine{644     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開方法(Public Methods)"{}}; \}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_acb9d7439fe778168a28ceb5fc8804657}{trPublicSlots}}()}
+\DoxyCodeLine{646     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開插槽(Public Slots)"{}}; \}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a66e93aaa3a105dcd8003949d383ee633}{trSignals}}()}
+\DoxyCodeLine{648     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}訊號(Signals)"{}}; \}}
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8df319d22741a159fe52cb12d6271c69}{trStaticPublicMembers}}()}
+\DoxyCodeLine{650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態公開方法(Static Public Methods)"{}}; \}}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac46fb79e68428b651b197e0944a3bcb0}{trProtectedMembers}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}保護方法(Protected Methods)"{}}; \}}
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1863ec93b89cbe1725a63e6d126f8e4a}{trProtectedSlots}}()}
+\DoxyCodeLine{654     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}保護插槽(Protected Slots)"{}}; \}}
+\DoxyCodeLine{655     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae4950517d8895572a95d290a0505d903}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{656     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態保護方法(Static Protected Methods)"{}}; \}}
+\DoxyCodeLine{657     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a21290075d025d036912900a7401d4b3f}{trPrivateMembers}}()}
+\DoxyCodeLine{658     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}私有方法(Private Methods)"{}}; \}}
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5216ed2d7f46b6d3c02d760b63bb45c1}{trPrivateSlots}}()}
+\DoxyCodeLine{660     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}私有插槽(Private Slots)"{}}; \}}
+\DoxyCodeLine{661     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad4bcfbd62ef5ce7179c8580d3be556d5}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{662     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態私有方法(Static Private Methods)"{}}; \}}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{668     \{}
+\DoxyCodeLine{669       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{670       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{671       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{672       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{673       \{}
+\DoxyCodeLine{674         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{675         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{676                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{678         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{679         \{}
+\DoxyCodeLine{680           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{681             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{682           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{683             result+=\textcolor{stringliteral}{"{}, 及 "{}};}
+\DoxyCodeLine{684         \}}
+\DoxyCodeLine{685       \}}
+\DoxyCodeLine{686       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{687     \}}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a87374f3d1f0381391d6bc2841281353f}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{693     \{}
+\DoxyCodeLine{694       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}繼承自 "{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{695     \}}
+\DoxyCodeLine{696 }
+\DoxyCodeLine{700     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a39a3b2bb06ce928b00ccd3425cb51015}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{701     \{}
+\DoxyCodeLine{702       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}被 "{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}繼承."{}};}
+\DoxyCodeLine{703     \}}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4123a9a2bd28068e475392efd4651c42}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{709     \{}
+\DoxyCodeLine{710       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}依據"{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}重新實作."{}};}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{716     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aca576368f45551caeec96ea9d69ec408}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{717     \{}
+\DoxyCodeLine{718       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}在"{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}重新實作."{}};}
+\DoxyCodeLine{719     \}}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3aec65a28c2b177db121ad1645413e3b}{trNamespaceMembers}}()}
+\DoxyCodeLine{723     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}命名空間(Namespace)成員"{}}; \}}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{726     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a171a9f55c053e186ccbdeb618926078c}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{727     \{}
+\DoxyCodeLine{728       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}此處列表為所有 "{}};}
+\DoxyCodeLine{729       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}文件化的 "{}};}
+\DoxyCodeLine{730       result+=\textcolor{stringliteral}{"{}命名空間(namespace)成員，並且附帶連結至 "{}};}
+\DoxyCodeLine{731       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{732         result+=\textcolor{stringliteral}{"{}每個成員的說明文件:"{}};}
+\DoxyCodeLine{733       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{734         result+=\textcolor{stringliteral}{"{}該命名空間所屬之處:"{}};}
+\DoxyCodeLine{735       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{736     \}}
+\DoxyCodeLine{740     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a29d1791d96691ceb1290847ff865ca83}{trNamespaceIndex}}()}
+\DoxyCodeLine{741     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}命名空間(Namespace)索引"{}}; \}}
+\DoxyCodeLine{742 }
+\DoxyCodeLine{746     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8921d97e025593ea1bf75e5154f184e8}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{747     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}命名空間(Namespace)說明文件"{}}; \}}
+\DoxyCodeLine{748 }
+\DoxyCodeLine{750 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{752 \textcolor{comment}{}}
+\DoxyCodeLine{756     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_abbf6cde3ca2bb82a800469df5956a5fb}{trNamespaces}}()}
+\DoxyCodeLine{757     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}命名空間(Namespaces)"{}}; \}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{760 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{762 \textcolor{comment}{}}
+\DoxyCodeLine{766     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2409b760dbc895ccd60b3d2c13c532b9}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{767     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{768       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{769       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}此"{}};}
+\DoxyCodeLine{770       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{771       \{}
+\DoxyCodeLine{772         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}類別(class)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{773         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}結構(structure)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{774         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}聯合(union)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{775         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}介面(interface)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{776         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}協定(protocol)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{777         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}分類(category)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{778         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外(exception)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{779         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{780       \}}
+\DoxyCodeLine{781       result+=\textcolor{stringliteral}{"{} 文件是由下列檔案中產生"{}};}
+\DoxyCodeLine{782       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{783       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{784     \}}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{787 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{789 \textcolor{comment}{}}
+\DoxyCodeLine{791     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a71d32839c4b744f25b05f0e4bdac450c}{trReturnValues}}()}
+\DoxyCodeLine{792     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}傳回值"{}}; \}}
+\DoxyCodeLine{793 }
+\DoxyCodeLine{796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a68f8441ce8bc3f508eac1586bb02e249}{trMainPage}}()}
+\DoxyCodeLine{797     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}主頁面"{}}; \}}
+\DoxyCodeLine{798 }
+\DoxyCodeLine{802     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a18084cdddd1baa4210092fc99e8f6438}{trPageAbbreviation}}()}
+\DoxyCodeLine{803     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}p."{}}; \}}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{806 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{808 \textcolor{comment}{}}
+\DoxyCodeLine{809     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9170f2a51e8d11640cea5c9be5d5cd2c}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{810     \{}
+\DoxyCodeLine{811       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定義在 @1 檔案之第 @0 行."{}};}
+\DoxyCodeLine{812     \}}
+\DoxyCodeLine{813     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae690faa7b0a64472ce70b374b65b9694}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{814     \{}
+\DoxyCodeLine{815       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定義在 @0 檔."{}};}
+\DoxyCodeLine{816     \}}
+\DoxyCodeLine{817 }
+\DoxyCodeLine{819 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{821 \textcolor{comment}{}}
+\DoxyCodeLine{822     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa63a520e54aa78724910fd1c6110f3be}{trDeprecated}}()}
+\DoxyCodeLine{823     \{}
+\DoxyCodeLine{824       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}過時"{}};}
+\DoxyCodeLine{825     \}}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{828 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{830 \textcolor{comment}{}}
+\DoxyCodeLine{832     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af82e44ba431e7dc738b0c9cc0aa05746}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{833     \{}
+\DoxyCodeLine{834       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}+clName+\textcolor{stringliteral}{"{}的合作圖:"{}};}
+\DoxyCodeLine{835     \}}
+\DoxyCodeLine{837     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac70e233f033c36aaefdb67ff7d5619a4}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{838     \{}
+\DoxyCodeLine{839       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}}+fName+\textcolor{stringliteral}{"{}的包含相依圖:"{}};}
+\DoxyCodeLine{840     \}}
+\DoxyCodeLine{842     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2ceebe1beb156a83ed38af7690b732f4}{trConstructorDocumentation}}()}
+\DoxyCodeLine{843     \{}
+\DoxyCodeLine{844       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}建構子與解構子說明文件"{}};}
+\DoxyCodeLine{845     \}}
+\DoxyCodeLine{847     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_afe6478c12591ba06d7f8bc574e42e004}{trGotoSourceCode}}()}
+\DoxyCodeLine{848     \{}
+\DoxyCodeLine{849       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}查看本檔案的原始碼."{}};}
+\DoxyCodeLine{850     \}}
+\DoxyCodeLine{852     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6f3b8bb891c29f32a1453fc086352735}{trGotoDocumentation}}()}
+\DoxyCodeLine{853     \{}
+\DoxyCodeLine{854       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}查看本檔案說明文件."{}};}
+\DoxyCodeLine{855     \}}
+\DoxyCodeLine{857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a938da32ab20e86e35800dc3782a87412}{trPrecondition}}()}
+\DoxyCodeLine{858     \{}
+\DoxyCodeLine{859       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}前置條件"{}};}
+\DoxyCodeLine{860     \}}
+\DoxyCodeLine{862     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6d6cb27072cc8f39c0013e0d43f745ae}{trPostcondition}}()}
+\DoxyCodeLine{863     \{}
+\DoxyCodeLine{864       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}後置條件"{}};}
+\DoxyCodeLine{865     \}}
+\DoxyCodeLine{867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a895236a1e7edd69286c8e068f4a3037c}{trInvariant}}()}
+\DoxyCodeLine{868     \{}
+\DoxyCodeLine{869       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}常數"{}};}
+\DoxyCodeLine{870     \}}
+\DoxyCodeLine{872     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad818eb8e6c599cea1267baf01a118ce9}{trInitialValue}}()}
+\DoxyCodeLine{873     \{}
+\DoxyCodeLine{874       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}初值:"{}};}
+\DoxyCodeLine{875     \}}
+\DoxyCodeLine{877     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1e982f83fc7265c533b8d361b97c4a1a}{trCode}}()}
+\DoxyCodeLine{878     \{}
+\DoxyCodeLine{879       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}程式碼"{}};}
+\DoxyCodeLine{880     \}}
+\DoxyCodeLine{881     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a785c89b9c9e46df0fb240582cce8b50e}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{882     \{}
+\DoxyCodeLine{883       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}圖形化之類別階層"{}};}
+\DoxyCodeLine{884     \}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab5092526b1326b9266d4c0d574bb1fed}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}查看圖形化之類別階層"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3cf669a7be42d22e620127f098443fa8}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{890     \{}
+\DoxyCodeLine{891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}查看文字化之類別階層"{}};}
+\DoxyCodeLine{892     \}}
+\DoxyCodeLine{893     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a69b846809e1de89c78d5dca6d0ef753b}{trPageIndex}}()}
+\DoxyCodeLine{894     \{}
+\DoxyCodeLine{895       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}頁面索引"{}};}
+\DoxyCodeLine{896     \}}
+\DoxyCodeLine{897 }
+\DoxyCodeLine{899 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{901 \textcolor{comment}{}}
+\DoxyCodeLine{902     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a7e75e3258e819801427e68a79a65d5a7}{trNote}}()}
+\DoxyCodeLine{903     \{}
+\DoxyCodeLine{904       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}註"{}};}
+\DoxyCodeLine{905     \}}
+\DoxyCodeLine{906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aed0544a831bf55daa893f036decc4ab8}{trPublicTypes}}()}
+\DoxyCodeLine{907     \{}
+\DoxyCodeLine{908       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開型態"{}};}
+\DoxyCodeLine{909     \}}
+\DoxyCodeLine{910     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a506023119d6c8a31235d19dc0e17b033}{trPublicAttribs}}()}
+\DoxyCodeLine{911     \{}
+\DoxyCodeLine{912       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{913       \{}
+\DoxyCodeLine{914         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料欄位"{}};}
+\DoxyCodeLine{915       \}}
+\DoxyCodeLine{916       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{917       \{}
+\DoxyCodeLine{918         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開屬性"{}};}
+\DoxyCodeLine{919       \}}
+\DoxyCodeLine{920     \}}
+\DoxyCodeLine{921     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5e646df025a62827cc725b996a877a9c}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{922     \{}
+\DoxyCodeLine{923       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態公開屬性"{}};}
+\DoxyCodeLine{924     \}}
+\DoxyCodeLine{925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac8d3dc2342606b9caa8eb1ffb57817c2}{trProtectedTypes}}()}
+\DoxyCodeLine{926     \{}
+\DoxyCodeLine{927       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}保護型態"{}};}
+\DoxyCodeLine{928     \}}
+\DoxyCodeLine{929     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae81798951959c4cf3804c6d4738537a2}{trProtectedAttribs}}()}
+\DoxyCodeLine{930     \{}
+\DoxyCodeLine{931       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}保護屬性"{}};}
+\DoxyCodeLine{932     \}}
+\DoxyCodeLine{933     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_acae97e9ea166c1f631442ef734cca58b}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{934     \{}
+\DoxyCodeLine{935       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態保護屬性"{}};}
+\DoxyCodeLine{936     \}}
+\DoxyCodeLine{937     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a65f324a3ebc1ec2eb7a953f5f81d16b1}{trPrivateTypes}}()}
+\DoxyCodeLine{938     \{}
+\DoxyCodeLine{939       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}私有型態"{}};}
+\DoxyCodeLine{940     \}}
+\DoxyCodeLine{941     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9c25cc14f67b89f45896926ad8897ae2}{trPrivateAttribs}}()}
+\DoxyCodeLine{942     \{}
+\DoxyCodeLine{943       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}私有屬性"{}};}
+\DoxyCodeLine{944     \}}
+\DoxyCodeLine{945     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a86ca838e617dcacb775585c6b1ef2faf}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{946     \{}
+\DoxyCodeLine{947       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態私有屬性"{}};}
+\DoxyCodeLine{948     \}}
+\DoxyCodeLine{949 }
+\DoxyCodeLine{951 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{953 \textcolor{comment}{}}
+\DoxyCodeLine{955     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a04fc172a8323473e29b8cc520501a635}{trTodo}}()}
+\DoxyCodeLine{956     \{}
+\DoxyCodeLine{957       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}待辦事項"{}};}
+\DoxyCodeLine{958     \}}
+\DoxyCodeLine{960     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac17ad709071a125acce82c295add2e1f}{trTodoList}}()}
+\DoxyCodeLine{961     \{}
+\DoxyCodeLine{962       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}待辦事項列表"{}};}
+\DoxyCodeLine{963     \}}
+\DoxyCodeLine{964 }
+\DoxyCodeLine{966 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{968 \textcolor{comment}{}}
+\DoxyCodeLine{969     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8c0d9e50a1f2c8caba4e6b8528e7f798}{trReferencedBy}}()}
+\DoxyCodeLine{970     \{}
+\DoxyCodeLine{971       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}被參考於"{}};}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad72cef34cf6fe8248ca547850c7b1d33}{trRemarks}}()}
+\DoxyCodeLine{974     \{}
+\DoxyCodeLine{975       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}備註"{}};}
+\DoxyCodeLine{976     \}}
+\DoxyCodeLine{977     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_abf715b71b85daede947b0f17f7c29933}{trAttention}}()}
+\DoxyCodeLine{978     \{}
+\DoxyCodeLine{979       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}注意"{}};}
+\DoxyCodeLine{980     \}}
+\DoxyCodeLine{981     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a76f7abad32a21ca2b40977362b2ee192}{trInclByDepGraph}}()}
+\DoxyCodeLine{982     \{}
+\DoxyCodeLine{983       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}本圖顯示出哪些檔案直接或間接include本檔 "{}}}
+\DoxyCodeLine{984              \textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{985     \}}
+\DoxyCodeLine{986     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a997a58bda3e61cb0c37257f338db6c51}{trSince}}()}
+\DoxyCodeLine{987     \{}
+\DoxyCodeLine{988       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}自"{}};}
+\DoxyCodeLine{989     \}}
+\DoxyCodeLine{990 }
+\DoxyCodeLine{992 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{994 \textcolor{comment}{}}
+\DoxyCodeLine{996     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4229fcbab46c55b5a8cf3977149c26f3}{trLegendTitle}}()}
+\DoxyCodeLine{997     \{}
+\DoxyCodeLine{998       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}圖示"{}};}
+\DoxyCodeLine{999     \}}
+\DoxyCodeLine{1003     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6813a103a994d36bf508b0b8b03995e7}{trLegendDocs}}()}
+\DoxyCodeLine{1004     \{}
+\DoxyCodeLine{1005       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}本頁解釋如何解譯這些由doxygen所產生的圖示 "{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}請看下面範例:\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}/*! 因為截斷而造成的不可見類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}/*! 截斷的類別, 繼承關係被隱藏 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}/* 未經過doxygen註解處理過的類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}/*! 經過公開(Public)繼承的類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}/*! 一個樣版類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}/*! 使用保護(Protected)繼承的類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}/*! 使用私有(Private)繼承的類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}/*! 由被繼承類別所使用的類別 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}/*! 由數個其他類別所繼承來的超類別(Super Class) */\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}這個例子會產生下列的圖示:"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center></p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}上圖中的各區塊意義如下:\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}<li>\%A 填滿黑色的區塊代表產生這個圖示的類別或結構 "{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}.\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}<li>\%A 黑邊的區塊代表文件化過的結構或類別.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}<li>\%A 灰邊的區塊代表未經文件化的結構或是類別.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}<li>\%A 紅邊的區塊代表文件化的結構或是類別，"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}這些結構或類別的繼承或包含關係不會全部顯示. \%A 圖示 "{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}若無法塞入指定的邊界中將會被截斷.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}箭頭具有下面的意義:\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}<li>\%A 深藍色箭頭用來代表兩個類別間的公開繼承 "{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}關係.\(\backslash\)n"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}<li>\%A 深綠色箭頭代表保護繼承。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}<li>\%A 深紅色箭頭代表私有繼承。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}<li>\%A 紫色箭頭用來表示類別被另一個包含或是使用."{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}箭頭上標示著可存取該類別或是結構的對應變數。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}<li>\%A 黃色箭頭代表樣版實體與樣版類別之間的關係。"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}箭頭上標記著樣版實體上的參數。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1064     \}}
+\DoxyCodeLine{1066     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a7ec3338207371dd6b06edfe7a212d443}{trLegend}}()}
+\DoxyCodeLine{1067     \{}
+\DoxyCodeLine{1068       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}圖示"{}};}
+\DoxyCodeLine{1069     \}}
+\DoxyCodeLine{1070 }
+\DoxyCodeLine{1072 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1074 \textcolor{comment}{}}
+\DoxyCodeLine{1076     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a986fde8083b58bef975adf8b94e40718}{trTest}}()}
+\DoxyCodeLine{1077     \{}
+\DoxyCodeLine{1078       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}測試項目"{}};}
+\DoxyCodeLine{1079     \}}
+\DoxyCodeLine{1081     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a08c527aab589d7798710e841c0d79294}{trTestList}}()}
+\DoxyCodeLine{1082     \{}
+\DoxyCodeLine{1083       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}測試項目列表"{}};}
+\DoxyCodeLine{1084     \}}
+\DoxyCodeLine{1085 }
+\DoxyCodeLine{1087 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1089 \textcolor{comment}{}}
+\DoxyCodeLine{1091     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a12d4ce73f80d761d88d4f48502d1deb4}{trProperties}}()}
+\DoxyCodeLine{1092     \{}
+\DoxyCodeLine{1093       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}屬性(properties)"{}};}
+\DoxyCodeLine{1094     \}}
+\DoxyCodeLine{1096     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a957f249ec35e3e55307591caed7094a6}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1097     \{}
+\DoxyCodeLine{1098       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}屬性(property)說明文件"{}};}
+\DoxyCodeLine{1099     \}}
+\DoxyCodeLine{1100 }
+\DoxyCodeLine{1102 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1104 \textcolor{comment}{}}
+\DoxyCodeLine{1106     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a595c8dfa4f0a38cae32a616baae240f1}{trClasses}}()}
+\DoxyCodeLine{1107     \{}
+\DoxyCodeLine{1108       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1109       \{}
+\DoxyCodeLine{1110         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料結構"{}};}
+\DoxyCodeLine{1111       \}}
+\DoxyCodeLine{1112       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1113       \{}
+\DoxyCodeLine{1114         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別"{}};}
+\DoxyCodeLine{1115       \}}
+\DoxyCodeLine{1116     \}}
+\DoxyCodeLine{1118     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9251404d9ed941a214976683b8eef40c}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1119     \{}
+\DoxyCodeLine{1120       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package "{}}+name;}
+\DoxyCodeLine{1121     \}}
+\DoxyCodeLine{1123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab4f562c3bfac8511ccd149ca98ef9415}{trPackageListDescription}}()}
+\DoxyCodeLine{1124     \{}
+\DoxyCodeLine{1125       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}此處為Package的概略說明(如果有的話):"{}};}
+\DoxyCodeLine{1126     \}}
+\DoxyCodeLine{1128     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae1689433305f64baaa07a2995bad1216}{trPackages}}()}
+\DoxyCodeLine{1129     \{}
+\DoxyCodeLine{1130       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Packages"{}};}
+\DoxyCodeLine{1131     \}}
+\DoxyCodeLine{1132 }
+\DoxyCodeLine{1134     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a28a2c7f00f59d94cb514868bce7e02a1}{trDefineValue}}()}
+\DoxyCodeLine{1135     \{}
+\DoxyCodeLine{1136       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}巨集內容:"{}};}
+\DoxyCodeLine{1137     \}}
+\DoxyCodeLine{1138 }
+\DoxyCodeLine{1140 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1142 \textcolor{comment}{}}
+\DoxyCodeLine{1144     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5f09c2d99e71b0ecd441790b30c7f8fa}{trBug}}()}
+\DoxyCodeLine{1145     \{}
+\DoxyCodeLine{1146       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}臭蟲"{}};}
+\DoxyCodeLine{1147     \}}
+\DoxyCodeLine{1149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a25ced0a35ed54142173ffc5eec867b8d}{trBugList}}()}
+\DoxyCodeLine{1150     \{}
+\DoxyCodeLine{1151       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}臭蟲列表"{}};}
+\DoxyCodeLine{1152     \}}
+\DoxyCodeLine{1153 }
+\DoxyCodeLine{1155 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1157 \textcolor{comment}{}}
+\DoxyCodeLine{1183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a823b4850251a1459b460f2a68f98f034}{trRTFansicp}}()}
+\DoxyCodeLine{1184     \{}
+\DoxyCodeLine{1185       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}950"{}};}
+\DoxyCodeLine{1186     \}}
+\DoxyCodeLine{1187 }
+\DoxyCodeLine{1188 }
+\DoxyCodeLine{1192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a003088d221f11675243a79a94b8ac6a4}{trRTFCharSet}}()}
+\DoxyCodeLine{1193     \{}
+\DoxyCodeLine{1194       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}136"{}};}
+\DoxyCodeLine{1195     \}}
+\DoxyCodeLine{1196 }
+\DoxyCodeLine{1198     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae7a8ad1b94cdbc2e09b3683197582917}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1199     \{}
+\DoxyCodeLine{1200       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}索引"{}};}
+\DoxyCodeLine{1201     \}}
+\DoxyCodeLine{1202 }
+\DoxyCodeLine{1207     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a667d8262125be0fcf73ca0d0343f84cf}{trClass}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1208     \{}
+\DoxyCodeLine{1209       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}類別"{}});}
+\DoxyCodeLine{1210     \}}
+\DoxyCodeLine{1211 }
+\DoxyCodeLine{1216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_abcdea164b370eb28a76e76393000ae7b}{trFile}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1217     \{}
+\DoxyCodeLine{1218       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}檔案"{}});}
+\DoxyCodeLine{1219     \}}
+\DoxyCodeLine{1220 }
+\DoxyCodeLine{1225     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0bf83ac2c861396dfc2d3c274ad45fa4}{trNamespace}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1226     \{}
+\DoxyCodeLine{1227       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}命名空間"{}});}
+\DoxyCodeLine{1228     \}}
+\DoxyCodeLine{1229 }
+\DoxyCodeLine{1234     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a965461dc9248dfed432c3b5d04caf67d}{trGroup}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1235     \{}
+\DoxyCodeLine{1236       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}群組"{}});}
+\DoxyCodeLine{1237     \}}
+\DoxyCodeLine{1238 }
+\DoxyCodeLine{1243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af2b72609a18bb94d243282d75a4afd3e}{trPage}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1244     \{}
+\DoxyCodeLine{1245       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}頁面"{}});}
+\DoxyCodeLine{1246     \}}
+\DoxyCodeLine{1247 }
+\DoxyCodeLine{1252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac5f6cc87f332594ddd9a1b3a9566e695}{trMember}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1253     \{}
+\DoxyCodeLine{1254       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}成員"{}});}
+\DoxyCodeLine{1255     \}}
+\DoxyCodeLine{1256 }
+\DoxyCodeLine{1261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ac86e1154739fb45ae06fc17522c0d898}{trGlobal}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1262     \{}
+\DoxyCodeLine{1263       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}全域"{}});}
+\DoxyCodeLine{1264     \}}
+\DoxyCodeLine{1265 }
+\DoxyCodeLine{1267 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1269 \textcolor{comment}{}}
+\DoxyCodeLine{1272     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab96d9f905b0b31764eb86c3085a14520}{trAuthor}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1273     \{}
+\DoxyCodeLine{1274       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}作者"{}});}
+\DoxyCodeLine{1275     \}}
+\DoxyCodeLine{1276 }
+\DoxyCodeLine{1278 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1280 \textcolor{comment}{}}
+\DoxyCodeLine{1283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a52e273de98bc9cb2b95f4c2316848a26}{trReferences}}()}
+\DoxyCodeLine{1284     \{}
+\DoxyCodeLine{1285       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}參考"{}};}
+\DoxyCodeLine{1286     \}}
+\DoxyCodeLine{1287 }
+\DoxyCodeLine{1289 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1291 \textcolor{comment}{}}
+\DoxyCodeLine{1295     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9b081ef4ec88e0e25d04824351a77089}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1296     \{}
+\DoxyCodeLine{1297       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}實作 "{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1298     \}}
+\DoxyCodeLine{1299 }
+\DoxyCodeLine{1303     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0e333fc233c2a61076715266cb684c77}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1304     \{}
+\DoxyCodeLine{1305       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}實作於 "{}}+\mbox{\hyperlink{classTranslatorChinesetraditional_a173a9add6c2a074ea0b69e02c58ab105}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1306     \}}
+\DoxyCodeLine{1307 }
+\DoxyCodeLine{1309 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1311 \textcolor{comment}{}}
+\DoxyCodeLine{1315     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_afa9fb73edd1669644f8631c983d94913}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1316     \{}
+\DoxyCodeLine{1317       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}目錄"{}};}
+\DoxyCodeLine{1318     \}}
+\DoxyCodeLine{1319 }
+\DoxyCodeLine{1321 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1323 \textcolor{comment}{}}
+\DoxyCodeLine{1327     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a028e21ebc33dffcd502982aa7fa64503}{trDeprecatedList}}()}
+\DoxyCodeLine{1328     \{}
+\DoxyCodeLine{1329       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}過時項目(Deprecated) 列表"{}};}
+\DoxyCodeLine{1330     \}}
+\DoxyCodeLine{1331 }
+\DoxyCodeLine{1333 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1335 \textcolor{comment}{}}
+\DoxyCodeLine{1339     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad83304224ff49e184e4e14624f8ec300}{trEvents}}()}
+\DoxyCodeLine{1340     \{}
+\DoxyCodeLine{1341       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Events"{}};}
+\DoxyCodeLine{1342     \}}
+\DoxyCodeLine{1344     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_abbe57b2f5a4ce7b21871953016d4217e}{trEventDocumentation}}()}
+\DoxyCodeLine{1345     \{}
+\DoxyCodeLine{1346       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Event 文件"{}};}
+\DoxyCodeLine{1347     \}}
+\DoxyCodeLine{1348 }
+\DoxyCodeLine{1350 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1352 \textcolor{comment}{}}
+\DoxyCodeLine{1355     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_acf06113451a4b7429244afb10279857a}{trPackageTypes}}()}
+\DoxyCodeLine{1356     \{}
+\DoxyCodeLine{1357       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package 型別"{}};}
+\DoxyCodeLine{1358     \}}
+\DoxyCodeLine{1362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a7b6568f03cea87e2f7c4cb2554c198bf}{trPackageFunctions}}()}
+\DoxyCodeLine{1363     \{}
+\DoxyCodeLine{1364       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package 函數列表"{}};}
+\DoxyCodeLine{1365     \}}
+\DoxyCodeLine{1366     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa67be8f3476106a7ffc1a07a66ff4189}{trPackageMembers}}()}
+\DoxyCodeLine{1367     \{}
+\DoxyCodeLine{1368       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package 成員列表"{}};}
+\DoxyCodeLine{1369     \}}
+\DoxyCodeLine{1373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa90d7529e25d862c9e856607d746455b}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1374     \{}
+\DoxyCodeLine{1375       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態 Package 函數列表"{}};}
+\DoxyCodeLine{1376     \}}
+\DoxyCodeLine{1380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3df74e7c393faf110b039fd8c52df59c}{trPackageAttribs}}()}
+\DoxyCodeLine{1381     \{}
+\DoxyCodeLine{1382       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Package 屬性"{}};}
+\DoxyCodeLine{1383     \}}
+\DoxyCodeLine{1387     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a39d7a776bf00a1231a1688751fd710ef}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1388     \{}
+\DoxyCodeLine{1389       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}靜態 Package 屬性"{}};}
+\DoxyCodeLine{1390     \}}
+\DoxyCodeLine{1391 }
+\DoxyCodeLine{1393 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1395 \textcolor{comment}{}}
+\DoxyCodeLine{1399     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa1b51ab16b0482c3bd451cb82dceb6f7}{trAll}}()}
+\DoxyCodeLine{1400     \{}
+\DoxyCodeLine{1401       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全部"{}};}
+\DoxyCodeLine{1402     \}}
+\DoxyCodeLine{1404     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a618b1ac3e4855df1ae6c15c49a79d64c}{trCallGraph}}()}
+\DoxyCodeLine{1405     \{}
+\DoxyCodeLine{1406       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}這是此函數的引用函數圖:"{}};}
+\DoxyCodeLine{1407     \}}
+\DoxyCodeLine{1408 }
+\DoxyCodeLine{1410 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1412 \textcolor{comment}{}}
+\DoxyCodeLine{1416     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad8c097af58cce68a9c3eb92788ea5750}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1417     \{}
+\DoxyCodeLine{1418       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}搜尋結果"{}};}
+\DoxyCodeLine{1419     \}}
+\DoxyCodeLine{1428     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2edcc9f96cb11de3b749f8cbb55bf159}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1429     \{}
+\DoxyCodeLine{1430       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1431       \{}
+\DoxyCodeLine{1432         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}找不到符合的資料."{}};}
+\DoxyCodeLine{1433       \}}
+\DoxyCodeLine{1434       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1435       \{}
+\DoxyCodeLine{1436         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}找到 <b>1</b> 筆符合的資料."{}};}
+\DoxyCodeLine{1437       \}}
+\DoxyCodeLine{1438       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1439       \{}
+\DoxyCodeLine{1440         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}找到 <b>\$num</b> 筆符合的資料. "{}}}
+\DoxyCodeLine{1441                \textcolor{stringliteral}{"{}越符合的結果顯示在越前面."{}};}
+\DoxyCodeLine{1442       \}}
+\DoxyCodeLine{1443     \}}
+\DoxyCodeLine{1447     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4be8eccb74260c7d8fd07045bc1ec135}{trSearchMatches}}()}
+\DoxyCodeLine{1448     \{}
+\DoxyCodeLine{1449       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}符合:"{}};}
+\DoxyCodeLine{1450     \}}
+\DoxyCodeLine{1451 }
+\DoxyCodeLine{1453 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1455 \textcolor{comment}{}}
+\DoxyCodeLine{1458     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aead901c951de5396b578db9364fc45b4}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1459     \{}
+\DoxyCodeLine{1460       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} 原始程式檔"{}};}
+\DoxyCodeLine{1461     \}}
+\DoxyCodeLine{1462 }
+\DoxyCodeLine{1464 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1466 \textcolor{comment}{}}
+\DoxyCodeLine{1470     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a23a47a7d90fd4f1c79b1f89ad851a2fd}{trDirIndex}}()}
+\DoxyCodeLine{1471     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}目錄階層"{}}; \}}
+\DoxyCodeLine{1472 }
+\DoxyCodeLine{1476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a963d993d8ff90c7c31418a6619587786}{trDirDocumentation}}()}
+\DoxyCodeLine{1477     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}目錄說明文件"{}}; \}}
+\DoxyCodeLine{1478 }
+\DoxyCodeLine{1482     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a7d0523cee408b8a61b6805765ef58965}{trDirectories}}()}
+\DoxyCodeLine{1483     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}目錄"{}}; \}}
+\DoxyCodeLine{1484 }
+\DoxyCodeLine{1488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a15337cc0605c4b3f6ee5c0582b84fa47}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1489     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} 目錄參考文件"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1490 }
+\DoxyCodeLine{1494     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa58d8becc977f4dc7fc422c93f124f92}{trDir}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1495     \{}
+\DoxyCodeLine{1496       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}目錄"{}});}
+\DoxyCodeLine{1497     \}}
+\DoxyCodeLine{1498 }
+\DoxyCodeLine{1500 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1502 \textcolor{comment}{}}
+\DoxyCodeLine{1506     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab1da30c765db6204b17c0f406692caa8}{trOverloadText}}()}
+\DoxyCodeLine{1507     \{}
+\DoxyCodeLine{1508        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}這是一個為了便利性所提供 overload 成員函數，"{}}}
+\DoxyCodeLine{1509               \textcolor{stringliteral}{"{}只有在接受的參數上，與前一個函數不同."{}};}
+\DoxyCodeLine{1510     \}}
+\DoxyCodeLine{1512 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1514 \textcolor{comment}{}}
+\DoxyCodeLine{1516     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aaacafeecebb203594afc68e25cc8ce02}{trCallerGraph}}()}
+\DoxyCodeLine{1517     \{}
+\DoxyCodeLine{1518       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}呼叫此函數的函數列表:"{}};}
+\DoxyCodeLine{1519     \}}
+\DoxyCodeLine{1520 }
+\DoxyCodeLine{1521 }
+\DoxyCodeLine{1523 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1525 \textcolor{comment}{}}
+\DoxyCodeLine{1527     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8cefb650274dea8420f41b59f3fd4410}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1528     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}成員函數/子程序 文件"{}}; \}}
+\DoxyCodeLine{1529 }
+\DoxyCodeLine{1531     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a99bee7a174f4065eddc040aa6a83cdcd}{trCompoundListFortran}}()}
+\DoxyCodeLine{1532     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料型態列表"{}}; \}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8ee7e0f388ea12d59b3759558f796513}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1536     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料欄位"{}}; \}}
+\DoxyCodeLine{1537 }
+\DoxyCodeLine{1539     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4189f4826592b973a95a57d271eb4f5b}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1540     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料型態簡短說明列表:"{}}; \}}
+\DoxyCodeLine{1541 }
+\DoxyCodeLine{1543     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a94e67a603f3cc7363b43c2a59fb2c768}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1544     \{}
+\DoxyCodeLine{1545       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}此處列出所有"{}};}
+\DoxyCodeLine{1546       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1547       \{}
+\DoxyCodeLine{1548         result+=\textcolor{stringliteral}{"{}有文件的"{}};}
+\DoxyCodeLine{1549       \}}
+\DoxyCodeLine{1550       result+=\textcolor{stringliteral}{"{}資料型別成員函數"{}};}
+\DoxyCodeLine{1551       result+=\textcolor{stringliteral}{"{} 附帶連結到 "{}};}
+\DoxyCodeLine{1552       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1553       \{}
+\DoxyCodeLine{1554          result+=\textcolor{stringliteral}{"{}每個成員函數的資料結構文件"{}};}
+\DoxyCodeLine{1555       \}}
+\DoxyCodeLine{1556       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1557       \{}
+\DoxyCodeLine{1558          result+=\textcolor{stringliteral}{"{}他們屬於的資料型別"{}};}
+\DoxyCodeLine{1559       \}}
+\DoxyCodeLine{1560       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1561     \}}
+\DoxyCodeLine{1562 }
+\DoxyCodeLine{1566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab2091400b7f82668c9a865415554f078}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1567     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料型別索引"{}}; \}}
+\DoxyCodeLine{1568 }
+\DoxyCodeLine{1572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aadf1f95dcc6f412dba64f55769148294}{trTypeDocumentation}}()}
+\DoxyCodeLine{1573     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料型別文件"{}}; \}}
+\DoxyCodeLine{1574 }
+\DoxyCodeLine{1578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2a39bf72af7b4051d6e4c22138eb2bb2}{trSubprograms}}()}
+\DoxyCodeLine{1579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}函數/子程序"{}}; \}}
+\DoxyCodeLine{1580 }
+\DoxyCodeLine{1584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab08b94b628f2e02f09e3a02d4b8f85ae}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}函數/子程序 文件"{}}; \}}
+\DoxyCodeLine{1586 }
+\DoxyCodeLine{1590      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9b06a74c7f0ac92241fa1ab21ea9115e}{trDataTypes}}()}
+\DoxyCodeLine{1591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}資料型別"{}}; \}}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0ea6d46cf9909297807b95398e087dfb}{trModulesList}}()}
+\DoxyCodeLine{1595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組列表"{}}; \}}
+\DoxyCodeLine{1596 }
+\DoxyCodeLine{1598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab4c7704858f5c6b7d92b9a367c315b34}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1599     \{}
+\DoxyCodeLine{1600       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}此處列出所有"{}};}
+\DoxyCodeLine{1601       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}有文件的"{}};}
+\DoxyCodeLine{1602       result+=\textcolor{stringliteral}{"{}模組附帶簡短說明:"{}};}
+\DoxyCodeLine{1603       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1604     \}}
+\DoxyCodeLine{1605 }
+\DoxyCodeLine{1607     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ab63c6990e48f1a80ba1fc326f80eb738}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1608                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1609                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1610     \{}
+\DoxyCodeLine{1611       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1612       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1613       \{}
+\DoxyCodeLine{1614         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}模組"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1615         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}型態"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1616         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}聯合"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1617         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}介面"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1618         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}協議"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1619         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}分類"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1620         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1621         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1622       \}}
+\DoxyCodeLine{1623       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Template"{}};}
+\DoxyCodeLine{1624       result+=\textcolor{stringliteral}{"{}參考文件"{}};}
+\DoxyCodeLine{1625       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1626     \}}
+\DoxyCodeLine{1628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af137da3ce1852ff7a9484e25c1fcdc45}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1629     \{}
+\DoxyCodeLine{1630       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1631       result+=\textcolor{stringliteral}{"{}模組參考文件"{}};}
+\DoxyCodeLine{1632       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1633     \}}
+\DoxyCodeLine{1634 }
+\DoxyCodeLine{1636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af13e010ffc89e71b48880caec4e508d1}{trModulesMembers}}()}
+\DoxyCodeLine{1637     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組成員"{}}; \}}
+\DoxyCodeLine{1638 }
+\DoxyCodeLine{1640     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9bf54c19960f31410a7c1d3e06e71a95}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1641     \{}
+\DoxyCodeLine{1642       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}此處列出所有"{}};}
+\DoxyCodeLine{1643       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}有文件的"{}};}
+\DoxyCodeLine{1644       result+=\textcolor{stringliteral}{"{}模組成員附帶連結到"{}};}
+\DoxyCodeLine{1645       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1646       \{}
+\DoxyCodeLine{1647         result+=\textcolor{stringliteral}{"{}每個函數的模組文件:"{}};}
+\DoxyCodeLine{1648       \}}
+\DoxyCodeLine{1649       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1650       \{}
+\DoxyCodeLine{1651         result+=\textcolor{stringliteral}{"{}他們所屬的模組:"{}};}
+\DoxyCodeLine{1652       \}}
+\DoxyCodeLine{1653       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1654     \}}
+\DoxyCodeLine{1655 }
+\DoxyCodeLine{1659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a31b911b3155793f6c936e4641d6c0861}{trModulesIndex}}()}
+\DoxyCodeLine{1660     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}模組索引"{}}; \}}
+\DoxyCodeLine{1661 }
+\DoxyCodeLine{1666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a351a730e1e5f987c48e35459f7423d18}{trModule}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/* first\_capital */}, \textcolor{keywordtype}{bool} \textcolor{comment}{/* singular */})}
+\DoxyCodeLine{1667     \{}
+\DoxyCodeLine{1668       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}模組"{}});}
+\DoxyCodeLine{1669       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1670     \}}
+\DoxyCodeLine{1674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a97a68956eb70c4bd1187c14726069c29}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1675         \textcolor{keywordtype}{bool} \textcolor{comment}{/* single */})}
+\DoxyCodeLine{1676     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1677       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1678       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}這個"{}};}
+\DoxyCodeLine{1679       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1680       \{}
+\DoxyCodeLine{1681         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}模組"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1682         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}型態"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1683         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}聯合"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1684         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}介面"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1685         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}協議"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1686         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}分類"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1687         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1688         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1689       \}}
+\DoxyCodeLine{1690       result+=\textcolor{stringliteral}{"{}文件由下列檔案產生"{}};}
+\DoxyCodeLine{1691       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1692     \}}
+\DoxyCodeLine{1697     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9de6a1d81990aeaa3f8d908a51f2ad72}{trType}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/* first\_capital */}, \textcolor{keywordtype}{bool} \textcolor{comment}{/* singular */})}
+\DoxyCodeLine{1698     \{}
+\DoxyCodeLine{1699       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}型別"{}});}
+\DoxyCodeLine{1700       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1701     \}}
+\DoxyCodeLine{1706     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae442e7ae62789f601abb7d38c047631c}{trSubprogram}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/* first\_capital */}, \textcolor{keywordtype}{bool} \textcolor{comment}{/* singular */})}
+\DoxyCodeLine{1707     \{}
+\DoxyCodeLine{1708       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}子程式"{}});}
+\DoxyCodeLine{1709       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1710     \}}
+\DoxyCodeLine{1711 }
+\DoxyCodeLine{1713     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5aae69c493e0af811754cbcb0e553a5d}{trTypeConstraints}}()}
+\DoxyCodeLine{1714     \{}
+\DoxyCodeLine{1715       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型別限制條件"{}};}
+\DoxyCodeLine{1716     \}}
+\DoxyCodeLine{1717 }
+\DoxyCodeLine{1719 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1721 \textcolor{comment}{}}
+\DoxyCodeLine{1723     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aeddc53529849b8768cf7c5dec7a85f99}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1724     \{}
+\DoxyCodeLine{1725       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} 關連"{}};}
+\DoxyCodeLine{1726     \}}
+\DoxyCodeLine{1727 }
+\DoxyCodeLine{1729     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8bf00199efc9d136c2b3eb8e14f7db52}{trLoading}}()}
+\DoxyCodeLine{1730     \{}
+\DoxyCodeLine{1731       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}載入中..."{}};}
+\DoxyCodeLine{1732     \}}
+\DoxyCodeLine{1733 }
+\DoxyCodeLine{1735     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a1057c630dd7d991d9bffc0781b5edc7d}{trGlobalNamespace}}()}
+\DoxyCodeLine{1736     \{}
+\DoxyCodeLine{1737       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全域命名空間"{}};}
+\DoxyCodeLine{1738     \}}
+\DoxyCodeLine{1739 }
+\DoxyCodeLine{1741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0b5925558367798e34bbf91af1a54ad8}{trSearching}}()}
+\DoxyCodeLine{1742     \{}
+\DoxyCodeLine{1743       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}搜尋中..."{}};}
+\DoxyCodeLine{1744     \}}
+\DoxyCodeLine{1745 }
+\DoxyCodeLine{1747     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6df759ab56adf5043d7cb8bb4fd0d3eb}{trNoMatches}}()}
+\DoxyCodeLine{1748     \{}
+\DoxyCodeLine{1749       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}無符合項目"{}};}
+\DoxyCodeLine{1750     \}}
+\DoxyCodeLine{1751 }
+\DoxyCodeLine{1753 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1755 \textcolor{comment}{}}
+\DoxyCodeLine{1760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5f8fc261e31c2cec6ae9ed066a6a42bf}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1761     \{}
+\DoxyCodeLine{1762       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}檔案在"{}}+name;}
+\DoxyCodeLine{1763     \}}
+\DoxyCodeLine{1764 }
+\DoxyCodeLine{1769     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a5bacb20d3e27cb5969245c411c934cc4}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1770     \{}
+\DoxyCodeLine{1771       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}含入檔案在"{}}+name;}
+\DoxyCodeLine{1772     \}}
+\DoxyCodeLine{1773 }
+\DoxyCodeLine{1784     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a8c32275e7278645b252fdf1a54dd4875}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1785                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1786                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1787     \{}
+\DoxyCodeLine{1788       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}星期一"{}},\textcolor{stringliteral}{"{}星期二"{}},\textcolor{stringliteral}{"{}星期三"{}},\textcolor{stringliteral}{"{}星期四"{}},\textcolor{stringliteral}{"{}星期五"{}},\textcolor{stringliteral}{"{}星期六"{}},\textcolor{stringliteral}{"{}星期日"{}} \};}
+\DoxyCodeLine{1789       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}1"{}},\textcolor{stringliteral}{"{}2"{}},\textcolor{stringliteral}{"{}3"{}},\textcolor{stringliteral}{"{}4"{}},\textcolor{stringliteral}{"{}5"{}},\textcolor{stringliteral}{"{}6"{}},\textcolor{stringliteral}{"{}7"{}},\textcolor{stringliteral}{"{}8"{}},\textcolor{stringliteral}{"{}9"{}},\textcolor{stringliteral}{"{}10"{}},\textcolor{stringliteral}{"{}11"{}},\textcolor{stringliteral}{"{}12"{}} \};}
+\DoxyCodeLine{1790       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1791       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%d年\%s月\%d日 \%s"{}},year,months[month-\/1],day,days[dayOfWeek-\/1]);}
+\DoxyCodeLine{1792       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1793       \{}
+\DoxyCodeLine{1794         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1795         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1796         sdate+=stime;}
+\DoxyCodeLine{1797       \}}
+\DoxyCodeLine{1798       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1799     \}}
+\DoxyCodeLine{1800 }
+\DoxyCodeLine{1802 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1804 \textcolor{comment}{}}
+\DoxyCodeLine{1806     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3b2598c73b1ee59b57f88082508b86c1}{trCiteReferences}}()}
+\DoxyCodeLine{1807     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}參考文獻資料"{}}; \}}
+\DoxyCodeLine{1808 }
+\DoxyCodeLine{1810     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a29d2d31637c35174fd2aea7997837d9f}{trCopyright}}()}
+\DoxyCodeLine{1811     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}版權聲明"{}}; \}}
+\DoxyCodeLine{1812 }
+\DoxyCodeLine{1814     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aaf4d5a641a1ea901bf076eb0e4f22167}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1815     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{}的目錄關連圖"{}}+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1816 }
+\DoxyCodeLine{1818 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1820 \textcolor{comment}{}}
+\DoxyCodeLine{1822     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a00053c8f20188be89234c72eda9be0b9}{trDetailLevel}}()}
+\DoxyCodeLine{1823     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳細程度"{}}; \}}
+\DoxyCodeLine{1824 }
+\DoxyCodeLine{1826     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a2905cc66e8c20210948c8f8511241950}{trTemplateParameters}}()}
+\DoxyCodeLine{1827     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}樣版參數"{}}; \}}
+\DoxyCodeLine{1828 }
+\DoxyCodeLine{1830     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a6f3733294331a8692ba66be8f52653d7}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1831     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}及 "{}}+number+\textcolor{stringliteral}{"{} 個更多..."{}}; \}}
+\DoxyCodeLine{1832 }
+\DoxyCodeLine{1834     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad618207c34ac0cdd9b6ef4e06760be70}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1835     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}此列舉型態的文件是由下列檔案所產生"{}};}
+\DoxyCodeLine{1836       \textcolor{keywordflow}{if} (!single) result += \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1837       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1838       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1839     \}}
+\DoxyCodeLine{1840 }
+\DoxyCodeLine{1842     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ae04bf61655f9d180a289c298ef2dc243}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1843     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} 列舉型態參考"{}}; \}}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad8d8875df7672390a8a10a147886e63f}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1847     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} 繼承自 "{}}+what; \}}
+\DoxyCodeLine{1848 }
+\DoxyCodeLine{1852     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a84f0a69aa5ba86bf01b893606a7fe9a4}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1853     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}額外的繼承成員"{}}; \}}
+\DoxyCodeLine{1854 }
+\DoxyCodeLine{1856 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1858 \textcolor{comment}{}}
+\DoxyCodeLine{1863     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_ad842d937ba05293dcd9f47b0bff544f4}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1864     \{}
+\DoxyCodeLine{1865       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}啟用"{}} : \textcolor{stringliteral}{"{}停用"{}};}
+\DoxyCodeLine{1866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}點擊 "{}}+opt+\textcolor{stringliteral}{"{} 面板進行同步"{}};}
+\DoxyCodeLine{1867     \}}
+\DoxyCodeLine{1868 }
+\DoxyCodeLine{1873     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa75037ae6678f4a7ed4602e3cdff7972}{trProvidedByCategory}}()}
+\DoxyCodeLine{1874     \{}
+\DoxyCodeLine{1875       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}由 @0 分類所提供."{}};}
+\DoxyCodeLine{1876     \}}
+\DoxyCodeLine{1877 }
+\DoxyCodeLine{1882     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3b5605dd807ddb103e8cdeb8af243185}{trExtendsClass}}()}
+\DoxyCodeLine{1883     \{}
+\DoxyCodeLine{1884       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}延伸 @0 類別 ."{}};}
+\DoxyCodeLine{1885     \}}
+\DoxyCodeLine{1886 }
+\DoxyCodeLine{1890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a361fda1ff6b981ffed6d10a2b4c7fccc}{trClassMethods}}()}
+\DoxyCodeLine{1891     \{}
+\DoxyCodeLine{1892       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}類別方法"{}};}
+\DoxyCodeLine{1893     \}}
+\DoxyCodeLine{1894 }
+\DoxyCodeLine{1898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_afab284f06e27847d9e7644a4fbe58d3a}{trInstanceMethods}}()}
+\DoxyCodeLine{1899     \{}
+\DoxyCodeLine{1900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}實體方法"{}};}
+\DoxyCodeLine{1901     \}}
+\DoxyCodeLine{1902 }
+\DoxyCodeLine{1905     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a9fd0d0249670ff6273e43449ef315c49}{trMethodDocumentation}}()}
+\DoxyCodeLine{1906     \{}
+\DoxyCodeLine{1907       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}方法文件"{}};}
+\DoxyCodeLine{1908     \}}
+\DoxyCodeLine{1909 }
+\DoxyCodeLine{1911 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1913 \textcolor{comment}{}}
+\DoxyCodeLine{1915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_af2de8c3ebf596f3829145dac56a3931c}{trInterfaces}}()}
+\DoxyCodeLine{1916     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}導出介面"{}}; \}}
+\DoxyCodeLine{1917 }
+\DoxyCodeLine{1919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0fed5291443bec412ebc9090507552a0}{trServices}}()}
+\DoxyCodeLine{1920     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}引入的服務"{}}; \}}
+\DoxyCodeLine{1921 }
+\DoxyCodeLine{1923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a476250d59fc7c2599b65b052287b3505}{trConstantGroups}}()}
+\DoxyCodeLine{1924     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}常數群組"{}}; \}}
+\DoxyCodeLine{1925 }
+\DoxyCodeLine{1927     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a0d8420f23b3b2fb937c0e4959881f95f}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1928     \{}
+\DoxyCodeLine{1929       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1930       result+=\textcolor{stringliteral}{"{}常數群組參考"{}};}
+\DoxyCodeLine{1931       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1932     \}}
+\DoxyCodeLine{1934     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a3f6826325207e62c87650505cde93009}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1935     \{}
+\DoxyCodeLine{1936       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1937       result+=\textcolor{stringliteral}{"{}服務參考"{}};}
+\DoxyCodeLine{1938       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1939     \}}
+\DoxyCodeLine{1941     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a4bdbdf6bb5beb54e44f02bf6efdf14c1}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1942     \{}
+\DoxyCodeLine{1943       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1944       result+=\textcolor{stringliteral}{"{}Singleton參考"{}};}
+\DoxyCodeLine{1945       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1946     \}}
+\DoxyCodeLine{1948     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_aa04c12d76779e28486e8a64f2bb4cd56}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1949     \{}
+\DoxyCodeLine{1950       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1951       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}本服務的文件由以下的檔案"{}}}
+\DoxyCodeLine{1952                                 \textcolor{stringliteral}{"{}所產生"{}};}
+\DoxyCodeLine{1953       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1954       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1955     \}}
+\DoxyCodeLine{1957     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorChinesetraditional_a60900998951da84cb71da00b797a3648}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1958     \{}
+\DoxyCodeLine{1959       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1960       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}本singleton的文件由下面的檔案"{}}}
+\DoxyCodeLine{1961                                 \textcolor{stringliteral}{"{}所產生"{}};}
+\DoxyCodeLine{1962       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1963       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1964     \}}
+\DoxyCodeLine{1965 }
+\DoxyCodeLine{1966 \};}
+\DoxyCodeLine{1967 }
+\DoxyCodeLine{1968 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

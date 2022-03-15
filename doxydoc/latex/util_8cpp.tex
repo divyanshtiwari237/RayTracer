@@ -1,0 +1,1551 @@
+\hypertarget{util_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/util.cpp File Reference}
+\label{util_8cpp}\index{/mnt/c/projects/doxygen/src/util.cpp@{/mnt/c/projects/doxygen/src/util.cpp}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$codecvt$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}md5.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}example.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reflist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexdocvisitor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bufstr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlentity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}symbolresolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCharAroundSpace}{Char\+Around\+Space}}
+\item 
+struct \mbox{\hyperlink{structCharAroundSpace_1_1CharElem}{Char\+Around\+Space\+::\+Char\+Elem}}
+\item 
+struct \mbox{\hyperlink{structFindFileCacheElem}{Find\+File\+Cache\+Elem}}
+\item 
+struct {\bfseries Lang2\+Ext\+Map}
+\item 
+struct \mbox{\hyperlink{structMarker}{Marker}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{util_8cpp_a43e71ffb78a97be1c4c57b2e8233d3cc}{ENABLE\+\_\+\+TRACINGSUPPORT}}~0
+\item 
+\#define \mbox{\hyperlink{util_8cpp_a3bcba7d94ad097efd01a67432ec74e17}{REL\+\_\+\+PATH\+\_\+\+TO\+\_\+\+ROOT}}~\char`\"{}../../\char`\"{}
+\item 
+\#define \mbox{\hyperlink{util_8cpp_a6fbd908903ad34f115e0726001be8753}{MATCH}}
+\item 
+\#define \mbox{\hyperlink{util_8cpp_aba93bf80d1a72561fe6c31b59f172fbc}{NOMATCH}}
+\item 
+\#define \mbox{\hyperlink{util_8cpp_af22d5ba911a6c2ccdfb3ba88e52da81f}{HEXTONUM}}(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a775441ec8999df6462d2813ff52b3b52}{remove\+Anonymous\+Scopes}} (const \mbox{\hyperlink{classQCString}{QCString}} \&str)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_af4b3385c65dda5f0cd99eb8c122c8eef}{replace\+Anonymous\+Scopes}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, const \mbox{\hyperlink{classQCString}{QCString}} \&replacement)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3b3bee35d0b539f857173e0a14ecbf63}{strip\+Anonymous\+Namespace\+Scope}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+void \mbox{\hyperlink{util_8cpp_a3b68d26ca863fadb0ef7d28c751fc782}{write\+Page\+Ref}} (\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&od, const \mbox{\hyperlink{classQCString}{QCString}} \&cn, const \mbox{\hyperlink{classQCString}{QCString}} \&mn)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generate\+Marker}} (\mbox{\hyperlink{classint}{int}} id)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ac7a97256c349c1f4f1d18d7a7098c081}{strip\+From\+Path}} (const \mbox{\hyperlink{classQCString}{QCString}} \&path)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3d790f4b8fa74cbafd6c4b34d4573093}{strip\+From\+Include\+Path}} (const \mbox{\hyperlink{classQCString}{QCString}} \&path)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_adfac1d990e027ce0011573d537066ee6}{guess\+Section}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a7970104534296194ccd535117234a682}{resolve\+Type\+Def}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$context, const \mbox{\hyperlink{classQCString}{QCString}} \&qualified\+Name, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$typedef\+Context)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a84e80a5dfaa2db05ad8b5d2e8d0f58f7}{compute\+Qualified\+Index}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a0940360aa6d41fd2496603fc565e3996}{remove\+Redundant\+White\+Space}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_ad2143a92408c0b36271fbf7dbe84f4f7}{find\+Parameter\+List}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+bool \mbox{\hyperlink{util_8cpp_ae0c5a702c29f403e331441abfe289d5b}{right\+Scope\+Match}} (const \mbox{\hyperlink{classQCString}{QCString}} \&scope, const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a373928f3b61089f84cb4ee946474792f}{left\+Scope\+Match}} (const \mbox{\hyperlink{classQCString}{QCString}} \&scope, const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+void \mbox{\hyperlink{util_8cpp_ae61ca16879462ab6bd55475fa265b251}{linkify\+Text}} (const \mbox{\hyperlink{classTextGeneratorIntf}{Text\+Generator\+Intf}} \&out, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$scope, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$file\+Scope, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$self, const \mbox{\hyperlink{classQCString}{QCString}} \&text, bool auto\+Break, bool external, bool keep\+Spaces, \mbox{\hyperlink{classint}{int}} indent\+Level)
+\item 
+void \mbox{\hyperlink{util_8cpp_ae241503d7e4252f10ab58d6bacc87973}{write\+Marker\+List}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const std\+::string \&marker\+Text, size\+\_\+t num\+Markers, std\+::function$<$ void(size\+\_\+t)$>$ replace\+Func)
+\item 
+void \mbox{\hyperlink{util_8cpp_af3e55e24323797042e532d5ab5cbfce9}{write\+Examples}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classExampleList}{Example\+List}} \&list)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a9d5c2a3aefbda0b0e684f768a380d2db}{arg\+List\+To\+String}} (const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, bool use\+Canonical\+Type, bool show\+Def\+Vals)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a5f86911d03ddead5c20dc99ef4828d17}{temp\+Arg\+List\+To\+String}} (const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, bool include\+Default)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad4426e053bb11589c58bd5c6828817e2}{get\+File\+Filter}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool is\+Source\+Code)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a45ec91133f956ee7c2212c8842965995}{transcode\+Character\+String\+To\+UTF8}} (const \mbox{\hyperlink{classQCString}{QCString}} \&input)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a71d0079fa5936a41b6ff2d1ca5eb5480}{file\+To\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool filter, bool is\+Source\+Code)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ab756d2158c17cfe62c5c51a7cf09d4a5}{date\+To\+String}} (bool include\+Time)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a76a75ed644eb3f75d36151f9d82f862f}{year\+To\+String}} ()
+\item 
+void \mbox{\hyperlink{util_8cpp_a15f807d04ca6a15d183d7c05396bae30}{trim\+Base\+Class\+Scope}} (const \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{Base\+Class\+List}} \&bcl, \mbox{\hyperlink{classQCString}{QCString}} \&s, \mbox{\hyperlink{classint}{int}} level=0)
+\item 
+void \mbox{\hyperlink{util_8cpp_a8070b1f687b313f291d1f5cd292daddb}{strip\+Irrelevant\+Const\+Volatile}} (\mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a78739b1ab728bbecd4d3e54ae90bbbce}{match\+Arguments2}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$src\+Scope, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$src\+File\+Scope, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} $\ast$src\+Al, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$dst\+Scope, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$dst\+File\+Scope, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} $\ast$dst\+Al, bool check\+CV, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang)
+\item 
+void \mbox{\hyperlink{util_8cpp_abfa0499109cd76100ecdad2fa752ed3b}{merge\+Arguments}} (\mbox{\hyperlink{classArgumentList}{Argument\+List}} \&src\+Al, \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&dst\+Al, bool force\+Name\+Overwrite)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a2295072491e4c81a8406ae2a29d68d25}{get\+Defs}} (const \mbox{\hyperlink{classQCString}{QCString}} \&sc\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&mb\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&args, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$\&md, const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$\&cd, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$\&fd, const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$\&nd, const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$\&gd, bool force\+Empty\+Scope, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$current\+File, bool check\+CV)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a6aee1ec15ba34cf7ffde95867eaa59a3}{resolve\+Ref}} (const \mbox{\hyperlink{classQCString}{QCString}} \&sc\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool in\+See\+Block, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$res\+Context, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$$\ast$res\+Member, bool look\+For\+Specialization, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$current\+File, bool check\+Scope)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a1193619fc22f8093dc4096b092165b96}{link\+To\+Text}} (\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, const \mbox{\hyperlink{classQCString}{QCString}} \&link, bool is\+File\+Name)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a5548379f168f36fd8576adcdeab3eb0b}{resolve\+Link}} (const \mbox{\hyperlink{classQCString}{QCString}} \&sc\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&lr, bool, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$res\+Context, \mbox{\hyperlink{classQCString}{QCString}} \&res\+Anchor)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a870b3a74b0ea4d58bcb9d1e9ff93e240}{generate\+Link}} (\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&od, const \mbox{\hyperlink{classQCString}{QCString}} \&cl\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&lr, bool in\+See\+Block, const \mbox{\hyperlink{classQCString}{QCString}} \&lt)
+\item 
+void \mbox{\hyperlink{util_8cpp_a3bf00124d493acd025b5400e1d978b42}{generate\+File\+Ref}} (\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&od, const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{classQCString}{QCString}} \&text)
+\item 
+\mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$ \mbox{\hyperlink{util_8cpp_af891990268daeb8713d18d154b84ffdb}{find\+File\+Def}} (const \mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$fn\+Map, const \mbox{\hyperlink{classQCString}{QCString}} \&n, bool \&ambig)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a70d0b468521b0304252fb659f3b15e24}{show\+File\+Def\+Matches}} (const \mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$fn\+Map, const \mbox{\hyperlink{classQCString}{QCString}} \&n)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad2837e99807e1f7cad4d35de87f28cbd}{substitute\+Keywords}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, const \mbox{\hyperlink{classQCString}{QCString}} \&title, const \mbox{\hyperlink{classQCString}{QCString}} \&proj\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&proj\+Num, const \mbox{\hyperlink{classQCString}{QCString}} \&proj\+Brief)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}{get\+Prefix\+Index}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a588c599deed30414ade1ed583a11827d}{escape\+Chars\+In\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool allow\+Dots, bool allow\+Underscore)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a75237d30f908ef839f400a0fe7584f9a}{unescape\+Chars\+In\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a8e04495ad97c6aab7960cc989e3f8c67}{convert\+Name\+To\+File}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool allow\+Dots, bool allow\+Underscore)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a6cc78f4946029df8c7135fbf36e625e4}{relative\+Path\+To\+Root}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+void \mbox{\hyperlink{util_8cpp_a77685956f8517f3a6e062e66925fc93c}{create\+Sub\+Dirs}} (const \mbox{\hyperlink{classDir}{Dir}} \&d)
+\item 
+void \mbox{\hyperlink{util_8cpp_a706b1f8eeae91066c7b1d7bb7c0d7ef9}{clear\+Sub\+Dirs}} (const \mbox{\hyperlink{classDir}{Dir}} \&d)
+\item 
+void \mbox{\hyperlink{util_8cpp_a99ce0f316902ba135f970cba1731ed97}{extract\+Namespace\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&scope\+Name, \mbox{\hyperlink{classQCString}{QCString}} \&class\+Name, \mbox{\hyperlink{classQCString}{QCString}} \&namespace\+Name, bool allow\+Empty\+Class)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a1dc6b9f0a9cc58498da6f8d4ffe120c1}{insert\+Template\+Specifier\+In\+Scope}} (const \mbox{\hyperlink{classQCString}{QCString}} \&scope, const \mbox{\hyperlink{classQCString}{QCString}} \&templ)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a78d33655f54cd45e22070b58a6dce6b6}{strip\+Scope}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_af333eebf6d2862cf38a30e084bc36e0d}{convert\+To\+Id}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_aa9203c86bf68f5df83a758b49fae64a1}{correct\+Id}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a93c7f78ab05807663dd8947d0dd5423f}{convert\+To\+XML}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, bool keep\+Entities)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a7c12b32b5b825c9fc989731c66ba1933}{convert\+To\+Doc\+Book}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, const bool retain\+Newline)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a2a3368111f86b401c8f223cd7374b5ac}{convert\+To\+Html}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, bool keep\+Entities)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}{convert\+To\+JSString}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a2387fed870bd881eb6552bf8ea8d6677}{convert\+To\+PSString}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}{convert\+To\+La\+TeX}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, bool inside\+Tabbing, bool keep\+Spaces)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_afb36c9b4d9962a775c9113434fedd520}{convert\+Char\+Entities\+To\+UTF8}} (const \mbox{\hyperlink{classQCString}{QCString}} \&str)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad8c71fbab856bc37ae54d2d369535b3b}{get\+Overload\+Docs}} ()
+\item 
+void \mbox{\hyperlink{util_8cpp_a629f6fc7b319c74df28381ca2e009d0b}{add\+Members\+To\+Member\+Group}} (\mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$ml, \mbox{\hyperlink{classMemberGroupList}{Member\+Group\+List}} $\ast$p\+Member\+Groups, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$context)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a337616be3bea43c6c1a7c898bdbfda7c}{extract\+Class\+Name\+From\+Type}} (const \mbox{\hyperlink{classQCString}{QCString}} \&type, \mbox{\hyperlink{classint}{int}} \&pos, \mbox{\hyperlink{classQCString}{QCString}} \&name, \mbox{\hyperlink{classQCString}{QCString}} \&templ\+Spec, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a11601f7b8b08cb9600482e5dc3bc51c5}{normalize\+Non\+Template\+Arguments\+In\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$context, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&formal\+Args)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a701d95cd58d934966013d8be458abc16}{substitute\+Template\+Arguments\+In\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&nm, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&formal\+Args, const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ \&actual\+Args)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a195c37037adf1a2af69ad01cf8d72cac}{strip\+Template\+Specifiers\+From\+Scope}} (const \mbox{\hyperlink{classQCString}{QCString}} \&full\+Name, bool parent\+Only, \mbox{\hyperlink{classQCString}{QCString}} $\ast$p\+Last\+Scope\+Stripped)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a0baa021dae80e22593292b12ef2f721f}{merge\+Scopes}} (const \mbox{\hyperlink{classQCString}{QCString}} \&left\+Scope, const \mbox{\hyperlink{classQCString}{QCString}} \&right\+Scope)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_afd249e264b966d05a54b740e3d43ad6e}{get\+Scope\+Fragment}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, \mbox{\hyperlink{classint}{int}} p, \mbox{\hyperlink{classint}{int}} $\ast$l)
+\item 
+\mbox{\hyperlink{classPageDef}{Page\+Def}} $\ast$ \mbox{\hyperlink{util_8cpp_abf3cf996188e39e9eba3a381563cc8aa}{add\+Related\+Page}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{classQCString}{QCString}} \&ptitle, const \mbox{\hyperlink{classQCString}{QCString}} \&doc, const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classint}{int}} doc\+Line, \mbox{\hyperlink{classint}{int}} start\+Line, const \mbox{\hyperlink{reflist_8h_a51b03784d48079baab06a4d5c8b08c42}{Ref\+Item\+Vector}} \&sli, \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$gd, const \mbox{\hyperlink{structTagInfo}{Tag\+Info}} $\ast$tag\+Info, bool xref, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang)
+\item 
+void \mbox{\hyperlink{util_8cpp_a6c177ac509924d60c71b820d39d28b9f}{add\+Ref\+Item}} (const \mbox{\hyperlink{reflist_8h_a51b03784d48079baab06a4d5c8b08c42}{Ref\+Item\+Vector}} \&sli, const \mbox{\hyperlink{classQCString}{QCString}} \&key, const \mbox{\hyperlink{classQCString}{QCString}} \&prefix, const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{classQCString}{QCString}} \&title, const \mbox{\hyperlink{classQCString}{QCString}} \&args, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$scope)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a2ea5702871b208636e8c428ac04f3ef1}{recursively\+Add\+Group\+List\+To\+Title}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$d, bool root)
+\item 
+void \mbox{\hyperlink{util_8cpp_a6c4285f255bbb17f7c3d308d222334cf}{add\+Group\+List\+To\+Title}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$d)
+\item 
+void \mbox{\hyperlink{util_8cpp_a96afd525d79a1a43fbaabae3483b2e6b}{filter\+Latex\+String}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t, const \mbox{\hyperlink{classQCString}{QCString}} \&str, bool inside\+Tabbing, bool inside\+Pre, bool inside\+Item, bool inside\+Table, bool keep\+Spaces, const bool retain\+Newline)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_afd297d2d96747033593750c401bfe95e}{latex\+Escape\+Label\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad32126ac958c2ac22491a47f6957935c}{latex\+Escape\+Index\+Chars}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a37bf597b522fe84aefa564de5b8489c2}{latex\+Escape\+PDFString}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a5b4eb46ed4177d10b053426f65925171}{latex\+Filter\+URL}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a0de8a7e9fdf9ae4c06959f6bc834b12c}{rtf\+Format\+Bmk\+Str}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a7b984704d9d6ad6819140f993d6bce4e}{check\+Extension}} (const \mbox{\hyperlink{classQCString}{QCString}} \&f\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&ext)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}{add\+Html\+Extension\+If\+Missing}} (const \mbox{\hyperlink{classQCString}{QCString}} \&f\+Name)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a73d2ea8014e5ac678dac39cfd56ba148}{strip\+Extension\+General}} (const \mbox{\hyperlink{classQCString}{QCString}} \&f\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&ext)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a8653297bcfce5f19bebc8602e35cb589}{strip\+Extension}} (const \mbox{\hyperlink{classQCString}{QCString}} \&f\+Name)
+\item 
+void \mbox{\hyperlink{util_8cpp_ada009b0ab6b42ff39d4fd82e36702281}{replace\+Namespace\+Aliases}} (\mbox{\hyperlink{classQCString}{QCString}} \&scope, \mbox{\hyperlink{classint}{int}} i)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3d37ec79f266698bd836af54ba75e63e}{strip\+Path}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a4a4f83dcfb4d9490aaf82e597940b27c}{contains\+Word}} (const \mbox{\hyperlink{classQCString}{QCString}} \&str, const char $\ast$word)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a87fd251583954635281c516ceee7fd34}{find\+And\+Remove\+Word}} (\mbox{\hyperlink{classQCString}{QCString}} \&sentence, const char $\ast$word)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad0b372f3669056d6a88f41daeb3a3865}{strip\+Leading\+And\+Trailing\+Empty\+Lines}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, \mbox{\hyperlink{classint}{int}} \&doc\+Line)
+\item 
+bool \mbox{\hyperlink{util_8cpp_ae4f8196aff5be2c0b8046c45e3830fab}{update\+Language\+Mapping}} (const \mbox{\hyperlink{classQCString}{QCString}} \&extension, const \mbox{\hyperlink{classQCString}{QCString}} \&language)
+\item 
+void \mbox{\hyperlink{util_8cpp_a87fb21e07b359f00a4e3774a6eb736e3}{init\+Default\+Extension\+Mapping}} ()
+\item 
+void \mbox{\hyperlink{util_8cpp_a2a25909e621a15bb253eb0d6a7d1db13}{add\+Code\+Only\+Mappings}} ()
+\item 
+\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} \mbox{\hyperlink{util_8cpp_a1b56719a14e986911d90aae56767dd5b}{get\+Language\+From\+File\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} def\+Lang)
+\item 
+\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} \mbox{\hyperlink{util_8cpp_a6d584858761afb81c76d1c85e19438e9}{get\+Language\+From\+Code\+Lang}} (\mbox{\hyperlink{classQCString}{QCString}} \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Routine to handle the language attribute of the {\ttfamily \textbackslash{}code} command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_af18ed4687438f52f5c7fe9dfb226244c}{get\+File\+Name\+Extension}} (const \mbox{\hyperlink{classQCString}{QCString}} \&fn)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a4ca7796c0d1fc682a180bc156f3a3514}{check\+If\+Typedef}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$scope, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$file\+Scope, const \mbox{\hyperlink{classQCString}{QCString}} \&n)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a336a6313626a3a3931e2086fd507bedc}{parse\+Comment\+As\+Text}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$scope, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$md, const \mbox{\hyperlink{classQCString}{QCString}} \&doc, const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classint}{int}} line\+Nr)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a1a81a80c083337fa1bdbf92f36e82df7}{count\+Alias\+Arguments}} (const \mbox{\hyperlink{classQCString}{QCString}} \&arg\+List)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a49ff3b428e46c164d7b29bd7b0cd1f25}{extract\+Alias\+Args}} (const \mbox{\hyperlink{classQCString}{QCString}} \&args, size\+\_\+t pos)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a48e7959e8257c5d8809293119bfac847}{resolve\+Alias\+Cmd}} (const \mbox{\hyperlink{classQCString}{QCString}} \&alias\+Cmd)
+\item 
+std\+::string \mbox{\hyperlink{util_8cpp_a21ea66b9c5d77e1080b48d0ea1dc0f8a}{expand\+Alias}} (const std\+::string \&alias\+Name, const std\+::string \&alias\+Value)
+\item 
+void \mbox{\hyperlink{util_8cpp_a368ff211eb2074462c875f024ed1c3e3}{write\+Type\+Constraints}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$d, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al)
+\item 
+void \mbox{\hyperlink{util_8cpp_aac9ad7a212ab079ff3ac8860577a3132}{stack\+Trace}} ()
+\item 
+bool \mbox{\hyperlink{util_8cpp_a072282000f8267019c6fa91b63b359c9}{read\+Input\+File}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classBufStr}{Buf\+Str}} \&in\+Buf, bool filter, bool is\+Source\+Code)
+\begin{DoxyCompactList}\small\item\em read a file name {\itshape file\+Name} and optionally filter and transcode it \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a747a6ad366ae4d5d42f0c551079d0bf5}{filter\+Title}} (const \mbox{\hyperlink{classQCString}{QCString}} \&title)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a5499df1f291fa1ad70e96e2848e78e2c}{pattern\+Match}} (const \mbox{\hyperlink{classFileInfo}{File\+Info}} \&fi, const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&pat\+List)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad3f3c94bc6e432d34fa1a51db3b7d5e2}{external\+Link\+Target}} (const bool parent)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a06ba0c2593b3fd5f103151bd342e206f}{external\+Ref}} (const \mbox{\hyperlink{classQCString}{QCString}} \&rel\+Path, const \mbox{\hyperlink{classQCString}{QCString}} \&ref, bool href)
+\item 
+void \mbox{\hyperlink{util_8cpp_af543a98b46249a2b115f47f0166e9a81}{write\+Colored\+Img\+Data}} (const \mbox{\hyperlink{classQCString}{QCString}} \&dir, \mbox{\hyperlink{structColoredImgDataItem}{Colored\+Img\+Data\+Item}} data\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_af10f5e35396e550af824e3029bab8dd4}{replace\+Color\+Markers}} (const \mbox{\hyperlink{classQCString}{QCString}} \&str)
+\item 
+bool \mbox{\hyperlink{util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}{copy\+File}} (const \mbox{\hyperlink{classQCString}{QCString}} \&src, const \mbox{\hyperlink{classQCString}{QCString}} \&dest)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a5aeb2f2a393f78bb37d02fddd5c229c8}{extract\+Block}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text, const \mbox{\hyperlink{classQCString}{QCString}} \&marker)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a29dc16dcef3e9ca42657dcf3bfd8d53a}{line\+Block}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text, const \mbox{\hyperlink{classQCString}{QCString}} \&marker)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a969690ca9b1155540d43631f499b3880}{lang\+To\+String}} (\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_aab590e3dd52a9375bb3afe31dc6f8609}{get\+Language\+Specific\+Separator}} (\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, bool class\+Scope)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a7bc01022af843db19fb19614d340ba66}{is\+URL}} (const \mbox{\hyperlink{classQCString}{QCString}} \&url)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3a775021310e25718452bfe250b2f999}{correct\+URL}} (const \mbox{\hyperlink{classQCString}{QCString}} \&url, const \mbox{\hyperlink{classQCString}{QCString}} \&rel\+Path)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a1e07db76938eb8a2bb8c79b2d0ec4980}{protection\+Level\+Visible}} (\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_adac892ac420e7c1aab28a1d50d7b05fd}{strip\+Indentation}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+void \mbox{\hyperlink{util_8cpp_acb1c5709506a73599595e7f6db2c2747}{strip\+Indentation}} (\mbox{\hyperlink{classQCString}{QCString}} \&doc, const \mbox{\hyperlink{classint}{int}} indentation\+Level)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a78b0d7057156fc989474dc86bfb86187}{file\+Visible\+In\+Index}} (const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd, bool \&gen\+Source\+File)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a0a8ffacc302979f9f812ab6608967287}{extract\+Direction}} (\mbox{\hyperlink{classQCString}{QCString}} \&docs)
+\item 
+void \mbox{\hyperlink{util_8cpp_a6ef178c1a8f543eee53eb72c3e4df64e}{convert\+Protection\+Level}} (\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{Member\+List\+Type}} in\+List\+Type, \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} in\+Prot, \mbox{\hyperlink{classint}{int}} $\ast$out\+List\+Type1, \mbox{\hyperlink{classint}{int}} $\ast$out\+List\+Type2)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a1d56f22de057d96035949f029dd6e4e8}{main\+Page\+Has\+Title}} ()
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{get\+Dot\+Image\+Extension}} ()
+\item 
+bool \mbox{\hyperlink{util_8cpp_a5c6662051d765cb0a355382ab05c14a1}{open\+Output\+File}} (const \mbox{\hyperlink{classQCString}{QCString}} \&out\+File, std\+::ofstream \&f)
+\item 
+void \mbox{\hyperlink{util_8cpp_ace2411e2a91d0794515d7319a05a96e4}{write\+Extra\+Latex\+Packages}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t)
+\item 
+void \mbox{\hyperlink{util_8cpp_afb096be4b2c37adc54becb763cc99470}{write\+Latex\+Special\+Formula\+Chars}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t)
+\item 
+bool \mbox{\hyperlink{util_8cpp_a5c3775d3cb6b3776c441a4451d49bb2c}{recognize\+Fixed\+Form}} (const \mbox{\hyperlink{classQCString}{QCString}} \&contents, \mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}} format)
+\item 
+\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}} \mbox{\hyperlink{util_8cpp_acb642f5212285f22eca041cbf6a927c1}{convert\+File\+Name\+Fortran\+Parser\+Code}} (\mbox{\hyperlink{classQCString}{QCString}} fn)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_ad6257bd82512bfc7c6653f09b3be73a6}{clear\+Block}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}}, const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}})
+\begin{DoxyCompactList}\small\item\em Clear a text block {\itshape s} from {\itshape begin} to {\itshape end} markers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a53a397ef3e55a91d790d49743433d579}{select\+Block}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, const \mbox{\hyperlink{classQCString}{QCString}} \&name, bool enable, \mbox{\hyperlink{classOutputGenerator_ab79b5d3c19d95c8a5929c07f5b2918cf}{Output\+Generator\+::\+Output\+Type}} o)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3f2329035cfde039380d267efff68c76}{remove\+Empty\+Lines}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+\mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \mbox{\hyperlink{util_8cpp_ac148c3a57e84a2440c4e5aaa894586d9}{split}} (const std\+::string \&s, const std\+::string \&delimiter)
+\begin{DoxyCompactList}\small\item\em split input string {\itshape s} by string delimiter {\itshape delimiter}. returns a vector of non-\/empty strings that are between the delimiters \end{DoxyCompactList}\item 
+\mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \mbox{\hyperlink{util_8cpp_a2cc67737d5d2452bb74b4968bb24a00c}{split}} (const std\+::string \&s, const \mbox{\hyperlink{classreg_1_1Ex}{reg\+::\+Ex}} \&delimiter)
+\begin{DoxyCompactList}\small\item\em split input string {\itshape s} by regular expression delimiter {\itshape delimiter}. returns a vector of non-\/empty strings that are between the delimiters \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_aa148f513c64eba8bfd7f3e775c711514}{find\+Index}} (const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&sv, const std\+::string \&s)
+\begin{DoxyCompactList}\small\item\em find the index of a string in a vector of strings, returns -\/1 if the string could not be found \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a0b4385a8257f0b917af2bc2a093c6c7b}{find\+Index}} (const std\+::string \&s, const \mbox{\hyperlink{classreg_1_1Ex}{reg\+::\+Ex}} \&re)
+\begin{DoxyCompactList}\small\item\em find the index of the first occurrence of pattern {\itshape re} in a string {\itshape s} returns -\/1 if the pattern could not be found \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{util_8cpp_a27784840caff3a70e6dfa44f5341553b}{join}} (const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&sv, const std\+::string \&delimiter)
+\begin{DoxyCompactList}\small\item\em create a string where the string in the vector are joined by the given delimiter \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a6e984969913a70c9b67da588f68b8a14}{integer\+To\+Alpha}} (\mbox{\hyperlink{classint}{int}} n, bool upper)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{util_8cpp_a3603e3a5f6710fd96b6c634f9e2de708}{integer\+To\+Roman}} (\mbox{\hyperlink{classint}{int}} n, bool upper)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{util_8cpp_a225f155c4a7035d82bee0b83dec4ae50}{max\+Inheritance\+Depth}} = 100000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{util_8cpp_a43e71ffb78a97be1c4c57b2e8233d3cc}\label{util_8cpp_a43e71ffb78a97be1c4c57b2e8233d3cc}} 
+\index{util.cpp@{util.cpp}!ENABLE\_TRACINGSUPPORT@{ENABLE\_TRACINGSUPPORT}}
+\index{ENABLE\_TRACINGSUPPORT@{ENABLE\_TRACINGSUPPORT}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_TRACINGSUPPORT}{ENABLE\_TRACINGSUPPORT}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+TRACINGSUPPORT~0}
+
+\mbox{\Hypertarget{util_8cpp_af22d5ba911a6c2ccdfb3ba88e52da81f}\label{util_8cpp_af22d5ba911a6c2ccdfb3ba88e52da81f}} 
+\index{util.cpp@{util.cpp}!HEXTONUM@{HEXTONUM}}
+\index{HEXTONUM@{HEXTONUM}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{HEXTONUM}{HEXTONUM}}
+{\footnotesize\ttfamily \#define HEXTONUM(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                     (((x)>=\textcolor{charliteral}{'0'} \&\& (x)<=\textcolor{charliteral}{'9'}) ? ((x)-\/\textcolor{charliteral}{'0'}) :       \(\backslash\)}
+\DoxyCodeLine{                     ((x)>=\textcolor{charliteral}{'a'} \&\& (x)<=\textcolor{charliteral}{'f'}) ? ((x)-\/\textcolor{charliteral}{'a'}+10) :    \(\backslash\)}
+\DoxyCodeLine{                     ((x)>=\textcolor{charliteral}{'A'} \&\& (x)<=\textcolor{charliteral}{'F'}) ? ((x)-\/\textcolor{charliteral}{'A'}+10) : 0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{util_8cpp_a6fbd908903ad34f115e0726001be8753}\label{util_8cpp_a6fbd908903ad34f115e0726001be8753}} 
+\index{util.cpp@{util.cpp}!MATCH@{MATCH}}
+\index{MATCH@{MATCH}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{MATCH}{MATCH}}
+{\footnotesize\ttfamily \#define MATCH}
+
+\mbox{\Hypertarget{util_8cpp_aba93bf80d1a72561fe6c31b59f172fbc}\label{util_8cpp_aba93bf80d1a72561fe6c31b59f172fbc}} 
+\index{util.cpp@{util.cpp}!NOMATCH@{NOMATCH}}
+\index{NOMATCH@{NOMATCH}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{NOMATCH}{NOMATCH}}
+{\footnotesize\ttfamily \#define NOMATCH}
+
+\mbox{\Hypertarget{util_8cpp_a3bcba7d94ad097efd01a67432ec74e17}\label{util_8cpp_a3bcba7d94ad097efd01a67432ec74e17}} 
+\index{util.cpp@{util.cpp}!REL\_PATH\_TO\_ROOT@{REL\_PATH\_TO\_ROOT}}
+\index{REL\_PATH\_TO\_ROOT@{REL\_PATH\_TO\_ROOT}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{REL\_PATH\_TO\_ROOT}{REL\_PATH\_TO\_ROOT}}
+{\footnotesize\ttfamily \#define REL\+\_\+\+PATH\+\_\+\+TO\+\_\+\+ROOT~\char`\"{}../../\char`\"{}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{util_8cpp_a2a25909e621a15bb253eb0d6a7d1db13}\label{util_8cpp_a2a25909e621a15bb253eb0d6a7d1db13}} 
+\index{util.cpp@{util.cpp}!addCodeOnlyMappings@{addCodeOnlyMappings}}
+\index{addCodeOnlyMappings@{addCodeOnlyMappings}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addCodeOnlyMappings()}{addCodeOnlyMappings()}}
+{\footnotesize\ttfamily void add\+Code\+Only\+Mappings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{util_8cpp_a6c4285f255bbb17f7c3d308d222334cf}\label{util_8cpp_a6c4285f255bbb17f7c3d308d222334cf}} 
+\index{util.cpp@{util.cpp}!addGroupListToTitle@{addGroupListToTitle}}
+\index{addGroupListToTitle@{addGroupListToTitle}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addGroupListToTitle()}{addGroupListToTitle()}}
+{\footnotesize\ttfamily void add\+Group\+List\+To\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}\label{util_8cpp_a36c74291c5a9adc05d5cb6c0932f6b82}} 
+\index{util.cpp@{util.cpp}!addHtmlExtensionIfMissing@{addHtmlExtensionIfMissing}}
+\index{addHtmlExtensionIfMissing@{addHtmlExtensionIfMissing}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addHtmlExtensionIfMissing()}{addHtmlExtensionIfMissing()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} add\+Html\+Extension\+If\+Missing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{f\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{util_8cpp_a629f6fc7b319c74df28381ca2e009d0b}\label{util_8cpp_a629f6fc7b319c74df28381ca2e009d0b}} 
+\index{util.cpp@{util.cpp}!addMembersToMemberGroup@{addMembersToMemberGroup}}
+\index{addMembersToMemberGroup@{addMembersToMemberGroup}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addMembersToMemberGroup()}{addMembersToMemberGroup()}}
+{\footnotesize\ttfamily void add\+Members\+To\+Member\+Group (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$}]{ml,  }\item[{\mbox{\hyperlink{classMemberGroupList}{Member\+Group\+List}} $\ast$}]{p\+Member\+Groups,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{context }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{util_8cpp_a6c177ac509924d60c71b820d39d28b9f}\label{util_8cpp_a6c177ac509924d60c71b820d39d28b9f}} 
+\index{util.cpp@{util.cpp}!addRefItem@{addRefItem}}
+\index{addRefItem@{addRefItem}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addRefItem()}{addRefItem()}}
+{\footnotesize\ttfamily void add\+Ref\+Item (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{reflist_8h_a51b03784d48079baab06a4d5c8b08c42}{Ref\+Item\+Vector}} \&}]{sli,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{key,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{prefix,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{title,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{args,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{scope }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{util_8cpp_abf3cf996188e39e9eba3a381563cc8aa}\label{util_8cpp_abf3cf996188e39e9eba3a381563cc8aa}} 
+\index{util.cpp@{util.cpp}!addRelatedPage@{addRelatedPage}}
+\index{addRelatedPage@{addRelatedPage}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{addRelatedPage()}{addRelatedPage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPageDef}{Page\+Def}} $\ast$ add\+Related\+Page (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{ptitle,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{doc,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{doc\+Line,  }\item[{\mbox{\hyperlink{classint}{int}}}]{start\+Line,  }\item[{const \mbox{\hyperlink{reflist_8h_a51b03784d48079baab06a4d5c8b08c42}{Ref\+Item\+Vector}} \&}]{sli,  }\item[{\mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$}]{gd,  }\item[{const \mbox{\hyperlink{structTagInfo}{Tag\+Info}} $\ast$}]{tag\+Info,  }\item[{bool}]{xref,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{util_8cpp_a9d5c2a3aefbda0b0e684f768a380d2db}\label{util_8cpp_a9d5c2a3aefbda0b0e684f768a380d2db}} 
+\index{util.cpp@{util.cpp}!argListToString@{argListToString}}
+\index{argListToString@{argListToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{argListToString()}{argListToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} arg\+List\+To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{bool}]{use\+Canonical\+Type,  }\item[{bool}]{show\+Def\+Vals }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{util_8cpp_a7b984704d9d6ad6819140f993d6bce4e}\label{util_8cpp_a7b984704d9d6ad6819140f993d6bce4e}} 
+\index{util.cpp@{util.cpp}!checkExtension@{checkExtension}}
+\index{checkExtension@{checkExtension}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{checkExtension()}{checkExtension()}}
+{\footnotesize\ttfamily bool check\+Extension (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{f\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{ext }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{util_8cpp_a4ca7796c0d1fc682a180bc156f3a3514}\label{util_8cpp_a4ca7796c0d1fc682a180bc156f3a3514}} 
+\index{util.cpp@{util.cpp}!checkIfTypedef@{checkIfTypedef}}
+\index{checkIfTypedef@{checkIfTypedef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{checkIfTypedef()}{checkIfTypedef()}}
+{\footnotesize\ttfamily bool check\+If\+Typedef (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{scope,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{file\+Scope,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{n }\end{DoxyParamCaption})}
+
+Returns true iff the given name string appears to be a typedef in scope. \mbox{\Hypertarget{util_8cpp_ad6257bd82512bfc7c6653f09b3be73a6}\label{util_8cpp_ad6257bd82512bfc7c6653f09b3be73a6}} 
+\index{util.cpp@{util.cpp}!clearBlock@{clearBlock}}
+\index{clearBlock@{clearBlock}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{clearBlock()}{clearBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} clear\+Block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{begin,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{end }\end{DoxyParamCaption})}
+
+
+
+Clear a text block {\itshape s} from {\itshape begin} to {\itshape end} markers. 
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{util_8cpp_a706b1f8eeae91066c7b1d7bb7c0d7ef9}\label{util_8cpp_a706b1f8eeae91066c7b1d7bb7c0d7ef9}} 
+\index{util.cpp@{util.cpp}!clearSubDirs@{clearSubDirs}}
+\index{clearSubDirs@{clearSubDirs}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{clearSubDirs()}{clearSubDirs()}}
+{\footnotesize\ttfamily void clear\+Sub\+Dirs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDir}{Dir}} \&}]{d }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{util_8cpp_a84e80a5dfaa2db05ad8b5d2e8d0f58f7}\label{util_8cpp_a84e80a5dfaa2db05ad8b5d2e8d0f58f7}} 
+\index{util.cpp@{util.cpp}!computeQualifiedIndex@{computeQualifiedIndex}}
+\index{computeQualifiedIndex@{computeQualifiedIndex}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{computeQualifiedIndex()}{computeQualifiedIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} compute\+Qualified\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{util_8cpp_a4a4f83dcfb4d9490aaf82e597940b27c}\label{util_8cpp_a4a4f83dcfb4d9490aaf82e597940b27c}} 
+\index{util.cpp@{util.cpp}!containsWord@{containsWord}}
+\index{containsWord@{containsWord}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{containsWord()}{containsWord()}}
+{\footnotesize\ttfamily bool contains\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str,  }\item[{const char $\ast$}]{word }\end{DoxyParamCaption})}
+
+returns {\ttfamily TRUE} iff string {\itshape s} contains word {\itshape w} Here is the call graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{util_8cpp_afb36c9b4d9962a775c9113434fedd520}\label{util_8cpp_afb36c9b4d9962a775c9113434fedd520}} 
+\index{util.cpp@{util.cpp}!convertCharEntitiesToUTF8@{convertCharEntitiesToUTF8}}
+\index{convertCharEntitiesToUTF8@{convertCharEntitiesToUTF8}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertCharEntitiesToUTF8()}{convertCharEntitiesToUTF8()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+Char\+Entities\+To\+UTF8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{util_8cpp_acb642f5212285f22eca041cbf6a927c1}\label{util_8cpp_acb642f5212285f22eca041cbf6a927c1}} 
+\index{util.cpp@{util.cpp}!convertFileNameFortranParserCode@{convertFileNameFortranParserCode}}
+\index{convertFileNameFortranParserCode@{convertFileNameFortranParserCode}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertFileNameFortranParserCode()}{convertFileNameFortranParserCode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}} convert\+File\+Name\+Fortran\+Parser\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}}}]{fn }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{util_8cpp_a8e04495ad97c6aab7960cc989e3f8c67}\label{util_8cpp_a8e04495ad97c6aab7960cc989e3f8c67}} 
+\index{util.cpp@{util.cpp}!convertNameToFile@{convertNameToFile}}
+\index{convertNameToFile@{convertNameToFile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertNameToFile()}{convertNameToFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+Name\+To\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{allow\+Dots,  }\item[{bool}]{allow\+Underscore }\end{DoxyParamCaption})}
+
+This function determines the file name on disk of an item given its name, which could be a class name with template arguments, so special characters need to be escaped. Here is the call graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{util_8cpp_a6ef178c1a8f543eee53eb72c3e4df64e}\label{util_8cpp_a6ef178c1a8f543eee53eb72c3e4df64e}} 
+\index{util.cpp@{util.cpp}!convertProtectionLevel@{convertProtectionLevel}}
+\index{convertProtectionLevel@{convertProtectionLevel}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertProtectionLevel()}{convertProtectionLevel()}}
+{\footnotesize\ttfamily void convert\+Protection\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{Member\+List\+Type}}}]{in\+List\+Type,  }\item[{\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}}}]{in\+Prot,  }\item[{\mbox{\hyperlink{classint}{int}} $\ast$}]{out\+List\+Type1,  }\item[{\mbox{\hyperlink{classint}{int}} $\ast$}]{out\+List\+Type2 }\end{DoxyParamCaption})}
+
+Computes for a given list type {\itshape in\+List\+Type}, which are the the corresponding list type(s) in the base class that are to be added to this list.
+
+So for public inheritance, the mapping is 1-\/1, so out\+List\+Type1=in\+List\+Type Private members are to be hidden completely.
+
+For protected inheritance, both protected and public members of the base class should be joined in the protected member section.
+
+For private inheritance, both protected and public members of the base class should be joined in the private member section. \mbox{\Hypertarget{util_8cpp_a7c12b32b5b825c9fc989731c66ba1933}\label{util_8cpp_a7c12b32b5b825c9fc989731c66ba1933}} 
+\index{util.cpp@{util.cpp}!convertToDocBook@{convertToDocBook}}
+\index{convertToDocBook@{convertToDocBook}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToDocBook()}{convertToDocBook()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+Doc\+Book (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{const bool}]{retain\+Newline }\end{DoxyParamCaption})}
+
+Converts a string to an Doc\+Book-\/encoded string Here is the call graph for this function\+:
+% FIG 15
+\mbox{\Hypertarget{util_8cpp_a2a3368111f86b401c8f223cd7374b5ac}\label{util_8cpp_a2a3368111f86b401c8f223cd7374b5ac}} 
+\index{util.cpp@{util.cpp}!convertToHtml@{convertToHtml}}
+\index{convertToHtml@{convertToHtml}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToHtml()}{convertToHtml()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+Html (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{bool}]{keep\+Entities }\end{DoxyParamCaption})}
+
+Converts a string to a HTML-\/encoded string Here is the call graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{util_8cpp_af333eebf6d2862cf38a30e084bc36e0d}\label{util_8cpp_af333eebf6d2862cf38a30e084bc36e0d}} 
+\index{util.cpp@{util.cpp}!convertToId@{convertToId}}
+\index{convertToId@{convertToId}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToId()}{convertToId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Converts a string to a HTML id string Here is the call graph for this function\+:
+% FIG 17
+\mbox{\Hypertarget{util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}\label{util_8cpp_a8f3e481e1b1d0260a8561aa16e19e62e}} 
+\index{util.cpp@{util.cpp}!convertToJSString@{convertToJSString}}
+\index{convertToJSString@{convertToJSString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToJSString()}{convertToJSString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+JSString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 18
+\mbox{\Hypertarget{util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}\label{util_8cpp_a5261de94ef3b325400ae7b7a0f71630a}} 
+\index{util.cpp@{util.cpp}!convertToLaTeX@{convertToLaTeX}}
+\index{convertToLaTeX@{convertToLaTeX}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToLaTeX()}{convertToLaTeX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+La\+TeX (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{bool}]{inside\+Tabbing,  }\item[{bool}]{keep\+Spaces }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 19
+\mbox{\Hypertarget{util_8cpp_a2387fed870bd881eb6552bf8ea8d6677}\label{util_8cpp_a2387fed870bd881eb6552bf8ea8d6677}} 
+\index{util.cpp@{util.cpp}!convertToPSString@{convertToPSString}}
+\index{convertToPSString@{convertToPSString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToPSString()}{convertToPSString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+PSString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 20
+\mbox{\Hypertarget{util_8cpp_a93c7f78ab05807663dd8947d0dd5423f}\label{util_8cpp_a93c7f78ab05807663dd8947d0dd5423f}} 
+\index{util.cpp@{util.cpp}!convertToXML@{convertToXML}}
+\index{convertToXML@{convertToXML}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToXML()}{convertToXML()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} convert\+To\+XML (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{bool}]{keep\+Entities }\end{DoxyParamCaption})}
+
+Converts a string to an XML-\/encoded string Here is the call graph for this function\+:
+% FIG 21
+\mbox{\Hypertarget{util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}\label{util_8cpp_ad35d4038b3882fdd09976d28f4a043bf}} 
+\index{util.cpp@{util.cpp}!copyFile@{copyFile}}
+\index{copyFile@{copyFile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{copyFile()}{copyFile()}}
+{\footnotesize\ttfamily bool copy\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{src,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{dest }\end{DoxyParamCaption})}
+
+Copies the contents of file with name {\itshape src} to the newly created file with name {\itshape dest}. Returns TRUE if successful. Here is the call graph for this function\+:
+% FIG 22
+\mbox{\Hypertarget{util_8cpp_aa9203c86bf68f5df83a758b49fae64a1}\label{util_8cpp_aa9203c86bf68f5df83a758b49fae64a1}} 
+\index{util.cpp@{util.cpp}!correctId@{correctId}}
+\index{correctId@{correctId}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{correctId()}{correctId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} correct\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Some strings have been corrected but the requirement regarding the fact that an id cannot have a digit at the first position. To overcome problems with double labels we always place an \char`\"{}a\char`\"{} in front \mbox{\Hypertarget{util_8cpp_a3a775021310e25718452bfe250b2f999}\label{util_8cpp_a3a775021310e25718452bfe250b2f999}} 
+\index{util.cpp@{util.cpp}!correctURL@{correctURL}}
+\index{correctURL@{correctURL}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{correctURL()}{correctURL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} correct\+URL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{url,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{rel\+Path }\end{DoxyParamCaption})}
+
+Corrects \mbox{\hyperlink{structURL}{URL}} {\itshape url} according to the relative path {\itshape rel\+Path}. Returns the corrected \mbox{\hyperlink{structURL}{URL}}. For absolute URLs no correction will be done. Here is the call graph for this function\+:
+% FIG 23
+\mbox{\Hypertarget{util_8cpp_a1a81a80c083337fa1bdbf92f36e82df7}\label{util_8cpp_a1a81a80c083337fa1bdbf92f36e82df7}} 
+\index{util.cpp@{util.cpp}!countAliasArguments@{countAliasArguments}}
+\index{countAliasArguments@{countAliasArguments}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{countAliasArguments()}{countAliasArguments()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} count\+Alias\+Arguments (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{arg\+List }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 24
+\mbox{\Hypertarget{util_8cpp_a77685956f8517f3a6e062e66925fc93c}\label{util_8cpp_a77685956f8517f3a6e062e66925fc93c}} 
+\index{util.cpp@{util.cpp}!createSubDirs@{createSubDirs}}
+\index{createSubDirs@{createSubDirs}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{createSubDirs()}{createSubDirs()}}
+{\footnotesize\ttfamily void create\+Sub\+Dirs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDir}{Dir}} \&}]{d }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 25
+\mbox{\Hypertarget{util_8cpp_ab756d2158c17cfe62c5c51a7cf09d4a5}\label{util_8cpp_ab756d2158c17cfe62c5c51a7cf09d4a5}} 
+\index{util.cpp@{util.cpp}!dateToString@{dateToString}}
+\index{dateToString@{dateToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{dateToString()}{dateToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} date\+To\+String (\begin{DoxyParamCaption}\item[{bool}]{include\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a588c599deed30414ade1ed583a11827d}\label{util_8cpp_a588c599deed30414ade1ed583a11827d}} 
+\index{util.cpp@{util.cpp}!escapeCharsInString@{escapeCharsInString}}
+\index{escapeCharsInString@{escapeCharsInString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{escapeCharsInString()}{escapeCharsInString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} escape\+Chars\+In\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{allow\+Dots,  }\item[{bool}]{allow\+Underscore }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 26
+\mbox{\Hypertarget{util_8cpp_a21ea66b9c5d77e1080b48d0ea1dc0f8a}\label{util_8cpp_a21ea66b9c5d77e1080b48d0ea1dc0f8a}} 
+\index{util.cpp@{util.cpp}!expandAlias@{expandAlias}}
+\index{expandAlias@{expandAlias}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{expandAlias()}{expandAlias()}}
+{\footnotesize\ttfamily std\+::string expand\+Alias (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{alias\+Name,  }\item[{const std\+::string \&}]{alias\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 27
+\mbox{\Hypertarget{util_8cpp_ad3f3c94bc6e432d34fa1a51db3b7d5e2}\label{util_8cpp_ad3f3c94bc6e432d34fa1a51db3b7d5e2}} 
+\index{util.cpp@{util.cpp}!externalLinkTarget@{externalLinkTarget}}
+\index{externalLinkTarget@{externalLinkTarget}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{externalLinkTarget()}{externalLinkTarget()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} external\+Link\+Target (\begin{DoxyParamCaption}\item[{const bool}]{parent }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a06ba0c2593b3fd5f103151bd342e206f}\label{util_8cpp_a06ba0c2593b3fd5f103151bd342e206f}} 
+\index{util.cpp@{util.cpp}!externalRef@{externalRef}}
+\index{externalRef@{externalRef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{externalRef()}{externalRef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} external\+Ref (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{rel\+Path,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{ref,  }\item[{bool}]{href }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 28
+\mbox{\Hypertarget{util_8cpp_a49ff3b428e46c164d7b29bd7b0cd1f25}\label{util_8cpp_a49ff3b428e46c164d7b29bd7b0cd1f25}} 
+\index{util.cpp@{util.cpp}!extractAliasArgs@{extractAliasArgs}}
+\index{extractAliasArgs@{extractAliasArgs}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{extractAliasArgs()}{extractAliasArgs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} extract\+Alias\+Args (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{args,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 29
+\mbox{\Hypertarget{util_8cpp_a5aeb2f2a393f78bb37d02fddd5c229c8}\label{util_8cpp_a5aeb2f2a393f78bb37d02fddd5c229c8}} 
+\index{util.cpp@{util.cpp}!extractBlock@{extractBlock}}
+\index{extractBlock@{extractBlock}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{extractBlock()}{extractBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} extract\+Block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{marker }\end{DoxyParamCaption})}
+
+Returns the section of text, in between a pair of markers. Full lines are returned, excluding the lines on which the markers appear. \begin{DoxySeeAlso}{See also}
+routine \mbox{\hyperlink{util_8cpp_a29dc16dcef3e9ca42657dcf3bfd8d53a}{line\+Block}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 30
+\mbox{\Hypertarget{util_8cpp_a337616be3bea43c6c1a7c898bdbfda7c}\label{util_8cpp_a337616be3bea43c6c1a7c898bdbfda7c}} 
+\index{util.cpp@{util.cpp}!extractClassNameFromType@{extractClassNameFromType}}
+\index{extractClassNameFromType@{extractClassNameFromType}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{extractClassNameFromType()}{extractClassNameFromType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} extract\+Class\+Name\+From\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{type,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{pos,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{templ\+Spec,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang }\end{DoxyParamCaption})}
+
+Extracts a (sub-\/)string from {\itshape type} starting at {\itshape pos} that could form a class. The index of the match is returned and the found class {\itshape name} and a template argument list {\itshape templ\+Spec}. If -\/1 is returned there are no more matches. Here is the call graph for this function\+:
+% FIG 31
+\mbox{\Hypertarget{util_8cpp_a0a8ffacc302979f9f812ab6608967287}\label{util_8cpp_a0a8ffacc302979f9f812ab6608967287}} 
+\index{util.cpp@{util.cpp}!extractDirection@{extractDirection}}
+\index{extractDirection@{extractDirection}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{extractDirection()}{extractDirection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} extract\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{docs }\end{DoxyParamCaption})}
+
+Strip the direction part from docs and return it as a string in canonical form The input {\itshape docs} string can start with e.\+g. \char`\"{}\mbox{[}in\mbox{]}\char`\"{}, \char`\"{}\mbox{[}in, out\mbox{]}\char`\"{}, \char`\"{}\mbox{[}inout\mbox{]}\char`\"{}, \char`\"{}\mbox{[}out,in\mbox{]}\char`\"{}... \begin{DoxyReturn}{Returns}
+either \char`\"{}\mbox{[}in,out\mbox{]}\char`\"{}, \char`\"{}\mbox{[}in\mbox{]}\char`\"{}, or \char`\"{}\mbox{[}out\mbox{]}\char`\"{} or the empty string. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 32
+\mbox{\Hypertarget{util_8cpp_a99ce0f316902ba135f970cba1731ed97}\label{util_8cpp_a99ce0f316902ba135f970cba1731ed97}} 
+\index{util.cpp@{util.cpp}!extractNamespaceName@{extractNamespaceName}}
+\index{extractNamespaceName@{extractNamespaceName}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{extractNamespaceName()}{extractNamespaceName()}}
+{\footnotesize\ttfamily void extract\+Namespace\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{scope\+Name,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{class\+Name,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{namespace\+Name,  }\item[{bool}]{allow\+Empty\+Class }\end{DoxyParamCaption})}
+
+Input is a scope\+Name, output is the scopename split into a namespace part (as large as possible) and a classname part. Here is the call graph for this function\+:
+% FIG 33
+\mbox{\Hypertarget{util_8cpp_a71d0079fa5936a41b6ff2d1ca5eb5480}\label{util_8cpp_a71d0079fa5936a41b6ff2d1ca5eb5480}} 
+\index{util.cpp@{util.cpp}!fileToString@{fileToString}}
+\index{fileToString@{fileToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{fileToString()}{fileToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} file\+To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{filter,  }\item[{bool}]{is\+Source\+Code }\end{DoxyParamCaption})}
+
+reads a file with name {\itshape name} and returns it as a string. If {\itshape filter} is TRUE the file will be filtered by any user specified input filter. If {\itshape name} is \char`\"{}-\/\char`\"{} the string will be read from standard input. Here is the call graph for this function\+:
+% FIG 34
+\mbox{\Hypertarget{util_8cpp_a78b0d7057156fc989474dc86bfb86187}\label{util_8cpp_a78b0d7057156fc989474dc86bfb86187}} 
+\index{util.cpp@{util.cpp}!fileVisibleInIndex@{fileVisibleInIndex}}
+\index{fileVisibleInIndex@{fileVisibleInIndex}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{fileVisibleInIndex()}{fileVisibleInIndex()}}
+{\footnotesize\ttfamily bool file\+Visible\+In\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{bool \&}]{gen\+Source\+File }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 35
+\mbox{\Hypertarget{util_8cpp_a96afd525d79a1a43fbaabae3483b2e6b}\label{util_8cpp_a96afd525d79a1a43fbaabae3483b2e6b}} 
+\index{util.cpp@{util.cpp}!filterLatexString@{filterLatexString}}
+\index{filterLatexString@{filterLatexString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{filterLatexString()}{filterLatexString()}}
+{\footnotesize\ttfamily void filter\+Latex\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str,  }\item[{bool}]{inside\+Tabbing,  }\item[{bool}]{inside\+Pre,  }\item[{bool}]{inside\+Item,  }\item[{bool}]{inside\+Table,  }\item[{bool}]{keep\+Spaces,  }\item[{const bool}]{retain\+Newline }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a747a6ad366ae4d5d42f0c551079d0bf5}\label{util_8cpp_a747a6ad366ae4d5d42f0c551079d0bf5}} 
+\index{util.cpp@{util.cpp}!filterTitle@{filterTitle}}
+\index{filterTitle@{filterTitle}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{filterTitle()}{filterTitle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} filter\+Title (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{title }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 36
+\mbox{\Hypertarget{util_8cpp_a87fd251583954635281c516ceee7fd34}\label{util_8cpp_a87fd251583954635281c516ceee7fd34}} 
+\index{util.cpp@{util.cpp}!findAndRemoveWord@{findAndRemoveWord}}
+\index{findAndRemoveWord@{findAndRemoveWord}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{findAndRemoveWord()}{findAndRemoveWord()}}
+{\footnotesize\ttfamily bool find\+And\+Remove\+Word (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{sentence,  }\item[{const char $\ast$}]{word }\end{DoxyParamCaption})}
+
+removes occurrences of whole {\itshape word} from {\itshape sentence}, while keeps internal spaces and reducing multiple sequences of spaces. \mbox{\hyperlink{structExample}{Example}}\+: sentence={\ttfamily cat+ catfish cat cat concat cat}, word={\ttfamily cat} returns\+: {\ttfamily + catfish concat} Here is the call graph for this function\+:
+% FIG 37
+\mbox{\Hypertarget{util_8cpp_af891990268daeb8713d18d154b84ffdb}\label{util_8cpp_af891990268daeb8713d18d154b84ffdb}} 
+\index{util.cpp@{util.cpp}!findFileDef@{findFileDef}}
+\index{findFileDef@{findFileDef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{findFileDef()}{findFileDef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$ find\+File\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$}]{fn\+Map,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{n,  }\item[{bool \&}]{ambig }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 38
+\mbox{\Hypertarget{util_8cpp_a0b4385a8257f0b917af2bc2a093c6c7b}\label{util_8cpp_a0b4385a8257f0b917af2bc2a093c6c7b}} 
+\index{util.cpp@{util.cpp}!findIndex@{findIndex}}
+\index{findIndex@{findIndex}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{findIndex()}{findIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} find\+Index (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{const \mbox{\hyperlink{classreg_1_1Ex}{reg\+::\+Ex}} \&}]{re }\end{DoxyParamCaption})}
+
+
+
+find the index of the first occurrence of pattern {\itshape re} in a string {\itshape s} returns -\/1 if the pattern could not be found 
+
+Here is the call graph for this function\+:
+% FIG 39
+\mbox{\Hypertarget{util_8cpp_aa148f513c64eba8bfd7f3e775c711514}\label{util_8cpp_aa148f513c64eba8bfd7f3e775c711514}} 
+\index{util.cpp@{util.cpp}!findIndex@{findIndex}}
+\index{findIndex@{findIndex}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{findIndex()}{findIndex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} find\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&}]{sv,  }\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+find the index of a string in a vector of strings, returns -\/1 if the string could not be found 
+
+\mbox{\Hypertarget{util_8cpp_ad2143a92408c0b36271fbf7dbe84f4f7}\label{util_8cpp_ad2143a92408c0b36271fbf7dbe84f4f7}} 
+\index{util.cpp@{util.cpp}!findParameterList@{findParameterList}}
+\index{findParameterList@{findParameterList}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{findParameterList()}{findParameterList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} find\+Parameter\+List (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Returns the position in the string where a function parameter list begins, or -\/1 if one is not found. Here is the call graph for this function\+:
+% FIG 40
+\mbox{\Hypertarget{util_8cpp_a3bf00124d493acd025b5400e1d978b42}\label{util_8cpp_a3bf00124d493acd025b5400e1d978b42}} 
+\index{util.cpp@{util.cpp}!generateFileRef@{generateFileRef}}
+\index{generateFileRef@{generateFileRef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{generateFileRef()}{generateFileRef()}}
+{\footnotesize\ttfamily void generate\+File\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&}]{od,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 41
+\mbox{\Hypertarget{util_8cpp_a870b3a74b0ea4d58bcb9d1e9ff93e240}\label{util_8cpp_a870b3a74b0ea4d58bcb9d1e9ff93e240}} 
+\index{util.cpp@{util.cpp}!generateLink@{generateLink}}
+\index{generateLink@{generateLink}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{generateLink()}{generateLink()}}
+{\footnotesize\ttfamily bool generate\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&}]{od,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{cl\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{lr,  }\item[{bool}]{in\+See\+Block,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{lt }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 42
+\mbox{\Hypertarget{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}\label{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}} 
+\index{util.cpp@{util.cpp}!generateMarker@{generateMarker}}
+\index{generateMarker@{generateMarker}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{generateMarker()}{generateMarker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} generate\+Marker (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{id }\end{DoxyParamCaption})}
+
+Generate a place holder for a position in a list. Used for translators to be able to specify different elements orders depending on whether text flows from left to right or visa versa. \mbox{\Hypertarget{util_8cpp_a2295072491e4c81a8406ae2a29d68d25}\label{util_8cpp_a2295072491e4c81a8406ae2a29d68d25}} 
+\index{util.cpp@{util.cpp}!getDefs@{getDefs}}
+\index{getDefs@{getDefs}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getDefs()}{getDefs()}}
+{\footnotesize\ttfamily bool get\+Defs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{sc\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{mb\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{args,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$\&}]{md,  }\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$\&}]{cd,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$\&}]{fd,  }\item[{const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$\&}]{nd,  }\item[{const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$\&}]{gd,  }\item[{bool}]{force\+Empty\+Scope,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{current\+File,  }\item[{bool}]{check\+CV }\end{DoxyParamCaption})}
+
+Searches for a member definition given its name \textquotesingle{}member\+Name\textquotesingle{} as a string. member\+Name may also include a (partial) scope to indicate the scope in which the member is located.
+
+The parameter \textquotesingle{}sc\+Name\textquotesingle{} is a string representing the name of the scope in which the link was found.
+
+In case of a function args contains a string representation of the argument list. Passing 0 means the member has no arguments. Passing \char`\"{}()\char`\"{} means any argument list will do, but \char`\"{}()\char`\"{} is preferred.
+
+The function returns TRUE if the member is known and documented or FALSE if it is not. If TRUE is returned parameter \textquotesingle{}md\textquotesingle{} contains a pointer to the member definition. Furthermore exactly one of the parameter \textquotesingle{}cd\textquotesingle{}, \textquotesingle{}nd\textquotesingle{}, or \textquotesingle{}fd\textquotesingle{} will be non-\/zero\+:
+\begin{DoxyItemize}
+\item if \textquotesingle{}cd\textquotesingle{} is non zero, the member was found in a class pointed to by cd.
+\item if \textquotesingle{}nd\textquotesingle{} is non zero, the member was found in a namespace pointed to by nd.
+\item if \textquotesingle{}fd\textquotesingle{} is non zero, the member was found in the global namespace of file fd. 
+\end{DoxyItemize}Here is the call graph for this function\+:
+% FIG 43
+\mbox{\Hypertarget{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}\label{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}} 
+\index{util.cpp@{util.cpp}!getDotImageExtension@{getDotImageExtension}}
+\index{getDotImageExtension@{getDotImageExtension}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getDotImageExtension()}{getDotImageExtension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} get\+Dot\+Image\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 44
+\mbox{\Hypertarget{util_8cpp_ad4426e053bb11589c58bd5c6828817e2}\label{util_8cpp_ad4426e053bb11589c58bd5c6828817e2}} 
+\index{util.cpp@{util.cpp}!getFileFilter@{getFileFilter}}
+\index{getFileFilter@{getFileFilter}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getFileFilter()}{getFileFilter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} get\+File\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{is\+Source\+Code }\end{DoxyParamCaption})}
+
+looks for a filter for the file {\itshape name}. Returns the name of the filter if there is a match for the file name, otherwise an empty string. In case {\itshape in\+Source\+Code} is TRUE then first the source filter list is considered. Here is the call graph for this function\+:
+% FIG 45
+\mbox{\Hypertarget{util_8cpp_af18ed4687438f52f5c7fe9dfb226244c}\label{util_8cpp_af18ed4687438f52f5c7fe9dfb226244c}} 
+\index{util.cpp@{util.cpp}!getFileNameExtension@{getFileNameExtension}}
+\index{getFileNameExtension@{getFileNameExtension}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getFileNameExtension()}{getFileNameExtension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} get\+File\+Name\+Extension (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{fn }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 46
+\mbox{\Hypertarget{util_8cpp_a6d584858761afb81c76d1c85e19438e9}\label{util_8cpp_a6d584858761afb81c76d1c85e19438e9}} 
+\index{util.cpp@{util.cpp}!getLanguageFromCodeLang@{getLanguageFromCodeLang}}
+\index{getLanguageFromCodeLang@{getLanguageFromCodeLang}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getLanguageFromCodeLang()}{getLanguageFromCodeLang()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} get\+Language\+From\+Code\+Lang (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Routine to handle the language attribute of the {\ttfamily \textbackslash{}code} command. 
+
+Here is the call graph for this function\+:
+% FIG 47
+\mbox{\Hypertarget{util_8cpp_a1b56719a14e986911d90aae56767dd5b}\label{util_8cpp_a1b56719a14e986911d90aae56767dd5b}} 
+\index{util.cpp@{util.cpp}!getLanguageFromFileName@{getLanguageFromFileName}}
+\index{getLanguageFromFileName@{getLanguageFromFileName}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getLanguageFromFileName()}{getLanguageFromFileName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} get\+Language\+From\+File\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{def\+Lang }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 48
+\mbox{\Hypertarget{util_8cpp_aab590e3dd52a9375bb3afe31dc6f8609}\label{util_8cpp_aab590e3dd52a9375bb3afe31dc6f8609}} 
+\index{util.cpp@{util.cpp}!getLanguageSpecificSeparator@{getLanguageSpecificSeparator}}
+\index{getLanguageSpecificSeparator@{getLanguageSpecificSeparator}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getLanguageSpecificSeparator()}{getLanguageSpecificSeparator()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} get\+Language\+Specific\+Separator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{bool}]{class\+Scope }\end{DoxyParamCaption})}
+
+Returns the scope separator to use given the programming language {\itshape lang} \mbox{\Hypertarget{util_8cpp_ad8c71fbab856bc37ae54d2d369535b3b}\label{util_8cpp_ad8c71fbab856bc37ae54d2d369535b3b}} 
+\index{util.cpp@{util.cpp}!getOverloadDocs@{getOverloadDocs}}
+\index{getOverloadDocs@{getOverloadDocs}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getOverloadDocs()}{getOverloadDocs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} get\+Overload\+Docs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the standard string that is generated when the \textbackslash{}overload command is used. Here is the call graph for this function\+:
+% FIG 49
+\mbox{\Hypertarget{util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}\label{util_8cpp_ae052d7dcea3289dd204d8d425cf9d4c9}} 
+\index{util.cpp@{util.cpp}!getPrefixIndex@{getPrefixIndex}}
+\index{getPrefixIndex@{getPrefixIndex}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getPrefixIndex()}{getPrefixIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} get\+Prefix\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Returns the character index within {\itshape name} of the first prefix in \mbox{\hyperlink{config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List(\+IGNORE\+\_\+\+PREFIX)}} that matches {\itshape name} at the left hand side, or zero if no match was found Here is the call graph for this function\+:
+% FIG 50
+\mbox{\Hypertarget{util_8cpp_afd249e264b966d05a54b740e3d43ad6e}\label{util_8cpp_afd249e264b966d05a54b740e3d43ad6e}} 
+\index{util.cpp@{util.cpp}!getScopeFragment@{getScopeFragment}}
+\index{getScopeFragment@{getScopeFragment}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{getScopeFragment()}{getScopeFragment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} get\+Scope\+Fragment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classint}{int}}}]{p,  }\item[{\mbox{\hyperlink{classint}{int}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+Returns a fragment from scope {\itshape s}, starting at position {\itshape p}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & the scope name as a string. \\
+\hline
+{\em p} & the start position (0 is the first). \\
+\hline
+{\em l} & the resulting length of the fragment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the location of the fragment, or -\/1 if non is found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{util_8cpp_adfac1d990e027ce0011573d537066ee6}\label{util_8cpp_adfac1d990e027ce0011573d537066ee6}} 
+\index{util.cpp@{util.cpp}!guessSection@{guessSection}}
+\index{guessSection@{guessSection}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{guessSection()}{guessSection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} guess\+Section (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+try to determine if {\itshape name} is a source or a header file name by looking at the extension. A number of variations is allowed in both upper and lower case) If anyone knows or uses another extension please let me know \+:-\/) Here is the call graph for this function\+:
+% FIG 51
+\mbox{\Hypertarget{util_8cpp_a87fb21e07b359f00a4e3774a6eb736e3}\label{util_8cpp_a87fb21e07b359f00a4e3774a6eb736e3}} 
+\index{util.cpp@{util.cpp}!initDefaultExtensionMapping@{initDefaultExtensionMapping}}
+\index{initDefaultExtensionMapping@{initDefaultExtensionMapping}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{initDefaultExtensionMapping()}{initDefaultExtensionMapping()}}
+{\footnotesize\ttfamily void init\+Default\+Extension\+Mapping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 52
+\mbox{\Hypertarget{util_8cpp_a1dc6b9f0a9cc58498da6f8d4ffe120c1}\label{util_8cpp_a1dc6b9f0a9cc58498da6f8d4ffe120c1}} 
+\index{util.cpp@{util.cpp}!insertTemplateSpecifierInScope@{insertTemplateSpecifierInScope}}
+\index{insertTemplateSpecifierInScope@{insertTemplateSpecifierInScope}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{insertTemplateSpecifierInScope()}{insertTemplateSpecifierInScope()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} insert\+Template\+Specifier\+In\+Scope (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{scope,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{templ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 53
+\mbox{\Hypertarget{util_8cpp_a6e984969913a70c9b67da588f68b8a14}\label{util_8cpp_a6e984969913a70c9b67da588f68b8a14}} 
+\index{util.cpp@{util.cpp}!integerToAlpha@{integerToAlpha}}
+\index{integerToAlpha@{integerToAlpha}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{integerToAlpha()}{integerToAlpha()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} integer\+To\+Alpha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{n,  }\item[{bool}]{upper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a3603e3a5f6710fd96b6c634f9e2de708}\label{util_8cpp_a3603e3a5f6710fd96b6c634f9e2de708}} 
+\index{util.cpp@{util.cpp}!integerToRoman@{integerToRoman}}
+\index{integerToRoman@{integerToRoman}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{integerToRoman()}{integerToRoman()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} integer\+To\+Roman (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{n,  }\item[{bool}]{upper }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a7bc01022af843db19fb19614d340ba66}\label{util_8cpp_a7bc01022af843db19fb19614d340ba66}} 
+\index{util.cpp@{util.cpp}!isURL@{isURL}}
+\index{isURL@{isURL}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{isURL()}{isURL()}}
+{\footnotesize\ttfamily bool is\+URL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{url }\end{DoxyParamCaption})}
+
+Checks whether the given url starts with a supported protocol Here is the call graph for this function\+:
+% FIG 54
+\mbox{\Hypertarget{util_8cpp_a27784840caff3a70e6dfa44f5341553b}\label{util_8cpp_a27784840caff3a70e6dfa44f5341553b}} 
+\index{util.cpp@{util.cpp}!join@{join}}
+\index{join@{join}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{join()}{join()}}
+{\footnotesize\ttfamily std\+::string join (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&}]{sv,  }\item[{const std\+::string \&}]{delimiter }\end{DoxyParamCaption})}
+
+
+
+create a string where the string in the vector are joined by the given delimiter 
+
+\mbox{\Hypertarget{util_8cpp_a969690ca9b1155540d43631f499b3880}\label{util_8cpp_a969690ca9b1155540d43631f499b3880}} 
+\index{util.cpp@{util.cpp}!langToString@{langToString}}
+\index{langToString@{langToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{langToString()}{langToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} lang\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang }\end{DoxyParamCaption})}
+
+Returns a string representation of {\itshape lang}. \mbox{\Hypertarget{util_8cpp_ad32126ac958c2ac22491a47f6957935c}\label{util_8cpp_ad32126ac958c2ac22491a47f6957935c}} 
+\index{util.cpp@{util.cpp}!latexEscapeIndexChars@{latexEscapeIndexChars}}
+\index{latexEscapeIndexChars@{latexEscapeIndexChars}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{latexEscapeIndexChars()}{latexEscapeIndexChars()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} latex\+Escape\+Index\+Chars (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 55
+\mbox{\Hypertarget{util_8cpp_afd297d2d96747033593750c401bfe95e}\label{util_8cpp_afd297d2d96747033593750c401bfe95e}} 
+\index{util.cpp@{util.cpp}!latexEscapeLabelName@{latexEscapeLabelName}}
+\index{latexEscapeLabelName@{latexEscapeLabelName}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{latexEscapeLabelName()}{latexEscapeLabelName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} latex\+Escape\+Label\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 56
+\mbox{\Hypertarget{util_8cpp_a37bf597b522fe84aefa564de5b8489c2}\label{util_8cpp_a37bf597b522fe84aefa564de5b8489c2}} 
+\index{util.cpp@{util.cpp}!latexEscapePDFString@{latexEscapePDFString}}
+\index{latexEscapePDFString@{latexEscapePDFString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{latexEscapePDFString()}{latexEscapePDFString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} latex\+Escape\+PDFString (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 57
+\mbox{\Hypertarget{util_8cpp_a5b4eb46ed4177d10b053426f65925171}\label{util_8cpp_a5b4eb46ed4177d10b053426f65925171}} 
+\index{util.cpp@{util.cpp}!latexFilterURL@{latexFilterURL}}
+\index{latexFilterURL@{latexFilterURL}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{latexFilterURL()}{latexFilterURL()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} latex\+Filter\+URL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a373928f3b61089f84cb4ee946474792f}\label{util_8cpp_a373928f3b61089f84cb4ee946474792f}} 
+\index{util.cpp@{util.cpp}!leftScopeMatch@{leftScopeMatch}}
+\index{leftScopeMatch@{leftScopeMatch}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{leftScopeMatch()}{leftScopeMatch()}}
+{\footnotesize\ttfamily bool left\+Scope\+Match (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{scope,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 58
+\mbox{\Hypertarget{util_8cpp_a29dc16dcef3e9ca42657dcf3bfd8d53a}\label{util_8cpp_a29dc16dcef3e9ca42657dcf3bfd8d53a}} 
+\index{util.cpp@{util.cpp}!lineBlock@{lineBlock}}
+\index{lineBlock@{lineBlock}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{lineBlock()}{lineBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} line\+Block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{marker }\end{DoxyParamCaption})}
+
+Returns the line number of the line following the line with the marker. \begin{DoxySeeAlso}{See also}
+routine \mbox{\hyperlink{util_8cpp_a5aeb2f2a393f78bb37d02fddd5c229c8}{extract\+Block}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+% FIG 59
+\mbox{\Hypertarget{util_8cpp_ae61ca16879462ab6bd55475fa265b251}\label{util_8cpp_ae61ca16879462ab6bd55475fa265b251}} 
+\index{util.cpp@{util.cpp}!linkifyText@{linkifyText}}
+\index{linkifyText@{linkifyText}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{linkifyText()}{linkifyText()}}
+{\footnotesize\ttfamily void linkify\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTextGeneratorIntf}{Text\+Generator\+Intf}} \&}]{out,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{scope,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{file\+Scope,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{self,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text,  }\item[{bool}]{auto\+Break,  }\item[{bool}]{external,  }\item[{bool}]{keep\+Spaces,  }\item[{\mbox{\hyperlink{classint}{int}}}]{indent\+Level }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 60
+\mbox{\Hypertarget{util_8cpp_a1193619fc22f8093dc4096b092165b96}\label{util_8cpp_a1193619fc22f8093dc4096b092165b96}} 
+\index{util.cpp@{util.cpp}!linkToText@{linkToText}}
+\index{linkToText@{linkToText}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{linkToText()}{linkToText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} link\+To\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{link,  }\item[{bool}]{is\+File\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 61
+\mbox{\Hypertarget{util_8cpp_a1d56f22de057d96035949f029dd6e4e8}\label{util_8cpp_a1d56f22de057d96035949f029dd6e4e8}} 
+\index{util.cpp@{util.cpp}!mainPageHasTitle@{mainPageHasTitle}}
+\index{mainPageHasTitle@{mainPageHasTitle}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{mainPageHasTitle()}{mainPageHasTitle()}}
+{\footnotesize\ttfamily bool main\+Page\+Has\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a78739b1ab728bbecd4d3e54ae90bbbce}\label{util_8cpp_a78739b1ab728bbecd4d3e54ae90bbbce}} 
+\index{util.cpp@{util.cpp}!matchArguments2@{matchArguments2}}
+\index{matchArguments2@{matchArguments2}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{matchArguments2()}{matchArguments2()}}
+{\footnotesize\ttfamily bool match\+Arguments2 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{src\+Scope,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{src\+File\+Scope,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} $\ast$}]{src\+Al,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{dst\+Scope,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{dst\+File\+Scope,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} $\ast$}]{dst\+Al,  }\item[{bool}]{check\+CV,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 62
+\mbox{\Hypertarget{util_8cpp_abfa0499109cd76100ecdad2fa752ed3b}\label{util_8cpp_abfa0499109cd76100ecdad2fa752ed3b}} 
+\index{util.cpp@{util.cpp}!mergeArguments@{mergeArguments}}
+\index{mergeArguments@{mergeArguments}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{mergeArguments()}{mergeArguments()}}
+{\footnotesize\ttfamily void merge\+Arguments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{src\+Al,  }\item[{\mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{dst\+Al,  }\item[{bool}]{force\+Name\+Overwrite }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 63
+\mbox{\Hypertarget{util_8cpp_a0baa021dae80e22593292b12ef2f721f}\label{util_8cpp_a0baa021dae80e22593292b12ef2f721f}} 
+\index{util.cpp@{util.cpp}!mergeScopes@{mergeScopes}}
+\index{mergeScopes@{mergeScopes}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{mergeScopes()}{mergeScopes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} merge\+Scopes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{left\+Scope,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{right\+Scope }\end{DoxyParamCaption})}
+
+Merges two scope parts together. The parts may (partially) overlap. Example1\+: {\ttfamily A\+::B} and {\ttfamily B\+::C} will result in {\ttfamily A\+::\+B\+::C} ~\newline
+ Example2\+: {\ttfamily A} and {\ttfamily B} will be {\ttfamily A\+::B} ~\newline
+ Example3\+: {\ttfamily A\+::B} and B will be {\ttfamily A\+::B} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+Scope} & the left hand part of the scope. \\
+\hline
+{\em right\+Scope} & the right hand part of the scope. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the merged scope. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 64
+\mbox{\Hypertarget{util_8cpp_a11601f7b8b08cb9600482e5dc3bc51c5}\label{util_8cpp_a11601f7b8b08cb9600482e5dc3bc51c5}} 
+\index{util.cpp@{util.cpp}!normalizeNonTemplateArgumentsInString@{normalizeNonTemplateArgumentsInString}}
+\index{normalizeNonTemplateArgumentsInString@{normalizeNonTemplateArgumentsInString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{normalizeNonTemplateArgumentsInString()}{normalizeNonTemplateArgumentsInString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} normalize\+Non\+Template\+Arguments\+In\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{context,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{formal\+Args }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 65
+\mbox{\Hypertarget{util_8cpp_a5c6662051d765cb0a355382ab05c14a1}\label{util_8cpp_a5c6662051d765cb0a355382ab05c14a1}} 
+\index{util.cpp@{util.cpp}!openOutputFile@{openOutputFile}}
+\index{openOutputFile@{openOutputFile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{openOutputFile()}{openOutputFile()}}
+{\footnotesize\ttfamily bool open\+Output\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{out\+File,  }\item[{std\+::ofstream \&}]{f }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 66
+\mbox{\Hypertarget{util_8cpp_a336a6313626a3a3931e2086fd507bedc}\label{util_8cpp_a336a6313626a3a3931e2086fd507bedc}} 
+\index{util.cpp@{util.cpp}!parseCommentAsText@{parseCommentAsText}}
+\index{parseCommentAsText@{parseCommentAsText}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{parseCommentAsText()}{parseCommentAsText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} parse\+Comment\+As\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{scope,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{md,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{doc,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{line\+Nr }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 67
+\mbox{\Hypertarget{util_8cpp_a5499df1f291fa1ad70e96e2848e78e2c}\label{util_8cpp_a5499df1f291fa1ad70e96e2848e78e2c}} 
+\index{util.cpp@{util.cpp}!patternMatch@{patternMatch}}
+\index{patternMatch@{patternMatch}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{patternMatch()}{patternMatch()}}
+{\footnotesize\ttfamily bool pattern\+Match (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFileInfo}{File\+Info}} \&}]{fi,  }\item[{const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \&}]{pat\+List }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 68
+\mbox{\Hypertarget{util_8cpp_a1e07db76938eb8a2bb8c79b2d0ec4980}\label{util_8cpp_a1e07db76938eb8a2bb8c79b2d0ec4980}} 
+\index{util.cpp@{util.cpp}!protectionLevelVisible@{protectionLevelVisible}}
+\index{protectionLevelVisible@{protectionLevelVisible}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{protectionLevelVisible()}{protectionLevelVisible()}}
+{\footnotesize\ttfamily bool protection\+Level\+Visible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}}}]{prot }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a072282000f8267019c6fa91b63b359c9}\label{util_8cpp_a072282000f8267019c6fa91b63b359c9}} 
+\index{util.cpp@{util.cpp}!readInputFile@{readInputFile}}
+\index{readInputFile@{readInputFile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{readInputFile()}{readInputFile()}}
+{\footnotesize\ttfamily bool read\+Input\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classBufStr}{Buf\+Str}} \&}]{in\+Buf,  }\item[{bool}]{filter,  }\item[{bool}]{is\+Source\+Code }\end{DoxyParamCaption})}
+
+
+
+read a file name {\itshape file\+Name} and optionally filter and transcode it 
+
+Here is the call graph for this function\+:
+% FIG 69
+\mbox{\Hypertarget{util_8cpp_a5c3775d3cb6b3776c441a4451d49bb2c}\label{util_8cpp_a5c3775d3cb6b3776c441a4451d49bb2c}} 
+\index{util.cpp@{util.cpp}!recognizeFixedForm@{recognizeFixedForm}}
+\index{recognizeFixedForm@{recognizeFixedForm}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{recognizeFixedForm()}{recognizeFixedForm()}}
+{\footnotesize\ttfamily bool recognize\+Fixed\+Form (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{contents,  }\item[{\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{Fortran\+Format}}}]{format }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a2ea5702871b208636e8c428ac04f3ef1}\label{util_8cpp_a2ea5702871b208636e8c428ac04f3ef1}} 
+\index{util.cpp@{util.cpp}!recursivelyAddGroupListToTitle@{recursivelyAddGroupListToTitle}}
+\index{recursivelyAddGroupListToTitle@{recursivelyAddGroupListToTitle}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{recursivelyAddGroupListToTitle()}{recursivelyAddGroupListToTitle()}}
+{\footnotesize\ttfamily bool recursively\+Add\+Group\+List\+To\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d,  }\item[{bool}]{root }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 70
+\mbox{\Hypertarget{util_8cpp_a6cc78f4946029df8c7135fbf36e625e4}\label{util_8cpp_a6cc78f4946029df8c7135fbf36e625e4}} 
+\index{util.cpp@{util.cpp}!relativePathToRoot@{relativePathToRoot}}
+\index{relativePathToRoot@{relativePathToRoot}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{relativePathToRoot()}{relativePathToRoot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} relative\+Path\+To\+Root (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 71
+\mbox{\Hypertarget{util_8cpp_a775441ec8999df6462d2813ff52b3b52}\label{util_8cpp_a775441ec8999df6462d2813ff52b3b52}} 
+\index{util.cpp@{util.cpp}!removeAnonymousScopes@{removeAnonymousScopes}}
+\index{removeAnonymousScopes@{removeAnonymousScopes}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{removeAnonymousScopes()}{removeAnonymousScopes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} remove\+Anonymous\+Scopes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str }\end{DoxyParamCaption})}
+
+Removes all anonymous scopes from string s Possible examples\+: \begin{DoxyVerb}   "bla::@10::blep"      => "bla::blep"
+   "bla::@10::@11::blep" => "bla::blep"
+   "@10::blep"           => "blep"
+   " @10::blep"          => "blep"
+   "@9::@10::blep"       => "blep"
+   "bla::@1"             => "bla"
+   "bla::@1::@2"         => "bla"
+   "bla @1"              => "bla"
+\end{DoxyVerb}
+ Here is the call graph for this function\+:
+% FIG 72
+\mbox{\Hypertarget{util_8cpp_a3f2329035cfde039380d267efff68c76}\label{util_8cpp_a3f2329035cfde039380d267efff68c76}} 
+\index{util.cpp@{util.cpp}!removeEmptyLines@{removeEmptyLines}}
+\index{removeEmptyLines@{removeEmptyLines}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{removeEmptyLines()}{removeEmptyLines()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} remove\+Empty\+Lines (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 73
+\mbox{\Hypertarget{util_8cpp_a0940360aa6d41fd2496603fc565e3996}\label{util_8cpp_a0940360aa6d41fd2496603fc565e3996}} 
+\index{util.cpp@{util.cpp}!removeRedundantWhiteSpace@{removeRedundantWhiteSpace}}
+\index{removeRedundantWhiteSpace@{removeRedundantWhiteSpace}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{removeRedundantWhiteSpace()}{removeRedundantWhiteSpace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} remove\+Redundant\+White\+Space (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_af4b3385c65dda5f0cd99eb8c122c8eef}\label{util_8cpp_af4b3385c65dda5f0cd99eb8c122c8eef}} 
+\index{util.cpp@{util.cpp}!replaceAnonymousScopes@{replaceAnonymousScopes}}
+\index{replaceAnonymousScopes@{replaceAnonymousScopes}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{replaceAnonymousScopes()}{replaceAnonymousScopes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} replace\+Anonymous\+Scopes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{replacement }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 74
+\mbox{\Hypertarget{util_8cpp_af10f5e35396e550af824e3029bab8dd4}\label{util_8cpp_af10f5e35396e550af824e3029bab8dd4}} 
+\index{util.cpp@{util.cpp}!replaceColorMarkers@{replaceColorMarkers}}
+\index{replaceColorMarkers@{replaceColorMarkers}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{replaceColorMarkers()}{replaceColorMarkers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} replace\+Color\+Markers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str }\end{DoxyParamCaption})}
+
+Replaces any markers of the form \#\#AA in input string {\itshape str} by new markers of the form \#AABBCC, where \#AABBCC represents a valid color, based on the intensity represented by hex number AA and the current HTML\+\_\+\+COLORSTYLE\+\_\+$\ast$ settings. Here is the call graph for this function\+:
+% FIG 75
+\mbox{\Hypertarget{util_8cpp_ada009b0ab6b42ff39d4fd82e36702281}\label{util_8cpp_ada009b0ab6b42ff39d4fd82e36702281}} 
+\index{util.cpp@{util.cpp}!replaceNamespaceAliases@{replaceNamespaceAliases}}
+\index{replaceNamespaceAliases@{replaceNamespaceAliases}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{replaceNamespaceAliases()}{replaceNamespaceAliases()}}
+{\footnotesize\ttfamily void replace\+Namespace\+Aliases (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{scope,  }\item[{\mbox{\hyperlink{classint}{int}}}]{i }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 76
+\mbox{\Hypertarget{util_8cpp_a48e7959e8257c5d8809293119bfac847}\label{util_8cpp_a48e7959e8257c5d8809293119bfac847}} 
+\index{util.cpp@{util.cpp}!resolveAliasCmd@{resolveAliasCmd}}
+\index{resolveAliasCmd@{resolveAliasCmd}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{resolveAliasCmd()}{resolveAliasCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} resolve\+Alias\+Cmd (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{alias\+Cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a5548379f168f36fd8576adcdeab3eb0b}\label{util_8cpp_a5548379f168f36fd8576adcdeab3eb0b}} 
+\index{util.cpp@{util.cpp}!resolveLink@{resolveLink}}
+\index{resolveLink@{resolveLink}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{resolveLink()}{resolveLink()}}
+{\footnotesize\ttfamily bool resolve\+Link (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{sc\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{lr,  }\item[{bool}]{in\+See\+Block,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$}]{res\+Context,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{res\+Anchor }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 77
+\mbox{\Hypertarget{util_8cpp_a6aee1ec15ba34cf7ffde95867eaa59a3}\label{util_8cpp_a6aee1ec15ba34cf7ffde95867eaa59a3}} 
+\index{util.cpp@{util.cpp}!resolveRef@{resolveRef}}
+\index{resolveRef@{resolveRef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{resolveRef()}{resolveRef()}}
+{\footnotesize\ttfamily bool resolve\+Ref (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{sc\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{in\+See\+Block,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$}]{res\+Context,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$$\ast$}]{res\+Member,  }\item[{bool}]{look\+For\+Specialization,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{current\+File,  }\item[{bool}]{check\+Scope }\end{DoxyParamCaption})}
+
+Returns an object to reference to given its name and context \begin{DoxyPostcond}{Postcondition}
+return value TRUE implies $\ast$res\+Context!=0 or $\ast$res\+Member!=0 
+\end{DoxyPostcond}
+Here is the call graph for this function\+:
+% FIG 78
+\mbox{\Hypertarget{util_8cpp_a7970104534296194ccd535117234a682}\label{util_8cpp_a7970104534296194ccd535117234a682}} 
+\index{util.cpp@{util.cpp}!resolveTypeDef@{resolveTypeDef}}
+\index{resolveTypeDef@{resolveTypeDef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{resolveTypeDef()}{resolveTypeDef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} resolve\+Type\+Def (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{context,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{qualified\+Name,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$$\ast$}]{typedef\+Context }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 79
+\mbox{\Hypertarget{util_8cpp_ae0c5a702c29f403e331441abfe289d5b}\label{util_8cpp_ae0c5a702c29f403e331441abfe289d5b}} 
+\index{util.cpp@{util.cpp}!rightScopeMatch@{rightScopeMatch}}
+\index{rightScopeMatch@{rightScopeMatch}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{rightScopeMatch()}{rightScopeMatch()}}
+{\footnotesize\ttfamily bool right\+Scope\+Match (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{scope,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 80
+\mbox{\Hypertarget{util_8cpp_a0de8a7e9fdf9ae4c06959f6bc834b12c}\label{util_8cpp_a0de8a7e9fdf9ae4c06959f6bc834b12c}} 
+\index{util.cpp@{util.cpp}!rtfFormatBmkStr@{rtfFormatBmkStr}}
+\index{rtfFormatBmkStr@{rtfFormatBmkStr}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{rtfFormatBmkStr()}{rtfFormatBmkStr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} rtf\+Format\+Bmk\+Str (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_a53a397ef3e55a91d790d49743433d579}\label{util_8cpp_a53a397ef3e55a91d790d49743433d579}} 
+\index{util.cpp@{util.cpp}!selectBlock@{selectBlock}}
+\index{selectBlock@{selectBlock}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{selectBlock()}{selectBlock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} select\+Block (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{bool}]{enable,  }\item[{\mbox{\hyperlink{classOutputGenerator_ab79b5d3c19d95c8a5929c07f5b2918cf}{Output\+Generator\+::\+Output\+Type}}}]{o }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 81
+\mbox{\Hypertarget{util_8cpp_a70d0b468521b0304252fb659f3b15e24}\label{util_8cpp_a70d0b468521b0304252fb659f3b15e24}} 
+\index{util.cpp@{util.cpp}!showFileDefMatches@{showFileDefMatches}}
+\index{showFileDefMatches@{showFileDefMatches}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{showFileDefMatches()}{showFileDefMatches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} show\+File\+Def\+Matches (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$}]{fn\+Map,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{n }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 82
+\mbox{\Hypertarget{util_8cpp_a2cc67737d5d2452bb74b4968bb24a00c}\label{util_8cpp_a2cc67737d5d2452bb74b4968bb24a00c}} 
+\index{util.cpp@{util.cpp}!split@{split}}
+\index{split@{split}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{const \mbox{\hyperlink{classreg_1_1Ex}{reg\+::\+Ex}} \&}]{delimiter }\end{DoxyParamCaption})}
+
+
+
+split input string {\itshape s} by regular expression delimiter {\itshape delimiter}. returns a vector of non-\/empty strings that are between the delimiters 
+
+Here is the call graph for this function\+:
+% FIG 83
+\mbox{\Hypertarget{util_8cpp_ac148c3a57e84a2440c4e5aaa894586d9}\label{util_8cpp_ac148c3a57e84a2440c4e5aaa894586d9}} 
+\index{util.cpp@{util.cpp}!split@{split}}
+\index{split@{split}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} split (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s,  }\item[{const std\+::string \&}]{delimiter }\end{DoxyParamCaption})}
+
+
+
+split input string {\itshape s} by string delimiter {\itshape delimiter}. returns a vector of non-\/empty strings that are between the delimiters 
+
+\mbox{\Hypertarget{util_8cpp_aac9ad7a212ab079ff3ac8860577a3132}\label{util_8cpp_aac9ad7a212ab079ff3ac8860577a3132}} 
+\index{util.cpp@{util.cpp}!stackTrace@{stackTrace}}
+\index{stackTrace@{stackTrace}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stackTrace()}{stackTrace()}}
+{\footnotesize\ttfamily void stack\+Trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 84
+\mbox{\Hypertarget{util_8cpp_a3b3bee35d0b539f857173e0a14ecbf63}\label{util_8cpp_a3b3bee35d0b539f857173e0a14ecbf63}} 
+\index{util.cpp@{util.cpp}!stripAnonymousNamespaceScope@{stripAnonymousNamespaceScope}}
+\index{stripAnonymousNamespaceScope@{stripAnonymousNamespaceScope}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripAnonymousNamespaceScope()}{stripAnonymousNamespaceScope()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Anonymous\+Namespace\+Scope (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 85
+\mbox{\Hypertarget{util_8cpp_a8653297bcfce5f19bebc8602e35cb589}\label{util_8cpp_a8653297bcfce5f19bebc8602e35cb589}} 
+\index{util.cpp@{util.cpp}!stripExtension@{stripExtension}}
+\index{stripExtension@{stripExtension}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripExtension()}{stripExtension()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Extension (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{f\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 86
+\mbox{\Hypertarget{util_8cpp_a73d2ea8014e5ac678dac39cfd56ba148}\label{util_8cpp_a73d2ea8014e5ac678dac39cfd56ba148}} 
+\index{util.cpp@{util.cpp}!stripExtensionGeneral@{stripExtensionGeneral}}
+\index{stripExtensionGeneral@{stripExtensionGeneral}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripExtensionGeneral()}{stripExtensionGeneral()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Extension\+General (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{f\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{ext }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 87
+\mbox{\Hypertarget{util_8cpp_a3d790f4b8fa74cbafd6c4b34d4573093}\label{util_8cpp_a3d790f4b8fa74cbafd6c4b34d4573093}} 
+\index{util.cpp@{util.cpp}!stripFromIncludePath@{stripFromIncludePath}}
+\index{stripFromIncludePath@{stripFromIncludePath}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripFromIncludePath()}{stripFromIncludePath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+From\+Include\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{path }\end{DoxyParamCaption})}
+
+strip part of {\itshape path} if it matches one of the paths in the \mbox{\hyperlink{config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List(\+INCLUDE\+\_\+\+PATH)}} list Here is the call graph for this function\+:
+% FIG 88
+\mbox{\Hypertarget{util_8cpp_ac7a97256c349c1f4f1d18d7a7098c081}\label{util_8cpp_ac7a97256c349c1f4f1d18d7a7098c081}} 
+\index{util.cpp@{util.cpp}!stripFromPath@{stripFromPath}}
+\index{stripFromPath@{stripFromPath}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripFromPath()}{stripFromPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+From\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{path }\end{DoxyParamCaption})}
+
+strip part of {\itshape path} if it matches one of the paths in the \mbox{\hyperlink{config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List(\+STRIP\+\_\+\+FROM\+\_\+\+PATH)}} list Here is the call graph for this function\+:
+% FIG 89
+\mbox{\Hypertarget{util_8cpp_adac892ac420e7c1aab28a1d50d7b05fd}\label{util_8cpp_adac892ac420e7c1aab28a1d50d7b05fd}} 
+\index{util.cpp@{util.cpp}!stripIndentation@{stripIndentation}}
+\index{stripIndentation@{stripIndentation}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripIndentation()}{stripIndentation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Indentation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 90
+\mbox{\Hypertarget{util_8cpp_acb1c5709506a73599595e7f6db2c2747}\label{util_8cpp_acb1c5709506a73599595e7f6db2c2747}} 
+\index{util.cpp@{util.cpp}!stripIndentation@{stripIndentation}}
+\index{stripIndentation@{stripIndentation}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripIndentation()}{stripIndentation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void strip\+Indentation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{doc,  }\item[{const \mbox{\hyperlink{classint}{int}}}]{indentation\+Level }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 91
+\mbox{\Hypertarget{util_8cpp_a8070b1f687b313f291d1f5cd292daddb}\label{util_8cpp_a8070b1f687b313f291d1f5cd292daddb}} 
+\index{util.cpp@{util.cpp}!stripIrrelevantConstVolatile@{stripIrrelevantConstVolatile}}
+\index{stripIrrelevantConstVolatile@{stripIrrelevantConstVolatile}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripIrrelevantConstVolatile()}{stripIrrelevantConstVolatile()}}
+{\footnotesize\ttfamily void strip\+Irrelevant\+Const\+Volatile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+According to the C++ spec and Ivan Vecerina\+:
+
+Parameter declarations that differ only in the presence or absence of const and/or volatile are equivalent.
+
+So the following example, show what is stripped by this routine for const. The same is done for volatile.
+
+For Java code we also strip the \char`\"{}final\char`\"{} keyword, see bug 765070.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const} T param     -\/>   T param          \textcolor{comment}{// not relevant}}
+\DoxyCodeLine{\textcolor{keyword}{const} T\& param    -\/>   \textcolor{keyword}{const} T\& param   \textcolor{comment}{// const needed}}
+\DoxyCodeLine{T* \textcolor{keyword}{const} param    -\/>   T* param         \textcolor{comment}{// not relevant}}
+\DoxyCodeLine{\textcolor{keyword}{const} T* param    -\/>   \textcolor{keyword}{const} T* param   \textcolor{comment}{// const needed}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{util_8cpp_ad0b372f3669056d6a88f41daeb3a3865}\label{util_8cpp_ad0b372f3669056d6a88f41daeb3a3865}} 
+\index{util.cpp@{util.cpp}!stripLeadingAndTrailingEmptyLines@{stripLeadingAndTrailingEmptyLines}}
+\index{stripLeadingAndTrailingEmptyLines@{stripLeadingAndTrailingEmptyLines}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripLeadingAndTrailingEmptyLines()}{stripLeadingAndTrailingEmptyLines()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Leading\+And\+Trailing\+Empty\+Lines (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{doc\+Line }\end{DoxyParamCaption})}
+
+Special version of \mbox{\hyperlink{classQCString_a66269a694d9e6961bfd145bb4ca72f42}{QCString\+::strip\+White\+Space()}} that only strips completely blank lines. 
+\begin{DoxyParams}{Parameters}
+{\em s} & the string to be stripped \\
+\hline
+{\em doc\+Line} & the line number corresponding to the start of the string. This will be adjusted based on the number of lines stripped from the start. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stripped string. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 92
+\mbox{\Hypertarget{util_8cpp_a3d37ec79f266698bd836af54ba75e63e}\label{util_8cpp_a3d37ec79f266698bd836af54ba75e63e}} 
+\index{util.cpp@{util.cpp}!stripPath@{stripPath}}
+\index{stripPath@{stripPath}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripPath()}{stripPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 93
+\mbox{\Hypertarget{util_8cpp_a78d33655f54cd45e22070b58a6dce6b6}\label{util_8cpp_a78d33655f54cd45e22070b58a6dce6b6}} 
+\index{util.cpp@{util.cpp}!stripScope@{stripScope}}
+\index{stripScope@{stripScope}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripScope()}{stripScope()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Scope (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})}
+
+Strips the scope from a name. Examples\+: A\+::B will return A and A$<$\+T$>$\+::B\texorpdfstring{$<$}{<}N\+::\+C$<$\+D$>$ \texorpdfstring{$>$}{>} will return A$<$\+T$>$. Here is the call graph for this function\+:
+% FIG 94
+\mbox{\Hypertarget{util_8cpp_a195c37037adf1a2af69ad01cf8d72cac}\label{util_8cpp_a195c37037adf1a2af69ad01cf8d72cac}} 
+\index{util.cpp@{util.cpp}!stripTemplateSpecifiersFromScope@{stripTemplateSpecifiersFromScope}}
+\index{stripTemplateSpecifiersFromScope@{stripTemplateSpecifiersFromScope}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{stripTemplateSpecifiersFromScope()}{stripTemplateSpecifiersFromScope()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Template\+Specifiers\+From\+Scope (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{full\+Name,  }\item[{bool}]{parent\+Only,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} $\ast$}]{p\+Last\+Scope\+Stripped }\end{DoxyParamCaption})}
+
+Strips template specifiers from scope {\itshape full\+Name}, except those that make up specialized classes. The switch {\itshape parent\+Only} determines whether or not a template \char`\"{}at the end\char`\"{} of a scope should be considered, e.\+g. with {\itshape parent\+Only} is {\ttfamily TRUE}, {\ttfamily A$<$\+T$>$\+::\+B$<$\+S$>$} will try to strip {\ttfamily \texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} and not {\ttfamily \texorpdfstring{$<$}{<}S\texorpdfstring{$>$}{>}}, while {\itshape parent\+Only} is {\ttfamily FALSE} will strip both unless {\ttfamily A\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}} or {\ttfamily B\texorpdfstring{$<$}{<}S\texorpdfstring{$>$}{>}} are specialized template classes. Here is the call graph for this function\+:
+% FIG 95
+\mbox{\Hypertarget{util_8cpp_ad2837e99807e1f7cad4d35de87f28cbd}\label{util_8cpp_ad2837e99807e1f7cad4d35de87f28cbd}} 
+\index{util.cpp@{util.cpp}!substituteKeywords@{substituteKeywords}}
+\index{substituteKeywords@{substituteKeywords}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{substituteKeywords()}{substituteKeywords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} substitute\+Keywords (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{title,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{proj\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{proj\+Num,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{proj\+Brief }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 96
+\mbox{\Hypertarget{util_8cpp_a701d95cd58d934966013d8be458abc16}\label{util_8cpp_a701d95cd58d934966013d8be458abc16}} 
+\index{util.cpp@{util.cpp}!substituteTemplateArgumentsInString@{substituteTemplateArgumentsInString}}
+\index{substituteTemplateArgumentsInString@{substituteTemplateArgumentsInString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{substituteTemplateArgumentsInString()}{substituteTemplateArgumentsInString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} substitute\+Template\+Arguments\+In\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{nm,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{formal\+Args,  }\item[{const std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ \&}]{actual\+Args }\end{DoxyParamCaption})}
+
+Substitutes any occurrence of a formal argument from argument list {\itshape formal\+Args} in {\itshape name} by the corresponding actual argument in argument list {\itshape actual\+Args}. The result after substitution is returned as a string. The argument {\itshape name} is used to prevent recursive substitution. Here is the call graph for this function\+:
+% FIG 97
+\mbox{\Hypertarget{util_8cpp_a5f86911d03ddead5c20dc99ef4828d17}\label{util_8cpp_a5f86911d03ddead5c20dc99ef4828d17}} 
+\index{util.cpp@{util.cpp}!tempArgListToString@{tempArgListToString}}
+\index{tempArgListToString@{tempArgListToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{tempArgListToString()}{tempArgListToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} temp\+Arg\+List\+To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{bool}]{include\+Default }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 98
+\mbox{\Hypertarget{util_8cpp_a45ec91133f956ee7c2212c8842965995}\label{util_8cpp_a45ec91133f956ee7c2212c8842965995}} 
+\index{util.cpp@{util.cpp}!transcodeCharacterStringToUTF8@{transcodeCharacterStringToUTF8}}
+\index{transcodeCharacterStringToUTF8@{transcodeCharacterStringToUTF8}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{transcodeCharacterStringToUTF8()}{transcodeCharacterStringToUTF8()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} transcode\+Character\+String\+To\+UTF8 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{input }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 99
+\mbox{\Hypertarget{util_8cpp_a15f807d04ca6a15d183d7c05396bae30}\label{util_8cpp_a15f807d04ca6a15d183d7c05396bae30}} 
+\index{util.cpp@{util.cpp}!trimBaseClassScope@{trimBaseClassScope}}
+\index{trimBaseClassScope@{trimBaseClassScope}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{trimBaseClassScope()}{trimBaseClassScope()}}
+{\footnotesize\ttfamily void trim\+Base\+Class\+Scope (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{Base\+Class\+List}} \&}]{bcl,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classint}{int}}}]{level = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 100
+\mbox{\Hypertarget{util_8cpp_a75237d30f908ef839f400a0fe7584f9a}\label{util_8cpp_a75237d30f908ef839f400a0fe7584f9a}} 
+\index{util.cpp@{util.cpp}!unescapeCharsInString@{unescapeCharsInString}}
+\index{unescapeCharsInString@{unescapeCharsInString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{unescapeCharsInString()}{unescapeCharsInString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} unescape\+Chars\+In\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_ae4f8196aff5be2c0b8046c45e3830fab}\label{util_8cpp_ae4f8196aff5be2c0b8046c45e3830fab}} 
+\index{util.cpp@{util.cpp}!updateLanguageMapping@{updateLanguageMapping}}
+\index{updateLanguageMapping@{updateLanguageMapping}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{updateLanguageMapping()}{updateLanguageMapping()}}
+{\footnotesize\ttfamily bool update\+Language\+Mapping (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{extension,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{language }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_af543a98b46249a2b115f47f0166e9a81}\label{util_8cpp_af543a98b46249a2b115f47f0166e9a81}} 
+\index{util.cpp@{util.cpp}!writeColoredImgData@{writeColoredImgData}}
+\index{writeColoredImgData@{writeColoredImgData}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeColoredImgData()}{writeColoredImgData()}}
+{\footnotesize\ttfamily void write\+Colored\+Img\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{dir,  }\item[{\mbox{\hyperlink{structColoredImgDataItem}{Colored\+Img\+Data\+Item}}}]{data\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Writes the intensity only bitmap represented by {\itshape data} as an image to directory {\itshape dir} using the colors defined by HTML\+\_\+\+COLORSTYLE\+\_\+$\ast$. Here is the call graph for this function\+:
+% FIG 101
+\mbox{\Hypertarget{util_8cpp_af3e55e24323797042e532d5ab5cbfce9}\label{util_8cpp_af3e55e24323797042e532d5ab5cbfce9}} 
+\index{util.cpp@{util.cpp}!writeExamples@{writeExamples}}
+\index{writeExamples@{writeExamples}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeExamples()}{writeExamples()}}
+{\footnotesize\ttfamily void write\+Examples (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classExampleList}{Example\+List}} \&}]{list }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 102
+\mbox{\Hypertarget{util_8cpp_ace2411e2a91d0794515d7319a05a96e4}\label{util_8cpp_ace2411e2a91d0794515d7319a05a96e4}} 
+\index{util.cpp@{util.cpp}!writeExtraLatexPackages@{writeExtraLatexPackages}}
+\index{writeExtraLatexPackages@{writeExtraLatexPackages}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeExtraLatexPackages()}{writeExtraLatexPackages()}}
+{\footnotesize\ttfamily void write\+Extra\+Latex\+Packages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_afb096be4b2c37adc54becb763cc99470}\label{util_8cpp_afb096be4b2c37adc54becb763cc99470}} 
+\index{util.cpp@{util.cpp}!writeLatexSpecialFormulaChars@{writeLatexSpecialFormulaChars}}
+\index{writeLatexSpecialFormulaChars@{writeLatexSpecialFormulaChars}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeLatexSpecialFormulaChars()}{writeLatexSpecialFormulaChars()}}
+{\footnotesize\ttfamily void write\+Latex\+Special\+Formula\+Chars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{util_8cpp_ae241503d7e4252f10ab58d6bacc87973}\label{util_8cpp_ae241503d7e4252f10ab58d6bacc87973}} 
+\index{util.cpp@{util.cpp}!writeMarkerList@{writeMarkerList}}
+\index{writeMarkerList@{writeMarkerList}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeMarkerList()}{writeMarkerList()}}
+{\footnotesize\ttfamily void write\+Marker\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const std\+::string \&}]{marker\+Text,  }\item[{size\+\_\+t}]{num\+Markers,  }\item[{std\+::function$<$ void(size\+\_\+t)$>$}]{replace\+Func }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 103
+\mbox{\Hypertarget{util_8cpp_a3b68d26ca863fadb0ef7d28c751fc782}\label{util_8cpp_a3b68d26ca863fadb0ef7d28c751fc782}} 
+\index{util.cpp@{util.cpp}!writePageRef@{writePageRef}}
+\index{writePageRef@{writePageRef}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writePageRef()}{writePageRef()}}
+{\footnotesize\ttfamily void write\+Page\+Ref (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputDocInterface}{Output\+Doc\+Interface}} \&}]{od,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{cn,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{mn }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 104
+\mbox{\Hypertarget{util_8cpp_a368ff211eb2074462c875f024ed1c3e3}\label{util_8cpp_a368ff211eb2074462c875f024ed1c3e3}} 
+\index{util.cpp@{util.cpp}!writeTypeConstraints@{writeTypeConstraints}}
+\index{writeTypeConstraints@{writeTypeConstraints}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{writeTypeConstraints()}{writeTypeConstraints()}}
+{\footnotesize\ttfamily void write\+Type\+Constraints (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 105
+\mbox{\Hypertarget{util_8cpp_a76a75ed644eb3f75d36151f9d82f862f}\label{util_8cpp_a76a75ed644eb3f75d36151f9d82f862f}} 
+\index{util.cpp@{util.cpp}!yearToString@{yearToString}}
+\index{yearToString@{yearToString}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{yearToString()}{yearToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} year\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{util_8cpp_a225f155c4a7035d82bee0b83dec4ae50}\label{util_8cpp_a225f155c4a7035d82bee0b83dec4ae50}} 
+\index{util.cpp@{util.cpp}!maxInheritanceDepth@{maxInheritanceDepth}}
+\index{maxInheritanceDepth@{maxInheritanceDepth}!util.cpp@{util.cpp}}
+\doxysubsubsection{\texorpdfstring{maxInheritanceDepth}{maxInheritanceDepth}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classint}{int}} max\+Inheritance\+Depth = 100000}
+

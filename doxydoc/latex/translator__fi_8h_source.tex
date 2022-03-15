@@ -1,0 +1,1405 @@
+\hypertarget{translator__fi_8h_source}{}\doxysection{translator\+\_\+fi.\+h}
+\label{translator__fi_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_fi.h@{/mnt/c/projects/doxygen/src/translator\_fi.h}}
+\mbox{\hyperlink{translator__fi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 \textcolor{comment}{/*}}
+\DoxyCodeLine{18 \textcolor{comment}{==================================================================================}}
+\DoxyCodeLine{19 \textcolor{comment}{Suomenkielinen käännös:}}
+\DoxyCodeLine{20 \textcolor{comment}{Olli Korhonen ( -\/> 0.49-\/990425)     <olli.korhonen@ccc.fi>}}
+\DoxyCodeLine{21 \textcolor{comment}{Antti Laine   (0.49-\/990425 -\/> )     <antti.a.laine@tut.fi>}}
+\DoxyCodeLine{22 \textcolor{comment}{==================================================================================}}
+\DoxyCodeLine{23 \textcolor{comment}{1999/10/19}}
+\DoxyCodeLine{24 \textcolor{comment}{*  Alustava käännös valmis.}}
+\DoxyCodeLine{25 \textcolor{comment}{}}
+\DoxyCodeLine{26 \textcolor{comment}{*  Huom: Kaikille termeille on keksitty käännösvastine, mikä ei ehkä ole}}
+\DoxyCodeLine{27 \textcolor{comment}{         kaikissa tapauksissa hyvä ratkaisu, ja parempikin termi voi}}
+\DoxyCodeLine{28 \textcolor{comment}{         olla vakiintuneessa käytössä.}}
+\DoxyCodeLine{29 \textcolor{comment}{}}
+\DoxyCodeLine{30 \textcolor{comment}{2008-\/04-\/08}}
+\DoxyCodeLine{31 \textcolor{comment}{* Käännetty versioon 1.5.5 asti.}}
+\DoxyCodeLine{32 \textcolor{comment}{2008-\/08-\/26}}
+\DoxyCodeLine{33 \textcolor{comment}{* MAX\_DOT\_GRAPH\_HEIGHT poistettu, versio 1.5.6}}
+\DoxyCodeLine{34 \textcolor{comment}{* Tekstit muutettu UTF-\/8:ksi}}
+\DoxyCodeLine{35 \textcolor{comment}{2009-\/01-\/17}}
+\DoxyCodeLine{36 \textcolor{comment}{* versio 1.5.8}}
+\DoxyCodeLine{37 \textcolor{comment}{* Kantaluokka vaihdettu TranslatorEnglishistä Translatoriksi}}
+\DoxyCodeLine{38 \textcolor{comment}{* Enumeraatio -\/> luettelotyyppi}}
+\DoxyCodeLine{39 \textcolor{comment}{* Paranneltu kieltä ja poistettu kirjoitusvirheitä}}
+\DoxyCodeLine{40 \textcolor{comment}{}}
+\DoxyCodeLine{41 \textcolor{comment}{* Tehtävää:}}
+\DoxyCodeLine{42 \textcolor{comment}{        -\/ Termien kokoaminen listaksi ja suomennosten järkevyyden tarkastelu. (lista on jo melko kattava)}}
+\DoxyCodeLine{43 \textcolor{comment}{                Author          = Tekijä}}
+\DoxyCodeLine{44 \textcolor{comment}{                Class           = Luokka}}
+\DoxyCodeLine{45 \textcolor{comment}{                Compound        = Kooste}}
+\DoxyCodeLine{46 \textcolor{comment}{                Data            = Data}}
+\DoxyCodeLine{47 \textcolor{comment}{                Documentation   = Dokumentaatio}}
+\DoxyCodeLine{48 \textcolor{comment}{                Defines         = Määrittelyt}}
+\DoxyCodeLine{49 \textcolor{comment}{                Description     = Selite}}
+\DoxyCodeLine{50 \textcolor{comment}{                Detailed        = Yksityiskohtainen}}
+\DoxyCodeLine{51 \textcolor{comment}{                Diagram         = Kaavio}}
+\DoxyCodeLine{52 \textcolor{comment}{                Enum            = Luettelotyyppi}}
+\DoxyCodeLine{53 \textcolor{comment}{                Exceptions      = Poikkeukset}}
+\DoxyCodeLine{54 \textcolor{comment}{                File            = Tiedosto}}
+\DoxyCodeLine{55 \textcolor{comment}{                Friends         = Ystävät}}
+\DoxyCodeLine{56 \textcolor{comment}{                Functions       = Funktiot}}
+\DoxyCodeLine{57 \textcolor{comment}{                Hierarchical    = Hierarkinen}}
+\DoxyCodeLine{58 \textcolor{comment}{                Index           = Indeksi}}
+\DoxyCodeLine{59 \textcolor{comment}{                Inherits        = Perii}}
+\DoxyCodeLine{60 \textcolor{comment}{                Member          = Jäsen}}
+\DoxyCodeLine{61 \textcolor{comment}{                Module          = Moduli}}
+\DoxyCodeLine{62 \textcolor{comment}{                Namespace       = Nimiavaruus}}
+\DoxyCodeLine{63 \textcolor{comment}{                Parameters      = Parametrit}}
+\DoxyCodeLine{64 \textcolor{comment}{                Private         = Yksityinen}}
+\DoxyCodeLine{65 \textcolor{comment}{                Protected       = Suojattu}}
+\DoxyCodeLine{66 \textcolor{comment}{                Prototypes      = Prototyypit}}
+\DoxyCodeLine{67 \textcolor{comment}{                Public          = Julkinen}}
+\DoxyCodeLine{68 \textcolor{comment}{                Reference Manual= Käsikirja}}
+\DoxyCodeLine{69 \textcolor{comment}{                Reimplemented   = Uudelleen toteutettu}}
+\DoxyCodeLine{70 \textcolor{comment}{                Related         = Liittyvä}}
+\DoxyCodeLine{71 \textcolor{comment}{                Signals         = Signaalit}}
+\DoxyCodeLine{72 \textcolor{comment}{                Slots           = Vastineet}}
+\DoxyCodeLine{73 \textcolor{comment}{                Static          = Staattinen}}
+\DoxyCodeLine{74 \textcolor{comment}{                Struct          = Tietue}}
+\DoxyCodeLine{75 \textcolor{comment}{                Typedef         = Tyyppimäärittely}}
+\DoxyCodeLine{76 \textcolor{comment}{                Union           = Yhdiste}}
+\DoxyCodeLine{77 \textcolor{comment}{                Variables       = Muuttujat}}
+\DoxyCodeLine{78 \textcolor{comment}{        -\/ Taivutusmuotojen virheettömyyden tarkastelu prepositioiden korvauskohdissa.}}
+\DoxyCodeLine{79 \textcolor{comment}{        -\/ Sanasta sanaan käännöskohtien mielekkyyden tarkastelu valmiista dokumentista.}}
+\DoxyCodeLine{80 \textcolor{comment}{        -\/ umlaut vastineiden käyttö scandien kohdalla.}}
+\DoxyCodeLine{81 \textcolor{comment}{}}
+\DoxyCodeLine{82 \textcolor{comment}{positiiviset kommentit otetaan ilolla vastaan.}}
+\DoxyCodeLine{83 \textcolor{comment}{===================================================================================}}
+\DoxyCodeLine{84 \textcolor{comment}{*/}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_FI\_H}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define TRANSLATOR\_FI\_H}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorFinnish}{TranslatorFinnish}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__6__0}{TranslatorAdapter\_1\_6\_0}}}
+\DoxyCodeLine{90 \{}
+\DoxyCodeLine{91   \textcolor{keyword}{public}:}
+\DoxyCodeLine{92     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{100     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a406d2dd6193f6e7a5baa24f64b2259b2}{idLanguage}}()}
+\DoxyCodeLine{101     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}finnish"{}}; \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_afcf7f54c28497c8bbe3eea0cd19c260f}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{118     \{}
+\DoxyCodeLine{119       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[finnish]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3d64774fe3acadada5b95d6e3661470f}{trISOLang}}()}
+\DoxyCodeLine{123     \{}
+\DoxyCodeLine{124       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}fi"{}};}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8aea2e228bbabc9413814835ca6ec701}{getLanguageString}}()}
+\DoxyCodeLine{127     \{}
+\DoxyCodeLine{128       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x40B Finnish"{}};}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3324fd72884c88ba4df776e7188022d3}{trRelatedFunctions}}()}
+\DoxyCodeLine{134     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liittyvät funktiot"{}}; \} \textcolor{comment}{// "{}Related Functions"{};}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aeec37a394234b0c1f51d1d01a7184c7a}{trRelatedSubscript}}()}
+\DoxyCodeLine{138     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Huomaa, että nämä eivät ole jäsenfunktioita.)"{}}; \} \textcolor{comment}{// "{}(Note that these are not member functions.)"{}}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac1414fea5760e95015271a28d7722750}{trDetailedDescription}}()}
+\DoxyCodeLine{142     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yksityiskohtainen selite"{}}; \} \textcolor{comment}{// "{}Detailed Description"{}}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{145     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6078081d8f33c121751e262368d64e76}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{146       \textcolor{comment}{// header that is put before the list of typedefs.}}
+\DoxyCodeLine{147     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsentyyppimäärittelyiden dokumentaatio"{}}; \} \textcolor{comment}{// "{}Member Typedef Documentation"{}}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ae0e9cc453372b946a6ec252916102474}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{151     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsenluettelotyyppien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Member Enumeration Documentation"{}}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a06c72edc07156d0d174fa189a148adfe}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{155     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsenfunktioiden dokumentaatio"{}}; \} \textcolor{comment}{// "{}Member Function Documentation"{}}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{158     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a30b0789e5c34496144a1c225eff2d5e6}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{159     \{}
+\DoxyCodeLine{160       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{161       \{}
+\DoxyCodeLine{162         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kenttien dokumentaatio"{}}; \textcolor{comment}{// "{}Field Documentation"{};}}
+\DoxyCodeLine{163       \}}
+\DoxyCodeLine{164       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{165       \{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsendatan dokumentaatio"{}}; \textcolor{comment}{// "{}Member Data Documentation"{}}}
+\DoxyCodeLine{167       \}}
+\DoxyCodeLine{168     \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a5106ec0324cf071415ef9cdcdeb297b7}{trMore}}()}
+\DoxyCodeLine{172     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lisää..."{}}; \} \textcolor{comment}{// "{}More..."{}}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{175     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a38b247bbb722225414aba73f4db0f267}{trListOfAllMembers}}()}
+\DoxyCodeLine{176     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista kaikista jäsenistä"{}}; \} \textcolor{comment}{// "{}List of all members."{}}}
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a317abbef1913151483bf8aae766db019}{trMemberList}}()}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     }
+\DoxyCodeLine{180     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsenlista"{}}; \} \textcolor{comment}{// "{}Member List"{}}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a5db5131f8e21568fb10b617b507f7795}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{184     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tämä on lista kaikista jäsenistä luokassa "{}}; \} \textcolor{comment}{// "{}This is the complete list of members for "{}}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1e3a3c73eed321022f01d3bbba776456}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{188     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, sisältäen kaikki perityt jäsenet."{}}; \} \textcolor{comment}{// "{}, including all inherited members."{}}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{193     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aad640f29b77ad16f1a5955b7f87e17c2}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{194     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Automaattisesti luotu Doxygenilla "{}}}
+\DoxyCodeLine{195                       \textcolor{stringliteral}{"{}lähdekoodista projektille "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}; \textcolor{comment}{// "{}Generated automatically by Doxygen"{} ... "{}for"{} ... "{}from the sourcecode"{}}}
+\DoxyCodeLine{196       \textcolor{comment}{//if (s) result+="{} voor "{}+s;}}
+\DoxyCodeLine{197       \textcolor{comment}{// tässä on ongelma, kuinka taivuttaa parametria, esim. "{}Jcad"{}+"{}in"{}; "{}IFC2VRML konversio"{}+"{}n"{}}}
+\DoxyCodeLine{198       \textcolor{comment}{// mutta ratkaistaan ongelma kätevästi kaksoispisteellä -\/> "{}Jcad:n"{} / "{}IFC2VRML konversio:n"{}}}
+\DoxyCodeLine{199       \textcolor{comment}{// lopputulos on vähemmän kökkö ja täysin luettava, mutta ei kuitenkaan täydellinen.}}
+\DoxyCodeLine{200       \textcolor{comment}{//}}
+\DoxyCodeLine{201       \textcolor{comment}{// kierretään ongelma taivuttamalla sanaa projekti :)}}
+\DoxyCodeLine{202       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a779a28340db0d8ca04f8e1560a9ec1b6}{trEnumName}}()}
+\DoxyCodeLine{207     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}luettelotyypin nimi"{}}; \} \textcolor{comment}{// "{}enum name"{}}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4f9924dbd6ff3b100101f3d011799c22}{trEnumValue}}()}
+\DoxyCodeLine{211     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}luettelotyypin arvo"{}}; \} \textcolor{comment}{// "{}enum value"{}}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_afdfeab24ab647aab27a2bbc6dd23967b}{trDefinedIn}}()}
+\DoxyCodeLine{215     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}määritelty"{}}; \} \textcolor{comment}{// "{}defined in"{}}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a68056d183e826496bbf75867686fceb9}{trModules}}()}
+\DoxyCodeLine{223     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduulit"{}}; \} \textcolor{comment}{// "{}Modules"{}}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{226     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab3bf8bb83b24b05d038d8ebdad7cf989}{trClassHierarchy}}()}
+\DoxyCodeLine{227     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokkahierarkia"{}}; \} \textcolor{comment}{// "{}Class Hierarchy"{}}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab74ce22a87ada621857ee1470b976389}{trCompoundList}}()}
+\DoxyCodeLine{231     \{}
+\DoxyCodeLine{232       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{233       \{}
+\DoxyCodeLine{234         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueet"{}}; \textcolor{comment}{// "{}Data Structures"{}}}
+\DoxyCodeLine{235       \}}
+\DoxyCodeLine{236       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{237       \{}
+\DoxyCodeLine{238         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokkalista"{}}; \textcolor{comment}{// "{}Class List"{}}}
+\DoxyCodeLine{239       \}}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7c5d84f05a6d611e9c783f1c76495c3a}{trFileList}}()}
+\DoxyCodeLine{244     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiedostolista"{}}; \} \textcolor{comment}{// "{}File List"{}}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a38e8a8b11fa561ddb45f4ced27d5d04e}{trCompoundMembers}}()}
+\DoxyCodeLine{248     \{}
+\DoxyCodeLine{249       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{250       \{}
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueen kentät"{}}; \textcolor{comment}{// "{}Data Fields"{}}}
+\DoxyCodeLine{252       \}}
+\DoxyCodeLine{253       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{254       \{}
+\DoxyCodeLine{255         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokan jäsenet"{}}; \textcolor{comment}{// "{}Class Members"{}}}
+\DoxyCodeLine{256       \}}
+\DoxyCodeLine{257     \}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{260     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1b893144c35e0a2722df35f35ba9ad92}{trFileMembers}}()}
+\DoxyCodeLine{261     \{}
+\DoxyCodeLine{262       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{263       \{}
+\DoxyCodeLine{264         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globaalit"{}}; \textcolor{comment}{// "{}Globals"{}}}
+\DoxyCodeLine{265       \}}
+\DoxyCodeLine{266       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{267       \{}
+\DoxyCodeLine{268         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiedoston jäsenet"{}}; \textcolor{comment}{// "{}File Members"{}}}
+\DoxyCodeLine{269       \}}
+\DoxyCodeLine{270     \}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{273     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a44fd7c83355408b12744b61b63c6e387}{trRelatedPages}}()}
+\DoxyCodeLine{274     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liittyvät sivut"{}}; \} \textcolor{comment}{// "{}Related Pages"{}}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{277     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3e1175a17bd1dc864dfcbc5434eb0c8d}{trExamples}}()}
+\DoxyCodeLine{278     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Esimerkit"{}}; \} \textcolor{comment}{// "{}Examples"{}}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{281     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aac0670963b0df3c27cb48019ab85ac22}{trSearch}}()}
+\DoxyCodeLine{282     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Etsi"{}}; \} \textcolor{comment}{// "{}Search"{}}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{285     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af358bb55ee3405de0168d9664dd8efcc}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{286     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tämä periytymislista on päätasoltaan aakkostettu "{}} \textcolor{comment}{// "{}This inheritance list is sorted roughly, "{}}}
+\DoxyCodeLine{287              \textcolor{stringliteral}{"{}mutta alijäsenet on aakkostettu itsenäisesti:"{}}; \textcolor{comment}{// "{}but not completely, alphabetically:"{};}}
+\DoxyCodeLine{288     \}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{291     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a2b7be9f375bce87166f1401011d295bd}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{292     \{}
+\DoxyCodeLine{293       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}};}
+\DoxyCodeLine{294       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{295       result+=\textcolor{stringliteral}{"{}tiedostoista lyhyen selitteen kanssa:"{}}; \textcolor{comment}{// "{}files with brief descriptions:"{}}}
+\DoxyCodeLine{296       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad99bf257d13c53a7aac51ad400c4470e}{trCompoundListDescription}}()}
+\DoxyCodeLine{301     \{}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{304       \{}
+\DoxyCodeLine{305         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä ovat tietueet lyhyen selitteen kanssa:"{}}; \textcolor{comment}{// "{}Here are the data structures with brief descriptions:"{}}}
+\DoxyCodeLine{306       \}}
+\DoxyCodeLine{307       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{308       \{}
+\DoxyCodeLine{309         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä ovat luokat "{}} \textcolor{comment}{// "{}Here are the classes}}
+\DoxyCodeLine{310              \textcolor{stringliteral}{"{}lyhyen selitteen kanssa:"{}}; \textcolor{comment}{// "{}with brief descriptions:"{}}}
+\DoxyCodeLine{311       \}}
+\DoxyCodeLine{312       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{313       \{}
+\DoxyCodeLine{314         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä ovat luokat, tietueet ja "{}} \textcolor{comment}{// "{}Here are the classes, structs and "{}}}
+\DoxyCodeLine{315              \textcolor{stringliteral}{"{}yhdisteet lyhyen selitteen kanssa:"{}}; \textcolor{comment}{// "{}unions with brief descriptions:"{}}}
+\DoxyCodeLine{316       \}}
+\DoxyCodeLine{317     \}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{320     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_afe2f710c712dee2dfb73f651dc9aeb50}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{321     \{}
+\DoxyCodeLine{322       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{323       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{324       \{}
+\DoxyCodeLine{325         result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{328       \{}
+\DoxyCodeLine{329         result+=\textcolor{stringliteral}{"{}tietuiden ja yhdisteiden kentistä"{}}; \textcolor{comment}{// "{}struct and union fields"{}}}
+\DoxyCodeLine{330       \}}
+\DoxyCodeLine{331       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{332       \{}
+\DoxyCodeLine{333         result+=\textcolor{stringliteral}{"{}luokkien jäsenistä"{}}; \textcolor{comment}{// "{}class members"{}}}
+\DoxyCodeLine{334       \}}
+\DoxyCodeLine{335       result+=\textcolor{stringliteral}{"{} linkitettyinä "{}}; \textcolor{comment}{// "{} with links to "{}}}
+\DoxyCodeLine{336       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{337       \{}
+\DoxyCodeLine{338         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{339         \{}
+\DoxyCodeLine{340           result+=\textcolor{stringliteral}{"{}jokaisen kentän tietueen/yhdisteen dokumentaatioon:"{}}; \textcolor{comment}{// "{}the struct/union documentation for each field:"{}}}
+\DoxyCodeLine{341         \}}
+\DoxyCodeLine{342         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{343         \{}
+\DoxyCodeLine{344           result+=\textcolor{stringliteral}{"{}jokaisen jäsenen luokkadokumentaatioon:"{}}; \textcolor{comment}{// "{}the class documentation for each member:"{}}}
+\DoxyCodeLine{345         \}}
+\DoxyCodeLine{346       \}}
+\DoxyCodeLine{347       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{348       \{}
+\DoxyCodeLine{349         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{350         \{}
+\DoxyCodeLine{351           result+= \textcolor{stringliteral}{"{}tietueisiin/yhdisteisiin, joihin ne kuuluvat:"{}}; \textcolor{comment}{// "{}the structures/unions they belong to:"{}}}
+\DoxyCodeLine{352         \}}
+\DoxyCodeLine{353         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{354         \{}
+\DoxyCodeLine{355           result+=\textcolor{stringliteral}{"{}luokkiin, joihin ne kuuluvat"{}}; \textcolor{comment}{//"{}the classes they belong to:"{}}}
+\DoxyCodeLine{356         \}}
+\DoxyCodeLine{357       \}}
+\DoxyCodeLine{358       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{359     \}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a316bafc9459970e52b0b0d90d64f8e41}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{363     \{}
+\DoxyCodeLine{364       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{365       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{368       \{}
+\DoxyCodeLine{369         result+=\textcolor{stringliteral}{"{}funktioista, muuttujista, määrittelyistä, luettelotyypeistä ja tyyppimäärittelyistä"{}}; \textcolor{comment}{// "{}functions, variables, defines, enums, and typedefs"{}}}
+\DoxyCodeLine{370       \}}
+\DoxyCodeLine{371       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{372       \{}
+\DoxyCodeLine{373         result+=\textcolor{stringliteral}{"{}tiedoston jäsenistä"{}}; \textcolor{comment}{// "{}file members"{}}}
+\DoxyCodeLine{374       \}}
+\DoxyCodeLine{375       result+=\textcolor{stringliteral}{"{} linkitettyinä "{}}; \textcolor{comment}{// "{} with links to "{}}}
+\DoxyCodeLine{376       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{377         result+=\textcolor{stringliteral}{"{}tiedostoihin, joihin ne kuuluvat:"{}}; \textcolor{comment}{// "{}the files they belong to:"{}}}
+\DoxyCodeLine{378       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{379         result+=\textcolor{stringliteral}{"{}dokumentaatioon:"{}}; \textcolor{comment}{// "{}the documentation:"{}}}
+\DoxyCodeLine{380       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{381     \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3374b8c8f1bc8eed4a680a4d179667dc}{trExamplesDescription}}()}
+\DoxyCodeLine{385     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä on lista kaikista esimerkeistä:"{}}; \} \textcolor{comment}{//  "{}Here is a list of all examples:"{}}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{388     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6e07612503f0df6d5749faf87a71cec3}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{389     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä on lista kaikista liittyvistä dokumentaatiosivuista:"{}}; \} \textcolor{comment}{// "{}Here is a list of all related documentation pages:"{}}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a886cb4ad3be5fc05a12f0ca6843f021e}{trModulesDescription}}()}
+\DoxyCodeLine{393     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä on lista kaikista moduleista:"{}}; \} \textcolor{comment}{// "{}Here is a list of all modules:"{}}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{398     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac6c8e561bb70d8ef64a8e1066a86ba65}{trDocumentation}}()}
+\DoxyCodeLine{399     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentaatio"{}}; \} \textcolor{comment}{// "{}Documentation"{}}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{404     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a286652700143ff0b80f25a4bfea44ffb}{trModuleIndex}}()}
+\DoxyCodeLine{405     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduuliluettelo"{}}; \} \textcolor{comment}{// "{}Module Index"{}}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{410     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad99803e0cf46b1b4c8445204d51724a6}{trHierarchicalIndex}}()}
+\DoxyCodeLine{411     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarkinen luettelo"{}}; \} \textcolor{comment}{// "{}Hierarchical Index"{}}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{416     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad483274255d1ff1a3d88fc1b4b1be38e}{trCompoundIndex}}()}
+\DoxyCodeLine{417     \{}
+\DoxyCodeLine{418       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{419       \{}
+\DoxyCodeLine{420         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueluettelo"{}}; \textcolor{comment}{// "{}Data Structure Index"{}}}
+\DoxyCodeLine{421       \}}
+\DoxyCodeLine{422       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{423       \{}
+\DoxyCodeLine{424         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokkaluettelo"{}}; \textcolor{comment}{// "{}Class Index"{}}}
+\DoxyCodeLine{425       \}}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{431     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a467423c01d77afab62f2edb2e53f4792}{trFileIndex}}()}
+\DoxyCodeLine{432     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiedostoluettelo"{}}; \} \textcolor{comment}{// "{}File Index"{}}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{437     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a86acf80c5c34b4cef464c9c54f0e9b6b}{trModuleDocumentation}}()}
+\DoxyCodeLine{438     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduulien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Module Documentation"{}}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{443     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab4ebf52ef81486d5cabcf4a6ebeed2ce}{trClassDocumentation}}()}
+\DoxyCodeLine{444     \{}
+\DoxyCodeLine{445       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{446       \{}
+\DoxyCodeLine{447         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueiden dokumentaatio"{}}; \textcolor{comment}{// "{}Data Structure Documentation"{}}}
+\DoxyCodeLine{448       \}}
+\DoxyCodeLine{449       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{450       \{}
+\DoxyCodeLine{451           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{452       \}}
+\DoxyCodeLine{453       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{454       \{}
+\DoxyCodeLine{455         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokkien dokumentaatio"{}}; \textcolor{comment}{// "{}Class Documentation"{}}}
+\DoxyCodeLine{456       \}}
+\DoxyCodeLine{457     \}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ae42ccdfdbd32b1e34a3b0ccb64e6e18d}{trFileDocumentation}}()}
+\DoxyCodeLine{463     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiedostojen dokumentaatio"{}}; \} \textcolor{comment}{// "{}File Documentation"{}}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa684912e698b526e63cfbb09fe3bf692}{trExampleDocumentation}}()}
+\DoxyCodeLine{469     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Esimerkkien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Example Documentation"{}}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{472     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0145d54d5c536f40284790426689b0ba}{trReferenceManual}}()}
+\DoxyCodeLine{473     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Käsikirja"{}}; \} \textcolor{comment}{// "{}Reference Manual"{}}}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{478     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a9d7ccaf6a751d883aafc027904eeb61d}{trDefines}}()}
+\DoxyCodeLine{479     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Määrittelyt"{}}; \} \textcolor{comment}{// "{}Defines"{}}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{484     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_acb2ce70d8c20d6c2f292255cbc3fdd90}{trTypedefs}}()}
+\DoxyCodeLine{485     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tyyppimäärittelyt"{}}; \} \textcolor{comment}{// "{}Typedefs"{}}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{490     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac1c7621d405184ed334f47d12199dca7}{trEnumerations}}()}
+\DoxyCodeLine{491     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luettelotyypit"{}}; \} \textcolor{comment}{// "{}Enumerations"{}}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{496     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad940857913a231fb4f54f641f9ade1bf}{trFunctions}}()}
+\DoxyCodeLine{497     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktiot"{}}; \} \textcolor{comment}{// "{}Functions"{}}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{502     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a039a29995a971866c2a04b14561d8e9c}{trVariables}}()}
+\DoxyCodeLine{503     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Muuttujat"{}}; \} \textcolor{comment}{// "{}Variables"{}}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a5892fa1dc138e1d7ec4498f0fefa48f0}{trEnumerationValues}}()}
+\DoxyCodeLine{509     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luettelotyyppien arvot"{}}; \} \textcolor{comment}{// "{}Enumerator"{}}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{514     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ae33adbb5d65ee93f16a8beba742edaf9}{trDefineDocumentation}}()}
+\DoxyCodeLine{515     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Määritysten dokumentointi"{}}; \} \textcolor{comment}{// "{}Define Documentation"{}}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{520     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a63ef9b4bdbafe791d02b8b0b8de11071}{trTypedefDocumentation}}()}
+\DoxyCodeLine{521     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tyyppimääritysten dokumentaatio"{}}; \} \textcolor{comment}{// "{}Typedef Documentation"{}}}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{526     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a327cd40f0311ab56fb3bf1d6f3258539}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{527     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luettelotyyppien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Enumeration Type Documentation"{}}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{532     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac51819db3b62ccc5a782819196ac34a9}{trFunctionDocumentation}}()}
+\DoxyCodeLine{533     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktioiden dokumentaatio"{}}; \} \textcolor{comment}{// "{}Function Documentation"{}}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4fdc2bbe460372427169a85bc9d02772}{trVariableDocumentation}}()}
+\DoxyCodeLine{539     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Muuttujien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Variable Documentation"{}}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac8e9beb42411941bfa211bdb27ecccd4}{trCompounds}}()}
+\DoxyCodeLine{545     \{}
+\DoxyCodeLine{546       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{547       \{}
+\DoxyCodeLine{548         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueet"{}}; \textcolor{comment}{// "{}Data Structures"{}}}
+\DoxyCodeLine{549       \}}
+\DoxyCodeLine{550       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{551       \{}
+\DoxyCodeLine{552         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokat"{}}; \textcolor{comment}{// "{}Classes"{}}}
+\DoxyCodeLine{553       \}}
+\DoxyCodeLine{554     \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a151baf648ff235c7ec1438c93a50aba0}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{560     \{}
+\DoxyCodeLine{561         \textcolor{comment}{// funktio on hiukan vaikea kääntää prepositioihin sidotun rakenteen vuoksi.}}
+\DoxyCodeLine{562         \textcolor{comment}{// Muutetaan siis lauserakennetta suomalaisemmaksi}}
+\DoxyCodeLine{563         \textcolor{comment}{// Generated on \$date for \$project by:}}
+\DoxyCodeLine{564         \textcolor{comment}{// -\/> Generated for \$project on \$date by:}}
+\DoxyCodeLine{565       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Generoinut "{}};}
+\DoxyCodeLine{566       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{}projektille "{}}+projName+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{567       result+=date+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{568       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab395ce71192c2832f8dafb6bc8bdbef0}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{573     \{}
+\DoxyCodeLine{574       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokan "{}}+clName+\textcolor{stringliteral}{"{} luokkakaavio"{}}; \textcolor{comment}{// "{}Inheritance diagram for "{}}}
+\DoxyCodeLine{575     \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a28d7f7ca0e6132c1dd4188ee316750ca}{trWarning}}()}
+\DoxyCodeLine{579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Varoitus"{}}; \} \textcolor{comment}{// "{}Warning"{}}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{582     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a063f9c4b072851c339196ea71de6cc52}{trVersion}}()}
+\DoxyCodeLine{583     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Versio"{}}; \} \textcolor{comment}{// "{}Version"{}}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{586     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad009d40b33e14917ba8e915c2cbfb0d0}{trDate}}()}
+\DoxyCodeLine{587     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Päiväys"{}}; \} \textcolor{comment}{// "{}Date"{}}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab97f73d9a11298da4fde0d735c601143}{trReturns}}()}
+\DoxyCodeLine{591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Palauttaa"{}}; \} \textcolor{comment}{// "{}Returns"{}}}
+\DoxyCodeLine{592 }
+\DoxyCodeLine{594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac6ecd6d16ebee6f2ef2af7f05ace6c0b}{trSeeAlso}}()}
+\DoxyCodeLine{595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Katso myös"{}}; \} \textcolor{comment}{// "{}See also"{}}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4f19d0152a27e95d58313f7c20e60ad1}{trParameters}}()}
+\DoxyCodeLine{599     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametrit"{}}; \} \textcolor{comment}{// "{}Parameters"{}}}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{602     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a91cc50b9356cd63a2d2e30cf9e1367de}{trExceptions}}()}
+\DoxyCodeLine{603     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Poikkeukset"{}}; \} \textcolor{comment}{// "{}Exceptions"{}}}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{606     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4c6ed988c443e3c0d79ca130ff2a7874}{trGeneratedBy}}()}
+\DoxyCodeLine{607     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generoinut"{}}; \} \textcolor{comment}{// "{}Generated by"{}}}
+\DoxyCodeLine{608 }
+\DoxyCodeLine{610 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{612 \textcolor{comment}{}}
+\DoxyCodeLine{614     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7edb3d519add51af7620cfba7c8f19d6}{trNamespaceList}}()}
+\DoxyCodeLine{615     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nimiavaruus Lista"{}}; \} \textcolor{comment}{// "{}Namespace List"{}}}
+\DoxyCodeLine{616 }
+\DoxyCodeLine{618     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a2b7e5c8d674dacbec553eef64876c077}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{619     \{}
+\DoxyCodeLine{620       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{621       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{622       result+=\textcolor{stringliteral}{"{}nimiavaruuksista lyhyen selitteen kanssa:"{}}; \textcolor{comment}{// "{}namespaces with brief descriptions:"{}}}
+\DoxyCodeLine{623       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{624     \}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{629     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aff6995c927817d6ff10d96b0cb810ee6}{trFriends}}()}
+\DoxyCodeLine{630     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ystävät"{}}; \} \textcolor{comment}{// "{}Friends"{}}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{633 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{635 \textcolor{comment}{}}
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af103e54c12bb4974301a4dea859dc1c4}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{640     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ystävät ja niihin liittyvien funktioiden dokumentaatio"{}}; \} \textcolor{comment}{// "{}Friends And Related Function Documentation"{}}}
+\DoxyCodeLine{641 }
+\DoxyCodeLine{643 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{645 \textcolor{comment}{}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6d4a41c0a563b38d850adad80b2314b1}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{648                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{649                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{650     \{}
+\DoxyCodeLine{651       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{652       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{653       \{}
+\DoxyCodeLine{654         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} luokka"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Class"{}}}
+\DoxyCodeLine{655         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} tietue"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Struct"{}}}
+\DoxyCodeLine{656         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} yhdiste"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Union"{}}}
+\DoxyCodeLine{657         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} rajapinta"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Interface"{}}}
+\DoxyCodeLine{658         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokolla"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Protocol"{}}}
+\DoxyCodeLine{659         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategoria"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Category"{}}}
+\DoxyCodeLine{660         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} poikkeus"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Exception"{}}}
+\DoxyCodeLine{661         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{662       \}}
+\DoxyCodeLine{663       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}malli"{}}; \textcolor{comment}{// "{} Template"{}}}
+\DoxyCodeLine{664       result+=\textcolor{stringliteral}{"{}referenssi"{}}; \textcolor{comment}{// "{} Reference"{}}}
+\DoxyCodeLine{665       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{666     \}}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{669     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab9d4f1831d847dc7c079adbace711b78}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{670     \{}
+\DoxyCodeLine{671       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{672       result+=\textcolor{stringliteral}{"{} tiedostoreferenssi"{}}; \textcolor{comment}{// "{} File Reference"{}}}
+\DoxyCodeLine{673       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{674     \}}
+\DoxyCodeLine{675 }
+\DoxyCodeLine{677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6ecf5855065198fac9774d0a5c7c493f}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{678     \{}
+\DoxyCodeLine{679       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{680       result+=\textcolor{stringliteral}{"{} nimiavaruusreferenssi"{}}; \textcolor{comment}{// "{} Namespace Reference"{}}}
+\DoxyCodeLine{681       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{682     \}}
+\DoxyCodeLine{683 }
+\DoxyCodeLine{684     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a997abe54caa21d10e79c1474bd78eaf2}{trPublicMembers}}()}
+\DoxyCodeLine{685     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Julkiset jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Public Member Functions"{}}}
+\DoxyCodeLine{686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af9ae3b7fda99c46f414f2eb5096827ee}{trPublicSlots}}()}
+\DoxyCodeLine{687     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Julkiset vastineet"{}}; \} \textcolor{comment}{// "{}Public Slots"{}}}
+\DoxyCodeLine{688     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8fc82bb93187d3acb17bf5cf38c0d413}{trSignals}}()}
+\DoxyCodeLine{689     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signaalit"{}}; \} \textcolor{comment}{// "{}Signals"{}}}
+\DoxyCodeLine{690     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a63c52c082e17f4193e63440377771f90}{trStaticPublicMembers}}()}
+\DoxyCodeLine{691     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset julkiset jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Static Public Member Functions"{}}}
+\DoxyCodeLine{692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0333345dc23e99cd2e51831a32323ce8}{trProtectedMembers}}()}
+\DoxyCodeLine{693     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Suojatut jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Protected Member Functions"{}}}
+\DoxyCodeLine{694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a066f669718a3623d7a40b7fe18a7211c}{trProtectedSlots}}()}
+\DoxyCodeLine{695     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Suojatut vastineet"{}}; \} \textcolor{comment}{// "{}Protected Slots"{}}}
+\DoxyCodeLine{696     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a76ea8f4619ef575604d05ecfdc3f7d05}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{697     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset suojatut jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Static Protected Member Functions"{}}}
+\DoxyCodeLine{698     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3746c0851765968eaa6269863e8994f2}{trPrivateMembers}}()}
+\DoxyCodeLine{699     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yksityiset jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Private Member Functions"{}}}
+\DoxyCodeLine{700     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4080254b98a8b3633431e83c5a5dd09a}{trPrivateSlots}}()}
+\DoxyCodeLine{701     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yksityiset vastineet"{}}; \} \textcolor{comment}{// "{}Private Slots"{}}}
+\DoxyCodeLine{702     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a99c1a3e1daccdabf94c8f9a83439051a}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{703     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset yksityiset jäsenfunktiot"{}}; \} \textcolor{comment}{// "{}Static Private Member Functions"{}}}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{709     \{}
+\DoxyCodeLine{710       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{711       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{712       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{713       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{714       \{}
+\DoxyCodeLine{715         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{716         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{717                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{719         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{720         \{}
+\DoxyCodeLine{721           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{722             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{723           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{724             result+=\textcolor{stringliteral}{"{} ja "{}}; \textcolor{comment}{// "{}, and "{}}}
+\DoxyCodeLine{725         \}}
+\DoxyCodeLine{726       \}}
+\DoxyCodeLine{727       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{728     \}}
+\DoxyCodeLine{729 }
+\DoxyCodeLine{733     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a817cef81a7c9914356cac05ff29d5f10}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{734     \{}
+\DoxyCodeLine{735       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Periytyy "{}})+(numEntries > 1 ? \textcolor{stringliteral}{"{}luokista "{}} : \textcolor{stringliteral}{"{}luokasta "{}})+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Inherits "{}}}
+\DoxyCodeLine{736     \}}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7961e7a65036d856695b35fcaac1519e}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{742     \{}
+\DoxyCodeLine{743       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Periytetään "{}})+(numEntries > 1 ? \textcolor{stringliteral}{"{}luokissa "{}} : \textcolor{stringliteral}{"{}luokassa "{}})+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Inherited by "{}}}
+\DoxyCodeLine{744     \}}
+\DoxyCodeLine{745 }
+\DoxyCodeLine{749     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a78a0191cac276916ec7dd530658b7fd9}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{750     \{}
+\DoxyCodeLine{751       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Uudelleentoteuttaa "{}})+(numEntries > 1 ? \textcolor{stringliteral}{"{}luokat "{}} : \textcolor{stringliteral}{"{}luokan  "{}})+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Reimplemented from "{}}}
+\DoxyCodeLine{752     \}}
+\DoxyCodeLine{753 }
+\DoxyCodeLine{757     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a40d5e9bc2bb3eff7f87c4bf2418a5517}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{758     \{}
+\DoxyCodeLine{759       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Uudelleentoteutetaan "{}})+(numEntries > 1 ? \textcolor{stringliteral}{"{}luokissa "{}} : \textcolor{stringliteral}{"{}luokassa "{}})+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Reimplemented in "{}}}
+\DoxyCodeLine{760     \}}
+\DoxyCodeLine{761 }
+\DoxyCodeLine{763     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4eb3403c0d56f26975ee809394bc6d95}{trNamespaceMembers}}()}
+\DoxyCodeLine{764     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nimiavaruuden jäsenet"{}}; \} \textcolor{comment}{// "{}Namespace Members"{}}}
+\DoxyCodeLine{765 }
+\DoxyCodeLine{767     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a510b3c4befa5dd7f52c3109c56aff6c8}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{768     \{}
+\DoxyCodeLine{769       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{770       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{771       result+=\textcolor{stringliteral}{"{}nimiavaruuden jäsenistä linkitettynä "{}}; \textcolor{comment}{// "{}namespace members with links to "{}}}
+\DoxyCodeLine{772       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{773         result+=\textcolor{stringliteral}{"{}nimiavaruuden dokumentaatioon johon ne kuuluvat:"{}}; \textcolor{comment}{// "{}the namespace documentation for each member:"{};}}
+\DoxyCodeLine{774       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{775         result+=\textcolor{stringliteral}{"{}nimiavaruuksiin joihin ne kuuluvat:"{}}; \textcolor{comment}{// "{}the namespaces they belong to:"{}}}
+\DoxyCodeLine{776       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{777     \}}
+\DoxyCodeLine{781     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3753277ae4aefad0989529b1f3c71e07}{trNamespaceIndex}}()}
+\DoxyCodeLine{782     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nimiavaruuksien luettelo"{}}; \} \textcolor{comment}{// "{}Namespace Index"{}}}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a60effbb78fa1f23554ee5789abfe9db7}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{788     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nimiavaruuden dokumentaatio"{}}; \} \textcolor{comment}{// "{}Namespace Documentation"{}}}
+\DoxyCodeLine{789 }
+\DoxyCodeLine{791 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{793 \textcolor{comment}{}}
+\DoxyCodeLine{797     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa0a8d3ab692c75a08d94b66bcabbe3ef}{trNamespaces}}()}
+\DoxyCodeLine{798     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nimiavaruudet"{}}; \} \textcolor{comment}{// "{}Namespaces"{}; \}}}
+\DoxyCodeLine{799 }
+\DoxyCodeLine{801 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{803 \textcolor{comment}{}}
+\DoxyCodeLine{807     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4d17559a2ec6c097d7f9e38d52368e78}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{808         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{809     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{810       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{811       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentaatio tälle "{}}; \textcolor{comment}{// "{}The documentation for this "{}}}
+\DoxyCodeLine{812       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{813       \{}
+\DoxyCodeLine{814         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}luokalle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}class"{}}}
+\DoxyCodeLine{815         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tietueelle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}struct"{}}}
+\DoxyCodeLine{816         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}yhdisteelle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}union"{}}}
+\DoxyCodeLine{817         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}rajapinnalle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}interface"{}}}
+\DoxyCodeLine{818         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokollalle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}protocol"{}}}
+\DoxyCodeLine{819         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorialle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}category"{}}}
+\DoxyCodeLine{820         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}poikkeukselle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}exception"{}}}
+\DoxyCodeLine{821         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{822       \}}
+\DoxyCodeLine{823       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{} luotiin seuraavasta tiedostosta:"{}}; \textcolor{comment}{// "{} was generated from the following file"{}}}
+\DoxyCodeLine{824       \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{} luotiin seuraavista tiedostoista:"{}}; \textcolor{comment}{// "{}:"{} or "{}s:"{}}}
+\DoxyCodeLine{825       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{826     \}}
+\DoxyCodeLine{827 }
+\DoxyCodeLine{829 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{831 \textcolor{comment}{}}
+\DoxyCodeLine{833     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a293cf5946c17777566db16ae204cd752}{trReturnValues}}()}
+\DoxyCodeLine{834     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paluuarvot"{}}; \} \textcolor{comment}{// "{}Return values"{}}}
+\DoxyCodeLine{835 }
+\DoxyCodeLine{838     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aaaa1e15a531a68d20191a9fddbb786dd}{trMainPage}}()}
+\DoxyCodeLine{839     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pääsivu"{}}; \} \textcolor{comment}{// "{}Main Page"{}}}
+\DoxyCodeLine{840 }
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3858c14d692f266daacb46834a024704}{trPageAbbreviation}}()}
+\DoxyCodeLine{845     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}s."{}}; \} \textcolor{comment}{// "{}p."{}}}
+\DoxyCodeLine{846 }
+\DoxyCodeLine{848 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{850 \textcolor{comment}{}}
+\DoxyCodeLine{851     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4a35638a4413e7c5b3c9f4e0960037f3}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{852     \{}
+\DoxyCodeLine{853       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Määrittely tiedoston @1 rivillä @0."{}}; \textcolor{comment}{//  "{}Definition at line @0 of file @1."{}}}
+\DoxyCodeLine{854     \}}
+\DoxyCodeLine{855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aeb21fa34f1f94016f73c955b13e88149}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{856     \{}
+\DoxyCodeLine{857       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Määrittely tiedostossa @0."{}}; \textcolor{comment}{// "{}Definition in file @0."{}}}
+\DoxyCodeLine{858     \}}
+\DoxyCodeLine{859 }
+\DoxyCodeLine{861 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{863 \textcolor{comment}{}}
+\DoxyCodeLine{864     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a60f0bb8bef93cfda4f0d88353cb416c3}{trDeprecated}}()}
+\DoxyCodeLine{865     \{}
+\DoxyCodeLine{866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vanhentunut"{}}; \textcolor{comment}{// "{}Deprecated"{}}}
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{868 }
+\DoxyCodeLine{870 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{872 \textcolor{comment}{}}
+\DoxyCodeLine{874     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a776d4b8cc1ebdfaae07eaa7180149030}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{875     \{}
+\DoxyCodeLine{876       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yhteistyökaavio luokalle "{}}+clName+\textcolor{stringliteral}{"{}:"{}}; \textcolor{comment}{// "{}Collaboration diagram for "{}+clName+"{}:"{}}}
+\DoxyCodeLine{877     \}}
+\DoxyCodeLine{879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a66936e3edd587d4f83f6a3bbc9ef79ac}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{880     \{}
+\DoxyCodeLine{881       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sisällytysriippuvuuskaavio tiedostolle "{}}+fName+\textcolor{stringliteral}{"{}:"{}}; \textcolor{comment}{// "{}Include dependency graph for "{}+fName+"{}:"{}}}
+\DoxyCodeLine{882     \}}
+\DoxyCodeLine{884     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa341fb5cd687f0cb2be37b2d7a018732}{trConstructorDocumentation}}()}
+\DoxyCodeLine{885     \{}
+\DoxyCodeLine{886       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rakentajien \& purkajien dokumentaatio"{}}; \textcolor{comment}{// "{}Constructor \& Destructor Documentation"{};}}
+\DoxyCodeLine{887     \}}
+\DoxyCodeLine{889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aed68d02220dcdc517c2dba6d827068b9}{trGotoSourceCode}}()}
+\DoxyCodeLine{890     \{}
+\DoxyCodeLine{891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Siirry tämän tiedoston lähdekoodiin."{}}; \textcolor{comment}{// "{}Go to the source code of this file."{}}}
+\DoxyCodeLine{892     \}}
+\DoxyCodeLine{894     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a71567c85bcd1c8ab2b8367bd12ecd61c}{trGotoDocumentation}}()}
+\DoxyCodeLine{895     \{}
+\DoxyCodeLine{896       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Siirry tämän tiedoston dokumentaatioon."{}}; \textcolor{comment}{// "{}Go to the documentation of this file."{}}}
+\DoxyCodeLine{897     \}}
+\DoxyCodeLine{899     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa303b9aa448b18515e9e79b4a0a6c924}{trPrecondition}}()}
+\DoxyCodeLine{900     \{}
+\DoxyCodeLine{901       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Esiehto"{}}; \textcolor{comment}{//"{}Precondition"{}}}
+\DoxyCodeLine{902     \}}
+\DoxyCodeLine{904     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3c86b722a288212c7c72bf96f4942250}{trPostcondition}}()}
+\DoxyCodeLine{905     \{}
+\DoxyCodeLine{906       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jälkiehto"{}}; \textcolor{comment}{// "{}Postcondition"{}}}
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{909     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a02322dd115990b9149e18ece9e427585}{trInvariant}}()}
+\DoxyCodeLine{910     \{}
+\DoxyCodeLine{911       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariantti"{}}; \textcolor{comment}{// vai "{}Pysyväisväittämä"{}? "{}Invariant"{}}}
+\DoxyCodeLine{912     \}}
+\DoxyCodeLine{914     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8109cd7dfccde6df274096901c022db3}{trInitialValue}}()}
+\DoxyCodeLine{915     \{}
+\DoxyCodeLine{916       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Alkuarvo:"{}}; \textcolor{comment}{// "{}Initial value:"{}}}
+\DoxyCodeLine{917     \}}
+\DoxyCodeLine{919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8111c1739afc8f2ae411b77cfe56f2b0}{trCode}}()}
+\DoxyCodeLine{920     \{}
+\DoxyCodeLine{921       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}koodi"{}}; \textcolor{comment}{// "{}code"{}}}
+\DoxyCodeLine{922     \}}
+\DoxyCodeLine{923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8f7020bd8272f6f10266f3803b4f85cd}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{924     \{}
+\DoxyCodeLine{925       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graafinen luokkahierarkia"{}}; \textcolor{comment}{// "{}Graphical Class Hierarchy"{}}}
+\DoxyCodeLine{926     \}}
+\DoxyCodeLine{927     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a600345caddd74103257142cfce82b4ca}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{928     \{}
+\DoxyCodeLine{929       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Siirry graafiseen luokkahierarkiaan"{}}; \textcolor{comment}{// "{}Go to the graphical class hierarchy"{}}}
+\DoxyCodeLine{930     \}}
+\DoxyCodeLine{931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a26e7850c643436145fd411dfa9241798}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{932     \{}
+\DoxyCodeLine{933       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Siirry tekstimuotoiseen luokkahierarkiaan"{}}; \textcolor{comment}{// "{}Go to the textual class hierarchy"{}}}
+\DoxyCodeLine{934     \}}
+\DoxyCodeLine{935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa54e131e804788471b0a222f0c791d87}{trPageIndex}}()}
+\DoxyCodeLine{936     \{}
+\DoxyCodeLine{937       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sivuhakemisto"{}}; \textcolor{comment}{// "{}Page Index"{}}}
+\DoxyCodeLine{938     \}}
+\DoxyCodeLine{939 }
+\DoxyCodeLine{941 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{943 \textcolor{comment}{}}
+\DoxyCodeLine{944     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ae5aec86f2f9d6caa1372bcb349738e88}{trNote}}()}
+\DoxyCodeLine{945     \{}
+\DoxyCodeLine{946         \textcolor{comment}{// FIXME: Missähän merkityksessä tätä käytetään?}}
+\DoxyCodeLine{947       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Huomautus"{}}; \textcolor{comment}{// "{}Note"{}}}
+\DoxyCodeLine{948     \}}
+\DoxyCodeLine{949     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1262c28bf0c9c2fde532a23035fb8df6}{trPublicTypes}}()}
+\DoxyCodeLine{950     \{}
+\DoxyCodeLine{951       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Julkiset tyypit"{}}; \textcolor{comment}{// "{}Public Types"{}}}
+\DoxyCodeLine{952     \}}
+\DoxyCodeLine{953     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a45408757fd35e8db4800f5887cf24cc0}{trPublicAttribs}}()}
+\DoxyCodeLine{954     \{}
+\DoxyCodeLine{955       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{956       \{}
+\DoxyCodeLine{957         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueen kentät"{}}; \textcolor{comment}{// "{}Data Fields"{}}}
+\DoxyCodeLine{958       \}}
+\DoxyCodeLine{959       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{960       \{}
+\DoxyCodeLine{961         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Julkiset attribuutit"{}}; \textcolor{comment}{// "{}Public Attributes"{}}}
+\DoxyCodeLine{962       \}}
+\DoxyCodeLine{963     \}}
+\DoxyCodeLine{964     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1403cab6d2c5df02d1f8bafc7ae423b9}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{965     \{}
+\DoxyCodeLine{966       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset julkiset attribuutit"{}}; \textcolor{comment}{// "{}Static Public Attributes"{}}}
+\DoxyCodeLine{967     \}}
+\DoxyCodeLine{968     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a717432c54a09365fe545ac7b83517124}{trProtectedTypes}}()}
+\DoxyCodeLine{969     \{}
+\DoxyCodeLine{970       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Suojellut tyypit"{}}; \textcolor{comment}{// "{}Protected Types"{}}}
+\DoxyCodeLine{971     \}}
+\DoxyCodeLine{972     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a43de2411afef7886d19480d8297d58ab}{trProtectedAttribs}}()}
+\DoxyCodeLine{973     \{}
+\DoxyCodeLine{974       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Suojellut attribuutit"{}}; \textcolor{comment}{// "{}Protected Attributes"{}}}
+\DoxyCodeLine{975     \}}
+\DoxyCodeLine{976     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3f694ca9eece06690470aac3dc286e98}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{977     \{}
+\DoxyCodeLine{978       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset suojellut attribuutit"{}}; \textcolor{comment}{// "{}Static Protected Attributes"{}}}
+\DoxyCodeLine{979     \}}
+\DoxyCodeLine{980     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a874f03fd5259ebc9106d7ba1ef96ac6a}{trPrivateTypes}}()}
+\DoxyCodeLine{981     \{}
+\DoxyCodeLine{982       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yksityiset tyypit"{}}; \textcolor{comment}{// "{}Private Types"{}}}
+\DoxyCodeLine{983     \}}
+\DoxyCodeLine{984     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ae85541ddb185101cbdf60462baae3e33}{trPrivateAttribs}}()}
+\DoxyCodeLine{985     \{}
+\DoxyCodeLine{986       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Yksityiset attribuutit"{}}; \textcolor{comment}{// "{}Private Attributes"{}}}
+\DoxyCodeLine{987     \}}
+\DoxyCodeLine{988     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a5a2c1a6335e881d7cf005608aad175b1}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{989     \{}
+\DoxyCodeLine{990       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Staattiset yksityiset attribuutit"{}}; \textcolor{comment}{// "{}Static Private Attributes"{}}}
+\DoxyCodeLine{991     \}}
+\DoxyCodeLine{992 }
+\DoxyCodeLine{994 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{996 \textcolor{comment}{}}
+\DoxyCodeLine{998     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a9cf3f0231cfc71a6d169dacf631e7f9c}{trTodo}}()}
+\DoxyCodeLine{999     \{}
+\DoxyCodeLine{1000       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vielä tehtävänä"{}}; \textcolor{comment}{// "{}Todo"{}}}
+\DoxyCodeLine{1001     \}}
+\DoxyCodeLine{1003     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a90721ca80c1038754d4e3d986310f7fb}{trTodoList}}()}
+\DoxyCodeLine{1004     \{}
+\DoxyCodeLine{1005       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tehtävälista"{}}; \textcolor{comment}{// "{}Todo List"{}}}
+\DoxyCodeLine{1006     \}}
+\DoxyCodeLine{1007 }
+\DoxyCodeLine{1009 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{1011 \textcolor{comment}{}}
+\DoxyCodeLine{1012     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aaba9ed1f90723935cc83e10e641393a3}{trReferencedBy}}()}
+\DoxyCodeLine{1013     \{}
+\DoxyCodeLine{1014       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Viitattu"{}}; \textcolor{comment}{// "{}Referenced by"{}}}
+\DoxyCodeLine{1015     \}}
+\DoxyCodeLine{1016     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8af353fd8560f00c2791d24c5f0536be}{trRemarks}}()}
+\DoxyCodeLine{1017     \{}
+\DoxyCodeLine{1018       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Huomioita"{}}; \textcolor{comment}{// "{}Remarks"{}}}
+\DoxyCodeLine{1019     \}}
+\DoxyCodeLine{1020     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab8837c21acb9fb7513652746c6583eac}{trAttention}}()}
+\DoxyCodeLine{1021     \{}
+\DoxyCodeLine{1022       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Huomio"{}}; \textcolor{comment}{// "{}Attention"{}}}
+\DoxyCodeLine{1023     \}}
+\DoxyCodeLine{1024     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4ec4152d8face0604a340506033713a8}{trInclByDepGraph}}()}
+\DoxyCodeLine{1025     \{}
+\DoxyCodeLine{1026       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tämä kaavio näyttää, mitkä tiedostot suorasti "{}}}
+\DoxyCodeLine{1027              \textcolor{stringliteral}{"{}tai epäsuorasti sisällyttävät tämän tiedoston"{}};}
+\DoxyCodeLine{1028              \textcolor{comment}{// "{}This graph shows which files directly or "{}}}
+\DoxyCodeLine{1029              \textcolor{comment}{// "{}indirectly include this file:"{}}}
+\DoxyCodeLine{1030     \}}
+\DoxyCodeLine{1031     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac3990f8f5ce9e00f53af06c58930cb1a}{trSince}}()}
+\DoxyCodeLine{1032     \{}
+\DoxyCodeLine{1033         \textcolor{comment}{// FIXME: Missä merkityksessä tätä käytetään?}}
+\DoxyCodeLine{1034       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lähtien"{}}; \textcolor{comment}{// "{}Since"{}}}
+\DoxyCodeLine{1035     \}}
+\DoxyCodeLine{1036 }
+\DoxyCodeLine{1038 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1040 \textcolor{comment}{}}
+\DoxyCodeLine{1042     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a16645369f49ebf5361c7346614bf85e8}{trLegendTitle}}()}
+\DoxyCodeLine{1043     \{}
+\DoxyCodeLine{1044       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kaavion selite"{}}; \textcolor{comment}{// "{}Graph Legend"{}}}
+\DoxyCodeLine{1045     \}}
+\DoxyCodeLine{1049     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a654312deba615e3a12265129e2eccf8e}{trLegendDocs}}()}
+\DoxyCodeLine{1050     \{}
+\DoxyCodeLine{1051       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}Tämä sivu selittää, kuinka doxygenin luomia kaavioita tulkitaan.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{comment}{// "{}This page explains how to interpret the graphs that are generated "{}}}
+\DoxyCodeLine{1054         \textcolor{comment}{// "{}by doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}Ajattele seuraavaa esimerkkiä:\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{comment}{// "{}Consider the following example:\(\backslash\)n"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}/*! Näkymätön luokka katkaisun vuoksi */\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{comment}{// "{}/*! Invisible class because of truncation */\(\backslash\)n"{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}class Nakymaton \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{comment}{// "{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}/*! Katkaistu luokka, periytymissuhde on piilotettu */\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{comment}{// "{}/*! Truncated class, inheritance relation is hidden */\(\backslash\)n"{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}class Katkaistu : public Nakymaton \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{comment}{// "{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1066         \textcolor{stringliteral}{"{}/* Luokkaa ei ole dokumentoitu doxygen-\/kommenteilla */\(\backslash\)n"{}}}
+\DoxyCodeLine{1067         \textcolor{comment}{// "{}/* Class not documented with doxygen comments */\(\backslash\)n"{}}}
+\DoxyCodeLine{1068         \textcolor{stringliteral}{"{}class Dokumentoimaton \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1069         \textcolor{comment}{// "{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1070         \textcolor{stringliteral}{"{}/*! Julkista periyttämistä käyttäen periytetty luokka */\(\backslash\)n"{}}}
+\DoxyCodeLine{1071         \textcolor{comment}{// "{}/*! Class that is inherited using public inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1072         \textcolor{stringliteral}{"{}class JulkinenKanta : public Katkaistu \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1073         \textcolor{comment}{// "{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1074         \textcolor{stringliteral}{"{}/*! Malliluokka */\(\backslash\)n"{}}}
+\DoxyCodeLine{1075         \textcolor{comment}{// "{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1076         \textcolor{stringliteral}{"{}template<class T> class Malli \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1077         \textcolor{comment}{// "{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1078         \textcolor{stringliteral}{"{}/*! Suojeltua periytymistä käyttäen periytetty luokka */\(\backslash\)n"{}}}
+\DoxyCodeLine{1079         \textcolor{comment}{// "{}/*! Class that is inherited using protected inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1080         \textcolor{stringliteral}{"{}class SuojeltuKanta \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1081         \textcolor{comment}{// "{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1082         \textcolor{stringliteral}{"{}/*! Yksityistä periytymistä käyttäen periytetty luokka */\(\backslash\)n"{}}}
+\DoxyCodeLine{1083         \textcolor{comment}{// "{}/*! Class that is inherited using private inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1084         \textcolor{stringliteral}{"{}class YksityisKanta \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1085         \textcolor{comment}{// "{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1086         \textcolor{stringliteral}{"{}/*! Luokka jota periytetty luokka käyttää */\(\backslash\)n"{}}}
+\DoxyCodeLine{1087         \textcolor{comment}{// "{}/*! Class that is used by the Inherited class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1088         \textcolor{stringliteral}{"{}class Kaytetty \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1089         \textcolor{comment}{// "{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1090         \textcolor{stringliteral}{"{}/*! Kantaluokka joka periytyy useasta muusta luokasta */\(\backslash\)n"{}}}
+\DoxyCodeLine{1091         \textcolor{comment}{// "{}/*! Super class that inherits a number of other classes */\(\backslash\)n"{}}}
+\DoxyCodeLine{1092         \textcolor{stringliteral}{"{}class Periytetty : public JulkinenKanta,\(\backslash\)n"{}}}
+\DoxyCodeLine{1093         \textcolor{stringliteral}{"{}                 : protected SuojeltuKanta,\(\backslash\)n"{}}}
+\DoxyCodeLine{1094         \textcolor{stringliteral}{"{}                 : private YksityisKanta,\(\backslash\)n"{}}}
+\DoxyCodeLine{1095         \textcolor{stringliteral}{"{}                 : public Dokumentoimaton,\(\backslash\)n"{}}}
+\DoxyCodeLine{1096         \textcolor{stringliteral}{"{}                 : public Malli<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1097         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1098         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1099         \textcolor{stringliteral}{"{}    Kaytetty *m\_kaytettyLuokka;\(\backslash\)n"{}}}
+\DoxyCodeLine{1100         \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}}}
+\DoxyCodeLine{1101         \textcolor{comment}{// "{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1102         \textcolor{comment}{// "{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1103         \textcolor{comment}{// "{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1104         \textcolor{comment}{// "{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1105         \textcolor{comment}{// "{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1106         \textcolor{comment}{// "{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1107         \textcolor{comment}{// "{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1108         \textcolor{comment}{// "{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1109         \textcolor{comment}{// "{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1110         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1111         \textcolor{stringliteral}{"{}Tuloksena on seuraavanlainen kaavio:"{}}}
+\DoxyCodeLine{1112         \textcolor{comment}{//"{}This will result in the following graph:"{}}}
+\DoxyCodeLine{1113         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1114         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1115         \textcolor{stringliteral}{"{}Ylläolevassa kaaviossa laatikoilla on seuraavat merkitykset\(\backslash\)n:"{}}}
+\DoxyCodeLine{1116         \textcolor{comment}{// "{}The boxes in the above graph have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1117         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1118         \textcolor{stringliteral}{"{}<li>Täytetty harmaa laatikko esittää tietuetta tai luokkaa, jolle "{}}}
+\DoxyCodeLine{1119         \textcolor{comment}{// "{}<li>\%A filled gray box represents the struct or class for which the "{}}}
+\DoxyCodeLine{1120         \textcolor{stringliteral}{"{}kaavio on luotu.\(\backslash\)n"{}}}
+\DoxyCodeLine{1121         \textcolor{comment}{// "{}graph is generated.\(\backslash\)n"{}}}
+\DoxyCodeLine{1122         \textcolor{stringliteral}{"{}<li>Mustareunainen laatikko merkitsee dokumentoitua tietuetta tai luokkaa.\(\backslash\)n"{}}}
+\DoxyCodeLine{1123         \textcolor{comment}{// "{}<li>\%A box with a black border denotes a documented struct or class.\(\backslash\)n"{}}}
+\DoxyCodeLine{1124         \textcolor{stringliteral}{"{}<li>Harmaareunainen laatikko merkitsee dokumentoimatonta tietuetta tai luokkaa.\(\backslash\)n"{}}}
+\DoxyCodeLine{1125         \textcolor{comment}{// "{}<li>\%A box with a grey border denotes an undocumented struct or class.\(\backslash\)n"{}}}
+\DoxyCodeLine{1126         \textcolor{stringliteral}{"{}<li>Punareunainen laatikko merkistee dokumentoitua luokkaa tai structia "{}}}
+\DoxyCodeLine{1127         \textcolor{comment}{// "{}<li>\%A box with a red border denotes a documented struct or class for"{}}}
+\DoxyCodeLine{1128         \textcolor{stringliteral}{"{}jolle ei näytetä kaikkia periytymis-\//sisällyssuhteita. Kaavio "{}}}
+\DoxyCodeLine{1129         \textcolor{comment}{// "{}which not all inheritance/containment relations are shown. \%A graph is "{}}}
+\DoxyCodeLine{1130         \textcolor{stringliteral}{"{}katkaistaan, jos se ei mahdu määriteltyjen rajojen sisään.\(\backslash\)n"{}}}
+\DoxyCodeLine{1131         \textcolor{comment}{// "{}truncated if it does not fit within the specified boundaries.\(\backslash\)n"{}}}
+\DoxyCodeLine{1132         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1133         \textcolor{stringliteral}{"{}Nuolilla on seuraavat merkitykset:\(\backslash\)n"{}}}
+\DoxyCodeLine{1134         \textcolor{comment}{// "{}The arrows have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1135         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1136         \textcolor{stringliteral}{"{}<li>Tummansinistä nuolta käytetään osoittamaan julkista periytymis"{}}}
+\DoxyCodeLine{1137         \textcolor{comment}{// "{}<li>\%A dark blue arrow is used to visualize a public inheritance "{}}}
+\DoxyCodeLine{1138         \textcolor{stringliteral}{"{}suhdetta kahden luokan välillä.\(\backslash\)n"{}}}
+\DoxyCodeLine{1139         \textcolor{comment}{// "{}relation between two classes.\(\backslash\)n"{}}}
+\DoxyCodeLine{1140         \textcolor{stringliteral}{"{}<li>Tummanvihreää nuolta käytetään suojellussa periytymisessä.\(\backslash\)n"{}}}
+\DoxyCodeLine{1141         \textcolor{comment}{// "{}<li>\%A dark green arrow is used for protected inheritance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1142         \textcolor{stringliteral}{"{}<li>Tummanpunaista nuolta käytetään yksityisessä periytymisessä.\(\backslash\)n"{}}}
+\DoxyCodeLine{1143         \textcolor{comment}{// "{}<li>\%A dark red arrow is used for private inheritance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1144         \textcolor{stringliteral}{"{}<li>Purppuranväristä katkoviivaa käytetään, jos luokka sisältyy tai "{}}}
+\DoxyCodeLine{1145         \textcolor{comment}{// "{}<li>\%A purple dashed arrow is used if a class is contained or used "{}}}
+\DoxyCodeLine{1146         \textcolor{stringliteral}{"{}on toisen luokan käyttämä. Nuoli nimetään sillä muuttujalla/muuttujilla "{}}}
+\DoxyCodeLine{1147         \textcolor{comment}{// "{}by another class. The arrow is labeled with the variable(s) "{}}}
+\DoxyCodeLine{1148         \textcolor{stringliteral}{"{}jonka läpi osoitettua luokkaa tai tietuetta käytetään.\(\backslash\)n"{}}}
+\DoxyCodeLine{1149         \textcolor{comment}{// "{}through which the pointed class or struct is accessible.\(\backslash\)n"{}}}
+\DoxyCodeLine{1150         \textcolor{stringliteral}{"{}<li>Keltainen katkoviivalla piirretty nuoli merkitsee suhdetta mallin esiintymän ja "{}}}
+\DoxyCodeLine{1151         \textcolor{comment}{// "{}<li>\%A yellow dashed arrow denotes a relation between a template instance and "{}}}
+\DoxyCodeLine{1152         \textcolor{stringliteral}{"{}malliluokan välillä. Nuoli nimetään "{}}}
+\DoxyCodeLine{1153         \textcolor{comment}{// "{}the template class it was instantiated from. The arrow is labeled with "{}}}
+\DoxyCodeLine{1154         \textcolor{stringliteral}{"{}mallin esiintymän malliparametrilla.\(\backslash\)n"{}}}
+\DoxyCodeLine{1155         \textcolor{comment}{// "{}the template parameters of the instance.\(\backslash\)n"{}}}
+\DoxyCodeLine{1156         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1157     \}}
+\DoxyCodeLine{1159     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a897ec5c1b3179de70583091bd4a0e1dd}{trLegend}}()}
+\DoxyCodeLine{1160     \{}
+\DoxyCodeLine{1161       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}selite"{}}; \textcolor{comment}{// "{}legend"{}}}
+\DoxyCodeLine{1162     \}}
+\DoxyCodeLine{1163 }
+\DoxyCodeLine{1165 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1167 \textcolor{comment}{}}
+\DoxyCodeLine{1169     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a5d977f3aa4f8024c9c5456044c295df6}{trTest}}()}
+\DoxyCodeLine{1170     \{}
+\DoxyCodeLine{1171       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testi"{}}; \textcolor{comment}{// "{}Test"{}}}
+\DoxyCodeLine{1172     \}}
+\DoxyCodeLine{1174     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6cffe6746d3b653cfc81831150f0f370}{trTestList}}()}
+\DoxyCodeLine{1175     \{}
+\DoxyCodeLine{1176       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testilista"{}}; \textcolor{comment}{// "{}Test List"{}}}
+\DoxyCodeLine{1177     \}}
+\DoxyCodeLine{1178 }
+\DoxyCodeLine{1180 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1182 \textcolor{comment}{}}
+\DoxyCodeLine{1184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_afa5de6dc309de4844ecbbd25671ce0b9}{trProperties}}()}
+\DoxyCodeLine{1185     \{}
+\DoxyCodeLine{1186       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ominaisuudet"{}}; \textcolor{comment}{// "{}Properties"{}}}
+\DoxyCodeLine{1187     \}}
+\DoxyCodeLine{1189     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af3c94b48f43820d43a17af8c5fd143a2}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1190     \{}
+\DoxyCodeLine{1191       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ominaisuuksien dokumentaatio"{}}; \textcolor{comment}{// "{}Property Documentation"{}}}
+\DoxyCodeLine{1192     \}}
+\DoxyCodeLine{1193 }
+\DoxyCodeLine{1195 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1197 \textcolor{comment}{}}
+\DoxyCodeLine{1199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0f15a147f57b78028a918debea190d86}{trClasses}}()}
+\DoxyCodeLine{1200     \{}
+\DoxyCodeLine{1201       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1202       \{}
+\DoxyCodeLine{1203         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietueet"{}}; \textcolor{comment}{// "{}Data Structures"{}}}
+\DoxyCodeLine{1204       \}}
+\DoxyCodeLine{1205       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1206       \{}
+\DoxyCodeLine{1207         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luokat"{}}; \textcolor{comment}{// "{}Classes"{}}}
+\DoxyCodeLine{1208       \}}
+\DoxyCodeLine{1209     \}}
+\DoxyCodeLine{1211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a23d9739a1fd6a4d1b52be8ba35e80ac8}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1212     \{}
+\DoxyCodeLine{1213       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketti "{}}+name; \textcolor{comment}{// "{}Package "{}}}
+\DoxyCodeLine{1214     \}}
+\DoxyCodeLine{1216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1296fe8649ed4156db04ad1e233a8440}{trPackageListDescription}}()}
+\DoxyCodeLine{1217     \{}
+\DoxyCodeLine{1218       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä ovat paketit lyhyiden selitysten kanssa (jos saatavilla):"{}}; \textcolor{comment}{// "{}Here are the packages with brief descriptions (if available):"{}}}
+\DoxyCodeLine{1219     \}}
+\DoxyCodeLine{1221     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa3c1b40d1a7dad1f91a22008887daf06}{trPackages}}()}
+\DoxyCodeLine{1222     \{}
+\DoxyCodeLine{1223       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketit"{}}; \textcolor{comment}{// "{}Packages"{}}}
+\DoxyCodeLine{1224     \}}
+\DoxyCodeLine{1226     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1edbf21015c059d72a53a1337fe619da}{trDefineValue}}()}
+\DoxyCodeLine{1227     \{}
+\DoxyCodeLine{1228       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Arvo:"{}}; \textcolor{comment}{// "{}Value:"{}}}
+\DoxyCodeLine{1229     \}}
+\DoxyCodeLine{1230 }
+\DoxyCodeLine{1232 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1234 \textcolor{comment}{}}
+\DoxyCodeLine{1236     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aec8cc083696468600c43a7cad27e9a05}{trBug}}()}
+\DoxyCodeLine{1237     \{}
+\DoxyCodeLine{1238       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bugi"{}}; \textcolor{comment}{// "{}Bug"{}}}
+\DoxyCodeLine{1239     \}}
+\DoxyCodeLine{1241     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7c8a169cb777c885549c101d30c38b43}{trBugList}}()}
+\DoxyCodeLine{1242     \{}
+\DoxyCodeLine{1243       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bugilista"{}}; \textcolor{comment}{// "{}Bug List"{}}}
+\DoxyCodeLine{1244     \}}
+\DoxyCodeLine{1245 }
+\DoxyCodeLine{1247 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1249 \textcolor{comment}{}}
+\DoxyCodeLine{1275     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac423c0b2f218db44410075122cc3e338}{trRTFansicp}}()}
+\DoxyCodeLine{1276     \{}
+\DoxyCodeLine{1277       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1252"{}};}
+\DoxyCodeLine{1278     \}}
+\DoxyCodeLine{1279 }
+\DoxyCodeLine{1280 }
+\DoxyCodeLine{1284     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a3ec8f8f418f66bbfbbdda735447cf12d}{trRTFCharSet}}()}
+\DoxyCodeLine{1285     \{}
+\DoxyCodeLine{1286       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{1287     \}}
+\DoxyCodeLine{1288 }
+\DoxyCodeLine{1290     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0d8409f7f6da3e01a3a3ffaa81d2fdaf}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1291     \{}
+\DoxyCodeLine{1292       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hakemisto"{}}; \textcolor{comment}{// "{}Index"{}}}
+\DoxyCodeLine{1293     \}}
+\DoxyCodeLine{1294 }
+\DoxyCodeLine{1299     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac134b32cb7ab241721db6e6af6359923}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1300     \{}
+\DoxyCodeLine{1301       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Luokka"{}} : \textcolor{stringliteral}{"{}luokka"{}})); \textcolor{comment}{// "{}Class"{} / "{}class"{}}}
+\DoxyCodeLine{1302       \textcolor{keywordflow}{if} (!singular)  result=(first\_capital ? \textcolor{stringliteral}{"{}Luokat"{}} : \textcolor{stringliteral}{"{}luokat"{}}); \textcolor{comment}{// "{}+es"{} -\/> "{}Classes"{} / "{}classes"{}}}
+\DoxyCodeLine{1303       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1304     \}}
+\DoxyCodeLine{1305 }
+\DoxyCodeLine{1310     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8283f8506cd8f43b573c38a528ab98b6}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1311     \{}
+\DoxyCodeLine{1312       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tiedosto"{}} : \textcolor{stringliteral}{"{}tiedosto"{}})); \textcolor{comment}{// "{}File"{} / "{}file"{}}}
+\DoxyCodeLine{1313       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{} -\/> "{}Files"{} / "{}files"{}}}
+\DoxyCodeLine{1314       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1315     \}}
+\DoxyCodeLine{1316 }
+\DoxyCodeLine{1321     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a11dad360740183498848542ac7a1c4c5}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1322     \{}
+\DoxyCodeLine{1323       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Nimiavaruus"{}} : \textcolor{stringliteral}{"{}nimiavaruus"{}})); \textcolor{comment}{// "{}Namespace"{} / "{}namespace"{}}}
+\DoxyCodeLine{1324       \textcolor{keywordflow}{if} (!singular)  result=(first\_capital ? \textcolor{stringliteral}{"{}Nimiavaruudet"{}} : \textcolor{stringliteral}{"{}nimiavaruudet"{}}); \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1325       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1326     \}}
+\DoxyCodeLine{1327 }
+\DoxyCodeLine{1332     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aa1f8914251f790587f2e669cf2b023aa}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1333     \{}
+\DoxyCodeLine{1334       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Ryhmä"{}} : \textcolor{stringliteral}{"{}ryhmä"{}})); \textcolor{comment}{// "{}Group"{} / "{}group"{}}}
+\DoxyCodeLine{1335       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1336       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1337     \}}
+\DoxyCodeLine{1338 }
+\DoxyCodeLine{1343     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6b5dd6eda25bd0e2dd5e4019454fd612}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1344     \{}
+\DoxyCodeLine{1345       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Sivu"{}} : \textcolor{stringliteral}{"{}sivu"{}})); \textcolor{comment}{// "{}Page"{} / "{}page"{}}}
+\DoxyCodeLine{1346       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1347       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1348     \}}
+\DoxyCodeLine{1349 }
+\DoxyCodeLine{1354     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8248ed16c346bc4a101b8d2b2872bd8c}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1355     \{}
+\DoxyCodeLine{1356       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Jäsen"{}} : \textcolor{stringliteral}{"{}jäsen"{}})); \textcolor{comment}{// "{}Member"{} / "{}member"{}}}
+\DoxyCodeLine{1357       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}et"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1358       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1359     \}}
+\DoxyCodeLine{1360 }
+\DoxyCodeLine{1365     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8252511cdb04556410c98edcfa201956}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1366     \{}
+\DoxyCodeLine{1367       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Globaali"{}} : \textcolor{stringliteral}{"{}globaali"{}})); \textcolor{comment}{// "{}Global"{} / "{}global"{}}}
+\DoxyCodeLine{1368       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1369       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1370     \}}
+\DoxyCodeLine{1371 }
+\DoxyCodeLine{1373 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1375 \textcolor{comment}{}}
+\DoxyCodeLine{1378     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad53852c23a27b77aa025a56dba848253}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1379     \{}
+\DoxyCodeLine{1380       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tekijä"{}} : \textcolor{stringliteral}{"{}tekijä"{}})); \textcolor{comment}{// "{}Author"{} / "{}author"{}}}
+\DoxyCodeLine{1381       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1382       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1383     \}}
+\DoxyCodeLine{1384 }
+\DoxyCodeLine{1386 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1388 \textcolor{comment}{}}
+\DoxyCodeLine{1391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af7cf589260d7dbf2feb77bc6f3bee256}{trReferences}}()}
+\DoxyCodeLine{1392     \{}
+\DoxyCodeLine{1393       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Viittaukset"{}}; \textcolor{comment}{// "{}References"{}}}
+\DoxyCodeLine{1394     \}}
+\DoxyCodeLine{1395 }
+\DoxyCodeLine{1397 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1399 \textcolor{comment}{}}
+\DoxyCodeLine{1403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4f1c8d237487fa45b7f374686ce2e508}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1404     \{}
+\DoxyCodeLine{1405       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Toteuttaa luokan "{}}+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Implements "{}}}
+\DoxyCodeLine{1406     \}}
+\DoxyCodeLine{1407 }
+\DoxyCodeLine{1411     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ad7f9bc90e1a430f20b280ea9dc73b608}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1412     \{}
+\DoxyCodeLine{1413       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Toteutettu luokassa "{}}+\mbox{\hyperlink{classTranslatorFinnish_abd69cd5ff5d26feb4f8a212cc0bf51b0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}}; \textcolor{comment}{// "{}Implemented in "{}}}
+\DoxyCodeLine{1414     \}}
+\DoxyCodeLine{1415 }
+\DoxyCodeLine{1417 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1419 \textcolor{comment}{}}
+\DoxyCodeLine{1423     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0ba150ac95ad9b55e7b4126685685c26}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1424     \{}
+\DoxyCodeLine{1425       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sisällysluettelo"{}}; \textcolor{comment}{// "{}Table of Contents"{}}}
+\DoxyCodeLine{1426     \}}
+\DoxyCodeLine{1427 }
+\DoxyCodeLine{1429 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1431 \textcolor{comment}{}}
+\DoxyCodeLine{1435     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a2e4f5ed8e42ed99a3143107104cdb3b9}{trDeprecatedList}}()}
+\DoxyCodeLine{1436     \{}
+\DoxyCodeLine{1437       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vanhentuneiden lista"{}}; \textcolor{comment}{// "{}Deprecated List"{}}}
+\DoxyCodeLine{1438     \}}
+\DoxyCodeLine{1439 }
+\DoxyCodeLine{1441 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1443 \textcolor{comment}{}}
+\DoxyCodeLine{1447     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aee02d83031bf92c40af07cef17e63b06}{trEvents}}()}
+\DoxyCodeLine{1448     \{}
+\DoxyCodeLine{1449       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tapahtumat"{}}; \textcolor{comment}{// "{}Events"{}}}
+\DoxyCodeLine{1450     \}}
+\DoxyCodeLine{1452     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a0d03fbc305d3e284d81606f79d1562c3}{trEventDocumentation}}()}
+\DoxyCodeLine{1453     \{}
+\DoxyCodeLine{1454       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tapahtumien dokumentaatio"{}}; \textcolor{comment}{// "{}Event Documentation"{}}}
+\DoxyCodeLine{1455     \}}
+\DoxyCodeLine{1456 }
+\DoxyCodeLine{1458 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1460 \textcolor{comment}{}}
+\DoxyCodeLine{1463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ade0bbb00a326970f596d316691c5ef07}{trPackageTypes}}()}
+\DoxyCodeLine{1464     \{}
+\DoxyCodeLine{1465       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin tyypit"{}}; \textcolor{comment}{// "{}Package Types"{}}}
+\DoxyCodeLine{1466     \}}
+\DoxyCodeLine{1470     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aef9009af4746ee3e99374815b840da8f}{trPackageFunctions}}()}
+\DoxyCodeLine{1471     \{}
+\DoxyCodeLine{1472       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin funktiot"{}}; \textcolor{comment}{// "{}Package Functions"{}}}
+\DoxyCodeLine{1473     \}}
+\DoxyCodeLine{1474     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a567eec689f5b3edb8e2fdd49b13ef823}{trPackageMembers}}()}
+\DoxyCodeLine{1475     \{}
+\DoxyCodeLine{1476       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin jäsenet"{}}; \textcolor{comment}{// "{}Package Members"{}}}
+\DoxyCodeLine{1477     \}}
+\DoxyCodeLine{1481     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab1bfe34440542fd91ac0f8635091ab78}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1482     \{}
+\DoxyCodeLine{1483       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin staattiset funktiot"{}}; \textcolor{comment}{// "{}Static Package Functions"{}}}
+\DoxyCodeLine{1484     \}}
+\DoxyCodeLine{1488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ada5f824ae0f2ec65d3ae8f87be70a6ac}{trPackageAttribs}}()}
+\DoxyCodeLine{1489     \{}
+\DoxyCodeLine{1490       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin attribuutit"{}}; \textcolor{comment}{// "{}Package Attributes"{}}}
+\DoxyCodeLine{1491     \}}
+\DoxyCodeLine{1495     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a8634c0308b908dc242240d341a7addad}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1496     \{}
+\DoxyCodeLine{1497       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketin staattiset attribuutit"{}}; \textcolor{comment}{// "{}Static Package Attributes"{}}}
+\DoxyCodeLine{1498     \}}
+\DoxyCodeLine{1499 }
+\DoxyCodeLine{1501 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1503 \textcolor{comment}{}}
+\DoxyCodeLine{1507     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ab2b5bd969d63784e657ed8118bb0f63d}{trAll}}()}
+\DoxyCodeLine{1508     \{}
+\DoxyCodeLine{1509       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kaikki"{}}; \textcolor{comment}{// "{}All"{}}}
+\DoxyCodeLine{1510     \}}
+\DoxyCodeLine{1512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_acf2dd05c7cc01c9fce435e1cc956f166}{trCallGraph}}()}
+\DoxyCodeLine{1513     \{}
+\DoxyCodeLine{1514       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä on kutsukaavio tälle funktiolle:"{}}; \textcolor{comment}{// "{}Here is the call graph for this function:"{}}}
+\DoxyCodeLine{1515     \}}
+\DoxyCodeLine{1516 }
+\DoxyCodeLine{1518 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1520 \textcolor{comment}{}}
+\DoxyCodeLine{1524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6ef63ac25a652a679d1c30e2735633b2}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1525     \{}
+\DoxyCodeLine{1526       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hakutulokset"{}}; \textcolor{comment}{// "{}Search Results"{}}}
+\DoxyCodeLine{1527     \}}
+\DoxyCodeLine{1536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_af3abcf73577c64cee842160450ecf2f2}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1537     \{}
+\DoxyCodeLine{1538       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1539       \{}
+\DoxyCodeLine{1540         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valitettavasti yksikään dokumentti ei vastannut hakuasi."{}}; \textcolor{comment}{// "{}Sorry, no documents matching your query."{}}}
+\DoxyCodeLine{1541       \}}
+\DoxyCodeLine{1542       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1543       \{}
+\DoxyCodeLine{1544         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Löytyi <b>1</b> dokumentti, joka vastasi hakuasi."{}}; \textcolor{comment}{// "{}Found <b>1</b> document matching your query."{};}}
+\DoxyCodeLine{1545       \}}
+\DoxyCodeLine{1546       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1547       \{}
+\DoxyCodeLine{1548         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Löytyi <b>\$num</b> dokumenttia, jotka vastasivat hakuasi. "{}} \textcolor{comment}{// "{}Found <b>\$num</b> documents matching your query. "{}}}
+\DoxyCodeLine{1549                 \textcolor{stringliteral}{"{}Parhaat tulokset näytetään ensin."{}}; \textcolor{comment}{// "{}Showing best matches first."{}}}
+\DoxyCodeLine{1550       \}}
+\DoxyCodeLine{1551     \}}
+\DoxyCodeLine{1555     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a35cd17739cbf42e9474f50ceafe418c2}{trSearchMatches}}()}
+\DoxyCodeLine{1556     \{}
+\DoxyCodeLine{1557       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osumat:"{}}; \textcolor{comment}{// "{}Matches:"{}}}
+\DoxyCodeLine{1558     \}}
+\DoxyCodeLine{1559 }
+\DoxyCodeLine{1561 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1563 \textcolor{comment}{}}
+\DoxyCodeLine{1566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a1b5d540931453bdd6978ebf1ecc5481d}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1567     \{}
+\DoxyCodeLine{1568       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} lähdekooditiedosto"{}}; \textcolor{comment}{// "{} Source File"{}}}
+\DoxyCodeLine{1569     \}}
+\DoxyCodeLine{1570 }
+\DoxyCodeLine{1572 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1574 \textcolor{comment}{}}
+\DoxyCodeLine{1578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a97c0ffc938be627b8d63a5f56e566a05}{trDirIndex}}()}
+\DoxyCodeLine{1579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hakemistohierarkia"{}}; \} \textcolor{comment}{// "{}Directory Hierarchy"{}}}
+\DoxyCodeLine{1580 }
+\DoxyCodeLine{1584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a9905a8778af8b60802848330d7b7f4c9}{trDirDocumentation}}()}
+\DoxyCodeLine{1585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hakemistojen dokumentaatio"{}}; \} \textcolor{comment}{// "{}Directory Documentation"{}}}
+\DoxyCodeLine{1586 }
+\DoxyCodeLine{1590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_afdd9497b9466a4eb5d89e3332575b311}{trDirectories}}()}
+\DoxyCodeLine{1591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hakemistot"{}}; \} \textcolor{comment}{// "{}Directories"{}}}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a216865632eea78bf681cc5e098aef032}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1597     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} hakemistoreferenssi"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1598         \textcolor{comment}{// "{} Directory Reference"{}}}
+\DoxyCodeLine{1599 }
+\DoxyCodeLine{1603     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a15891263c1e258fb430f4e83e6bfd0b0}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1604     \{}
+\DoxyCodeLine{1605       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Hakemisto"{}} : \textcolor{stringliteral}{"{}hakemisto"{}})); \textcolor{comment}{// "{}Director"{} / "{}director"{}}}
+\DoxyCodeLine{1606       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+y"{} / "{}+ies"{}}}
+\DoxyCodeLine{1607       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1608     \}}
+\DoxyCodeLine{1609 }
+\DoxyCodeLine{1611 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1613 \textcolor{comment}{}}
+\DoxyCodeLine{1617     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a9aad060ef275958bd709f729194853bd}{trOverloadText}}()}
+\DoxyCodeLine{1618     \{}
+\DoxyCodeLine{1619        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tämä on ylikuormitettu jäsenfunktio, ja se tarjotaan "{}}}
+\DoxyCodeLine{1620               \textcolor{stringliteral}{"{}käytön helpottamiseksi. Se eroaa ylläolevasta "{}}}
+\DoxyCodeLine{1621               \textcolor{stringliteral}{"{}funktiosta ainoastaan hyväksymiltään parametreilta."{}};}
+\DoxyCodeLine{1622               \textcolor{comment}{// "{}This is an overloaded member function, "{}}}
+\DoxyCodeLine{1623               \textcolor{comment}{// "{}provided for convenience. It differs from the above "{}}}
+\DoxyCodeLine{1624               \textcolor{comment}{// "{}function only in what argument(s) it accepts."{}}}
+\DoxyCodeLine{1625     \}}
+\DoxyCodeLine{1626 }
+\DoxyCodeLine{1628 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1630 \textcolor{comment}{}}
+\DoxyCodeLine{1632     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aaba3d7a2b3ebb583128bfb4b1d9f4377}{trCallerGraph}}()}
+\DoxyCodeLine{1633     \{}
+\DoxyCodeLine{1634       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä on kutsukaavio tälle funktiolle:"{}}; \textcolor{comment}{// "{}Here is the caller graph for this function:"{}}}
+\DoxyCodeLine{1635     \}}
+\DoxyCodeLine{1636 }
+\DoxyCodeLine{1640     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a4a6e091d9b6d3211229869e5c69c50db}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1641     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Luettelotyypin dokumentaatio"{}}; \} \textcolor{comment}{// "{}Enumerator Documentation"{}}}
+\DoxyCodeLine{1642 }
+\DoxyCodeLine{1644 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1646 \textcolor{comment}{}}
+\DoxyCodeLine{1648     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a12079a0fa08079b3ef4c8e54fa4c8eea}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1649     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jäsenfunktioiden/aliohjelmien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Member Function/Subroutine Documentation"{}}}
+\DoxyCodeLine{1650 }
+\DoxyCodeLine{1652     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a25e23486ee2585b3394e526653aaf2fa}{trCompoundListFortran}}()}
+\DoxyCodeLine{1653     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietotyyppien lista"{}}; \} \textcolor{comment}{// "{}Data Types List"{}}}
+\DoxyCodeLine{1654 }
+\DoxyCodeLine{1656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a91883d9580dc1762c293cd18e3b49d12}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1657     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kentät"{}}; \} \textcolor{comment}{// "{}Data Fields"{};}}
+\DoxyCodeLine{1658 }
+\DoxyCodeLine{1660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7f93cf056550c2b52504ad0a7aac6a76}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1661     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tässä ovat tietotyypit lyhyiden selitysten kanssa:"{}}; \} \textcolor{comment}{// "{}Here are the data types with brief descriptions:"{}}}
+\DoxyCodeLine{1662 }
+\DoxyCodeLine{1664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a71c6e8bbecb30c45ba69998c99c20942}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1665     \{}
+\DoxyCodeLine{1666       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1667       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1668       \{}
+\DoxyCodeLine{1669         result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1670       \}}
+\DoxyCodeLine{1671       result+=\textcolor{stringliteral}{"{}tietotyyppien jäsenistä"{}}; \textcolor{comment}{// "{}data types members"{}}}
+\DoxyCodeLine{1672       result+=\textcolor{stringliteral}{"{}, sekä linkit "{}}; \textcolor{comment}{// "{} with links to "{}}}
+\DoxyCodeLine{1673       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1674       \{}
+\DoxyCodeLine{1675          result+=\textcolor{stringliteral}{"{}tietueen dokumentaatioon jokaiselle jäsenelle"{}}; \textcolor{comment}{// "{}the data structure documentation for each member"{}}}
+\DoxyCodeLine{1676       \}}
+\DoxyCodeLine{1677       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1678       \{}
+\DoxyCodeLine{1679          result+=\textcolor{stringliteral}{"{}tietotyyppeihin, joihin ne kuuluvat:"{}}; \textcolor{comment}{// "{}the data types they belong to:"{}}}
+\DoxyCodeLine{1680       \}}
+\DoxyCodeLine{1681       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1682     \}}
+\DoxyCodeLine{1683 }
+\DoxyCodeLine{1687     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_acc13d611315189cdc8aca52d025bb15d}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1688     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietotyyppien hakemisto"{}}; \} \textcolor{comment}{// "{}Data Type Index"{}}}
+\DoxyCodeLine{1689 }
+\DoxyCodeLine{1693     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac926b87529eb620a61ccc4b7cb7859d5}{trTypeDocumentation}}()}
+\DoxyCodeLine{1694     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietotyyppien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Data Type Documentation"{}}}
+\DoxyCodeLine{1695 }
+\DoxyCodeLine{1699     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a7d476888e2e68585fd9d61e5502c1d63}{trSubprograms}}()}
+\DoxyCodeLine{1700     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktiot/aliohjelmat"{}}; \} \textcolor{comment}{// "{}Functions/Subroutines"{}}}
+\DoxyCodeLine{1701 }
+\DoxyCodeLine{1705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a211b1c7ec64ec9d7837c8605b0f43096}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1706     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktioiden/aliohjelmien dokumentaatio"{}}; \} \textcolor{comment}{// "{}Function/Subroutine Documentation"{}}}
+\DoxyCodeLine{1707 }
+\DoxyCodeLine{1711      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_abec148e263f5fd26e53d69e2beeac2c5}{trDataTypes}}()}
+\DoxyCodeLine{1712     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tietotyypit"{}}; \} \textcolor{comment}{// "{}Data Types"{}}}
+\DoxyCodeLine{1713 }
+\DoxyCodeLine{1715     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_ac5a9cdd768bfa7cd6d0024054fb44c35}{trModulesList}}()}
+\DoxyCodeLine{1716     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduulilista"{}}; \} \textcolor{comment}{// "{}Modules List"{}}}
+\DoxyCodeLine{1717 }
+\DoxyCodeLine{1719     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a2c929fa512aa2d3452265f8539f88708}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1720     \{}
+\DoxyCodeLine{1721       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1722       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista "{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1723       result+=\textcolor{stringliteral}{"{}moduuleista lyhyiden selitysten kanssa:"{}}; \textcolor{comment}{// "{}modules with brief descriptions:"{}}}
+\DoxyCodeLine{1724       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1725     \}}
+\DoxyCodeLine{1726 }
+\DoxyCodeLine{1728     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a26bc1fcf3931e14841db3c3e7d7dfda8}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1729                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1730                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1731     \{}
+\DoxyCodeLine{1732       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1733       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1734       \{}
+\DoxyCodeLine{1735         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} moduuli"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Module"{}}}
+\DoxyCodeLine{1736         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} tyyppi"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Type"{}}}
+\DoxyCodeLine{1737         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} yhdiste"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Union"{}}}
+\DoxyCodeLine{1738         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} rajapinta"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Interface"{}}}
+\DoxyCodeLine{1739         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokolla"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Protocol"{}}}
+\DoxyCodeLine{1740         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategoria"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Category"{}}}
+\DoxyCodeLine{1741         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} poikkeus"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Exception"{}}}
+\DoxyCodeLine{1742         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1743       \}}
+\DoxyCodeLine{1744       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}malli"{}}; \textcolor{comment}{// "{} Template"{}}}
+\DoxyCodeLine{1745       result+=\textcolor{stringliteral}{"{}referenssi"{}}; \textcolor{comment}{// "{} Reference"{}}}
+\DoxyCodeLine{1746       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1747     \}}
+\DoxyCodeLine{1749     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6b5179bb90ead73c9740e5a69b060f86}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1750     \{}
+\DoxyCodeLine{1751       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1752       result+=\textcolor{stringliteral}{"{} moduulin referenssi"{}}; \textcolor{comment}{// "{} Module Reference"{}}}
+\DoxyCodeLine{1753       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1754     \}}
+\DoxyCodeLine{1755 }
+\DoxyCodeLine{1757     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a60dbf6ec84b76df710f225bce1e35094}{trModulesMembers}}()}
+\DoxyCodeLine{1758     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduulin jäsenet"{}}; \} \textcolor{comment}{// "{}Module Members"{}}}
+\DoxyCodeLine{1759 }
+\DoxyCodeLine{1761     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a6009c0371fbab4cd9ec84e79e253a12c}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1762     \{}
+\DoxyCodeLine{1763       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Tässä on lista moduulin kaikista "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1764       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentoiduista"{}}; \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1765       result+=\textcolor{stringliteral}{"{}jäsenistä, sekä linkit "{}}; \textcolor{comment}{// "{}module members with links to "{}}}
+\DoxyCodeLine{1766       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1767       \{}
+\DoxyCodeLine{1768         result+=\textcolor{stringliteral}{"{}moduulin dokumentaatioon jokaiselle jäsenelle:"{}}; \textcolor{comment}{// "{}the module documentation for each member:"{}}}
+\DoxyCodeLine{1769       \}}
+\DoxyCodeLine{1770       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1771       \{}
+\DoxyCodeLine{1772         result+=\textcolor{stringliteral}{"{}moduuleihin, joihin ne kuuluvat:"{}}; \textcolor{comment}{// "{}the modules they belong to:"{}}}
+\DoxyCodeLine{1773       \}}
+\DoxyCodeLine{1774       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1775     \}}
+\DoxyCodeLine{1776 }
+\DoxyCodeLine{1780     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a42136e396650775295b61be476699775}{trModulesIndex}}()}
+\DoxyCodeLine{1781     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduulien hakemisto"{}}; \} \textcolor{comment}{// "{}Modules Index"{}}}
+\DoxyCodeLine{1782 }
+\DoxyCodeLine{1787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a791ef864c70e989c64be70902fb1ed4d}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1788     \{}
+\DoxyCodeLine{1789       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Moduuli"{}} : \textcolor{stringliteral}{"{}moduuli"{}})); \textcolor{comment}{// "{}Module"{} / "{}module"{}}}
+\DoxyCodeLine{1790       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1791       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1792     \}}
+\DoxyCodeLine{1796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a93d2ec3af6d922013852869ebda85c55}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1797         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1798     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1799       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1800       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentaatio tälle "{}}; \textcolor{comment}{// "{}The documentation for this "{}}}
+\DoxyCodeLine{1801       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1802       \{}
+\DoxyCodeLine{1803         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}moduulille"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}module"{}}}
+\DoxyCodeLine{1804         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tyypille"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}type"{}}}
+\DoxyCodeLine{1805         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}yhdisteelle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}union"{}}}
+\DoxyCodeLine{1806         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}rajapinnalle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}interface"{}}}
+\DoxyCodeLine{1807         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokollalle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}protocol"{}}}
+\DoxyCodeLine{1808         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorialle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}category"{}}}
+\DoxyCodeLine{1809         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}poikkeukselle"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}exception"{}}}
+\DoxyCodeLine{1810         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1811       \}}
+\DoxyCodeLine{1812       result+=\textcolor{stringliteral}{"{} luotiin "{}}; \textcolor{comment}{// "{} was generated from the following file"{}}}
+\DoxyCodeLine{1813       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}seuraavasta tiedostosta:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}seuraavista tiedostoista:"{}}; \textcolor{comment}{// "{}:"{} / "{}s:"{}}}
+\DoxyCodeLine{1814       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1815     \}}
+\DoxyCodeLine{1820     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aee57cf3efd22a5f62b99b4f9d5903d97}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1821     \{}
+\DoxyCodeLine{1822       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tyyppi"{}} : \textcolor{stringliteral}{"{}tyyppi"{}})); \textcolor{comment}{// "{}Type"{} / "{}type"{}}}
+\DoxyCodeLine{1823       \textcolor{keywordflow}{if} (!singular)  result=(first\_capital ? \textcolor{stringliteral}{"{}Tyypit"{}} : \textcolor{stringliteral}{"{}tyypit"{}}); \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1824       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1825     \}}
+\DoxyCodeLine{1830     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_a20f2ab991746e266355f9954382fb52b}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1831     \{}
+\DoxyCodeLine{1832       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Aliohjelma"{}} : \textcolor{stringliteral}{"{}aliohjelma"{}})); \textcolor{comment}{// "{}Subprogram"{} / "{}subprogram"{}}}
+\DoxyCodeLine{1833       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}t"{}}; \textcolor{comment}{// "{}+s"{}}}
+\DoxyCodeLine{1834       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1835     \}}
+\DoxyCodeLine{1836 }
+\DoxyCodeLine{1838     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorFinnish_aaabc8d5dc3dd12146e72ae8dbe4f3025}{trTypeConstraints}}()}
+\DoxyCodeLine{1839     \{}
+\DoxyCodeLine{1840       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tyyppien rajoitteet"{}}; \textcolor{comment}{// "{}Type Constraints"{}}}
+\DoxyCodeLine{1841     \}}
+\DoxyCodeLine{1842 }
+\DoxyCodeLine{1843 \};}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1845 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

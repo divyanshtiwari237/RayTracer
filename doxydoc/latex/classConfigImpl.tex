@@ -1,0 +1,376 @@
+\hypertarget{classConfigImpl}{}\doxysection{Config\+Impl Class Reference}
+\label{classConfigImpl}\index{ConfigImpl@{ConfigImpl}}
+
+
+{\ttfamily \#include $<$configimpl.\+h$>$}
+
+
+
+Collaboration diagram for Config\+Impl\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classConfigImpl_aa7948af854eb611524c208def210db01}{write\+Template}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t, bool short\+Index, bool update\+Only)
+\item 
+void \mbox{\hyperlink{classConfigImpl_a3f46654689a6f0ca4e728b0fd5b46245}{compare\+Doxyfile}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t)
+\item 
+void \mbox{\hyperlink{classConfigImpl_a87163252416c500d2000ad78353400a2}{write\+XMLDoxyfile}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t)
+\item 
+void \mbox{\hyperlink{classConfigImpl_a5a85a09dc81100da9de0dcb148e63c65}{set\+Header}} (const char $\ast$header)
+\item 
+void \mbox{\hyperlink{classConfigImpl_a866e373ff4207d492e15ca578e53a551}{convert\+Str\+To\+Val}} ()
+\item 
+void \mbox{\hyperlink{classConfigImpl_ae0072f7a4546b40a6c445e826bb6e027}{empty\+Value\+To\+Default}} ()
+\item 
+void \mbox{\hyperlink{classConfigImpl_a56797aabb7ab52c9bd60f32634e41a5b}{substitute\+Environment\+Vars}} ()
+\item 
+void \mbox{\hyperlink{classConfigImpl_a50654e77279eecd43b0dd91cb21420e5}{init}} ()
+\item 
+bool \mbox{\hyperlink{classConfigImpl_a574ffab8ab91f47f27b9f142cbf1bdc4}{parse\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&fn, const \mbox{\hyperlink{classQCString}{QCString}} \&str, bool upd=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}})
+\item 
+bool \mbox{\hyperlink{classConfigImpl_a5d06627b2afb76668e8315613a76b9d3}{parse}} (const \mbox{\hyperlink{classQCString}{QCString}} \&fn, bool upd=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}})
+\item 
+void \mbox{\hyperlink{classConfigImpl_a0e1887e271fe89b5f3e2154e344ad4b1}{create}} ()
+\item 
+void \mbox{\hyperlink{classConfigImpl_a7a016d2f1ef3643494fb1b1e3201e928}{append\+Start\+Comment}} (const \mbox{\hyperlink{classQCString}{QCString}} \&u)
+\item 
+void \mbox{\hyperlink{classConfigImpl_a33e3594e6a4848cd7803990e15b452de}{append\+User\+Comment}} (const \mbox{\hyperlink{classQCString}{QCString}} \&u)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigImpl_a6e909c1b38e02a4536e16a33790ddca0}{take\+Start\+Comment}} ()
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classConfigImpl_a998060bb7c8a5948956b7ccf192d62da}{take\+User\+Comment}} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Getting configuration values.}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \& \mbox{\hyperlink{classConfigImpl_afb11a49a6e7c717d0242fedf10a36309}{get\+String}} (const char $\ast$file\+Name, \mbox{\hyperlink{classint}{int}} num, const char $\ast$name) const
+\item 
+\mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \& \mbox{\hyperlink{classConfigImpl_a8ee52acd5fe0eebe4410be051ebb4363}{get\+List}} (const char $\ast$file\+Name, \mbox{\hyperlink{classint}{int}} num, const char $\ast$name) const
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \& \mbox{\hyperlink{classConfigImpl_a5c8800850fd2447c50f320ffb4ee0357}{get\+Enum}} (const char $\ast$file\+Name, \mbox{\hyperlink{classint}{int}} num, const char $\ast$name) const
+\item 
+\mbox{\hyperlink{classint}{int}} \& \mbox{\hyperlink{classConfigImpl_adb74a4b0533fcb0452aa355bc0f931b6}{get\+Int}} (const char $\ast$file\+Name, \mbox{\hyperlink{classint}{int}} num, const char $\ast$name) const
+\item 
+bool \& \mbox{\hyperlink{classConfigImpl_ad598f15be45d231f792b68314f7b0468}{get\+Bool}} (const char $\ast$file\+Name, \mbox{\hyperlink{classint}{int}} num, const char $\ast$name) const
+\item 
+\mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ \mbox{\hyperlink{classConfigImpl_a6ee5f5279077a8be14ca6e22d525f104}{get}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Adding configuration options.}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConfigInfo}{Config\+Info}} $\ast$ \mbox{\hyperlink{classConfigImpl_aac7264ca82b6c9265c39ee010056a2f2}{add\+Info}} (const char $\ast$name, const char $\ast$doc)
+\item 
+\mbox{\hyperlink{classConfigString}{Config\+String}} $\ast$ \mbox{\hyperlink{classConfigImpl_a9f6352eef16a95f0af17e28d8cc472a8}{add\+String}} (const char $\ast$name, const char $\ast$doc)
+\item 
+\mbox{\hyperlink{classConfigEnum}{Config\+Enum}} $\ast$ \mbox{\hyperlink{classConfigImpl_a09d7a6327e02376011d6c4a28e8b384c}{add\+Enum}} (const char $\ast$name, const char $\ast$doc, const char $\ast$def\+Val)
+\item 
+\mbox{\hyperlink{classConfigList}{Config\+List}} $\ast$ \mbox{\hyperlink{classConfigImpl_a52d03dcef339e7d828141b75223c0f08}{add\+List}} (const char $\ast$name, const char $\ast$doc)
+\item 
+\mbox{\hyperlink{classConfigInt}{Config\+Int}} $\ast$ \mbox{\hyperlink{classConfigImpl_a00e4c51763bed0ccb6e017308c46a8f7}{add\+Int}} (const char $\ast$name, const char $\ast$doc, \mbox{\hyperlink{classint}{int}} min\+Val, \mbox{\hyperlink{classint}{int}} max\+Val, \mbox{\hyperlink{classint}{int}} def\+Val)
+\item 
+\mbox{\hyperlink{classConfigBool}{Config\+Bool}} $\ast$ \mbox{\hyperlink{classConfigImpl_aadfbf98b2e5762c07fa871bc76ebce81}{add\+Bool}} (const char $\ast$name, const char $\ast$doc, bool def\+Val)
+\item 
+\mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ \mbox{\hyperlink{classConfigImpl_adf9c8d995aff187d5be5489e62c0f738}{add\+Obsolete}} (const char $\ast$name, \mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{Config\+Option\+::\+Option\+Type}} org\+Type)
+\item 
+\mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ \mbox{\hyperlink{classConfigImpl_a376d29ff41f6772b2ccfd055af34d9bb}{add\+Disabled}} (const char $\ast$name)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classConfigImpl}{Config\+Impl}} $\ast$ \mbox{\hyperlink{classConfigImpl_a501e98a30e96c9930ac4b1791b80c09a}{instance}} ()
+\item 
+static void \mbox{\hyperlink{classConfigImpl_a11be9a99f82898b014f311b5fd9437c1}{delete\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConfigImpl_af661fbf44e03c43d5ae7c3e30ef33a18}{Config\+Impl}} ()
+\item 
+\mbox{\hyperlink{classConfigImpl_ad4dcaa753a82ac3ca99038b3fa0a00ca}{$\sim$\+Config\+Impl}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton for configuration variables.
+
+This object holds the global static variables read from a user-\/supplied configuration file. The static member \mbox{\hyperlink{classConfigImpl_a501e98a30e96c9930ac4b1791b80c09a}{instance()}} can be used to get a pointer to the one and only instance.
+
+Set all variables to their default values by calling Config\+::instance()-\/\texorpdfstring{$>$}{>}\mbox{\hyperlink{classConfigImpl_a50654e77279eecd43b0dd91cb21420e5}{init()}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classConfigImpl_af661fbf44e03c43d5ae7c3e30ef33a18}\label{classConfigImpl_af661fbf44e03c43d5ae7c3e30ef33a18}} 
+\index{ConfigImpl@{ConfigImpl}!ConfigImpl@{ConfigImpl}}
+\index{ConfigImpl@{ConfigImpl}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{ConfigImpl()}{ConfigImpl()}}
+{\footnotesize\ttfamily Config\+Impl\+::\+Config\+Impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classConfigImpl_ad4dcaa753a82ac3ca99038b3fa0a00ca}\label{classConfigImpl_ad4dcaa753a82ac3ca99038b3fa0a00ca}} 
+\index{ConfigImpl@{ConfigImpl}!````~ConfigImpl@{$\sim$ConfigImpl}}
+\index{````~ConfigImpl@{$\sim$ConfigImpl}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{$\sim$ConfigImpl()}{~ConfigImpl()}}
+{\footnotesize\ttfamily Config\+Impl\+::$\sim$\+Config\+Impl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConfigImpl_aadfbf98b2e5762c07fa871bc76ebce81}\label{classConfigImpl_aadfbf98b2e5762c07fa871bc76ebce81}} 
+\index{ConfigImpl@{ConfigImpl}!addBool@{addBool}}
+\index{addBool@{addBool}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addBool()}{addBool()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigBool}{Config\+Bool}} $\ast$ Config\+Impl\+::add\+Bool (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc,  }\item[{bool}]{def\+Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new boolean option with {\itshape name} and documentation {\itshape doc}. The boolean has a default value of {\itshape def\+Val}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a376d29ff41f6772b2ccfd055af34d9bb}\label{classConfigImpl_a376d29ff41f6772b2ccfd055af34d9bb}} 
+\index{ConfigImpl@{ConfigImpl}!addDisabled@{addDisabled}}
+\index{addDisabled@{addDisabled}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addDisabled()}{addDisabled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ Config\+Impl\+::add\+Disabled (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds an option that has been disabled at compile time. \mbox{\Hypertarget{classConfigImpl_a09d7a6327e02376011d6c4a28e8b384c}\label{classConfigImpl_a09d7a6327e02376011d6c4a28e8b384c}} 
+\index{ConfigImpl@{ConfigImpl}!addEnum@{addEnum}}
+\index{addEnum@{addEnum}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addEnum()}{addEnum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigEnum}{Config\+Enum}} $\ast$ Config\+Impl\+::add\+Enum (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc,  }\item[{const char $\ast$}]{def\+Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new enumeration option with {\itshape name} and documentation {\itshape doc} and initial value {\itshape def\+Val}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_aac7264ca82b6c9265c39ee010056a2f2}\label{classConfigImpl_aac7264ca82b6c9265c39ee010056a2f2}} 
+\index{ConfigImpl@{ConfigImpl}!addInfo@{addInfo}}
+\index{addInfo@{addInfo}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addInfo()}{addInfo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigInfo}{Config\+Info}} $\ast$ Config\+Impl\+::add\+Info (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Starts a new configuration section with {\itshape name} and description {\itshape doc}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a00e4c51763bed0ccb6e017308c46a8f7}\label{classConfigImpl_a00e4c51763bed0ccb6e017308c46a8f7}} 
+\index{ConfigImpl@{ConfigImpl}!addInt@{addInt}}
+\index{addInt@{addInt}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addInt()}{addInt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigInt}{Config\+Int}} $\ast$ Config\+Impl\+::add\+Int (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc,  }\item[{\mbox{\hyperlink{classint}{int}}}]{min\+Val,  }\item[{\mbox{\hyperlink{classint}{int}}}]{max\+Val,  }\item[{\mbox{\hyperlink{classint}{int}}}]{def\+Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new integer option with {\itshape name} and documentation {\itshape doc}. The integer has a range between {\itshape min\+Val} and {\itshape max\+Val} and a default value of {\itshape def\+Val}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a52d03dcef339e7d828141b75223c0f08}\label{classConfigImpl_a52d03dcef339e7d828141b75223c0f08}} 
+\index{ConfigImpl@{ConfigImpl}!addList@{addList}}
+\index{addList@{addList}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addList()}{addList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigList}{Config\+List}} $\ast$ Config\+Impl\+::add\+List (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new string option with {\itshape name} and documentation {\itshape doc}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_adf9c8d995aff187d5be5489e62c0f738}\label{classConfigImpl_adf9c8d995aff187d5be5489e62c0f738}} 
+\index{ConfigImpl@{ConfigImpl}!addObsolete@{addObsolete}}
+\index{addObsolete@{addObsolete}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addObsolete()}{addObsolete()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ Config\+Impl\+::add\+Obsolete (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{\mbox{\hyperlink{classConfigOption_ad60cb308cdf307e72796dc2fc2a40fda}{Config\+Option\+::\+Option\+Type}}}]{org\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds an option that has become obsolete. \mbox{\Hypertarget{classConfigImpl_a9f6352eef16a95f0af17e28d8cc472a8}\label{classConfigImpl_a9f6352eef16a95f0af17e28d8cc472a8}} 
+\index{ConfigImpl@{ConfigImpl}!addString@{addString}}
+\index{addString@{addString}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{addString()}{addString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigString}{Config\+String}} $\ast$ Config\+Impl\+::add\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a new string option with {\itshape name} and documentation {\itshape doc}. \begin{DoxyReturn}{Returns}
+An object representing the option. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a7a016d2f1ef3643494fb1b1e3201e928}\label{classConfigImpl_a7a016d2f1ef3643494fb1b1e3201e928}} 
+\index{ConfigImpl@{ConfigImpl}!appendStartComment@{appendStartComment}}
+\index{appendStartComment@{appendStartComment}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{appendStartComment()}{appendStartComment()}}
+{\footnotesize\ttfamily void Config\+Impl\+::append\+Start\+Comment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append user start comment \mbox{\Hypertarget{classConfigImpl_a33e3594e6a4848cd7803990e15b452de}\label{classConfigImpl_a33e3594e6a4848cd7803990e15b452de}} 
+\index{ConfigImpl@{ConfigImpl}!appendUserComment@{appendUserComment}}
+\index{appendUserComment@{appendUserComment}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{appendUserComment()}{appendUserComment()}}
+{\footnotesize\ttfamily void Config\+Impl\+::append\+User\+Comment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{u }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append user comment \mbox{\Hypertarget{classConfigImpl_a3f46654689a6f0ca4e728b0fd5b46245}\label{classConfigImpl_a3f46654689a6f0ca4e728b0fd5b46245}} 
+\index{ConfigImpl@{ConfigImpl}!compareDoxyfile@{compareDoxyfile}}
+\index{compareDoxyfile@{compareDoxyfile}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{compareDoxyfile()}{compareDoxyfile()}}
+{\footnotesize\ttfamily void Config\+Impl\+::compare\+Doxyfile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})}
+
+Writes a the differences between the current configuration and the template configuration to stream {\itshape t}. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classConfigImpl_a866e373ff4207d492e15ca578e53a551}\label{classConfigImpl_a866e373ff4207d492e15ca578e53a551}} 
+\index{ConfigImpl@{ConfigImpl}!convertStrToVal@{convertStrToVal}}
+\index{convertStrToVal@{convertStrToVal}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{convertStrToVal()}{convertStrToVal()}}
+{\footnotesize\ttfamily void Config\+Impl\+::convert\+Str\+To\+Val (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Converts the string values read from the configuration file to real values for non-\/string type options (like int, and bools) Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classConfigImpl_a0e1887e271fe89b5f3e2154e344ad4b1}\label{classConfigImpl_a0e1887e271fe89b5f3e2154e344ad4b1}} 
+\index{ConfigImpl@{ConfigImpl}!create@{create}}
+\index{create@{create}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void Config\+Impl\+::create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Called from the constructor, will add doxygen\textquotesingle{}s default options to the configuration object Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classConfigImpl_a11be9a99f82898b014f311b5fd9437c1}\label{classConfigImpl_a11be9a99f82898b014f311b5fd9437c1}} 
+\index{ConfigImpl@{ConfigImpl}!deleteInstance@{deleteInstance}}
+\index{deleteInstance@{deleteInstance}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{deleteInstance()}{deleteInstance()}}
+{\footnotesize\ttfamily static void Config\+Impl\+::delete\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Delete the instance \mbox{\Hypertarget{classConfigImpl_ae0072f7a4546b40a6c445e826bb6e027}\label{classConfigImpl_ae0072f7a4546b40a6c445e826bb6e027}} 
+\index{ConfigImpl@{ConfigImpl}!emptyValueToDefault@{emptyValueToDefault}}
+\index{emptyValueToDefault@{emptyValueToDefault}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{emptyValueToDefault()}{emptyValueToDefault()}}
+{\footnotesize\ttfamily void Config\+Impl\+::empty\+Value\+To\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets default value in case value is empty Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classConfigImpl_a6ee5f5279077a8be14ca6e22d525f104}\label{classConfigImpl_a6ee5f5279077a8be14ca6e22d525f104}} 
+\index{ConfigImpl@{ConfigImpl}!get@{get}}
+\index{get@{get}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfigOption}{Config\+Option}} $\ast$ Config\+Impl\+::get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \mbox{\hyperlink{classConfigOption}{Config\+Option}} corresponding with {\itshape name} or 0 if the option is not supported. Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classConfigImpl_ad598f15be45d231f792b68314f7b0468}\label{classConfigImpl_ad598f15be45d231f792b68314f7b0468}} 
+\index{ConfigImpl@{ConfigImpl}!getBool@{getBool}}
+\index{getBool@{getBool}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{getBool()}{getBool()}}
+{\footnotesize\ttfamily bool \& Config\+Impl\+::get\+Bool (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{num,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Returns the value of the boolean option with name {\itshape file\+Name}. The arguments {\itshape num} and {\itshape name} are for debugging purposes only. There is a convenience function \mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\+\_\+get\+Bool()}} for this. Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classConfigImpl_a5c8800850fd2447c50f320ffb4ee0357}\label{classConfigImpl_a5c8800850fd2447c50f320ffb4ee0357}} 
+\index{ConfigImpl@{ConfigImpl}!getEnum@{getEnum}}
+\index{getEnum@{getEnum}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{getEnum()}{getEnum()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} \& Config\+Impl\+::get\+Enum (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{num,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Returns the value of the enum option with name {\itshape file\+Name}. The arguments {\itshape num} and {\itshape name} are for debugging purposes only. There is a convenience function \mbox{\hyperlink{config_8h_afe899eec751dfb75a60c37ec3840e288}{Config\+\_\+get\+Enum()}} for this. Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classConfigImpl_adb74a4b0533fcb0452aa355bc0f931b6}\label{classConfigImpl_adb74a4b0533fcb0452aa355bc0f931b6}} 
+\index{ConfigImpl@{ConfigImpl}!getInt@{getInt}}
+\index{getInt@{getInt}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{getInt()}{getInt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} \& Config\+Impl\+::get\+Int (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{num,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Returns the value of the integer option with name {\itshape file\+Name}. The arguments {\itshape num} and {\itshape name} are for debugging purposes only. There is a convenience function \mbox{\hyperlink{config_8h_a06b59c3720174e9078f613095a89b295}{Config\+\_\+get\+Int()}} for this. Here is the call graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classConfigImpl_a8ee52acd5fe0eebe4410be051ebb4363}\label{classConfigImpl_a8ee52acd5fe0eebe4410be051ebb4363}} 
+\index{ConfigImpl@{ConfigImpl}!getList@{getList}}
+\index{getList@{getList}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{getList()}{getList()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} \& Config\+Impl\+::get\+List (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{num,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Returns the value of the list option with name {\itshape file\+Name}. The arguments {\itshape num} and {\itshape name} are for debugging purposes only. There is a convenience function \mbox{\hyperlink{config_8h_a15e896ce0b99792d1344b66af98928e7}{Config\+\_\+get\+List()}} for this. Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classConfigImpl_afb11a49a6e7c717d0242fedf10a36309}\label{classConfigImpl_afb11a49a6e7c717d0242fedf10a36309}} 
+\index{ConfigImpl@{ConfigImpl}!getString@{getString}}
+\index{getString@{getString}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{getString()}{getString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} \& Config\+Impl\+::get\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{num,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption}) const}
+
+Returns the value of the string option with name {\itshape file\+Name}. The arguments {\itshape num} and {\itshape name} are for debugging purposes only. There is a convenience function \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\+\_\+get\+String()}} for this. Here is the call graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{classConfigImpl_a50654e77279eecd43b0dd91cb21420e5}\label{classConfigImpl_a50654e77279eecd43b0dd91cb21420e5}} 
+\index{ConfigImpl@{ConfigImpl}!init@{init}}
+\index{init@{init}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Config\+Impl\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Initialize config variables to their default value Here is the call graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{classConfigImpl_a501e98a30e96c9930ac4b1791b80c09a}\label{classConfigImpl_a501e98a30e96c9930ac4b1791b80c09a}} 
+\index{ConfigImpl@{ConfigImpl}!instance@{instance}}
+\index{instance@{instance}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classConfigImpl}{Config\+Impl}} $\ast$ Config\+Impl\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns the one and only instance of this class Here is the call graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{classConfigImpl_a5d06627b2afb76668e8315613a76b9d3}\label{classConfigImpl_a5d06627b2afb76668e8315613a76b9d3}} 
+\index{ConfigImpl@{ConfigImpl}!parse@{parse}}
+\index{parse@{parse}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily bool Config\+Impl\+::parse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{fn,  }\item[{bool}]{upd = {\ttfamily \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}} }\end{DoxyParamCaption})}
+
+Parse a configuration file with name {\itshape fn}. \begin{DoxyReturn}{Returns}
+TRUE if successful, FALSE if the file could not be opened or read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a574ffab8ab91f47f27b9f142cbf1bdc4}\label{classConfigImpl_a574ffab8ab91f47f27b9f142cbf1bdc4}} 
+\index{ConfigImpl@{ConfigImpl}!parseString@{parseString}}
+\index{parseString@{parseString}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{parseString()}{parseString()}}
+{\footnotesize\ttfamily bool Config\+Impl\+::parse\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{fn,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{str,  }\item[{bool}]{upd = {\ttfamily \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}} }\end{DoxyParamCaption})}
+
+Parse a configuration data in string {\itshape str}. \begin{DoxyReturn}{Returns}
+TRUE if successful, or FALSE if the string could not be parsed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classConfigImpl_a5a85a09dc81100da9de0dcb148e63c65}\label{classConfigImpl_a5a85a09dc81100da9de0dcb148e63c65}} 
+\index{ConfigImpl@{ConfigImpl}!setHeader@{setHeader}}
+\index{setHeader@{setHeader}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{setHeader()}{setHeader()}}
+{\footnotesize\ttfamily void Config\+Impl\+::set\+Header (\begin{DoxyParamCaption}\item[{const char $\ast$}]{header }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classConfigImpl_a56797aabb7ab52c9bd60f32634e41a5b}\label{classConfigImpl_a56797aabb7ab52c9bd60f32634e41a5b}} 
+\index{ConfigImpl@{ConfigImpl}!substituteEnvironmentVars@{substituteEnvironmentVars}}
+\index{substituteEnvironmentVars@{substituteEnvironmentVars}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{substituteEnvironmentVars()}{substituteEnvironmentVars()}}
+{\footnotesize\ttfamily void Config\+Impl\+::substitute\+Environment\+Vars (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Replaces references to environment variable by the actual value of the environment variable. Here is the call graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{classConfigImpl_a6e909c1b38e02a4536e16a33790ddca0}\label{classConfigImpl_a6e909c1b38e02a4536e16a33790ddca0}} 
+\index{ConfigImpl@{ConfigImpl}!takeStartComment@{takeStartComment}}
+\index{takeStartComment@{takeStartComment}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{takeStartComment()}{takeStartComment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Config\+Impl\+::take\+Start\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Take the user start comment and reset it internally \begin{DoxyReturn}{Returns}
+user start comment 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 15
+\mbox{\Hypertarget{classConfigImpl_a998060bb7c8a5948956b7ccf192d62da}\label{classConfigImpl_a998060bb7c8a5948956b7ccf192d62da}} 
+\index{ConfigImpl@{ConfigImpl}!takeUserComment@{takeUserComment}}
+\index{takeUserComment@{takeUserComment}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{takeUserComment()}{takeUserComment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Config\+Impl\+::take\+User\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Take the user comment and reset it internally \begin{DoxyReturn}{Returns}
+user comment 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{classConfigImpl_aa7948af854eb611524c208def210db01}\label{classConfigImpl_aa7948af854eb611524c208def210db01}} 
+\index{ConfigImpl@{ConfigImpl}!writeTemplate@{writeTemplate}}
+\index{writeTemplate@{writeTemplate}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{writeTemplate()}{writeTemplate()}}
+{\footnotesize\ttfamily void Config\+Impl\+::write\+Template (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t,  }\item[{bool}]{short\+Index,  }\item[{bool}]{update\+Only }\end{DoxyParamCaption})}
+
+Writes a template configuration to stream {\itshape t}. If {\itshape short\+Index} is {\ttfamily TRUE} the description of each configuration option will be omitted. Here is the call graph for this function\+:
+% FIG 17
+\mbox{\Hypertarget{classConfigImpl_a87163252416c500d2000ad78353400a2}\label{classConfigImpl_a87163252416c500d2000ad78353400a2}} 
+\index{ConfigImpl@{ConfigImpl}!writeXMLDoxyfile@{writeXMLDoxyfile}}
+\index{writeXMLDoxyfile@{writeXMLDoxyfile}!ConfigImpl@{ConfigImpl}}
+\doxysubsubsection{\texorpdfstring{writeXMLDoxyfile()}{writeXMLDoxyfile()}}
+{\footnotesize\ttfamily void Config\+Impl\+::write\+XMLDoxyfile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t }\end{DoxyParamCaption})}
+
+Writes a the used settings of the current configuration as XML format to stream {\itshape t}. Here is the call graph for this function\+:
+% FIG 18
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{configimpl_8h}{configimpl.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{configimpl_8l}{configimpl.\+l}}\end{DoxyCompactItemize}

@@ -1,0 +1,247 @@
+\hypertarget{cmdmapper_8h_source}{}\doxysection{cmdmapper.\+h}
+\label{cmdmapper_8h_source}\index{/mnt/c/projects/doxygen/src/cmdmapper.h@{/mnt/c/projects/doxygen/src/cmdmapper.h}}
+\mbox{\hyperlink{cmdmapper_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef CMDMAPPER\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define CMDMAPPER\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{struct }\mbox{\hyperlink{structCommandMap}{CommandMap}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}} = 0x1000;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{enum} \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352}{CommandType}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a59c51f88aeda3ea6351f01c9c70b9ac7}{CMD\_UNKNOWN}}      = 0,}
+\DoxyCodeLine{30   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a46f97c0157cebb6ac65f5e6f4170b320}{CMD\_ADDINDEX}}     = 1,}
+\DoxyCodeLine{31   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a09f01a9578d7bd6c25aeb04f900408a7}{CMD\_AMP}}          = 2,}
+\DoxyCodeLine{32   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a2ccf6f47c5b51878ea810ddef9969c2d}{CMD\_ANCHOR}}       = 3,}
+\DoxyCodeLine{33   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a08d080ed693ae3d57daeeadba389b28e}{CMD\_AT}}           = 4,}
+\DoxyCodeLine{34   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352af8ebefd0fa31474105e85b3ac921339c}{CMD\_ATTENTION}}    = 5  | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{35   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ac8b40ab6cfa015c5510896e978b217b3}{CMD\_AUTHOR}}       = 6  | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{36   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a391a0d10fe9a019553ec57d9cb1d4b80}{CMD\_AUTHORS}}      = 7  | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{37   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352abe2881ab8d2d66c0e8193c00381e3909}{CMD\_BOLD}}         = 8,}
+\DoxyCodeLine{38   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a0bce2c912e5c4a050a5e6a85c204ee42}{CMD\_BSLASH}}       = 9,}
+\DoxyCodeLine{39   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a8ab4f4613d5c037b9c56432a504b6d28}{CMD\_CODE}}         = 10,}
+\DoxyCodeLine{40   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a92c4be5128f4e797696eb7820adc9b70}{CMD\_COPYDOC}}      = 11,}
+\DoxyCodeLine{41   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a86e8e7aeaa2295e4450f9f995bdaf2a8}{CMD\_DATE}}         = 12 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{42   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352af3806ce757d79f91163410b8243d475f}{CMD\_DOLLAR}}       = 13,}
+\DoxyCodeLine{43   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a015760c7f8c8938ed8e3fa97edd06ebf}{CMD\_DONTINCLUDE}}  = 14,}
+\DoxyCodeLine{44   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a03af4e9e21a23eb1628ed875f0156867}{CMD\_DOTFILE}}      = 15,}
+\DoxyCodeLine{45   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aac985a4be59c37a5bda46b6c5607a8ed}{CMD\_EMPHASIS}}     = 16,}
+\DoxyCodeLine{46   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352afd5d9d62bc72addbf29c3184c296798f}{CMD\_ENDCODE}}      = 17,}
+\DoxyCodeLine{47   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa2b25243d360e41264458cb803d4a22e}{CMD\_ENDHTMLONLY}}  = 18,}
+\DoxyCodeLine{48   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a110122ca57971285ef331a7f970736fa}{CMD\_ENDLATEXONLY}} = 19,}
+\DoxyCodeLine{49   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa4dc70d377e34b2a60453c8a1b674381}{CMD\_ENDLINK}}      = 20,}
+\DoxyCodeLine{50   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab144f71820405a27afae416e579bca4a}{CMD\_ENDSECREFLIST}}= 21,}
+\DoxyCodeLine{51   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a2b0b8a261825e20981d225db5e593e82}{CMD\_ENDVERBATIM}}  = 22,}
+\DoxyCodeLine{52   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352acdd92cdea978475a76af7c309b1b894c}{CMD\_ENDXMLONLY}}   = 23,}
+\DoxyCodeLine{53   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352abe401b90d4d1c2a955cfede5a03adb22}{CMD\_EXCEPTION}}    = 24 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{54   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352af05d1a0f394992a9a446d10753e9a05f}{CMD\_FORMULA}}      = 25,}
+\DoxyCodeLine{55   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a726d9578393b5e3b465db7f8c229a01e}{CMD\_GREATER}}      = 26,}
+\DoxyCodeLine{56   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a47da9933b5dff07d6afae70cbfa647b8}{CMD\_HASH}}         = 27,}
+\DoxyCodeLine{57   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352adae53dd7c50f13a85a89b1dc0b8d4041}{CMD\_HTMLINCLUDE}}  = 28,}
+\DoxyCodeLine{58   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a9f761cf9e2aac1ac177ef0bac1151302}{CMD\_HTMLONLY}}     = 29,}
+\DoxyCodeLine{59   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a489f5bfe07b9122b07ae95603b620637}{CMD\_IMAGE}}        = 30,}
+\DoxyCodeLine{60   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab4d1c975213dd44975bc7d120dde4a2a}{CMD\_INCLUDE}}      = 31,}
+\DoxyCodeLine{61   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a6665d8f0bcf614404cc57821e7be1d8c}{CMD\_INTERNAL}}     = 32,}
+\DoxyCodeLine{62   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ae4d4c7c2d623f6ce76f6dd671e243e6e}{CMD\_INTERNALREF}}  = 33,}
+\DoxyCodeLine{63   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ad8c7abc774834caafe87e7c2bd407666}{CMD\_INVARIANT}}    = 34 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}} ,}
+\DoxyCodeLine{64   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a60b538ad584eaab529e7a73e5e6acf8e}{CMD\_LATEXONLY}}    = 35,}
+\DoxyCodeLine{65   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a3a961d60636b316ed52bd72bcf3f048c}{CMD\_LESS}}         = 36,}
+\DoxyCodeLine{66   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a55101ef8bab305f40ec71ee8c7ccb77b}{CMD\_LI}}           = 37,}
+\DoxyCodeLine{67   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352abb221177213477f4650b63a6d506b291}{CMD\_LINE}}         = 38,}
+\DoxyCodeLine{68   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a3a0100e6a1ada0c023dbd1b9ff769577}{CMD\_LINEBREAK}}    = 39,}
+\DoxyCodeLine{69   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a0b5a9ce6f811adbe3d817d249fbe44d4}{CMD\_LINK}}         = 40,}
+\DoxyCodeLine{70   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352acdac039ffed313b2d399933d181ae9c3}{CMD\_NOTE}}         = 41 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{71   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ada5569a23faea46f5ff18a775d01d8a5}{CMD\_PAR}}          = 42 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{72   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ad01b24f526e012f70137bed8e5a71b68}{CMD\_PARAM}}        = 43 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{73   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aca96e5cf3753309844d0949454f78161}{CMD\_PERCENT}}      = 44,}
+\DoxyCodeLine{74   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a280d5532836e7a1c79bf385018735299}{CMD\_POST}}         = 45 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{75   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a59a35d52b97a447d756c2ee16357ba3b}{CMD\_PRE}}          = 46 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{76   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a7b8f06ae1e48af487c6e23a69ad11bc9}{CMD\_REF}}          = 47,}
+\DoxyCodeLine{77   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ae803793081803c1927138f9ea69f6d1b}{CMD\_SECREFITEM}}   = 48,}
+\DoxyCodeLine{78   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a77763768ec706ff41b93ccdfbfbc9fc8}{CMD\_REMARK}}       = 49 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}} ,}
+\DoxyCodeLine{79   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a958f04212c5e4a3510a98dd4ddc9cacc}{CMD\_RETURN}}       = 50 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}} ,}
+\DoxyCodeLine{80   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a3b1b41352af0687e5a3539dc3fa71306}{CMD\_RETVAL}}       = 51 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{81   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a05dedb991f617814382fc008c9b254af}{CMD\_SA}}           = 52 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}} ,}
+\DoxyCodeLine{82   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a55a71bd5670f7e2a3effaf7099f8414b}{CMD\_SECREFLIST}}   = 53,}
+\DoxyCodeLine{83   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352afbaa664ecc659219f06dd197e53d1103}{CMD\_SECTION}}      = 54,}
+\DoxyCodeLine{84   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a526362e9cbc278da3be397e44f8ddd8d}{CMD\_SUBPAGE}}      = 55,}
+\DoxyCodeLine{85   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aac8616a48c4f1b08d9ee7e7169900649}{CMD\_SUBSECTION}}   = 56,}
+\DoxyCodeLine{86   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a01b80164671b4c46dc9dcc302634ea1b}{CMD\_SUBSUBSECTION}}= 57,}
+\DoxyCodeLine{87   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a91d6f6827880e5e6451c1b9876c029ef}{CMD\_PARAGRAPH}}    = 58,}
+\DoxyCodeLine{88   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa1a49deb0b26369db95f89dd292794dc}{CMD\_SINCE}}        = 59 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{89   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a4805c5dee0868ae46a6847b11ea5bd79}{CMD\_SKIP}}         = 60,}
+\DoxyCodeLine{90   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a0552286c010906901ded70c1c725d286}{CMD\_SKIPLINE}}     = 61,}
+\DoxyCodeLine{91   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a55acb16c15841c9059f446aae9b08557}{CMD\_STARTCODE}}    = 62,}
+\DoxyCodeLine{92   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a6f4e61a229d6b794cfaf7d244312409b}{CMD\_JAVALINK}}     = 63,}
+\DoxyCodeLine{93   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a5e4da2a4060874b9235b0ae87fdfafe9}{CMD\_UNTIL}}        = 64,}
+\DoxyCodeLine{94   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a8e2892d5b3845a0640ea21108f4ecf8f}{CMD\_VERBATIM}}     = 65,}
+\DoxyCodeLine{95   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa23cdd46a729b71b24b6e916a2ad6a3d}{CMD\_VERBINCLUDE}}  = 66,}
+\DoxyCodeLine{96   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a775afaef84c85d8173a20debb1a9e2ef}{CMD\_VERSION}}      = 67 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{97   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a8ebff95a3a1eced8424b411a58129570}{CMD\_WARNING}}      = 68 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{98   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a9a05dbb51dd0e9c99e2f5f8afeee9e34}{CMD\_XREFITEM}}     = 69 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{99   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a5ea1f3b68bcc06282c8e4e8ffc04e577}{CMD\_XMLONLY}}      = 70,}
+\DoxyCodeLine{100   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352acc3ae0ca27b8c1e16ff656218fe75ffd}{CMD\_DOT}}          = 71,}
+\DoxyCodeLine{101   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab5c456e1b599f22a99f6fca83d72c4c2}{CMD\_ENDDOT}}       = 72,}
+\DoxyCodeLine{102   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a0b9cfdde6af11b21f723efc74101ca91}{CMD\_MSC}}          = 73,}
+\DoxyCodeLine{103   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa5b691035efafbcce28a68e1f545bca7}{CMD\_ENDMSC}}       = 74,}
+\DoxyCodeLine{104   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352abe7a854cf21231a81d1d038b8faabd34}{CMD\_MANONLY}}      = 75,}
+\DoxyCodeLine{105   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352abc7effe66a73c5de9e6483e3d0e443cd}{CMD\_ENDMANONLY}}   = 76,}
+\DoxyCodeLine{106   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352af3aaa6101991074c124285bd40b25251}{CMD\_INCWITHLINES}} = 77,}
+\DoxyCodeLine{107   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a19dea03fa05253a4c24ec5b831fb4620}{CMD\_INHERITDOC}}   = 78,}
+\DoxyCodeLine{108   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a23ffe75d48cf03af7ffe387ab0ea9b8c}{CMD\_TPARAM}}       = 79 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{109   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ae54a3da6d5ec9d3de242797ba200d340}{CMD\_COPYBRIEF}}    = 80,}
+\DoxyCodeLine{110   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a82223f58b6dcbfe3634c578b15b60705}{CMD\_COPYDETAILS}}  = 81,}
+\DoxyCodeLine{111   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a58a61c08767e3f10d7eaea740ec7f4bd}{CMD\_QUOTE}}        = 82,}
+\DoxyCodeLine{112   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352adb64829d249746c970285f75fc0119b3}{CMD\_MSCFILE}}      = 83,}
+\DoxyCodeLine{113   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab05528d9341e59cb0a4417c78f7b4612}{CMD\_DCOLON}}       = 84,}
+\DoxyCodeLine{114   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a3f984fb2659e79ea8db1451708cd2418}{CMD\_COPYRIGHT}}    = 85 | \mbox{\hyperlink{cmdmapper_8h_a5c52a0f09760b4ee2a3e66c075d863f4}{SIMPLESECT\_BIT}},}
+\DoxyCodeLine{115   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aef3bd5b15cfda05777564054f3d51519}{CMD\_CITE}}         = 86,}
+\DoxyCodeLine{116   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aa52a134d53b7dae853c6ddd7c0d32762}{CMD\_SNIPPET}}      = 87,}
+\DoxyCodeLine{117   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a416b36a42a1f59b90554459d5136ba59}{CMD\_RTFONLY}}      = 88,}
+\DoxyCodeLine{118   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a9b7320a3db24c2c2297ac3885a794f77}{CMD\_ENDRTFONLY}}   = 89,}
+\DoxyCodeLine{119   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a909f9b752cc4cb5ac167c49a60c693e3}{CMD\_PIPE}}         = 90,}
+\DoxyCodeLine{120   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352afb92f40faabf2a23a7613fa45ef9b41f}{CMD\_VHDLFLOW}}     = 91,}
+\DoxyCodeLine{121   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a6a1b6ba7045be9a9ff5e53c4ba3a7cd2}{CMD\_DBONLY}}       = 92,}
+\DoxyCodeLine{122   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a689e44582ab16371bf0e4abe0b0df8bd}{CMD\_ENDDBONLY}}    = 93,}
+\DoxyCodeLine{123   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a14e860729ef7343b20b23f57c2005734}{CMD\_ENDINTERNAL}}  = 94,}
+\DoxyCodeLine{124   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a3558fa3cad78186718c5c61b2d22366a}{CMD\_PARBLOCK}}     = 95,}
+\DoxyCodeLine{125   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a5b101f3e704ea6146fe97a7b6c46a253}{CMD\_ENDPARBLOCK}}  = 96,}
+\DoxyCodeLine{126   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab01143b543d34b4ae565fd418120b1a0}{CMD\_DIAFILE}}      = 97,}
+\DoxyCodeLine{127   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aaf70c5e32de19a4e981a629b5d05c87e}{CMD\_LATEXINCLUDE}} = 98,}
+\DoxyCodeLine{128   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a30aa17eaef4a68dc70659edf21a3c566}{CMD\_NDASH}}        = 99,}
+\DoxyCodeLine{129   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a6f63169f10a8f37288a93f138c942201}{CMD\_MDASH}}        = 100,}
+\DoxyCodeLine{130   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a04ec9e037c704e3f55bac3a126a58a1d}{CMD\_STARTUML}}     = 101,}
+\DoxyCodeLine{131   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352af37765a3c794a81d62b2bd21b0056995}{CMD\_ENDUML}}       = 102,}
+\DoxyCodeLine{132   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a79245f26137bb9bd110a6b3891d20918}{CMD\_SETSCOPE}}     = 103,}
+\DoxyCodeLine{133   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ab9dd376e4b81f8b5078b80c74478bd6e}{CMD\_PUNT}}         = 104,}
+\DoxyCodeLine{134   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a67050f1f36cf9dac9841a3f5ed0e889f}{CMD\_PLUS}}         = 105,}
+\DoxyCodeLine{135   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aad4f5544536c807014226858692290cf}{CMD\_MINUS}}        = 106,}
+\DoxyCodeLine{136   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a62d1f79bdd70f1a8dae3e2731e6a8973}{CMD\_INCLUDEDOC}}   = 107,}
+\DoxyCodeLine{137   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a62f03b02d6a8cffd9a07a7436f4b200a}{CMD\_SNIPPETDOC}}   = 108,}
+\DoxyCodeLine{138   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352aae2c2ace9cef512ffc26c308340f3a85}{CMD\_SNIPWITHLINES}}= 109,}
+\DoxyCodeLine{139   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a5e8fdb596a42680bb1a2ef40a528d063}{CMD\_EMOJI}}        = 110,}
+\DoxyCodeLine{140   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a2e047b07fba55a5085cb568e39ad6391}{CMD\_EQUAL}}        = 111,}
+\DoxyCodeLine{141   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a4eedbdd5b13e23baa0bf5013109764ae}{CMD\_RTFINCLUDE}}   = 112,}
+\DoxyCodeLine{142   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a695a43e1fbe0ab32b715940ccca294c8}{CMD\_DOCBOOKINCLUDE}}= 113,}
+\DoxyCodeLine{143   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a09f865e2a10494f8557790a0ff8b1cd9}{CMD\_MANINCLUDE}}   = 114,}
+\DoxyCodeLine{144   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a69e1af60d4924a1816087d296226e2bb}{CMD\_XMLINCLUDE}}   = 115,}
+\DoxyCodeLine{145   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a0058e0bc9a5a12e5a3348b219f733089}{CMD\_ILINE}}        = 116,}
+\DoxyCodeLine{146   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352ad52bd29faccae5a183a728c88f7bf01e}{CMD\_ILITERAL}}     = 117,}
+\DoxyCodeLine{147   \mbox{\hyperlink{cmdmapper_8h_a21e038f5b8958e203d28bc4f18472352a5a82462fdd0084b34882b25a41df82d4}{CMD\_ENDILITERAL}}  = 118,}
+\DoxyCodeLine{148 \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{keyword}{enum} \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273}{HtmlTagType}}}
+\DoxyCodeLine{151 \{}
+\DoxyCodeLine{152   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ac1934c403fc4e8aec69c8057dbf5eba8}{HTML\_UNKNOWN}}   = 0,}
+\DoxyCodeLine{153   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ac192733ecef2b440a2912e131b199297}{HTML\_CENTER}}    = 1,}
+\DoxyCodeLine{154   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a3aed8f95115b0405658ecce503a542f2}{HTML\_TABLE}}     = 2,}
+\DoxyCodeLine{155   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a8629572501ea907937bc7ab85a22a791}{HTML\_CAPTION}}   = 3,}
+\DoxyCodeLine{156   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adceacc537ebc8bef56297fbc0a36ad43}{HTML\_SMALL}}     = 4,}
+\DoxyCodeLine{157   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a979f58b8a091b20ba4df27c44f1302ad}{HTML\_CODE}}      = 5,}
+\DoxyCodeLine{158   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a436583682852de8309cf69f86b703ded}{HTML\_IMG}}       = 6,}
+\DoxyCodeLine{159   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a999fc50baf874925425d9137df1c81e6}{HTML\_PRE}}       = 7,}
+\DoxyCodeLine{160   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273acc736af404043a5fb485bad648969714}{HTML\_SUB}}       = 8,}
+\DoxyCodeLine{161   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ab33821a069d677ced94c2d9b5b95cfdf}{HTML\_SUP}}       = 9,}
+\DoxyCodeLine{162   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a965236d24833e4787f78c558191e3194}{HTML\_TR}}        = 10,}
+\DoxyCodeLine{163   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a0f65add9809a92b33af57c861072420d}{HTML\_TD}}        = 11,}
+\DoxyCodeLine{164   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a8d77dde5aa6ca897a799e50b50c97e03}{HTML\_TH}}        = 12,}
+\DoxyCodeLine{165   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a09a9451950d718b0f27763fa26f170a9}{HTML\_OL}}        = 13,}
+\DoxyCodeLine{166   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a2e79ca260235f3a4cf4cb056908d1785}{HTML\_UL}}        = 14,}
+\DoxyCodeLine{167   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a5b427daa465f1ea1296910a246c456b6}{HTML\_LI}}        = 15,}
+\DoxyCodeLine{168   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aac52e15bdb0841a553a6b25c1d8066e7}{HTML\_EMPHASIS}}  = 16,}
+\DoxyCodeLine{169   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a2db3fc04fb060767f561d6ee6e119ad8}{HTML\_HR}}        = 17,}
+\DoxyCodeLine{170   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a7bceb89c29cacf6c836060d3228dcd8c}{HTML\_DL}}        = 18,}
+\DoxyCodeLine{171   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a71fe5f07a7733918d072beab57d26285}{HTML\_DT}}        = 19,}
+\DoxyCodeLine{172   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a03e14ddd1a8f94ed1b3994c0e248568f}{HTML\_DD}}        = 20,}
+\DoxyCodeLine{173   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273af9d8009956ca8e2a982cf4131637872b}{HTML\_BR}}        = 21,}
+\DoxyCodeLine{174   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a960ff78b8fbc63b696e964b01d1af9f0}{HTML\_A}}         = 22,}
+\DoxyCodeLine{175   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aebdeae081cb7486e59697f060c626791}{HTML\_BOLD}}      = 23,}
+\DoxyCodeLine{176   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a8823a8ff4016f2ca9c638ba4a8fafcca}{HTML\_P}}         = 24,}
+\DoxyCodeLine{177   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a71751dfa9ae957e90cacaad5f0b02271}{HTML\_H1}}        = 25,}
+\DoxyCodeLine{178   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a623314b6e2c02f8cf6549eeb5d4fd53e}{HTML\_H2}}        = 26,}
+\DoxyCodeLine{179   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ab8f1bc95822a1243cf1cf1ccc49a757e}{HTML\_H3}}        = 27,}
+\DoxyCodeLine{180   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a2a914deb52931b494bd62c97e0dbfc94}{HTML\_H4}}        = 28,}
+\DoxyCodeLine{181   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ab26b52ed0aa1da4e9c891102f25bd477}{HTML\_H5}}        = 29,}
+\DoxyCodeLine{182   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ac4f15cb20d64c462bd4f5ec18fb2d425}{HTML\_H6}}        = 30,}
+\DoxyCodeLine{183   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a6691bc0d237372b68eca687beb8e4e7c}{HTML\_SPAN}}      = 31,}
+\DoxyCodeLine{184   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a925f75c7504312dc7251ecde932a062d}{HTML\_DIV}}       = 32,}
+\DoxyCodeLine{185   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ae6c12d9ab8e8c89628707b178ce5c986}{HTML\_BLOCKQUOTE}}= 33,}
+\DoxyCodeLine{186   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aaf5ddc1eb24cd2e178d73464aafbeb9c}{HTML\_STRIKE}}    = 34,}
+\DoxyCodeLine{187   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a9694115a3fef84bbea320bad20994305}{HTML\_UNDERLINE}} = 35,}
+\DoxyCodeLine{188   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aadce879df8bc2a866f928980099c82d8}{HTML\_INS}}       = 36,}
+\DoxyCodeLine{189   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a63571bd42d9592d707c635339ce0e88c}{HTML\_DEL}}       = 37,}
+\DoxyCodeLine{190   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a33a0173429e3ba4f7394592cafbec1ce}{HTML\_S}}         = 38,}
+\DoxyCodeLine{191   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a24b01382403203fdfa1721ff9c5d1b8f}{HTML\_DETAILS}}   = 39,}
+\DoxyCodeLine{192   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a83f40c953c979133bbbbf419527a51dc}{HTML\_CITE}}      = 40,}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}}    = 0x100,}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a5ce9f148d97c638bc2c457bfe13d249a}{XML\_C}}            = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 0,}
+\DoxyCodeLine{197   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a2bb7e964f4b1a8a2fe5c79fac9533ed1}{XML\_CODE}}         = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 1,}
+\DoxyCodeLine{198   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a761a8eb7adb060a77231c1dcaf6ec7a7}{XML\_DESCRIPTION}}  = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 2,}
+\DoxyCodeLine{199   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ae627281142418bf3f6ea1ad587b981d0}{XML\_EXAMPLE}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 3,}
+\DoxyCodeLine{200   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a17262cd94d4e5c0027a4091a9f2f952a}{XML\_EXCEPTION}}    = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 4,}
+\DoxyCodeLine{201   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a8e4ea382d510d878feb5355e2355fc72}{XML\_INCLUDE}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 5,}
+\DoxyCodeLine{202   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ae70bda34c2d52fea764904c0e4b1fc85}{XML\_ITEM}}         = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 6,}
+\DoxyCodeLine{203   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aaec1100f100092d88ffc3af27bd1866c}{XML\_LIST}}         = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 7,}
+\DoxyCodeLine{204   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ac48592c8ebbff98d76999dd2408a46ef}{XML\_LISTHEADER}}   = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 8,}
+\DoxyCodeLine{205   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aa696544c534edf109c171ca758bb4702}{XML\_PARA}}         = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 9,}
+\DoxyCodeLine{206   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a54dc1a524b67adcea3e1563afa23cc1d}{XML\_PARAM}}        = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 10,}
+\DoxyCodeLine{207   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a4c31f33e40697345228ea9d29bee31d1}{XML\_PARAMREF}}     = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 11,}
+\DoxyCodeLine{208   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273acb790b0b3426646c7a17476479cb84f1}{XML\_PERMISSION}}   = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 12,}
+\DoxyCodeLine{209   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aaa1f6b197dc934591767c02cd07e52de}{XML\_REMARKS}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 13,}
+\DoxyCodeLine{210   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273ad3c346b2e4c29ce98d84720d6f64f0fb}{XML\_RETURNS}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 14,}
+\DoxyCodeLine{211   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273aedc5fef9c81acc3194aff4fb88f733c1}{XML\_SEE}}          = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 15,}
+\DoxyCodeLine{212   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a712c5f27f1403566d33c95ad36b3ba60}{XML\_SEEALSO}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 16,}
+\DoxyCodeLine{213   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a5e0188b366e11cbaaa19dde14e7f2ad8}{XML\_SUMMARY}}      = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 17,}
+\DoxyCodeLine{214   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273af3f2f2a8973614ce7f59d399bf05823c}{XML\_TERM}}         = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 18,}
+\DoxyCodeLine{215   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a0497f73782182c5c2260a93261200065}{XML\_TYPEPARAM}}    = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 19,}
+\DoxyCodeLine{216   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273afd6e13b735ca1096eec6467d8510944b}{XML\_TYPEPARAMREF}} = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 20,}
+\DoxyCodeLine{217   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a987d799b742d02ff52c9ee7779ca6d52}{XML\_VALUE}}        = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 21,}
+\DoxyCodeLine{218   \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273a6bcf22be79f4c77c446cd03365be6a4e}{XML\_INHERITDOC}}   = \mbox{\hyperlink{cmdmapper_8h_a91be16b8342aa3130a4374d78cf42273adedaab7375bcdd08040b1ba9a6364ea4}{XML\_CmdMask}} + 22}
+\DoxyCodeLine{219 \};}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221 }
+\DoxyCodeLine{223 \textcolor{keyword}{class }\mbox{\hyperlink{classMapper}{Mapper}}}
+\DoxyCodeLine{224 \{}
+\DoxyCodeLine{225   \textcolor{keyword}{public}:}
+\DoxyCodeLine{226     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMapper_a76bc83f0e5310d8c9b201957d341f4b5}{map}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&n);}
+\DoxyCodeLine{227     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classMapper_af6c2f47513d570a88524cbd8da604244}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{228     \mbox{\hyperlink{classMapper_af3513047b2c3d6aedc2b429e6cdbc6b5}{Mapper}}(\textcolor{keyword}{const} \mbox{\hyperlink{structCommandMap}{CommandMap}} *cm,\textcolor{keywordtype}{bool} caseSensitive);}
+\DoxyCodeLine{229   \textcolor{keyword}{private}:}
+\DoxyCodeLine{230     std::map<std::string,int> m\_map;}
+\DoxyCodeLine{231     \textcolor{keywordtype}{bool} m\_cs;}
+\DoxyCodeLine{232 \};}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{235 \textcolor{keyword}{struct }\mbox{\hyperlink{structMappers}{Mappers}}}
+\DoxyCodeLine{236 \{}
+\DoxyCodeLine{237   \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{structMappers_aa2ba9c5371b148a67f2dbd2f85620968}{freeMappers}}();}
+\DoxyCodeLine{238   \textcolor{keyword}{static} \mbox{\hyperlink{classMapper}{Mapper}} *\mbox{\hyperlink{structMappers_a7f535b1382d0320d5ad22b75386da706}{cmdMapper}};}
+\DoxyCodeLine{239   \textcolor{keyword}{static} \mbox{\hyperlink{classMapper}{Mapper}} *\mbox{\hyperlink{structMappers_abeeec7950ae00f874c06bee2f04337ff}{htmlTagMapper}};}
+\DoxyCodeLine{240 \};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

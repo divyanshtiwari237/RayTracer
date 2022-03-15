@@ -1,0 +1,40 @@
+\hypertarget{classCachedItem}{}\doxysection{Cached\+Item\texorpdfstring{$<$}{<} T, TOwner, creator \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classCachedItem}\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+
+
+Collaboration diagram for Cached\+Item\texorpdfstring{$<$}{<} T, TOwner, creator \texorpdfstring{$>$}{>}\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+T \& \mbox{\hyperlink{classCachedItem_a1a0c953e18a4c201a714c5f38b04117b}{get}} (const TOwner $\ast$owner) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename TOwner, T(TOwner\+::$\ast$)() const creator$>$\newline
+class Cached\+Item$<$ T, TOwner, creator $>$}
+Wrapper for data that needs to be cached. The cached data can be accessed via the \mbox{\hyperlink{classCachedItem_a1a0c953e18a4c201a714c5f38b04117b}{get()}} method from multiple threads. The first thread that calls \mbox{\hyperlink{classCachedItem_a1a0c953e18a4c201a714c5f38b04117b}{get()}} will trigger creation of the data item via the creator method, blocking other threads until the item is available in the cache. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the data item in the cache. \\
+\hline
+{\em TOwner} & the class containing the cached item. \\
+\hline
+{\em creator} & the method of TOwner to call in order to create the data item to be cached. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCachedItem_a1a0c953e18a4c201a714c5f38b04117b}\label{classCachedItem_a1a0c953e18a4c201a714c5f38b04117b}} 
+\index{CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}!get@{get}}
+\index{get@{get}!CachedItem$<$ T, TOwner, creator $>$@{CachedItem$<$ T, TOwner, creator $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T , typename TOwner , T(TOwner\+::$\ast$)() const creator$>$ \\
+T \& \mbox{\hyperlink{classCachedItem}{Cached\+Item}}$<$ T, TOwner, creator $>$\+::get (\begin{DoxyParamCaption}\item[{const TOwner $\ast$}]{owner }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the cached data. Conceptually this is a const method, i.\+e. it will always return the same data The first time it is called, the owner will be asked to create the data. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{context_8cpp}{context.\+cpp}}\end{DoxyCompactItemize}

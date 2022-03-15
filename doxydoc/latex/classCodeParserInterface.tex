@@ -1,0 +1,104 @@
+\hypertarget{classCodeParserInterface}{}\doxysection{Code\+Parser\+Interface Class Reference}
+\label{classCodeParserInterface}\index{CodeParserInterface@{CodeParserInterface}}
+
+
+Abstract interface for code parsers.  
+
+
+
+
+{\ttfamily \#include $<$parserintf.\+h$>$}
+
+
+
+Inheritance diagram for Code\+Parser\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Code\+Parser\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classCodeParserInterface_a9cb510c4b71f1ee6cc5d7b69f37f32da}{$\sim$\+Code\+Parser\+Interface}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classCodeParserInterface_a33d72178196c84965d5bf1eb361af8bb}{parse\+Code}} (\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&code\+Out\+Intf, const \mbox{\hyperlink{classQCString}{QCString}} \&scope\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&input, \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}} lang, bool is\+Example\+Block, const \mbox{\hyperlink{classQCString}{QCString}} \&example\+Name=\mbox{\hyperlink{classQCString}{QCString}}(), const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$file\+Def=0, \mbox{\hyperlink{classint}{int}} start\+Line=-\/1, \mbox{\hyperlink{classint}{int}} end\+Line=-\/1, bool inline\+Fragment=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$member\+Def=0, bool show\+Line\+Numbers=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$search\+Ctx=0, bool collect\+XRefs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}})=0
+\item 
+virtual void \mbox{\hyperlink{classCodeParserInterface_a3730d6a2825e4e377d7f7fb048f45367}{reset\+Code\+Parser\+State}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract interface for code parsers. 
+
+By implementing the methods of this interface one can add a new language parser to doxygen. This interface is used for syntax highlighting, but also to extract cross references and call graphs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCodeParserInterface_a9cb510c4b71f1ee6cc5d7b69f37f32da}\label{classCodeParserInterface_a9cb510c4b71f1ee6cc5d7b69f37f32da}} 
+\index{CodeParserInterface@{CodeParserInterface}!````~CodeParserInterface@{$\sim$CodeParserInterface}}
+\index{````~CodeParserInterface@{$\sim$CodeParserInterface}!CodeParserInterface@{CodeParserInterface}}
+\doxysubsubsection{\texorpdfstring{$\sim$CodeParserInterface()}{~CodeParserInterface()}}
+{\footnotesize\ttfamily virtual Code\+Parser\+Interface\+::$\sim$\+Code\+Parser\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCodeParserInterface_a33d72178196c84965d5bf1eb361af8bb}\label{classCodeParserInterface_a33d72178196c84965d5bf1eb361af8bb}} 
+\index{CodeParserInterface@{CodeParserInterface}!parseCode@{parseCode}}
+\index{parseCode@{parseCode}!CodeParserInterface@{CodeParserInterface}}
+\doxysubsubsection{\texorpdfstring{parseCode()}{parseCode()}}
+{\footnotesize\ttfamily virtual void Code\+Parser\+Interface\+::parse\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCodeOutputInterface}{Code\+Output\+Interface}} \&}]{code\+Out\+Intf,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{scope\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{input,  }\item[{\mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{Src\+Lang\+Ext}}}]{lang,  }\item[{bool}]{is\+Example\+Block,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{example\+Name = {\ttfamily \mbox{\hyperlink{classQCString}{QCString}}()},  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{file\+Def = {\ttfamily 0},  }\item[{\mbox{\hyperlink{classint}{int}}}]{start\+Line = {\ttfamily -\/1},  }\item[{\mbox{\hyperlink{classint}{int}}}]{end\+Line = {\ttfamily -\/1},  }\item[{bool}]{inline\+Fragment = {\ttfamily \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}},  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{member\+Def = {\ttfamily 0},  }\item[{bool}]{show\+Line\+Numbers = {\ttfamily \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}},  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{search\+Ctx = {\ttfamily 0},  }\item[{bool}]{collect\+XRefs = {\ttfamily \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Parses a source file or fragment with the goal to produce highlighted and cross-\/referenced output. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em code\+Out\+Intf} & Abstract interface for writing the result. \\
+\hline
+\mbox{\texttt{ in}}  & {\em scope\+Name} & Name of scope to which the code belongs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & Actual code in the form of a string \\
+\hline
+\mbox{\texttt{ in}}  & {\em lang} & The programming language of the code fragment. \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+Example\+Block} & TRUE iff the code is part of an example. \\
+\hline
+\mbox{\texttt{ in}}  & {\em example\+Name} & Name of the example. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Def} & File definition to which the code is associated. \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+Line} & Starting line in case of a code fragment. \\
+\hline
+\mbox{\texttt{ in}}  & {\em end\+Line} & Ending line of the code fragment. \\
+\hline
+\mbox{\texttt{ in}}  & {\em inline\+Fragment} & Code fragment that is to be shown inline as part of the documentation. \\
+\hline
+\mbox{\texttt{ in}}  & {\em member\+Def} & Member definition to which the code is associated (non null in case of an inline fragment for a member). \\
+\hline
+\mbox{\texttt{ in}}  & {\em show\+Line\+Numbers} & if set to TRUE and also file\+Def is not 0, line numbers will be added to the source fragment \\
+\hline
+\mbox{\texttt{ in}}  & {\em search\+Ctx} & context under which search data has to be stored. \\
+\hline
+\mbox{\texttt{ in}}  & {\em collect\+XRefs} & collect cross-\/reference relations. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classCCodeParser_abe80053c52c16b64365b2f65e73b3617}{CCode\+Parser}}, \mbox{\hyperlink{classFileCodeParser_ac1f4621ebb7a3b0aabf510689166ea70}{File\+Code\+Parser}}, \mbox{\hyperlink{classFortranCodeParser_ac476d9ee7019f70168a3fa6c3aeec17f}{Fortran\+Code\+Parser}}, \mbox{\hyperlink{classPythonCodeParser_acee2e88b013522f5669570e0dd669f68}{Python\+Code\+Parser}}, \mbox{\hyperlink{classVHDLCodeParser_a4b80a1d654204a6d551a30a7edee577b}{VHDLCode\+Parser}}, \mbox{\hyperlink{classLexCodeParser_a7d9fdb15c91a93ff98b0947433561c4a}{Lex\+Code\+Parser}}, \mbox{\hyperlink{classSQLCodeParser_afe750935436d4528ca795fbb0f7c4231}{SQLCode\+Parser}}, and \mbox{\hyperlink{classXMLCodeParser_ae58c9f8afddc0a2b136a56aa621bc401}{XMLCode\+Parser}}.
+
+\mbox{\Hypertarget{classCodeParserInterface_a3730d6a2825e4e377d7f7fb048f45367}\label{classCodeParserInterface_a3730d6a2825e4e377d7f7fb048f45367}} 
+\index{CodeParserInterface@{CodeParserInterface}!resetCodeParserState@{resetCodeParserState}}
+\index{resetCodeParserState@{resetCodeParserState}!CodeParserInterface@{CodeParserInterface}}
+\doxysubsubsection{\texorpdfstring{resetCodeParserState()}{resetCodeParserState()}}
+{\footnotesize\ttfamily virtual void Code\+Parser\+Interface\+::reset\+Code\+Parser\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Resets the state of the code parser. Since multiple code fragments can together form a single example, an explicit function is used to reset the code parser state. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classCodeParserInterface_a33d72178196c84965d5bf1eb361af8bb}{parse\+Code()}} 
+\end{DoxySeeAlso}
+
+
+Implemented in \mbox{\hyperlink{classCCodeParser_a1a7bbbf0cf32695c5f51c618507b8041}{CCode\+Parser}}, \mbox{\hyperlink{classFileCodeParser_a70aa0dc66f29d3057e3003f781dba339}{File\+Code\+Parser}}, \mbox{\hyperlink{classFortranCodeParser_a8cb63db2c9c015c20f6795cb6aff55a7}{Fortran\+Code\+Parser}}, \mbox{\hyperlink{classLexCodeParser_a7c78b61edadb5a478a484e0bd0c53be3}{Lex\+Code\+Parser}}, \mbox{\hyperlink{classPythonCodeParser_ac3176cf889b4573ea6aed6869d10267c}{Python\+Code\+Parser}}, \mbox{\hyperlink{classSQLCodeParser_a2912dad8d31429994baba554bbf5633e}{SQLCode\+Parser}}, \mbox{\hyperlink{classVHDLCodeParser_a1cf6714e8a4aae409e2fa4b10bfe32ed}{VHDLCode\+Parser}}, and \mbox{\hyperlink{classXMLCodeParser_ae57ee567b8602f02801943fc0c52ff7d}{XMLCode\+Parser}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{parserintf_8h}{parserintf.\+h}}\end{DoxyCompactItemize}

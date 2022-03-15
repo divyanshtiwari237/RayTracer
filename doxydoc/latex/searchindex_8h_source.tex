@@ -1,0 +1,97 @@
+\hypertarget{searchindex_8h_source}{}\doxysection{searchindex.\+h}
+\label{searchindex_8h_source}\index{/mnt/c/projects/doxygen/src/searchindex.h@{/mnt/c/projects/doxygen/src/searchindex.h}}
+\mbox{\hyperlink{searchindex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifndef SEARCHINDEX\_H}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define SEARCHINDEX\_H}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <variant>}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classSearchIndexIntf}{SearchIndexIntf}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37 \textcolor{keywordtype}{void} \mbox{\hyperlink{searchindex_8h_a50d08832d359fc0cce18c3079d46eb9a}{initSearchIndexer}}();}
+\DoxyCodeLine{39 \textcolor{keywordtype}{void} \mbox{\hyperlink{searchindex_8h_ad28704628a5159a8fd5ea6f9bc5d2c49}{finalizeSearchIndexer}}();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// -\/-\/-\/ intermediate data collected by one thread -\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{structSIData__CurrentDoc}{SIData\_CurrentDoc}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45   \mbox{\hyperlink{structSIData__CurrentDoc_a3be768e36e36f25c733809f449fe3911}{SIData\_CurrentDoc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&a,\textcolor{keywordtype}{bool} b)}
+\DoxyCodeLine{46     : \mbox{\hyperlink{structSIData__CurrentDoc_a37494d9ab40651c3a77d2798209a3735}{ctx}}(d), \mbox{\hyperlink{structSIData__CurrentDoc_aac6713d4387641dcd18aba49386d3b16}{anchor}}(a), \mbox{\hyperlink{structSIData__CurrentDoc_af4425f8f65091be8e1af7bc143748d82}{isSourceFile}}(b) \{\}}
+\DoxyCodeLine{47   \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{structSIData__CurrentDoc_a37494d9ab40651c3a77d2798209a3735}{ctx}} = 0;}
+\DoxyCodeLine{48   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structSIData__CurrentDoc_aac6713d4387641dcd18aba49386d3b16}{anchor}};}
+\DoxyCodeLine{49   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structSIData__CurrentDoc_af4425f8f65091be8e1af7bc143748d82}{isSourceFile}};}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{struct }\mbox{\hyperlink{structSIData__Word}{SIData\_Word}}}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54   \mbox{\hyperlink{structSIData__Word_a1c35b150169139351dae0a697415fdbd}{SIData\_Word}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&w,\textcolor{keywordtype}{bool} b)}
+\DoxyCodeLine{55     : \mbox{\hyperlink{structSIData__Word_a6c077e1b5117c1adceb3fbd25256ae2a}{word}}(w), \mbox{\hyperlink{structSIData__Word_ad7139ab71767d51a15af2099230fd5f6}{hiPrio}}(b) \{\}}
+\DoxyCodeLine{56   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structSIData__Word_a6c077e1b5117c1adceb3fbd25256ae2a}{word}};}
+\DoxyCodeLine{57   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structSIData__Word_ad7139ab71767d51a15af2099230fd5f6}{hiPrio}};}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{// class to aggregate the search data collected on a worker thread}}
+\DoxyCodeLine{61 \textcolor{comment}{// and later transfer it to the search index on the main thread.}}
+\DoxyCodeLine{62 \textcolor{keyword}{class }\mbox{\hyperlink{classSIDataCollection}{SIDataCollection}}}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64   \textcolor{keyword}{public}:}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSIDataCollection_a25d837c3ddad78acf6da7fd7c84e6155}{setCurrentDoc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *ctx,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor,\textcolor{keywordtype}{bool} isSourceFile)}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67       m\_data.emplace\_back(\mbox{\hyperlink{structSIData__CurrentDoc}{SIData\_CurrentDoc}}(ctx,anchor,isSourceFile));}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSIDataCollection_a815fbee7698a47bcc5c8ae6e9a46740f}{addWord}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&word,\textcolor{keywordtype}{bool} hiPriority)}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71       m\_data.emplace\_back(\mbox{\hyperlink{structSIData__Word}{SIData\_Word}}(word,hiPriority));}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{comment}{// transfer the collected data into the given search index}}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSIDataCollection_afab029e39c21f84a63aad5601f195b37}{transfer}}();}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77   \textcolor{keyword}{private}:}
+\DoxyCodeLine{78     \textcolor{keyword}{using} SIData = std::variant<SIData\_CurrentDoc,SIData\_Word>;}
+\DoxyCodeLine{79     std::vector<SIData> m\_data;}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{class }\mbox{\hyperlink{classSearchIndexIntf}{SearchIndexIntf}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86   \textcolor{keyword}{public}:}
+\DoxyCodeLine{87     \textcolor{keyword}{enum} \mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9ea}{Kind}} \{ \mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaa4e9f47fa9f92dd54889f2e95261a1041}{Internal}}, \mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9eaa507071eac5d8808e1e91570d8c20523b}{External}} \};}
+\DoxyCodeLine{88     \mbox{\hyperlink{classSearchIndexIntf_acf0114aef9108626eacc8c3fa065a46d}{SearchIndexIntf}}(\mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9ea}{Kind}} k) : m\_kind(k) \{\}}
+\DoxyCodeLine{89     \textcolor{keyword}{virtual} \mbox{\hyperlink{classSearchIndexIntf_a0b672fe30682137ee4784a4e6d1f4ac0}{\string~SearchIndexIntf}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{90     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classSearchIndexIntf_a31e8cd60a51344356980427b439fb2e2}{setCurrentDoc}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *ctx,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&anchor,\textcolor{keywordtype}{bool} isSourceFile) = 0;}
+\DoxyCodeLine{91     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classSearchIndexIntf_ad3fb62ec1835733c55b51dbbdaf17054}{addWord}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&word,\textcolor{keywordtype}{bool} hiPriority) = 0;}
+\DoxyCodeLine{92     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classSearchIndexIntf_a1b1e8a91ad1ba1226f012945c6f125b5}{write}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}) = 0;}
+\DoxyCodeLine{93     \mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9ea}{Kind}} \mbox{\hyperlink{classSearchIndexIntf_a7cc55c10e28715c334a3e51fb5003c08}{kind}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_kind; \}}
+\DoxyCodeLine{94   \textcolor{keyword}{private}:}
+\DoxyCodeLine{95     \mbox{\hyperlink{classSearchIndexIntf_ade3dd4c1f8bc6487f0f3dccba5c6f9ea}{Kind}} m\_kind;}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

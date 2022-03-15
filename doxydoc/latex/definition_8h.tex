@@ -1,0 +1,66 @@
+\hypertarget{definition_8h}{}\doxysection{/mnt/c/projects/doxygen/src/definition.h File Reference}
+\label{definition_8h}\index{/mnt/c/projects/doxygen/src/definition.h@{/mnt/c/projects/doxygen/src/definition.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reflist.\+h\char`\"{}}\newline
+Include dependency graph for definition.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDocInfo}{Doc\+Info}}
+\item 
+struct \mbox{\hyperlink{structBriefInfo}{Brief\+Info}}
+\item 
+struct \mbox{\hyperlink{structBodyInfo}{Body\+Info}}
+\item 
+class \mbox{\hyperlink{classDefinition}{Definition}}
+\item 
+class \mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDefinition}{Definition}} $\ast$ \mbox{\hyperlink{definition_8h_ab43e817b86eeee8909980167d1a140c8}{to\+Definition}} (\mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$dm)
+\item 
+\mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$ \mbox{\hyperlink{definition_8h_afe6bb7de7547134d0e29feddc1f894d7}{to\+Definition\+Mutable}} (\mbox{\hyperlink{classDefinition}{Definition}} $\ast$d)
+\item 
+\mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$ \mbox{\hyperlink{definition_8h_a0100dfde81557eed34a7501052226bf0}{to\+Definition\+Mutable}} (const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$d)
+\item 
+bool \mbox{\hyperlink{definition_8h_a6333b9a697ac8f68f7d18158826461ae}{read\+Code\+Fragment}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classint}{int}} \&start\+Line, \mbox{\hyperlink{classint}{int}} \&end\+Line, \mbox{\hyperlink{classQCString}{QCString}} \&result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{definition_8h_a6333b9a697ac8f68f7d18158826461ae}\label{definition_8h_a6333b9a697ac8f68f7d18158826461ae}} 
+\index{definition.h@{definition.h}!readCodeFragment@{readCodeFragment}}
+\index{readCodeFragment@{readCodeFragment}!definition.h@{definition.h}}
+\doxysubsubsection{\texorpdfstring{readCodeFragment()}{readCodeFragment()}}
+{\footnotesize\ttfamily bool read\+Code\+Fragment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{start\+Line,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{end\+Line,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{result }\end{DoxyParamCaption})}
+
+Reads a fragment from file {\itshape file\+Name} starting with line {\itshape start\+Line} and ending with line {\itshape end\+Line}. The result is returned as a string via {\itshape result}. The function returns TRUE if successful and FALSE in case of an error.
+
+Reads a fragment of code from file {\itshape file\+Name} starting at line {\itshape start\+Line} and ending at line {\itshape end\+Line} (inclusive). The fragment is stored in {\itshape result}. If FALSE is returned the code fragment could not be found.
+
+The file is scanned for a opening bracket (\textquotesingle{}\{\textquotesingle{}) from {\itshape start\+Line} onward The line actually containing the bracket is returned via start\+Line. The file is scanned for a closing bracket (\textquotesingle{}\}\textquotesingle{}) from {\itshape end\+Line} backward. The line actually containing the bracket is returned via end\+Line. Note that for VHDL code the bracket search is not done. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{definition_8h_ab43e817b86eeee8909980167d1a140c8}\label{definition_8h_ab43e817b86eeee8909980167d1a140c8}} 
+\index{definition.h@{definition.h}!toDefinition@{toDefinition}}
+\index{toDefinition@{toDefinition}!definition.h@{definition.h}}
+\doxysubsubsection{\texorpdfstring{toDefinition()}{toDefinition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDefinition}{Definition}} $\ast$ to\+Definition (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$}]{dm }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{definition_8h_a0100dfde81557eed34a7501052226bf0}\label{definition_8h_a0100dfde81557eed34a7501052226bf0}} 
+\index{definition.h@{definition.h}!toDefinitionMutable@{toDefinitionMutable}}
+\index{toDefinitionMutable@{toDefinitionMutable}!definition.h@{definition.h}}
+\doxysubsubsection{\texorpdfstring{toDefinitionMutable()}{toDefinitionMutable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$ to\+Definition\+Mutable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{definition_8h_afe6bb7de7547134d0e29feddc1f894d7}\label{definition_8h_afe6bb7de7547134d0e29feddc1f894d7}} 
+\index{definition.h@{definition.h}!toDefinitionMutable@{toDefinitionMutable}}
+\index{toDefinitionMutable@{toDefinitionMutable}!definition.h@{definition.h}}
+\doxysubsubsection{\texorpdfstring{toDefinitionMutable()}{toDefinitionMutable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDefinitionMutable}{Definition\+Mutable}} $\ast$ to\+Definition\+Mutable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d }\end{DoxyParamCaption})}
+

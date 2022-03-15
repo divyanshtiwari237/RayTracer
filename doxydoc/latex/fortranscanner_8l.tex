@@ -1,0 +1,215 @@
+\hypertarget{fortranscanner_8l}{}\doxysection{/mnt/c/projects/doxygen/src/fortranscanner.l File Reference}
+\label{fortranscanner_8l}\index{/mnt/c/projects/doxygen/src/fortranscanner.l@{/mnt/c/projects/doxygen/src/fortranscanner.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}fortranscanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pre.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fortranscanner.\+l.\+h\char`\"{}}\newline
+Include dependency graph for fortranscanner.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structSymbolModifiers}{Symbol\+Modifiers}}
+\begin{DoxyCompactList}\small\item\em Holds yyextra-\/\texorpdfstring{$>$}{>}modifiers (ie attributes) for one symbol (variable, function, etc) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structCommentInPrepass}{Comment\+In\+Prepass}}
+\item 
+struct \mbox{\hyperlink{structfortranscannerYY__state}{fortranscanner\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{structFortranOutlineParser_1_1Private}{Fortran\+Outline\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_a234e2efe67eececd88b140b46ea37463}{DBG\+\_\+\+CTX}}(x)~do \{ \} while(0)
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_a6198b2fcf96178b24ad4efff2a3debb0}{YY\+\_\+\+USER\+\_\+\+ACTION}}~yyextra-\/$>$col\+Nr+=(\mbox{\hyperlink{classint}{int}})yyleng;
+\item 
+\#define \mbox{\hyperlink{fortranscanner_8l_a1dfbc2208b3f32fc3d8dca63bd941c08}{INVALID\+\_\+\+ENTRY}}~((\mbox{\hyperlink{classEntry}{Entry}}$\ast$)0x8)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{fortranscanner_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6}{Scan\+Var}} \{ \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a2e626c4ec60ad2b9514c8984aa1eb3ec}{V\+\_\+\+IGNORE}}
+, \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6ab238d5b991ac184d0de8dca5478f5e5c}{V\+\_\+\+VARIABLE}}
+, \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6abc50e5df37302e97005583c6ae1257a3}{V\+\_\+\+PARAMETER}}
+, \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a7dd6f98b4ec3c69395dc0873ae146e40}{V\+\_\+\+RESULT}}
+ \}
+\item 
+enum \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9d}{Interface\+Type}} \{ \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da46dbf2e0f925aa7b0f3f9edd25acf5e6}{IF\+\_\+\+NONE}}
+, \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da89f0d2424cf9ae9c82a868376ceb29b9}{IF\+\_\+\+SPECIFIC}}
+, \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da5d1432a4cae2b52cafb669c901908aa5}{IF\+\_\+\+GENERIC}}
+, \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9daa33f8bd097d7a6cd1210bed71c5cb937}{IF\+\_\+\+ABSTRACT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortranscanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+const char $\ast$ \mbox{\hyperlink{fortranscanner_8l_aa7f3ae7d52c04eaf2ade934acec8930b}{prepass\+Fixed\+Form}} (const char $\ast$contents, \mbox{\hyperlink{classint}{int}} $\ast$has\+Cont\+Line)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{fortranscanner_8l_aa03f3d753568cdfbab5825c0d7cd3547}{fixed\+Comment\+After}} = 72
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fortranscanner_8l_a234e2efe67eececd88b140b46ea37463}\label{fortranscanner_8l_a234e2efe67eececd88b140b46ea37463}} 
+\index{fortranscanner.l@{fortranscanner.l}!DBG\_CTX@{DBG\_CTX}}
+\index{DBG\_CTX@{DBG\_CTX}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{DBG\_CTX}{DBG\_CTX}}
+{\footnotesize\ttfamily \#define DBG\+\_\+\+CTX(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~do \{ \} while(0)}
+
+\mbox{\Hypertarget{fortranscanner_8l_a1dfbc2208b3f32fc3d8dca63bd941c08}\label{fortranscanner_8l_a1dfbc2208b3f32fc3d8dca63bd941c08}} 
+\index{fortranscanner.l@{fortranscanner.l}!INVALID\_ENTRY@{INVALID\_ENTRY}}
+\index{INVALID\_ENTRY@{INVALID\_ENTRY}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{INVALID\_ENTRY}{INVALID\_ENTRY}}
+{\footnotesize\ttfamily \#define INVALID\+\_\+\+ENTRY~((\mbox{\hyperlink{classEntry}{Entry}}$\ast$)0x8)}
+
+\mbox{\Hypertarget{fortranscanner_8l_aacfdca45fa4beb8b06172525a53c424a}\label{fortranscanner_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{fortranscanner.l@{fortranscanner.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{fortranscanner_8l_a85523a0c7d95c059d251b4e9829947aa}\label{fortranscanner_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{fortranscanner.l@{fortranscanner.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{fortranscanner_8l_ae78ac56cd1f29572e967ed7636952d15}\label{fortranscanner_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{fortranscanner.l@{fortranscanner.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{fortranscanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{fortranscanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{fortranscanner.l@{fortranscanner.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+\mbox{\Hypertarget{fortranscanner_8l_a6198b2fcf96178b24ad4efff2a3debb0}\label{fortranscanner_8l_a6198b2fcf96178b24ad4efff2a3debb0}} 
+\index{fortranscanner.l@{fortranscanner.l}!YY\_USER\_ACTION@{YY\_USER\_ACTION}}
+\index{YY\_USER\_ACTION@{YY\_USER\_ACTION}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_USER\_ACTION}{YY\_USER\_ACTION}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+USER\+\_\+\+ACTION~yyextra-\/$>$col\+Nr+=(\mbox{\hyperlink{classint}{int}})yyleng;}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{fortranscanner_8l_a9484188abbc459dafcbd4c96425fa70b}\label{fortranscanner_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{fortranscanner.l@{fortranscanner.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9d}\label{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9d}} 
+\index{fortranscanner.l@{fortranscanner.l}!InterfaceType@{InterfaceType}}
+\index{InterfaceType@{InterfaceType}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{InterfaceType}{InterfaceType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9d}{Interface\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IF\_NONE@{IF\_NONE}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!IF\_NONE@{IF\_NONE}}}\mbox{\Hypertarget{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da46dbf2e0f925aa7b0f3f9edd25acf5e6}\label{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da46dbf2e0f925aa7b0f3f9edd25acf5e6}} 
+IF\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IF\_SPECIFIC@{IF\_SPECIFIC}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!IF\_SPECIFIC@{IF\_SPECIFIC}}}\mbox{\Hypertarget{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da89f0d2424cf9ae9c82a868376ceb29b9}\label{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da89f0d2424cf9ae9c82a868376ceb29b9}} 
+IF\+\_\+\+SPECIFIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IF\_GENERIC@{IF\_GENERIC}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!IF\_GENERIC@{IF\_GENERIC}}}\mbox{\Hypertarget{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da5d1432a4cae2b52cafb669c901908aa5}\label{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9da5d1432a4cae2b52cafb669c901908aa5}} 
+IF\+\_\+\+GENERIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IF\_ABSTRACT@{IF\_ABSTRACT}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!IF\_ABSTRACT@{IF\_ABSTRACT}}}\mbox{\Hypertarget{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9daa33f8bd097d7a6cd1210bed71c5cb937}\label{fortranscanner_8l_af1ef2c97e255bd7f21d3b7614b283d9daa33f8bd097d7a6cd1210bed71c5cb937}} 
+IF\+\_\+\+ABSTRACT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6}\label{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6}} 
+\index{fortranscanner.l@{fortranscanner.l}!ScanVar@{ScanVar}}
+\index{ScanVar@{ScanVar}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{ScanVar}{ScanVar}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6}{Scan\+Var}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\_IGNORE@{V\_IGNORE}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!V\_IGNORE@{V\_IGNORE}}}\mbox{\Hypertarget{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a2e626c4ec60ad2b9514c8984aa1eb3ec}\label{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a2e626c4ec60ad2b9514c8984aa1eb3ec}} 
+V\+\_\+\+IGNORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\_VARIABLE@{V\_VARIABLE}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!V\_VARIABLE@{V\_VARIABLE}}}\mbox{\Hypertarget{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6ab238d5b991ac184d0de8dca5478f5e5c}\label{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6ab238d5b991ac184d0de8dca5478f5e5c}} 
+V\+\_\+\+VARIABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\_PARAMETER@{V\_PARAMETER}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!V\_PARAMETER@{V\_PARAMETER}}}\mbox{\Hypertarget{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6abc50e5df37302e97005583c6ae1257a3}\label{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6abc50e5df37302e97005583c6ae1257a3}} 
+V\+\_\+\+PARAMETER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V\_RESULT@{V\_RESULT}!fortranscanner.l@{fortranscanner.l}}\index{fortranscanner.l@{fortranscanner.l}!V\_RESULT@{V\_RESULT}}}\mbox{\Hypertarget{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a7dd6f98b4ec3c69395dc0873ae146e40}\label{fortranscanner_8l_a238692c76adb8cefb158cf28754f52d6a7dd6f98b4ec3c69395dc0873ae146e40}} 
+V\+\_\+\+RESULT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fortranscanner_8l_aa7f3ae7d52c04eaf2ade934acec8930b}\label{fortranscanner_8l_aa7f3ae7d52c04eaf2ade934acec8930b}} 
+\index{fortranscanner.l@{fortranscanner.l}!prepassFixedForm@{prepassFixedForm}}
+\index{prepassFixedForm@{prepassFixedForm}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{prepassFixedForm()}{prepassFixedForm()}}
+{\footnotesize\ttfamily const char $\ast$ prepass\+Fixed\+Form (\begin{DoxyParamCaption}\item[{const char $\ast$}]{contents,  }\item[{\mbox{\hyperlink{classint}{int}} $\ast$}]{has\+Cont\+Line }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{fortranscanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{fortranscanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{fortranscanner.l@{fortranscanner.l}!yylex@{yylex}}
+\index{yylex@{yylex}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+
+fortran parsing states comment parsing states prototype parsing 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{fortranscanner_8l_aa03f3d753568cdfbab5825c0d7cd3547}\label{fortranscanner_8l_aa03f3d753568cdfbab5825c0d7cd3547}} 
+\index{fortranscanner.l@{fortranscanner.l}!fixedCommentAfter@{fixedCommentAfter}}
+\index{fixedCommentAfter@{fixedCommentAfter}!fortranscanner.l@{fortranscanner.l}}
+\doxysubsubsection{\texorpdfstring{fixedCommentAfter}{fixedCommentAfter}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classint}{int}} fixed\+Comment\+After = 72}
+

@@ -1,0 +1,87 @@
+\hypertarget{classThreadPool}{}\doxysection{Thread\+Pool Class Reference}
+\label{classThreadPool}\index{ThreadPool@{ThreadPool}}
+
+
+{\ttfamily \#include $<$threadpool.\+h$>$}
+
+
+
+Collaboration diagram for Thread\+Pool\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classThreadPool_a786db3b3e0aac5ca3e43c37025ab22b0}{Thread\+Pool}} (std\+::size\+\_\+t N=1)
+\begin{DoxyCompactList}\small\item\em start N threads in the thread pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classThreadPool_a44d3d2ab618970605e684efc216655eb}{$\sim$\+Thread\+Pool}} ()
+\begin{DoxyCompactList}\small\item\em deletes the thread pool by finishing all threads \end{DoxyCompactList}\item 
+{\footnotesize template$<$class F , class R  = std\+::result\+\_\+of\+\_\+t$<$\+F\&()$>$$>$ }\\std\+::future$<$ R $>$ \mbox{\hyperlink{classThreadPool_abfd71afcc32aef51c03968c99dbc0e00}{queue}} (F \&\&f)
+\item 
+void \mbox{\hyperlink{classThreadPool_a1fc76489de6e11c259ccf8f072fe135d}{finish}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class managing a pool of worker threads. Work can be queued by passing a function to \mbox{\hyperlink{classThreadPool_abfd71afcc32aef51c03968c99dbc0e00}{queue()}}. A future will be returned that can be used to obtain the result of the function after execution.
+
+Usage example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classThreadPool}{ThreadPool}} pool(10);}
+\DoxyCodeLine{std::vector< std::future< int > > results;}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0;i<10;i++)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{keyword}{auto} run = [](\textcolor{keywordtype}{int} i) \{ \textcolor{keywordflow}{return} i*i; \};}
+\DoxyCodeLine{  results.emplace\_back(pool.queue(std::bind(run,i)));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&f : results)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  printf(\textcolor{stringliteral}{"{}Result \%d:\(\backslash\)n"{}}, f.get());}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classThreadPool_a786db3b3e0aac5ca3e43c37025ab22b0}\label{classThreadPool_a786db3b3e0aac5ca3e43c37025ab22b0}} 
+\index{ThreadPool@{ThreadPool}!ThreadPool@{ThreadPool}}
+\index{ThreadPool@{ThreadPool}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{ThreadPool()}{ThreadPool()}}
+{\footnotesize\ttfamily Thread\+Pool\+::\+Thread\+Pool (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{N = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+start N threads in the thread pool. 
+
+\mbox{\Hypertarget{classThreadPool_a44d3d2ab618970605e684efc216655eb}\label{classThreadPool_a44d3d2ab618970605e684efc216655eb}} 
+\index{ThreadPool@{ThreadPool}!````~ThreadPool@{$\sim$ThreadPool}}
+\index{````~ThreadPool@{$\sim$ThreadPool}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{$\sim$ThreadPool()}{~ThreadPool()}}
+{\footnotesize\ttfamily Thread\+Pool\+::$\sim$\+Thread\+Pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+deletes the thread pool by finishing all threads 
+
+Here is the call graph for this function\+:
+% FIG 1
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classThreadPool_a1fc76489de6e11c259ccf8f072fe135d}\label{classThreadPool_a1fc76489de6e11c259ccf8f072fe135d}} 
+\index{ThreadPool@{ThreadPool}!finish@{finish}}
+\index{finish@{finish}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{finish()}{finish()}}
+{\footnotesize\ttfamily void Thread\+Pool\+::finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+finish enques a \char`\"{}stop the thread\char`\"{} message for every thread, then waits for them to finish \mbox{\Hypertarget{classThreadPool_abfd71afcc32aef51c03968c99dbc0e00}\label{classThreadPool_abfd71afcc32aef51c03968c99dbc0e00}} 
+\index{ThreadPool@{ThreadPool}!queue@{queue}}
+\index{queue@{queue}!ThreadPool@{ThreadPool}}
+\doxysubsubsection{\texorpdfstring{queue()}{queue()}}
+{\footnotesize\ttfamily template$<$class F , class R  = std\+::result\+\_\+of\+\_\+t$<$\+F\&()$>$$>$ \\
+std\+::future$<$ R $>$ Thread\+Pool\+::queue (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Queue the callable function {\itshape f} for the threads to execute. A future of the return type of the function is returned to capture the result. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{threadpool_8h}{threadpool.\+h}}\end{DoxyCompactItemize}

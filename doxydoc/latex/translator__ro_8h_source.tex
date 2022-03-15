@@ -1,0 +1,1495 @@
+\hypertarget{translator__ro_8h_source}{}\doxysection{translator\+\_\+ro.\+h}
+\label{translator__ro_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_ro.h@{/mnt/c/projects/doxygen/src/translator\_ro.h}}
+\mbox{\hyperlink{translator__ro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/* Original translation from English to Romanian by Alexandru Iosup [aiosup@yahoo.com].}}
+\DoxyCodeLine{19 \textcolor{comment}{ * Updated by Ionuţ Dumitraşcu [reddumy@yahoo.com]}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{22 \textcolor{comment}{ * Project start                : 20.09.2000}}
+\DoxyCodeLine{23 \textcolor{comment}{ * Last Doxygen version covered : 1.8.4}}
+\DoxyCodeLine{24 \textcolor{comment}{ * Last revision                : 17.05.2013}}
+\DoxyCodeLine{25 \textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * Revision history}}
+\DoxyCodeLine{28 \textcolor{comment}{ * -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{29 \textcolor{comment}{ * 17.05.2013 -\/ Updated translation to cover Doxygen 1.8.4 (Ionuț Dumitrașcu)}}
+\DoxyCodeLine{30 \textcolor{comment}{ * 15.01.2009 -\/ Updated Romanian translation to Doxygen 1.5.8 and modified strings to UTF-\/8, as well as some other changes (Ionuţ Dumitraşcu)}}
+\DoxyCodeLine{31 \textcolor{comment}{ * 28.07.2008 -\/ Updated version -\/ covering Doxygen 1.5.6 -\/ and some minor changes  (Ionuţ Dumitraşcu)}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * 01.Mar.2k5  Third revision, covering Doxygen 1.4.1}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * 07.Mar.2k2  Second revision, covering Doxygen 1.2.14}}
+\DoxyCodeLine{36 \textcolor{comment}{ *             -\/ fixed some bugs}}
+\DoxyCodeLine{37 \textcolor{comment}{ *}}
+\DoxyCodeLine{38 \textcolor{comment}{ * 20.Sep.2k   First version, covering Doxygen 1.2.1}}
+\DoxyCodeLine{39 \textcolor{comment}{ *}}
+\DoxyCodeLine{40 \textcolor{comment}{ */}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_RO\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TRANSLATOR\_RO\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorRomanian}{TranslatorRomanian}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__15}{TranslatorAdapter\_1\_8\_15}}}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47   \textcolor{keyword}{public}:}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af59640824dc793d88d527dd08290fcf7}{idLanguage}}()}
+\DoxyCodeLine{58     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}romanian"{}}; \}}
+\DoxyCodeLine{73     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a48989778d1d6ac6b793ce88dc4e17b10}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[romanian]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac373a01a2fa6ecebbbe82a8039f2736a}{trISOLang}}()}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ro"{}};}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1ed265111dcec6cb063982c1dad0f2a7}{getLanguageString}}()}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x418 Romanian"{}};}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{89     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3a61d1f3cbbc248e30bed73b91822a7c}{trRelatedFunctions}}()}
+\DoxyCodeLine{90     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funcţii înrudite"{}}; \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{93     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa447af22e7c071ff920337ab044cc373}{trRelatedSubscript}}()}
+\DoxyCodeLine{94     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Atenţie: acestea nu sunt funcţii membre.)"{}}; \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_abf513a20c63fc4a8b8239dce79c9dcca}{trDetailedDescription}}()}
+\DoxyCodeLine{98     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Descriere Detaliată"{}}; \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af8aa58455cf716a15e83abc8c5653e7d}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{102     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Definiţiilor de Tipuri (typedef) Membre"{}}; \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{105     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4079df8cdd7c9d6c2703b0a65305958d}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{106     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Enumerărilor Membre"{}}; \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{109     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa6dd2349e0ea36bde29c19d1a7c70c91}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{110     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Funcţiilor Membre"{}}; \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a9e5b6f666617159fc90198aa86b88854}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{114     \{}
+\DoxyCodeLine{115       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{116       \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Câmpurilor"{}};}
+\DoxyCodeLine{118       \}}
+\DoxyCodeLine{119       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{120       \{}
+\DoxyCodeLine{121         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Datelor Membre"{}};}
+\DoxyCodeLine{122       \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af6df9d4164283ccf1b78e5a4c5c44dc0}{trMore}}()}
+\DoxyCodeLine{128     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mai mult..."{}}; \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a46522fdec227d0aab72a49d156e752c4}{trListOfAllMembers}}()}
+\DoxyCodeLine{132     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista tuturor membrilor"{}}; \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{135     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a25ac0fed11598532bcf1b4090141227c}{trMemberList}}()}
+\DoxyCodeLine{136     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista Membrilor"{}}; \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a14f0edfa3a3a423690aebb8730441204}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{140     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista completă a membrilor din "{}}; \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2074e7b879ca371dd1d5841594bde192}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{144     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, inclusiv a tuturor membrilor moşteniţi."{}}; \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_add5064e677234013722a1cd1cfc2344a}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{150     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Generat automat de Doxygen"{}};}
+\DoxyCodeLine{151       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} pentru "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{152       result+=\textcolor{stringliteral}{"{} din codul sursă."{}};}
+\DoxyCodeLine{153       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a01e2726eecc546cd1c601e7b62619b8a}{trEnumName}}()}
+\DoxyCodeLine{158     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}nume enumerare"{}}; \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a00cf2157b9e9e9aa79bf89dbd415297f}{trEnumValue}}()}
+\DoxyCodeLine{162     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}valoare enumerare"{}}; \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6c013974891e10f6fa14d2cad872442a}{trDefinedIn}}()}
+\DoxyCodeLine{166     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}definit în"{}}; \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac0d4575f79ec22ab5e4ab169cdeca88d}{trModules}}()}
+\DoxyCodeLine{174     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Module"{}}; \}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad6638d86042538ad3ebac9089416e024}{trClassHierarchy}}()}
+\DoxyCodeLine{178     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ierarhia Claselor"{}}; \}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a710b95f0e9cf339ed8133627e45a7fe6}{trCompoundList}}()}
+\DoxyCodeLine{182     \{}
+\DoxyCodeLine{183       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{184       \{}
+\DoxyCodeLine{185         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Structuri de Date"{}};}
+\DoxyCodeLine{186       \}}
+\DoxyCodeLine{187       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{188       \{}
+\DoxyCodeLine{189         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista Claselor"{}};}
+\DoxyCodeLine{190       \}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1e1020e3c36eb8e92073fc8a6e4c4436}{trFileList}}()}
+\DoxyCodeLine{196     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista fişierelor"{}}; \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a5dff461eb8ef73e21543879e9392ed87}{trCompoundMembers}}()}
+\DoxyCodeLine{200     \{}
+\DoxyCodeLine{201       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{202       \{}
+\DoxyCodeLine{203         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Câmpurile de Date"{}};}
+\DoxyCodeLine{204       \}}
+\DoxyCodeLine{205       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{206       \{}
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membrii Componenţi"{}}; \textcolor{comment}{//cu articol hotarat}}
+\DoxyCodeLine{208       \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6fe7abbd713f867771f1afeac8927286}{trFileMembers}}()}
+\DoxyCodeLine{214     \{}
+\DoxyCodeLine{215       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{216       \{}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globale"{}};}
+\DoxyCodeLine{218       \}}
+\DoxyCodeLine{219       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{220       \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membrii din Fişier"{}}; \textcolor{comment}{//cu articol hotarat}}
+\DoxyCodeLine{222       \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{227     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab49101aab83d02cf83c836effde126e2}{trRelatedPages}}()}
+\DoxyCodeLine{228     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pagini înrudite"{}}; \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{231     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac450948232315dd746f9ee61d33b9b3f}{trExamples}}()}
+\DoxyCodeLine{232     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Exemple"{}}; \}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{235     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6c522660963399965f2efbcf0d6d58c0}{trSearch}}()}
+\DoxyCodeLine{236     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Caută"{}}; \}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afda52b779c2275beab8f0f59098c09f0}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{240     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Această listă de moşteniri este sortată în general, "{}}}
+\DoxyCodeLine{241              \textcolor{stringliteral}{"{}dar nu complet, în ordine alfabetică:"{}};}
+\DoxyCodeLine{242     \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{245     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4e16e2c96e1ae733f7c6eca8eb19c2e9}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{246     \{}
+\DoxyCodeLine{247       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor "{}};}
+\DoxyCodeLine{248       result+=\textcolor{stringliteral}{"{}fişierelor"{}};}
+\DoxyCodeLine{249       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{} documentate"{}};}
+\DoxyCodeLine{250       result+=\textcolor{stringliteral}{"{}, cu scurte descrieri:"{}};}
+\DoxyCodeLine{251       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{252     \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab28304e8e364c7bec0c2d791a312bd1e}{trCompoundListDescription}}()}
+\DoxyCodeLine{256     \{}
+\DoxyCodeLine{257       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{258       \{}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista structurilor de date, cu scurte descrieri:"{}};}
+\DoxyCodeLine{260       \}}
+\DoxyCodeLine{261       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{262       \{}
+\DoxyCodeLine{263         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista claselor, cu scurte descrieri:"{}};}
+\DoxyCodeLine{264       \}}
+\DoxyCodeLine{265       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{266       \{}
+\DoxyCodeLine{267         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista claselor, structurilor, uniunilor şi interfeţelor"{}}}
+\DoxyCodeLine{268         \textcolor{stringliteral}{"{}, cu scurte descrieri:"{}};}
+\DoxyCodeLine{269       \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271     \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{274     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab576e1d0c5571fc35bf7913c1fe65c86}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{275     \{}
+\DoxyCodeLine{276       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor "{}};}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{279       \{}
+\DoxyCodeLine{280         result+=\textcolor{stringliteral}{"{}câmpurilor "{}};}
+\DoxyCodeLine{281         \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{} documentate "{}};}
+\DoxyCodeLine{282         result+=\textcolor{stringliteral}{"{}din structuri si uniuni "{}};}
+\DoxyCodeLine{283       \}}
+\DoxyCodeLine{284       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{285       \{}
+\DoxyCodeLine{286         result+=\textcolor{stringliteral}{"{}membrilor "{}};}
+\DoxyCodeLine{287       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentaţi "{}};}
+\DoxyCodeLine{288         result+=\textcolor{stringliteral}{"{}din toate clasele "{}};}
+\DoxyCodeLine{289       \}}
+\DoxyCodeLine{290       result+=\textcolor{stringliteral}{"{}, cu legături către "{}};}
+\DoxyCodeLine{291       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{292       \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{294         \{}
+\DoxyCodeLine{295           result+=\textcolor{stringliteral}{"{}documentaţia structurii/uniunii pentru fiecare câmp în parte:"{}};}
+\DoxyCodeLine{296         \}}
+\DoxyCodeLine{297         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{298         \{}
+\DoxyCodeLine{299           result+=\textcolor{stringliteral}{"{}documentaţia clasei pentru fiecare membru în parte:"{}};}
+\DoxyCodeLine{300         \}}
+\DoxyCodeLine{301       \}}
+\DoxyCodeLine{302       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{303       \{}
+\DoxyCodeLine{304         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{305         \{}
+\DoxyCodeLine{306           result+=\textcolor{stringliteral}{"{}structurile/uniunile de care aparţin:"{}};}
+\DoxyCodeLine{307         \}}
+\DoxyCodeLine{308         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{309         \{}
+\DoxyCodeLine{310           result+=\textcolor{stringliteral}{"{}clasele de care aparţin:"{}};}
+\DoxyCodeLine{311         \}}
+\DoxyCodeLine{312       \}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{318     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0b465aca37f2924b9c60151a6b3d058c}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{319     \{}
+\DoxyCodeLine{320       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor "{}};}
+\DoxyCodeLine{321       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{322       \{}
+\DoxyCodeLine{323         result+=\textcolor{stringliteral}{"{}funcţiilor, variabilelor, definiţiilor, enumerărilor şi definiţiilor de tip"{}};}
+\DoxyCodeLine{324       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{} documentate"{}};}
+\DoxyCodeLine{325       \}}
+\DoxyCodeLine{326       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{327       \{}
+\DoxyCodeLine{328         result+=\textcolor{stringliteral}{"{}membrilor "{}};}
+\DoxyCodeLine{329       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentaţi "{}};}
+\DoxyCodeLine{330       result+=\textcolor{stringliteral}{"{}din toate fişierele"{}};}
+\DoxyCodeLine{331       \}}
+\DoxyCodeLine{332       result+=\textcolor{stringliteral}{"{}, cu legături către "{}};}
+\DoxyCodeLine{333       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{334         result+=\textcolor{stringliteral}{"{}fişierele de care aparţin:"{}};}
+\DoxyCodeLine{335       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{336         result+=\textcolor{stringliteral}{"{}documentaţia aferentă:"{}};}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{339     \}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{342     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3d7b4cc48d9bdd17794ba1a045567c35}{trExamplesDescription}}()}
+\DoxyCodeLine{343     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista tuturor exemplelor:"{}}; \}}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{346     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aea2b7ac808d24c30875c78a9b34b685d}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{347     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista tuturor documentaţiilor înrudite:"{}}; \}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{350     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a398cc6c94a03395ff0b9039c9f7c4f24}{trModulesDescription}}()}
+\DoxyCodeLine{351     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista tuturor modulelor:"{}}; \}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 }
+\DoxyCodeLine{357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a7bb5f1012f247abdebab6ce9dc3584b6}{trDocumentation}}()}
+\DoxyCodeLine{358     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţie"{}}; \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{363     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afe66acf2e0f22478532fdaa5e6de2e9d}{trModuleIndex}}()}
+\DoxyCodeLine{364     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Modulelor"{}}; \}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{369     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a74c79ac4e4f950cd35bc9297d372b0ac}{trHierarchicalIndex}}()}
+\DoxyCodeLine{370     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Index Ierarhic"{}}; \}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a34e56e7e779880b7282a8bf9cb392d1c}{trCompoundIndex}}()}
+\DoxyCodeLine{376     \{}
+\DoxyCodeLine{377       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{378       \{}
+\DoxyCodeLine{379         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Structurilor de Date"{}};}
+\DoxyCodeLine{380       \}}
+\DoxyCodeLine{381       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{382       \{}
+\DoxyCodeLine{383         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Claselor"{}};}
+\DoxyCodeLine{384       \}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386     \}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a10d728158fa6de1ed4ef0ba51b712393}{trFileIndex}}()}
+\DoxyCodeLine{392     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Fişierelor"{}}; \}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{397     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_abc6405d0c8357ce8b4f5f746e5441db3}{trModuleDocumentation}}()}
+\DoxyCodeLine{398     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Modulelor"{}}; \}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1caa6f99f1b63130a0210f369bbe6b9f}{trClassDocumentation}}()}
+\DoxyCodeLine{404     \{}
+\DoxyCodeLine{405       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{406       \{}
+\DoxyCodeLine{407         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Structurilor de Date"{}};}
+\DoxyCodeLine{408       \}}
+\DoxyCodeLine{409       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{410       \{}
+\DoxyCodeLine{411           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{412       \}}
+\DoxyCodeLine{413       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{414       \{}
+\DoxyCodeLine{415         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Claselor"{}};}
+\DoxyCodeLine{416       \}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418     \}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{423     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3b7c6f16935f1dd0c8b1bf088fbe3ddb}{trFileDocumentation}}()}
+\DoxyCodeLine{424     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Fişierelor"{}}; \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a58425d4497f4cfde71a0ceb57c1d6a50}{trExampleDocumentation}}()}
+\DoxyCodeLine{430     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Exemplelor"{}}; \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{433     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aad40cfeac5b83a4e1af5efceef3b5f6e}{trReferenceManual}}()}
+\DoxyCodeLine{434     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Manual de utilizare"{}}; \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{439     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4680272666db5d8d3c04018a2c637dca}{trDefines}}()}
+\DoxyCodeLine{440     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definiţii"{}}; \}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{445     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a209fcea008fa57a030c15c33ea2e2456}{trTypedefs}}()}
+\DoxyCodeLine{446     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definiţii de tipuri"{}}; \}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{451     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8456264dcdcaf12ec85e5dc9f389c524}{trEnumerations}}()}
+\DoxyCodeLine{452     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerări"{}}; \}}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{457     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab9c7ce776750bb2d60f6112e2b732ced}{trFunctions}}()}
+\DoxyCodeLine{458     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funcţii"{}}; \}}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae819af4d1bccb74a62fd6b50b3d9f776}{trVariables}}()}
+\DoxyCodeLine{464     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Variabile"{}}; \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{469     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afa79cf1023384a1cced0b165b3276af6}{trEnumerationValues}}()}
+\DoxyCodeLine{470     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valori de enumerări"{}}; \}}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{475     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a9e9ee07bcfb1d2ae2753928252099435}{trDefineDocumentation}}()}
+\DoxyCodeLine{476     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia definiţiilor"{}}; \}}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{481     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afe7047addc8ecbfc7105ea27eee1a49e}{trTypedefDocumentation}}()}
+\DoxyCodeLine{482     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia definiţiilor de tipuri"{}}; \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{487     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab02b0d1967b75c2d349ab716dd113e64}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{488     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia enumerărilor"{}}; \}}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{493     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aff0dc01d02525a3d12eb37461c53dee1}{trFunctionDocumentation}}()}
+\DoxyCodeLine{494     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia funcţiilor"{}}; \}}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{499     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6a20cd157cdf6018ff8c50450eaecaef}{trVariableDocumentation}}()}
+\DoxyCodeLine{500     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia variabilelor"{}}; \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{505     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae16d4d831222afcb6f23dc19974b582d}{trCompounds}}()}
+\DoxyCodeLine{506     \{}
+\DoxyCodeLine{507       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{508       \{}
+\DoxyCodeLine{509         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Structuri de Date"{}};}
+\DoxyCodeLine{510       \}}
+\DoxyCodeLine{511       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{512       \{}
+\DoxyCodeLine{513         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membri"{}};}
+\DoxyCodeLine{514       \}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516     \}}
+\DoxyCodeLine{517 }
+\DoxyCodeLine{521     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a329d3f47875db45f16d270fb92f6e0ff}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{522     \{}
+\DoxyCodeLine{523       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Generat "{}}+date;}
+\DoxyCodeLine{524       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} pentru "{}}+projName;}
+\DoxyCodeLine{525       result+=\textcolor{stringliteral}{"{} de către"{}};}
+\DoxyCodeLine{526       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{527     \}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{530     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0451289c1343f0f1f40b7720db1f9ec0}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{531     \{}
+\DoxyCodeLine{532       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Diagrama de relaţii pentru "{}}+clName;}
+\DoxyCodeLine{533     \}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a279ad6652742f75406aa0e0d5d252a57}{trWarning}}()}
+\DoxyCodeLine{537     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atenţie"{}}; \}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{540     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad5b94a6e753afa9300d1db3dfa782e53}{trVersion}}()}
+\DoxyCodeLine{541     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Versiunea"{}}; \}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aece8149f11f3331b5b8218882be1a6f6}{trDate}}()}
+\DoxyCodeLine{545     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data"{}}; \}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{548     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad84932f9b3d570ee05cf5735f84ebd3d}{trReturns}}()}
+\DoxyCodeLine{549     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Întoarce"{}}; \}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a95e3059c2b9a47a82d50ca8f03b5fb7e}{trSeeAlso}}()}
+\DoxyCodeLine{553     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vezi şi"{}}; \}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af8f41db10b615e04fe5728bea8befc97}{trParameters}}()}
+\DoxyCodeLine{557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametri"{}}; \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{560     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_add5a40d7c001ec777678ce93237bb394}{trExceptions}}()}
+\DoxyCodeLine{561     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Excepţii"{}}; \}}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad0c3024222995171c927415321198651}{trGeneratedBy}}()}
+\DoxyCodeLine{565     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generat de"{}}; \}}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{567     \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af527a86dacffc2a704ae967949ad49ae}{trNamespaceList}}()}
+\DoxyCodeLine{571     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista de Namespace-\/uri"{}}; \}}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a9f072430d4bfc91f2f9b71834752ced3}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{575     \{}
+\DoxyCodeLine{576       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor "{}};}
+\DoxyCodeLine{577       result+=\textcolor{stringliteral}{"{}namespace-\/urilor "{}};}
+\DoxyCodeLine{578       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentate "{}};}
+\DoxyCodeLine{579       result+=\textcolor{stringliteral}{"{}, cu scurte descrieri:"{}};}
+\DoxyCodeLine{580       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{581     \}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{586     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa7771b4c38eb1eccb8b98c51a0d2ba59}{trFriends}}()}
+\DoxyCodeLine{587     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Prieteni"{}}; \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{590 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{592 \textcolor{comment}{}}
+\DoxyCodeLine{596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a42e7e32e563f56ed34df16a11e5ea450}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{597     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia funcţiilor prietene sau înrudite"{}}; \}}
+\DoxyCodeLine{598 }
+\DoxyCodeLine{600 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{602 \textcolor{comment}{}}
+\DoxyCodeLine{604     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a382b34351a26aa8295445080e4ef0375}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{605                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{606                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{607     \{}
+\DoxyCodeLine{608       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referinţă la "{}};}
+\DoxyCodeLine{609       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{610       \{}
+\DoxyCodeLine{611         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}clasa "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{612         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}structura "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{613         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}uniunea "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{614         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaţa "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{615         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocolul "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{616         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}categoria "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{617         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}excepţia "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{618         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{619       \}}
+\DoxyCodeLine{620       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} (Template) "{}};}
+\DoxyCodeLine{621       result+=clName;}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{624     \}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{627     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac3dbc5d0ddcf3f1f5af6fc6d34bfe32e}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{628     \{}
+\DoxyCodeLine{629       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referinţă la fişierul "{}};}
+\DoxyCodeLine{630       result+=fileName;}
+\DoxyCodeLine{631       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{632     \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4e3718608f16aff3d1ede8a29ce6bd15}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{636     \{}
+\DoxyCodeLine{637       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referinţă la Namespace-\/ul "{}};}
+\DoxyCodeLine{638       result+=namespaceName;}
+\DoxyCodeLine{639       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{640     \}}
+\DoxyCodeLine{641 }
+\DoxyCodeLine{642     \textcolor{comment}{/* these are for the member sections of a class, struct or union */}}
+\DoxyCodeLine{643     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a659d1c6b4756f3fb7a3c223573feeb77}{trPublicMembers}}()}
+\DoxyCodeLine{644     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Publice"{}}; \}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af936821998d3862bf8b25b0d6a9c9c67}{trPublicSlots}}()}
+\DoxyCodeLine{646     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Conectori (slots) Publici"{}}; \}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a49df3ea89df9076ecc3d7eb050273fb7}{trSignals}}()}
+\DoxyCodeLine{648     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Semnale"{}}; \}}
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a41da155ca51189a8bcc7d24976502599}{trStaticPublicMembers}}()}
+\DoxyCodeLine{650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Statice Publice"{}}; \}}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a03a8c0639fdf6ca16b3f75f18ea60970}{trProtectedMembers}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Protejate"{}}; \}}
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8bdf058f6d534ddeb122521d37c3e9c6}{trProtectedSlots}}()}
+\DoxyCodeLine{654     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Conectori (slots) Protejaţi"{}}; \}}
+\DoxyCodeLine{655     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aed3a6578e6c0c108d564b1546836a063}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{656     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Statice Protejate"{}}; \}}
+\DoxyCodeLine{657     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab77db5058bdeb9fa7e678b7fe64ebef9}{trPrivateMembers}}()}
+\DoxyCodeLine{658     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Private"{}}; \}}
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2a0127a20ad5e724d93c3ba82cecf57f}{trPrivateSlots}}()}
+\DoxyCodeLine{660     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Conectori (slots) Privaţi"{}}; \}}
+\DoxyCodeLine{661     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a328814f5c6470979fe258edaf8f3a97f}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{662     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metode Statice Private"{}}; \}}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{668     \{}
+\DoxyCodeLine{669       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{670       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{671       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{672       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{673       \{}
+\DoxyCodeLine{674         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{675         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{676                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{678         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{679         \{}
+\DoxyCodeLine{680           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{681             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{682           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{683             result+=\textcolor{stringliteral}{"{} şi "{}};}
+\DoxyCodeLine{684         \}}
+\DoxyCodeLine{685       \}}
+\DoxyCodeLine{686       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{687     \}}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a50b6364da29bc65928fb94ab06dafc8c}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{693     \{}
+\DoxyCodeLine{694       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moşteneşte "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{695     \}}
+\DoxyCodeLine{696 }
+\DoxyCodeLine{700     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4bf9783986e9239ffaf28d4fdd494e57}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{701     \{}
+\DoxyCodeLine{702       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moştenit de "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{703     \}}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a81de740ff868dad8b4e145084f25c7c7}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{709     \{}
+\DoxyCodeLine{710       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementat din "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{716     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a702895042cb8b098c21ab06e30e77387}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{717     \{}
+\DoxyCodeLine{718       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementat în "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{719     \}}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa46ce7149ac69bf24d196784fcccbdfc}{trNamespaceMembers}}()}
+\DoxyCodeLine{723     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membrii Namespace-\/ului"{}}; \}}
+\DoxyCodeLine{724 }
+\DoxyCodeLine{726     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aae568feede1237743bc48c05489c43d5}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{727     \{}
+\DoxyCodeLine{728       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor membrilor "{}};}
+\DoxyCodeLine{729       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentaţi "{}};}
+\DoxyCodeLine{730       result+=\textcolor{stringliteral}{"{}din toate namespace-\/urile, cu legături către "{}};}
+\DoxyCodeLine{731 }
+\DoxyCodeLine{732       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{733         result+=\textcolor{stringliteral}{"{}documentaţia namespace-\/ului pentru fiecare membru în parte:"{}};}
+\DoxyCodeLine{734       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{735         result+=\textcolor{stringliteral}{"{}namespace-\/urile de care aparţin:"{}};}
+\DoxyCodeLine{736       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{737     \}}
+\DoxyCodeLine{741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a53b45c25a0bfd71e27a22c93de29c040}{trNamespaceIndex}}()}
+\DoxyCodeLine{742     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Namespace-\/ului"{}}; \}}
+\DoxyCodeLine{743 }
+\DoxyCodeLine{747     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab542cfc92b765bb9fce05b02439782bb}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{748     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Namespace-\/ului"{}}; \}}
+\DoxyCodeLine{749 }
+\DoxyCodeLine{751 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{753 \textcolor{comment}{}}
+\DoxyCodeLine{757     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a92e18f3afd30efa2cbac9eb58c411b21}{trNamespaces}}()}
+\DoxyCodeLine{758     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace-\/uri"{}}; \}}
+\DoxyCodeLine{759 }
+\DoxyCodeLine{761 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{763 \textcolor{comment}{}}
+\DoxyCodeLine{767     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a631c6b298a2610d7287c67ca9610c764}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{768         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{769     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{770       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{771       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Documentaţia pentru această "{}};}
+\DoxyCodeLine{772       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{773       \{}
+\DoxyCodeLine{774         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}clasă"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{775         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}structură"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{776         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}uniune"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{777         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfaţă"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{778         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{779         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}categorie"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{780         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}excepţie"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{781         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{782       \}}
+\DoxyCodeLine{783       result+=\textcolor{stringliteral}{"{} a fost generată din fişier"{}};}
+\DoxyCodeLine{784       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}ul:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ele:"{}};}
+\DoxyCodeLine{785       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{786     \}}
+\DoxyCodeLine{787 }
+\DoxyCodeLine{789 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{791 \textcolor{comment}{}}
+\DoxyCodeLine{793     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af856c71f02da4dcfaea3ac263aea48f6}{trReturnValues}}()}
+\DoxyCodeLine{794     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valori returnate"{}}; \}}
+\DoxyCodeLine{795 }
+\DoxyCodeLine{798     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2ced073e606e5a5549047fe86a6179de}{trMainPage}}()}
+\DoxyCodeLine{799     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pagina principală"{}}; \}}
+\DoxyCodeLine{800 }
+\DoxyCodeLine{804     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_adf8559ad6b2e2bb4ebca0746a371c499}{trPageAbbreviation}}()}
+\DoxyCodeLine{805     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}pg."{}}; \}}
+\DoxyCodeLine{806 }
+\DoxyCodeLine{808 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{810 \textcolor{comment}{}}
+\DoxyCodeLine{811     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a7741b50346fe291823a1a069af35be08}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{812     \{}
+\DoxyCodeLine{813       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definiţia în linia @0 a fişierului @1."{}};}
+\DoxyCodeLine{814     \}}
+\DoxyCodeLine{815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afa74720c89cd6677aa811a2705fe4a06}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{816     \{}
+\DoxyCodeLine{817       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definiţia în fişierul @0."{}};}
+\DoxyCodeLine{818     \}}
+\DoxyCodeLine{819 }
+\DoxyCodeLine{821 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{823 \textcolor{comment}{}}
+\DoxyCodeLine{824     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aec174d0c81fdd175a9127ff12371458a}{trDeprecated}}()}
+\DoxyCodeLine{825     \{}
+\DoxyCodeLine{826       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Învechită(Deprecated)"{}};}
+\DoxyCodeLine{827     \}}
+\DoxyCodeLine{828 }
+\DoxyCodeLine{830 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{832 \textcolor{comment}{}}
+\DoxyCodeLine{834     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a18d22981e97a7d67e6d4175aba2ea564}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{835     \{}
+\DoxyCodeLine{836       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Diagrama de relaţii pentru "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{837     \}}
+\DoxyCodeLine{839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8d2122a4d08062355ec1e0266ddbd98a}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{840     \{}
+\DoxyCodeLine{841       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graful dependenţelor prin incluziune pentru "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{842     \}}
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a67ac1af67452087cbd780fb4fa733318}{trConstructorDocumentation}}()}
+\DoxyCodeLine{845     \{}
+\DoxyCodeLine{846       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia pentru Constructori şi Destructori"{}};}
+\DoxyCodeLine{847     \}}
+\DoxyCodeLine{849     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae11f19540494e32f6ded4da0c166e391}{trGotoSourceCode}}()}
+\DoxyCodeLine{850     \{}
+\DoxyCodeLine{851       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vezi sursele."{}};}
+\DoxyCodeLine{852     \}}
+\DoxyCodeLine{854     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_abaea4cbda1cab5dc28e11ed8892b483f}{trGotoDocumentation}}()}
+\DoxyCodeLine{855     \{}
+\DoxyCodeLine{856       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vezi documentaţia."{}};}
+\DoxyCodeLine{857     \}}
+\DoxyCodeLine{859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a221ba0ba0d5f2d9b6bfce8b2f070baf7}{trPrecondition}}()}
+\DoxyCodeLine{860     \{}
+\DoxyCodeLine{861       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Precondiţie"{}};}
+\DoxyCodeLine{862     \}}
+\DoxyCodeLine{864     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a51ac7831b42e48096faa571c852ed466}{trPostcondition}}()}
+\DoxyCodeLine{865     \{}
+\DoxyCodeLine{866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Postcondiţie"{}};}
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{869     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ade964f61707ef5a6e2b5812ffd79884c}{trInvariant}}()}
+\DoxyCodeLine{870     \{}
+\DoxyCodeLine{871       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariant"{}};}
+\DoxyCodeLine{872     \}}
+\DoxyCodeLine{874     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0e7c7af257a232113d6f1e1f1bbc9500}{trInitialValue}}()}
+\DoxyCodeLine{875     \{}
+\DoxyCodeLine{876       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valoarea iniţială:"{}};}
+\DoxyCodeLine{877     \}}
+\DoxyCodeLine{879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af7226e162399a3ec1eeb47e434f25255}{trCode}}()}
+\DoxyCodeLine{880     \{}
+\DoxyCodeLine{881       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}cod"{}};}
+\DoxyCodeLine{882     \}}
+\DoxyCodeLine{883     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a040c340c93d31af410e8af724a07dc76}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{884     \{}
+\DoxyCodeLine{885       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ierarhia Claselor în mod grafic"{}};}
+\DoxyCodeLine{886     \}}
+\DoxyCodeLine{887     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3d4d1f90cfda3d52ebee8ef4ddb8acf4}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{888     \{}
+\DoxyCodeLine{889       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vezi ierarhia claselor în mod grafic"{}};}
+\DoxyCodeLine{890     \}}
+\DoxyCodeLine{891     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3a631b60cb22ad018c1076bc6a7c6508}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{892     \{}
+\DoxyCodeLine{893       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vezi ierarhia claselor în mod text"{}};}
+\DoxyCodeLine{894     \}}
+\DoxyCodeLine{895     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a189c2b3624259d0503b3ac1cdc48826b}{trPageIndex}}()}
+\DoxyCodeLine{896     \{}
+\DoxyCodeLine{897       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Paginilor"{}};}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{899 }
+\DoxyCodeLine{901 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{903 \textcolor{comment}{}}
+\DoxyCodeLine{904     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a22fc6e9f32c9a641286818de257ec06e}{trNote}}()}
+\DoxyCodeLine{905     \{}
+\DoxyCodeLine{906       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Notă"{}};}
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a61a03a16d16dcab710b8c52f13e0a34e}{trPublicTypes}}()}
+\DoxyCodeLine{909     \{}
+\DoxyCodeLine{910       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipuri Publice"{}};}
+\DoxyCodeLine{911     \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae3a94d00f65f34c23e3c76c616ffc612}{trPublicAttribs}}()}
+\DoxyCodeLine{913     \{}
+\DoxyCodeLine{914       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{915       \{}
+\DoxyCodeLine{916         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Câmpuri de Date"{}};}
+\DoxyCodeLine{917       \}}
+\DoxyCodeLine{918       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{919       \{}
+\DoxyCodeLine{920         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Publice"{}};}
+\DoxyCodeLine{921       \}}
+\DoxyCodeLine{922 }
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6539cd8a504355d111eb1e6c7d517f29}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{925     \{}
+\DoxyCodeLine{926       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Statice Publice"{}};}
+\DoxyCodeLine{927     \}}
+\DoxyCodeLine{928     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a54b07e1dcf4daf3058fcee38900a9587}{trProtectedTypes}}()}
+\DoxyCodeLine{929     \{}
+\DoxyCodeLine{930       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipuri Protejate"{}};}
+\DoxyCodeLine{931     \}}
+\DoxyCodeLine{932     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a38f2358b505e315bc7f3dd4600918ef5}{trProtectedAttribs}}()}
+\DoxyCodeLine{933     \{}
+\DoxyCodeLine{934       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Protejate"{}};}
+\DoxyCodeLine{935     \}}
+\DoxyCodeLine{936     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0bc46b162c060a802dd21e8f576c6eef}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{937     \{}
+\DoxyCodeLine{938       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Statice Protejate"{}};}
+\DoxyCodeLine{939     \}}
+\DoxyCodeLine{940     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_abacec22cc75580ec0c5c5c371cdc1a38}{trPrivateTypes}}()}
+\DoxyCodeLine{941     \{}
+\DoxyCodeLine{942       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipuri Private"{}};}
+\DoxyCodeLine{943     \}}
+\DoxyCodeLine{944     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af93bcbf9c7e4c2e677a41f24b304555c}{trPrivateAttribs}}()}
+\DoxyCodeLine{945     \{}
+\DoxyCodeLine{946       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Private"{}};}
+\DoxyCodeLine{947     \}}
+\DoxyCodeLine{948     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a64855321f63b13c20fbd1e118dbc49c7}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{949     \{}
+\DoxyCodeLine{950       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute Statice Private"{}};}
+\DoxyCodeLine{951     \}}
+\DoxyCodeLine{952 }
+\DoxyCodeLine{954 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{956 \textcolor{comment}{}}
+\DoxyCodeLine{958     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a10fdbb644a9d11975faad59dd27542d4}{trTodo}}()}
+\DoxyCodeLine{959     \{}
+\DoxyCodeLine{960       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}De făcut"{}};}
+\DoxyCodeLine{961     \}}
+\DoxyCodeLine{963     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_adffd324456787164c959ac58be5d71bf}{trTodoList}}()}
+\DoxyCodeLine{964     \{}
+\DoxyCodeLine{965       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista lucrurilor de făcut"{}};}
+\DoxyCodeLine{966     \}}
+\DoxyCodeLine{967 }
+\DoxyCodeLine{969 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{971 \textcolor{comment}{}}
+\DoxyCodeLine{972     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0d500fe045b756710f7646b204920d18}{trReferencedBy}}()}
+\DoxyCodeLine{973     \{}
+\DoxyCodeLine{974       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Semnalat de"{}};}
+\DoxyCodeLine{975     \}}
+\DoxyCodeLine{976     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae57ea7b5f32f767ca5700ec3bccc561a}{trRemarks}}()}
+\DoxyCodeLine{977     \{}
+\DoxyCodeLine{978       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Observaţii"{}};}
+\DoxyCodeLine{979     \}}
+\DoxyCodeLine{980     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1eae7e4dbd40f90a39b143727e7d2df2}{trAttention}}()}
+\DoxyCodeLine{981     \{}
+\DoxyCodeLine{982       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atenţie"{}};}
+\DoxyCodeLine{983     \}}
+\DoxyCodeLine{984     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa23c94de1eb0ce78e1e34cd78f94489a}{trInclByDepGraph}}()}
+\DoxyCodeLine{985     \{}
+\DoxyCodeLine{986       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Acest graf arată care fişiere includ, "{}}}
+\DoxyCodeLine{987           \textcolor{stringliteral}{"{}direct sau indirect, acest fişier:"{}};}
+\DoxyCodeLine{988     \}}
+\DoxyCodeLine{989     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a946e3d50728222fd0a43d931a5d738b7}{trSince}}()}
+\DoxyCodeLine{990     \{}
+\DoxyCodeLine{991       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Din"{}};}
+\DoxyCodeLine{992     \}}
+\DoxyCodeLine{993 }
+\DoxyCodeLine{995 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{997 \textcolor{comment}{}}
+\DoxyCodeLine{999     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3e9193e24ba2b5dfa17997bcb1f77408}{trLegendTitle}}()}
+\DoxyCodeLine{1000     \{}
+\DoxyCodeLine{1001       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Legenda grafului"{}};}
+\DoxyCodeLine{1002     \}}
+\DoxyCodeLine{1004     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1365c5271c033fa63bebdaf259dd51fe}{trLegendDocs}}()}
+\DoxyCodeLine{1005     \{}
+\DoxyCodeLine{1006       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}Această pagină arată modul în care trebuie să interpretaţi "{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}grafurile generate de doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}Consideraţi următorul exemplu:\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}/*! Clasă invizibilă, tăiată din cauza depăşirii spaţiului */\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}/*! Altă clasă tăiată, relaţia de moştenire este ascunsă */\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}/* Clasă necomentată în stil doxygen */\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}/*! Clasă care este moştenită în mod public */\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}/*! Clasă template */\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}/*! Clasă care este moştenită în mod protejat */\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}/*! Clasă care este moştenită în mod privat */\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}/*! Clasă care este folosită de clasa Inherited */\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}/*! Superclasă care moşteneşte un număr de alte clase */\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}Dacă tagul \(\backslash\)\(\backslash\)c MAX\_DOT\_GRAPH\_HEIGHT din fişierul de configurare "{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}este setat la 200, acesta este graful rezultat:"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}<p><center><img src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}Căsuţele din partea de sus au următoarea semnificaţie:\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}<li>O căsuţă neagră reprezintă structura sau clasa pentru care "{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}graful este generat.\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}<li>O căsuţă cu marginea neagră reprezintă o structură sau o clasă documentate.\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}<li>O căsuţă cu marginea gri reprezintă o structură sau o clasă nedocumentate.\(\backslash\)n"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}<li>O căsuţă cu marginea roşie reprezintă o structură sau o clasă documentate, pentru\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}care nu toate relaţiile de moştenire/incluziune sunt arătate. Un graf este "{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}tăiat dacă nu încape în marginile specificate."{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}Săgeţile au următoarea semnificaţie:\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}<li>O săgeată de un albastru închis este folosită când avem o relaţie de "{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}moştenire publică între două clase.\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}<li>O săgeată de un verde închis este folosită când avem o moştenire protejată.\(\backslash\)n"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}<li>O săgeată de un roşu închis este folosită când avem o moştenire privată.\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}<li>O săgeată violetă punctată este folosită pentru o clasă conţinută sau folosită "{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}de o altă clasă. Săgeata este marcată cu variabila(e) "{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}prin care este accesibilă clasa sau structura spre care este îndreptată. \(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1062     \}}
+\DoxyCodeLine{1064     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a69ad6813bb2be8929acba79e81b23bc2}{trLegend}}()}
+\DoxyCodeLine{1065     \{}
+\DoxyCodeLine{1066       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}legenda"{}};}
+\DoxyCodeLine{1067     \}}
+\DoxyCodeLine{1068 }
+\DoxyCodeLine{1070 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1072 \textcolor{comment}{}}
+\DoxyCodeLine{1074     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad91689bcae63b0dd880ff85e112584f4}{trTest}}()}
+\DoxyCodeLine{1075     \{}
+\DoxyCodeLine{1076       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test"{}};}
+\DoxyCodeLine{1077     \}}
+\DoxyCodeLine{1079     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_adc5ecc9a13d79ff232598c986996e429}{trTestList}}()}
+\DoxyCodeLine{1080     \{}
+\DoxyCodeLine{1081       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Listă de teste"{}};}
+\DoxyCodeLine{1082     \}}
+\DoxyCodeLine{1083 }
+\DoxyCodeLine{1085 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1087 \textcolor{comment}{}}
+\DoxyCodeLine{1089     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a5cb500f167d800e20bbb33d0baef646c}{trProperties}}()}
+\DoxyCodeLine{1090     \{}
+\DoxyCodeLine{1091       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Proprietăţi"{}};}
+\DoxyCodeLine{1092     \}}
+\DoxyCodeLine{1094     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab50afc61cdd4cd805987f558c29d45e1}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1095     \{}
+\DoxyCodeLine{1096       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Proprietăţilor"{}};}
+\DoxyCodeLine{1097     \}}
+\DoxyCodeLine{1098 }
+\DoxyCodeLine{1100 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1102 \textcolor{comment}{}}
+\DoxyCodeLine{1104     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad130230e503d4332b4d5ba15b97e38a7}{trClasses}}()}
+\DoxyCodeLine{1105     \{}
+\DoxyCodeLine{1106       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1107       \{}
+\DoxyCodeLine{1108         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Structuri de Date"{}};}
+\DoxyCodeLine{1109       \}}
+\DoxyCodeLine{1110       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1111       \{}
+\DoxyCodeLine{1112         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Clase"{}};}
+\DoxyCodeLine{1113       \}}
+\DoxyCodeLine{1114     \}}
+\DoxyCodeLine{1116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a25d416559568060d2ec831b5513f7f27}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1117     \{}
+\DoxyCodeLine{1118       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pachet "{}}+name;}
+\DoxyCodeLine{1119     \}}
+\DoxyCodeLine{1121     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aba3b3478465593d6053306a2d6f5e816}{trPackageListDescription}}()}
+\DoxyCodeLine{1122     \{}
+\DoxyCodeLine{1123       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista pachetelor, însoţită de scurte explicaţii, acolo unde acestea există:"{}};}
+\DoxyCodeLine{1124     \}}
+\DoxyCodeLine{1126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a95301c709e857addb69dfa02cf466f2e}{trPackages}}()}
+\DoxyCodeLine{1127     \{}
+\DoxyCodeLine{1128       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pachete"{}};}
+\DoxyCodeLine{1129     \}}
+\DoxyCodeLine{1131     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac258cbced506e3079a216c58909b819b}{trDefineValue}}()}
+\DoxyCodeLine{1132     \{}
+\DoxyCodeLine{1133       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Valoare:"{}};}
+\DoxyCodeLine{1134     \}}
+\DoxyCodeLine{1135 }
+\DoxyCodeLine{1137 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1139 \textcolor{comment}{}}
+\DoxyCodeLine{1141     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac93b1de87d1f124489fb236c10744d07}{trBug}}()}
+\DoxyCodeLine{1142     \{}
+\DoxyCodeLine{1143       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Problema (Bug)"{}};}
+\DoxyCodeLine{1144     \}}
+\DoxyCodeLine{1146     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a68516fcf797836099058b828a5787e25}{trBugList}}()}
+\DoxyCodeLine{1147     \{}
+\DoxyCodeLine{1148       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista de Probleme (Bugs)"{}};}
+\DoxyCodeLine{1149     \}}
+\DoxyCodeLine{1150 }
+\DoxyCodeLine{1152 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1154 \textcolor{comment}{}}
+\DoxyCodeLine{1180     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab7c503188161175b30f783b9c15f924f}{trRTFansicp}}()}
+\DoxyCodeLine{1181     \{}
+\DoxyCodeLine{1182       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1250"{}}; \textcolor{comment}{//EASTEUROPE\_CHARSET}}
+\DoxyCodeLine{1183     \}}
+\DoxyCodeLine{1184 }
+\DoxyCodeLine{1185 }
+\DoxyCodeLine{1189     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab1c47ae1478057aef6c28f39e8853091}{trRTFCharSet}}()}
+\DoxyCodeLine{1190     \{}
+\DoxyCodeLine{1191       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}238"{}};}
+\DoxyCodeLine{1192     \}}
+\DoxyCodeLine{1193 }
+\DoxyCodeLine{1195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a144ea1b1691b8ff7e78d90dbf7765dec}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1196     \{}
+\DoxyCodeLine{1197       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Index"{}};}
+\DoxyCodeLine{1198     \}}
+\DoxyCodeLine{1199 }
+\DoxyCodeLine{1204     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2e62b11e8b020c7e91015c63bff923b2}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1205     \{}
+\DoxyCodeLine{1206       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Clas"{}} : \textcolor{stringliteral}{"{}clas"{}}));}
+\DoxyCodeLine{1207     result+= singular ? \textcolor{stringliteral}{"{}a"{}}:\textcolor{stringliteral}{"{}ele"{}};}
+\DoxyCodeLine{1208       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1209     \}}
+\DoxyCodeLine{1210 }
+\DoxyCodeLine{1215     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a349a6d2104e084d372d4336b6a47c4ee}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1216     \{}
+\DoxyCodeLine{1217       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Fişier"{}} : \textcolor{stringliteral}{"{}fişier"{}}));}
+\DoxyCodeLine{1218     result+= singular ? \textcolor{stringliteral}{"{}ul"{}}:\textcolor{stringliteral}{"{}ele"{}};}
+\DoxyCodeLine{1219       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1220     \}}
+\DoxyCodeLine{1221 }
+\DoxyCodeLine{1226     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_abd8b64782610d8656def06e32a56a633}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1227     \{}
+\DoxyCodeLine{1228       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Namespace"{}} : \textcolor{stringliteral}{"{}namespace"{}}));}
+\DoxyCodeLine{1229     result+= singular ? \textcolor{stringliteral}{"{}-\/ul"{}}:\textcolor{stringliteral}{"{}-\/urile"{}};}
+\DoxyCodeLine{1230       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1231     \}}
+\DoxyCodeLine{1232 }
+\DoxyCodeLine{1237     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a1fc9b8c974122a961fad25e160508d88}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1238     \{}
+\DoxyCodeLine{1239       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Grupu"{}} : \textcolor{stringliteral}{"{}grupu"{}}));}
+\DoxyCodeLine{1240     result+= singular ? \textcolor{stringliteral}{"{}l"{}}:\textcolor{stringliteral}{"{}rile"{}};}
+\DoxyCodeLine{1241       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1242     \}}
+\DoxyCodeLine{1243 }
+\DoxyCodeLine{1248     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6858426987ca006c90929d6bdd7c572b}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1249     \{}
+\DoxyCodeLine{1250       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Pagin"{}} : \textcolor{stringliteral}{"{}pagin"{}}));}
+\DoxyCodeLine{1251     result+= singular ? \textcolor{stringliteral}{"{}a"{}}:\textcolor{stringliteral}{"{}ile"{}};}
+\DoxyCodeLine{1252       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1253     \}}
+\DoxyCodeLine{1254 }
+\DoxyCodeLine{1259     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a862c25b26835cbbfcb41e0143aa396c1}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1260     \{}
+\DoxyCodeLine{1261       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Membr"{}} : \textcolor{stringliteral}{"{}membr"{}}));}
+\DoxyCodeLine{1262     result+= singular ? \textcolor{stringliteral}{"{}ul"{}}:\textcolor{stringliteral}{"{}ii"{}};}
+\DoxyCodeLine{1263       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1264     \}}
+\DoxyCodeLine{1265 }
+\DoxyCodeLine{1270     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ade98adfe7fc71f681030dd2821ec7b6c}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1271     \{}
+\DoxyCodeLine{1272       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Global"{}} : \textcolor{stringliteral}{"{}global"{}}));}
+\DoxyCodeLine{1273       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}e"{}};}
+\DoxyCodeLine{1274       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1275     \}}
+\DoxyCodeLine{1276 }
+\DoxyCodeLine{1278 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1280 \textcolor{comment}{}}
+\DoxyCodeLine{1283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a99112a7b44c0da4a42dc73f4d663ffb4}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1284     \{}
+\DoxyCodeLine{1285       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Autor"{}} : \textcolor{stringliteral}{"{}autor"{}}));}
+\DoxyCodeLine{1286     result+= singular ? \textcolor{stringliteral}{"{}ul"{}}:\textcolor{stringliteral}{"{}ii"{}};}
+\DoxyCodeLine{1287       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1288     \}}
+\DoxyCodeLine{1289 }
+\DoxyCodeLine{1291 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1293 \textcolor{comment}{}}
+\DoxyCodeLine{1296     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0860562484f31dc3d02e75d3481c69b7}{trReferences}}()}
+\DoxyCodeLine{1297     \{}
+\DoxyCodeLine{1298       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referinţe"{}};}
+\DoxyCodeLine{1299     \}}
+\DoxyCodeLine{1300 }
+\DoxyCodeLine{1302 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1304 \textcolor{comment}{}}
+\DoxyCodeLine{1308     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4191c132998acebb780384ee9b319577}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1309     \{}
+\DoxyCodeLine{1310       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementează "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1311     \}}
+\DoxyCodeLine{1312 }
+\DoxyCodeLine{1316     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a9b547b861c58cbf89fc0b8207f713957}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1317     \{}
+\DoxyCodeLine{1318       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementat în "{}}+\mbox{\hyperlink{classTranslatorRomanian_a5858c6cb6e24f1edf66b667e356d5caf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1319     \}}
+\DoxyCodeLine{1320 }
+\DoxyCodeLine{1322 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1324 \textcolor{comment}{}}
+\DoxyCodeLine{1328     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8cb64e880d0e902d2db5b1c3d63960e9}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1329     \{}
+\DoxyCodeLine{1330       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cuprins"{}};}
+\DoxyCodeLine{1331     \}}
+\DoxyCodeLine{1332 }
+\DoxyCodeLine{1334 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1336 \textcolor{comment}{}}
+\DoxyCodeLine{1340     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_af7975a364af808de32a930ff04c0c06b}{trDeprecatedList}}()}
+\DoxyCodeLine{1341     \{}
+\DoxyCodeLine{1342       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista elementelor învechite (deprecated)"{}};}
+\DoxyCodeLine{1343     \}}
+\DoxyCodeLine{1344 }
+\DoxyCodeLine{1346 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1348 \textcolor{comment}{}}
+\DoxyCodeLine{1352     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a4ebd39202b30ee56ceff1437f102dbd1}{trEvents}}()}
+\DoxyCodeLine{1353     \{}
+\DoxyCodeLine{1354       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Evenimente"{}};}
+\DoxyCodeLine{1355     \}}
+\DoxyCodeLine{1357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ae21160d8e96af54ba2a52cecf67db73b}{trEventDocumentation}}()}
+\DoxyCodeLine{1358     \{}
+\DoxyCodeLine{1359       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia aferentă evenimentelor"{}};}
+\DoxyCodeLine{1360     \}}
+\DoxyCodeLine{1361 }
+\DoxyCodeLine{1363 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1365 \textcolor{comment}{}}
+\DoxyCodeLine{1368     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a59e9fe04abf0b6ad6b53f9698c15675f}{trPackageTypes}}()}
+\DoxyCodeLine{1369     \{}
+\DoxyCodeLine{1370       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipuri în pachet"{}};}
+\DoxyCodeLine{1371     \}}
+\DoxyCodeLine{1375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3e448f0cd4e9d7f939afc4da2aef0e7d}{trPackageFunctions}}()}
+\DoxyCodeLine{1376     \{}
+\DoxyCodeLine{1377       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funcţii în pachet"{}};}
+\DoxyCodeLine{1378     \}}
+\DoxyCodeLine{1379     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a295370132952a148707f3ec631af07cb}{trPackageMembers}}()}
+\DoxyCodeLine{1380     \{}
+\DoxyCodeLine{1381       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membrii în pachet"{}};}
+\DoxyCodeLine{1382     \}}
+\DoxyCodeLine{1386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_adca1f19ac12cc4522135be8c61f5aaad}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1387     \{}
+\DoxyCodeLine{1388       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funcţii statice în pachet"{}};}
+\DoxyCodeLine{1389     \}}
+\DoxyCodeLine{1393     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a7779d20c3681246d213788375c518022}{trPackageAttribs}}()}
+\DoxyCodeLine{1394     \{}
+\DoxyCodeLine{1395       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute în pachet"{}};}
+\DoxyCodeLine{1396     \}}
+\DoxyCodeLine{1400     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ace2dc362cc6fd8273dbfb203eb9c514d}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1401     \{}
+\DoxyCodeLine{1402       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribute statice în pachet"{}};}
+\DoxyCodeLine{1403     \}}
+\DoxyCodeLine{1404 }
+\DoxyCodeLine{1406 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1408 \textcolor{comment}{}}
+\DoxyCodeLine{1412     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8389138e725961ad745a2c71dfd76856}{trAll}}()}
+\DoxyCodeLine{1413     \{}
+\DoxyCodeLine{1414       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Toate"{}};}
+\DoxyCodeLine{1415     \}}
+\DoxyCodeLine{1417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_acb37661c05d95a5b0dc0bbcad7d3ecea}{trCallGraph}}()}
+\DoxyCodeLine{1418     \{}
+\DoxyCodeLine{1419       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graful de apel al acestei funcţii:"{}};}
+\DoxyCodeLine{1420     \}}
+\DoxyCodeLine{1421 }
+\DoxyCodeLine{1423 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1425 \textcolor{comment}{}}
+\DoxyCodeLine{1429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a948f639d77578d00b6288056b68defd8}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1430     \{}
+\DoxyCodeLine{1431       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rezultatele căutarii"{}};}
+\DoxyCodeLine{1432     \}}
+\DoxyCodeLine{1441     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a36e2957bbfc76fc554856dbe067dcae7}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1442     \{}
+\DoxyCodeLine{1443       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1444       \{}
+\DoxyCodeLine{1445         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Din păcate nu am găsit nici un document care să corespundă cererii."{}};}
+\DoxyCodeLine{1446       \}}
+\DoxyCodeLine{1447       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1448       \{}
+\DoxyCodeLine{1449         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Am găsit <b>1</b> document corespunzând cererii."{}};}
+\DoxyCodeLine{1450       \}}
+\DoxyCodeLine{1451       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1452       \{}
+\DoxyCodeLine{1453         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Am găsit <b>\$num</b> documente corespunzând cererii. "{}}}
+\DoxyCodeLine{1454                \textcolor{stringliteral}{"{}Lista documentelor găsite, sortate după relevanţă."{}};}
+\DoxyCodeLine{1455       \}}
+\DoxyCodeLine{1456     \}}
+\DoxyCodeLine{1460     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a07de29822cde7d96bf057faa87cea30a}{trSearchMatches}}()}
+\DoxyCodeLine{1461     \{}
+\DoxyCodeLine{1462       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Găsite:"{}};}
+\DoxyCodeLine{1463     \}}
+\DoxyCodeLine{1464 }
+\DoxyCodeLine{1466 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1468 \textcolor{comment}{}}
+\DoxyCodeLine{1471      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a7dcfb3e4b4777674a86c6365aaecc2b5}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1472      \{}
+\DoxyCodeLine{1473        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} Fişierul sursă "{}} + filename;}
+\DoxyCodeLine{1474      \}}
+\DoxyCodeLine{1475 }
+\DoxyCodeLine{1477 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1479 \textcolor{comment}{}}
+\DoxyCodeLine{1483      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab2b4a2f0dd42652b1ef100b4dd8a65a3}{trDirIndex}}()}
+\DoxyCodeLine{1484      \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ierarhia directoarelor"{}}; \}}
+\DoxyCodeLine{1485 }
+\DoxyCodeLine{1489      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_adf9b6adbc83009c3759ed199131749d1}{trDirDocumentation}}()}
+\DoxyCodeLine{1490      \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia directoarelor"{}}; \}}
+\DoxyCodeLine{1491 }
+\DoxyCodeLine{1495      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a780ab33f21804f844fdddb452e0302dd}{trDirectories}}()}
+\DoxyCodeLine{1496      \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Directoare"{}}; \}}
+\DoxyCodeLine{1497 }
+\DoxyCodeLine{1501      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0dd0cf11c67a6b928df16f2e59d519f5}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1502      \{}
+\DoxyCodeLine{1503        \mbox{\hyperlink{classQCString}{QCString}}  result=\textcolor{stringliteral}{"{}Director-\/referinţă "{}}; result+=dirName;}
+\DoxyCodeLine{1504        \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1505      \}}
+\DoxyCodeLine{1506 }
+\DoxyCodeLine{1510      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aca87b34e214fb29b7f23c2c7fbbc6387}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1511      \{}
+\DoxyCodeLine{1512        \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Directo"{}} : \textcolor{stringliteral}{"{}directo"{}}));}
+\DoxyCodeLine{1513        \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}r"{}}; \textcolor{keywordflow}{else} result=\textcolor{stringliteral}{"{}are"{}};}
+\DoxyCodeLine{1514        \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1515      \}}
+\DoxyCodeLine{1516 }
+\DoxyCodeLine{1518 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1520 \textcolor{comment}{}}
+\DoxyCodeLine{1524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a3c3a772aa825dbff387a4dc4c2ea20eb}{trOverloadText}}()}
+\DoxyCodeLine{1525     \{}
+\DoxyCodeLine{1526        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aceasta este o funcţie membră suprascrisă. "{}}}
+\DoxyCodeLine{1527               \textcolor{stringliteral}{"{}Diferă de funcţia de mai sus "{}}}
+\DoxyCodeLine{1528               \textcolor{stringliteral}{"{}doar prin argumentele acceptate."{}};}
+\DoxyCodeLine{1529     \}}
+\DoxyCodeLine{1530 }
+\DoxyCodeLine{1532 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1534 \textcolor{comment}{}}
+\DoxyCodeLine{1536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab64b90d78602f15df0ef350b7b8a3ead}{trCallerGraph}}()}
+\DoxyCodeLine{1537     \{}
+\DoxyCodeLine{1538       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graful de apeluri pentru această funcţie:"{}};}
+\DoxyCodeLine{1539     \}}
+\DoxyCodeLine{1540 }
+\DoxyCodeLine{1544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac01f36fb606f0020f36dde8de1a65d06}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1545     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Enumeratorilor"{}}; \}}
+\DoxyCodeLine{1546 }
+\DoxyCodeLine{1548 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1550 \textcolor{comment}{}}
+\DoxyCodeLine{1552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a814d711e26c31ff61a556144af1a1f49}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1553     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Funcţiei Membre/Subrutinei"{}}; \}}
+\DoxyCodeLine{1554 }
+\DoxyCodeLine{1556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a9fc4f0bd3e65891f91c9a4491d99987e}{trCompoundListFortran}}()}
+\DoxyCodeLine{1557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista Tipurilor de Date"{}}; \}}
+\DoxyCodeLine{1558 }
+\DoxyCodeLine{1560     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a365ba648f73c58d6c308e3152caa9f45}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1561     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Câmpuri de date"{}}; \}}
+\DoxyCodeLine{1562 }
+\DoxyCodeLine{1564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a13d133d6c1836bfb723a301bcfd7db7b}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1565     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipurile de date, cu scurte descrieri:"{}}; \}}
+\DoxyCodeLine{1566 }
+\DoxyCodeLine{1568     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a96e3bb5b689655af4b189686d6fe4068}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1569     \{}
+\DoxyCodeLine{1570       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor tipurilor de date "{}};}
+\DoxyCodeLine{1571       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1572       \{}
+\DoxyCodeLine{1573         result+=\textcolor{stringliteral}{"{}documentate "{}};}
+\DoxyCodeLine{1574       \}}
+\DoxyCodeLine{1575       result+=\textcolor{stringliteral}{"{} cu legături către "{}};}
+\DoxyCodeLine{1576       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1577       \{}
+\DoxyCodeLine{1578          result+=\textcolor{stringliteral}{"{}documentaţia structurii de date pentru fiecare membru"{}};}
+\DoxyCodeLine{1579       \}}
+\DoxyCodeLine{1580       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1581       \{}
+\DoxyCodeLine{1582          result+=\textcolor{stringliteral}{"{}tipurile de date de care aparţin:"{}};}
+\DoxyCodeLine{1583       \}}
+\DoxyCodeLine{1584       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1585     \}}
+\DoxyCodeLine{1586 }
+\DoxyCodeLine{1590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab41becc10fb96bc438fa133dd8783b66}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Tipurilor de Date"{}}; \}}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac3eda067ce189ce19a573bbc347bb4e0}{trTypeDocumentation}}()}
+\DoxyCodeLine{1597     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Tipurilor de Date"{}}; \}}
+\DoxyCodeLine{1598 }
+\DoxyCodeLine{1602     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6f203182dde06072b64fd5968aa99210}{trSubprograms}}()}
+\DoxyCodeLine{1603     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funcţii/Subrutine"{}}; \}}
+\DoxyCodeLine{1604 }
+\DoxyCodeLine{1608     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2628f056b659b8fce1afefba3bf046ac}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1609     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentaţia Funcţiilor/Subrutinelor"{}}; \}}
+\DoxyCodeLine{1610 }
+\DoxyCodeLine{1614      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aea31bf7916645f6bdd294d7629432c0b}{trDataTypes}}()}
+\DoxyCodeLine{1615     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipuri de Date"{}}; \}}
+\DoxyCodeLine{1616 }
+\DoxyCodeLine{1618     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aa4a2d769e9047ffb0be71fffe20eafa8}{trModulesList}}()}
+\DoxyCodeLine{1619     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista Modulelor"{}}; \}}
+\DoxyCodeLine{1620 }
+\DoxyCodeLine{1622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a2a602e6c1bc48ca8a4751b4ea27ca798}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1623     \{}
+\DoxyCodeLine{1624       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor modulelor "{}};}
+\DoxyCodeLine{1625       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentate "{}};}
+\DoxyCodeLine{1626       result+=\textcolor{stringliteral}{"{}cu scurte descrieri:"{}};}
+\DoxyCodeLine{1627       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1628     \}}
+\DoxyCodeLine{1629 }
+\DoxyCodeLine{1631     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a5ab22508155fafe7e1359ce7f045c302}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1632                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1633                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1634     \{}
+\DoxyCodeLine{1635       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referinţă la "{}};}
+\DoxyCodeLine{1636       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1637       \{}
+\DoxyCodeLine{1638         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}Modulul "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1639         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}Tipul "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1640         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}Uniunea "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1641         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}Interfaţa "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1642         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}Protocolul "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1643         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}Categoria "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1644         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}Excepţia "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1645         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1646       \}}
+\DoxyCodeLine{1647       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}(Template) "{}};}
+\DoxyCodeLine{1648       result+=clName;}
+\DoxyCodeLine{1649       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1650     \}}
+\DoxyCodeLine{1652     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aaac023959b6b86366e53e6a1d7c4829c}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1653     \{}
+\DoxyCodeLine{1654       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Referinţă la Modulul "{}};}
+\DoxyCodeLine{1655       result += namespaceName;}
+\DoxyCodeLine{1656       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1657     \}}
+\DoxyCodeLine{1658 }
+\DoxyCodeLine{1660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8f3d36f33d2ca8b0a41e2eae8f2bd11b}{trModulesMembers}}()}
+\DoxyCodeLine{1661     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membrii Modulului"{}}; \}}
+\DoxyCodeLine{1662 }
+\DoxyCodeLine{1664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aafc4c1cb4e87730d4dd2b29b15b99b82}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1665     \{}
+\DoxyCodeLine{1666       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista tuturor membrilor "{}};}
+\DoxyCodeLine{1667       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}documentaţi ai "{}};}
+\DoxyCodeLine{1668       result+=\textcolor{stringliteral}{"{}modulului cu legături către "{}};}
+\DoxyCodeLine{1669       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1670       \{}
+\DoxyCodeLine{1671         result+=\textcolor{stringliteral}{"{}documentaţia modulului pentru fiecare membru:"{}};}
+\DoxyCodeLine{1672       \}}
+\DoxyCodeLine{1673       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1674       \{}
+\DoxyCodeLine{1675         result+=\textcolor{stringliteral}{"{}modulele de care aparţin:"{}};}
+\DoxyCodeLine{1676       \}}
+\DoxyCodeLine{1677       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1678     \}}
+\DoxyCodeLine{1679 }
+\DoxyCodeLine{1683     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac1f3a2ccaf9bc8a17d17f757b39fa125}{trModulesIndex}}()}
+\DoxyCodeLine{1684     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indexul Modulelor"{}}; \}}
+\DoxyCodeLine{1685 }
+\DoxyCodeLine{1690     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a20002054853e975325f9836aa6a2d49b}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1691     \{}
+\DoxyCodeLine{1692       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));}
+\DoxyCodeLine{1693       \textcolor{keywordflow}{if} (singular)  result+=\textcolor{stringliteral}{"{}ul"{}};}
+\DoxyCodeLine{1694       \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}ele"{}};}
+\DoxyCodeLine{1695       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1696     \}}
+\DoxyCodeLine{1700     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ab0ccbfa73b3e708abc42b59221ede9bb}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1701         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1702     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1703       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1704       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Documentaţia "{}};}
+\DoxyCodeLine{1705       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1706       \{}
+\DoxyCodeLine{1707         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}modulului"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1708         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tipului"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1709         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}uniunii"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1710         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interfeţei"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1711         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocolului"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1712         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}categoriei"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1713         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}excepţiei"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1714         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1715       \}}
+\DoxyCodeLine{1716       result+=\textcolor{stringliteral}{"{} a fost generată din următo"{}};}
+\DoxyCodeLine{1717       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}rul fişier:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}arele fişiere:"{}};}
+\DoxyCodeLine{1718       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1719     \}}
+\DoxyCodeLine{1724     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a88f0ac05ff60616c5f1ee1c30a4e3730}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1725     \{}
+\DoxyCodeLine{1726       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tip"{}} : \textcolor{stringliteral}{"{}tip"{}}));}
+\DoxyCodeLine{1727       \textcolor{keywordflow}{if} (singular)  result+=\textcolor{stringliteral}{"{}ul"{}};}
+\DoxyCodeLine{1728       \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}urile"{}};}
+\DoxyCodeLine{1729       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1730     \}}
+\DoxyCodeLine{1735     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8bd66fc0016c5b8ababad71c51aece2b}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1736     \{}
+\DoxyCodeLine{1737       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Subprogram"{}} : \textcolor{stringliteral}{"{}subprogram"{}}));}
+\DoxyCodeLine{1738       \textcolor{keywordflow}{if} (singular)  result+=\textcolor{stringliteral}{"{}ul"{}};}
+\DoxyCodeLine{1739       \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}ele"{}};}
+\DoxyCodeLine{1740       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1741     \}}
+\DoxyCodeLine{1742 }
+\DoxyCodeLine{1744     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aaf39b359b3d5817c23e4c2ff1c6470be}{trTypeConstraints}}()}
+\DoxyCodeLine{1745     \{}
+\DoxyCodeLine{1746       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Constrângerile de Tip"{}};}
+\DoxyCodeLine{1747     \}}
+\DoxyCodeLine{1748 }
+\DoxyCodeLine{1750 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1752 \textcolor{comment}{}}
+\DoxyCodeLine{1754     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a15f8eb826cceac0f2b32fa758d960200}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1755     \{}
+\DoxyCodeLine{1756       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Relație"{}};}
+\DoxyCodeLine{1757     \}}
+\DoxyCodeLine{1758 }
+\DoxyCodeLine{1760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aca59b71b202e2de638829c093873dc93}{trLoading}}()}
+\DoxyCodeLine{1761     \{}
+\DoxyCodeLine{1762       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Se încarcă..."{}};}
+\DoxyCodeLine{1763     \}}
+\DoxyCodeLine{1764 }
+\DoxyCodeLine{1766     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a161f8e0193f7477b1d1802dea863eab9}{trGlobalNamespace}}()}
+\DoxyCodeLine{1767     \{}
+\DoxyCodeLine{1768       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace Global"{}};}
+\DoxyCodeLine{1769     \}}
+\DoxyCodeLine{1770 }
+\DoxyCodeLine{1772     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aec6841684d90acbf20196adadcbcd316}{trSearching}}()}
+\DoxyCodeLine{1773     \{}
+\DoxyCodeLine{1774       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Căutare..."{}};}
+\DoxyCodeLine{1775     \}}
+\DoxyCodeLine{1776 }
+\DoxyCodeLine{1778     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad3cd1a66c2804c22e5726dec1af6264c}{trNoMatches}}()}
+\DoxyCodeLine{1779     \{}
+\DoxyCodeLine{1780       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Niciun rezultat"{}};}
+\DoxyCodeLine{1781     \}}
+\DoxyCodeLine{1782 }
+\DoxyCodeLine{1784 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1786 \textcolor{comment}{}}
+\DoxyCodeLine{1791     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a242d62141027c28e6f84b799877576df}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1792     \{}
+\DoxyCodeLine{1793       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fișierul din "{}}+name;}
+\DoxyCodeLine{1794     \}}
+\DoxyCodeLine{1795 }
+\DoxyCodeLine{1800     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_aedace1cd5a6bf67c991d6b54b0f25970}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1801     \{}
+\DoxyCodeLine{1802       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Include fișierul din "{}}+name;}
+\DoxyCodeLine{1803     \}}
+\DoxyCodeLine{1804 }
+\DoxyCodeLine{1815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a94bd8e948397a46045bb5c755f88973d}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1816                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1817                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1818     \{}
+\DoxyCodeLine{1819       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Luni"{}},\textcolor{stringliteral}{"{}Marți"{}},\textcolor{stringliteral}{"{}Miercuri"{}},\textcolor{stringliteral}{"{}Joi"{}},\textcolor{stringliteral}{"{}Vineri"{}},\textcolor{stringliteral}{"{}Sâmbătă"{}},\textcolor{stringliteral}{"{}Duminică"{}} \};}
+\DoxyCodeLine{1820       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Ian"{}},\textcolor{stringliteral}{"{}Feb"{}},\textcolor{stringliteral}{"{}Mar"{}},\textcolor{stringliteral}{"{}Apr"{}},\textcolor{stringliteral}{"{}Mai"{}},\textcolor{stringliteral}{"{}Iun"{}},\textcolor{stringliteral}{"{}Iul"{}},\textcolor{stringliteral}{"{}Aug"{}},\textcolor{stringliteral}{"{}Sep"{}},\textcolor{stringliteral}{"{}Oct"{}},\textcolor{stringliteral}{"{}Noi"{}},\textcolor{stringliteral}{"{}Dec"{}} \};}
+\DoxyCodeLine{1821       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1822       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1823       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1824       \{}
+\DoxyCodeLine{1825         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1826         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1827         sdate+=stime;}
+\DoxyCodeLine{1828       \}}
+\DoxyCodeLine{1829       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1830     \}}
+\DoxyCodeLine{1831 }
+\DoxyCodeLine{1833 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1835 \textcolor{comment}{}}
+\DoxyCodeLine{1837     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8efa96a9df9a11de154ce5c1cf89125e}{trCiteReferences}}()}
+\DoxyCodeLine{1838     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referințe Bibliografice"{}}; \}}
+\DoxyCodeLine{1839 }
+\DoxyCodeLine{1841     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a45a87348efa6dd7c8faeb207e5f7a039}{trCopyright}}()}
+\DoxyCodeLine{1842     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}}; \}}
+\DoxyCodeLine{1843 }
+\DoxyCodeLine{1845     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a493453f1f23dd992cec8e711334f7107}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1846     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Grafic de dependență a directoarelor pentru "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1847 }
+\DoxyCodeLine{1849 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1851 \textcolor{comment}{}}
+\DoxyCodeLine{1853     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_afd1d8a9754f23c09e716b88123d863d8}{trDetailLevel}}()}
+\DoxyCodeLine{1854     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}nivel de detaliu"{}}; \}}
+\DoxyCodeLine{1855 }
+\DoxyCodeLine{1857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a20217c75d409bc30a66993e044a25d9a}{trTemplateParameters}}()}
+\DoxyCodeLine{1858     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametri Template"{}}; \}}
+\DoxyCodeLine{1859 }
+\DoxyCodeLine{1861     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad5066b6b53bc92b78b6f4fcd7869f7fb}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1862     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}și încă "{}} + number; \}}
+\DoxyCodeLine{1863 }
+\DoxyCodeLine{1865     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0a8d062d8ca88dea27427d2286cbe975}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1866     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Documentația pentru acest enum a fost generată din "{}};}
+\DoxyCodeLine{1867       \textcolor{keywordflow}{if} (single)}
+\DoxyCodeLine{1868         result += \textcolor{stringliteral}{"{}următorul fișier:"{}};}
+\DoxyCodeLine{1869       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1870         result += \textcolor{stringliteral}{"{}următoarele fișiere:"{}};}
+\DoxyCodeLine{1871       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1872     \}}
+\DoxyCodeLine{1873 }
+\DoxyCodeLine{1875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ad99deb824886ad2212dd9642665a03a3}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1876     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Referință Enum"{}}; \}}
+\DoxyCodeLine{1877 }
+\DoxyCodeLine{1879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a468f7ce631e8645919d8ca4d831bcafd}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1880     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} moștenit(e) din "{}}+what; \}}
+\DoxyCodeLine{1881 }
+\DoxyCodeLine{1885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a80becfc32a2af84015b012d105a0bf96}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1886     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Membri Moșteniți Adiționali"{}}; \}}
+\DoxyCodeLine{1887 }
+\DoxyCodeLine{1889 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1891 \textcolor{comment}{}}
+\DoxyCodeLine{1896     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a723c470596dc1ddfae9b5d739921f534}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1897     \{}
+\DoxyCodeLine{1898       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}activa"{}} : \textcolor{stringliteral}{"{}dezactiva"{}};}
+\DoxyCodeLine{1899       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}apasă click pentru a "{}}+opt+\textcolor{stringliteral}{"{} sincronizarea panourilor"{}};}
+\DoxyCodeLine{1900     \}}
+\DoxyCodeLine{1901 }
+\DoxyCodeLine{1906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a0adb4edf516aa09ddc81c9345c4f85d7}{trProvidedByCategory}}()}
+\DoxyCodeLine{1907     \{}
+\DoxyCodeLine{1908       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Furnizat de categoria @0."{}};}
+\DoxyCodeLine{1909     \}}
+\DoxyCodeLine{1910 }
+\DoxyCodeLine{1915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a83bac096face5986a9d3603a738258d9}{trExtendsClass}}()}
+\DoxyCodeLine{1916     \{}
+\DoxyCodeLine{1917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Extinde clasa @0."{}};}
+\DoxyCodeLine{1918     \}}
+\DoxyCodeLine{1919 }
+\DoxyCodeLine{1923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac4666444a7a161b9bdf78b9c0e773c87}{trClassMethods}}()}
+\DoxyCodeLine{1924     \{}
+\DoxyCodeLine{1925       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metodele Clasei"{}};}
+\DoxyCodeLine{1926     \}}
+\DoxyCodeLine{1927 }
+\DoxyCodeLine{1931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a8d5b235508f9aa7769c40b340f8e475f}{trInstanceMethods}}()}
+\DoxyCodeLine{1932     \{}
+\DoxyCodeLine{1933       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metodele Instanței"{}};}
+\DoxyCodeLine{1934     \}}
+\DoxyCodeLine{1935 }
+\DoxyCodeLine{1938     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a55c461ecf1e60ca8a982bf65de0d6328}{trMethodDocumentation}}()}
+\DoxyCodeLine{1939     \{}
+\DoxyCodeLine{1940       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentația Metodelor"{}};}
+\DoxyCodeLine{1941     \}}
+\DoxyCodeLine{1942 }
+\DoxyCodeLine{1944 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1946 \textcolor{comment}{}}
+\DoxyCodeLine{1948     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a244776b84b8f48539634938918177748}{trInterfaces}}()}
+\DoxyCodeLine{1949     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Interfețe exportate"{}}; \}}
+\DoxyCodeLine{1950 }
+\DoxyCodeLine{1952     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a5689bab36160e93a8fbfae5824608bac}{trServices}}()}
+\DoxyCodeLine{1953     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Servicii Incluse"{}}; \}}
+\DoxyCodeLine{1954 }
+\DoxyCodeLine{1956     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a845c68ba03622b749be31cff6cff1317}{trConstantGroups}}()}
+\DoxyCodeLine{1957     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grupuri Constante"{}}; \}}
+\DoxyCodeLine{1958 }
+\DoxyCodeLine{1960     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_ac90ac8ccbd59b05ac6c99ac9ec78259d}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1961     \{}
+\DoxyCodeLine{1962       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1963       result+=\textcolor{stringliteral}{"{} Referință Grup Constant"{}};}
+\DoxyCodeLine{1964       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1965     \}}
+\DoxyCodeLine{1967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a991870e950a4cc83284e430273360725}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1968     \{}
+\DoxyCodeLine{1969       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1970       result+=\textcolor{stringliteral}{"{} Referință Serviciu"{}};}
+\DoxyCodeLine{1971       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1972     \}}
+\DoxyCodeLine{1974     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a35d1805438c18b16f0c6fbf84d2ce18e}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1975     \{}
+\DoxyCodeLine{1976       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1977       result+=\textcolor{stringliteral}{"{} Referință Singleton"{}};}
+\DoxyCodeLine{1978       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1979     \}}
+\DoxyCodeLine{1981     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a010b6b54a93d77c4f4976e61251df27f}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1982     \{}
+\DoxyCodeLine{1983       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1984       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Documentația pentru acest serviciu "{}}}
+\DoxyCodeLine{1985                                 \textcolor{stringliteral}{"{}a fost generată din "{}};}
+\DoxyCodeLine{1986       \textcolor{keywordflow}{if} (single)}
+\DoxyCodeLine{1987         result += \textcolor{stringliteral}{"{}următorul fișier:"{}};}
+\DoxyCodeLine{1988       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1989         result += \textcolor{stringliteral}{"{}următoarele fișiere:"{}};}
+\DoxyCodeLine{1990       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1991     \}}
+\DoxyCodeLine{1993     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorRomanian_a6202a1d4f3155487cdb413c07b7be5ee}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1994     \{}
+\DoxyCodeLine{1995       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1996       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Documentația pentru acest singleton "{}}}
+\DoxyCodeLine{1997                                 \textcolor{stringliteral}{"{}a fost generată din "{}};}
+\DoxyCodeLine{1998       \textcolor{keywordflow}{if} (single)}
+\DoxyCodeLine{1999         result += \textcolor{stringliteral}{"{}următorul fișier:"{}};}
+\DoxyCodeLine{2000       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{2001         result += \textcolor{stringliteral}{"{}următoarele fișiere:"{}};}
+\DoxyCodeLine{2002       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2003     \}}
+\DoxyCodeLine{2004 }
+\DoxyCodeLine{2005 \};}
+\DoxyCodeLine{2006 }
+\DoxyCodeLine{2007 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\hypertarget{camera_8hpp_source}{}\doxysection{camera.\+hpp}
+\label{camera_8hpp_source}\index{utilities/include/camera.hpp@{utilities/include/camera.hpp}}
+\mbox{\hyperlink{camera_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CAMERA\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CAMERA\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{maths_8hpp}{maths.hpp}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{classCamera}{Camera}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{public}:}
+\DoxyCodeLine{9      \mbox{\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera}}()}
+\DoxyCodeLine{10      \{}
+\DoxyCodeLine{11         \textcolor{keyword}{auto} aspect\_ratio = 16.0 / 9.0;}
+\DoxyCodeLine{12         \textcolor{keyword}{auto} viewport\_height = 2.0;}
+\DoxyCodeLine{13         \textcolor{keyword}{auto} viewport\_width = aspect\_ratio * viewport\_height;}
+\DoxyCodeLine{14         \textcolor{keyword}{auto} focal\_length = 1.0;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         origin = \mbox{\hyperlink{vec3_8hpp_a23d4d64cd77609f1c386634d2c940f29}{point3}}(0, 0, 0);}
+\DoxyCodeLine{17         horizontal = \mbox{\hyperlink{classvec3}{vec3}}(viewport\_width, 0.0, 0.0);}
+\DoxyCodeLine{18         vertical = \mbox{\hyperlink{classvec3}{vec3}}(0.0, viewport\_height, 0.0);}
+\DoxyCodeLine{19         lower\_left\_corner = origin -\/ horizontal/2 -\/ vertical/2 -\/ \mbox{\hyperlink{classvec3}{vec3}}(0, 0, focal\_length);}
+\DoxyCodeLine{20      \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22      \mbox{\hyperlink{classRay}{Ray}} \mbox{\hyperlink{classCamera_a3ac941734bb22ca6b5fbacf32998c665}{getRay}}(\textcolor{keywordtype}{double} u,\textcolor{keywordtype}{double} v)}
+\DoxyCodeLine{23      \{}
+\DoxyCodeLine{24          \textcolor{keywordflow}{return} \mbox{\hyperlink{classRay}{Ray}}(origin, lower\_left\_corner + u*horizontal + v*vertical -\/ origin);}
+\DoxyCodeLine{25      \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27       \textcolor{keyword}{private}:}
+\DoxyCodeLine{28         \mbox{\hyperlink{classvec3}{point3}} origin;}
+\DoxyCodeLine{29         \mbox{\hyperlink{classvec3}{point3}} lower\_left\_corner;}
+\DoxyCodeLine{30         \mbox{\hyperlink{classvec3}{vec3}} horizontal;}
+\DoxyCodeLine{31         \mbox{\hyperlink{classvec3}{vec3}} vertical;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

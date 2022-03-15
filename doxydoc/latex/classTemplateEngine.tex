@@ -1,0 +1,129 @@
+\hypertarget{classTemplateEngine}{}\doxysection{Template\+Engine Class Reference}
+\label{classTemplateEngine}\index{TemplateEngine@{TemplateEngine}}
+
+
+Engine to create templates and template contexts.  
+
+
+
+
+{\ttfamily \#include $<$template.\+h$>$}
+
+
+
+Collaboration diagram for Template\+Engine\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTemplateEngine_1_1Private}{Private}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classTemplateEngine_1_1Private}{Private}} data of the template engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTemplateEngine_ad12f5d696ed3fc82fd729e1b6892d328}{Template\+Engine}} ()
+\item 
+\mbox{\hyperlink{classTemplateEngine_a8648e1b96a8c4bff1fe1b2c38a84948b}{$\sim$\+Template\+Engine}} ()
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTemplateContext}{Template\+Context}} $>$ \mbox{\hyperlink{classTemplateEngine_abd065687312d4607d538e5a84d91e8fe}{create\+Context}} () const
+\item 
+\mbox{\hyperlink{classTemplate}{Template}} $\ast$ \mbox{\hyperlink{classTemplateEngine_a518bcc65a14287f897eebad289ecdd11}{load\+By\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classint}{int}} from\+Line)
+\item 
+void \mbox{\hyperlink{classTemplateEngine_a6050af3395989e4521969369ea7c2de0}{unload}} (\mbox{\hyperlink{classTemplate}{Template}} $\ast$t)
+\item 
+void \mbox{\hyperlink{classTemplateEngine_a159aaf3096efbfd42cb2a0321d1ec961}{print\+Include\+Context}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, \mbox{\hyperlink{classint}{int}} line) const
+\item 
+void \mbox{\hyperlink{classTemplateEngine_ae2dcf3ce333bc951d4253876ca212de6}{set\+Template\+Dir}} (const \mbox{\hyperlink{classQCString}{QCString}} \&dir\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTemplateEngine_a593d2451d446162c730018cba7cf8687}{Template\+Node\+Block}}
+\item 
+class \mbox{\hyperlink{classTemplateEngine_a5c3e9f3b7b4bfba827a974c325715b36}{Template\+Node\+Create}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Engine to create templates and template contexts. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTemplateEngine_ad12f5d696ed3fc82fd729e1b6892d328}\label{classTemplateEngine_ad12f5d696ed3fc82fd729e1b6892d328}} 
+\index{TemplateEngine@{TemplateEngine}!TemplateEngine@{TemplateEngine}}
+\index{TemplateEngine@{TemplateEngine}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{TemplateEngine()}{TemplateEngine()}}
+{\footnotesize\ttfamily Template\+Engine\+::\+Template\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a template engine. \mbox{\Hypertarget{classTemplateEngine_a8648e1b96a8c4bff1fe1b2c38a84948b}\label{classTemplateEngine_a8648e1b96a8c4bff1fe1b2c38a84948b}} 
+\index{TemplateEngine@{TemplateEngine}!````~TemplateEngine@{$\sim$TemplateEngine}}
+\index{````~TemplateEngine@{$\sim$TemplateEngine}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{$\sim$TemplateEngine()}{~TemplateEngine()}}
+{\footnotesize\ttfamily Template\+Engine\+::$\sim$\+Template\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the template engine. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTemplateEngine_abd065687312d4607d538e5a84d91e8fe}\label{classTemplateEngine_abd065687312d4607d538e5a84d91e8fe}} 
+\index{TemplateEngine@{TemplateEngine}!createContext@{createContext}}
+\index{createContext@{createContext}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{createContext()}{createContext()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classTemplateContext}{Template\+Context}} $>$ Template\+Engine\+::create\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Creates a new context that can be using to render a template. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classTemplate_a3d99497fd784c1746d9c718f58bc69c1}{Template\+::render()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classTemplateEngine_a518bcc65a14287f897eebad289ecdd11}\label{classTemplateEngine_a518bcc65a14287f897eebad289ecdd11}} 
+\index{TemplateEngine@{TemplateEngine}!loadByName@{loadByName}}
+\index{loadByName@{loadByName}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{loadByName()}{loadByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTemplate}{Template}} $\ast$ Template\+Engine\+::load\+By\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{from\+Line }\end{DoxyParamCaption})}
+
+Creates a new template whose contents are in a file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Name} & The name of the file containing the template data \\
+\hline
+\mbox{\texttt{ in}}  & {\em from\+Line} & The line number of the statement that triggered the load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new template, the engine will keep ownership of the object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTemplateEngine_a159aaf3096efbfd42cb2a0321d1ec961}\label{classTemplateEngine_a159aaf3096efbfd42cb2a0321d1ec961}} 
+\index{TemplateEngine@{TemplateEngine}!printIncludeContext@{printIncludeContext}}
+\index{printIncludeContext@{printIncludeContext}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{printIncludeContext()}{printIncludeContext()}}
+{\footnotesize\ttfamily void Template\+Engine\+::print\+Include\+Context (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{\mbox{\hyperlink{classint}{int}}}]{line }\end{DoxyParamCaption}) const}
+
+Prints the current template file include stack \mbox{\Hypertarget{classTemplateEngine_ae2dcf3ce333bc951d4253876ca212de6}\label{classTemplateEngine_ae2dcf3ce333bc951d4253876ca212de6}} 
+\index{TemplateEngine@{TemplateEngine}!setTemplateDir@{setTemplateDir}}
+\index{setTemplateDir@{setTemplateDir}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{setTemplateDir()}{setTemplateDir()}}
+{\footnotesize\ttfamily void Template\+Engine\+::set\+Template\+Dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{dir\+Name }\end{DoxyParamCaption})}
+
+Sets the search directory where to look for template files \mbox{\Hypertarget{classTemplateEngine_a6050af3395989e4521969369ea7c2de0}\label{classTemplateEngine_a6050af3395989e4521969369ea7c2de0}} 
+\index{TemplateEngine@{TemplateEngine}!unload@{unload}}
+\index{unload@{unload}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{unload()}{unload()}}
+{\footnotesize\ttfamily void Template\+Engine\+::unload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTemplate}{Template}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Indicates that template {\itshape t} is no longer needed. The engine may decide to delete it. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classTemplateEngine_a593d2451d446162c730018cba7cf8687}\label{classTemplateEngine_a593d2451d446162c730018cba7cf8687}} 
+\index{TemplateEngine@{TemplateEngine}!TemplateNodeBlock@{TemplateNodeBlock}}
+\index{TemplateNodeBlock@{TemplateNodeBlock}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeBlock}{TemplateNodeBlock}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classTemplateNodeBlock}{Template\+Node\+Block}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\Hypertarget{classTemplateEngine_a5c3e9f3b7b4bfba827a974c325715b36}\label{classTemplateEngine_a5c3e9f3b7b4bfba827a974c325715b36}} 
+\index{TemplateEngine@{TemplateEngine}!TemplateNodeCreate@{TemplateNodeCreate}}
+\index{TemplateNodeCreate@{TemplateNodeCreate}!TemplateEngine@{TemplateEngine}}
+\doxysubsubsection{\texorpdfstring{TemplateNodeCreate}{TemplateNodeCreate}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classTemplateNodeCreate}{Template\+Node\+Create}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{template_8h}{template.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{template_8cpp}{template.\+cpp}}\end{DoxyCompactItemize}

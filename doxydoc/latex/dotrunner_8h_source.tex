@@ -1,0 +1,97 @@
+\hypertarget{dotrunner_8h_source}{}\doxysection{dotrunner.\+h}
+\label{dotrunner_8h_source}\index{/mnt/c/projects/doxygen/src/dotrunner.h@{/mnt/c/projects/doxygen/src/dotrunner.h}}
+\mbox{\hyperlink{dotrunner_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTRUNNER\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTRUNNER\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <condition\_variable>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classDotRunner}{DotRunner}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keyword}{struct }DotJob}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34       DotJob(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&f, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&o, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&a,}
+\DoxyCodeLine{35              \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{int} l)}
+\DoxyCodeLine{36         : format(f), output(o), args(a), srcFile(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}), srcLine(l) \{\}}
+\DoxyCodeLine{37       \mbox{\hyperlink{classQCString}{QCString}} format;}
+\DoxyCodeLine{38       \mbox{\hyperlink{classQCString}{QCString}} output;}
+\DoxyCodeLine{39       \mbox{\hyperlink{classQCString}{QCString}} args;}
+\DoxyCodeLine{40       \mbox{\hyperlink{classQCString}{QCString}} srcFile;}
+\DoxyCodeLine{41       \textcolor{keywordtype}{int} srcLine;}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44   \textcolor{keyword}{public}:}
+\DoxyCodeLine{46     \mbox{\hyperlink{classDotRunner_a8ba6e4b47e6ce736e0bb5f79ad5231bb}{DotRunner}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \& absDotName, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& md5Hash = \mbox{\hyperlink{classQCString}{QCString}}());}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotRunner_aa225ccd454acbadc5b6a23d9534e574f}{addJob}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&format,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&output,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotRunner_a2c9b6af873f263c04913504d0f420274}{preventCleanUp}}() \{ m\_cleanUp = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotRunner_ac1afaee16ddd8bf0bc6b18aaed6b44fd}{run}}();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotRunner_ad82151becd0923b5ad9e59c53c722923}{getMd5Hash}}() \{ \textcolor{keywordflow}{return} m\_md5Hash; \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotRunner_aec96a0d40271cb4f17bf0290e145d74b}{readBoundingBox}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName, \textcolor{keywordtype}{int}* width, \textcolor{keywordtype}{int}* height, \textcolor{keywordtype}{bool} isEps);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \textcolor{keyword}{private}:}
+\DoxyCodeLine{64     \mbox{\hyperlink{classQCString}{QCString}} m\_file;}
+\DoxyCodeLine{65     \mbox{\hyperlink{classQCString}{QCString}} m\_md5Hash;}
+\DoxyCodeLine{66     \mbox{\hyperlink{classQCString}{QCString}} m\_dotExe;}
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool}     m\_cleanUp;}
+\DoxyCodeLine{68     std::vector<DotJob>  m\_jobs;}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{72 \textcolor{comment}{// all methods are thread save}}
+\DoxyCodeLine{73 \textcolor{keyword}{class }\mbox{\hyperlink{classDotRunnerQueue}{DotRunnerQueue}}}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75   \textcolor{keyword}{public}:}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotRunnerQueue_a5574ec90088f55eb96016a84d2b51e9f}{enqueue}}(\mbox{\hyperlink{classDotRunner}{DotRunner}} *runner);}
+\DoxyCodeLine{77     \mbox{\hyperlink{classDotRunner}{DotRunner}} *\mbox{\hyperlink{classDotRunnerQueue_adcfd55c84ad0e67666f86554b9284a3b}{dequeue}}();}
+\DoxyCodeLine{78     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classDotRunnerQueue_ac60d86028e2715e3f75903b4023c1458}{size}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79   \textcolor{keyword}{private}:}
+\DoxyCodeLine{80     std::condition\_variable m\_bufferNotEmpty;}
+\DoxyCodeLine{81     std::queue<DotRunner *> m\_queue;}
+\DoxyCodeLine{82     \textcolor{keyword}{mutable} std::mutex    m\_mutex;}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86 \textcolor{keyword}{class }\mbox{\hyperlink{classDotWorkerThread}{DotWorkerThread}}}
+\DoxyCodeLine{87 \{}
+\DoxyCodeLine{88   \textcolor{keyword}{public}:}
+\DoxyCodeLine{89     \mbox{\hyperlink{classDotWorkerThread_ab60de9dd74465af1b2af295846db2db5}{DotWorkerThread}}(\mbox{\hyperlink{classDotRunnerQueue}{DotRunnerQueue}} *queue);}
+\DoxyCodeLine{90    \mbox{\hyperlink{classDotWorkerThread_a508e1f30d29de4ebf25ab816093423d6}{\string~DotWorkerThread}}();}
+\DoxyCodeLine{91     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotWorkerThread_a573402f10e5d1b1fba1954a105a1c227}{run}}();}
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotWorkerThread_a2ef47599bb9aa5f5b00087d9d5f83db9}{start}}();}
+\DoxyCodeLine{93     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotWorkerThread_a58ddba0e3cacfafb3240b1a1e5b97569}{isRunning}}() \{ \textcolor{keywordflow}{return} m\_thread \&\& m\_thread-\/>joinable(); \}}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotWorkerThread_a2e878d2ca90c66079b1d92d9f6dde6a6}{wait}}() \{ m\_thread-\/>join(); \}}
+\DoxyCodeLine{95   \textcolor{keyword}{private}:}
+\DoxyCodeLine{96     std::unique\_ptr<std::thread> m\_thread;}
+\DoxyCodeLine{97     \mbox{\hyperlink{classDotRunnerQueue}{DotRunnerQueue}} *m\_queue;}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

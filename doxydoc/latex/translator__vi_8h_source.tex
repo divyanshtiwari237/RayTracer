@@ -1,0 +1,1289 @@
+\hypertarget{translator__vi_8h_source}{}\doxysection{translator\+\_\+vi.\+h}
+\label{translator__vi_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_vi.h@{/mnt/c/projects/doxygen/src/translator\_vi.h}}
+\mbox{\hyperlink{translator__vi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_VI\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define TRANSLATOR\_VI\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{/*}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 17 Oct 2008 : Translation to Vietnamese by}}
+\DoxyCodeLine{23 \textcolor{comment}{ *               Đặng Minh Tuấn <tuanvietkey@gmail.com>}}
+\DoxyCodeLine{24 \textcolor{comment}{ *}}
+\DoxyCodeLine{25 \textcolor{comment}{ */}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorVietnamese}{TranslatorVietnamese}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__6__0}{TranslatorAdapter\_1\_6\_0}}}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52   \textcolor{keyword}{public}:}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a553f57360200d8d7120013cc10d25c48}{idLanguage}}()}
+\DoxyCodeLine{63     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}vietnamese"{}}; \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{79     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a40aa5ca6be73b698e3af89f889c1e636}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{82         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[vietnamese]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa6626da0407f685b42d9c40bdf83b62e}{latexFontenc}}()}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{87     \}}
+\DoxyCodeLine{88     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa25246769e54e9e07fa253a31666b824}{latexCommandName}}()}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90       \mbox{\hyperlink{classQCString}{QCString}} latex\_command = \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_CMD\_NAME);}
+\DoxyCodeLine{91       \textcolor{keywordflow}{if} (latex\_command.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latex\_command = \textcolor{stringliteral}{"{}latex"{}};}
+\DoxyCodeLine{92       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{93       \{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{if} (latex\_command == \textcolor{stringliteral}{"{}latex"{}}) latex\_command = \textcolor{stringliteral}{"{}xelatex"{}};}
+\DoxyCodeLine{95       \}}
+\DoxyCodeLine{96       \textcolor{keywordflow}{return} latex\_command;}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad5aef1dd351f93963dde41c3952e2155}{trISOLang}}()}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}vi"{}};}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad898cb90aa2c9863c450fb86b20cfb4d}{getLanguageString}}()}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x42A Vietnamese"{}};}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{109     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a208958837ef8ed02352ce9dc16cce071}{trRelatedFunctions}}()}
+\DoxyCodeLine{110     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Những hàm liên quan"{}}; \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_abe6594d7858039d1a55eee127eab219f}{trRelatedSubscript}}()}
+\DoxyCodeLine{114     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Chú ý những hàm này không phải là hàm thành viên.)"{}}; \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a93069f1bc56d8eedc4e527b552603ab4}{trDetailedDescription}}()}
+\DoxyCodeLine{118     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mô tả chi tiết"{}}; \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{121     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac2b22a5b4506767f25df82a0903bebb0}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{122     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Member Typedef"{}}; \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{125     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a07b978a239e1f91a9024ed3bfbfb9a55}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{126     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Member Enumeration"{}}; \}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{129     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa61aa84f719d581ea36834c2714a116a}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{130     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về hàm thành viên"{}}; \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5bbac145b50f00180d4dd1463af81f48}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{134     \{}
+\DoxyCodeLine{135       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{136       \{}
+\DoxyCodeLine{137         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về trường"{}};}
+\DoxyCodeLine{138       \}}
+\DoxyCodeLine{139       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{140       \{}
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Member Data"{}};}
+\DoxyCodeLine{142       \}}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_abd0466ab588941eab92359540e5b1af9}{trMore}}()}
+\DoxyCodeLine{147     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiếp..."{}}; \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a4d5ed439b3d9a0b7b9c7ec0da45d8a45}{trListOfAllMembers}}()}
+\DoxyCodeLine{151     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liệt kê tất cả các thành viên"{}}; \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a66968ded6a055c810008d50dc3800409}{trMemberList}}()}
+\DoxyCodeLine{155     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách thành viên"{}}; \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{158     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3d636a45afbf510a93b5c0874039d3cf}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{159     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách các thành viên đầy đủ cho "{}}; \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a19ec4a9a51d691a2bd19edf770b6d2b4}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{163     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, cùng với tất cả các thành viên kế thừa."{}}; \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{168     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a45145180ef6e97eb5fe3538e8dc8d37f}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{169     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Được tạo ra bởi Doxygen"{}};}
+\DoxyCodeLine{170       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} cho "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{171       result+=\textcolor{stringliteral}{"{} từ mã nguồn."{}};}
+\DoxyCodeLine{172       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a526b3dd360fb83732c9f697ca7e2fd6c}{trEnumName}}()}
+\DoxyCodeLine{177     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}tên enum"{}}; \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{180     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aebde5a5e7e5a8e2bdcedd16aa84b104b}{trEnumValue}}()}
+\DoxyCodeLine{181     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}giá trị enum"{}}; \}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a78229e2e7d5f5e24fba04323160334af}{trDefinedIn}}()}
+\DoxyCodeLine{185     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}được định nghĩa trong"{}}; \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a781ee616acb6a6f5979f2652dec7342c}{trModules}}()}
+\DoxyCodeLine{193     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các Modules"{}}; \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a119627f8b75b362852ba560671301ecc}{trClassHierarchy}}()}
+\DoxyCodeLine{197     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kiến trúc Class"{}}; \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a712cbff64ed48eac757f553af0aef104}{trCompoundList}}()}
+\DoxyCodeLine{201     \{}
+\DoxyCodeLine{202       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{203       \{}
+\DoxyCodeLine{204         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cấu trúc cơ sở dữ liệu (Data Structures)"{}};}
+\DoxyCodeLine{205       \}}
+\DoxyCodeLine{206       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{207       \{}
+\DoxyCodeLine{208         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh mục các Class"{}};}
+\DoxyCodeLine{209       \}}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af61fca05266b5000476826685e828c25}{trFileList}}()}
+\DoxyCodeLine{214     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh mục File"{}}; \}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5067963c9fce9876ee22efa663260450}{trCompoundMembers}}()}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{220       \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các trường dữ liệu"{}};}
+\DoxyCodeLine{222       \}}
+\DoxyCodeLine{223       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{224       \{}
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thành viên của Class"{}};}
+\DoxyCodeLine{226       \}}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0fc11ed8307e843a66a5b348dc6e6428}{trFileMembers}}()}
+\DoxyCodeLine{231     \{}
+\DoxyCodeLine{232       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{233       \{}
+\DoxyCodeLine{234         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Toàn cục"{}};}
+\DoxyCodeLine{235       \}}
+\DoxyCodeLine{236       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{237       \{}
+\DoxyCodeLine{238         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}File thành viên"{}};}
+\DoxyCodeLine{239       \}}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5315c11d80b67d7295871062c0f1381a}{trRelatedPages}}()}
+\DoxyCodeLine{244     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các trang liên quan"{}}; \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aec70e499c88c890ad2c06092d5faa4d3}{trExamples}}()}
+\DoxyCodeLine{248     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các ví dụ"{}}; \}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{251     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a6da142bb9d430f99f2507772f814d235}{trSearch}}()}
+\DoxyCodeLine{252     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tìm kiếm"{}}; \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a2baec0ed85d8c1da81f98c808389e86f}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{256     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách kế thừa đã được sắp xếp theo ABC, "{}}}
+\DoxyCodeLine{257              \textcolor{stringliteral}{"{}nhưng chưa đầy đủ:"{}};}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a8405dd413217211cfae85f4b467a106f}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{262     \{}
+\DoxyCodeLine{263       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh mục đầy đủ tất cả các "{}};}
+\DoxyCodeLine{264       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được biên soạn) "{}};}
+\DoxyCodeLine{265       result+=\textcolor{stringliteral}{"{}files cùng với các mô tả tóm tắt:"{}};}
+\DoxyCodeLine{266       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{270     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a717ba281f39200ddaafbdc960d9be0e4}{trCompoundListDescription}}()}
+\DoxyCodeLine{271     \{}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{274       \{}
+\DoxyCodeLine{275         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Đây là cấu trúc cơ sở dữ liệu với mô tả tóm tắt:"{}};}
+\DoxyCodeLine{276       \}}
+\DoxyCodeLine{277       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{278       \{}
+\DoxyCodeLine{279         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Đây là các classes với các mô tả tóm tắt:"{}};}
+\DoxyCodeLine{280       \}}
+\DoxyCodeLine{281       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{282       \{}
+\DoxyCodeLine{283         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Đây là các classes, structs, "{}}}
+\DoxyCodeLine{284                \textcolor{stringliteral}{"{}unions và interfaces với các mô tả tóm tắt:"{}};}
+\DoxyCodeLine{285       \}}
+\DoxyCodeLine{286     \}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{289     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5a72f77efcbb97bd51de7622140e0173}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{290     \{}
+\DoxyCodeLine{291       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh mục tất cả các "{}};}
+\DoxyCodeLine{292       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{293       \{}
+\DoxyCodeLine{294         result+=\textcolor{stringliteral}{"{}(đã được mô tả) "{}};}
+\DoxyCodeLine{295       \}}
+\DoxyCodeLine{296       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{297       \{}
+\DoxyCodeLine{298         result+=\textcolor{stringliteral}{"{}struct và union fields"{}};}
+\DoxyCodeLine{299       \}}
+\DoxyCodeLine{300       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{301       \{}
+\DoxyCodeLine{302         result+=\textcolor{stringliteral}{"{}class members"{}};}
+\DoxyCodeLine{303       \}}
+\DoxyCodeLine{304       result+=\textcolor{stringliteral}{"{} cùng với các các liên kết đến "{}};}
+\DoxyCodeLine{305       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{306       \{}
+\DoxyCodeLine{307         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{308         \{}
+\DoxyCodeLine{309           result+=\textcolor{stringliteral}{"{}Thông tin về struct/union cho từng trường:"{}};}
+\DoxyCodeLine{310         \}}
+\DoxyCodeLine{311         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{312         \{}
+\DoxyCodeLine{313           result+=\textcolor{stringliteral}{"{}Thông tin về class cho từng thành viên:"{}};}
+\DoxyCodeLine{314         \}}
+\DoxyCodeLine{315       \}}
+\DoxyCodeLine{316       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{317       \{}
+\DoxyCodeLine{318         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{319         \{}
+\DoxyCodeLine{320           result+=\textcolor{stringliteral}{"{}các structures/unions thuộc:"{}};}
+\DoxyCodeLine{321         \}}
+\DoxyCodeLine{322         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{323         \{}
+\DoxyCodeLine{324           result+=\textcolor{stringliteral}{"{}các lớp thuộc:"{}};}
+\DoxyCodeLine{325         \}}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{328     \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{331     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a653e6b26b384ab0c82a2d6f4ed022c92}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{332     \{}
+\DoxyCodeLine{333       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả các "{}};}
+\DoxyCodeLine{334       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được mô tat) "{}};}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{336       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{337       \{}
+\DoxyCodeLine{338         result+=\textcolor{stringliteral}{"{}functions, variables, defines, enums, và typedefs"{}};}
+\DoxyCodeLine{339       \}}
+\DoxyCodeLine{340       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{341       \{}
+\DoxyCodeLine{342         result+=\textcolor{stringliteral}{"{}các file thành viên"{}};}
+\DoxyCodeLine{343       \}}
+\DoxyCodeLine{344       result+=\textcolor{stringliteral}{"{} cùng với links tới "{}};}
+\DoxyCodeLine{345       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{346         result+=\textcolor{stringliteral}{"{}các files thuộc:"{}};}
+\DoxyCodeLine{347       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{348         result+=\textcolor{stringliteral}{"{}tài liệu:"{}};}
+\DoxyCodeLine{349       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{350     \}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aff6b91ca8b47558aa4f9aed938d3297c}{trExamplesDescription}}()}
+\DoxyCodeLine{354     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách tất cả các ví dụ:"{}}; \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5af7d4809475efb4bf35124cac69cd87}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{358     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách tất cả các trang Thông tin có liên quan:"{}}; \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa5c74a42b75f40466758fef49f526083}{trModulesDescription}}()}
+\DoxyCodeLine{362     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách tất cả các thành viên:"{}}; \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0b4e0c558aa89cf04175fae0502712ca}{trDocumentation}}()}
+\DoxyCodeLine{368     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin"{}}; \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae58da058fcd193d9f1398b4082cd748d}{trModuleIndex}}()}
+\DoxyCodeLine{374     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chỉ mục (Index) Module"{}}; \}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{379     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a4a91a2919eb1a4122ef6ecf8a76c722b}{trHierarchicalIndex}}()}
+\DoxyCodeLine{380     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchical Index"{}}; \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{385     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a1b6a6f720a294de34f35740fcbd051e7}{trCompoundIndex}}()}
+\DoxyCodeLine{386     \{}
+\DoxyCodeLine{387       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{388       \{}
+\DoxyCodeLine{389         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Index cấu trúc cơ sở dữ liệu"{}};}
+\DoxyCodeLine{390       \}}
+\DoxyCodeLine{391       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{392       \{}
+\DoxyCodeLine{393         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Class Index"{}};}
+\DoxyCodeLine{394       \}}
+\DoxyCodeLine{395     \}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{400     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a792242814890aa7d197b690fc1ced90c}{trFileIndex}}()}
+\DoxyCodeLine{401     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}File Index"{}}; \}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{406     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7a0ab13fb75ff8a434f841000cb65916}{trModuleDocumentation}}()}
+\DoxyCodeLine{407     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về các Module"{}}; \}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{412     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7a6d4bda9ee0a4c36ff8ccd323f74ef7}{trClassDocumentation}}()}
+\DoxyCodeLine{413     \{}
+\DoxyCodeLine{414       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{415       \{}
+\DoxyCodeLine{416         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về cấu trúc cơ sở dữ liệu"{}};}
+\DoxyCodeLine{417       \}}
+\DoxyCodeLine{418       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{419       \{}
+\DoxyCodeLine{420           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{421       \}}
+\DoxyCodeLine{422       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{423       \{}
+\DoxyCodeLine{424         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Class"{}};}
+\DoxyCodeLine{425       \}}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{431     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5ff58b67251c89c1855fca84af6a1837}{trFileDocumentation}}()}
+\DoxyCodeLine{432     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về File"{}}; \}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{437     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a756889cf2e219a203a64ef5cc45fc829}{trExampleDocumentation}}()}
+\DoxyCodeLine{438     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về các ví dụ"{}}; \}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{441     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae8a8381fbce744a0d36b8f681c9b3bc0}{trReferenceManual}}()}
+\DoxyCodeLine{442     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin tham chiếu"{}}; \}}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{447     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ace7bbd9c6165a19baf08816915bd857b}{trDefines}}()}
+\DoxyCodeLine{448     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Định nghĩa"{}}; \}}
+\DoxyCodeLine{449 }
+\DoxyCodeLine{453     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac45d97b2dd04f64806b47571136d86d5}{trTypedefs}}()}
+\DoxyCodeLine{454     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedefs"{}}; \}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{459     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae5e6d592bbe59c3af7acd83bbcfe79a2}{trEnumerations}}()}
+\DoxyCodeLine{460     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerations"{}}; \}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{465     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a37bc2e03217110ca185bf2c056b8f62e}{trFunctions}}()}
+\DoxyCodeLine{466     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm"{}}; \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{471     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae1fc58e63cc9ef429f6641d54adda787}{trVariables}}()}
+\DoxyCodeLine{472     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các biến"{}}; \}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{477     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac5be5beab0e1a57f014a0c2f16ad5bb5}{trEnumerationValues}}()}
+\DoxyCodeLine{478     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerator"{}}; \}}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{483     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a84b8a328ace739acc1788f176b27620a}{trDefineDocumentation}}()}
+\DoxyCodeLine{484     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về định nghĩa"{}}; \}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{489     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad1eaf8ebf07c624c8c5153d00931d424}{trTypedefDocumentation}}()}
+\DoxyCodeLine{490     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Typedef"{}}; \}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{495     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a20e8429631310f5eb494d7277559a07e}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{496     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Enumeration Type"{}}; \}}
+\DoxyCodeLine{497 }
+\DoxyCodeLine{501     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7971993f31cb88a403bc347a6f8b8558}{trFunctionDocumentation}}()}
+\DoxyCodeLine{502     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về hàm"{}}; \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{507     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0d5dfc1c20351a50c475f4de8b25782c}{trVariableDocumentation}}()}
+\DoxyCodeLine{508     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về các biến"{}}; \}}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{513     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a98bce7410085eef608ea0d7ae8fb1442}{trCompounds}}()}
+\DoxyCodeLine{514     \{}
+\DoxyCodeLine{515       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{516       \{}
+\DoxyCodeLine{517         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cấu trúc cơ sở dữ liệu"{}};}
+\DoxyCodeLine{518       \}}
+\DoxyCodeLine{519       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{520       \{}
+\DoxyCodeLine{521         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Classes"{}};}
+\DoxyCodeLine{522       \}}
+\DoxyCodeLine{523     \}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{528     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3d2329110ba961a16538a466558c55d7}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{529     \{}
+\DoxyCodeLine{530       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Được biên soạn vào "{}}+date;}
+\DoxyCodeLine{531       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} cho mã nguồn dự án "{}}+projName;}
+\DoxyCodeLine{532       result+=\textcolor{stringliteral}{"{} bởi"{}};}
+\DoxyCodeLine{533       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{534     \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{537     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5959d61c4005de2924e39c2e337facfb}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{538     \{}
+\DoxyCodeLine{539       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sơ đồ kế thừa cho "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{540     \}}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{543     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ade2f9cb0d07b7dbe26ebb76a8562562b}{trWarning}}()}
+\DoxyCodeLine{544     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lưu ý"{}}; \}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{547     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a95b6001c8ec477cf2e10182cf773bbfa}{trVersion}}()}
+\DoxyCodeLine{548     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Phiên bản"{}}; \}}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{551     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a717e57abc613c4ded493be4c640b304e}{trDate}}()}
+\DoxyCodeLine{552     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ngày"{}}; \}}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{555     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a09c5d21b1c03da3370d8cd5024a6bd6b}{trReturns}}()}
+\DoxyCodeLine{556     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Giá trị trả về"{}}; \}}
+\DoxyCodeLine{557 }
+\DoxyCodeLine{559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a9d11e0e4b381412d213609cd321a9275}{trSeeAlso}}()}
+\DoxyCodeLine{560     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Xem thêm"{}}; \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{563     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0ee81204e48dab999eb017847cdddfdb}{trParameters}}()}
+\DoxyCodeLine{564     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các tham số"{}}; \}}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{567     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ab4b59788541117f953b1ac9cdb84cdae}{trExceptions}}()}
+\DoxyCodeLine{568     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Exceptions"{}}; \}}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{571     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3807e0385865b46dd324e3107b01bdec}{trGeneratedBy}}()}
+\DoxyCodeLine{572     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Được biên soạn bởi"{}}; \}}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{575 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{577 \textcolor{comment}{}}
+\DoxyCodeLine{579     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae584dc2ff7c68dbb3a74a51b880e204e}{trNamespaceList}}()}
+\DoxyCodeLine{580     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách Namespace"{}}; \}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{583     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a24d9a17613f924d7eeaa2e69be447e85}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{584     \{}
+\DoxyCodeLine{585       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả các "{}};}
+\DoxyCodeLine{586       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được biên tập) "{}};}
+\DoxyCodeLine{587       result+=\textcolor{stringliteral}{"{}namespaces với mô tả tóm tắt:"{}};}
+\DoxyCodeLine{588       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{589     \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a243a24481a6730ce4d65d2e78bd7d485}{trFriends}}()}
+\DoxyCodeLine{595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Friends"{}}; \}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{598 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{600 \textcolor{comment}{}}
+\DoxyCodeLine{604     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ab33af1547327903b2c38e29ba32e559d}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{605     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Friends và các hàm liên quan"{}}; \}}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{608 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{610 \textcolor{comment}{}}
+\DoxyCodeLine{612     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7d539fa15b1949526bf6d14688ceb1c0}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{613                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{614                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{615     \{}
+\DoxyCodeLine{616       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{617       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{618       \{}
+\DoxyCodeLine{619         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Class"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{620         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Struct"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{621         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{622         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{623         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{624         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{625         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{626         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{627       \}}
+\DoxyCodeLine{628       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Template"{}};}
+\DoxyCodeLine{629       result+=\textcolor{stringliteral}{"{} Tham chiếu"{}};}
+\DoxyCodeLine{630       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{631     \}}
+\DoxyCodeLine{632 }
+\DoxyCodeLine{634     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a22272e3731af071e3da499722845c588}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{635     \{}
+\DoxyCodeLine{636       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{637       result+=\textcolor{stringliteral}{"{} File Tham chiếu"{}};}
+\DoxyCodeLine{638       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{639     \}}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{642     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a8d49332b33953e8a9f20f279b54875e7}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{643     \{}
+\DoxyCodeLine{644       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{645       result+=\textcolor{stringliteral}{"{} Namespace Tham chiếu"{}};}
+\DoxyCodeLine{646       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{647     \}}
+\DoxyCodeLine{648 }
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad76c05c852f9f1b2d67834da6733b8f7}{trPublicMembers}}()}
+\DoxyCodeLine{650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm thành viên Public"{}}; \}}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a00d271f387a1678ab3601a6fd5eeb4ed}{trPublicSlots}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public Slots"{}}; \}}
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a8eaf67481171bd94e8d12fd2c530f3c2}{trSignals}}()}
+\DoxyCodeLine{654     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signals"{}}; \}}
+\DoxyCodeLine{655     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a044236ddd8e8cdb9f408b82d18f01a0a}{trStaticPublicMembers}}()}
+\DoxyCodeLine{656     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm Static Public"{}}; \}}
+\DoxyCodeLine{657     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af4df69779f7f80b14dd7e6ae51994f0a}{trProtectedMembers}}()}
+\DoxyCodeLine{658     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm thành viên Protected"{}}; \}}
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0995a4b46f9caf8141df655bf78800d8}{trProtectedSlots}}()}
+\DoxyCodeLine{660     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected Slots"{}}; \}}
+\DoxyCodeLine{661     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a75b8af43d2ad109ceb3c9b6e37930f4f}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{662     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm thành viên Static Protected"{}}; \}}
+\DoxyCodeLine{663     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5f26ff73296bd2c2cb44e3dab5f1ed89}{trPrivateMembers}}()}
+\DoxyCodeLine{664     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm thành viên Private"{}}; \}}
+\DoxyCodeLine{665     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac78494935aad1339dfa13060fff39453}{trPrivateSlots}}()}
+\DoxyCodeLine{666     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private Slots"{}}; \}}
+\DoxyCodeLine{667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_afbe4f0265105047152e91bb8ccdb3a34}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{668     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm thành viên Static Private"{}}; \}}
+\DoxyCodeLine{669 }
+\DoxyCodeLine{673     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{674     \{}
+\DoxyCodeLine{675       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{676       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{677       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{678       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{679       \{}
+\DoxyCodeLine{680         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{681         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{682                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{683 }
+\DoxyCodeLine{684         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{685         \{}
+\DoxyCodeLine{686           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{687             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{688           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{689             result+=\textcolor{stringliteral}{"{}, và "{}};}
+\DoxyCodeLine{690         \}}
+\DoxyCodeLine{691       \}}
+\DoxyCodeLine{692       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{693     \}}
+\DoxyCodeLine{694 }
+\DoxyCodeLine{698     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_acebe0baec5bca7de66b2374e7f59fad1}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{699     \{}
+\DoxyCodeLine{700       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kế thừa "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{701     \}}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{706     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a9825944527da9ee754888c84f7281f96}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{707     \{}
+\DoxyCodeLine{708       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Được kế thừa bởi "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{709     \}}
+\DoxyCodeLine{710 }
+\DoxyCodeLine{714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af3f68c6304668410d08a21f422cc2a02}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{715     \{}
+\DoxyCodeLine{716       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Được thực thi lại từ "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{717     \}}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a1479a8da46f19bee798abb32108e84a4}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{723     \{}
+\DoxyCodeLine{724       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Được thực thi lại trong "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{725     \}}
+\DoxyCodeLine{726 }
+\DoxyCodeLine{728     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aae4722398dc866d913df382f77de4eb3}{trNamespaceMembers}}()}
+\DoxyCodeLine{729     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thành viên Namespace"{}}; \}}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{732     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a71a47f387300d05b036d5e5cc134d22c}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{733     \{}
+\DoxyCodeLine{734       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả các "{}};}
+\DoxyCodeLine{735       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được biên soạn) "{}};}
+\DoxyCodeLine{736       result+=\textcolor{stringliteral}{"{}các thành viên namespace cùng với link tới "{}};}
+\DoxyCodeLine{737       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{738         result+=\textcolor{stringliteral}{"{}Thông tin namespace cho từng thành viên:"{}};}
+\DoxyCodeLine{739       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{740         result+=\textcolor{stringliteral}{"{} namespaces mà phụ thuộc bởi:"{}};}
+\DoxyCodeLine{741       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{742     \}}
+\DoxyCodeLine{746     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7b759ab94f0ce9635c12e7800866c29c}{trNamespaceIndex}}()}
+\DoxyCodeLine{747     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace Index"{}}; \}}
+\DoxyCodeLine{748 }
+\DoxyCodeLine{752     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a5a2c9d549ce8daed5c3cdd0275c2e1fc}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{753     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Namespace"{}}; \}}
+\DoxyCodeLine{754 }
+\DoxyCodeLine{756 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{758 \textcolor{comment}{}}
+\DoxyCodeLine{762     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a743f432bb5d4adef074bae10d3c0cda2}{trNamespaces}}()}
+\DoxyCodeLine{763     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespaces"{}}; \}}
+\DoxyCodeLine{764 }
+\DoxyCodeLine{766 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{768 \textcolor{comment}{}}
+\DoxyCodeLine{772     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a410ae6f502f7025da6648e3f384e84bd}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{773     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{774       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{775       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Thông tin cho "{}};}
+\DoxyCodeLine{776       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{777       \{}
+\DoxyCodeLine{778         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}class"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{779         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}struct"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{780         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{781         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{782         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{783         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{784         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{785         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{786       \}}
+\DoxyCodeLine{787       result+=\textcolor{stringliteral}{"{} được biên soạn từ các file sau đây"{}};}
+\DoxyCodeLine{788       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{789       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{790     \}}
+\DoxyCodeLine{791 }
+\DoxyCodeLine{793 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{795 \textcolor{comment}{}}
+\DoxyCodeLine{797     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa356fe633dabe2485060a0ff7a8f0190}{trReturnValues}}()}
+\DoxyCodeLine{798     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các giá trị trả về"{}}; \}}
+\DoxyCodeLine{799 }
+\DoxyCodeLine{802     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad11c072a404e5ecfebd28e02dc662621}{trMainPage}}()}
+\DoxyCodeLine{803     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tranh chính"{}}; \}}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{808     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_afc76d699c489e9be24dc1427236bff02}{trPageAbbreviation}}()}
+\DoxyCodeLine{809     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}tr."{}}; \}}
+\DoxyCodeLine{810 }
+\DoxyCodeLine{812 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{814 \textcolor{comment}{}}
+\DoxyCodeLine{815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac6d4cf6269a7989caf25aa25d1526882}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{816     \{}
+\DoxyCodeLine{817       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Định nghĩa tại dòng @0 trong file @1."{}};}
+\DoxyCodeLine{818     \}}
+\DoxyCodeLine{819     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af3b507a93a4d73f88333c054b6670595}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{820     \{}
+\DoxyCodeLine{821       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Định nghĩa trong file @0."{}};}
+\DoxyCodeLine{822     \}}
+\DoxyCodeLine{823 }
+\DoxyCodeLine{825 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{827 \textcolor{comment}{}}
+\DoxyCodeLine{828     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_acb5897420e31256a19b1de52196e83e9}{trDeprecated}}()}
+\DoxyCodeLine{829     \{}
+\DoxyCodeLine{830       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Không tán thành"{}};}
+\DoxyCodeLine{831     \}}
+\DoxyCodeLine{832 }
+\DoxyCodeLine{834 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{836 \textcolor{comment}{}}
+\DoxyCodeLine{838     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a94ff5616ff950ca69294aa5e15e0c148}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{839     \{}
+\DoxyCodeLine{840       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sơ đồ liên kết cho "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{841     \}}
+\DoxyCodeLine{843     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ade9b1d4088824bdd706311d861a66f6f}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{844     \{}
+\DoxyCodeLine{845       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kèm theo graph phụ thuộc cho "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{846     \}}
+\DoxyCodeLine{848     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aab3ffec2e43354dbd03571496d4031d3}{trConstructorDocumentation}}()}
+\DoxyCodeLine{849     \{}
+\DoxyCodeLine{850       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Constructor và Destructor"{}};}
+\DoxyCodeLine{851     \}}
+\DoxyCodeLine{853     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a312c0c4ab8f55f0e6b39c5b036c80442}{trGotoSourceCode}}()}
+\DoxyCodeLine{854     \{}
+\DoxyCodeLine{855       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tới mã nguồn của file này."{}};}
+\DoxyCodeLine{856     \}}
+\DoxyCodeLine{858     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a96368961702c829f0c3d97a35e6ead55}{trGotoDocumentation}}()}
+\DoxyCodeLine{859     \{}
+\DoxyCodeLine{860       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tới Thông tin của file này."{}};}
+\DoxyCodeLine{861     \}}
+\DoxyCodeLine{863     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a59f792e56029f846a054570019272204}{trPrecondition}}()}
+\DoxyCodeLine{864     \{}
+\DoxyCodeLine{865       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Điều kiện trước"{}};}
+\DoxyCodeLine{866     \}}
+\DoxyCodeLine{868     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a60b5d7ee59aaecbebb53eca524761057}{trPostcondition}}()}
+\DoxyCodeLine{869     \{}
+\DoxyCodeLine{870       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Điều kiện sau"{}};}
+\DoxyCodeLine{871     \}}
+\DoxyCodeLine{873     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a222692fca3bc168b18f4f82a13220d50}{trInvariant}}()}
+\DoxyCodeLine{874     \{}
+\DoxyCodeLine{875       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bất biến"{}};}
+\DoxyCodeLine{876     \}}
+\DoxyCodeLine{878     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae6838b55e7486e40218a033c02b8b284}{trInitialValue}}()}
+\DoxyCodeLine{879     \{}
+\DoxyCodeLine{880       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Giá trị khởi tạo:"{}};}
+\DoxyCodeLine{881     \}}
+\DoxyCodeLine{883     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af5e1593513ce7aafed1ac2588b362a31}{trCode}}()}
+\DoxyCodeLine{884     \{}
+\DoxyCodeLine{885       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}mã nguồn"{}};}
+\DoxyCodeLine{886     \}}
+\DoxyCodeLine{887     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ada24396f485e9dd05e76adc721de5ba8}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{888     \{}
+\DoxyCodeLine{889       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kiến trúc đồ họa của Class"{}};}
+\DoxyCodeLine{890     \}}
+\DoxyCodeLine{891     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0b2d877fd70da1e59e1b20d058b957a9}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{892     \{}
+\DoxyCodeLine{893       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tới kiến trúc đồ họa của Class"{}};}
+\DoxyCodeLine{894     \}}
+\DoxyCodeLine{895     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a328e29de58c5a457f2fc04e999837575}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{896     \{}
+\DoxyCodeLine{897       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tới kiến trúc text của Class"{}};}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{899     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad57b00f8ca96f4f119dd7f28d709c683}{trPageIndex}}()}
+\DoxyCodeLine{900     \{}
+\DoxyCodeLine{901       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chỉ mục trang"{}};}
+\DoxyCodeLine{902     \}}
+\DoxyCodeLine{903 }
+\DoxyCodeLine{905 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{907 \textcolor{comment}{}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_afb3881cb4a382f7cce8b7fb64f8a32d5}{trNote}}()}
+\DoxyCodeLine{909     \{}
+\DoxyCodeLine{910       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ghi chú"{}};}
+\DoxyCodeLine{911     \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0ef02b3cc16e8f0d4faa365261b0665d}{trPublicTypes}}()}
+\DoxyCodeLine{913     \{}
+\DoxyCodeLine{914       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public Types"{}};}
+\DoxyCodeLine{915     \}}
+\DoxyCodeLine{916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a50ae6e56db96f9643bd8be7126da3de5}{trPublicAttribs}}()}
+\DoxyCodeLine{917     \{}
+\DoxyCodeLine{918       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{919       \{}
+\DoxyCodeLine{920         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}các trường đữ liệu"{}};}
+\DoxyCodeLine{921       \}}
+\DoxyCodeLine{922       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{923       \{}
+\DoxyCodeLine{924         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Public"{}};}
+\DoxyCodeLine{925       \}}
+\DoxyCodeLine{926     \}}
+\DoxyCodeLine{927     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ae5e23f0c99fd104a473e7a239c5ce89b}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{928     \{}
+\DoxyCodeLine{929       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Static Public"{}};}
+\DoxyCodeLine{930     \}}
+\DoxyCodeLine{931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a0b10a25d8a1440853188ce5f176d940e}{trProtectedTypes}}()}
+\DoxyCodeLine{932     \{}
+\DoxyCodeLine{933       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các kiểu Protected"{}};}
+\DoxyCodeLine{934     \}}
+\DoxyCodeLine{935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a1582286b24892bdfb8175dc64d37f753}{trProtectedAttribs}}()}
+\DoxyCodeLine{936     \{}
+\DoxyCodeLine{937       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}các thuộc tính Protected"{}};}
+\DoxyCodeLine{938     \}}
+\DoxyCodeLine{939     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a16a9ec856756da1c4b70bd4931b04baa}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{940     \{}
+\DoxyCodeLine{941       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Static Protected"{}};}
+\DoxyCodeLine{942     \}}
+\DoxyCodeLine{943     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac45e08ada20f1234a3512df26a494119}{trPrivateTypes}}()}
+\DoxyCodeLine{944     \{}
+\DoxyCodeLine{945       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các kiểu Private"{}};}
+\DoxyCodeLine{946     \}}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a500a43a9f7ebce5860a9b384b697cd17}{trPrivateAttribs}}()}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Private"{}};}
+\DoxyCodeLine{950     \}}
+\DoxyCodeLine{951     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad7277ab44b1d901d98584544ee49f96f}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{952     \{}
+\DoxyCodeLine{953       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Static Private"{}};}
+\DoxyCodeLine{954     \}}
+\DoxyCodeLine{955 }
+\DoxyCodeLine{957 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{959 \textcolor{comment}{}}
+\DoxyCodeLine{961     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3df6262687d82cdc1f1b01c48a7df82c}{trTodo}}()}
+\DoxyCodeLine{962     \{}
+\DoxyCodeLine{963       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mục tiêu"{}};}
+\DoxyCodeLine{964     \}}
+\DoxyCodeLine{966     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a1b38dbdc9390ca10d8b54b9f29b4e57e}{trTodoList}}()}
+\DoxyCodeLine{967     \{}
+\DoxyCodeLine{968       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách hàng mục cần thực hiện"{}};}
+\DoxyCodeLine{969     \}}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{972 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{974 \textcolor{comment}{}}
+\DoxyCodeLine{975     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_abab2fdf9850e547b0aac978ee377b645}{trReferencedBy}}()}
+\DoxyCodeLine{976     \{}
+\DoxyCodeLine{977       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tham chiếu bởi"{}};}
+\DoxyCodeLine{978     \}}
+\DoxyCodeLine{979     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ab6cd72309022bb514e686269d7a7789a}{trRemarks}}()}
+\DoxyCodeLine{980     \{}
+\DoxyCodeLine{981       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ghi chú"{}};}
+\DoxyCodeLine{982     \}}
+\DoxyCodeLine{983     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7ff03fe81d19e98bc64565d43d93bf91}{trAttention}}()}
+\DoxyCodeLine{984     \{}
+\DoxyCodeLine{985       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chú ý"{}};}
+\DoxyCodeLine{986     \}}
+\DoxyCodeLine{987     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a03ecc46d052bd92e5f50e7b9d83e09a1}{trInclByDepGraph}}()}
+\DoxyCodeLine{988     \{}
+\DoxyCodeLine{989       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Đồ thị này biểu thị những file nào trực tiếp hoặc"{}}}
+\DoxyCodeLine{990              \textcolor{stringliteral}{"{}không trực tiếp bao gồm file này:"{}};}
+\DoxyCodeLine{991     \}}
+\DoxyCodeLine{992     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aca083ed19cef3c2f23ca204ad15e1e42}{trSince}}()}
+\DoxyCodeLine{993     \{}
+\DoxyCodeLine{994       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Từ"{}};}
+\DoxyCodeLine{995     \}}
+\DoxyCodeLine{996 }
+\DoxyCodeLine{998 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1000 \textcolor{comment}{}}
+\DoxyCodeLine{1002     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a060b90bc4b06cacc580628a9ae85235f}{trLegendTitle}}()}
+\DoxyCodeLine{1003     \{}
+\DoxyCodeLine{1004       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chú giải Graph"{}};}
+\DoxyCodeLine{1005     \}}
+\DoxyCodeLine{1009     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a12899da5460b9a44d61d195a6212cfd6}{trLegendDocs}}()}
+\DoxyCodeLine{1010     \{}
+\DoxyCodeLine{1011       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}Trang này giải nghĩa các biểu đồ được biên soạn bởi "{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{} doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}Hãy xem xét các ví dụ sau:\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}/*! Các lướp không thấy được bởi sự cắt ngắn */\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}Lớp không nhìn thấy class \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}/*! class bị cắt, quan hệ kế thừa bị ẩn */\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}class bị cắt : bị ẩn toàn cục \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}/* Class không được mô tả với các chú giải doxygen */\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}class không được mô tả \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}/*! Class được kế thừa sử dụng các kế thừa public */\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}/*!  template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}/*! Class được kế thừa sử dụng kế thừa protected */\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}/*! Class được kế thừa sử dụng kế thừa protected private */\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}/*! Class được sử dụng bởi các class kế thừa */\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}class được sử dụng \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}/*! Super class kế thừa một số các class khác */\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}class được kế thừa : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}Kết quả trong biểu đồ sau đây:"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}Các hộp trong biểu đồ trên có ý nghĩa như sau:\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}<li>\%Hộp màu xám biểu thị cấu trúc clas cho "{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}biểu đồ được thể hiện.\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}<li>\%Hộp có khung mầu đen biểu thị struct hoặc class được mô tả.\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}<li>\%Hộp có khung mầu xám biểu thị struct hoặc class chưa được mô tả.\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}<li>\%Hộp có khung mầu đỏ biểu thị struct hoặc class được mổ tả "{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}khi mà không phải tất cả các quan hệ kế thừa/containment được biển diễn.. \%Biểu đồ bị "{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}cắt nếu nó không nằm trọn trong các biên được cho trước..\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}Các mũi tên có ý nghĩa như sau::\(\backslash\)n"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}<li>\%Mũi tên mầu xanh đậm biểu thị các quan hệ kế thừa công khai "{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}giữa 2 class.\(\backslash\)n"{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}<li>\%Mũi tên màu xanh lá cây đậm biểu thị kế thừa được bảo về (protected).\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}<li>\%Mũi tên đỏ đậm biểu thị kế thừa dạng private.\(\backslash\)n"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}<li>\%Mũi tên màu hồng đứt quảng biểu thị class được sử dụng "{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}bởi class khác. Mũi tên được gán nhãn với các giá trị "{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}mà các calsss hoặc struct được truy cập tới.\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{stringliteral}{"{}<li>\%Mũi tên vàng đắt quãng được thị quan hệ giữa template instance và "{}}}
+\DoxyCodeLine{1066         \textcolor{stringliteral}{"{}template class được dẫn xuất từ đó. Mũi tên được gán nhãn với "{}}}
+\DoxyCodeLine{1067         \textcolor{stringliteral}{"{}tham số của template.\(\backslash\)n"{}}}
+\DoxyCodeLine{1068         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1069     \}}
+\DoxyCodeLine{1071     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a113a7f34cd042c5557386da4dc98ec39}{trLegend}}()}
+\DoxyCodeLine{1072     \{}
+\DoxyCodeLine{1073       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chú giải"{}};}
+\DoxyCodeLine{1074     \}}
+\DoxyCodeLine{1075 }
+\DoxyCodeLine{1077 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1079 \textcolor{comment}{}}
+\DoxyCodeLine{1081     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a70b98567b7ba46fe0965a356905e3da1}{trTest}}()}
+\DoxyCodeLine{1082     \{}
+\DoxyCodeLine{1083       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test"{}};}
+\DoxyCodeLine{1084     \}}
+\DoxyCodeLine{1086     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_afccef53de9569d659fc2cc23610b8492}{trTestList}}()}
+\DoxyCodeLine{1087     \{}
+\DoxyCodeLine{1088       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách Test"{}};}
+\DoxyCodeLine{1089     \}}
+\DoxyCodeLine{1090 }
+\DoxyCodeLine{1092 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1094 \textcolor{comment}{}}
+\DoxyCodeLine{1096     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a64d14a88394a09d71d08598c3b49243a}{trProperties}}()}
+\DoxyCodeLine{1097     \{}
+\DoxyCodeLine{1098       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thuộc tính"{}};}
+\DoxyCodeLine{1099     \}}
+\DoxyCodeLine{1101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af91a54806ae5dd3780d2801d1c2cbb3c}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1102     \{}
+\DoxyCodeLine{1103       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin thuộc tính (Property)"{}};}
+\DoxyCodeLine{1104     \}}
+\DoxyCodeLine{1105 }
+\DoxyCodeLine{1107 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1109 \textcolor{comment}{}}
+\DoxyCodeLine{1111     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a2db25f6bd44d99bc9bf1b7aeb6367f05}{trClasses}}()}
+\DoxyCodeLine{1112     \{}
+\DoxyCodeLine{1113       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1114       \{}
+\DoxyCodeLine{1115         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cấu trúc dữ liệu"{}};}
+\DoxyCodeLine{1116       \}}
+\DoxyCodeLine{1117       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1118       \{}
+\DoxyCodeLine{1119         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Classes"{}};}
+\DoxyCodeLine{1120       \}}
+\DoxyCodeLine{1121     \}}
+\DoxyCodeLine{1123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a838eeb30bb5c4645b22a7dfbff4a77ce}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1124     \{}
+\DoxyCodeLine{1125       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Gói "{}}+name;}
+\DoxyCodeLine{1126     \}}
+\DoxyCodeLine{1128     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a437dbe9a75011fe49e0c3f980ac104ed}{trPackageListDescription}}()}
+\DoxyCodeLine{1129     \{}
+\DoxyCodeLine{1130       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách các gói cùng với mô tả tóm tắt (khi có thể có):"{}};}
+\DoxyCodeLine{1131     \}}
+\DoxyCodeLine{1133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a747c01dbc32c9accdb064a090a5fc2c2}{trPackages}}()}
+\DoxyCodeLine{1134     \{}
+\DoxyCodeLine{1135       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các gói"{}};}
+\DoxyCodeLine{1136     \}}
+\DoxyCodeLine{1138     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a15d8810651f40d0d83549f27adb640a2}{trDefineValue}}()}
+\DoxyCodeLine{1139     \{}
+\DoxyCodeLine{1140       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Giá trị:"{}};}
+\DoxyCodeLine{1141     \}}
+\DoxyCodeLine{1142 }
+\DoxyCodeLine{1144 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1146 \textcolor{comment}{}}
+\DoxyCodeLine{1148     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a22e633ef89df53443bc0d91eeb6196cb}{trBug}}()}
+\DoxyCodeLine{1149     \{}
+\DoxyCodeLine{1150       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lỗi"{}};}
+\DoxyCodeLine{1151     \}}
+\DoxyCodeLine{1153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad1d04af6121febe4a12a59325064a944}{trBugList}}()}
+\DoxyCodeLine{1154     \{}
+\DoxyCodeLine{1155       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách lỗi"{}};}
+\DoxyCodeLine{1156     \}}
+\DoxyCodeLine{1157 }
+\DoxyCodeLine{1159 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1161 \textcolor{comment}{}}
+\DoxyCodeLine{1187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac4cd9cfaabff4434e80e30001ae14b01}{trRTFansicp}}()}
+\DoxyCodeLine{1188     \{}
+\DoxyCodeLine{1189       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1258"{}};}
+\DoxyCodeLine{1190     \}}
+\DoxyCodeLine{1191 }
+\DoxyCodeLine{1192 }
+\DoxyCodeLine{1196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a52525532126029fabe558afdebd1b119}{trRTFCharSet}}()}
+\DoxyCodeLine{1197     \{}
+\DoxyCodeLine{1198       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}163"{}};}
+\DoxyCodeLine{1199     \}}
+\DoxyCodeLine{1200 }
+\DoxyCodeLine{1202     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aedff9653f4f64f7b67e2ddf864108d54}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1203     \{}
+\DoxyCodeLine{1204       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chỉ số"{}};}
+\DoxyCodeLine{1205     \}}
+\DoxyCodeLine{1206 }
+\DoxyCodeLine{1211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a007ef564d762b681b74db2eb01b661d1}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1212     \{}
+\DoxyCodeLine{1213       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Class"{}} : \textcolor{stringliteral}{"{}class"{}}));}
+\DoxyCodeLine{1214       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}es"{}};}
+\DoxyCodeLine{1215       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1216     \}}
+\DoxyCodeLine{1217 }
+\DoxyCodeLine{1222     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a9f90535888f432a0079053c1a1d9c39c}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1223     \{}
+\DoxyCodeLine{1224       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}File"{}} : \textcolor{stringliteral}{"{}file"{}}));}
+\DoxyCodeLine{1225       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1226       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1227     \}}
+\DoxyCodeLine{1228 }
+\DoxyCodeLine{1233     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa10fd8916c5d4d35a225a7202db0498b}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1234     \{}
+\DoxyCodeLine{1235       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Namespace"{}} : \textcolor{stringliteral}{"{}namespace"{}}));}
+\DoxyCodeLine{1236       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1237       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1238     \}}
+\DoxyCodeLine{1239 }
+\DoxyCodeLine{1244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a175bf730718a663492d4a1fab71b3101}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1245     \{}
+\DoxyCodeLine{1246       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Group"{}} : \textcolor{stringliteral}{"{}group"{}}));}
+\DoxyCodeLine{1247       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1248       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1249     \}}
+\DoxyCodeLine{1250 }
+\DoxyCodeLine{1255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7215933b3fe84fc0f219d33c43dc91a1}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1256     \{}
+\DoxyCodeLine{1257       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Trang"{}} : \textcolor{stringliteral}{"{}trang"{}}));}
+\DoxyCodeLine{1258       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1259       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1260     \}}
+\DoxyCodeLine{1261 }
+\DoxyCodeLine{1266     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a86ea38ab14f2d911e804d2cf818fba36}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1267     \{}
+\DoxyCodeLine{1268       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Member"{}} : \textcolor{stringliteral}{"{}member"{}}));}
+\DoxyCodeLine{1269       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1270       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1271     \}}
+\DoxyCodeLine{1272 }
+\DoxyCodeLine{1277     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a4ca8551757adc2434f88cd759228deeb}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1278     \{}
+\DoxyCodeLine{1279       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Global"{}} : \textcolor{stringliteral}{"{}global"{}}));}
+\DoxyCodeLine{1280       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1281       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1282     \}}
+\DoxyCodeLine{1283 }
+\DoxyCodeLine{1285 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1287 \textcolor{comment}{}}
+\DoxyCodeLine{1290     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a000e934d9b609913d306d66ee6a89359}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1291     \{}
+\DoxyCodeLine{1292       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tác giả"{}} : \textcolor{stringliteral}{"{}tác giả"{}}));}
+\DoxyCodeLine{1293       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1294       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1295     \}}
+\DoxyCodeLine{1296 }
+\DoxyCodeLine{1298 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1300 \textcolor{comment}{}}
+\DoxyCodeLine{1303     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7ee37291a0f2666c144d4654013c46bc}{trReferences}}()}
+\DoxyCodeLine{1304     \{}
+\DoxyCodeLine{1305       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tham chiếu"{}};}
+\DoxyCodeLine{1306     \}}
+\DoxyCodeLine{1307 }
+\DoxyCodeLine{1309 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1311 \textcolor{comment}{}}
+\DoxyCodeLine{1315     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7fef0dc52c8cdc4a3ee6bb89304b1c78}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1316     \{}
+\DoxyCodeLine{1317       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thực hiện "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1318     \}}
+\DoxyCodeLine{1319 }
+\DoxyCodeLine{1323     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a67ec542d90ee97bbe254ae4edbf7395b}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1324     \{}
+\DoxyCodeLine{1325       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Được thực hiện trong "{}}+\mbox{\hyperlink{classTranslatorVietnamese_a9e37dca3640241e3c29516f2e756e346}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1326     \}}
+\DoxyCodeLine{1327 }
+\DoxyCodeLine{1329 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1331 \textcolor{comment}{}}
+\DoxyCodeLine{1335     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac98c62af9a20f4b585c395291ee77119}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1336     \{}
+\DoxyCodeLine{1337       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mục lục"{}};}
+\DoxyCodeLine{1338     \}}
+\DoxyCodeLine{1339 }
+\DoxyCodeLine{1341 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1343 \textcolor{comment}{}}
+\DoxyCodeLine{1347     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_abeaca8aa5e62d5f3dc46deabc410f7f3}{trDeprecatedList}}()}
+\DoxyCodeLine{1348     \{}
+\DoxyCodeLine{1349       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách Deprecated"{}};}
+\DoxyCodeLine{1350     \}}
+\DoxyCodeLine{1351 }
+\DoxyCodeLine{1353 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1355 \textcolor{comment}{}}
+\DoxyCodeLine{1359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a805e3ba6215964887711cd28c53325ea}{trEvents}}()}
+\DoxyCodeLine{1360     \{}
+\DoxyCodeLine{1361       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sự kiện"{}};}
+\DoxyCodeLine{1362     \}}
+\DoxyCodeLine{1364     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad0aa62f0b15578fa9e494ff273166438}{trEventDocumentation}}()}
+\DoxyCodeLine{1365     \{}
+\DoxyCodeLine{1366       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về sự kiện"{}};}
+\DoxyCodeLine{1367     \}}
+\DoxyCodeLine{1368 }
+\DoxyCodeLine{1370 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1372 \textcolor{comment}{}}
+\DoxyCodeLine{1375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ab05f0d5c4c8aded66988273c6d1e322a}{trPackageTypes}}()}
+\DoxyCodeLine{1376     \{}
+\DoxyCodeLine{1377       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kiểu gói"{}};}
+\DoxyCodeLine{1378     \}}
+\DoxyCodeLine{1382     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a783e350cc859319b532fd047cc04e6f9}{trPackageFunctions}}()}
+\DoxyCodeLine{1383     \{}
+\DoxyCodeLine{1384       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm Package"{}};}
+\DoxyCodeLine{1385     \}}
+\DoxyCodeLine{1386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_afafa8df38661a460d19ae97509725ca0}{trPackageMembers}}()}
+\DoxyCodeLine{1387     \{}
+\DoxyCodeLine{1388       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Members Package"{}};}
+\DoxyCodeLine{1389     \}}
+\DoxyCodeLine{1393     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af6da076bd7560d217abfcf415072c428}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1394     \{}
+\DoxyCodeLine{1395       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các hàm Static Package"{}};}
+\DoxyCodeLine{1396     \}}
+\DoxyCodeLine{1400     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_acbccbeae7500f1153d832267107be077}{trPackageAttribs}}()}
+\DoxyCodeLine{1401     \{}
+\DoxyCodeLine{1402       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Package"{}};}
+\DoxyCodeLine{1403     \}}
+\DoxyCodeLine{1407     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a8c196e52cf85888a374c4cf1592cc0bb}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1408     \{}
+\DoxyCodeLine{1409       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thuộc tính Static Package"{}};}
+\DoxyCodeLine{1410     \}}
+\DoxyCodeLine{1411 }
+\DoxyCodeLine{1413 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1415 \textcolor{comment}{}}
+\DoxyCodeLine{1419     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a08f55267e94ac509c8e73afa856ef8a9}{trAll}}()}
+\DoxyCodeLine{1420     \{}
+\DoxyCodeLine{1421       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tất cả"{}};}
+\DoxyCodeLine{1422     \}}
+\DoxyCodeLine{1424     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a57072a7154758c0d2f21b2a24ad6d65e}{trCallGraph}}()}
+\DoxyCodeLine{1425     \{}
+\DoxyCodeLine{1426       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Biểu đồ các lời gọi cho hàm này:"{}};}
+\DoxyCodeLine{1427     \}}
+\DoxyCodeLine{1428 }
+\DoxyCodeLine{1430 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1432 \textcolor{comment}{}}
+\DoxyCodeLine{1436     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af10f48afc231f87ca74a70c22cb80ee0}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1437     \{}
+\DoxyCodeLine{1438       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kết quả tìm kiếm"{}};}
+\DoxyCodeLine{1439     \}}
+\DoxyCodeLine{1448     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ad09691682e602a30fcf0f7fa140bb20e}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1449     \{}
+\DoxyCodeLine{1450       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1451       \{}
+\DoxyCodeLine{1452         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Không có tài liệu nào thỏa mãn các truy vấn của bạn."{}};}
+\DoxyCodeLine{1453       \}}
+\DoxyCodeLine{1454       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1455       \{}
+\DoxyCodeLine{1456         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tìm thấy <b>1</b> tài liệu thỏa mã truy vấn của bạn."{}};}
+\DoxyCodeLine{1457       \}}
+\DoxyCodeLine{1458       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1459       \{}
+\DoxyCodeLine{1460         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tìm thấy tất cả <b>\$num</b> tài liệu thỏa mã truy vấn của bạn. "{}}}
+\DoxyCodeLine{1461                \textcolor{stringliteral}{"{}Hiển thị những thỏa mãn tốt nhất trước."{}};}
+\DoxyCodeLine{1462       \}}
+\DoxyCodeLine{1463     \}}
+\DoxyCodeLine{1467     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a38708ebc35882b46325bbee55065d2b6}{trSearchMatches}}()}
+\DoxyCodeLine{1468     \{}
+\DoxyCodeLine{1469       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các kết quả thỏa mãn đk:"{}};}
+\DoxyCodeLine{1470     \}}
+\DoxyCodeLine{1471 }
+\DoxyCodeLine{1473 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1475 \textcolor{comment}{}}
+\DoxyCodeLine{1478     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a27928cfb9aa5bad7aa306cc0a2296d56}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1479     \{}
+\DoxyCodeLine{1480       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} File nguồn"{}};}
+\DoxyCodeLine{1481     \}}
+\DoxyCodeLine{1482 }
+\DoxyCodeLine{1484 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1486 \textcolor{comment}{}}
+\DoxyCodeLine{1490     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aabe2a62caa6ae4bd026ea8ebf7b1408a}{trDirIndex}}()}
+\DoxyCodeLine{1491     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Cấu trúc thư mục"{}}; \}}
+\DoxyCodeLine{1492 }
+\DoxyCodeLine{1496     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a482af304c4079f98fb1db63abc395737}{trDirDocumentation}}()}
+\DoxyCodeLine{1497     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về thư mục"{}}; \}}
+\DoxyCodeLine{1498 }
+\DoxyCodeLine{1502     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3f3915e52140601ac949071a43a0850f}{trDirectories}}()}
+\DoxyCodeLine{1503     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Các thư mục"{}}; \}}
+\DoxyCodeLine{1504 }
+\DoxyCodeLine{1508     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a484a19edf7bfb3f02d2434b56e46ac9f}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1509     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} Tham chiếu thư mục"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1510 }
+\DoxyCodeLine{1514     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac229e326629a65442b5acc0462e78464}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1515     \{}
+\DoxyCodeLine{1516       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Thư mục"{}} : \textcolor{stringliteral}{"{}thư mục"{}}));}
+\DoxyCodeLine{1517       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1518     \}}
+\DoxyCodeLine{1519 }
+\DoxyCodeLine{1521 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1523 \textcolor{comment}{}}
+\DoxyCodeLine{1527     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a888bc508ba4d11c3700aedc47836dc53}{trOverloadText}}()}
+\DoxyCodeLine{1528     \{}
+\DoxyCodeLine{1529        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hàm thành viên dạng overloaded, "{}}}
+\DoxyCodeLine{1530               \textcolor{stringliteral}{"{}được chỉ ra cho việc tra cứu dễ dàng. Nó khác với hàm ở trên"{}}}
+\DoxyCodeLine{1531               \textcolor{stringliteral}{"{}chỉ ở chỗ những tham số nào nó chấp nhận."{}};}
+\DoxyCodeLine{1532     \}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1535 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1537 \textcolor{comment}{}}
+\DoxyCodeLine{1539     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a4ce284193b5fe011519621c28e60037c}{trCallerGraph}}()}
+\DoxyCodeLine{1540     \{}
+\DoxyCodeLine{1541       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Biểu đồ các lời gọi cho hàm này:"{}};}
+\DoxyCodeLine{1542     \}}
+\DoxyCodeLine{1543 }
+\DoxyCodeLine{1547     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a7135d41ed09f9679170644718a05229b}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1548     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin Enumerator"{}}; \}}
+\DoxyCodeLine{1549 }
+\DoxyCodeLine{1551 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1553 \textcolor{comment}{}}
+\DoxyCodeLine{1555     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a24130d70d4b811186de1ec993a8b5215}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1556     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về các hàm và các thủ tục thành viên"{}}; \}}
+\DoxyCodeLine{1557 }
+\DoxyCodeLine{1559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a6df077481654e3d6e831db6dfff0d0cc}{trCompoundListFortran}}()}
+\DoxyCodeLine{1560     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách kiêu dữ liệu"{}}; \}}
+\DoxyCodeLine{1561 }
+\DoxyCodeLine{1563     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a02e7fee95bb3d99bb65de305dc0e9a7c}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1564     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Trường dữ liệu"{}}; \}}
+\DoxyCodeLine{1565 }
+\DoxyCodeLine{1567     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a3a3ae7bbb099fc4a882b6a311525a22b}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1568     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kiểu dữ liệu với các mô tả tóm tắt:"{}}; \}}
+\DoxyCodeLine{1569 }
+\DoxyCodeLine{1571     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a505d25947ec5f796e862d507d42b86e2}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1572     \{}
+\DoxyCodeLine{1573       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả "{}};}
+\DoxyCodeLine{1574       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1575       \{}
+\DoxyCodeLine{1576         result+=\textcolor{stringliteral}{"{}(đã được mô tả) "{}};}
+\DoxyCodeLine{1577       \}}
+\DoxyCodeLine{1578       result+=\textcolor{stringliteral}{"{}các kiểu dữ liệu thành viên"{}};}
+\DoxyCodeLine{1579       result+=\textcolor{stringliteral}{"{} cùng với liên kết với "{}};}
+\DoxyCodeLine{1580       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1581       \{}
+\DoxyCodeLine{1582          result+=\textcolor{stringliteral}{"{}Thông tin cấu trúc dữ liệu cho từng thành viên"{}};}
+\DoxyCodeLine{1583       \}}
+\DoxyCodeLine{1584       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1585       \{}
+\DoxyCodeLine{1586          result+=\textcolor{stringliteral}{"{} các kiểu dữ liệu thuộc:"{}};}
+\DoxyCodeLine{1587       \}}
+\DoxyCodeLine{1588       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1589     \}}
+\DoxyCodeLine{1590 }
+\DoxyCodeLine{1594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af77682122b155e51ca9d58bf628597f8}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chỉ mục kiểu dữ liệu"{}}; \}}
+\DoxyCodeLine{1596 }
+\DoxyCodeLine{1600     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_ac4460faa1395d7a6929defead0f8c28b}{trTypeDocumentation}}()}
+\DoxyCodeLine{1601     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về kiểu dữ liệu"{}}; \}}
+\DoxyCodeLine{1602 }
+\DoxyCodeLine{1606     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af124cb86e1c74879bb78188ed0deabb2}{trSubprograms}}()}
+\DoxyCodeLine{1607     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Functions/Subroutines"{}}; \}}
+\DoxyCodeLine{1608 }
+\DoxyCodeLine{1612     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a2ef068d4f6f6f325d9785930bc769a08}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1613     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thông tin về Function/Subroutine"{}}; \}}
+\DoxyCodeLine{1614 }
+\DoxyCodeLine{1618      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a020eebcdccda4b0cb6abeb2f78e566b3}{trDataTypes}}()}
+\DoxyCodeLine{1619     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kiểu dữ liệu"{}}; \}}
+\DoxyCodeLine{1620 }
+\DoxyCodeLine{1622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a11b5352a6927a0b1541019781716aa9a}{trModulesList}}()}
+\DoxyCodeLine{1623     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Danh sách Modules"{}}; \}}
+\DoxyCodeLine{1624 }
+\DoxyCodeLine{1626     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a64188e5b65ea804930b57f9c9b3cfae8}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1627     \{}
+\DoxyCodeLine{1628       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả "{}};}
+\DoxyCodeLine{1629       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được mô tả) "{}};}
+\DoxyCodeLine{1630       result+=\textcolor{stringliteral}{"{}các module với mô tả tóm tắt:"{}};}
+\DoxyCodeLine{1631       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1632     \}}
+\DoxyCodeLine{1633 }
+\DoxyCodeLine{1635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_abca73a03a435c5bee226d2f853d208fd}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1636                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1637                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1638     \{}
+\DoxyCodeLine{1639       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1640       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1641       \{}
+\DoxyCodeLine{1642         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Module"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1643         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Type"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1644         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1645         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1646         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1647         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1648         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1649         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1650       \}}
+\DoxyCodeLine{1651       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Template"{}};}
+\DoxyCodeLine{1652       result+=\textcolor{stringliteral}{"{} Tham chiếu"{}};}
+\DoxyCodeLine{1653       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1654     \}}
+\DoxyCodeLine{1656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a25829e6f3b6e913e8f15b40c79207b11}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1657     \{}
+\DoxyCodeLine{1658       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1659       result+=\textcolor{stringliteral}{"{} Tham chiếu Module"{}};}
+\DoxyCodeLine{1660       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1661     \}}
+\DoxyCodeLine{1662 }
+\DoxyCodeLine{1664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a15883ef8391aa4941410dacc48a802c8}{trModulesMembers}}()}
+\DoxyCodeLine{1665     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Thành viên Module"{}}; \}}
+\DoxyCodeLine{1666 }
+\DoxyCodeLine{1668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_af26a2aef7bd9e2d9b4b2a14c0868f1c7}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1669     \{}
+\DoxyCodeLine{1670       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Danh sách tất cả "{}};}
+\DoxyCodeLine{1671       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}(đã được mô tả) "{}};}
+\DoxyCodeLine{1672       result+=\textcolor{stringliteral}{"{}các module thành viên cùng với liên kết tới "{}};}
+\DoxyCodeLine{1673       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1674       \{}
+\DoxyCodeLine{1675         result+=\textcolor{stringliteral}{"{}Thông tin module cho từng thành viên:"{}};}
+\DoxyCodeLine{1676       \}}
+\DoxyCodeLine{1677       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1678       \{}
+\DoxyCodeLine{1679         result+=\textcolor{stringliteral}{"{}các module thuộc:"{}};}
+\DoxyCodeLine{1680       \}}
+\DoxyCodeLine{1681       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1682     \}}
+\DoxyCodeLine{1683 }
+\DoxyCodeLine{1687     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_aa97dd18c74a89ce29ea480c28debb354}{trModulesIndex}}()}
+\DoxyCodeLine{1688     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chỉ mục các Module"{}}; \}}
+\DoxyCodeLine{1689 }
+\DoxyCodeLine{1694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a82c2166b4643231f5915b48e7e6f8f85}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1695     \{}
+\DoxyCodeLine{1696       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Module"{}} : \textcolor{stringliteral}{"{}module"{}}));}
+\DoxyCodeLine{1697       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1698       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1699     \}}
+\DoxyCodeLine{1703     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a6d35ff7785c1a994ab25f81bc09ba5fe}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1704         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1705     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1706       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1707       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Thông tin cho "{}};}
+\DoxyCodeLine{1708       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1709       \{}
+\DoxyCodeLine{1710         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}module"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1711         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}type"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1712         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1713         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}interface"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1714         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protocol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1715         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}category"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1716         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}exception"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1717         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1718       \}}
+\DoxyCodeLine{1719       result+=\textcolor{stringliteral}{"{} được biên soạn từ các file sau đây"{}};}
+\DoxyCodeLine{1720       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}s:"{}};}
+\DoxyCodeLine{1721       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1722     \}}
+\DoxyCodeLine{1727     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a50c0eababc13e83e0ddf8caff673b40c}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1728     \{}
+\DoxyCodeLine{1729       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Kiểu"{}} : \textcolor{stringliteral}{"{}kiểu"{}}));}
+\DoxyCodeLine{1730       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1731       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1732     \}}
+\DoxyCodeLine{1737     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a49e7db7f5dfd5402a3b89c78146df255}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1738     \{}
+\DoxyCodeLine{1739       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Chương trình con"{}} : \textcolor{stringliteral}{"{}chương trình con"{}}));}
+\DoxyCodeLine{1740       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1741       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1742     \}}
+\DoxyCodeLine{1743 }
+\DoxyCodeLine{1745     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorVietnamese_a666071701ac65aa7b81fabeedfbb1ea3}{trTypeConstraints}}()}
+\DoxyCodeLine{1746     \{}
+\DoxyCodeLine{1747       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ràng buộc của kiểu (Type)"{}};}
+\DoxyCodeLine{1748     \}}
+\DoxyCodeLine{1749 }
+\DoxyCodeLine{1750 \};}
+\DoxyCodeLine{1751 }
+\DoxyCodeLine{1752 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,162 @@
+\hypertarget{memberlist_8h_source}{}\doxysection{memberlist.\+h}
+\label{memberlist_8h_source}\index{/mnt/c/projects/doxygen/src/memberlist.h@{/mnt/c/projects/doxygen/src/memberlist.h}}
+\mbox{\hyperlink{memberlist_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef MEMBERLIST\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define MEMBERLIST\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memberdef_8h}{memberdef.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linkedmap_8h}{linkedmap.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{membergroup_8h}{membergroup.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupDef}{GroupDef}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keywordtype}{int} \mbox{\hyperlink{memberlist_8h_a167ee264b79050f2a7adc66a8c0e999d}{genericCompareMembers}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *c1,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *c2);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberVector}{MemberVector}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34   \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \textcolor{comment}{/* -\/-\/-\/ standard vector interface -\/-\/-\/-\/ */}}
+\DoxyCodeLine{36     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberDef}{Ptr}} = \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *;}
+\DoxyCodeLine{37     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberVector_a239f03c28a982bb0ade13bbbfff2693a}{Vec}} = std::vector<Ptr>;}
+\DoxyCodeLine{38     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberVector_a1f6163477fc03ce0acd11c7967eaf428}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{39     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberVector_a27ac775d7599ec1dd6450176577e5220}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{40     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberDef}{value\_type}} = \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *;}
+\DoxyCodeLine{41     \textcolor{keyword}{using} \mbox{\hyperlink{classMemberDef}{const\_reference}} = \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{value\_type}}\&;}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberVector_af76ec8b9f3fa62a3276c0c115526325a}{push\_back}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md)     \{ \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.push\_back(md); \}}
+\DoxyCodeLine{43     \mbox{\hyperlink{classMemberVector_a1f6163477fc03ce0acd11c7967eaf428}{iterator}} \mbox{\hyperlink{classMemberVector_a76d2d74b5095e7f5e0268f48f77e0f39}{begin}}()                        \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.begin();   \}}
+\DoxyCodeLine{44     \mbox{\hyperlink{classMemberVector_a1f6163477fc03ce0acd11c7967eaf428}{iterator}} \mbox{\hyperlink{classMemberVector_a723df70931d8129690ff50eb9239f8f0}{end}}()                          \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end();     \}}
+\DoxyCodeLine{45     \mbox{\hyperlink{classMemberVector_a27ac775d7599ec1dd6450176577e5220}{const\_iterator}} \mbox{\hyperlink{classMemberVector_aab748d076dd4e91cec33a58922e74c1d}{begin}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.cbegin();  \}}
+\DoxyCodeLine{46     \mbox{\hyperlink{classMemberVector_a27ac775d7599ec1dd6450176577e5220}{const\_iterator}} \mbox{\hyperlink{classMemberVector_ad1e68c2c547e61d865fcccf32ebe1f55}{end}}()\textcolor{keyword}{ const              }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.cend();    \}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMemberVector_a185e78d7a138a4cf598ab0c564f59341}{empty}}()\textcolor{keyword}{ const                      }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.empty();   \}}
+\DoxyCodeLine{48     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classMemberVector_ae48653a9dc8688c02cde84c41b66d9bc}{size}}()\textcolor{keyword}{ const                     }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.size();    \}}
+\DoxyCodeLine{49     \mbox{\hyperlink{classMemberDef}{const\_reference}} \mbox{\hyperlink{classMemberVector_aded22301293f615d2f20a038d7554129}{front}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.front();   \}}
+\DoxyCodeLine{50     \mbox{\hyperlink{classMemberDef}{const\_reference}} \mbox{\hyperlink{classMemberVector_a6c5e9f1a0cdb5fc6161342954f2a19fc}{back}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.back();    \}}
+\DoxyCodeLine{51     \mbox{\hyperlink{classMemberDef}{const\_reference}} \mbox{\hyperlink{classMemberVector_a3f549bae42350bb0efa6e538295d6788}{operator[]}}(\textcolor{keywordtype}{int} index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}[index];    \}}
+\DoxyCodeLine{52     \mbox{\hyperlink{classMemberDef}{const\_reference}} \mbox{\hyperlink{classMemberVector_a593af9a76688c85b40ba030413479bd9}{operator[]}}(\textcolor{keywordtype}{size\_t} index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}[index];    \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMemberVector_a55bc8544d134138efb4a3aaf8518c32f}{lessThan}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md1,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md2)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56       \textcolor{keywordflow}{return} \mbox{\hyperlink{memberlist_8h_a167ee264b79050f2a7adc66a8c0e999d}{genericCompareMembers}}(md1,md2)<0;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberVector_a4391e4cb58c64ccf2325d67a8933e85f}{sort}}()}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60       std::sort(\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.begin(),\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end(),\mbox{\hyperlink{classMemberVector_a55bc8544d134138efb4a3aaf8518c32f}{lessThan}});}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberVector_a4c2fea2d5b06ebfd5ace3f2ae19e1d0a}{inSort}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md)}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64       \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.insert( std::upper\_bound( \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.begin(), \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end(), md, \mbox{\hyperlink{classMemberVector_a55bc8544d134138efb4a3aaf8518c32f}{lessThan}}), md);}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberVector_a2c36ea0755042a20f9eb4537b9f0d10b}{remove}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md)}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68       \textcolor{keyword}{auto} it = std::find(\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.begin(),\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end(),md);}
+\DoxyCodeLine{69       \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end()) \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.erase(it);}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMemberVector_a817df2f5b077b2226f5a620fc65bbfaa}{contains}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md)}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73       \textcolor{keyword}{auto} it = std::find(\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.begin(),\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end(),md);}
+\DoxyCodeLine{74       \textcolor{keywordflow}{return} it!=\mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}}.end();}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{77     \mbox{\hyperlink{classMemberVector_a239f03c28a982bb0ade13bbbfff2693a}{Vec}} \mbox{\hyperlink{classMemberVector_ab42304afbcf068af52820567fbc74fd4}{m\_members}};}
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberList}{MemberList}} : \textcolor{keyword}{public} \mbox{\hyperlink{classMemberVector}{MemberVector}}}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83   \textcolor{keyword}{public}:}
+\DoxyCodeLine{84     \mbox{\hyperlink{classMemberList_a3e36f184f58e200b6913d383d5ec1a46}{MemberList}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,\mbox{\hyperlink{types_8h_a6dc2e6c0ceaaa530cb9859af8d37449d}{MemberListContainer}} \mbox{\hyperlink{classMemberList_a32eb89a63cd45be662353c445232c403}{container}});}
+\DoxyCodeLine{85    \mbox{\hyperlink{classMemberList_aeecd2f64ef29c3ab1459524c38dc13da}{\string~MemberList}}();}
+\DoxyCodeLine{86     \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} \mbox{\hyperlink{classMemberList_aa31a7d651481862036f72381f7e2a96d}{listType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_listType; \}}
+\DoxyCodeLine{87     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classMemberList_ac0fbfaf649f81b17c268d1cd56c41da6}{listTypeAsString}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} type);}
+\DoxyCodeLine{88     \mbox{\hyperlink{types_8h_a6dc2e6c0ceaaa530cb9859af8d37449d}{MemberListContainer}} \mbox{\hyperlink{classMemberList_a32eb89a63cd45be662353c445232c403}{container}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_container; \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMemberList_a44322cca2b89d97eac0bbb4ac2f734ab}{numDecMembers}}()\textcolor{keyword}{ const    }\{ \mbox{\hyperlink{qcstring_8h_aca68c0d4ac8df0838e209fb5300f7be3}{ASSERT}}(m\_numDecMembers!=-\/1); \textcolor{keywordflow}{return} m\_numDecMembers; \}}
+\DoxyCodeLine{91     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMemberList_a0e56354cdbfba74141bac5b1fedbebbc}{numDecEnumValues}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_numDecEnumValues; \}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMemberList_a1717fc701b294ec348fcfb8385418bf7}{numDocMembers}}()\textcolor{keyword}{ const    }\{ \mbox{\hyperlink{qcstring_8h_aca68c0d4ac8df0838e209fb5300f7be3}{ASSERT}}(m\_numDocMembers!=-\/1); \textcolor{keywordflow}{return} m\_numDocMembers; \}}
+\DoxyCodeLine{93     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMemberList_a1a619718428d3d7d26ee266c3878c9bb}{numDocEnumValues}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_numDocEnumValues; \}}
+\DoxyCodeLine{94     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMemberList_a062a8658517d3c208c3400fba38e41f7}{needsSorting}}()\textcolor{keyword}{ const    }\{ \textcolor{keywordflow}{return} m\_needsSorting; \}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a393ee5dda002be396f08d4d473afedd9}{countDecMembers}}();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_abca221290e11d876fe4eade22711b9e5}{countDocMembers}}();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{int} \mbox{\hyperlink{classMemberList_a70f473313b44a7d39bd284595f3e9639}{countInheritableMembers}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom) \textcolor{keyword}{const};}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a500c888195de0410c5d56ded7b67da4b}{writePlainDeclarations}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keywordtype}{bool} inGroup,}
+\DoxyCodeLine{99                \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd, \textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd,}
+\DoxyCodeLine{100                \textcolor{keywordtype}{int} indentLevel,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inheritId) \textcolor{keyword}{const};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a231d8ab5221571c3702e995c53691e1f}{writeDeclarations}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,}
+\DoxyCodeLine{102                \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classNamespaceDef}{NamespaceDef}} *nd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}} *gd,}
+\DoxyCodeLine{103                \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&subtitle,}
+\DoxyCodeLine{104                \textcolor{keywordtype}{bool} showEnumValues=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\textcolor{keywordtype}{bool} showInline=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{105                \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom=0,\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt=\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19aef8f34581b3661954fb301bd03cab7ac}{MemberListType\_pubMethods}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_ac77f359d13384cf56ce9f7067173913a}{writeDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&scopeName,}
+\DoxyCodeLine{107                \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{classMemberList_a32eb89a63cd45be662353c445232c403}{container}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title,}
+\DoxyCodeLine{108                \textcolor{keywordtype}{bool} showEnumValues=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\textcolor{keywordtype}{bool} showInline=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{109     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a8cab5da1323054e47ede48e03a1420a2}{writeSimpleDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{classMemberList_a32eb89a63cd45be662353c445232c403}{container}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_af61f3bff24e29a086ea1bf6a66f4a2be}{writeDocumentationPage}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,}
+\DoxyCodeLine{111                \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&scopeName, \textcolor{keyword}{const} \mbox{\hyperlink{classDefinitionMutable}{DefinitionMutable}} *\mbox{\hyperlink{classMemberList_a32eb89a63cd45be662353c445232c403}{container}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a5b1ea0f8c0e0e7bb5e1340f6df6aa8bc}{writeTagFile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&);}
+\DoxyCodeLine{113     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMemberList_af3e9802567a6e2df20e4714a7aed3807}{declVisible}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_adc15114590d159b32413338d71ad9de9}{addMemberGroup}}(\mbox{\hyperlink{classMemberGroup}{MemberGroup}} *mg);}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a332043aa0d664d063e7fcc0614acbeea}{addListReferences}}(\mbox{\hyperlink{classDefinition}{Definition}} *def);}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_ad095317a533d0e4d883e286a5599746d}{findSectionsInDocumentation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a8c36bc97e2c74001d67b538ef3568121}{setNeedsSorting}}(\textcolor{keywordtype}{bool} b);}
+\DoxyCodeLine{118     \textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupRefList}{MemberGroupRefList}} \&\mbox{\hyperlink{classMemberList_af6d805d822b673a443308b6363d9c85f}{getMemberGroupList}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_memberGroupRefList; \}}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_a663e4dedf84ec20ab0b682c0c762647e}{setAnonymousEnumType}}();}
+\DoxyCodeLine{120     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMemberList_ae626c9e633e5efcf3476b1c7c847d06b}{setAnchors}}();}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122   \textcolor{keyword}{private}:}
+\DoxyCodeLine{123     \textcolor{keywordtype}{int} countEnumValues(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md) \textcolor{keyword}{const};}
+\DoxyCodeLine{124     \textcolor{keywordtype}{int} m\_numDecMembers; \textcolor{comment}{// number of members in the brief part of the memberlist}}
+\DoxyCodeLine{125     \textcolor{keywordtype}{int} m\_numDecEnumValues;}
+\DoxyCodeLine{126     \textcolor{keywordtype}{int} m\_numDocMembers; \textcolor{comment}{// number of members in the detailed part of the memberlist}}
+\DoxyCodeLine{127     \textcolor{keywordtype}{int} m\_numDocEnumValues;}
+\DoxyCodeLine{128     \mbox{\hyperlink{classMemberGroupRefList}{MemberGroupRefList}} m\_memberGroupRefList;}
+\DoxyCodeLine{129     \mbox{\hyperlink{types_8h_a6dc2e6c0ceaaa530cb9859af8d37449d}{MemberListContainer}} m\_container;}
+\DoxyCodeLine{130     \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} m\_listType;}
+\DoxyCodeLine{131     \textcolor{keywordtype}{bool} m\_needsSorting;}
+\DoxyCodeLine{132 \};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberLinkedRefMap}{MemberLinkedRefMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedRefMap}{LinkedRefMap}}<const MemberDef>}
+\DoxyCodeLine{135 \{}
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberLists}{MemberLists}} : \textcolor{keyword}{public} std::vector< std::unique\_ptr<MemberList> >}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140   \textcolor{keyword}{public}:}
+\DoxyCodeLine{141     \mbox{\hyperlink{classMemberLists_a2f61bea6c07780614b38af584423027d}{MemberLists}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{142     \textcolor{keyword}{const} std::unique\_ptr<MemberList> \&\mbox{\hyperlink{classMemberLists_a4c6708898611587ed51cf6c1a2622c52}{get}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,\mbox{\hyperlink{types_8h_a6dc2e6c0ceaaa530cb9859af8d37449d}{MemberListContainer}} con)}
+\DoxyCodeLine{143     \{}
+\DoxyCodeLine{144       \textcolor{comment}{// find the list with the given type}}
+\DoxyCodeLine{145       \textcolor{keyword}{auto} it = std::find\_if(\mbox{\hyperlink{dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}}(),\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}(),[\&lt](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&ml) \{ \textcolor{keywordflow}{return} ml-\/>listType()==lt; \});}
+\DoxyCodeLine{146       \textcolor{keywordflow}{if} (it!=\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}()) \textcolor{keywordflow}{return} *it;}
+\DoxyCodeLine{147       \textcolor{comment}{// or create a new list if it is not found}}
+\DoxyCodeLine{148       emplace\_back(std::make\_unique<MemberList>(lt,con));}
+\DoxyCodeLine{149       \textcolor{keywordflow}{return} back();}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152   \textcolor{keyword}{private}:}
+\DoxyCodeLine{153     \mbox{\hyperlink{classMemberLists_a2f61bea6c07780614b38af584423027d}{MemberLists}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberLists}{MemberLists}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{154     \mbox{\hyperlink{classMemberLists}{MemberLists}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberLists}{MemberLists}} \&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{155 \};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

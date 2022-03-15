@@ -1,0 +1,20 @@
+digraph "ObjCCallCtx"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{ObjCCallCtx\n||}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +braceCount\n+id\n+lexState" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{int\n||}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classint.html",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +format\n+methodName\n+objectTypeOrName" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{QCString\n||+ QCString()\l+ ~QCString()\l+ QCString()\l+ operator=()\l+ QCString()\l+ operator=()\l+ QCString()\l+ QCString()\l+ QCString()\l+ QCString()\land 69 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classQCString.html",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +comment" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{TextStream\n||+ TextStream()\l+ TextStream()\l+ TextStream()\l+ ~TextStream()\l+ TextStream()\l+ operator=()\l+ setStream()\l+ setFile()\l+ stream()\l+ file()\land 20 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTextStream.html",tooltip="Text streaming class that buffers data."];
+  Node5 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +objectType" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{ClassDef\n||+ definitionType()\l+ getOutputFileBase()\l+ getInstanceOutputFileBase()\l+ getSourceFileBase()\l+ getReference()\l+ isReference()\l+ isLocal()\l+ getClasses()\l+ hasDocumentation()\l+ hasDetailedDescription()\land 71 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClassDef.html",tooltip=" "];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node6 [label="{Definition\n||+ definitionType()\l+ codeSymbolType()\l+ isAlias()\l+ name()\l+ isAnonymous()\l+ displayName()\l+ localName()\l+ qualifiedName()\l+ symbolName()\l+ getOutputFileBase()\land 50 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDefinition.html",tooltip=" "];
+  Node7 -> Node1 [color="grey25",fontsize="10",style="solid",label=" +method\n+objectVar" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node7 [label="{MemberDef\n||+ definitionType()\l+ deepCopy()\l+ moveTo()\l+ resolveAlias()\l+ resolveAlias()\l+ getClassDefMutable()\l+ getOutputFileBase()\l+ getReference()\l+ anchor()\l+ declaration()\land 179 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemberDef.html",tooltip=" "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+}

@@ -1,0 +1,235 @@
+\hypertarget{classCache}{}\doxysection{Cache\texorpdfstring{$<$}{<} K, V \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classCache}\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+
+
+{\ttfamily \#include $<$cache.\+h$>$}
+
+
+
+Collaboration diagram for Cache\texorpdfstring{$<$}{<} K, V \texorpdfstring{$>$}{>}\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} = std\+::pair$<$ K, V $>$
+\item 
+using \mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} = typename std\+::list$<$ \mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::iterator
+\item 
+using \mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} = typename std\+::list$<$ \mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}} $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCache_aaa77900cf0925ea6e46653361bc6be29}{Cache}} (size\+\_\+t \mbox{\hyperlink{classCache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})
+\begin{DoxyCompactList}\small\item\em creates a cache that can hold {\itshape capacity} elements \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{classCache_a1cf01dfdbe1b56e62c25112e771b23fa}{insert}} (const K \&key, V \&\&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+V $\ast$ \mbox{\hyperlink{classCache_a2346678720d2078c031e7ea436e402b6}{insert}} (const K \&key, const V \&value)
+\begin{DoxyCompactList}\small\item\em Inserts {\itshape value} under {\itshape key} in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}} (const K \&key)
+\item 
+V $\ast$ \mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find}} (const K \&key)
+\item 
+size\+\_\+t \mbox{\hyperlink{classCache_a8b8abd9f417e818217ba17f9756f41eb}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of values stored in the cache. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classCache_a62ce1e1112e08368aff14b6627d2d039}{capacity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum number of values that can be stored in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classCache_ace97657a7c672dcc74d30e43c4006ea7}{hits}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classCache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses}} () const
+\begin{DoxyCompactList}\small\item\em Returns how many of the \mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCache_aaa0c3a5019640bfd305277ac83ff553f}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears all values in the cache. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache_a710ca4c838a720d74a5a9063df23a27e}{begin}} ()
+\item 
+\mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache_a3328cf128d88cc86cbf81ce38dc81f0f}{end}} ()
+\item 
+\mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{classCache_a5212a44b518fd416891d0a0751c8ae78}{begin}} () const
+\item 
+\mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{classCache_a980ba5495fea787d5e88a5f6a24a2f4b}{end}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename K, typename V$>$\newline
+class Cache$<$ K, V $>$}
+Fixed size cache for value type V using keys of type K.
+
+When the maximum capacity has reached, the least recently used value is removed from the cache (LRU strategy). 
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classCache_a28677bb60d07d35d925f8d7852e8f142}\label{classCache_a28677bb60d07d35d925f8d7852e8f142}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::const\+\_\+iterator =  typename std\+::list$<$\mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::const\+\_\+iterator}
+
+\mbox{\Hypertarget{classCache_a79258c643559f458b14ecb02a0258d00}\label{classCache_a79258c643559f458b14ecb02a0258d00}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::iterator =  typename std\+::list$<$\mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\+\_\+pair}}$>$\+::iterator}
+
+\mbox{\Hypertarget{classCache_a0378ae0d907403c4e9ae21da645f9331}\label{classCache_a0378ae0d907403c4e9ae21da645f9331}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!kv\_pair@{kv\_pair}}
+\index{kv\_pair@{kv\_pair}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{kv\_pair}{kv\_pair}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+using \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::kv\+\_\+pair =  std\+::pair$<$K,V$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCache_aaa77900cf0925ea6e46653361bc6be29}\label{classCache_aaa77900cf0925ea6e46653361bc6be29}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!Cache@{Cache}}
+\index{Cache@{Cache}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{Cache()}{Cache()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\mbox{\hyperlink{classCache}{\+::\+Cache}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+creates a cache that can hold {\itshape capacity} elements 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCache_a710ca4c838a720d74a5a9063df23a27e}\label{classCache_a710ca4c838a720d74a5a9063df23a27e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCache_a5212a44b518fd416891d0a0751c8ae78}\label{classCache_a5212a44b518fd416891d0a0751c8ae78}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!begin@{begin}}
+\index{begin@{begin}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCache_a62ce1e1112e08368aff14b6627d2d039}\label{classCache_a62ce1e1112e08368aff14b6627d2d039}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the maximum number of values that can be stored in the cache. 
+
+\mbox{\Hypertarget{classCache_aaa0c3a5019640bfd305277ac83ff553f}\label{classCache_aaa0c3a5019640bfd305277ac83ff553f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!clear@{clear}}
+\index{clear@{clear}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears all values in the cache. 
+
+\mbox{\Hypertarget{classCache_a3328cf128d88cc86cbf81ce38dc81f0f}\label{classCache_a3328cf128d88cc86cbf81ce38dc81f0f}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCache_a980ba5495fea787d5e88a5f6a24a2f4b}\label{classCache_a980ba5495fea787d5e88a5f6a24a2f4b}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!end@{end}}
+\index{end@{end}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+\mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\+\_\+iterator}} \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}\label{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!find@{find}}
+\index{find@{find}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::find (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds a value in the cache given the corresponding {\itshape key}. \begin{DoxyReturn}{Returns}
+a pointer to the value or nullptr if the key is not found in the cache 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The hit and miss counters are updated, see \mbox{\hyperlink{classCache_ace97657a7c672dcc74d30e43c4006ea7}{hits()}} and \mbox{\hyperlink{classCache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses()}}. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCache_ace97657a7c672dcc74d30e43c4006ea7}\label{classCache_ace97657a7c672dcc74d30e43c4006ea7}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!hits@{hits}}
+\index{hits@{hits}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{hits()}{hits()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::hits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did find a value in the cache. 
+
+\mbox{\Hypertarget{classCache_a2346678720d2078c031e7ea436e402b6}\label{classCache_a2346678720d2078c031e7ea436e402b6}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{const V \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classCache_a1cf01dfdbe1b56e62c25112e771b23fa}\label{classCache_a1cf01dfdbe1b56e62c25112e771b23fa}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!insert@{insert}}
+\index{insert@{insert}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+V $\ast$ \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::insert (\begin{DoxyParamCaption}\item[{const K \&}]{key,  }\item[{V \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inserts {\itshape value} under {\itshape key} in the cache. 
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classCache_aaea59f2a9da7bf4416ed4e2de1c955a3}\label{classCache_aaea59f2a9da7bf4416ed4e2de1c955a3}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!misses@{misses}}
+\index{misses@{misses}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{misses()}{misses()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::misses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns how many of the \mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find()}} calls did not found a value in the cache. 
+
+\mbox{\Hypertarget{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}\label{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!remove@{remove}}
+\index{remove@{remove}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+void \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::remove (\begin{DoxyParamCaption}\item[{const K \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes entry {\itshape key} from the cache. \begin{DoxyNote}{Note}
+this invalidates any iterators 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCache_a8b8abd9f417e818217ba17f9756f41eb}\label{classCache_a8b8abd9f417e818217ba17f9756f41eb}} 
+\index{Cache$<$ K, V $>$@{Cache$<$ K, V $>$}!size@{size}}
+\index{size@{size}!Cache$<$ K, V $>$@{Cache$<$ K, V $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename K , typename V $>$ \\
+size\+\_\+t \mbox{\hyperlink{classCache}{Cache}}$<$ K, V $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of values stored in the cache. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{cache_8h}{cache.\+h}}\end{DoxyCompactItemize}

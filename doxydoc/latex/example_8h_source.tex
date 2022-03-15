@@ -1,0 +1,59 @@
+\hypertarget{example_8h_source}{}\doxysection{example.\+h}
+\label{example_8h_source}\index{/mnt/c/projects/doxygen/src/example.h@{/mnt/c/projects/doxygen/src/example.h}}
+\mbox{\hyperlink{example_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef EXAMPLE\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define EXAMPLE\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDef}{ClassDef}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberName}{MemberName}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28 \textcolor{keyword}{struct }\mbox{\hyperlink{structExample}{Example}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30   \mbox{\hyperlink{structExample_a542f2504157d756b0d41c0711dc9bc4c}{Example}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&a,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&n,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&f) : \mbox{\hyperlink{structExample_ad77c6c2bbf3a3cd277ee24df5a3d6190}{anchor}}(a), \mbox{\hyperlink{structExample_a3ff74d2063cc9dc8b836ce95e79af75d}{name}}(n), \mbox{\hyperlink{structExample_a5641a1748c9b207ca684c70d8183a7d8}{file}}(f) \{\}}
+\DoxyCodeLine{31   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structExample_ad77c6c2bbf3a3cd277ee24df5a3d6190}{anchor}};}
+\DoxyCodeLine{32   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structExample_a3ff74d2063cc9dc8b836ce95e79af75d}{name}};}
+\DoxyCodeLine{33   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structExample_a5641a1748c9b207ca684c70d8183a7d8}{file}};}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classExampleList}{ExampleList}} : \textcolor{keyword}{public} std::vector<Example>}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38   \textcolor{keyword}{public}:}
+\DoxyCodeLine{39     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classExampleList_a461e72c8f6d52cf93b0c4db33d6bda8b}{inSort}}( \textcolor{keyword}{const} \mbox{\hyperlink{structExample}{Example}}\& ex )}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41       \textcolor{keyword}{auto} it = std::find\_if(\mbox{\hyperlink{dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}}(),\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}(),[\&ex](\textcolor{keyword}{const} \mbox{\hyperlink{structExample}{Example}} \&e) \{ \textcolor{keywordflow}{return} e.\mbox{\hyperlink{structExample_a3ff74d2063cc9dc8b836ce95e79af75d}{name}}==ex.\mbox{\hyperlink{structExample_a3ff74d2063cc9dc8b836ce95e79af75d}{name}}; \});}
+\DoxyCodeLine{42       \textcolor{keywordflow}{if} (it==\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}())}
+\DoxyCodeLine{43       \{}
+\DoxyCodeLine{44         insert( std::upper\_bound( \mbox{\hyperlink{dir_8cpp_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}}(), \mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}(), ex,}
+\DoxyCodeLine{45                  [](\textcolor{keyword}{const} \textcolor{keyword}{auto} \&e1,\textcolor{keyword}{const} \textcolor{keyword}{auto} \&e2) \{ \textcolor{keywordflow}{return} e1.\mbox{\hyperlink{structExample_a3ff74d2063cc9dc8b836ce95e79af75d}{name}} < e2.name; \}}
+\DoxyCodeLine{46                 ), ex}
+\DoxyCodeLine{47               );}
+\DoxyCodeLine{48         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{49       \}}
+\DoxyCodeLine{50       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,63 @@
+\hypertarget{dotcallgraph_8h_source}{}\doxysection{dotcallgraph.\+h}
+\label{dotcallgraph_8h_source}\index{/mnt/c/projects/doxygen/src/dotcallgraph.h@{/mnt/c/projects/doxygen/src/dotcallgraph.h}}
+\mbox{\hyperlink{dotcallgraph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTCALLGRAPH\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTCALLGRAPH\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotnode_8h}{dotnode.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgraph_8h}{dotgraph.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memberdef_8h}{memberdef.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classDotCallGraph}{DotCallGraph}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDotGraph}{DotGraph}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28   \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{classDotCallGraph_a027224fbb504c5436845bb85a7c511a0}{DotCallGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md,\textcolor{keywordtype}{bool} inverse);}
+\DoxyCodeLine{30     \mbox{\hyperlink{classDotCallGraph_a865df0c042f08bec4f4e3a28076b0dd4}{\string~DotCallGraph}}();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotCallGraph_ae7f297903a3fe6ea2ac638f381125767}{isTrivial}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotCallGraph_a1f0c9cfab017f669e5c83e4ecd9ef760}{isTooBig}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotCallGraph_a114c8bc9e302f996906978fc86eab28c}{numNodes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotCallGraph_ad59c94658b83032817c03c0d59c7e5da}{writeGraph}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t, \mbox{\hyperlink{dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} gf, \mbox{\hyperlink{dotgraph_8h_a8680135da08a5ef57cebe20060912dcc}{EmbeddedOutputFormat}} ef,}
+\DoxyCodeLine{35                         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&path,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,}
+\DoxyCodeLine{36                         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keywordtype}{bool} writeImageMap=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},}
+\DoxyCodeLine{37                         \textcolor{keywordtype}{int} graphId=-\/1);}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotCallGraph_ae7f297903a3fe6ea2ac638f381125767}{isTrivial}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md,\textcolor{keywordtype}{bool} inverse);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotCallGraph_a88534f65e64dbf3a8b56b354c2eb9dfe}{getBaseName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotCallGraph_a23b8f07f4a4d5caeddc60d722284bca8}{getMapLabel}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotCallGraph_aed9e8961fc89d195f7d5d1ad943b9070}{computeTheGraph}}();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keyword}{private}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} buildGraph(\mbox{\hyperlink{classDotNode}{DotNode}} *n,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md,\textcolor{keywordtype}{int} distance);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} determineVisibleNodes(\mbox{\hyperlink{classDotNodeDeque}{DotNodeDeque}} \&queue, \textcolor{keywordtype}{int} \&maxNodes);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} determineTruncatedNodes(\mbox{\hyperlink{classDotNodeDeque}{DotNodeDeque}} \&queue);}
+\DoxyCodeLine{49     \mbox{\hyperlink{classDotNode}{DotNode}}        *m\_startNode;}
+\DoxyCodeLine{50     \mbox{\hyperlink{classDotNodeMap}{DotNodeMap}}      m\_usedNodes;}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool}            m\_inverse;}
+\DoxyCodeLine{52     \mbox{\hyperlink{classQCString}{QCString}}        m\_diskName;}
+\DoxyCodeLine{53     \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} * m\_scope;}
+\DoxyCodeLine{54 \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{using} \mbox{\hyperlink{dotcallgraph_8h_a086390a0e7bb8731d0a1b047e2c3ec45}{DotCallGraphPtr}} = std::shared\_ptr<DotCallGraph>;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

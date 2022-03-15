@@ -1,0 +1,150 @@
+\hypertarget{cache_8h_source}{}\doxysection{cache.\+h}
+\label{cache_8h_source}\index{/mnt/c/projects/doxygen/src/cache.h@{/mnt/c/projects/doxygen/src/cache.h}}
+\mbox{\hyperlink{cache_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef CACHE\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define CACHE\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <ctype.h>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{29 \textcolor{keyword}{template}<\textcolor{keyword}{typename} K,\textcolor{keyword}{typename} V>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classCache}{Cache}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keyword}{using} \mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}        = std::pair<K,V>;}
+\DoxyCodeLine{34     \textcolor{keyword}{using} \mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}}       = \textcolor{keyword}{typename} std::list<kv\_pair>::iterator;}
+\DoxyCodeLine{35     \textcolor{keyword}{using} \mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\_iterator}} = \textcolor{keyword}{typename} std::list<kv\_pair>::const\_iterator;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38     \mbox{\hyperlink{classCache_aaa77900cf0925ea6e46653361bc6be29}{Cache}}(\textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classCache_a62ce1e1112e08368aff14b6627d2d039}{capacity}}) : m\_capacity(\mbox{\hyperlink{classCache_a62ce1e1112e08368aff14b6627d2d039}{capacity}})}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{43     V *\mbox{\hyperlink{classCache_a1cf01dfdbe1b56e62c25112e771b23fa}{insert}}(\textcolor{keyword}{const} K \&key,V \&\&value)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45       \textcolor{comment}{// remove item if it already exists}}
+\DoxyCodeLine{46       \mbox{\hyperlink{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}}(key);}
+\DoxyCodeLine{47       \textcolor{comment}{// store new item}}
+\DoxyCodeLine{48       m\_cacheItemList.push\_front(\mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,std::move(value)));}
+\DoxyCodeLine{49       V *result = \&m\_cacheItemList.front().second;}
+\DoxyCodeLine{50       m\_cacheItemMap[key] = m\_cacheItemList.begin();}
+\DoxyCodeLine{51       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{52       resize();}
+\DoxyCodeLine{53       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57     V *\mbox{\hyperlink{classCache_a2346678720d2078c031e7ea436e402b6}{insert}}(\textcolor{keyword}{const} K \&key,\textcolor{keyword}{const} V \&value)}
+\DoxyCodeLine{58     \{}
+\DoxyCodeLine{59       \textcolor{comment}{// remove item if it already exists}}
+\DoxyCodeLine{60       \mbox{\hyperlink{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}}(key);}
+\DoxyCodeLine{61       \textcolor{comment}{// store new item}}
+\DoxyCodeLine{62       m\_cacheItemList.push\_front(\mbox{\hyperlink{classCache_a0378ae0d907403c4e9ae21da645f9331}{kv\_pair}}(key,value));}
+\DoxyCodeLine{63       V *result = \&m\_cacheItemList.front().second;}
+\DoxyCodeLine{64       m\_cacheItemMap[key] = m\_cacheItemList.begin();}
+\DoxyCodeLine{65       \textcolor{comment}{// remove least recently used item if cache is full}}
+\DoxyCodeLine{66       resize();}
+\DoxyCodeLine{67       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCache_ac3a7d2f92c1e3652b0279dcafe563f8e}{remove}}(\textcolor{keyword}{const} K \&key)}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74       \textcolor{comment}{// remove item if it already exists}}
+\DoxyCodeLine{75       \textcolor{keyword}{auto} it = m\_cacheItemMap.find(key);}
+\DoxyCodeLine{76       \textcolor{keywordflow}{if} (it != m\_cacheItemMap.end())}
+\DoxyCodeLine{77       \{}
+\DoxyCodeLine{78         m\_cacheItemList.erase(it-\/>second);}
+\DoxyCodeLine{79         m\_cacheItemMap.erase(it);}
+\DoxyCodeLine{80       \}}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{86     V *\mbox{\hyperlink{classCache_a31d7c56fdd7cf7147e93bbc7b5420901}{find}}(\textcolor{keyword}{const} K \&key)}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88       \textcolor{keyword}{auto} it = m\_cacheItemMap.find(key);}
+\DoxyCodeLine{89       \textcolor{keywordflow}{if} (it != m\_cacheItemMap.end())}
+\DoxyCodeLine{90       \{}
+\DoxyCodeLine{91         \textcolor{comment}{// move the item to the front of the list}}
+\DoxyCodeLine{92         m\_cacheItemList.splice(m\_cacheItemList.begin(),}
+\DoxyCodeLine{93                                m\_cacheItemList,}
+\DoxyCodeLine{94                                it-\/>second);}
+\DoxyCodeLine{95         m\_hits++;}
+\DoxyCodeLine{96         \textcolor{comment}{// return the value}}
+\DoxyCodeLine{97         \textcolor{keywordflow}{return} \&it-\/>second-\/>second;}
+\DoxyCodeLine{98       \}}
+\DoxyCodeLine{99       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{100       \{}
+\DoxyCodeLine{101         m\_misses++;}
+\DoxyCodeLine{102       \}}
+\DoxyCodeLine{103       \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classCache_a8b8abd9f417e818217ba17f9756f41eb}{size}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{108 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{109       \textcolor{keywordflow}{return} m\_cacheItemMap.size();}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classCache_a62ce1e1112e08368aff14b6627d2d039}{capacity}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{114 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{115       \textcolor{keywordflow}{return} m\_capacity;}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{119     uint64\_t \mbox{\hyperlink{classCache_ace97657a7c672dcc74d30e43c4006ea7}{hits}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{120 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{121       \textcolor{keywordflow}{return} m\_hits;}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{125     uint64\_t \mbox{\hyperlink{classCache_aaea59f2a9da7bf4416ed4e2de1c955a3}{misses}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{126 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{127       \textcolor{keywordflow}{return} m\_misses;}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCache_aaa0c3a5019640bfd305277ac83ff553f}{clear}}()}
+\DoxyCodeLine{132     \{}
+\DoxyCodeLine{133       m\_cacheItemMap.clear();}
+\DoxyCodeLine{134       m\_cacheItemList.clear();}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache_a710ca4c838a720d74a5a9063df23a27e}{begin}}()             \{ \textcolor{keywordflow}{return} m\_cacheItemList.begin();  \}}
+\DoxyCodeLine{138     \mbox{\hyperlink{classCache_a79258c643559f458b14ecb02a0258d00}{iterator}} \mbox{\hyperlink{classCache_a3328cf128d88cc86cbf81ce38dc81f0f}{end}}()               \{ \textcolor{keywordflow}{return} m\_cacheItemList.end();    \}}
+\DoxyCodeLine{139     \mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\_iterator}} \mbox{\hyperlink{classCache_a5212a44b518fd416891d0a0751c8ae78}{begin}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_cacheItemList.cbegin(); \}}
+\DoxyCodeLine{140     \mbox{\hyperlink{classCache_a28677bb60d07d35d925f8d7852e8f142}{const\_iterator}} \mbox{\hyperlink{classCache_a980ba5495fea787d5e88a5f6a24a2f4b}{end}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_cacheItemList.cend();   \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142   \textcolor{keyword}{private}:}
+\DoxyCodeLine{143     \textcolor{keywordtype}{void} resize()}
+\DoxyCodeLine{144     \{}
+\DoxyCodeLine{145       \textcolor{keywordflow}{if} (m\_cacheItemMap.size() > m\_capacity)}
+\DoxyCodeLine{146       \{}
+\DoxyCodeLine{147         \textcolor{keyword}{auto} last\_it = m\_cacheItemList.end();}
+\DoxyCodeLine{148         -\/-\/last\_it;}
+\DoxyCodeLine{149         m\_cacheItemMap.erase(last\_it-\/>first);}
+\DoxyCodeLine{150         m\_cacheItemList.pop\_back();}
+\DoxyCodeLine{151       \}}
+\DoxyCodeLine{152     \}}
+\DoxyCodeLine{153     \textcolor{keywordtype}{size\_t} m\_capacity;}
+\DoxyCodeLine{154     \textcolor{comment}{// list of items in the cache, sorted by most to least recently used.}}
+\DoxyCodeLine{155     std::list<kv\_pair> m\_cacheItemList;}
+\DoxyCodeLine{156     \textcolor{comment}{// mapping for each key to a place in the list where item is found}}
+\DoxyCodeLine{157     std::unordered\_map<K,iterator> m\_cacheItemMap;}
+\DoxyCodeLine{158     uint64\_t m\_hits=0;}
+\DoxyCodeLine{159     uint64\_t m\_misses=0;}
+\DoxyCodeLine{160 \};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

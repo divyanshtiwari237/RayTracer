@@ -1,0 +1,1022 @@
+\hypertarget{classVhdlDocGen}{}\doxysection{Vhdl\+Doc\+Gen Class Reference}
+\label{classVhdlDocGen}\index{VhdlDocGen@{VhdlDocGen}}
+
+
+{\ttfamily \#include $<$vhdldocgen.\+h$>$}
+
+
+
+Collaboration diagram for Vhdl\+Doc\+Gen\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{Vhdl\+Classes}} \{ \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}{ENTITYCLASS}}
+, \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a4cdc00f213301fb089eb3906a07efd20}{PACKBODYCLASS}}
+, \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae0c7e4401e472ec3153e9793e240a431}{ARCHITECTURECLASS}}
+, \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae69513dd677b13d97b6a2e3ae445d1ef}{PACKAGECLASS}}
+ \}
+\item 
+enum \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6}{Vhdl\+Key\+Words}} \{ \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}{LIBRARY}} =1
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}{ENTITY}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}{PACKAGE\+\_\+\+BODY}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}{ARCHITECTURE}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}{PACKAGE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}{ATTRIBUTE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}{SIGNAL}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}{COMPONENT}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}{CONSTANT}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}{TYPE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}{SUBTYPE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}{FUNCTION}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}{RECORD}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}{PROCEDURE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}{USE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}{PROCESS}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}{PORT}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}{UNITS}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}{GENERIC}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}{INSTANTIATION}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}{GROUP}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}{VFILE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}{SHAREDVARIABLE}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}{CONFIG}}
+, \newline
+\mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}{ALIAS}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}{MISCELLANEOUS}}
+, \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}{UCF\+\_\+\+CONST}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVhdlDocGen_a9c81282909ce97e85d0f42a4e2bd3b1e}{Vhdl\+Doc\+Gen}} ()
+\item 
+virtual \mbox{\hyperlink{classVhdlDocGen_acc05e81acd9943236e3530a0beba9f86}{$\sim$\+Vhdl\+Doc\+Gen}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{Vhdl\+Classes}} \mbox{\hyperlink{classVhdlDocGen_ab1ab1504610c798f4924026a48bb4301}{convert}} (\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a987fee1e906fac322dda62613525a8f9}{init}} ()
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ac5508320d1d3754b484107c49cfec5a7}{convert\+File\+Name\+To\+Class\+Name}} (\mbox{\hyperlink{classQCString}{QCString}} name)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ac7d0f125a2bffca08e8c52644bf8c6f2}{is\+Sub\+Class}} (\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$scd, bool follow\+Instances, \mbox{\hyperlink{classint}{int}} level)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ae1c14782849e08d5ef42d9ae8290c18b}{get\+Index\+Word}} (const \mbox{\hyperlink{classQCString}{QCString}} \&, \mbox{\hyperlink{classint}{int}} index)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a82a05cf7bd081febd19a0065eed17098}{delete\+Char\+Rev}} (\mbox{\hyperlink{classQCString}{QCString}} \&s, char c)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_ae4bf0d0561d8ef807b56c1f29765713e}{delete\+All\+Chars}} (\mbox{\hyperlink{classQCString}{QCString}} \&s, char c)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a9f4758858cac73d07721ea31f42bea8e}{parse\+Func\+Proto}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text, \mbox{\hyperlink{classQCString}{QCString}} \&name, \mbox{\hyperlink{classQCString}{QCString}} \&ret, bool doc=false)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_ab8681769cd2f027fbf46a4836d3825e9}{compute\+Vhdl\+Component\+Relations}} ()
+\item 
+static const char $\ast$ \mbox{\hyperlink{classVhdlDocGen_af24155445ad4e0328e60f78bf4a4a41f}{find\+Key\+Word}} (const \mbox{\hyperlink{classQCString}{QCString}} \&word)
+\item 
+static \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_ad890048820909df255f6ee3f95d6ed80}{get\+Package\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+static const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_ab6898e9270508ce95ad8ebb5ecbedaa6}{find\+Member}} (const \mbox{\hyperlink{classQCString}{QCString}} \&class\+Name, const \mbox{\hyperlink{classQCString}{QCString}} \&mem\+Name)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a00216e37afbb1841a9631a80379b7f0a}{find\+All\+Packages}} (\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$)
+\item 
+static const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_a358ec24d6f67dee4fb2f983181a314fe}{find\+Member\+Def}} (\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, const \mbox{\hyperlink{classQCString}{QCString}} \&key, \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{Member\+List\+Type}} type)
+\item 
+static \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_aa09142ff1ca07603f8bb2150ce9ceab5}{get\+Class}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name)
+\item 
+static const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_a765683cbd1cf5a8e7374b64a9ac37d98}{find\+Function}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{classQCString}{QCString}} \&package)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_ad5d4c791af3f2943467c7c7af558d83a}{get\+Class\+Title}} (const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a67f47b8dc11d967ee47e9bda86fff7e0}{write\+Inline\+Class\+Link}} (const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a76fe2943fccabc70c52ad3b6e31f4fa5}{write\+Tag\+File}} (\mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$mdef, \mbox{\hyperlink{classTextStream}{Text\+Stream}} \&tag\+File)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_adb04cd03e2039ecab3a0a8f31ee4c890}{is\+Constraint}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a57efdf5bddd0b36667c8aa21256ebac7}{is\+Config}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_af13dd5eb831c1df008b0fd41928f4b7c}{is\+Alias}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a3f582b69841bae3ec6f1281604b6f0c8}{is\+Library}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ae3c19429669d382581ba37aee5f39278}{is\+Generic}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a73186f5d1ba5e6c11c6f006708da79a6}{is\+Port}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ad3fdc795bf951ef11221894512b8bc6c}{is\+Component}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_aca017e059b8a2972c2cad968800c0564}{is\+Package}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a65218023c4970a90f3bce70938a99781}{is\+Entity}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a2c3cdcd27394531385ccd8c56257edc1}{is\+Constant}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a8ab98ceef0a36aea7a15c548ec9aa455}{is\+VType}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ab57f7d02afdd7034f78894b20e6ff4aa}{is\+Sub\+Type}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a8808d28bf43d889892a8b6bad0793d7d}{is\+Vhdl\+Function}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a212ea7da7de8f22c3ca1dd14a38a67ef}{is\+Process}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a07199651d2f493ee3afe42975df77efb}{is\+Signal}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a2dc9e668acc7c79f211709e2a0eeccad}{is\+Attribute}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a7fb01b11d2a225ee8d8c43a56862be8b}{is\+Signals}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_aed906dd71cdcb8aca1bc6e3f9fba9732}{is\+Procedure}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ac0634a061165ad22c27eef2ac12057d0}{is\+Record}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a0281ffc4e374d27d703419ae289e3b8c}{is\+Architecture}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a4861484cc952d96afcfe277cf958aff0}{is\+Unit}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ab6e9aff43352b39d31806d0616e2c7af}{is\+Package\+Body}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a877e8a81695500e7ad5ed8d76fdbaffc}{is\+Variable}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a7ac9c26b1b0fb7402cc58acaf569df89}{is\+File}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a069c8ad206be372bd948cc8e964218ed}{is\+Group}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_ab9e42b2cf2d969dcc943ec355d4fa6b2}{is\+Comp\+Inst}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a55ef68e914c38033a48b6fdac2907689}{is\+Misc}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a802a7b8116fa1b8b46895c25a32c5677}{prepare\+Comment}} (\mbox{\hyperlink{classQCString}{QCString}} \&)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_aacccadab8f7d60dc0e4b2892ea724c2b}{format\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a0b58904c2803fe64c007b6c3ddda086e}{write\+Format\+String}} (const \mbox{\hyperlink{classQCString}{QCString}} \&, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a9ca249e8052f477d893edfc767948fcf}{write\+Function\+Proto}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a31b60db653850e1be9084b27153e6758}{write\+Process\+Proto}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a4ab757dead7796d93d5a534ae1c11e69}{write\+Procedure\+Proto}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_aee87f24daab068f794ea908f33a86c3f}{write\+Func\+Proc\+Docu}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, bool type=false)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_ae7d4d0c22eac6e04a900b847c702a157}{write\+Record\+Proto}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a0218e5158efa51df8490073c645c9a79}{write\+VHDLType\+Documentation}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$mdef, const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$d, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a0fdb360018252bfc77e0560b42a3f996}{write\+Vhdl\+Declarations}} (const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$, \mbox{\hyperlink{classOutputList}{Output\+List}} \&, const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$, const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$, const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a9fc8f146887a439926769c00ae340b82}{write\+VHDLDeclaration}} (const \mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$mdef, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$nd, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd, const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$gd, bool in\+Group)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_aba5dbc3ce14a37e99708ff89832eae5d}{write\+Plain\+VHDLDeclarations}} (const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$ml, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$nd, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd, const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$gd, uint64\+\_\+t specifier)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a3d47aa601581ef4b2c8e52588c3b4c44}{write\+VHDLDeclarations}} (const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$ml, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$nd, const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$fd, const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$gd, const \mbox{\hyperlink{classQCString}{QCString}} \&title, const \mbox{\hyperlink{classQCString}{QCString}} \&subtitle, bool show\+Enum\+Values, \mbox{\hyperlink{classint}{int}} type)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a0ac2f4932405d6a1773bea6eb84885ec}{write\+Class\+Type}} (const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, \mbox{\hyperlink{classQCString}{QCString}} \&cname)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a1876213c101b31a44336d48b6b33e9ec}{convert\+Argument\+List\+To\+String}} (const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al, bool f)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a6524e8718f3f956610df4dfc71be204c}{get\+Process\+Number}} ()
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a2e65f831a03ff54d13240da96843cd60}{get\+Record\+Number}} ()
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a2c4458b0e27e9b97db254d082d1487d2}{get\+Class\+Name}} (const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$)
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a6a0f5ef9f02fff9ab8ad1b70709cd887}{is\+Number}} (const std\+::string \&s)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a4325f5840fe29089b4d3ea4b8c8b0fef}{get\+Protection\+Name}} (\mbox{\hyperlink{classint}{int}} prot)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a51c5847b18dcbf1006b7edf507438d03}{parse\+UCF}} (const char $\ast$input, \mbox{\hyperlink{classEntry}{Entry}} $\ast$entity, const \mbox{\hyperlink{classQCString}{QCString}} \&f, bool vendor)
+\item 
+static const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_ab13551a402d45747996978c41713af58}{find\+Architecture}} (const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a084d328a5d3f98e4846a0b0f1499d151}{correct\+Member\+Properties}} (\mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$md)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a73cd0ecf85d410591c6e1e952eef2b17}{write\+Source}} (const \mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$mdef, \mbox{\hyperlink{classOutputList}{Output\+List}} \&ol, const \mbox{\hyperlink{classQCString}{QCString}} \&cname)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a4584e2262b81979f6d9b88c070c78753}{parse\+For\+Config}} (\mbox{\hyperlink{classQCString}{QCString}} \&entity, \mbox{\hyperlink{classQCString}{QCString}} \&arch)
+\item 
+static \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVhdlDocGen_a411f4f042964d6e24c0376f1378da1a8}{parse\+For\+Binding}} (\mbox{\hyperlink{classQCString}{QCString}} \&entity, \mbox{\hyperlink{classQCString}{QCString}} \&arch)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a4892ca19efc7055ce4b5c3004ce550ed}{add\+Base\+Class}} (\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$cd, \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ent)
+\item 
+static \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_a34f3686f7bccb7f7d9ef304724198661}{find\+Vhdl\+Class}} (const \mbox{\hyperlink{classQCString}{QCString}} \&class\+Name)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a4c14772902ff4d4bf2a55291debd628e}{write\+Overview}} (\mbox{\hyperlink{classOutputList}{Output\+List}} \&ol)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a658c57fb74c0fde61d0002a979710416}{write\+Overview}} ()
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a2de08afddfa24b4a037c36ac329185ff}{create\+Flow\+Chart}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a7808cdf56c299daceed3212b65b8a031}{set\+Flow\+Member}} (const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$flow\+Member)
+\item 
+static const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ \mbox{\hyperlink{classVhdlDocGen_a12b2126cfa1cf80aeab17ae40d673d67}{get\+Flow\+Member}} ()
+\item 
+static bool \mbox{\hyperlink{classVhdlDocGen_a7b7df19eb23b1532bc1d05c7ffe6cd76}{is\+Vhdl\+Class}} (const \mbox{\hyperlink{classEntry}{Entry}} $\ast$cu)
+\item 
+static void \mbox{\hyperlink{classVhdlDocGen_a60e16e249eaf1829c224b054ff743ce7}{reset\+Code\+Vhdl\+Parser\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for generating documentation specific for VHDL 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}\label{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}} 
+\index{VhdlDocGen@{VhdlDocGen}!VhdlClasses@{VhdlClasses}}
+\index{VhdlClasses@{VhdlClasses}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{VhdlClasses}{VhdlClasses}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{Vhdl\+Doc\+Gen\+::\+Vhdl\+Classes}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTITYCLASS@{ENTITYCLASS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ENTITYCLASS@{ENTITYCLASS}}}\mbox{\Hypertarget{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}\label{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a0f87010297b89ed715ad63fccec9b90e}} 
+ENTITYCLASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PACKBODYCLASS@{PACKBODYCLASS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PACKBODYCLASS@{PACKBODYCLASS}}}\mbox{\Hypertarget{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a4cdc00f213301fb089eb3906a07efd20}\label{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0a4cdc00f213301fb089eb3906a07efd20}} 
+PACKBODYCLASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARCHITECTURECLASS@{ARCHITECTURECLASS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ARCHITECTURECLASS@{ARCHITECTURECLASS}}}\mbox{\Hypertarget{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae0c7e4401e472ec3153e9793e240a431}\label{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae0c7e4401e472ec3153e9793e240a431}} 
+ARCHITECTURECLASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PACKAGECLASS@{PACKAGECLASS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PACKAGECLASS@{PACKAGECLASS}}}\mbox{\Hypertarget{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae69513dd677b13d97b6a2e3ae445d1ef}\label{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0ae69513dd677b13d97b6a2e3ae445d1ef}} 
+PACKAGECLASS&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6}} 
+\index{VhdlDocGen@{VhdlDocGen}!VhdlKeyWords@{VhdlKeyWords}}
+\index{VhdlKeyWords@{VhdlKeyWords}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{VhdlKeyWords}{VhdlKeyWords}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6}{Vhdl\+Doc\+Gen\+::\+Vhdl\+Key\+Words}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIBRARY@{LIBRARY}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!LIBRARY@{LIBRARY}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}} 
+LIBRARY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ENTITY@{ENTITY}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ENTITY@{ENTITY}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}} 
+ENTITY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PACKAGE\_BODY@{PACKAGE\_BODY}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PACKAGE\_BODY@{PACKAGE\_BODY}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}} 
+PACKAGE\+\_\+\+BODY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARCHITECTURE@{ARCHITECTURE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ARCHITECTURE@{ARCHITECTURE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}} 
+ARCHITECTURE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PACKAGE@{PACKAGE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PACKAGE@{PACKAGE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}} 
+PACKAGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ATTRIBUTE@{ATTRIBUTE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ATTRIBUTE@{ATTRIBUTE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}} 
+ATTRIBUTE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIGNAL@{SIGNAL}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!SIGNAL@{SIGNAL}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}} 
+SIGNAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMPONENT@{COMPONENT}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!COMPONENT@{COMPONENT}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}} 
+COMPONENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONSTANT@{CONSTANT}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!CONSTANT@{CONSTANT}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}} 
+CONSTANT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TYPE@{TYPE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!TYPE@{TYPE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}} 
+TYPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTYPE@{SUBTYPE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!SUBTYPE@{SUBTYPE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}} 
+SUBTYPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FUNCTION@{FUNCTION}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!FUNCTION@{FUNCTION}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}} 
+FUNCTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RECORD@{RECORD}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!RECORD@{RECORD}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}} 
+RECORD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PROCEDURE@{PROCEDURE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PROCEDURE@{PROCEDURE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}} 
+PROCEDURE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USE@{USE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!USE@{USE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}} 
+USE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PROCESS@{PROCESS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PROCESS@{PROCESS}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}} 
+PROCESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PORT@{PORT}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!PORT@{PORT}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}} 
+PORT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNITS@{UNITS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!UNITS@{UNITS}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}} 
+UNITS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERIC@{GENERIC}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!GENERIC@{GENERIC}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}} 
+GENERIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSTANTIATION@{INSTANTIATION}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!INSTANTIATION@{INSTANTIATION}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}} 
+INSTANTIATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GROUP@{GROUP}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!GROUP@{GROUP}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}} 
+GROUP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VFILE@{VFILE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!VFILE@{VFILE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}} 
+VFILE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SHAREDVARIABLE@{SHAREDVARIABLE}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!SHAREDVARIABLE@{SHAREDVARIABLE}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}} 
+SHAREDVARIABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONFIG@{CONFIG}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!CONFIG@{CONFIG}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}} 
+CONFIG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ALIAS@{ALIAS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!ALIAS@{ALIAS}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}} 
+ALIAS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MISCELLANEOUS@{MISCELLANEOUS}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!MISCELLANEOUS@{MISCELLANEOUS}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}} 
+MISCELLANEOUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UCF\_CONST@{UCF\_CONST}!VhdlDocGen@{VhdlDocGen}}\index{VhdlDocGen@{VhdlDocGen}!UCF\_CONST@{UCF\_CONST}}}\mbox{\Hypertarget{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}\label{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}} 
+UCF\+\_\+\+CONST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVhdlDocGen_a9c81282909ce97e85d0f42a4e2bd3b1e}\label{classVhdlDocGen_a9c81282909ce97e85d0f42a4e2bd3b1e}} 
+\index{VhdlDocGen@{VhdlDocGen}!VhdlDocGen@{VhdlDocGen}}
+\index{VhdlDocGen@{VhdlDocGen}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{VhdlDocGen()}{VhdlDocGen()}}
+{\footnotesize\ttfamily Vhdl\+Doc\+Gen\+::\+Vhdl\+Doc\+Gen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classVhdlDocGen_acc05e81acd9943236e3530a0beba9f86}\label{classVhdlDocGen_acc05e81acd9943236e3530a0beba9f86}} 
+\index{VhdlDocGen@{VhdlDocGen}!````~VhdlDocGen@{$\sim$VhdlDocGen}}
+\index{````~VhdlDocGen@{$\sim$VhdlDocGen}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{$\sim$VhdlDocGen()}{~VhdlDocGen()}}
+{\footnotesize\ttfamily Vhdl\+Doc\+Gen\+::$\sim$\+Vhdl\+Doc\+Gen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVhdlDocGen_a4892ca19efc7055ce4b5c3004ce550ed}\label{classVhdlDocGen_a4892ca19efc7055ce4b5c3004ce550ed}} 
+\index{VhdlDocGen@{VhdlDocGen}!addBaseClass@{addBaseClass}}
+\index{addBaseClass@{addBaseClass}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{addBaseClass()}{addBaseClass()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::add\+Base\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{ent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classVhdlDocGen_ab8681769cd2f027fbf46a4836d3825e9}\label{classVhdlDocGen_ab8681769cd2f027fbf46a4836d3825e9}} 
+\index{VhdlDocGen@{VhdlDocGen}!computeVhdlComponentRelations@{computeVhdlComponentRelations}}
+\index{computeVhdlComponentRelations@{computeVhdlComponentRelations}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{computeVhdlComponentRelations()}{computeVhdlComponentRelations()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::compute\+Vhdl\+Component\+Relations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classVhdlDocGen_ab1ab1504610c798f4924026a48bb4301}\label{classVhdlDocGen_ab1ab1504610c798f4924026a48bb4301}} 
+\index{VhdlDocGen@{VhdlDocGen}!convert@{convert}}
+\index{convert@{convert}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classVhdlDocGen_a010ab08982f29df8c0f3d3f0f642f0f0}{Vhdl\+Classes}} Vhdl\+Doc\+Gen\+::convert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}}}]{prot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a1876213c101b31a44336d48b6b33e9ec}\label{classVhdlDocGen_a1876213c101b31a44336d48b6b33e9ec}} 
+\index{VhdlDocGen@{VhdlDocGen}!convertArgumentListToString@{convertArgumentListToString}}
+\index{convertArgumentListToString@{convertArgumentListToString}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{convertArgumentListToString()}{convertArgumentListToString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::convert\+Argument\+List\+To\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{bool}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classVhdlDocGen_ac5508320d1d3754b484107c49cfec5a7}\label{classVhdlDocGen_ac5508320d1d3754b484107c49cfec5a7}} 
+\index{VhdlDocGen@{VhdlDocGen}!convertFileNameToClassName@{convertFileNameToClassName}}
+\index{convertFileNameToClassName@{convertFileNameToClassName}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{convertFileNameToClassName()}{convertFileNameToClassName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::convert\+File\+Name\+To\+Class\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}}}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classVhdlDocGen_a084d328a5d3f98e4846a0b0f1499d151}\label{classVhdlDocGen_a084d328a5d3f98e4846a0b0f1499d151}} 
+\index{VhdlDocGen@{VhdlDocGen}!correctMemberProperties@{correctMemberProperties}}
+\index{correctMemberProperties@{correctMemberProperties}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{correctMemberProperties()}{correctMemberProperties()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::correct\+Member\+Properties (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$}]{md }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classVhdlDocGen_a2de08afddfa24b4a037c36ac329185ff}\label{classVhdlDocGen_a2de08afddfa24b4a037c36ac329185ff}} 
+\index{VhdlDocGen@{VhdlDocGen}!createFlowChart@{createFlowChart}}
+\index{createFlowChart@{createFlowChart}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{createFlowChart()}{createFlowChart()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::create\+Flow\+Chart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_ae4bf0d0561d8ef807b56c1f29765713e}\label{classVhdlDocGen_ae4bf0d0561d8ef807b56c1f29765713e}} 
+\index{VhdlDocGen@{VhdlDocGen}!deleteAllChars@{deleteAllChars}}
+\index{deleteAllChars@{deleteAllChars}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{deleteAllChars()}{deleteAllChars()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::delete\+All\+Chars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a82a05cf7bd081febd19a0065eed17098}\label{classVhdlDocGen_a82a05cf7bd081febd19a0065eed17098}} 
+\index{VhdlDocGen@{VhdlDocGen}!deleteCharRev@{deleteCharRev}}
+\index{deleteCharRev@{deleteCharRev}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{deleteCharRev()}{deleteCharRev()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::delete\+Char\+Rev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+deletes a char backwards in a string \mbox{\Hypertarget{classVhdlDocGen_a00216e37afbb1841a9631a80379b7f0a}\label{classVhdlDocGen_a00216e37afbb1841a9631a80379b7f0a}} 
+\index{VhdlDocGen@{VhdlDocGen}!findAllPackages@{findAllPackages}}
+\index{findAllPackages@{findAllPackages}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findAllPackages()}{findAllPackages()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::find\+All\+Packages (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+finds all included packages of an Entity or Package \mbox{\Hypertarget{classVhdlDocGen_ab13551a402d45747996978c41713af58}\label{classVhdlDocGen_ab13551a402d45747996978c41713af58}} 
+\index{VhdlDocGen@{VhdlDocGen}!findArchitecture@{findArchitecture}}
+\index{findArchitecture@{findArchitecture}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findArchitecture()}{findArchitecture()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::find\+Architecture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classVhdlDocGen_a765683cbd1cf5a8e7374b64a9ac37d98}\label{classVhdlDocGen_a765683cbd1cf5a8e7374b64a9ac37d98}} 
+\index{VhdlDocGen@{VhdlDocGen}!findFunction@{findFunction}}
+\index{findFunction@{findFunction}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findFunction()}{findFunction()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::find\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{funcname,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{package }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns the function with the matching argument list is called in \mbox{\hyperlink{vhdlcode_8l}{vhdlcode.\+l}} Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classVhdlDocGen_af24155445ad4e0328e60f78bf4a4a41f}\label{classVhdlDocGen_af24155445ad4e0328e60f78bf4a4a41f}} 
+\index{VhdlDocGen@{VhdlDocGen}!findKeyWord@{findKeyWord}}
+\index{findKeyWord@{findKeyWord}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findKeyWord()}{findKeyWord()}}
+{\footnotesize\ttfamily const char $\ast$ Vhdl\+Doc\+Gen\+::find\+Key\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{kw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns the color of a keyword Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classVhdlDocGen_ab6898e9270508ce95ad8ebb5ecbedaa6}\label{classVhdlDocGen_ab6898e9270508ce95ad8ebb5ecbedaa6}} 
+\index{VhdlDocGen@{VhdlDocGen}!findMember@{findMember}}
+\index{findMember@{findMember}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findMember()}{findMember()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::find\+Member (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{class\+Name,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{mem\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classVhdlDocGen_a358ec24d6f67dee4fb2f983181a314fe}\label{classVhdlDocGen_a358ec24d6f67dee4fb2f983181a314fe}} 
+\index{VhdlDocGen@{VhdlDocGen}!findMemberDef@{findMemberDef}}
+\index{findMemberDef@{findMemberDef}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findMemberDef()}{findMemberDef()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::find\+Member\+Def (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{key,  }\item[{\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{Member\+List\+Type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function returns the entity$\vert$package in which the key (type) is found Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classVhdlDocGen_a34f3686f7bccb7f7d9ef304724198661}\label{classVhdlDocGen_a34f3686f7bccb7f7d9ef304724198661}} 
+\index{VhdlDocGen@{VhdlDocGen}!findVhdlClass@{findVhdlClass}}
+\index{findVhdlClass@{findVhdlClass}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{findVhdlClass()}{findVhdlClass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::find\+Vhdl\+Class (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{classVhdlDocGen_aacccadab8f7d60dc0e4b2892ea724c2b}\label{classVhdlDocGen_aacccadab8f7d60dc0e4b2892ea724c2b}} 
+\index{VhdlDocGen@{VhdlDocGen}!formatString@{formatString}}
+\index{formatString@{formatString}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{formatString()}{formatString()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::format\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+inserts white spaces for better readings and writes a colored string to the output Here is the call graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{classVhdlDocGen_aa09142ff1ca07603f8bb2150ce9ceab5}\label{classVhdlDocGen_aa09142ff1ca07603f8bb2150ce9ceab5}} 
+\index{VhdlDocGen@{VhdlDocGen}!getClass@{getClass}}
+\index{getClass@{getClass}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getClass()}{getClass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::get\+Class (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{classVhdlDocGen_a2c4458b0e27e9b97db254d082d1487d2}\label{classVhdlDocGen_a2c4458b0e27e9b97db254d082d1487d2}} 
+\index{VhdlDocGen@{VhdlDocGen}!getClassName@{getClassName}}
+\index{getClassName@{getClassName}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getClassName()}{getClassName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Class\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{classVhdlDocGen_ad5d4c791af3f2943467c7c7af558d83a}\label{classVhdlDocGen_ad5d4c791af3f2943467c7c7af558d83a}} 
+\index{VhdlDocGen@{VhdlDocGen}!getClassTitle@{getClassTitle}}
+\index{getClassTitle@{getClassTitle}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getClassTitle()}{getClassTitle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Class\+Title (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns the class title+ref Here is the call graph for this function\+:
+% FIG 15
+\mbox{\Hypertarget{classVhdlDocGen_a12b2126cfa1cf80aeab17ae40d673d67}\label{classVhdlDocGen_a12b2126cfa1cf80aeab17ae40d673d67}} 
+\index{VhdlDocGen@{VhdlDocGen}!getFlowMember@{getFlowMember}}
+\index{getFlowMember@{getFlowMember}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getFlowMember()}{getFlowMember()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::get\+Flow\+Member (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_ae1c14782849e08d5ef42d9ae8290c18b}\label{classVhdlDocGen_ae1c14782849e08d5ef42d9ae8290c18b}} 
+\index{VhdlDocGen@{VhdlDocGen}!getIndexWord@{getIndexWord}}
+\index{getIndexWord@{getIndexWord}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getIndexWord()}{getIndexWord()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Index\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{c,  }\item[{\mbox{\hyperlink{classint}{int}}}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_ad890048820909df255f6ee3f95d6ed80}\label{classVhdlDocGen_ad890048820909df255f6ee3f95d6ed80}} 
+\index{VhdlDocGen@{VhdlDocGen}!getPackageName@{getPackageName}}
+\index{getPackageName@{getPackageName}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getPackageName()}{getPackageName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$ Vhdl\+Doc\+Gen\+::get\+Package\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{classVhdlDocGen_a6524e8718f3f956610df4dfc71be204c}\label{classVhdlDocGen_a6524e8718f3f956610df4dfc71be204c}} 
+\index{VhdlDocGen@{VhdlDocGen}!getProcessNumber@{getProcessNumber}}
+\index{getProcessNumber@{getProcessNumber}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getProcessNumber()}{getProcessNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Process\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns the next number of an anonymous process Here is the call graph for this function\+:
+% FIG 17
+\mbox{\Hypertarget{classVhdlDocGen_a4325f5840fe29089b4d3ea4b8c8b0fef}\label{classVhdlDocGen_a4325f5840fe29089b4d3ea4b8c8b0fef}} 
+\index{VhdlDocGen@{VhdlDocGen}!getProtectionName@{getProtectionName}}
+\index{getProtectionName@{getProtectionName}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getProtectionName()}{getProtectionName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Protection\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{prot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a2e65f831a03ff54d13240da96843cd60}\label{classVhdlDocGen_a2e65f831a03ff54d13240da96843cd60}} 
+\index{VhdlDocGen@{VhdlDocGen}!getRecordNumber@{getRecordNumber}}
+\index{getRecordNumber@{getRecordNumber}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{getRecordNumber()}{getRecordNumber()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::get\+Record\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns the next number of a record$\vert$unit member \mbox{\Hypertarget{classVhdlDocGen_a987fee1e906fac322dda62613525a8f9}\label{classVhdlDocGen_a987fee1e906fac322dda62613525a8f9}} 
+\index{VhdlDocGen@{VhdlDocGen}!init@{init}}
+\index{init@{init}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_af13dd5eb831c1df008b0fd41928f4b7c}\label{classVhdlDocGen_af13dd5eb831c1df008b0fd41928f4b7c}} 
+\index{VhdlDocGen@{VhdlDocGen}!isAlias@{isAlias}}
+\index{isAlias@{isAlias}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isAlias()}{isAlias()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Alias (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 18
+\mbox{\Hypertarget{classVhdlDocGen_a0281ffc4e374d27d703419ae289e3b8c}\label{classVhdlDocGen_a0281ffc4e374d27d703419ae289e3b8c}} 
+\index{VhdlDocGen@{VhdlDocGen}!isArchitecture@{isArchitecture}}
+\index{isArchitecture@{isArchitecture}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isArchitecture()}{isArchitecture()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Architecture (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 19
+\mbox{\Hypertarget{classVhdlDocGen_a2dc9e668acc7c79f211709e2a0eeccad}\label{classVhdlDocGen_a2dc9e668acc7c79f211709e2a0eeccad}} 
+\index{VhdlDocGen@{VhdlDocGen}!isAttribute@{isAttribute}}
+\index{isAttribute@{isAttribute}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isAttribute()}{isAttribute()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Attribute (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 20
+\mbox{\Hypertarget{classVhdlDocGen_ab9e42b2cf2d969dcc943ec355d4fa6b2}\label{classVhdlDocGen_ab9e42b2cf2d969dcc943ec355d4fa6b2}} 
+\index{VhdlDocGen@{VhdlDocGen}!isCompInst@{isCompInst}}
+\index{isCompInst@{isCompInst}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isCompInst()}{isCompInst()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Comp\+Inst (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 21
+\mbox{\Hypertarget{classVhdlDocGen_ad3fdc795bf951ef11221894512b8bc6c}\label{classVhdlDocGen_ad3fdc795bf951ef11221894512b8bc6c}} 
+\index{VhdlDocGen@{VhdlDocGen}!isComponent@{isComponent}}
+\index{isComponent@{isComponent}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isComponent()}{isComponent()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 22
+\mbox{\Hypertarget{classVhdlDocGen_a57efdf5bddd0b36667c8aa21256ebac7}\label{classVhdlDocGen_a57efdf5bddd0b36667c8aa21256ebac7}} 
+\index{VhdlDocGen@{VhdlDocGen}!isConfig@{isConfig}}
+\index{isConfig@{isConfig}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isConfig()}{isConfig()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 23
+\mbox{\Hypertarget{classVhdlDocGen_a2c3cdcd27394531385ccd8c56257edc1}\label{classVhdlDocGen_a2c3cdcd27394531385ccd8c56257edc1}} 
+\index{VhdlDocGen@{VhdlDocGen}!isConstant@{isConstant}}
+\index{isConstant@{isConstant}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isConstant()}{isConstant()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Constant (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 24
+\mbox{\Hypertarget{classVhdlDocGen_adb04cd03e2039ecab3a0a8f31ee4c890}\label{classVhdlDocGen_adb04cd03e2039ecab3a0a8f31ee4c890}} 
+\index{VhdlDocGen@{VhdlDocGen}!isConstraint@{isConstraint}}
+\index{isConstraint@{isConstraint}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isConstraint()}{isConstraint()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Constraint (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 25
+\mbox{\Hypertarget{classVhdlDocGen_a65218023c4970a90f3bce70938a99781}\label{classVhdlDocGen_a65218023c4970a90f3bce70938a99781}} 
+\index{VhdlDocGen@{VhdlDocGen}!isEntity@{isEntity}}
+\index{isEntity@{isEntity}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isEntity()}{isEntity()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 26
+\mbox{\Hypertarget{classVhdlDocGen_a7ac9c26b1b0fb7402cc58acaf569df89}\label{classVhdlDocGen_a7ac9c26b1b0fb7402cc58acaf569df89}} 
+\index{VhdlDocGen@{VhdlDocGen}!isFile@{isFile}}
+\index{isFile@{isFile}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isFile()}{isFile()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 27
+\mbox{\Hypertarget{classVhdlDocGen_ae3c19429669d382581ba37aee5f39278}\label{classVhdlDocGen_ae3c19429669d382581ba37aee5f39278}} 
+\index{VhdlDocGen@{VhdlDocGen}!isGeneric@{isGeneric}}
+\index{isGeneric@{isGeneric}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isGeneric()}{isGeneric()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Generic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 28
+\mbox{\Hypertarget{classVhdlDocGen_a069c8ad206be372bd948cc8e964218ed}\label{classVhdlDocGen_a069c8ad206be372bd948cc8e964218ed}} 
+\index{VhdlDocGen@{VhdlDocGen}!isGroup@{isGroup}}
+\index{isGroup@{isGroup}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isGroup()}{isGroup()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 29
+\mbox{\Hypertarget{classVhdlDocGen_a3f582b69841bae3ec6f1281604b6f0c8}\label{classVhdlDocGen_a3f582b69841bae3ec6f1281604b6f0c8}} 
+\index{VhdlDocGen@{VhdlDocGen}!isLibrary@{isLibrary}}
+\index{isLibrary@{isLibrary}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isLibrary()}{isLibrary()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Library (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 30
+\mbox{\Hypertarget{classVhdlDocGen_a55ef68e914c38033a48b6fdac2907689}\label{classVhdlDocGen_a55ef68e914c38033a48b6fdac2907689}} 
+\index{VhdlDocGen@{VhdlDocGen}!isMisc@{isMisc}}
+\index{isMisc@{isMisc}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isMisc()}{isMisc()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Misc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 31
+\mbox{\Hypertarget{classVhdlDocGen_a6a0f5ef9f02fff9ab8ad1b70709cd887}\label{classVhdlDocGen_a6a0f5ef9f02fff9ab8ad1b70709cd887}} 
+\index{VhdlDocGen@{VhdlDocGen}!isNumber@{isNumber}}
+\index{isNumber@{isNumber}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isNumber()}{isNumber()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+returns TRUE if this string is a number Here is the call graph for this function\+:
+% FIG 32
+\mbox{\Hypertarget{classVhdlDocGen_aca017e059b8a2972c2cad968800c0564}\label{classVhdlDocGen_aca017e059b8a2972c2cad968800c0564}} 
+\index{VhdlDocGen@{VhdlDocGen}!isPackage@{isPackage}}
+\index{isPackage@{isPackage}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isPackage()}{isPackage()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Package (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 33
+\mbox{\Hypertarget{classVhdlDocGen_ab6e9aff43352b39d31806d0616e2c7af}\label{classVhdlDocGen_ab6e9aff43352b39d31806d0616e2c7af}} 
+\index{VhdlDocGen@{VhdlDocGen}!isPackageBody@{isPackageBody}}
+\index{isPackageBody@{isPackageBody}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isPackageBody()}{isPackageBody()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Package\+Body (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 34
+\mbox{\Hypertarget{classVhdlDocGen_a73186f5d1ba5e6c11c6f006708da79a6}\label{classVhdlDocGen_a73186f5d1ba5e6c11c6f006708da79a6}} 
+\index{VhdlDocGen@{VhdlDocGen}!isPort@{isPort}}
+\index{isPort@{isPort}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isPort()}{isPort()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Port (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 35
+\mbox{\Hypertarget{classVhdlDocGen_aed906dd71cdcb8aca1bc6e3f9fba9732}\label{classVhdlDocGen_aed906dd71cdcb8aca1bc6e3f9fba9732}} 
+\index{VhdlDocGen@{VhdlDocGen}!isProcedure@{isProcedure}}
+\index{isProcedure@{isProcedure}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isProcedure()}{isProcedure()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Procedure (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 36
+\mbox{\Hypertarget{classVhdlDocGen_a212ea7da7de8f22c3ca1dd14a38a67ef}\label{classVhdlDocGen_a212ea7da7de8f22c3ca1dd14a38a67ef}} 
+\index{VhdlDocGen@{VhdlDocGen}!isProcess@{isProcess}}
+\index{isProcess@{isProcess}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isProcess()}{isProcess()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Process (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 37
+\mbox{\Hypertarget{classVhdlDocGen_ac0634a061165ad22c27eef2ac12057d0}\label{classVhdlDocGen_ac0634a061165ad22c27eef2ac12057d0}} 
+\index{VhdlDocGen@{VhdlDocGen}!isRecord@{isRecord}}
+\index{isRecord@{isRecord}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isRecord()}{isRecord()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Record (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 38
+\mbox{\Hypertarget{classVhdlDocGen_a07199651d2f493ee3afe42975df77efb}\label{classVhdlDocGen_a07199651d2f493ee3afe42975df77efb}} 
+\index{VhdlDocGen@{VhdlDocGen}!isSignal@{isSignal}}
+\index{isSignal@{isSignal}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isSignal()}{isSignal()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Signal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 39
+\mbox{\Hypertarget{classVhdlDocGen_a7fb01b11d2a225ee8d8c43a56862be8b}\label{classVhdlDocGen_a7fb01b11d2a225ee8d8c43a56862be8b}} 
+\index{VhdlDocGen@{VhdlDocGen}!isSignals@{isSignals}}
+\index{isSignals@{isSignals}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isSignals()}{isSignals()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Signals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 40
+\mbox{\Hypertarget{classVhdlDocGen_ac7d0f125a2bffca08e8c52644bf8c6f2}\label{classVhdlDocGen_ac7d0f125a2bffca08e8c52644bf8c6f2}} 
+\index{VhdlDocGen@{VhdlDocGen}!isSubClass@{isSubClass}}
+\index{isSubClass@{isSubClass}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isSubClass()}{isSubClass()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Sub\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{\mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{scd,  }\item[{bool}]{follow\+Instances,  }\item[{\mbox{\hyperlink{classint}{int}}}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 41
+\mbox{\Hypertarget{classVhdlDocGen_ab57f7d02afdd7034f78894b20e6ff4aa}\label{classVhdlDocGen_ab57f7d02afdd7034f78894b20e6ff4aa}} 
+\index{VhdlDocGen@{VhdlDocGen}!isSubType@{isSubType}}
+\index{isSubType@{isSubType}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isSubType()}{isSubType()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Sub\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 42
+\mbox{\Hypertarget{classVhdlDocGen_a4861484cc952d96afcfe277cf958aff0}\label{classVhdlDocGen_a4861484cc952d96afcfe277cf958aff0}} 
+\index{VhdlDocGen@{VhdlDocGen}!isUnit@{isUnit}}
+\index{isUnit@{isUnit}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isUnit()}{isUnit()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Unit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 43
+\mbox{\Hypertarget{classVhdlDocGen_a877e8a81695500e7ad5ed8d76fdbaffc}\label{classVhdlDocGen_a877e8a81695500e7ad5ed8d76fdbaffc}} 
+\index{VhdlDocGen@{VhdlDocGen}!isVariable@{isVariable}}
+\index{isVariable@{isVariable}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isVariable()}{isVariable()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Variable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 44
+\mbox{\Hypertarget{classVhdlDocGen_a7b7df19eb23b1532bc1d05c7ffe6cd76}\label{classVhdlDocGen_a7b7df19eb23b1532bc1d05c7ffe6cd76}} 
+\index{VhdlDocGen@{VhdlDocGen}!isVhdlClass@{isVhdlClass}}
+\index{isVhdlClass@{isVhdlClass}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isVhdlClass()}{isVhdlClass()}}
+{\footnotesize\ttfamily static bool Vhdl\+Doc\+Gen\+::is\+Vhdl\+Class (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEntry}{Entry}} $\ast$}]{cu }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a8808d28bf43d889892a8b6bad0793d7d}\label{classVhdlDocGen_a8808d28bf43d889892a8b6bad0793d7d}} 
+\index{VhdlDocGen@{VhdlDocGen}!isVhdlFunction@{isVhdlFunction}}
+\index{isVhdlFunction@{isVhdlFunction}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isVhdlFunction()}{isVhdlFunction()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+Vhdl\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 45
+\mbox{\Hypertarget{classVhdlDocGen_a8ab98ceef0a36aea7a15c548ec9aa455}\label{classVhdlDocGen_a8ab98ceef0a36aea7a15c548ec9aa455}} 
+\index{VhdlDocGen@{VhdlDocGen}!isVType@{isVType}}
+\index{isVType@{isVType}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{isVType()}{isVType()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::is\+VType (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 46
+\mbox{\Hypertarget{classVhdlDocGen_a411f4f042964d6e24c0376f1378da1a8}\label{classVhdlDocGen_a411f4f042964d6e24c0376f1378da1a8}} 
+\index{VhdlDocGen@{VhdlDocGen}!parseForBinding@{parseForBinding}}
+\index{parseForBinding@{parseForBinding}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{parseForBinding()}{parseForBinding()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::parse\+For\+Binding (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{entity,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{arch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a4584e2262b81979f6d9b88c070c78753}\label{classVhdlDocGen_a4584e2262b81979f6d9b88c070c78753}} 
+\index{VhdlDocGen@{VhdlDocGen}!parseForConfig@{parseForConfig}}
+\index{parseForConfig@{parseForConfig}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{parseForConfig()}{parseForConfig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} Vhdl\+Doc\+Gen\+::parse\+For\+Config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{entity,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{arch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 47
+\mbox{\Hypertarget{classVhdlDocGen_a9f4758858cac73d07721ea31f42bea8e}\label{classVhdlDocGen_a9f4758858cac73d07721ea31f42bea8e}} 
+\index{VhdlDocGen@{VhdlDocGen}!parseFuncProto@{parseFuncProto}}
+\index{parseFuncProto@{parseFuncProto}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{parseFuncProto()}{parseFuncProto()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::parse\+Func\+Proto (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{ret,  }\item[{bool}]{doc = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+parses a function proto 
+\begin{DoxyParams}{Parameters}
+{\em text} & function string \\
+\hline
+{\em name} & points to the function name \\
+\hline
+{\em ret} & Stores the return type \\
+\hline
+{\em doc} & ??? \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 48
+\mbox{\Hypertarget{classVhdlDocGen_a51c5847b18dcbf1006b7edf507438d03}\label{classVhdlDocGen_a51c5847b18dcbf1006b7edf507438d03}} 
+\index{VhdlDocGen@{VhdlDocGen}!parseUCF@{parseUCF}}
+\index{parseUCF@{parseUCF}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{parseUCF()}{parseUCF()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::parse\+UCF (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{\mbox{\hyperlink{classEntry}{Entry}} $\ast$}]{entity,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{f,  }\item[{bool}]{vendor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 49
+\mbox{\Hypertarget{classVhdlDocGen_a802a7b8116fa1b8b46895c25a32c5677}\label{classVhdlDocGen_a802a7b8116fa1b8b46895c25a32c5677}} 
+\index{VhdlDocGen@{VhdlDocGen}!prepareComment@{prepareComment}}
+\index{prepareComment@{prepareComment}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{prepareComment()}{prepareComment()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::prepare\+Comment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{qcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+strips the \char`\"{}-\/-\/\char`\"{} prefixes of vhdl comments Here is the call graph for this function\+:
+% FIG 50
+\mbox{\Hypertarget{classVhdlDocGen_a60e16e249eaf1829c224b054ff743ce7}\label{classVhdlDocGen_a60e16e249eaf1829c224b054ff743ce7}} 
+\index{VhdlDocGen@{VhdlDocGen}!resetCodeVhdlParserState@{resetCodeVhdlParserState}}
+\index{resetCodeVhdlParserState@{resetCodeVhdlParserState}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{resetCodeVhdlParserState()}{resetCodeVhdlParserState()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::reset\+Code\+Vhdl\+Parser\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a7808cdf56c299daceed3212b65b8a031}\label{classVhdlDocGen_a7808cdf56c299daceed3212b65b8a031}} 
+\index{VhdlDocGen@{VhdlDocGen}!setFlowMember@{setFlowMember}}
+\index{setFlowMember@{setFlowMember}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{setFlowMember()}{setFlowMember()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::set\+Flow\+Member (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{flow\+Member }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a0ac2f4932405d6a1773bea6eb84885ec}\label{classVhdlDocGen_a0ac2f4932405d6a1773bea6eb84885ec}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeClassType@{writeClassType}}
+\index{writeClassType@{writeClassType}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeClassType()}{writeClassType()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::write\+Class\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{\mbox{\hyperlink{classQCString}{QCString}} \&}]{cname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 51
+\mbox{\Hypertarget{classVhdlDocGen_a0b58904c2803fe64c007b6c3ddda086e}\label{classVhdlDocGen_a0b58904c2803fe64c007b6c3ddda086e}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeFormatString@{writeFormatString}}
+\index{writeFormatString@{writeFormatString}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeFormatString()}{writeFormatString()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Format\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a colored and formatted string Here is the call graph for this function\+:
+% FIG 52
+\mbox{\Hypertarget{classVhdlDocGen_aee87f24daab068f794ea908f33a86c3f}\label{classVhdlDocGen_aee87f24daab068f794ea908f33a86c3f}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeFuncProcDocu@{writeFuncProcDocu}}
+\index{writeFuncProcDocu@{writeFuncProcDocu}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeFuncProcDocu()}{writeFuncProcDocu()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::write\+Func\+Proc\+Docu (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{md,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{bool}]{type = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a function$\vert$procedure documentation to the output Here is the call graph for this function\+:
+% FIG 53
+\mbox{\Hypertarget{classVhdlDocGen_a9ca249e8052f477d893edfc767948fcf}\label{classVhdlDocGen_a9ca249e8052f477d893edfc767948fcf}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeFunctionProto@{writeFunctionProto}}
+\index{writeFunctionProto@{writeFunctionProto}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeFunctionProto()}{writeFunctionProto()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Function\+Proto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a function prototype to the output Here is the call graph for this function\+:
+% FIG 54
+\mbox{\Hypertarget{classVhdlDocGen_a67f47b8dc11d967ee47e9bda86fff7e0}\label{classVhdlDocGen_a67f47b8dc11d967ee47e9bda86fff7e0}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeInlineClassLink@{writeInlineClassLink}}
+\index{writeInlineClassLink@{writeInlineClassLink}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeInlineClassLink()}{writeInlineClassLink()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Inline\+Class\+Link (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes an inline link form entity$\vert$package to architecture$\vert$package body and vice verca Here is the call graph for this function\+:
+% FIG 55
+\mbox{\Hypertarget{classVhdlDocGen_a658c57fb74c0fde61d0002a979710416}\label{classVhdlDocGen_a658c57fb74c0fde61d0002a979710416}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeOverview@{writeOverview}}
+\index{writeOverview@{writeOverview}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeOverview()}{writeOverview()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Overview (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 56
+\mbox{\Hypertarget{classVhdlDocGen_a4c14772902ff4d4bf2a55291debd628e}\label{classVhdlDocGen_a4c14772902ff4d4bf2a55291debd628e}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeOverview@{writeOverview}}
+\index{writeOverview@{writeOverview}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeOverview()}{writeOverview()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void Vhdl\+Doc\+Gen\+::write\+Overview (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_aba5dbc3ce14a37e99708ff89832eae5d}\label{classVhdlDocGen_aba5dbc3ce14a37e99708ff89832eae5d}} 
+\index{VhdlDocGen@{VhdlDocGen}!writePlainVHDLDeclarations@{writePlainVHDLDeclarations}}
+\index{writePlainVHDLDeclarations@{writePlainVHDLDeclarations}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writePlainVHDLDeclarations()}{writePlainVHDLDeclarations()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Plain\+VHDLDeclarations (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$}]{ml,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$}]{nd,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$}]{gd,  }\item[{uint64\+\_\+t}]{specifier }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 57
+\mbox{\Hypertarget{classVhdlDocGen_a4ab757dead7796d93d5a534ae1c11e69}\label{classVhdlDocGen_a4ab757dead7796d93d5a534ae1c11e69}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeProcedureProto@{writeProcedureProto}}
+\index{writeProcedureProto@{writeProcedureProto}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeProcedureProto()}{writeProcedureProto()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Procedure\+Proto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a procedure prototype to the output Here is the call graph for this function\+:
+% FIG 58
+\mbox{\Hypertarget{classVhdlDocGen_a31b60db653850e1be9084b27153e6758}\label{classVhdlDocGen_a31b60db653850e1be9084b27153e6758}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeProcessProto@{writeProcessProto}}
+\index{writeProcessProto@{writeProcessProto}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeProcessProto()}{writeProcessProto()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Process\+Proto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al,  }\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+writes a process prototype to the output Here is the call graph for this function\+:
+% FIG 59
+\mbox{\Hypertarget{classVhdlDocGen_ae7d4d0c22eac6e04a900b847c702a157}\label{classVhdlDocGen_ae7d4d0c22eac6e04a900b847c702a157}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeRecordProto@{writeRecordProto}}
+\index{writeRecordProto@{writeRecordProto}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeRecordProto()}{writeRecordProto()}}
+{\footnotesize\ttfamily static void Vhdl\+Doc\+Gen\+::write\+Record\+Proto (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a73cd0ecf85d410591c6e1e952eef2b17}\label{classVhdlDocGen_a73cd0ecf85d410591c6e1e952eef2b17}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeSource@{writeSource}}
+\index{writeSource@{writeSource}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeSource()}{writeSource()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Source (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{cname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 60
+\mbox{\Hypertarget{classVhdlDocGen_a76fe2943fccabc70c52ad3b6e31f4fa5}\label{classVhdlDocGen_a76fe2943fccabc70c52ad3b6e31f4fa5}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeTagFile@{writeTagFile}}
+\index{writeTagFile@{writeTagFile}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeTagFile()}{writeTagFile()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Tag\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{tag\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 61
+\mbox{\Hypertarget{classVhdlDocGen_a9fc8f146887a439926769c00ae340b82}\label{classVhdlDocGen_a9fc8f146887a439926769c00ae340b82}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeVHDLDeclaration@{writeVHDLDeclaration}}
+\index{writeVHDLDeclaration@{writeVHDLDeclaration}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeVHDLDeclaration()}{writeVHDLDeclaration()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+VHDLDeclaration (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDefMutable}{Member\+Def\+Mutable}} $\ast$}]{mdef,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$}]{nd,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$}]{gd,  }\item[{bool}]{in\+Group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+printf(\char`\"{}start\+Member\+Item for \%s\textbackslash{}n\char`\"{},q\+Print(name()));Here is the call graph for this function\+:
+% FIG 62
+\mbox{\Hypertarget{classVhdlDocGen_a0fdb360018252bfc77e0560b42a3f996}\label{classVhdlDocGen_a0fdb360018252bfc77e0560b42a3f996}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeVhdlDeclarations@{writeVhdlDeclarations}}
+\index{writeVhdlDeclarations@{writeVhdlDeclarations}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeVhdlDeclarations()}{writeVhdlDeclarations()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+Vhdl\+Declarations (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$}]{ml,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$}]{gd,  }\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$}]{nd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 63
+\mbox{\Hypertarget{classVhdlDocGen_a3d47aa601581ef4b2c8e52588c3b4c44}\label{classVhdlDocGen_a3d47aa601581ef4b2c8e52588c3b4c44}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeVHDLDeclarations@{writeVHDLDeclarations}}
+\index{writeVHDLDeclarations@{writeVHDLDeclarations}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeVHDLDeclarations()}{writeVHDLDeclarations()}}
+{\footnotesize\ttfamily void Vhdl\+Doc\+Gen\+::write\+VHDLDeclarations (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberList}{Member\+List}} $\ast$}]{ml,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol,  }\item[{const \mbox{\hyperlink{classClassDef}{Class\+Def}} $\ast$}]{cd,  }\item[{const \mbox{\hyperlink{classNamespaceDef}{Namespace\+Def}} $\ast$}]{nd,  }\item[{const \mbox{\hyperlink{classFileDef}{File\+Def}} $\ast$}]{fd,  }\item[{const \mbox{\hyperlink{classGroupDef}{Group\+Def}} $\ast$}]{gd,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{title,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{subtitle,  }\item[{bool}]{show\+Enum\+Values,  }\item[{\mbox{\hyperlink{classint}{int}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classVhdlDocGen_a0218e5158efa51df8490073c645c9a79}\label{classVhdlDocGen_a0218e5158efa51df8490073c645c9a79}} 
+\index{VhdlDocGen@{VhdlDocGen}!writeVHDLTypeDocumentation@{writeVHDLTypeDocumentation}}
+\index{writeVHDLTypeDocumentation@{writeVHDLTypeDocumentation}!VhdlDocGen@{VhdlDocGen}}
+\doxysubsubsection{\texorpdfstring{writeVHDLTypeDocumentation()}{writeVHDLTypeDocumentation()}}
+{\footnotesize\ttfamily bool Vhdl\+Doc\+Gen\+::write\+VHDLType\+Documentation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMemberDef}{Member\+Def}} $\ast$}]{mdef,  }\item[{const \mbox{\hyperlink{classDefinition}{Definition}} $\ast$}]{d,  }\item[{\mbox{\hyperlink{classOutputList}{Output\+List}} \&}]{ol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+% FIG 64
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{vhdldocgen_8h}{vhdldocgen.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{vhdldocgen_8cpp}{vhdldocgen.\+cpp}}\end{DoxyCompactItemize}

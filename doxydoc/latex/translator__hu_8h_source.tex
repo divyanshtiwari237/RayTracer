@@ -1,0 +1,1477 @@
+\hypertarget{translator__hu_8h_source}{}\doxysection{translator\+\_\+hu.\+h}
+\label{translator__hu_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_hu.h@{/mnt/c/projects/doxygen/src/translator\_hu.h}}
+\mbox{\hyperlink{translator__hu_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{/*}}
+\DoxyCodeLine{17 \textcolor{comment}{ * Original Hungarian translation by}}
+\DoxyCodeLine{18 \textcolor{comment}{ * György Földvári <foldvari@diatronltd.com>}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ * Extended, revised and updated by}}
+\DoxyCodeLine{21 \textcolor{comment}{ * Ákos Kiss <akiss@users.sourceforge.net>}}
+\DoxyCodeLine{22 \textcolor{comment}{ *}}
+\DoxyCodeLine{23 \textcolor{comment}{ * Further extended, revised and updated by}}
+\DoxyCodeLine{24 \textcolor{comment}{ * Ferenc Tamási <tf551@hszk.bme.hu>}}
+\DoxyCodeLine{25 \textcolor{comment}{ *}}
+\DoxyCodeLine{26 \textcolor{comment}{ * Further extended, since 1.4.6 to 1.8.4}}
+\DoxyCodeLine{27 \textcolor{comment}{ * László Kmety <silverkml@gmail.com>}}
+\DoxyCodeLine{28 \textcolor{comment}{ */}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_HU\_H}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define TRANSLATOR\_HU\_H}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{55 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorHungarian}{TranslatorHungarian}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__15}{TranslatorAdapter\_1\_8\_15}}}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57   \textcolor{keyword}{private}:}
+\DoxyCodeLine{58     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * zed(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{switch} (c \& \string~(\textcolor{charliteral}{'a'} \string^ \textcolor{charliteral}{'A'})) \{}
+\DoxyCodeLine{61             \textcolor{keywordflow}{case} \textcolor{charliteral}{'B'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'C'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'D'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'F'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'G'}:}
+\DoxyCodeLine{62             \textcolor{keywordflow}{case} \textcolor{charliteral}{'H'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'J'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'K'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'L'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'M'}:}
+\DoxyCodeLine{63             \textcolor{keywordflow}{case} \textcolor{charliteral}{'N'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'P'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'Q'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'R'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'S'}:}
+\DoxyCodeLine{64             \textcolor{keywordflow}{case} \textcolor{charliteral}{'T'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'V'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'W'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'X'}: \textcolor{keywordflow}{case} \textcolor{charliteral}{'Z'}:}
+\DoxyCodeLine{65                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}  "{}};}
+\DoxyCodeLine{66             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{67                 \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}z "{}};}
+\DoxyCodeLine{68         \}}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70   \textcolor{keyword}{public}:}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa36313a735b7c2bda090943922a486ba}{idLanguage}}()}
+\DoxyCodeLine{81     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hungarian"{}}; \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a762fc8ed682597e4f4dea4091b8b52be}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T2A]\{fontenc\}\(\backslash\)n"{}}}
+\DoxyCodeLine{100              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[magyar]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0eea5af017da7375b1b71b4086daf989}{trISOLang}}()}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hu"{}};}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4ec894f5596e5c67608356a16df583b6}{getLanguageString}}()}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x40E Hungarian"{}};}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af3d50e509d40c05402a8d9a7c3dafb95}{trRelatedFunctions}}()}
+\DoxyCodeLine{116     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kapcsolódó függvények"{}}; \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{119     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9a20493744bb0d3a4b058429abf06155}{trRelatedSubscript}}()}
+\DoxyCodeLine{120     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Figyelem! Ezek a függvények nem tagjai az osztálynak!)"{}}; \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_abdedb99002ba9042debdc5f625c963ed}{trDetailedDescription}}()}
+\DoxyCodeLine{124     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Részletes leírás"{}}; \}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac4fa341e23182923660cd4df9b182adb}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{128     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Típusdefiníció-\/tagok dokumentációja"{}}; \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a81b7fe53f2c111be7b7d64fe086b92cf}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{132     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeráció-\/tagok dokumentációja"{}}; \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{135     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac3eda5dd001c19fc60ff48220a732acd}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{136     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tagfüggvények dokumentációja"{}}; \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a78a17359b90c459ae724f68af7be2552}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{140     \{}
+\DoxyCodeLine{141       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{142       \{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatmezők dokumentációja"{}};}
+\DoxyCodeLine{144       \}}
+\DoxyCodeLine{145       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{146       \{}
+\DoxyCodeLine{147         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adattagok dokumentációja"{}};}
+\DoxyCodeLine{148       \}}
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{152     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_adb19562aad803e1bbce05e0aec38100e}{trMore}}()}
+\DoxyCodeLine{153     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Részletek..."{}}; \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{156     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a96ba3ac48998e3894d29a87b429f06c0}{trListOfAllMembers}}()}
+\DoxyCodeLine{157     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A tagok teljes listája"{}}; \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa39f42735b3e99163e722a141dfd6ffd}{trMemberList}}()}
+\DoxyCodeLine{161     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Taglista"{}}; \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{164     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_adf8c8aa3a1a7a399b106ed85e1824b3f}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{165     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A(z) "{}}; \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{168     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a75d77992ac713e2897fd57798d09e43e}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{169     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} osztály tagjainak teljes listája, az örökölt tagokkal együtt."{}}; \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{174     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad59174ee2256d5517aaffb2e3174397d}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{175     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ezt a dokumentációt a Doxygen készítette "{}};}
+\DoxyCodeLine{176       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{} a"{}}) + zed(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}[0])+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}+\textcolor{stringliteral}{"{} projekthez"{}};}
+\DoxyCodeLine{177       result+=\textcolor{stringliteral}{"{} a forráskódból."{}};}
+\DoxyCodeLine{178       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{182     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a66e907e4819a8c525cd2b9a60c2bcf7c}{trEnumName}}()}
+\DoxyCodeLine{183     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum"{}}; \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a065422acd5dab75ef92a6ea1bba93f44}{trEnumValue}}()}
+\DoxyCodeLine{187     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum-\/érték"{}}; \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{190     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a16794914b1f00fd5e535e5561b46ffe7}{trDefinedIn}}()}
+\DoxyCodeLine{191     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}definiálja:"{}}; \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{198     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5beffa65c6226de561acac17f0ce78f3}{trModules}}()}
+\DoxyCodeLine{199     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulok"{}}; \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{202     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aaa48735eb05cccfb79612a469b8b9c4c}{trClassHierarchy}}()}
+\DoxyCodeLine{203     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztályhierarchia"{}}; \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a18cf6e34c349b5b16015b84001d9346f}{trCompoundList}}()}
+\DoxyCodeLine{207     \{}
+\DoxyCodeLine{208       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{209       \{}
+\DoxyCodeLine{210         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatszerkezetek"{}};}
+\DoxyCodeLine{211       \}}
+\DoxyCodeLine{212       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{213       \{}
+\DoxyCodeLine{214         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztálylista"{}};}
+\DoxyCodeLine{215       \}}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{219     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0480216974469aa047ebda4f6de38494}{trFileList}}()}
+\DoxyCodeLine{220     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fájllista"{}}; \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{223     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a36dab70f70a4cf812981fcc7cbc4cca8}{trCompoundMembers}}()}
+\DoxyCodeLine{224     \{}
+\DoxyCodeLine{225       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{226       \{}
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatmezők"{}};}
+\DoxyCodeLine{228       \}}
+\DoxyCodeLine{229       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{230       \{}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztálytagok"{}};}
+\DoxyCodeLine{232       \}}
+\DoxyCodeLine{233     \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{236     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa20275e44c130c3bc337c6eecf3acc94}{trFileMembers}}()}
+\DoxyCodeLine{237     \{}
+\DoxyCodeLine{238       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{239       \{}
+\DoxyCodeLine{240         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globális elemek"{}};}
+\DoxyCodeLine{241       \}}
+\DoxyCodeLine{242       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{243       \{}
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fájlelemek"{}};}
+\DoxyCodeLine{245       \}}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{249     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a416efd9bfe237419500bd8aac47fb992}{trRelatedPages}}()}
+\DoxyCodeLine{250     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kapcsolódó lapok"{}}; \}}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{253     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa02decbea9a271d4a76ce75f0d243ead}{trExamples}}()}
+\DoxyCodeLine{254     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Példák"{}}; \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a56c477f2078dac838a509e1662d22f74}{trSearch}}()}
+\DoxyCodeLine{258     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Keresés"{}}; \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1bb917f97a6fd02877fc43581f7b09a8}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{262     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Majdnem (de nem teljesen) betűrendbe szedett "{}}}
+\DoxyCodeLine{263              \textcolor{stringliteral}{"{}leszármazási lista:"{}};}
+\DoxyCodeLine{264     \}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac7eab9d4a2202cf75525b96885c90948}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{268     \{}
+\DoxyCodeLine{269       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{270       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{271       result+=\textcolor{stringliteral}{"{}fájl listája rövid leírásokkal:"{}};}
+\DoxyCodeLine{272       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{273     \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{276     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5cf79b742f7487c28d6221589e32b19d}{trCompoundListDescription}}()}
+\DoxyCodeLine{277     \{}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{280       \{}
+\DoxyCodeLine{281         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Az összes adatszerkezet listája rövid leírásokkal:"{}};}
+\DoxyCodeLine{282       \}}
+\DoxyCodeLine{283       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{284       \{}
+\DoxyCodeLine{285         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Az összes osztály listája rövid leírásokkal:"{}};}
+\DoxyCodeLine{286       \}}
+\DoxyCodeLine{287       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{288       \{}
+\DoxyCodeLine{289         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Az összes osztály, struktúra, unió és interfész "{}}}
+\DoxyCodeLine{290                \textcolor{stringliteral}{"{}listája rövid leírásokkal:"{}};}
+\DoxyCodeLine{291       \}}
+\DoxyCodeLine{292     \}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{295     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae55a500b580399d6ad2676eba47173b8}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{296     \{}
+\DoxyCodeLine{297       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{298       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{299       \{}
+\DoxyCodeLine{300         result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{301       \}}
+\DoxyCodeLine{302       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{303       \{}
+\DoxyCodeLine{304         result+=\textcolor{stringliteral}{"{}struktúra-\/ és uniómező"{}};}
+\DoxyCodeLine{305       \}}
+\DoxyCodeLine{306       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{307       \{}
+\DoxyCodeLine{308         result+=\textcolor{stringliteral}{"{}osztálytag"{}};}
+\DoxyCodeLine{309       \}}
+\DoxyCodeLine{310       result+=\textcolor{stringliteral}{"{} listája, valamint hivatkozás "{}};}
+\DoxyCodeLine{311       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{312       \{}
+\DoxyCodeLine{313         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{314         \{}
+\DoxyCodeLine{315           result+=\textcolor{stringliteral}{"{}a megfelelő struktúra/unió dokumentációra minden mezőnél:"{}};}
+\DoxyCodeLine{316         \}}
+\DoxyCodeLine{317         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{318         \{}
+\DoxyCodeLine{319           result+=\textcolor{stringliteral}{"{}a megfelelő osztálydokumentációra minden tagnál:"{}};}
+\DoxyCodeLine{320         \}}
+\DoxyCodeLine{321       \}}
+\DoxyCodeLine{322       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{323       \{}
+\DoxyCodeLine{324         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{325         \{}
+\DoxyCodeLine{326           result+=\textcolor{stringliteral}{"{}a struktúrákra/uniókra, amikhez tartoznak:"{}};}
+\DoxyCodeLine{327         \}}
+\DoxyCodeLine{328         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{329         \{}
+\DoxyCodeLine{330           result+=\textcolor{stringliteral}{"{}az osztályokra, amikhez tartoznak:"{}};}
+\DoxyCodeLine{331         \}}
+\DoxyCodeLine{332       \}}
+\DoxyCodeLine{333       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{334     \}}
+\DoxyCodeLine{335 }
+\DoxyCodeLine{337     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6e524172127a2d092fb93bee639205e4}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{338     \{}
+\DoxyCodeLine{339       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{340       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{343       \{}
+\DoxyCodeLine{344         result+=\textcolor{stringliteral}{"{}függvény, változó, makródefiníció, enumeráció és típusdefiníció"{}};}
+\DoxyCodeLine{345       \}}
+\DoxyCodeLine{346       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{347       \{}
+\DoxyCodeLine{348         result+=\textcolor{stringliteral}{"{}fájlelem"{}};}
+\DoxyCodeLine{349       \}}
+\DoxyCodeLine{350       result+=\textcolor{stringliteral}{"{} listája, valamint hivatkozás "{}};}
+\DoxyCodeLine{351       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{352         result+=\textcolor{stringliteral}{"{}a fájlokra, amikhez tartoznak:"{}};}
+\DoxyCodeLine{353       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{354         result+=\textcolor{stringliteral}{"{}a dokumentációra:"{}};}
+\DoxyCodeLine{355       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{356     \}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1f7834c20887c0900303ac2070f837b7}{trExamplesDescription}}()}
+\DoxyCodeLine{360     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A példák listája:"{}}; \}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{363     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1870d40281b97fa9a6e7cc88628a36a8}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{364     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A kapcsolódó dokumentációk listája:"{}}; \}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a366243a7dde816b044f11da186125999}{trModulesDescription}}()}
+\DoxyCodeLine{368     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A modulok listája:"{}}; \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 }
+\DoxyCodeLine{374     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa60bb570c99a8e9f083834b725252630}{trDocumentation}}()}
+\DoxyCodeLine{375     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentáció"{}}; \}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a20df483824867366d3e1cc7158258437}{trModuleIndex}}()}
+\DoxyCodeLine{381     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulmutató"{}}; \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a298526b1e8a0b011926c1f6f2bd5fefe}{trHierarchicalIndex}}()}
+\DoxyCodeLine{387     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchikus mutató"{}}; \}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5595baa017a497987dadecf9403bdf80}{trCompoundIndex}}()}
+\DoxyCodeLine{393     \{}
+\DoxyCodeLine{394       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{395       \{}
+\DoxyCodeLine{396         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatszerkezet-\/mutató"{}};}
+\DoxyCodeLine{397       \}}
+\DoxyCodeLine{398       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{399       \{}
+\DoxyCodeLine{400         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztálymutató"{}};}
+\DoxyCodeLine{401       \}}
+\DoxyCodeLine{402     \}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{407     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5c8d9f94d7a001834ad44c836da109da}{trFileIndex}}()}
+\DoxyCodeLine{408     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fájlmutató"{}}; \}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{413     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a16ba265d5741182a06d51c6f1a8d6b0c}{trModuleDocumentation}}()}
+\DoxyCodeLine{414     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulok dokumentációja"{}}; \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{419     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aed3247411254defaf3b5a05693ca303b}{trClassDocumentation}}()}
+\DoxyCodeLine{420     \{}
+\DoxyCodeLine{421       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{422       \{}
+\DoxyCodeLine{423         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatszerkezetek dokumentációja"{}};}
+\DoxyCodeLine{424       \}}
+\DoxyCodeLine{425       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{426       \{}
+\DoxyCodeLine{427           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{428       \}}
+\DoxyCodeLine{429       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{430       \{}
+\DoxyCodeLine{431         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztályok dokumentációja"{}};}
+\DoxyCodeLine{432       \}}
+\DoxyCodeLine{433     \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{438     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4d1e4fed3a2b5fb5cf75f4d88e87fa41}{trFileDocumentation}}()}
+\DoxyCodeLine{439     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fájlok dokumentációja"{}}; \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac42543432a118ef1d18aa83c6fe692a4}{trExampleDocumentation}}()}
+\DoxyCodeLine{445     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Példák dokumentációja"{}}; \}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{448     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af398e505088f633dc2f250cbd42cc5d0}{trReferenceManual}}()}
+\DoxyCodeLine{449     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referencia kézikönyv"{}}; \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{454     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad1d4cc58d6b4054848f31ffd2b75d355}{trDefines}}()}
+\DoxyCodeLine{455     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Makródefiníciók"{}}; \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{460     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab3b1e78c430bd33a4c14363eb286a0f1}{trTypedefs}}()}
+\DoxyCodeLine{461     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Típusdefiníciók"{}}; \}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{466     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a81dfadc983c1a5cfc8a075d55cf73408}{trEnumerations}}()}
+\DoxyCodeLine{467     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerációk"{}}; \}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{472     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa4eba162da9c6f8a83305464ebb90ac0}{trFunctions}}()}
+\DoxyCodeLine{473     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Függvények"{}}; \}}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{478     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a10b7826d4835fe38b09f3710c22d87cf}{trVariables}}()}
+\DoxyCodeLine{479     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Változók"{}}; \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{484     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ace8d0b13ae2aea6988528d4dea2c2f76}{trEnumerationValues}}()}
+\DoxyCodeLine{485     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeráció-\/értékek"{}}; \}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{490     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab8a6330420b74d05198d24efdb6fa476}{trDefineDocumentation}}()}
+\DoxyCodeLine{491     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Makródefiníciók dokumentációja"{}}; \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{496     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac234b2c1f3e5459c531a121d00883d3c}{trTypedefDocumentation}}()}
+\DoxyCodeLine{497     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Típusdefiníciók dokumentációja"{}}; \}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{502     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6af0dbd5f68bf1a730e3283a928d421d}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{503     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerációk dokumentációja"{}}; \}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{508     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a22fc73d15c9cfbd8c17ed37d371e8441}{trFunctionDocumentation}}()}
+\DoxyCodeLine{509     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Függvények dokumentációja"{}}; \}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{514     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_acb3753e2a303782d62f6da66abeeda77}{trVariableDocumentation}}()}
+\DoxyCodeLine{515     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Változók dokumentációja"{}}; \}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{520     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9b38e5ec80cf8e19b5d1911c966b4bc4}{trCompounds}}()}
+\DoxyCodeLine{521     \{}
+\DoxyCodeLine{522       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{523       \{}
+\DoxyCodeLine{524         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatszerkezetek"{}};}
+\DoxyCodeLine{525       \}}
+\DoxyCodeLine{526       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{527       \{}
+\DoxyCodeLine{528         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztályok"{}};}
+\DoxyCodeLine{529       \}}
+\DoxyCodeLine{530     \}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0e1da5bab5c81381130c769e68e0a396}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{536     \{}
+\DoxyCodeLine{537       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{538       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{}Projekt: "{}}+projName;}
+\DoxyCodeLine{539       result+=\textcolor{stringliteral}{"{} Készült: "{}}+date+\textcolor{stringliteral}{"{} Készítette: "{}};}
+\DoxyCodeLine{540       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{541     \}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab38ad957bc6faac851fe1605303b9198}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{545     \{}
+\DoxyCodeLine{546       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}A"{}})+zed(clName[0])+clName+\textcolor{stringliteral}{"{} osztály származási diagramja:"{}};}
+\DoxyCodeLine{547     \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{550     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a20a300a65309178fdc5d314ee2f81d76}{trWarning}}()}
+\DoxyCodeLine{551     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Figyelmeztetés"{}}; \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af1884dd0a8db1ea924bb37a593cfba49}{trVersion}}()}
+\DoxyCodeLine{555     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Verzió"{}}; \}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a64efe330103d27cbe66f3415da14f31e}{trDate}}()}
+\DoxyCodeLine{559     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dátum"{}}; \}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aebae5917bdbdbbe764804505b67706b5}{trReturns}}()}
+\DoxyCodeLine{563     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Visszatérési érték"{}}; \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab897f1b82ffd10cae46cb4b35fa166ea}{trSeeAlso}}()}
+\DoxyCodeLine{567     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lásd még"{}}; \}}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a46d4cd5c529aaed86d4496c01b63ef1b}{trParameters}}()}
+\DoxyCodeLine{571     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paraméterek"{}}; \}}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae9f0ff56e0e92ebabf08b526957db22d}{trExceptions}}()}
+\DoxyCodeLine{575     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kivételek"{}}; \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af52074a011203d68ba20222bb8a2bf3f}{trGeneratedBy}}()}
+\DoxyCodeLine{579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Készítette"{}}; \}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{582 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{584 \textcolor{comment}{}}
+\DoxyCodeLine{586     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_adfde4319c7dbd69831f501e4d64087bd}{trNamespaceList}}()}
+\DoxyCodeLine{587     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Névtérlista"{}}; \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a584eac18117542793933c09fd025f4e8}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{591     \{}
+\DoxyCodeLine{592       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{593       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{594       result+=\textcolor{stringliteral}{"{}névtér listája rövid leírásokkal:"{}};}
+\DoxyCodeLine{595       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{596     \}}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{601     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6d4a08b33d75ea8e927c15cf90efb7c3}{trFriends}}()}
+\DoxyCodeLine{602     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Barátok"{}}; \}}
+\DoxyCodeLine{603 }
+\DoxyCodeLine{605 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{607 \textcolor{comment}{}}
+\DoxyCodeLine{611     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a976b9f7a52b58b09db80cf548596fd84}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{612     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Barát és kapcsolódó függvények dokumentációja"{}}; \}}
+\DoxyCodeLine{613 }
+\DoxyCodeLine{615 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{617 \textcolor{comment}{}}
+\DoxyCodeLine{619     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae1458d7f2494d2d7a655429265522631}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{620                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{621                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{622     \{}
+\DoxyCodeLine{623       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{624       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{625       \{}
+\DoxyCodeLine{626         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} osztály"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{627         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} struktúra"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{628         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} unió"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{629         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} interfész"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{630         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokoll"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{631         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategória"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{632         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} kivétel"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{633         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{634       \}}
+\DoxyCodeLine{635       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}sablon-\/"{}};}
+\DoxyCodeLine{636       result+=\textcolor{stringliteral}{"{}referencia"{}};}
+\DoxyCodeLine{637       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{638     \}}
+\DoxyCodeLine{639 }
+\DoxyCodeLine{641     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab0ee33293337d1c6bee739ab8a551d77}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{642     \{}
+\DoxyCodeLine{643       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{644       result+=\textcolor{stringliteral}{"{} fájlreferencia"{}};}
+\DoxyCodeLine{645       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{646     \}}
+\DoxyCodeLine{647 }
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4eaac777ea57e4d2c85743c886140aa9}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{650     \{}
+\DoxyCodeLine{651       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{652       result+=\textcolor{stringliteral}{"{} névtér-\/referencia"{}};}
+\DoxyCodeLine{653       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{654     \}}
+\DoxyCodeLine{655 }
+\DoxyCodeLine{656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae2b6f1fbb7b36839e1011a20bed0239b}{trPublicMembers}}()}
+\DoxyCodeLine{657     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikus tagfüggvények"{}}; \}}
+\DoxyCodeLine{658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0c2692e4c68f0c3a29c439506226d7da}{trPublicSlots}}()}
+\DoxyCodeLine{659     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikus rések"{}}; \}}
+\DoxyCodeLine{660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0c4c8f419331aa389ecbf1f5960d5571}{trSignals}}()}
+\DoxyCodeLine{661     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Szignálok"{}}; \}}
+\DoxyCodeLine{662     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a239ecc77167dc868cb6ae1701e337ad5}{trStaticPublicMembers}}()}
+\DoxyCodeLine{663     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus publikus tagfüggvények"{}}; \}}
+\DoxyCodeLine{664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4e117119eb5beb580a60041be0657441}{trProtectedMembers}}()}
+\DoxyCodeLine{665     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Védett tagfüggvények"{}}; \}}
+\DoxyCodeLine{666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5fb332a97f7433e8d8daa2a9860a216a}{trProtectedSlots}}()}
+\DoxyCodeLine{667     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Védett rések"{}}; \}}
+\DoxyCodeLine{668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aeb70a45c3cde49d313c24aa265a0984e}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{669     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus védett tagfüggvények"{}}; \}}
+\DoxyCodeLine{670     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6e79ea67840a64d03a95264e17fc908f}{trPrivateMembers}}()}
+\DoxyCodeLine{671     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privát tagfüggvények"{}}; \}}
+\DoxyCodeLine{672     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0c694ab275f638c2218514a4eef22582}{trPrivateSlots}}()}
+\DoxyCodeLine{673     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privát rések"{}}; \}}
+\DoxyCodeLine{674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5cf5441040c97db18b443ebbcff4824a}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{675     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus privát tagfüggvények"{}}; \}}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{680     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{681     \{}
+\DoxyCodeLine{682       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{683       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{684       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{685       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{686       \{}
+\DoxyCodeLine{687         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{688         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{689                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{691         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{692         \{}
+\DoxyCodeLine{693           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{694             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{695           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{696             result+=\textcolor{stringliteral}{"{} és "{}};}
+\DoxyCodeLine{697         \}}
+\DoxyCodeLine{698       \}}
+\DoxyCodeLine{699       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{700     \}}
+\DoxyCodeLine{701 }
+\DoxyCodeLine{705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad078cc2bccbea4d1eeb0987b31f27d9a}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{706     \{}
+\DoxyCodeLine{707       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ősök: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{708     \}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{713     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a281f70f30a006cae3610db40716d44a6}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{714     \{}
+\DoxyCodeLine{715       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Leszármazottak: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{716     \}}
+\DoxyCodeLine{717 }
+\DoxyCodeLine{721     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a514a13e4a354df144a5d6c9792433402}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{722     \{}
+\DoxyCodeLine{723       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Újraimplementált ősök: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{724     \}}
+\DoxyCodeLine{725 }
+\DoxyCodeLine{729     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a367b351622eaaf0e6ce2ce08e58b95bb}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{730     \{}
+\DoxyCodeLine{731       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Újraimplementáló leszármazottak: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{732     \}}
+\DoxyCodeLine{733 }
+\DoxyCodeLine{735     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1747e00bbeb740b1040f44ea564b3ab6}{trNamespaceMembers}}()}
+\DoxyCodeLine{736     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Névtértagok"{}}; \}}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{739     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad40c4de1ff540cbc9287b56592621b22}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{740     \{}
+\DoxyCodeLine{741       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{742       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{743       result+=\textcolor{stringliteral}{"{}névtér tagjainak listája, valamint hivatkozás "{}};}
+\DoxyCodeLine{744       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{745         result+=\textcolor{stringliteral}{"{} a megfelelő névtér dokumentációra minden tagnál:"{}};}
+\DoxyCodeLine{746       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{747         result+=\textcolor{stringliteral}{"{} a névterekre, amelynek tagjai:"{}};}
+\DoxyCodeLine{748       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{749     \}}
+\DoxyCodeLine{753     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3db884a6ab7d0771846b634c1bfc73c1}{trNamespaceIndex}}()}
+\DoxyCodeLine{754     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Névtérmutató"{}}; \}}
+\DoxyCodeLine{755 }
+\DoxyCodeLine{759     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a8b89e6caf5650c0fdfda1e3e5b8ad29b}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{760     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Névterek dokumentációja"{}}; \}}
+\DoxyCodeLine{761 }
+\DoxyCodeLine{763 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{765 \textcolor{comment}{}}
+\DoxyCodeLine{769     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a646ad8f617e4456057b2aa4fcc011b07}{trNamespaces}}()}
+\DoxyCodeLine{770     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Névterek"{}}; \}}
+\DoxyCodeLine{771 }
+\DoxyCodeLine{773 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{775 \textcolor{comment}{}}
+\DoxyCodeLine{779     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae2b1bc81a9d5023411553025cbe94c7e}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{780         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{781     \{ \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{782       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ez a dokumentáció "{}};}
+\DoxyCodeLine{783       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{784       \{}
+\DoxyCodeLine{785         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}az osztályról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{786         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}a struktúráról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{787         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}az unióról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{788         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}az interfészről"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{789         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}a protokollról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{790         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}a kategóriáról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{791         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}a kivételről"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{792         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{793       \}}
+\DoxyCodeLine{794       result+=\textcolor{stringliteral}{"{} a következő fájl"{}};}
+\DoxyCodeLine{795       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{796       result+=\textcolor{stringliteral}{"{} alapján készült:"{}};}
+\DoxyCodeLine{797       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{798     \}}
+\DoxyCodeLine{799 }
+\DoxyCodeLine{801 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{803 \textcolor{comment}{}}
+\DoxyCodeLine{805     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4d332a5f61257acc9e3da2f0875f0b1b}{trReturnValues}}()}
+\DoxyCodeLine{806     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Visszatérési értékek"{}}; \}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{810     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a49a8527f16cf50eb5375cdc55fece9f3}{trMainPage}}()}
+\DoxyCodeLine{811     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Főoldal"{}}; \}}
+\DoxyCodeLine{812 }
+\DoxyCodeLine{816     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae92a34ce85d55c256e66d6ef3ac74ee1}{trPageAbbreviation}}()}
+\DoxyCodeLine{817     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}o."{}}; \}}
+\DoxyCodeLine{818 }
+\DoxyCodeLine{820 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{822 \textcolor{comment}{}}
+\DoxyCodeLine{823     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a2bf107348664e5c4c34aef2e922e0cb0}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{824     \{}
+\DoxyCodeLine{825       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definíció a(z) @1 fájl @0. sorában."{}};}
+\DoxyCodeLine{826     \}}
+\DoxyCodeLine{827     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af1bcb67bd2a8deb7d50ee5c0efac9f34}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{828     \{}
+\DoxyCodeLine{829       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definíció a(z) @0 fájlban."{}};}
+\DoxyCodeLine{830     \}}
+\DoxyCodeLine{831 }
+\DoxyCodeLine{833 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{835 \textcolor{comment}{}}
+\DoxyCodeLine{836     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af1fcc21bcfbdd9b327d28a6e3254feee}{trDeprecated}}()}
+\DoxyCodeLine{837     \{}
+\DoxyCodeLine{838       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ellenjavallt"{}};}
+\DoxyCodeLine{839     \}}
+\DoxyCodeLine{840 }
+\DoxyCodeLine{842 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{844 \textcolor{comment}{}}
+\DoxyCodeLine{846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af2fea0b86afc1d70c1fb19ab603f0255}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{847     \{}
+\DoxyCodeLine{848       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}A"{}})+zed(clName[0])+clName+\textcolor{stringliteral}{"{} osztály együttműködési diagramja:"{}};}
+\DoxyCodeLine{849     \}}
+\DoxyCodeLine{851     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab22175ea333a09d3daf51c923c2f1edb}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{852     \{}
+\DoxyCodeLine{853       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}A"{}})+zed(fName[0])+fName+\textcolor{stringliteral}{"{} definíciós fájl függési gráfja:"{}};}
+\DoxyCodeLine{854     \}}
+\DoxyCodeLine{856     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a528a34a3d077a2204cb1758d88a878e6}{trConstructorDocumentation}}()}
+\DoxyCodeLine{857     \{}
+\DoxyCodeLine{858       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstruktorok és destruktorok dokumentációja"{}};}
+\DoxyCodeLine{859     \}}
+\DoxyCodeLine{861     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_adc910fd5caaaeed1f7589530fd816acb}{trGotoSourceCode}}()}
+\DoxyCodeLine{862     \{}
+\DoxyCodeLine{863       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ugrás a fájl forráskódjához."{}};}
+\DoxyCodeLine{864     \}}
+\DoxyCodeLine{866     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3a9399bf9c115a26197be7048893878d}{trGotoDocumentation}}()}
+\DoxyCodeLine{867     \{}
+\DoxyCodeLine{868       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ugrás a fájl dokumentációjához."{}};}
+\DoxyCodeLine{869     \}}
+\DoxyCodeLine{871     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a8b0383d61cc8cb690551cfd3f553a74f}{trPrecondition}}()}
+\DoxyCodeLine{872     \{}
+\DoxyCodeLine{873       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Előfeltétel"{}};}
+\DoxyCodeLine{874     \}}
+\DoxyCodeLine{876     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a77de26f1cb6558ed2eefc7658b2578d9}{trPostcondition}}()}
+\DoxyCodeLine{877     \{}
+\DoxyCodeLine{878       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Utófeltétel"{}};}
+\DoxyCodeLine{879     \}}
+\DoxyCodeLine{881     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_afddeffed9bdcd1d0b50b362510ad5de3}{trInvariant}}()}
+\DoxyCodeLine{882     \{}
+\DoxyCodeLine{883       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariáns"{}};}
+\DoxyCodeLine{884     \}}
+\DoxyCodeLine{886     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1016eee29baa71400a332e85ba2a25e5}{trInitialValue}}()}
+\DoxyCodeLine{887     \{}
+\DoxyCodeLine{888       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kezdő érték:"{}};}
+\DoxyCodeLine{889     \}}
+\DoxyCodeLine{891     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af882bbe6fe0217d5eb58940b308a8cb6}{trCode}}()}
+\DoxyCodeLine{892     \{}
+\DoxyCodeLine{893       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}forráskód"{}};}
+\DoxyCodeLine{894     \}}
+\DoxyCodeLine{895     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_afe5e0c1c0d7a8caa1f92e0a949faeb60}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{896     \{}
+\DoxyCodeLine{897       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztályhierarchia-\/ábra"{}};}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{899     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af4614d73e407a7ba57861f6a2767cf82}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{900     \{}
+\DoxyCodeLine{901       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ugrás az osztályhierarchia-\/ábrához"{}};}
+\DoxyCodeLine{902     \}}
+\DoxyCodeLine{903     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a92bd578707a520390a2c8589a5781a5e}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{904     \{}
+\DoxyCodeLine{905       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ugrás az szöveges osztályhierarchiához"{}};}
+\DoxyCodeLine{906     \}}
+\DoxyCodeLine{907     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6138f1d9465f0f531a7acc3f708f95bd}{trPageIndex}}()}
+\DoxyCodeLine{908     \{}
+\DoxyCodeLine{909       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Oldalmutató"{}};}
+\DoxyCodeLine{910     \}}
+\DoxyCodeLine{911 }
+\DoxyCodeLine{913 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{915 \textcolor{comment}{}}
+\DoxyCodeLine{916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9e5d15ec8a36b0aa780e9f24c78ead83}{trNote}}()}
+\DoxyCodeLine{917     \{}
+\DoxyCodeLine{918       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Megjegyzés"{}};}
+\DoxyCodeLine{919     \}}
+\DoxyCodeLine{920     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a58c534649aea159e8647bc4aa4188fec}{trPublicTypes}}()}
+\DoxyCodeLine{921     \{}
+\DoxyCodeLine{922       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikus típusok"{}};}
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6cff4f9019eb195447485a1f26187628}{trPublicAttribs}}()}
+\DoxyCodeLine{925     \{}
+\DoxyCodeLine{926       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{927       \{}
+\DoxyCodeLine{928         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatmezők"{}};}
+\DoxyCodeLine{929       \}}
+\DoxyCodeLine{930       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{931       \{}
+\DoxyCodeLine{932         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publikus attribútumok"{}};}
+\DoxyCodeLine{933       \}}
+\DoxyCodeLine{934     \}}
+\DoxyCodeLine{935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3cb72d9c043e8fe3263e9ed5711b9ce0}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{936     \{}
+\DoxyCodeLine{937       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus publikus attribútumok"{}};}
+\DoxyCodeLine{938     \}}
+\DoxyCodeLine{939     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a755d64ac5e0e4c9a677562cb09e4364b}{trProtectedTypes}}()}
+\DoxyCodeLine{940     \{}
+\DoxyCodeLine{941       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Védett típusok"{}};}
+\DoxyCodeLine{942     \}}
+\DoxyCodeLine{943     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a513f2a872ba8aa1577f174ccae835740}{trProtectedAttribs}}()}
+\DoxyCodeLine{944     \{}
+\DoxyCodeLine{945       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Védett attribútumok"{}};}
+\DoxyCodeLine{946     \}}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a13390dfa33502b5f9b82aa0a3077a4ef}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus védett attribútumok"{}};}
+\DoxyCodeLine{950     \}}
+\DoxyCodeLine{951     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac66fa128b7a2d254a617f470651ee9f8}{trPrivateTypes}}()}
+\DoxyCodeLine{952     \{}
+\DoxyCodeLine{953       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privát típusok"{}};}
+\DoxyCodeLine{954     \}}
+\DoxyCodeLine{955     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a7b8c0150e0eedfeb27d56b5e11b47f7f}{trPrivateAttribs}}()}
+\DoxyCodeLine{956     \{}
+\DoxyCodeLine{957       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privát attribútumok"{}};}
+\DoxyCodeLine{958     \}}
+\DoxyCodeLine{959     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a631613de762f30b9401be45be6777871}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{960     \{}
+\DoxyCodeLine{961       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus privát attribútumok"{}};}
+\DoxyCodeLine{962     \}}
+\DoxyCodeLine{963 }
+\DoxyCodeLine{965 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{967 \textcolor{comment}{}}
+\DoxyCodeLine{969     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_afa05805083a5a3f0908abdbbf28cac4d}{trTodo}}()}
+\DoxyCodeLine{970     \{}
+\DoxyCodeLine{971       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tennivaló"{}};}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{974     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4fa6a4be8d6f56814eeb76e2498de75f}{trTodoList}}()}
+\DoxyCodeLine{975     \{}
+\DoxyCodeLine{976       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tennivalók listája"{}};}
+\DoxyCodeLine{977     \}}
+\DoxyCodeLine{978 }
+\DoxyCodeLine{980 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{982 \textcolor{comment}{}}
+\DoxyCodeLine{983     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6fc6082e17087cddeb076db6e141da3b}{trReferencedBy}}()}
+\DoxyCodeLine{984     \{}
+\DoxyCodeLine{985       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hivatkozások:"{}};}
+\DoxyCodeLine{986     \}}
+\DoxyCodeLine{987     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_afce3179faaf145c39aade662a3d0ae80}{trRemarks}}()}
+\DoxyCodeLine{988     \{}
+\DoxyCodeLine{989       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Megjegyzések"{}};}
+\DoxyCodeLine{990     \}}
+\DoxyCodeLine{991     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a03fff5f0b7543dedefb95797bb2e2915}{trAttention}}()}
+\DoxyCodeLine{992     \{}
+\DoxyCodeLine{993       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Figyelem"{}};}
+\DoxyCodeLine{994     \}}
+\DoxyCodeLine{995     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a48af446ca3082a984d35f52fc3e752c1}{trInclByDepGraph}}()}
+\DoxyCodeLine{996     \{}
+\DoxyCodeLine{997       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ez az ábra azt mutatja, hogy mely fájlok ágyazzák be "{}}}
+\DoxyCodeLine{998              \textcolor{stringliteral}{"{}közvetve vagy közvetlenül ezt a fájlt:"{}};}
+\DoxyCodeLine{999     \}}
+\DoxyCodeLine{1000     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a1a08e6ae88db45dfc45561258d795600}{trSince}}()}
+\DoxyCodeLine{1001     \{}
+\DoxyCodeLine{1002       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Először bevezetve"{}};}
+\DoxyCodeLine{1003     \}}
+\DoxyCodeLine{1004 }
+\DoxyCodeLine{1006 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1008 \textcolor{comment}{}}
+\DoxyCodeLine{1010     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9efd6ed65457baf0a960404036fa18c1}{trLegendTitle}}()}
+\DoxyCodeLine{1011     \{}
+\DoxyCodeLine{1012       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jelmagyarázat"{}};}
+\DoxyCodeLine{1013     \}}
+\DoxyCodeLine{1017     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa07bb8616bc91728d3d091c58c0334af}{trLegendDocs}}()}
+\DoxyCodeLine{1018     \{}
+\DoxyCodeLine{1019       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}Ez az oldal elmagyarázza hogyan kell értelmezni a "{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}doxygen által készített ábrákat.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}Vegyük a következő példát:\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}/*! Vágás miatt nem látható osztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}/*! Levágott osztály, származása rejtett */\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}/* Doxygen kommentekkel nem dokumentált osztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}/*! Publikus származtatásal levezetett osztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}/*! Egy sablonosztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}/*! Védett származtatásal levezetett osztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}/*! Privát származtatásal levezetett osztály */\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}/*! Osztály, melyet a származtatott osztály használ */\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}/*! Osztály, mely több másiknak leszármazottja */\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}Az eredmény a következő ábra lesz:"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center></p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}A fenti ábrán levő dobozok jelentése a következő:\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}<li>Kitöltött fekete doboz jelzi azt az osztályt vagy struktúrát,"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}amelyről az ábra szól.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}<li>Fekete keret jelzi a dokumentált osztályokat és struktúrákat.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}<li>Szürke keret jelzi a nem dokumentált osztályokat és struktúrákat.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}<li>Piros keret jelzi azokat az osztályokat és struktúrákat, amelyeknél vágás miatt nem látható "{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}az összes leszármaztatási kapcsolat. Egy ábra vágásra kerül, ha nem fér bele "{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}a megadott tartományba.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{stringliteral}{"{}A nyilak jelentése a következő:\(\backslash\)n"{}}}
+\DoxyCodeLine{1066         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1067         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1068         \textcolor{stringliteral}{"{}<li>Sötétkék nyíl jelzi a publikus származtatás "{}}}
+\DoxyCodeLine{1069         \textcolor{stringliteral}{"{}kapcsolatát két osztály között.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1070         \textcolor{stringliteral}{"{}<li>Sötétzöld nyíl jelzi a védett származtatást.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1071         \textcolor{stringliteral}{"{}<li>Sötétvörös nyíl jelzi a privát származtatást.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1072         \textcolor{stringliteral}{"{}<li>Lila szaggatott nyíl jelzi, ha az osztály egy másikat használ vagy tartalmaz. "{}}}
+\DoxyCodeLine{1073         \textcolor{stringliteral}{"{}A nyíl felirata jelzi a változó(k) nevét, amelyeken keresztül a másik osztály kapcsolódik.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1074         \textcolor{stringliteral}{"{}<li>Sárga szaggatott nyíl jelzi a kapcsolatot a sablonpéldány és a példányosított "{}}}
+\DoxyCodeLine{1075         \textcolor{stringliteral}{"{}osztálysablon között. A nyíl felirata jelzi a pélány sablonparamétereit.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1076         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1077 }
+\DoxyCodeLine{1078     \}}
+\DoxyCodeLine{1080     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a7d44ba57f828e96ed8315cc6b4ac35f6}{trLegend}}()}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jelmagyarázat"{}};}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1084 }
+\DoxyCodeLine{1086 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1088 \textcolor{comment}{}}
+\DoxyCodeLine{1090     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a50c5d8ece3ea228c13dfad121366a1a0}{trTest}}()}
+\DoxyCodeLine{1091     \{}
+\DoxyCodeLine{1092       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Teszt"{}};}
+\DoxyCodeLine{1093     \}}
+\DoxyCodeLine{1095     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a82b3b3bd042d5b2d7d1426e466ef07b6}{trTestList}}()}
+\DoxyCodeLine{1096     \{}
+\DoxyCodeLine{1097       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tesztlista"{}};}
+\DoxyCodeLine{1098     \}}
+\DoxyCodeLine{1099 }
+\DoxyCodeLine{1101 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1103 \textcolor{comment}{}}
+\DoxyCodeLine{1105     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5bf47e3acecf2f64599c35211235fc2f}{trProperties}}()}
+\DoxyCodeLine{1106     \{}
+\DoxyCodeLine{1107       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tulajdonságok"{}};}
+\DoxyCodeLine{1108     \}}
+\DoxyCodeLine{1110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a688cd2f3172c0ae2e58f7f810b6370be}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1111     \{}
+\DoxyCodeLine{1112       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tulajdonságok dokumentációjka"{}};}
+\DoxyCodeLine{1113     \}}
+\DoxyCodeLine{1114 }
+\DoxyCodeLine{1116 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1118 \textcolor{comment}{}}
+\DoxyCodeLine{1120     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af253d6545ecd4ec82e92d4dec8577716}{trClasses}}()}
+\DoxyCodeLine{1121     \{}
+\DoxyCodeLine{1122       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1123       \{}
+\DoxyCodeLine{1124         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatszerkezetek"{}};}
+\DoxyCodeLine{1125       \}}
+\DoxyCodeLine{1126       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1127       \{}
+\DoxyCodeLine{1128         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztályok"{}};}
+\DoxyCodeLine{1129       \}}
+\DoxyCodeLine{1130     \}}
+\DoxyCodeLine{1132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad030aec8af0909516257742a8b638aa1}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1133     \{}
+\DoxyCodeLine{1134       \textcolor{keywordflow}{return} name+\textcolor{stringliteral}{"{} csomag"{}};}
+\DoxyCodeLine{1135     \}}
+\DoxyCodeLine{1137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a7758cc8c0fbd6e509b2d1a1084477cc1}{trPackageListDescription}}()}
+\DoxyCodeLine{1138     \{}
+\DoxyCodeLine{1139       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A csomagok rövid leírásai (ha léteznek):"{}};}
+\DoxyCodeLine{1140     \}}
+\DoxyCodeLine{1142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a8374b940a1e9ebd61d7a9f3cbe0637f2}{trPackages}}()}
+\DoxyCodeLine{1143     \{}
+\DoxyCodeLine{1144       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Csomagok"{}};}
+\DoxyCodeLine{1145     \}}
+\DoxyCodeLine{1147     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a33706fd1bba9650d760a1a9bba4ce964}{trDefineValue}}()}
+\DoxyCodeLine{1148     \{}
+\DoxyCodeLine{1149       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Érték:"{}};}
+\DoxyCodeLine{1150     \}}
+\DoxyCodeLine{1151 }
+\DoxyCodeLine{1153 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1155 \textcolor{comment}{}}
+\DoxyCodeLine{1157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9b8f93611a494a7c149033197a47d558}{trBug}}()}
+\DoxyCodeLine{1158     \{}
+\DoxyCodeLine{1159       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hiba"{}};}
+\DoxyCodeLine{1160     \}}
+\DoxyCodeLine{1162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab68b764947211238dcabe72467feec23}{trBugList}}()}
+\DoxyCodeLine{1163     \{}
+\DoxyCodeLine{1164       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hiba lista"{}};}
+\DoxyCodeLine{1165     \}}
+\DoxyCodeLine{1166 }
+\DoxyCodeLine{1168 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1170 \textcolor{comment}{}}
+\DoxyCodeLine{1196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa3e8143837bae2721e36eff9ac36d120}{trRTFansicp}}()}
+\DoxyCodeLine{1197     \{}
+\DoxyCodeLine{1198       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1250"{}};}
+\DoxyCodeLine{1199     \}}
+\DoxyCodeLine{1200 }
+\DoxyCodeLine{1201 }
+\DoxyCodeLine{1205     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a014b331cc67eeb168b98f0bc6270fdff}{trRTFCharSet}}()}
+\DoxyCodeLine{1206     \{}
+\DoxyCodeLine{1207       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{1208     \}}
+\DoxyCodeLine{1209 }
+\DoxyCodeLine{1211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3077462c7ac66e2196d5ccb6a935da87}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1212     \{}
+\DoxyCodeLine{1213       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tárgymutató"{}};}
+\DoxyCodeLine{1214     \}}
+\DoxyCodeLine{1215 }
+\DoxyCodeLine{1220     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a864e8bd5517deb658ef455a2173755a5}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1221     \{}
+\DoxyCodeLine{1222       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Osztály"{}} : \textcolor{stringliteral}{"{}osztály"{}}));}
+\DoxyCodeLine{1223       \textcolor{comment}{//if (!singular)  result+="{}ok"{};}}
+\DoxyCodeLine{1224       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1225     \}}
+\DoxyCodeLine{1226 }
+\DoxyCodeLine{1231     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a814e3c92d7c0ec0b5f2bc80cbc13d6fe}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1232     \{}
+\DoxyCodeLine{1233       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Fájl"{}} : \textcolor{stringliteral}{"{}fájl"{}}));}
+\DoxyCodeLine{1234       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1235       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1236     \}}
+\DoxyCodeLine{1237 }
+\DoxyCodeLine{1242     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a5aa63d4b7ecae657721d2172de9bab5a}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1243     \{}
+\DoxyCodeLine{1244       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{1245       \textcolor{keywordflow}{if} (!singular) result+=first\_capital ? \textcolor{stringliteral}{"{}Névterek"{}} : \textcolor{stringliteral}{"{}névterek"{}};}
+\DoxyCodeLine{1246       \textcolor{keywordflow}{else}           result+=first\_capital ? \textcolor{stringliteral}{"{}Névtér"{}}   : \textcolor{stringliteral}{"{}névtér"{}};}
+\DoxyCodeLine{1247       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1248     \}}
+\DoxyCodeLine{1249 }
+\DoxyCodeLine{1254     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a42ceefdcec50483e656f9124abf15751}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1255     \{}
+\DoxyCodeLine{1256       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));}
+\DoxyCodeLine{1257       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1258       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1259     \}}
+\DoxyCodeLine{1260 }
+\DoxyCodeLine{1265     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_abca7c2bdd235288864bf7ab1cb33dfdb}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1266     \{}
+\DoxyCodeLine{1267       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Oldal"{}} : \textcolor{stringliteral}{"{}oldal"{}}));}
+\DoxyCodeLine{1268       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ak"{}};}
+\DoxyCodeLine{1269       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1270     \}}
+\DoxyCodeLine{1271 }
+\DoxyCodeLine{1276     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa0320fe2ae1c2608d35ac85e24e90a03}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1277     \{}
+\DoxyCodeLine{1278       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tag"{}} : \textcolor{stringliteral}{"{}tag"{}}));}
+\DoxyCodeLine{1279       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1280       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1281     \}}
+\DoxyCodeLine{1282 }
+\DoxyCodeLine{1287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a629515c0d6f18c4991eee07f7b0b2be3}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1288     \{}
+\DoxyCodeLine{1289       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Globális elem"{}} : \textcolor{stringliteral}{"{}globális elem"{}}));}
+\DoxyCodeLine{1290       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ek"{}};}
+\DoxyCodeLine{1291       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1292     \}}
+\DoxyCodeLine{1293 }
+\DoxyCodeLine{1295 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1297 \textcolor{comment}{}}
+\DoxyCodeLine{1300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aceb8864fd013ffb7092738c599d8d79e}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1301     \{}
+\DoxyCodeLine{1302       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Szerző"{}} : \textcolor{stringliteral}{"{}szerző"{}}));}
+\DoxyCodeLine{1303       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}k"{}};}
+\DoxyCodeLine{1304       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1305     \}}
+\DoxyCodeLine{1306 }
+\DoxyCodeLine{1308 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1310 \textcolor{comment}{}}
+\DoxyCodeLine{1313     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3b8e8265ab10b806370b32eac47034c3}{trReferences}}()}
+\DoxyCodeLine{1314     \{}
+\DoxyCodeLine{1315       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hivatkozások"{}};}
+\DoxyCodeLine{1316     \}}
+\DoxyCodeLine{1317 }
+\DoxyCodeLine{1319 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1321 \textcolor{comment}{}}
+\DoxyCodeLine{1325     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a45602139d6221a4be33d1da1adc01961}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1326     \{}
+\DoxyCodeLine{1327       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Megvalósítja a következőket: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1328     \}}
+\DoxyCodeLine{1329 }
+\DoxyCodeLine{1333     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad3b492aa327f71075776a1fe991c6afa}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1334     \{}
+\DoxyCodeLine{1335       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Megvalósítják a következők: "{}}+\mbox{\hyperlink{classTranslatorHungarian_a3374826bb8037e39994404f051f8f552}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1336     \}}
+\DoxyCodeLine{1337 }
+\DoxyCodeLine{1339 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1341 \textcolor{comment}{}}
+\DoxyCodeLine{1345     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae1bfdc207d0a990b84689d1fef9dea81}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1346     \{}
+\DoxyCodeLine{1347       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tartalomjegyzék"{}};}
+\DoxyCodeLine{1348     \}}
+\DoxyCodeLine{1349 }
+\DoxyCodeLine{1351 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1353 \textcolor{comment}{}}
+\DoxyCodeLine{1357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a43fcc17bf6e6776402aae2699308b473}{trDeprecatedList}}()}
+\DoxyCodeLine{1358     \{}
+\DoxyCodeLine{1359       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ellenjavallt elemek listája"{}};}
+\DoxyCodeLine{1360     \}}
+\DoxyCodeLine{1361 }
+\DoxyCodeLine{1363 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1365 \textcolor{comment}{}}
+\DoxyCodeLine{1369     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_accfe6d26e92732e1ebc13b4ecbf65c8d}{trEvents}}()}
+\DoxyCodeLine{1370     \{}
+\DoxyCodeLine{1371       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Események"{}};}
+\DoxyCodeLine{1372     \}}
+\DoxyCodeLine{1374     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a7e2ff7285e25701209ed451d0a49f71d}{trEventDocumentation}}()}
+\DoxyCodeLine{1375     \{}
+\DoxyCodeLine{1376       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Események dokumentációja"{}};}
+\DoxyCodeLine{1377     \}}
+\DoxyCodeLine{1378 }
+\DoxyCodeLine{1380 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1382 \textcolor{comment}{}}
+\DoxyCodeLine{1385     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae5406366dfc15f47880db0263d1e9ce8}{trPackageTypes}}()}
+\DoxyCodeLine{1386     \{}
+\DoxyCodeLine{1387       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Csomag típusok"{}};}
+\DoxyCodeLine{1388     \}}
+\DoxyCodeLine{1392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa0dd4fa510e7f4c899660f25053ae9c2}{trPackageFunctions}}()}
+\DoxyCodeLine{1393     \{}
+\DoxyCodeLine{1394       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Csomag függvények"{}};}
+\DoxyCodeLine{1395     \}}
+\DoxyCodeLine{1396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a447c8304ce0c40865e5e7c767292ff4e}{trPackageMembers}}()}
+\DoxyCodeLine{1397     \{}
+\DoxyCodeLine{1398       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Csomag tagok"{}};}
+\DoxyCodeLine{1399     \}}
+\DoxyCodeLine{1403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a41bdeda918b45417539ee60cb5ff8308}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1404     \{}
+\DoxyCodeLine{1405       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus csomag függvények"{}};}
+\DoxyCodeLine{1406     \}}
+\DoxyCodeLine{1410     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a80f3b287337999077604dae55e846ed1}{trPackageAttribs}}()}
+\DoxyCodeLine{1411     \{}
+\DoxyCodeLine{1412       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Csomag attribútumok"{}};}
+\DoxyCodeLine{1413     \}}
+\DoxyCodeLine{1417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac304495a33d2a8945bbdafd1d5ee8153}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1418     \{}
+\DoxyCodeLine{1419       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statikus csomag attribútumok"{}};}
+\DoxyCodeLine{1420     \}}
+\DoxyCodeLine{1421 }
+\DoxyCodeLine{1423 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1425 \textcolor{comment}{}}
+\DoxyCodeLine{1429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3a0802aaeed3d27dffa7c11043ab29ce}{trAll}}()}
+\DoxyCodeLine{1430     \{}
+\DoxyCodeLine{1431       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Összes"{}};}
+\DoxyCodeLine{1432     \}}
+\DoxyCodeLine{1434     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a688d685f3a32c3e006c04f334ba74f68}{trCallGraph}}()}
+\DoxyCodeLine{1435     \{}
+\DoxyCodeLine{1436       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A függvény hívási gráfja:"{}};}
+\DoxyCodeLine{1437     \}}
+\DoxyCodeLine{1438 }
+\DoxyCodeLine{1440 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1442 \textcolor{comment}{}}
+\DoxyCodeLine{1446     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6d1da7836a3ed2fd07be974679dbb05f}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1447     \{}
+\DoxyCodeLine{1448       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A keresés eredménye"{}};}
+\DoxyCodeLine{1449     \}}
+\DoxyCodeLine{1458     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4b9bccef48cb366e4e33e92ec9268257}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1459     \{}
+\DoxyCodeLine{1460       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1461       \{}
+\DoxyCodeLine{1462         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sajnos egy dokumentum sem felelt meg a keresési feltételeknek."{}};}
+\DoxyCodeLine{1463       \}}
+\DoxyCodeLine{1464       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1465       \{}
+\DoxyCodeLine{1466         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}<b>1</b> dokumentum felelt meg a keresési feltételeknek."{}};}
+\DoxyCodeLine{1467       \}}
+\DoxyCodeLine{1468       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1469       \{}
+\DoxyCodeLine{1470         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}<b>\$num</b> dokumentum felelt meg a keresési feltételeknek."{}}}
+\DoxyCodeLine{1471                \textcolor{stringliteral}{"{}Elsőnek a legjobb találatok vannak feltüntetve."{}};}
+\DoxyCodeLine{1472       \}}
+\DoxyCodeLine{1473     \}}
+\DoxyCodeLine{1477     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9723f96a4768f64d6d15011a00df5832}{trSearchMatches}}()}
+\DoxyCodeLine{1478     \{}
+\DoxyCodeLine{1479       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Találatok:"{}};}
+\DoxyCodeLine{1480     \}}
+\DoxyCodeLine{1481 }
+\DoxyCodeLine{1483 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1485 \textcolor{comment}{}}
+\DoxyCodeLine{1488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4ac0c0115d6fff54cb5c66bb0147c598}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1489     \{}
+\DoxyCodeLine{1490       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} Forrásfájl"{}};}
+\DoxyCodeLine{1491     \}}
+\DoxyCodeLine{1492 }
+\DoxyCodeLine{1494 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1496 \textcolor{comment}{}}
+\DoxyCodeLine{1500     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9e8005c68c3da52b1063963e04ac0a51}{trDirIndex}}()}
+\DoxyCodeLine{1501     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Könyvtárhierarchia"{}}; \}}
+\DoxyCodeLine{1502 }
+\DoxyCodeLine{1506     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a625ababc758191f63da47ea9dbef3315}{trDirDocumentation}}()}
+\DoxyCodeLine{1507     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Könyvtárak dokumentációja"{}}; \}}
+\DoxyCodeLine{1508 }
+\DoxyCodeLine{1512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac19a7d4a46a93f69c01e9b207e3a4e9f}{trDirectories}}()}
+\DoxyCodeLine{1513     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Könyvtárak"{}}; \}}
+\DoxyCodeLine{1514 }
+\DoxyCodeLine{1518     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aeba3afb704c62adc45e8ae1560001675}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1519     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} könyvtárreferencia"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1520 }
+\DoxyCodeLine{1524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a269aaa56f3754bbc599b865351383b47}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1525     \{}
+\DoxyCodeLine{1526       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Könyvtár"{}} : \textcolor{stringliteral}{"{}könyvtár"{}}));}
+\DoxyCodeLine{1527       \textcolor{comment}{//if (singular) result+="{}y"{}; else result+="{}ies"{};}}
+\DoxyCodeLine{1528       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1529     \}}
+\DoxyCodeLine{1530 }
+\DoxyCodeLine{1532 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1534 \textcolor{comment}{}}
+\DoxyCodeLine{1538     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ae753aff4068b68d25b1df5bb96059a44}{trOverloadText}}()}
+\DoxyCodeLine{1539     \{}
+\DoxyCodeLine{1540        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ez egy túlterhelt tagfüggvény, "{}}}
+\DoxyCodeLine{1541               \textcolor{stringliteral}{"{}a kényelem érdekében. A fenti függvénytől csak abban különbözik, "{}}}
+\DoxyCodeLine{1542               \textcolor{stringliteral}{"{}hogy milyen argumentumokat fogad el."{}};}
+\DoxyCodeLine{1543     \}}
+\DoxyCodeLine{1544 }
+\DoxyCodeLine{1545 }
+\DoxyCodeLine{1547 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1549 \textcolor{comment}{}}
+\DoxyCodeLine{1551     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a35dc43e954432d28c07200593967528d}{trCallerGraph}}()}
+\DoxyCodeLine{1552     \{}
+\DoxyCodeLine{1553       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}A függvény hívó gráfja:"{}};}
+\DoxyCodeLine{1554     \}}
+\DoxyCodeLine{1555 }
+\DoxyCodeLine{1559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a11ea2035201831f5e1dd4a26f356a589}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1560     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerációs-\/érték dokumentáció"{}}; \}}
+\DoxyCodeLine{1561 }
+\DoxyCodeLine{1563 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1565 \textcolor{comment}{}}
+\DoxyCodeLine{1567     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa2dfd20dba3f82cd1d8621a524975d5a}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1568     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tagfüggvény/Alprogram dokumentáció"{}}; \}}
+\DoxyCodeLine{1569 }
+\DoxyCodeLine{1571     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a46b8817bb2ed7381fbb18a4ef8531181}{trCompoundListFortran}}()}
+\DoxyCodeLine{1572     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adattípusok listája"{}}; \}}
+\DoxyCodeLine{1573 }
+\DoxyCodeLine{1575     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa69547adf47e7e69af508f803fd2c75c}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1576     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adatmezők"{}}; \}}
+\DoxyCodeLine{1577 }
+\DoxyCodeLine{1579     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4b9c673dc739a0b6190027e32e6cbc58}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1580     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rövid leírással ellátott adattípusok:"{}}; \}}
+\DoxyCodeLine{1581 }
+\DoxyCodeLine{1583     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab276aef7d4c5aeccba351fc2827dfa33}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1584     \{}
+\DoxyCodeLine{1585       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{1586       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1587       \{}
+\DoxyCodeLine{1588         result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{1589       \}}
+\DoxyCodeLine{1590       result+=\textcolor{stringliteral}{"{}adattípusú tagváltozó"{}};}
+\DoxyCodeLine{1591       result+=\textcolor{stringliteral}{"{} hivatkozásokkal ellátva "{}};}
+\DoxyCodeLine{1592       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1593       \{}
+\DoxyCodeLine{1594          result+=\textcolor{stringliteral}{"{}az egyes adattagok adatszerkezetének dokumentációjára"{}};}
+\DoxyCodeLine{1595       \}}
+\DoxyCodeLine{1596       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1597       \{}
+\DoxyCodeLine{1598          result+=\textcolor{stringliteral}{"{}azokhoz az adattípusokhoz, amelyekhez tartoznak:"{}};}
+\DoxyCodeLine{1599       \}}
+\DoxyCodeLine{1600       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1601     \}}
+\DoxyCodeLine{1605     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a23c043a213b3424aac1dd86139e736ee}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1606     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adattípus index"{}}; \}}
+\DoxyCodeLine{1607 }
+\DoxyCodeLine{1611     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a10c18dc3aaeea411ccb9d851196d92fd}{trTypeDocumentation}}()}
+\DoxyCodeLine{1612     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adattípus dokumentáció"{}}; \}}
+\DoxyCodeLine{1616     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a309a93a95df91978982b835f764ff20d}{trSubprograms}}()}
+\DoxyCodeLine{1617     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Függvények/Alprogramok"{}}; \}}
+\DoxyCodeLine{1618 }
+\DoxyCodeLine{1622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a86093c7631319677567785432600c114}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1623     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Függvény/Alprogram dokumentáció"{}}; \}}
+\DoxyCodeLine{1624 }
+\DoxyCodeLine{1628      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a701c30dab40cbd483726fa39a69ca261}{trDataTypes}}()}
+\DoxyCodeLine{1629     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adattípusok"{}}; \}}
+\DoxyCodeLine{1630 }
+\DoxyCodeLine{1632     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a645cc04f1cee10e3ae7d6bb60872442e}{trModulesList}}()}
+\DoxyCodeLine{1633     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulok listája"{}}; \}}
+\DoxyCodeLine{1634 }
+\DoxyCodeLine{1636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a485b8f80fa04f895b83f5a9c42856ca4}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1637     \{}
+\DoxyCodeLine{1638       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{1639       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{1640       result+=\textcolor{stringliteral}{"{}rövid leírással ellátott modul:"{}};}
+\DoxyCodeLine{1641       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1642     \}}
+\DoxyCodeLine{1643 }
+\DoxyCodeLine{1645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a84c45d8c8045f3cb95fd73043a5bd5e4}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1646                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1647                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1648     \{}
+\DoxyCodeLine{1649       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1650       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1651       \{}
+\DoxyCodeLine{1652         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} modul"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1653         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} típus"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1654         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} unió"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1655         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} interfész"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1656         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokoll"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1657         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategória"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1658         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} kivétel"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1659         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1660       \}}
+\DoxyCodeLine{1661       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} sablon"{}};}
+\DoxyCodeLine{1662       result+=\textcolor{stringliteral}{"{} hivatkozás"{}};}
+\DoxyCodeLine{1663       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1664     \}}
+\DoxyCodeLine{1666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a0bfe2ff5cec10a2490cd282e442e6ac2}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1667     \{}
+\DoxyCodeLine{1668       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1669       result+=\textcolor{stringliteral}{"{} modul hivatkozás"{}};}
+\DoxyCodeLine{1670       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1671     \}}
+\DoxyCodeLine{1672 }
+\DoxyCodeLine{1674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a7fcac5e7eb63e63e8250c254c7634f33}{trModulesMembers}}()}
+\DoxyCodeLine{1675     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modul adattagok"{}}; \}}
+\DoxyCodeLine{1676 }
+\DoxyCodeLine{1678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_acbd72b7e4dcaa11430dc90db7dd7bbaa}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1679     \{}
+\DoxyCodeLine{1680       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az összes "{}};}
+\DoxyCodeLine{1681       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentált "{}};}
+\DoxyCodeLine{1682       result+=\textcolor{stringliteral}{"{}modul adattagja hivatkozásokkal ellátva "{}};}
+\DoxyCodeLine{1683       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1684       \{}
+\DoxyCodeLine{1685         result+=\textcolor{stringliteral}{"{}az egyes adattagok moduljainak dokumentációjára:"{}};}
+\DoxyCodeLine{1686       \}}
+\DoxyCodeLine{1687       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1688       \{}
+\DoxyCodeLine{1689         result+=\textcolor{stringliteral}{"{}azokhoz a modulokhoz, amelyekhez tartoznak:"{}};}
+\DoxyCodeLine{1690       \}}
+\DoxyCodeLine{1691       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1692     \}}
+\DoxyCodeLine{1693 }
+\DoxyCodeLine{1697     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a84cec1668ee66a03d61a9aa5507f43dd}{trModulesIndex}}()}
+\DoxyCodeLine{1698     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulok indexe"{}}; \}}
+\DoxyCodeLine{1699 }
+\DoxyCodeLine{1704     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ad24ea03285311ac4041ba271010f4a3f}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1705     \{}
+\DoxyCodeLine{1706       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));}
+\DoxyCodeLine{1707       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1708       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1709     \}}
+\DoxyCodeLine{1710 }
+\DoxyCodeLine{1714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3becec21ed861903362bb7cce0c9b79f}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1715         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1716     \{}
+\DoxyCodeLine{1717       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1718       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ez a dokumentáció "{}};}
+\DoxyCodeLine{1719       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1720       \{}
+\DoxyCodeLine{1721         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}a modulról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1722         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}a típusról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1723         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}az unióról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1724         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}az interfészról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1725         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}a protokollról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1726         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}a kategóriáról"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1727         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}a kivételről"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1728         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1729       \}}
+\DoxyCodeLine{1730       result+=\textcolor{stringliteral}{"{} a következő fájl"{}};}
+\DoxyCodeLine{1731       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1732       result+=\textcolor{stringliteral}{"{} alapján készült:"{}};}
+\DoxyCodeLine{1733       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1734     \}}
+\DoxyCodeLine{1735 }
+\DoxyCodeLine{1740     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a229d1f2e0446e51bc6ca581779d86a2b}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1741     \{}
+\DoxyCodeLine{1742       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Típus"{}} : \textcolor{stringliteral}{"{}típus"{}}));}
+\DoxyCodeLine{1743       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1744       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1745     \}}
+\DoxyCodeLine{1746 }
+\DoxyCodeLine{1751     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a422d82da8275d8bbb7d33d81529b0429}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1752     \{}
+\DoxyCodeLine{1753       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Alprogram"{}} : \textcolor{stringliteral}{"{}alprogram"{}}));}
+\DoxyCodeLine{1754       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1755       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1756     \}}
+\DoxyCodeLine{1757 }
+\DoxyCodeLine{1759     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aaa9d524f31711792a388cfdbd1ae7794}{trTypeConstraints}}()}
+\DoxyCodeLine{1760     \{}
+\DoxyCodeLine{1761       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Típuskorlátozások"{}};}
+\DoxyCodeLine{1762     \}}
+\DoxyCodeLine{1763 }
+\DoxyCodeLine{1765 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1767 \textcolor{comment}{}}
+\DoxyCodeLine{1769     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a2a93d615082eea4b587c990e470780ce}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1770     \{}
+\DoxyCodeLine{1771       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} kapcsolat"{}};}
+\DoxyCodeLine{1772     \}}
+\DoxyCodeLine{1773 }
+\DoxyCodeLine{1775     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a02e8fddb6e2847cb78efdf11ee750ea4}{trLoading}}()}
+\DoxyCodeLine{1776     \{}
+\DoxyCodeLine{1777       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Betöltés..."{}};}
+\DoxyCodeLine{1778     \}}
+\DoxyCodeLine{1779 }
+\DoxyCodeLine{1781     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a81d42a47bd47864c2b83415be381af5f}{trGlobalNamespace}}()}
+\DoxyCodeLine{1782     \{}
+\DoxyCodeLine{1783       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globális névtér"{}};}
+\DoxyCodeLine{1784     \}}
+\DoxyCodeLine{1785 }
+\DoxyCodeLine{1787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a56e3524d8efc2abfec2c40de4e7d5602}{trSearching}}()}
+\DoxyCodeLine{1788     \{}
+\DoxyCodeLine{1789       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Keresés..."{}};}
+\DoxyCodeLine{1790     \}}
+\DoxyCodeLine{1791 }
+\DoxyCodeLine{1793     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a88e3bf187b611a077ae31ee59c5431ba}{trNoMatches}}()}
+\DoxyCodeLine{1794     \{}
+\DoxyCodeLine{1795       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nincs egyezés"{}};}
+\DoxyCodeLine{1796     \}}
+\DoxyCodeLine{1797 }
+\DoxyCodeLine{1799 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1801 \textcolor{comment}{}}
+\DoxyCodeLine{1806     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a43ff77df7aa59da2fc47160d6cfe0623}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1807     \{}
+\DoxyCodeLine{1808       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fájl a(z) "{}}+name+\textcolor{stringliteral}{"{} könyvtárban"{}};}
+\DoxyCodeLine{1809     \}}
+\DoxyCodeLine{1810 }
+\DoxyCodeLine{1815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac5b5cd498edcc3b0359de3b8dcf66179}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1816     \{}
+\DoxyCodeLine{1817       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tartalmazott fájl a(z) "{}}+name+\textcolor{stringliteral}{"{} könyvtárban"{}};}
+\DoxyCodeLine{1818     \}}
+\DoxyCodeLine{1819 }
+\DoxyCodeLine{1830     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3a934b1bcf2b0fd226a4feb8238f98e7}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1831                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1832                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1833     \{}
+\DoxyCodeLine{1834       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Hétfő"{}},\textcolor{stringliteral}{"{}Kedd"{}},\textcolor{stringliteral}{"{}Szerda"{}},\textcolor{stringliteral}{"{}Csütörtök"{}},\textcolor{stringliteral}{"{}Péntek"{}},\textcolor{stringliteral}{"{}Szombat"{}},\textcolor{stringliteral}{"{}Vasárnap"{}} \};}
+\DoxyCodeLine{1835       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Január"{}},\textcolor{stringliteral}{"{}Február"{}},\textcolor{stringliteral}{"{}Március"{}},\textcolor{stringliteral}{"{}Április"{}},\textcolor{stringliteral}{"{}Május"{}},\textcolor{stringliteral}{"{}Június"{}},\textcolor{stringliteral}{"{}Július"{}},\textcolor{stringliteral}{"{}Augusztus"{}},\textcolor{stringliteral}{"{}Szeptember"{}},\textcolor{stringliteral}{"{}Október"{}},\textcolor{stringliteral}{"{}November"{}},\textcolor{stringliteral}{"{}December"{}} \};}
+\DoxyCodeLine{1836       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1837       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1838       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1839       \{}
+\DoxyCodeLine{1840         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1841         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1842         sdate+=stime;}
+\DoxyCodeLine{1843       \}}
+\DoxyCodeLine{1844       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1845     \}}
+\DoxyCodeLine{1846 }
+\DoxyCodeLine{1848 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1850 \textcolor{comment}{}}
+\DoxyCodeLine{1852     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aae23d29beacdbecbd5149e793086153d}{trCiteReferences}}()}
+\DoxyCodeLine{1853     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bibliográfia"{}}; \}}
+\DoxyCodeLine{1854 }
+\DoxyCodeLine{1856     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a4acb42a0d5ec59447adb8039c493c459}{trCopyright}}()}
+\DoxyCodeLine{1857     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Szerzői jog"{}}; \}}
+\DoxyCodeLine{1858 }
+\DoxyCodeLine{1860     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a9c8465847ad97517023f7b0ad6eae9c4}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1861     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Könyvtár függőségi gráf a(z) "{}})+name+\textcolor{stringliteral}{"{}-\/könyvtárhoz:"{}}; \}}
+\DoxyCodeLine{1862 }
+\DoxyCodeLine{1864 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1866 \textcolor{comment}{}}
+\DoxyCodeLine{1868     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a62288ba9811e397c27717875d2148418}{trDetailLevel}}()}
+\DoxyCodeLine{1869     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}részletességi szint"{}}; \}}
+\DoxyCodeLine{1870 }
+\DoxyCodeLine{1872     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a2aa583d0e75d803f649480ce817edf88}{trTemplateParameters}}()}
+\DoxyCodeLine{1873     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sablon paraméterek"{}}; \}}
+\DoxyCodeLine{1874 }
+\DoxyCodeLine{1876     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab104928ac469feab371dbdb82e2c2c0d}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1877     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}és "{}}+number+\textcolor{stringliteral}{"{} elemmel több..."{}}; \}}
+\DoxyCodeLine{1878 }
+\DoxyCodeLine{1880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a515216f8c3ed33b0b55686c579698d33}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1881     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}A dokumentáció ehhez az enum-\/hoz a következő fájl"{}};}
+\DoxyCodeLine{1882       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}ok"{}};}
+\DoxyCodeLine{1883       result+=\textcolor{stringliteral}{"{} alapján készült:"{}};}
+\DoxyCodeLine{1884       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1885     \}}
+\DoxyCodeLine{1886 }
+\DoxyCodeLine{1888     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_afbc833cf156d13754eb43554e2cc572f}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1889     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} felsoroló referencia"{}}; \}}
+\DoxyCodeLine{1890 }
+\DoxyCodeLine{1892     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a745deb178ea9d4a21497bb1024b1b8b0}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1893     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} a(z) "{}}+what+\textcolor{stringliteral}{"{} osztályból származnak"{}}; \}}
+\DoxyCodeLine{1894 }
+\DoxyCodeLine{1898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a021cab24a5cf78286cd3ed5bd4f7740e}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1899     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}További örökölt tagok"{}}; \}}
+\DoxyCodeLine{1900 }
+\DoxyCodeLine{1902 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1904 \textcolor{comment}{}}
+\DoxyCodeLine{1909     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_af71f673c4752de4d5769332972978a11}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1910     \{}
+\DoxyCodeLine{1911       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}engedélyez"{}} : \textcolor{stringliteral}{"{}letilt"{}};}
+\DoxyCodeLine{1912       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kattintson a(z) "{}}+opt+\textcolor{stringliteral}{"{} panel synchronisation"{}};}
+\DoxyCodeLine{1913     \}}
+\DoxyCodeLine{1914 }
+\DoxyCodeLine{1919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ac80f2158220d73ded4d6f604d4352a86}{trProvidedByCategory}}()}
+\DoxyCodeLine{1920     \{}
+\DoxyCodeLine{1921       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@0 kategória szerint."{}};}
+\DoxyCodeLine{1922     \}}
+\DoxyCodeLine{1923 }
+\DoxyCodeLine{1928     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_ab1d0f39b1a3f212429af6d5997e94e3b}{trExtendsClass}}()}
+\DoxyCodeLine{1929     \{}
+\DoxyCodeLine{1930       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@0 kiterjesztett osztály."{}};}
+\DoxyCodeLine{1931     \}}
+\DoxyCodeLine{1932 }
+\DoxyCodeLine{1936     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a6e64d88438d6ec6566175817ba3ecc93}{trClassMethods}}()}
+\DoxyCodeLine{1937     \{}
+\DoxyCodeLine{1938       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Osztály metódusok"{}};}
+\DoxyCodeLine{1939     \}}
+\DoxyCodeLine{1940 }
+\DoxyCodeLine{1944     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aeed59f04bccf097ee35a2111393d2895}{trInstanceMethods}}()}
+\DoxyCodeLine{1945     \{}
+\DoxyCodeLine{1946       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Példány metódusok"{}};}
+\DoxyCodeLine{1947     \}}
+\DoxyCodeLine{1948 }
+\DoxyCodeLine{1951     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a255db686dca6f89cd4405d3ddfafa195}{trMethodDocumentation}}()}
+\DoxyCodeLine{1952     \{}
+\DoxyCodeLine{1953       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metódus dokumentáció"{}};}
+\DoxyCodeLine{1954     \}}
+\DoxyCodeLine{1955 }
+\DoxyCodeLine{1957 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1959 \textcolor{comment}{}}
+\DoxyCodeLine{1961     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aa9b8066f27b8cbec0b55e9c82da74d44}{trInterfaces}}()}
+\DoxyCodeLine{1962     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Exportált interfészek"{}}; \}}
+\DoxyCodeLine{1963 }
+\DoxyCodeLine{1965     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_aba7f5edf9dfe0f93a1f7e5eed9ea6e6c}{trServices}}()}
+\DoxyCodeLine{1966     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mellékelt szolgáltatások"{}}; \}}
+\DoxyCodeLine{1967 }
+\DoxyCodeLine{1969     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a2e83cab89caebec82a9e03940421b407}{trConstantGroups}}()}
+\DoxyCodeLine{1970     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstans csoportok"{}}; \}}
+\DoxyCodeLine{1971 }
+\DoxyCodeLine{1973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a63385d62e15825c91cac95b5fc4f1ec2}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1974     \{}
+\DoxyCodeLine{1975       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1976       result+=\textcolor{stringliteral}{"{} konstans csoport referencia"{}};}
+\DoxyCodeLine{1977       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1978     \}}
+\DoxyCodeLine{1980     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a365cfb6e82ef2f5a1c2b9fefbcfee0bd}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1981     \{}
+\DoxyCodeLine{1982       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1983       result+=\textcolor{stringliteral}{"{} szolgáltatás referencia"{}};}
+\DoxyCodeLine{1984       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1985     \}}
+\DoxyCodeLine{1987     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a57f1e41b03fd6211c351234979a9e841}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1988     \{}
+\DoxyCodeLine{1989       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1990       result+=\textcolor{stringliteral}{"{} egyke példány referencia"{}};}
+\DoxyCodeLine{1991       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1992     \}}
+\DoxyCodeLine{1994     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a3f491ed6719982e1e8682c23097d1527}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1995     \{}
+\DoxyCodeLine{1996       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1997       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}A szolgáltatás dokumentációja "{}}}
+\DoxyCodeLine{1998                                 \textcolor{stringliteral}{"{}a következő fájl"{}};}
+\DoxyCodeLine{1999       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}ból"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}okból"{}};}
+\DoxyCodeLine{2000       result+=\textcolor{stringliteral}{"{}lett létrehozva:"{}};}
+\DoxyCodeLine{2001       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2002     \}}
+\DoxyCodeLine{2004     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorHungarian_a96a434b0917ffafd489644847a2810ae}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{2005     \{}
+\DoxyCodeLine{2006       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{2007       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Az egyke példány dokomentációja "{}}}
+\DoxyCodeLine{2008                                 \textcolor{stringliteral}{"{}a következő fájl"{}};}
+\DoxyCodeLine{2009       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}ból"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}okból"{}};}
+\DoxyCodeLine{2010       result+=\textcolor{stringliteral}{"{}lett létrehozva:"{}};}
+\DoxyCodeLine{2011       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2012     \}}
+\DoxyCodeLine{2013 \};}
+\DoxyCodeLine{2014 }
+\DoxyCodeLine{2015 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

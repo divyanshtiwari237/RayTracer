@@ -1,0 +1,76 @@
+\hypertarget{translator__ke_8h_source}{}\doxysection{translator\+\_\+ke.\+h}
+\label{translator__ke_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_ke.h@{/mnt/c/projects/doxygen/src/translator\_ke.h}}
+\mbox{\hyperlink{translator__ke_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{//}}
+\DoxyCodeLine{19 \textcolor{comment}{//  Update:}}
+\DoxyCodeLine{20 \textcolor{comment}{//}}
+\DoxyCodeLine{21 \textcolor{comment}{// 2004.12.22 (SooYoung Jung: jung5000@gmail.com)}}
+\DoxyCodeLine{22 \textcolor{comment}{//  -\/ LaTex and RTF were not generated correctly.}}
+\DoxyCodeLine{23 \textcolor{comment}{//    Corrected trRTFansicp and trRTFCharSet.}}
+\DoxyCodeLine{24 \textcolor{comment}{//    It was wrong.}}
+\DoxyCodeLine{25 \textcolor{comment}{//}}
+\DoxyCodeLine{26 \textcolor{comment}{//}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_KE\_H}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define TRANSLATOR\_KE\_H}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorKoreanEn}{TranslatorKoreanEn}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorEnglish}{TranslatorEnglish}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_a255647e0edbc0550871133c143cc08a7}{idLanguage}}()}
+\DoxyCodeLine{35     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}korean-\/en"{}}; \}}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_a0db5fe9ae0843e3f89b0b9770ba32d32}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{kotex\}\(\backslash\)n"{}};}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_ac60d57743cc1cd0a7b6bc6c57a445b7e}{trRTFansicp}}()}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}949"{}};}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_a3b71d2ee009c7e529e60cb43898bcce7}{latexCommandName}}()}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46       \mbox{\hyperlink{classQCString}{QCString}} latex\_command = \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_CMD\_NAME);}
+\DoxyCodeLine{47       \textcolor{keywordflow}{if} (latex\_command.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latex\_command = \textcolor{stringliteral}{"{}latex"{}};}
+\DoxyCodeLine{48       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{49       \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} (latex\_command == \textcolor{stringliteral}{"{}latex"{}}) latex\_command = \textcolor{stringliteral}{"{}xelatex"{}};}
+\DoxyCodeLine{51       \}}
+\DoxyCodeLine{52       \textcolor{keywordflow}{return} latex\_command;}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{58     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_ad0ac561385e4e2583eb5f3aaf5303f4d}{trRTFCharSet}}()}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}129"{}};}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_a1ef27849325db6ce7580712592242381}{trISOLang}}()}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ko"{}};}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKoreanEn_a84b2891861d8b7c88013e19c280e41d3}{getLanguageString}}()}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x412 Korean"{}};}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

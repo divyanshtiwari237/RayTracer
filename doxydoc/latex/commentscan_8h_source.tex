@@ -1,0 +1,62 @@
+\hypertarget{commentscan_8h_source}{}\doxysection{commentscan.\+h}
+\label{commentscan_8h_source}\index{/mnt/c/projects/doxygen/src/commentscan.h@{/mnt/c/projects/doxygen/src/commentscan.h}}
+\mbox{\hyperlink{commentscan_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef COMMENTSCAN\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define COMMENTSCAN\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classEntry}{Entry}};}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classOutlineParserInterface}{OutlineParserInterface}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classCommentScanner}{CommentScanner}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30   \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{classCommentScanner_a4cc03eb4b903175c815dbbe1c9caa027}{CommentScanner}}();}
+\DoxyCodeLine{32    \mbox{\hyperlink{classCommentScanner_aa006b1543c5de0b520f2ee928e88871c}{\string~CommentScanner}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCommentScanner_a146e92fcb6ce0bc79b429192aba6bc49}{parseCommentBlock}}(\mbox{\hyperlink{classOutlineParserInterface}{OutlineParserInterface}} *parser,}
+\DoxyCodeLine{71                            \mbox{\hyperlink{classEntry}{Entry}} *curEntry,}
+\DoxyCodeLine{72                            \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{vhdldocgen_8cpp_ae8c2c4e6dab650ca0dbc32956838ddd9}{comment}},}
+\DoxyCodeLine{73                            \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,}
+\DoxyCodeLine{74                            \textcolor{keywordtype}{int}  \&lineNr,}
+\DoxyCodeLine{75                            \textcolor{keywordtype}{bool} isBrief,}
+\DoxyCodeLine{76                            \textcolor{keywordtype}{bool} isJavadocStyle,}
+\DoxyCodeLine{77                            \textcolor{keywordtype}{bool} isInbody,}
+\DoxyCodeLine{78                            \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} \&prot,}
+\DoxyCodeLine{79                            \textcolor{keywordtype}{int} \&position,}
+\DoxyCodeLine{80                            \textcolor{keywordtype}{bool} \&newEntryNeeded,}
+\DoxyCodeLine{81                            \textcolor{keywordtype}{bool} markdownEnabled}
+\DoxyCodeLine{82                           );}
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_a75f7ae2b80985063ee4a58fcb3ec2aec}{initGroupInfo}}(\mbox{\hyperlink{classEntry}{Entry}} *entry);}
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_abd752e50202fc1d4d2929595b003c8c9}{enterFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} lineNr);}
+\DoxyCodeLine{85     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_ac7b5eed8e5966a5023d12fd9b31efb7d}{leaveFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} lineNr);}
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_a955869dba74b22b97c0e86bcdc4b544b}{enterCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_a1c0c65d943ed68cacf891b2ec38db5fe}{leaveCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_a1dfece08838426aae997a4faa419cc6c}{open}}(\mbox{\hyperlink{classEntry}{Entry}} *e,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keywordtype}{bool} implicit=\textcolor{keyword}{false});}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCommentScanner_a109f854249ba68441071ceb95a4b159e}{close}}(\mbox{\hyperlink{classEntry}{Entry}} *e,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} line,\textcolor{keywordtype}{bool} foundInline,\textcolor{keywordtype}{bool} implicit=\textcolor{keyword}{false});}
+\DoxyCodeLine{90   \textcolor{keyword}{private}:}
+\DoxyCodeLine{91     \textcolor{keyword}{struct }\mbox{\hyperlink{structCommentScanner_1_1Private}{Private}};}
+\DoxyCodeLine{92     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{93 \};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

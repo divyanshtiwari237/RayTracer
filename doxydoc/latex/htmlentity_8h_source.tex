@@ -1,0 +1,54 @@
+\hypertarget{htmlentity_8h_source}{}\doxysection{htmlentity.\+h}
+\label{htmlentity_8h_source}\index{/mnt/c/projects/doxygen/src/htmlentity.h@{/mnt/c/projects/doxygen/src/htmlentity.h}}
+\mbox{\hyperlink{htmlentity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef HTMLENTITY\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define HTMLENTITY\_H}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{docparser_8h}{docparser.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classHtmlEntityMapper}{HtmlEntityMapper}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28   \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keyword}{static} \mbox{\hyperlink{classHtmlEntityMapper}{HtmlEntityMapper}} *\mbox{\hyperlink{classHtmlEntityMapper_ae6ddba77b763691a6e3a1c9021e8d944}{instance}}();}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classHtmlEntityMapper_aa45124007f692528edfa91ffbcb21f12}{deleteInstance}}();}
+\DoxyCodeLine{31     \mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} \mbox{\hyperlink{classHtmlEntityMapper_ae5a015b9df7e2e99420e8fe7d4adbd71}{name2sym}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&symName) \textcolor{keyword}{const};}
+\DoxyCodeLine{32     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_a4d0e89e08829cb5fbef56e63b145405e}{utf8}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb,\textcolor{keywordtype}{bool} useInPrintf=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{33     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_a6a779e8427a7ad17c5ff767d7e8c34b6}{html}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb,\textcolor{keywordtype}{bool} useInPrintf=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{34     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_a852eee7360169f75ae1a24b5e503bfd9}{xml}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{35     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_aa6d9fa38da68c64008be2a971953c5ca}{docbook}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{36     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_ae1a658dacc27f6300042318c4dda97cf}{latex}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{37     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_aa0c9a67c19af23ac55194d75a900d39f}{man}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{38     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classHtmlEntityMapper_aa1e5d81261fbbe19364c6c4f5b9947df}{rtf}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{39     \textcolor{keyword}{const} \mbox{\hyperlink{structDocSymbol_1_1PerlSymb}{DocSymbol::PerlSymb}} *\mbox{\hyperlink{classHtmlEntityMapper_aff1f6887be8ea6433a2cb33994aba368}{perl}}(\mbox{\hyperlink{classDocSymbol_abea9ba345564542cc6b65ae4c76be6c2}{DocSymbol::SymType}} symb) \textcolor{keyword}{const};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void}  \mbox{\hyperlink{classHtmlEntityMapper_a7c7b82a1151c72c7df57732517379a14}{writeXMLSchema}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t);}
+\DoxyCodeLine{41   \textcolor{keyword}{private}:}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void}  validate();}
+\DoxyCodeLine{43     \mbox{\hyperlink{classHtmlEntityMapper}{HtmlEntityMapper}}();}
+\DoxyCodeLine{44    \mbox{\hyperlink{classHtmlEntityMapper}{\string~HtmlEntityMapper}}();}
+\DoxyCodeLine{45     \textcolor{keyword}{static} \mbox{\hyperlink{classHtmlEntityMapper}{HtmlEntityMapper}} *s\_instance;}
+\DoxyCodeLine{46     std::unordered\_map<std::string,DocSymbol::SymType> m\_name2sym;}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

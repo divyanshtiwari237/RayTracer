@@ -1,0 +1,133 @@
+\hypertarget{threadpool_8h_source}{}\doxysection{threadpool.\+h}
+\label{threadpool_8h_source}\index{/mnt/c/projects/doxygen/src/threadpool.h@{/mnt/c/projects/doxygen/src/threadpool.h}}
+\mbox{\hyperlink{threadpool_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef THREADPOOL\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define THREADPOOL\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <condition\_variable>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <future>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{classThreadPool}{ThreadPool}}}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49   \textcolor{keyword}{public}:}
+\DoxyCodeLine{51     \mbox{\hyperlink{classThreadPool_a786db3b3e0aac5ca3e43c37025ab22b0}{ThreadPool}}(std::size\_t N=1)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53       \textcolor{keywordflow}{for} (std::size\_t i = 0; i < N; ++i)}
+\DoxyCodeLine{54       \{}
+\DoxyCodeLine{55         \textcolor{comment}{// each thread is a std::async running thread\_task():}}
+\DoxyCodeLine{56         m\_finished.push\_back(}
+\DoxyCodeLine{57             std::async(}
+\DoxyCodeLine{58               std::launch::async,}
+\DoxyCodeLine{59               [\textcolor{keyword}{this}]\{ threadTask(); \}}
+\DoxyCodeLine{60               )}
+\DoxyCodeLine{61             );}
+\DoxyCodeLine{62       \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{65     \mbox{\hyperlink{classThreadPool_a44d3d2ab618970605e684efc216655eb}{\string~ThreadPool}}()}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67       \mbox{\hyperlink{classThreadPool_a1fc76489de6e11c259ccf8f072fe135d}{finish}}();}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{72     \textcolor{keyword}{template}<\textcolor{keyword}{class} F, \textcolor{keyword}{class} R=std::result\_of\_t<F\&()> >}
+\DoxyCodeLine{73     std::future<R> \mbox{\hyperlink{classThreadPool_abfd71afcc32aef51c03968c99dbc0e00}{queue}}(F\&\& f)}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75       \textcolor{comment}{// We wrap the function object into a packaged task, splitting}}
+\DoxyCodeLine{76       \textcolor{comment}{// execution from the return value.}}
+\DoxyCodeLine{77       \textcolor{comment}{// Since the packaged\_task object is not copyable, we create it on the heap}}
+\DoxyCodeLine{78       \textcolor{comment}{// and capture it via a shared pointer in a lambda and then assign that lambda}}
+\DoxyCodeLine{79       \textcolor{comment}{// to a std::function.}}
+\DoxyCodeLine{80       \textcolor{keyword}{auto} ptr = std::make\_shared< std::packaged\_task<R()> >(std::forward<F>(f));}
+\DoxyCodeLine{81       \textcolor{keyword}{auto} taskFunc = [ptr]() \{ \textcolor{keywordflow}{if} (ptr-\/>valid()) (*ptr)(); \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83       \textcolor{keyword}{auto} r=ptr-\/>get\_future(); \textcolor{comment}{// get the return value before we hand off the task}}
+\DoxyCodeLine{84       \{}
+\DoxyCodeLine{85         std::unique\_lock<std::mutex> l(m\_mutex);}
+\DoxyCodeLine{86         m\_work.emplace\_back(taskFunc);}
+\DoxyCodeLine{87         m\_cond.notify\_one(); \textcolor{comment}{// wake a thread to work on the task}}
+\DoxyCodeLine{88       \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90       \textcolor{keywordflow}{return} r; \textcolor{comment}{// return the future result of the task}}
+\DoxyCodeLine{91     \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classThreadPool_a1fc76489de6e11c259ccf8f072fe135d}{finish}}()}
+\DoxyCodeLine{96     \{}
+\DoxyCodeLine{97       \{}
+\DoxyCodeLine{98         std::unique\_lock<std::mutex> l(m\_mutex);}
+\DoxyCodeLine{99         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\&\& u : m\_finished)}
+\DoxyCodeLine{100         \{}
+\DoxyCodeLine{101           unused\_variable(u);}
+\DoxyCodeLine{102           m\_work.push\_back(\{\}); \textcolor{comment}{// insert empty function object to signal abort}}
+\DoxyCodeLine{103         \}}
+\DoxyCodeLine{104       \}}
+\DoxyCodeLine{105       m\_cond.notify\_all();}
+\DoxyCodeLine{106       m\_finished.clear();}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108   \textcolor{keyword}{private}:}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{comment}{// helper to silence the compiler warning about unused variables}}
+\DoxyCodeLine{111     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ...Args>}
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} unused\_variable(Args\&\& ...args) \{ (void)(\textcolor{keyword}{sizeof}...(args)); \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \textcolor{comment}{// the work that a worker thread does:}}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} threadTask()}
+\DoxyCodeLine{116     \{}
+\DoxyCodeLine{117       \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{118       \{}
+\DoxyCodeLine{119         \textcolor{comment}{// pop a task off the queue:}}
+\DoxyCodeLine{120         std::function<void()> f;}
+\DoxyCodeLine{121         \{}
+\DoxyCodeLine{122           \textcolor{comment}{// usual thread-\/safe queue code:}}
+\DoxyCodeLine{123           std::unique\_lock<std::mutex> l(m\_mutex);}
+\DoxyCodeLine{124           \textcolor{keywordflow}{if} (m\_work.empty())}
+\DoxyCodeLine{125           \{}
+\DoxyCodeLine{126             m\_cond.wait(l,[\&]\{\textcolor{keywordflow}{return} !m\_work.empty();\});}
+\DoxyCodeLine{127           \}}
+\DoxyCodeLine{128           f = std::move(m\_work.front());}
+\DoxyCodeLine{129           m\_work.pop\_front();}
+\DoxyCodeLine{130         \}}
+\DoxyCodeLine{131         \textcolor{comment}{// if the function is empty, it means we are asked to abort}}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} (!f) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{133         \textcolor{comment}{// run the task}}
+\DoxyCodeLine{134         f();}
+\DoxyCodeLine{135       \}}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{// the mutex, condition variable and deque form a single}}
+\DoxyCodeLine{139     \textcolor{comment}{// thread-\/safe triggered queue of tasks:}}
+\DoxyCodeLine{140     std::mutex m\_mutex;}
+\DoxyCodeLine{141     std::condition\_variable m\_cond;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{comment}{// hold the queue of work}}
+\DoxyCodeLine{144     std::deque< std::function<void()> > m\_work;}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{comment}{// this holds futures representing the worker threads being done:}}
+\DoxyCodeLine{147     std::vector< std::future<void> > m\_finished;}
+\DoxyCodeLine{148 \};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{151 }
+
+\end{DoxyCode}

@@ -1,0 +1,76 @@
+\hypertarget{filename_8h_source}{}\doxysection{filename.\+h}
+\label{filename_8h_source}\index{/mnt/c/projects/doxygen/src/filename.h@{/mnt/c/projects/doxygen/src/filename.h}}
+\mbox{\hyperlink{filename_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef FILENAME\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define FILENAME\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linkedmap_8h}{linkedmap.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utf8_8h}{utf8.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classFileName}{FileName}} : \textcolor{keyword}{public} std::vector< std::unique\_ptr<FileDef> >}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31   \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{classFileName_a7a0e19ccc71dc3cb33ba5973b710c83d}{FileName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&nm,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fn) : m\_name(nm), m\_fName(fn), m\_pathName(\textcolor{stringliteral}{"{}tmp"{}}) \{\}}
+\DoxyCodeLine{33     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFileName_a6d2360fc171cd55eb3087d214ed588e3}{fileName}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_name; \}}
+\DoxyCodeLine{34     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFileName_aea60bd790ae0d85f32e45012037f8179}{fullName}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_fName; \}}
+\DoxyCodeLine{35     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFileName_a44177c39b03e97607e775aa86b173b8e}{path}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_pathName; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     \mbox{\hyperlink{classQCString}{QCString}} m\_name;}
+\DoxyCodeLine{39     \mbox{\hyperlink{classQCString}{QCString}} m\_fName;}
+\DoxyCodeLine{40     \mbox{\hyperlink{classQCString}{QCString}} m\_pathName;}
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classFileNameFn}{FileNameFn}}}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47   \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     std::size\_t \mbox{\hyperlink{classFileNameFn_a66c2a1871d0033e87ef374c8204a54ce}{operator()}}(\textcolor{keyword}{const} std::string\& input) \textcolor{keyword}{const} \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51       \textcolor{keywordflow}{return} std::hash<std::string>()(searchKey(input));}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classFileNameFn_a66c2a1871d0033e87ef374c8204a54ce}{operator() }}(\textcolor{keyword}{const} std::string \&t1, \textcolor{keyword}{const} std::string \&t2)\textcolor{keyword}{ const}}
+\DoxyCodeLine{55 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{56       \textcolor{keywordflow}{return} searchKey(t1) == searchKey(t2);}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58   \textcolor{keyword}{private}:}
+\DoxyCodeLine{59     std::string searchKey(std::string input)\textcolor{keyword}{ const}}
+\DoxyCodeLine{60 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{61       std::string key = input;}
+\DoxyCodeLine{62       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(CASE\_SENSE\_NAMES))}
+\DoxyCodeLine{63       \{}
+\DoxyCodeLine{64         key = \mbox{\hyperlink{utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convertUTF8ToLower}}(key);}
+\DoxyCodeLine{65       \}}
+\DoxyCodeLine{66       \textcolor{keywordflow}{return} key;}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{keyword}{class }\mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedMap}{LinkedMap}}<FileName,FileNameFn,FileNameFn,}
+\DoxyCodeLine{72                                            std::unordered\_multimap<std::string,FileName*,FileNameFn,FileNameFn> >}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

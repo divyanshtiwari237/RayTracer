@@ -1,0 +1,146 @@
+\hypertarget{classreg_1_1Ex}{}\doxysection{reg\+::Ex Class Reference}
+\label{classreg_1_1Ex}\index{reg::Ex@{reg::Ex}}
+
+
+{\ttfamily \#include $<$regex.\+h$>$}
+
+
+
+Collaboration diagram for reg\+::Ex\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classreg_1_1Ex_1_1Private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}{Mode}} \{ \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}{Reg\+Ex}}
+, \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9ac4a0dbaac3bd0f3bf581ad822f5fb4b4}{Wildcard}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classreg_1_1Ex_ab087c6345a9601ff79ecb47d29c55875}{Ex}} (const std\+::string \&pattern, \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}{Mode}} mode=\mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}{Mode\+::\+Reg\+Ex}})
+\item 
+\mbox{\hyperlink{classreg_1_1Ex_a197664abdebf160b5b621c3a78c01cf7}{$\sim$\+Ex}} ()
+\item 
+bool \mbox{\hyperlink{classreg_1_1Ex_a9fc6293038a87e8995a13c0fdfd11499}{match}} (const std\+::string \&str, \mbox{\hyperlink{classreg_1_1Match}{Match}} \&match, size\+\_\+t pos=0) const
+\item 
+bool \mbox{\hyperlink{classreg_1_1Ex_ab26ac71412d978b0a03ac996da2beb74}{is\+Valid}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a regular expression.
+
+It has a similar API as {\ttfamily std\+::regex}, but is much faster (and also somewhat more limited). 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}\label{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}} 
+\index{reg::Ex@{reg::Ex}!Mode@{Mode}}
+\index{Mode@{Mode}!reg::Ex@{reg::Ex}}
+\doxysubsubsection{\texorpdfstring{Mode}{Mode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}{reg\+::\+Ex\+::\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+Matching algorithm \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RegEx@{RegEx}!reg::Ex@{reg::Ex}}\index{reg::Ex@{reg::Ex}!RegEx@{RegEx}}}\mbox{\Hypertarget{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}\label{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}} 
+Reg\+Ex&full regular expression. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Wildcard@{Wildcard}!reg::Ex@{reg::Ex}}\index{reg::Ex@{reg::Ex}!Wildcard@{Wildcard}}}\mbox{\Hypertarget{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9ac4a0dbaac3bd0f3bf581ad822f5fb4b4}\label{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9ac4a0dbaac3bd0f3bf581ad822f5fb4b4}} 
+Wildcard&simple globbing pattern. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classreg_1_1Ex_ab087c6345a9601ff79ecb47d29c55875}\label{classreg_1_1Ex_ab087c6345a9601ff79ecb47d29c55875}} 
+\index{reg::Ex@{reg::Ex}!Ex@{Ex}}
+\index{Ex@{Ex}!reg::Ex@{reg::Ex}}
+\doxysubsubsection{\texorpdfstring{Ex()}{Ex()}}
+{\footnotesize\ttfamily reg\+::\+Ex\+::\+Ex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{pattern,  }\item[{\mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9}{Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}{Mode\+::\+Reg\+Ex}}} }\end{DoxyParamCaption})}
+
+Creates a regular expression object given the pattern as a string. Two modes of matching are supported\+: Reg\+Ex and Wildcard
+
+The following special characters are supported in \mbox{\hyperlink{classreg_1_1Ex_a8c11e4a47acf40a6747e2709961acdf9aaa3c0312d71dacb7f28dd70f21d32ac0}{Mode\+::\+Reg\+Ex}} mode.
+\begin{DoxyItemize}
+\item {\ttfamily c} matches character {\ttfamily c}
+\item {\ttfamily .} matches any character
+\item {\ttfamily $^\wedge$} matches the start of the input
+\item {\ttfamily \$} matches the end of the input
+\item {\ttfamily \textbackslash{}\texorpdfstring{$<$}{<}} matches the start of a word
+\item {\ttfamily \textbackslash{}\texorpdfstring{$>$}{>}} matches the end of a word
+\item {\ttfamily \mbox{[}\mbox{]}} matches a set of characters
+\item {\ttfamily x$\ast$} matches a sequence of zero or more {\ttfamily x}\textquotesingle{}s
+\item {\ttfamily x+} matches a sequence of one or more {\ttfamily x}\textquotesingle{}s
+\item {\ttfamily x?} matches an optional {\ttfamily x}
+\item {\ttfamily (} matches the start of a capture range
+\item {\ttfamily )} matches the ends a capture range
+\item {\ttfamily \textbackslash{}c} to escape a special character, such as {\ttfamily +}, {\ttfamily \mbox{[}}, {\ttfamily $\ast$}, {\ttfamily (}, etc.
+\item {\ttfamily \textbackslash{}t} matches a tab character
+\item {\ttfamily \textbackslash{}n} matches a newline character
+\item {\ttfamily \textbackslash{}r} matches a return character
+\item {\ttfamily \textbackslash{}s} matches any whitespace as defined by {\ttfamily std\+::isspace()}
+\item {\ttfamily \textbackslash{}d} matches any digit as defined by {\ttfamily std\+::digit()}
+\item {\ttfamily \textbackslash{}a} matches any alphabetical characters, same as {\ttfamily \mbox{[}a-\/z\+\_\+\+A-\/Z\textbackslash{}x80-\/\textbackslash{}x\+FF\mbox{]}}
+\item {\ttfamily \textbackslash{}w} matches any alpha numercial character, same as {\ttfamily \mbox{[}a-\/z\+\_\+\+A-\/\+Z0-\/9\textbackslash{}x80-\/\textbackslash{}x\+FF\mbox{]}}
+\item {\ttfamily \textbackslash{}x\+HH} matches a hexadecimal character, e.\+g. {\ttfamily \textbackslash{}x\+A0} matches character code 160.
+\end{DoxyItemize}
+
+A character range can be used to match a character that falls inside a range (or set of ranges). Within the opening {\ttfamily \mbox{[}} and closing {\ttfamily \mbox{]}} brackets of a character ranges the following is supported\+:
+\begin{DoxyItemize}
+\item {\ttfamily $^\wedge$} if at the start of the range, a character matches if it is {\itshape not} in the range, e.\+g. {\ttfamily \mbox{[}$^\wedge$\textbackslash{}d\mbox{]}} matches any character not a digit
+\item {\ttfamily -\/} when placed between 2 characters it defines a range from the first character to the second. any character that falls in the range will match, e.\+g. \mbox{[}0-\/9\mbox{]} matches the digit from 0 to 9.
+\item {\ttfamily \textbackslash{}s}, {\ttfamily \textbackslash{}d}, {\ttfamily \textbackslash{}a}, and {\ttfamily \textbackslash{}w} as explained above.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+that special characters {\ttfamily .}, {\ttfamily $\ast$}, {\ttfamily ?}, {\ttfamily \$}, {\ttfamily +}, {\ttfamily \mbox{[}} do not have a special meaning in a character range. {\ttfamily $^\wedge$} only has a special meaning as the first character.
+
+that capture ranges cannot be nested, and {\ttfamily $\ast$}, {\ttfamily +}, and {\ttfamily ?} do not work on capture ranges. e.\+g. {\ttfamily (abd)?} is not valid. If multiple capture ranges are specified then some character has to be in between them, e.\+g. this does not work {\ttfamily (.$\ast$)(a.$\ast$)}, but this does {\ttfamily (.$\ast$)a(.$\ast$)}.
+\end{DoxyNote}
+In Wildcard mode {\ttfamily $\ast$} is used to match any sequence of zero or more characters. The character {\ttfamily ?} can be used to match an optional character. Character ranges are also supported, but other characters like {\ttfamily \$} and {\ttfamily +} are just treated as literal characters. \mbox{\Hypertarget{classreg_1_1Ex_a197664abdebf160b5b621c3a78c01cf7}\label{classreg_1_1Ex_a197664abdebf160b5b621c3a78c01cf7}} 
+\index{reg::Ex@{reg::Ex}!````~Ex@{$\sim$Ex}}
+\index{````~Ex@{$\sim$Ex}!reg::Ex@{reg::Ex}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ex()}{~Ex()}}
+{\footnotesize\ttfamily reg\+::\+Ex\+::$\sim$\+Ex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destroys the regular expression object. Frees resources. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classreg_1_1Ex_ab26ac71412d978b0a03ac996da2beb74}\label{classreg_1_1Ex_ab26ac71412d978b0a03ac996da2beb74}} 
+\index{reg::Ex@{reg::Ex}!isValid@{isValid}}
+\index{isValid@{isValid}!reg::Ex@{reg::Ex}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily bool reg\+::\+Ex\+::is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classreg_1_1Ex_a9fc6293038a87e8995a13c0fdfd11499}\label{classreg_1_1Ex_a9fc6293038a87e8995a13c0fdfd11499}} 
+\index{reg::Ex@{reg::Ex}!match@{match}}
+\index{match@{match}!reg::Ex@{reg::Ex}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily bool reg\+::\+Ex\+::match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str,  }\item[{\mbox{\hyperlink{classreg_1_1Match}{Match}} \&}]{match,  }\item[{size\+\_\+t}]{pos = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+Check if a given string matches this regular expression. 
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string to match against. \\
+\hline
+{\em match} & The match object to hold the matching results. \\
+\hline
+{\em pos} & The position in the string at which to start the match. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true iff a match is found. Details are stored in the match object. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{regex_8h}{regex.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{regex_8cpp}{regex.\+cpp}}\end{DoxyCompactItemize}

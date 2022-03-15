@@ -1,0 +1,1861 @@
+\hypertarget{translator__cz_8h_source}{}\doxysection{translator\+\_\+cz.\+h}
+\label{translator__cz_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_cz.h@{/mnt/c/projects/doxygen/src/translator\_cz.h}}
+\mbox{\hyperlink{translator__cz_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_CZ\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define TRANSLATOR\_CZ\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Updates:}}
+\DoxyCodeLine{22 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{23 \textcolor{comment}{// 2021/08/31 -\/ Updated for 1.9.3 version by: <petyovsky@feec.vutbr.cz>.}}
+\DoxyCodeLine{24 \textcolor{comment}{// 2021/01/22 -\/ Updated for 1.9.2 version by: <petyovsky@feec.vutbr.cz>.}}
+\DoxyCodeLine{25 \textcolor{comment}{// 2013/04/11 -\/ Updates for "{}new since 1.8.4"{}.}}
+\DoxyCodeLine{26 \textcolor{comment}{// 2012/07/31 -\/ Updates for "{}new since 1.8.2"{}.}}
+\DoxyCodeLine{27 \textcolor{comment}{// 2012/04/10 -\/ Updates for "{}new since 1.8.0"{}.}}
+\DoxyCodeLine{28 \textcolor{comment}{// 2011/07/28 -\/ Updates for "{}new since 1.7.5"{}.}}
+\DoxyCodeLine{29 \textcolor{comment}{// 2010/06/01 -\/ typo}}
+\DoxyCodeLine{30 \textcolor{comment}{// 2010/04/28 -\/ Updates for "{}new since 1.6.3"{}.}}
+\DoxyCodeLine{31 \textcolor{comment}{// 2009/09/02 -\/ Updates for "{}new since 1.6.0 (mainly for the new search engine)"{}.}}
+\DoxyCodeLine{32 \textcolor{comment}{// 2008/06/09 -\/ Corrections in trLegendDocs().}}
+\DoxyCodeLine{33 \textcolor{comment}{// 2007/11/13 -\/ Update for "{}new since 1.5.4 (mainly for Fortran)"{}.}}
+\DoxyCodeLine{34 \textcolor{comment}{// 2007/03/20 -\/ removing decode(), conversion of literals to UTF-\/8.}}
+\DoxyCodeLine{35 \textcolor{comment}{// 2006/06/13 -\/ translation of the trEnumerationValueDocumentation().}}
+\DoxyCodeLine{36 \textcolor{comment}{//              and clear in the Czech language.}}
+\DoxyCodeLine{37 \textcolor{comment}{//              modified trCallGraph() to make the meaning unambiguous}}
+\DoxyCodeLine{38 \textcolor{comment}{// 2006/05/10 -\/ Update for "{}new since 1.4.6"{} -\/-\/ trCallerGraph(),}}
+\DoxyCodeLine{39 \textcolor{comment}{// 2005/03/08 -\/ Update for "{}new since 1.4.1"{} (trOverloadText())}}
+\DoxyCodeLine{40 \textcolor{comment}{// 2005/02/11 -\/ The "{}never used"{} methods removed.}}
+\DoxyCodeLine{41 \textcolor{comment}{// 2004/09/14 -\/ The new methods "{}since 1.3.9"{} implemented.}}
+\DoxyCodeLine{42 \textcolor{comment}{// 2004/06/16 -\/ The new method "{}since 1.3.8"{} implemented.}}
+\DoxyCodeLine{43 \textcolor{comment}{// 2004/02/27 -\/ Text inside the trCallGraph() corrected.}}
+\DoxyCodeLine{44 \textcolor{comment}{// 2004/02/26 -\/ trLegendDocs() updated.}}
+\DoxyCodeLine{45 \textcolor{comment}{// 2003/08/13 -\/ Four new methods "{}since 1.3.3"{} implemented.}}
+\DoxyCodeLine{46 \textcolor{comment}{// 2003/06/10 -\/ Two new methods "{}since 1.3.1"{} implemented.}}
+\DoxyCodeLine{47 \textcolor{comment}{// 2003/04/28 -\/ Five new methods "{}since 1.3"{} implemented.}}
+\DoxyCodeLine{48 \textcolor{comment}{// 2002/10/15 -\/ The new trEvents() and trEventDocumentation() implemented.}}
+\DoxyCodeLine{49 \textcolor{comment}{// 2002/07/29 -\/ The new trDeprecatedList() implemented.}}
+\DoxyCodeLine{50 \textcolor{comment}{// 2002/07/08 -\/ The new trRTFTableOfContents() implemented. (my birthday! ;)}}
+\DoxyCodeLine{51 \textcolor{comment}{// 2002/03/05 -\/ ... forgot to replace TranslatorAdapter... by Translator.}}
+\DoxyCodeLine{52 \textcolor{comment}{// 2002/01/23 -\/ Two new methods "{}since 1.2.13"{} implemented.}}
+\DoxyCodeLine{53 \textcolor{comment}{// 2001/11/06 -\/ trReferences() implemented.}}
+\DoxyCodeLine{54 \textcolor{comment}{// 2001/07/16 -\/ trClassDocumentation() updated as in the English translator.}}
+\DoxyCodeLine{55 \textcolor{comment}{// 2001/05/25 -\/ Corrections.}}
+\DoxyCodeLine{56 \textcolor{comment}{// 2001/05/18 -\/ Updates, corrections.}}
+\DoxyCodeLine{57 \textcolor{comment}{// 2001/05/02 -\/ Decode() inline changed to decode(); cleaning.}}
+\DoxyCodeLine{58 \textcolor{comment}{//              level as other translators.}}
+\DoxyCodeLine{59 \textcolor{comment}{//              class Translator.  The English translator is now on the same}}
+\DoxyCodeLine{60 \textcolor{comment}{//              introducing TranslatorAdapter class and the abstract base}}
+\DoxyCodeLine{61 \textcolor{comment}{// 2001/04/20 -\/ Update for "{}new since 1.2.6-\/20010422"{}. Experimental version}}
+\DoxyCodeLine{62 \textcolor{comment}{// 2001/04/10 -\/ Updates (1.2.6-\/20010408), cleaning.}}
+\DoxyCodeLine{63 \textcolor{comment}{// 2001/03/12 -\/ Minor correction of comments (synchronous with translator.h).}}
+\DoxyCodeLine{64 \textcolor{comment}{// 2001/02/26 -\/ Update for "{}new since 1.2.5"{} version (trBug(), trBugList()).}}
+\DoxyCodeLine{65 \textcolor{comment}{// 2001/02/15 -\/ trMore() now returns only "{}..."{} (ellipsis).}}
+\DoxyCodeLine{66 \textcolor{comment}{// 2001/01/09 -\/ Update for "{}new since 1.2.4"{} version.}}
+\DoxyCodeLine{67 \textcolor{comment}{// 2000/10/17 -\/ Update for "{}new since 1.2.2"{} version.}}
+\DoxyCodeLine{68 \textcolor{comment}{// 2000/09/11 -\/ Update for "{}new since 1.2.1"{} version.}}
+\DoxyCodeLine{69 \textcolor{comment}{// 2000/09/06 -\/ Reimplementation of trInheritsList().}}
+\DoxyCodeLine{70 \textcolor{comment}{// 2000/08/31 -\/ ISOToWin() and WinToISO() moved to the base class.}}
+\DoxyCodeLine{71 \textcolor{comment}{// 2000/08/30 -\/ Macro DECODE replaced by the inline (thanks to Boris Bralo).}}
+\DoxyCodeLine{72 \textcolor{comment}{// 2000/08/24 -\/ Corrections, updates.}}
+\DoxyCodeLine{73 \textcolor{comment}{// 2000/08/02 -\/ Updated for 1.2.0}}
+\DoxyCodeLine{74 \textcolor{comment}{// 2000/07/19 -\/ Updates for "{}new since 1.1.5"{}; encoding conversion separated.}}
+\DoxyCodeLine{75 \textcolor{comment}{// 2000/07/10 -\/ Update to 1.1.5; conditionally decoding to iso-\/8859-\/2 for UNIX.}}
+\DoxyCodeLine{76 \textcolor{comment}{// 2000/06/20 -\/ Prototype: with diacritics; based on ver. 1.1.4 (from scratch).}}
+\DoxyCodeLine{77 \textcolor{comment}{//}}
+\DoxyCodeLine{78 \textcolor{comment}{// The first translation from English to Czech was started by}}
+\DoxyCodeLine{79 \textcolor{comment}{// Vlastimil Havran (1999-\/-\/2000). The prototype version of Czech strings}}
+\DoxyCodeLine{80 \textcolor{comment}{// with diacritics was implemented by Petr Prikryl (prikrylp@skil.cz),}}
+\DoxyCodeLine{81 \textcolor{comment}{// 2000/06/20. Vlastimil agreed that Petr be the new maintainer.}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{// Todo}}
+\DoxyCodeLine{84 \textcolor{comment}{// -\/-\/-\/-\/}}
+\DoxyCodeLine{85 \textcolor{comment}{//  -\/ The trReimplementedFromList() should pass the kind of the}}
+\DoxyCodeLine{86 \textcolor{comment}{//    reimplemented element.  It can be method, typedef or possibly}}
+\DoxyCodeLine{87 \textcolor{comment}{//    something else.  It is difficult to find the general translation}}
+\DoxyCodeLine{88 \textcolor{comment}{//    for all kinds in the Czech language.}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorCzech}{TranslatorCzech}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslator}{Translator}}}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92   \textcolor{keyword}{public}:}
+\DoxyCodeLine{93     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad869ae218a0b8c745c67cc84d1cd26a6}{idLanguage}}()}
+\DoxyCodeLine{96     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}czech"{}}; \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0d4f3572277741fcfa2c6bc37ab7b17d}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T2A]\{fontenc\}\(\backslash\)n"{}}}
+\DoxyCodeLine{101              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[czech]\{babel\}\(\backslash\)n"{}}}
+\DoxyCodeLine{102              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{regexpatch\}\(\backslash\)n"{}}}
+\DoxyCodeLine{103              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)makeatletter\(\backslash\)n"{}}}
+\DoxyCodeLine{104              \textcolor{stringliteral}{"{}\% Change the `-\/` delimiter to an active character\(\backslash\)n"{}}}
+\DoxyCodeLine{105              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)xpatchparametertext\(\backslash\)\(\backslash\)@@@cmidrule\{-\/\}\{\(\backslash\)\(\backslash\)cA-\/\}\{\}\{\}\(\backslash\)n"{}}}
+\DoxyCodeLine{106              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)xpatchparametertext\(\backslash\)\(\backslash\)@cline\{-\/\}\{\(\backslash\)\(\backslash\)cA-\/\}\{\}\{\}\(\backslash\)n"{}}}
+\DoxyCodeLine{107              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)makeatother\(\backslash\)n"{}};}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a69095494f2d7c17900e7611c7dceafe9}{trISOLang}}()}
+\DoxyCodeLine{111     \{}
+\DoxyCodeLine{112       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}cs"{}};}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a05fbaaf4b8a130f29f3985ef9dbb6bca}{getLanguageString}}()}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x405 Czech"{}};}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6185da8c8ea1b0cbc444a947432dc1d8}{trRelatedFunctions}}()}
+\DoxyCodeLine{123     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Související funkce"{}}; \}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac9d6233bcf5959199504546e62facbe8}{trRelatedSubscript}}()}
+\DoxyCodeLine{127     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Uvedené funkce nejsou členskými funkcemi.)"{}}; \}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aaf320a13caf51f252e5bdf330eadfa22}{trDetailedDescription}}()}
+\DoxyCodeLine{131     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Detailní popis"{}}; \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a813712a76b915e3dc85a6be76ab79b1a}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{135     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k členským typům"{}}; \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5b49ac1def3ed8bbf005b09f3f139737}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{139     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k členským výčtům"{}}; \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a34d478f257d27ca04cb304f458d281cd}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{143     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k metodám"{}}; \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{146     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6b347ea533bfa4ba4b42f97cd6491af9}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{147     \{}
+\DoxyCodeLine{148       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{149       \{}
+\DoxyCodeLine{150         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k položkám"{}};}
+\DoxyCodeLine{151       \}}
+\DoxyCodeLine{152       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{153       \{}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k datovým členům"{}};}
+\DoxyCodeLine{155       \}}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{159     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af60ca3006749ce45b9c6a6a099345e90}{trMore}}()}
+\DoxyCodeLine{160     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}..."{}}; \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{163     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6506ce7e830bb5b19ec2b0b2b526149a}{trListOfAllMembers}}()}
+\DoxyCodeLine{164     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam všech členů"{}}; \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a56d1c8c1cad33305514f42eb1dd0b06d}{trMemberList}}()}
+\DoxyCodeLine{168     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam členů třídy"{}}; \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aab1bc5f442f1db8ea6ec079d5ec1804c}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{172     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete úplný seznam členů třídy "{}}; \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{175     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abfda849a688a320e08dfc5e6b51cd116}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{176     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, včetně všech zděděných členů."{}}; \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aa4210b14b86e45784410d748f0a403c2}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{182     \{ \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Vygenerováno automaticky programem Doxygen "{}}}
+\DoxyCodeLine{183                       \textcolor{stringliteral}{"{}ze zdrojových textů"{}});}
+\DoxyCodeLine{184       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result += \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{} projektu "{}}) + \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{185       result += \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{186       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{187     \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{190     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3ec3a74a7487ff628edc604a2176517d}{trEnumName}}()}
+\DoxyCodeLine{191     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}jméno výčtu"{}}; \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3fe382976dcc9d4f4b11ef016e202522}{trEnumValue}}()}
+\DoxyCodeLine{195     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hodnota výčtu"{}}; \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{198     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6b2e696890fa5c0df4ba5a4b638b7d6c}{trDefinedIn}}()}
+\DoxyCodeLine{199     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}definován v"{}}; \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aafd3c3fd4eea6b65d8b63368235e3eb9}{trModules}}()}
+\DoxyCodeLine{207     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduly"{}}; \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af35e3a4d7ee9363bc7913ff8d370bca0}{trClassHierarchy}}()}
+\DoxyCodeLine{211     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchie tříd"{}}; \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a29a3cce0c9a8d68aadc2d3932e41e123}{trCompoundList}}()}
+\DoxyCodeLine{215     \{}
+\DoxyCodeLine{216       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{217       \{}
+\DoxyCodeLine{218         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové struktury"{}};}
+\DoxyCodeLine{219       \}}
+\DoxyCodeLine{220       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{221       \{}
+\DoxyCodeLine{222         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam tříd"{}};}
+\DoxyCodeLine{223       \}}
+\DoxyCodeLine{224     \}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{227     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a760894cd0e71c882e5bea9d752ad8ca8}{trFileList}}()}
+\DoxyCodeLine{228     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam souborů"{}}; \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{231     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_acfb8c19a89726532f303cfe1ea819128}{trCompoundMembers}}()}
+\DoxyCodeLine{232     \{}
+\DoxyCodeLine{233       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{234       \{}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové položky"{}};}
+\DoxyCodeLine{236       \}}
+\DoxyCodeLine{237       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{238       \{}
+\DoxyCodeLine{239         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam členů tříd"{}};}
+\DoxyCodeLine{240       \}}
+\DoxyCodeLine{241     \}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad673cc1883dd898a14e936578b658801}{trFileMembers}}()}
+\DoxyCodeLine{245     \{}
+\DoxyCodeLine{246       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{247       \{}
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globální symboly"{}};}
+\DoxyCodeLine{249       \}}
+\DoxyCodeLine{250       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{251       \{}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Symboly v souborech"{}};}
+\DoxyCodeLine{253       \}}
+\DoxyCodeLine{254     \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{257     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a00266e0f5943c8743ab6a1fd3cf290ce}{trRelatedPages}}()}
+\DoxyCodeLine{258     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ostatní stránky"{}}; \}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aec2387a34264dc6e602bf2765ba797f8}{trExamples}}()}
+\DoxyCodeLine{262     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Příklady"{}}; \}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{265     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aee75046e81d4646858d5c5f91c87b2f7}{trSearch}}()}
+\DoxyCodeLine{266     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hledat"{}}; \}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{269     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a13179bcc9afb184e1eae5c7826290240}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{270     \{}
+\DoxyCodeLine{271       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{272       \{}
+\DoxyCodeLine{273         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde je hierarchický seznam všech entit:"{}};}
+\DoxyCodeLine{274       \}}
+\DoxyCodeLine{275       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{276       \{}
+\DoxyCodeLine{277         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam, vyjadřující vztah dědičnosti tříd. "{}}}
+\DoxyCodeLine{278                \textcolor{stringliteral}{"{}Je seřazen přibližně (ale ne úplně) podle abecedy:"{}};}
+\DoxyCodeLine{279       \}}
+\DoxyCodeLine{280     \}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1097379b42a50377bf50a2d108abdf85}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{284     \{}
+\DoxyCodeLine{285       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Zde naleznete seznam všech "{}};}
+\DoxyCodeLine{286       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{287       result+=\textcolor{stringliteral}{"{}souborů se stručnými popisy:"{}};}
+\DoxyCodeLine{288       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{289     \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{292     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abe717489d9743ec9d2ace3dc6c593fac}{trCompoundListDescription}}()}
+\DoxyCodeLine{293     \{}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{296       \{}
+\DoxyCodeLine{297         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje identifikace datových "{}}}
+\DoxyCodeLine{298                       \textcolor{stringliteral}{"{}struktur a jejich stručné popisy:"{}};}
+\DoxyCodeLine{299       \}}
+\DoxyCodeLine{300       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{301       \{}
+\DoxyCodeLine{302         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje identifikace tříd. "{}}}
+\DoxyCodeLine{303                       \textcolor{stringliteral}{"{}V seznamu jsou uvedeny jejich stručné popisy:"{}};}
+\DoxyCodeLine{304       \}}
+\DoxyCodeLine{305       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{306       \{}
+\DoxyCodeLine{307         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje především identifikace "{}}}
+\DoxyCodeLine{308                       \textcolor{stringliteral}{"{}tříd, ale nacházejí se zde i další netriviální prvky, "{}}}
+\DoxyCodeLine{309                       \textcolor{stringliteral}{"{}jako jsou struktury (struct), unie (union) a rozhraní "{}}}
+\DoxyCodeLine{310                       \textcolor{stringliteral}{"{}(interface). V seznamu jsou uvedeny jejich stručné "{}}}
+\DoxyCodeLine{311                       \textcolor{stringliteral}{"{}popisy:"{}};}
+\DoxyCodeLine{312       \}}
+\DoxyCodeLine{313     \}}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{316     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad077658a3b91012b633e84f3d6213c95}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{317     \{}
+\DoxyCodeLine{318       \mbox{\hyperlink{classQCString}{QCString}} result= \textcolor{stringliteral}{"{}Zde naleznete seznam všech "{}};}
+\DoxyCodeLine{319       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{320       \{}
+\DoxyCodeLine{321         result += \textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{322       \}}
+\DoxyCodeLine{323       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{324       \{}
+\DoxyCodeLine{325         result += \textcolor{stringliteral}{"{}položek struktur (struct) a unií (union) "{}};}
+\DoxyCodeLine{326       \}}
+\DoxyCodeLine{327       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{328       \{}
+\DoxyCodeLine{329         result += \textcolor{stringliteral}{"{}členů tříd "{}};}
+\DoxyCodeLine{330       \}}
+\DoxyCodeLine{331       result += \textcolor{stringliteral}{"{}s odkazy na "{}};}
+\DoxyCodeLine{332       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{333       \{}
+\DoxyCodeLine{334         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{335         \{}
+\DoxyCodeLine{336           result+=\textcolor{stringliteral}{"{}struktury/unie, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{337         \}}
+\DoxyCodeLine{338         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{339         \{}
+\DoxyCodeLine{340           result+=\textcolor{stringliteral}{"{}třídy, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{341         \}}
+\DoxyCodeLine{342       \}}
+\DoxyCodeLine{343       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{344       \{}
+\DoxyCodeLine{345         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{346         \{}
+\DoxyCodeLine{347           result += \textcolor{stringliteral}{"{}dokumentaci struktur/unií, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{348         \}}
+\DoxyCodeLine{349         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{350         \{}
+\DoxyCodeLine{351           result += \textcolor{stringliteral}{"{}dokumentaci tříd, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{352         \}}
+\DoxyCodeLine{353       \}}
+\DoxyCodeLine{354       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{355     \}}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{358     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5ba6adc42bc37609f4b409fc68f8a7ba}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{359     \{}
+\DoxyCodeLine{360       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Zde naleznete seznam všech "{}};}
+\DoxyCodeLine{361       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{364       \{}
+\DoxyCodeLine{365         result+=\textcolor{stringliteral}{"{}funkcí, proměnných, maker, výčtů a definic typů (typedef) "{}}}
+\DoxyCodeLine{366                 \textcolor{stringliteral}{"{}s odkazy na "{}};}
+\DoxyCodeLine{367       \}}
+\DoxyCodeLine{368       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{369       \{}
+\DoxyCodeLine{370         result+=\textcolor{stringliteral}{"{}symbolů, které jsou definovány na úrovni svých souborů. "{}}}
+\DoxyCodeLine{371                 \textcolor{stringliteral}{"{}Pro každý symbol je uveden odkaz na "{}};}
+\DoxyCodeLine{372       \}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{375         result+=\textcolor{stringliteral}{"{}soubory, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{376       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{377         result+=\textcolor{stringliteral}{"{}dokumentaci:"{}};}
+\DoxyCodeLine{378       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{379     \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{382     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2d627bd24c6e2bb8e5b489ac70e490f1}{trExamplesDescription}}()}
+\DoxyCodeLine{383     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam všech příkladů:"{}}; \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a59bd4448d5330e08f94b00616b0c6233}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{387     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam odkazuje na další stránky projektu:"{}}; \}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{390     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aece287473059fd31d4700daadc9d0b7b}{trModulesDescription}}()}
+\DoxyCodeLine{391     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam všech modulů:"{}}; \}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aebe8cad7bd80207a444b50188fcb3662}{trDocumentation}}()}
+\DoxyCodeLine{397     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace"{}}; \}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{402     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a8e4934dd0d52c8bc1c44063189c4a07b}{trModuleIndex}}()}
+\DoxyCodeLine{403     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík modulů"{}}; \}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{408     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a67cef970a7460c4d681a33f55a068d46}{trHierarchicalIndex}}()}
+\DoxyCodeLine{409     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík hierarchie tříd"{}}; \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{414     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0278a54a8289de74e9073eeec2442b43}{trCompoundIndex}}()}
+\DoxyCodeLine{415     \{}
+\DoxyCodeLine{416       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{417       \{}
+\DoxyCodeLine{418         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík datových struktur"{}};}
+\DoxyCodeLine{419       \}}
+\DoxyCodeLine{420       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{421       \{}
+\DoxyCodeLine{422         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík tříd"{}};}
+\DoxyCodeLine{423       \}}
+\DoxyCodeLine{424     \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af5accc6790089439b604a76e635d1b9d}{trFileIndex}}()}
+\DoxyCodeLine{430     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík souborů"{}}; \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{435     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abf8b491a59842cd36807f9eb2fac269a}{trModuleDocumentation}}()}
+\DoxyCodeLine{436     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace modulů"{}}; \}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{441     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a09e0dff26e02efeeefa7700b0d81a5c9}{trClassDocumentation}}()}
+\DoxyCodeLine{442     \{}
+\DoxyCodeLine{443       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{444       \{}
+\DoxyCodeLine{445         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace datových struktur"{}};}
+\DoxyCodeLine{446       \}}
+\DoxyCodeLine{447       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{448       \{}
+\DoxyCodeLine{449           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorCzech_a81647bd5f9a86df127771b2a00e4f087}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{450       \}}
+\DoxyCodeLine{451       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{452       \{}
+\DoxyCodeLine{453         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace tříd"{}};}
+\DoxyCodeLine{454       \}}
+\DoxyCodeLine{455     \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{460     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a17925aa8b188c03a62fce4488846a162}{trFileDocumentation}}()}
+\DoxyCodeLine{461     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace souborů"{}}; \}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{466     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0b9ae5758daecc09ccc601d972f3fb79}{trExampleDocumentation}}()}
+\DoxyCodeLine{467     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace příkladů"{}}; \}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{470     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a367e27ab4a239d32ce679b20dc8a5faa}{trReferenceManual}}()}
+\DoxyCodeLine{471     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referenční příručka"{}}; \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_adbaaf4e7cde202d9730a803bce37b4bc}{trDefines}}()}
+\DoxyCodeLine{477     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definice maker"{}}; \}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{482     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a8c129e4c105bccc4e95f1c0584effe66}{trTypedefs}}()}
+\DoxyCodeLine{483     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definice typů"{}}; \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7597a73b9db5085ddd9521fd259785bf}{trEnumerations}}()}
+\DoxyCodeLine{489     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Výčty"{}}; \}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{494     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4cc60c7408d119365763cd018c6f406c}{trFunctions}}()}
+\DoxyCodeLine{495     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce"{}}; \}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{500     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3dc668d74216cc62f14c9166702f5d95}{trVariables}}()}
+\DoxyCodeLine{501     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Proměnné"{}}; \}}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{506     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4c92b0c310494cfc0f82a3e8a37576d3}{trEnumerationValues}}()}
+\DoxyCodeLine{507     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hodnoty výčtu"{}}; \}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af71c063700777c4732534eaa3a426b1c}{trDefineDocumentation}}()}
+\DoxyCodeLine{513     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k definicím maker"{}}; \}}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{518     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a53bff586f81d843762850f1b4a827587}{trTypedefDocumentation}}()}
+\DoxyCodeLine{519     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace definic typů"{}}; \}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae434ce413f693a1d790313b9e1cc9522}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{525     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace výčtových typů"{}}; \}}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{530     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abb1c718f12c618ba67277f4ae175fb56}{trFunctionDocumentation}}()}
+\DoxyCodeLine{531     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace funkcí"{}}; \}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a38ce49b486e7b3035be083f33287d65c}{trVariableDocumentation}}()}
+\DoxyCodeLine{537     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace proměnných"{}}; \}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a638000ab0a52beab29a7346163d992c0}{trCompounds}}()}
+\DoxyCodeLine{543     \{}
+\DoxyCodeLine{544       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{545       \{}
+\DoxyCodeLine{546         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové struktury"{}};}
+\DoxyCodeLine{547       \}}
+\DoxyCodeLine{548       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{549       \{}
+\DoxyCodeLine{550         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Třídy"{}};}
+\DoxyCodeLine{551       \}}
+\DoxyCodeLine{552     \}}
+\DoxyCodeLine{553 }
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aa370c9b1d1765a0e3894a797fcc93962}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{558     \{}
+\DoxyCodeLine{559       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Vygenerováno dne: "{}}+date;}
+\DoxyCodeLine{560       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result += \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}, pro projekt: "{}}) + projName;}
+\DoxyCodeLine{561       result+=\textcolor{stringliteral}{"{}, programem"{}};}
+\DoxyCodeLine{562       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{563     \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3b593ef2d449a059fb4f1c08c74f0ac2}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{567     \{}
+\DoxyCodeLine{568       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Diagram dědičnosti pro třídu "{}}) + clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a90945b94973b4e5da0af7019dfa0c40f}{trWarning}}()}
+\DoxyCodeLine{573     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pozor"{}}; \}}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{576     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a74c2788ae879fbf24882f83c23ab3d4a}{trVersion}}()}
+\DoxyCodeLine{577     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Verze"{}}; \}}
+\DoxyCodeLine{578 }
+\DoxyCodeLine{580     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0512e60a882d67968560aea51b769a2b}{trDate}}()}
+\DoxyCodeLine{581     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datum"{}}; \}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7b1a5d5c58359d6c1315a8bac3fe44a3}{trReturns}}()}
+\DoxyCodeLine{585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Návratová hodnota"{}}; \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7499e6d6b448ac0ebed45dd8ee7333cd}{trSeeAlso}}()}
+\DoxyCodeLine{589     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Viz také"{}}; \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{592     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a843873a1fd5080a9d2ea62597c288061}{trParameters}}()}
+\DoxyCodeLine{593     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametry"{}}; \}}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af1f3a72b737a602f598d5bf13b7fa20d}{trExceptions}}()}
+\DoxyCodeLine{597     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Výjimky"{}}; \}}
+\DoxyCodeLine{598 }
+\DoxyCodeLine{600     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a911e4ad824acd4622a92776b6a81230c}{trGeneratedBy}}()}
+\DoxyCodeLine{601     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vygenerováno programem"{}}; \}}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{604 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{606 \textcolor{comment}{}}
+\DoxyCodeLine{608     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_acdcccfdbbd0cf73c47cea3989a3b0941}{trNamespaceList}}()}
+\DoxyCodeLine{609     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam jmenných prostorů"{}}; \}}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{612     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2d6f887ee56fb3cf823aea320c23a004}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{613     \{}
+\DoxyCodeLine{614       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Zde naleznete seznam všech "{}};}
+\DoxyCodeLine{615       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{616       result+=\textcolor{stringliteral}{"{}jmenných prostorů se stručným popisem:"{}};}
+\DoxyCodeLine{617       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{618     \}}
+\DoxyCodeLine{619 }
+\DoxyCodeLine{623     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a46d5702c25567bff0e62944c37010ead}{trFriends}}()}
+\DoxyCodeLine{624     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Přátelé třídy"{}}; \}}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{627 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{629 \textcolor{comment}{}}
+\DoxyCodeLine{633     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a652d74ab5a73e013a1ccc53a07f4f17a}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{634     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace přátel a souvisejících funkcí třídy"{}}; \}}
+\DoxyCodeLine{635 }
+\DoxyCodeLine{637 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{639 \textcolor{comment}{}}
+\DoxyCodeLine{641     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_accecebe25808b99b9504abcd6100373b}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{642                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{643                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{644     \{}
+\DoxyCodeLine{645       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace "{}});}
+\DoxyCodeLine{646       \textcolor{keywordflow}{if} (isTemplate) result += \textcolor{stringliteral}{"{}šablony "{}};}
+\DoxyCodeLine{647       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{648       \{}
+\DoxyCodeLine{649         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result += \textcolor{stringliteral}{"{}třídy "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{650         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result += \textcolor{stringliteral}{"{}struktury "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{651         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result += \textcolor{stringliteral}{"{}unie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{652         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result += \textcolor{stringliteral}{"{}rozhraní "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{653         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result += \textcolor{stringliteral}{"{}protokolu "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{654         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result += \textcolor{stringliteral}{"{}kategorie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{655         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result += \textcolor{stringliteral}{"{}výjimky "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{656         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{657       \}}
+\DoxyCodeLine{658       result += clName;}
+\DoxyCodeLine{659       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{660     \}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{663     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab1ff91be11a4a8b382e0a7532c469124}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{664     \{}
+\DoxyCodeLine{665       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace souboru "{}});}
+\DoxyCodeLine{666       result+=fileName;}
+\DoxyCodeLine{667       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{668     \}}
+\DoxyCodeLine{669 }
+\DoxyCodeLine{671     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a213b55672543741a7371ffb3092685cf}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{672     \{}
+\DoxyCodeLine{673       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace jmenného prostoru "{}});}
+\DoxyCodeLine{674       result+=namespaceName;}
+\DoxyCodeLine{675       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{676     \}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{678     \textcolor{comment}{/*}}
+\DoxyCodeLine{679 \textcolor{comment}{     *  these are for the member sections of a class, struct or union}}
+\DoxyCodeLine{680 \textcolor{comment}{     */}}
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac87049fdce3545348b667957f01b0723}{trPublicMembers}}()}
+\DoxyCodeLine{682     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Veřejné metody"{}}; \}}
+\DoxyCodeLine{683     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab4acb85d43ab2faf0728c8887dd022dd}{trPublicSlots}}()}
+\DoxyCodeLine{684     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Veřejné sloty"{}}; \}}
+\DoxyCodeLine{685     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5612955877d14d9b8085b510195795d1}{trSignals}}()}
+\DoxyCodeLine{686     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signály"{}}; \}}
+\DoxyCodeLine{687     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae7730596b9725cf0e8830a40802cc661}{trStaticPublicMembers}}()}
+\DoxyCodeLine{688     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické veřejné metody"{}}; \}}
+\DoxyCodeLine{689     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a62582bd3a5eb8bfb9e73f269abaf7078}{trProtectedMembers}}()}
+\DoxyCodeLine{690     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chráněné metody"{}}; \}}
+\DoxyCodeLine{691     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4bc2431fd20838b2174effc66b7f98b2}{trProtectedSlots}}()}
+\DoxyCodeLine{692     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chráněné sloty"{}}; \}}
+\DoxyCodeLine{693     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a235cf582ebf1fe4b08bb2ae2c98863ab}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{694     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické chráněné metody"{}}; \}}
+\DoxyCodeLine{695     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a94f7da779b089c7c5471020e37b9a46c}{trPrivateMembers}}()}
+\DoxyCodeLine{696     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privátní metody"{}}; \}}
+\DoxyCodeLine{697     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a88412a1a5a8096a418f47a6e39187c2a}{trPrivateSlots}}()}
+\DoxyCodeLine{698     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privátní sloty"{}}; \}}
+\DoxyCodeLine{699     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a30a13f15d8e3551b3373c753055ec5cc}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{700     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické privátní metody"{}}; \}}
+\DoxyCodeLine{701 }
+\DoxyCodeLine{705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{706     \{}
+\DoxyCodeLine{707       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{708       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{709       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{710       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{711       \{}
+\DoxyCodeLine{712         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{713         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{714                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{715 }
+\DoxyCodeLine{716         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{717         \{}
+\DoxyCodeLine{718           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{719             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{720           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{721             result+=\textcolor{stringliteral}{"{} a "{}};}
+\DoxyCodeLine{722         \}}
+\DoxyCodeLine{723       \}}
+\DoxyCodeLine{724       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{725     \}}
+\DoxyCodeLine{726 }
+\DoxyCodeLine{730     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a89ba82a9a80bb51ff8ec66d3e7be7460}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{731     \{}
+\DoxyCodeLine{732       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dědí z "{}});}
+\DoxyCodeLine{733       result += (numEntries == 1) ? \textcolor{stringliteral}{"{}bázové třídy "{}} : \textcolor{stringliteral}{"{}bázových tříd "{}};}
+\DoxyCodeLine{734       result += \mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries) + \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{735       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{736     \}}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a05ea646c77aa8db1faac4dfeaf9fd7cd}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{742     \{}
+\DoxyCodeLine{743       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Zděděna "{}});}
+\DoxyCodeLine{744       result += (numEntries == 1) ? \textcolor{stringliteral}{"{}třídou "{}} : \textcolor{stringliteral}{"{}třídami "{}};}
+\DoxyCodeLine{745       result += \mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries) + \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{746       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{747     \}}
+\DoxyCodeLine{748 }
+\DoxyCodeLine{752     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a846c95344a7bb1411aa7c71248c5a4bb}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{753     \{}
+\DoxyCodeLine{754       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Reimplementuje stejnojmenný prvek z "{}});}
+\DoxyCodeLine{755       result += \mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries) + \textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{756       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{757     \}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{762     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abc2d7cab9e98ac06d13ba4befb4afbd6}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{763     \{}
+\DoxyCodeLine{764       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementováno v "{}}+\mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{765     \}}
+\DoxyCodeLine{766 }
+\DoxyCodeLine{768     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4457071701f72bcb850102e53cd64c75}{trNamespaceMembers}}()}
+\DoxyCodeLine{769     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Symboly ve jmenném prostoru"{}}; \}}
+\DoxyCodeLine{770 }
+\DoxyCodeLine{772     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a498d1a63aef8b403bbeac2563da82d11}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{773     \{}
+\DoxyCodeLine{774       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Zde naleznete seznam všech "{}};}
+\DoxyCodeLine{775       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{776       result+=\textcolor{stringliteral}{"{}symbolů, které jsou definovány ve svých jmenných prostorech. "{}}}
+\DoxyCodeLine{777               \textcolor{stringliteral}{"{}U každého je uveden odkaz na "{}};}
+\DoxyCodeLine{778       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{779         result+=\textcolor{stringliteral}{"{}dokumentaci příslušného jmenného prostoru:"{}};}
+\DoxyCodeLine{780       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{781         result+=\textcolor{stringliteral}{"{}příslušný jmenný prostor:"{}};}
+\DoxyCodeLine{782       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{783     \}}
+\DoxyCodeLine{787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a815ce8b674d619b8943bbb8401b650cc}{trNamespaceIndex}}()}
+\DoxyCodeLine{788     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík jmenných prostorů"{}}; \}}
+\DoxyCodeLine{789 }
+\DoxyCodeLine{793     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aed98b4b0372e2a01891c1da49b012800}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{794     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace jmenných prostorů"{}}; \}}
+\DoxyCodeLine{795 }
+\DoxyCodeLine{797 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{799 \textcolor{comment}{}}
+\DoxyCodeLine{803     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad9479ea66626a1742febf18f2be4776c}{trNamespaces}}()}
+\DoxyCodeLine{804     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jmenné prostory"{}}; \}}
+\DoxyCodeLine{805 }
+\DoxyCodeLine{807 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{809 \textcolor{comment}{}}
+\DoxyCodeLine{813     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a436f948112829e211ffc6df0887ef06e}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{814         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{815     \{ \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{816       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentace pro "{}};}
+\DoxyCodeLine{817       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{818       \{}
+\DoxyCodeLine{819         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}tuto třídu"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{820         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tuto strukturu"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{821         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}tuto unii"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{822         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}toto rozhraní"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{823         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}tento protokol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{824         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}tuto kategorii"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{825         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}tuto výjimku"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{826         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{827       \}}
+\DoxyCodeLine{828       result+=\textcolor{stringliteral}{"{} byla vygenerována z "{}};}
+\DoxyCodeLine{829       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}následujícího souboru:"{}};}
+\DoxyCodeLine{830       \textcolor{keywordflow}{else}        result+=\textcolor{stringliteral}{"{}následujících souborů:"{}};}
+\DoxyCodeLine{831       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{832     \}}
+\DoxyCodeLine{833 }
+\DoxyCodeLine{835 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{837 \textcolor{comment}{}}
+\DoxyCodeLine{839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3a23afb35840149ceb0fcb35ee497cc3}{trReturnValues}}()}
+\DoxyCodeLine{840     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vracené hodnoty"{}}; \}}
+\DoxyCodeLine{841 }
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aefbb45a259a2466aeaece52e794df102}{trMainPage}}()}
+\DoxyCodeLine{845     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hlavní stránka"{}}; \}}
+\DoxyCodeLine{846 }
+\DoxyCodeLine{850     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a49aa917d4f38759122d8bd33ca40f830}{trPageAbbreviation}}()}
+\DoxyCodeLine{851     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}s."{}}; \}}
+\DoxyCodeLine{852 }
+\DoxyCodeLine{854 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{856 \textcolor{comment}{}}
+\DoxyCodeLine{857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aa19995a2d5e1e5da77023ab8f639fa35}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{858     \{}
+\DoxyCodeLine{859       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definice je uvedena na řádku @0 v souboru @1."{}};}
+\DoxyCodeLine{860     \}}
+\DoxyCodeLine{861     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a66eab5854a5e8216638141595714c5ae}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{862     \{}
+\DoxyCodeLine{863       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definice v souboru @0."{}};}
+\DoxyCodeLine{864     \}}
+\DoxyCodeLine{865 }
+\DoxyCodeLine{867 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{869 \textcolor{comment}{}}
+\DoxyCodeLine{870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3cc7540de252df6fda4327c284967124}{trDeprecated}}()}
+\DoxyCodeLine{871     \{}
+\DoxyCodeLine{872       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zastaralé"{}};}
+\DoxyCodeLine{873     \}}
+\DoxyCodeLine{874 }
+\DoxyCodeLine{876 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{878 \textcolor{comment}{}}
+\DoxyCodeLine{880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aac67a2cefeea2ae958485d89beea321b}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{881     \{}
+\DoxyCodeLine{882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Diagram pro "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{883     \}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae1fa099006d81eb59402e6f008ef6a67}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graf závislostí na vkládaných souborech pro "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac60c33613730ea0fd182a8ee10788bed}{trConstructorDocumentation}}()}
+\DoxyCodeLine{891     \{}
+\DoxyCodeLine{892       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace konstruktoru a destruktoru"{}};}
+\DoxyCodeLine{893     \}}
+\DoxyCodeLine{895     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aa23eb58726c11b307fea1bc41e25fa05}{trGotoSourceCode}}()}
+\DoxyCodeLine{896     \{}
+\DoxyCodeLine{897       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zobrazit zdrojový text tohoto souboru."{}};}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a023255d64d137b90bc2be66ade101d1e}{trGotoDocumentation}}()}
+\DoxyCodeLine{901     \{}
+\DoxyCodeLine{902       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zobrazit dokumentaci tohoto souboru."{}};}
+\DoxyCodeLine{903     \}}
+\DoxyCodeLine{905     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a30c061bb96ca53fcd82120c2e95fc0b3}{trPrecondition}}()}
+\DoxyCodeLine{906     \{}
+\DoxyCodeLine{907       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Precondition"{}};}
+\DoxyCodeLine{908     \}}
+\DoxyCodeLine{910     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_add92570f81b2876cbaa356d23a6d91ab}{trPostcondition}}()}
+\DoxyCodeLine{911     \{}
+\DoxyCodeLine{912       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Postcondition"{}};}
+\DoxyCodeLine{913     \}}
+\DoxyCodeLine{915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae66cf0345e161c9ec12d6bf58be462d8}{trInvariant}}()}
+\DoxyCodeLine{916     \{}
+\DoxyCodeLine{917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariant"{}};}
+\DoxyCodeLine{918     \}}
+\DoxyCodeLine{920     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9ea398360d7e755599b3db137c798cb4}{trInitialValue}}()}
+\DoxyCodeLine{921     \{}
+\DoxyCodeLine{922       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Inicializační hodnota:"{}};}
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af2f5836910df98603882967a7673c9aa}{trCode}}()}
+\DoxyCodeLine{926     \{}
+\DoxyCodeLine{927       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}zdrojový text"{}};}
+\DoxyCodeLine{928     \}}
+\DoxyCodeLine{929     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a29e3ccbea020f891f65282d7eb604517}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{930     \{}
+\DoxyCodeLine{931       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafické zobrazení hierarchie tříd"{}};}
+\DoxyCodeLine{932     \}}
+\DoxyCodeLine{933     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab997607286d94f639e2cef01c0932cf4}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{934     \{}
+\DoxyCodeLine{935       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zobrazit grafickou podobu hierarchie tříd"{}};}
+\DoxyCodeLine{936     \}}
+\DoxyCodeLine{937     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a25107d048eccd585ed1c967c8c4ce2ec}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{938     \{}
+\DoxyCodeLine{939       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zobrazit textovou podobu hierarchie tříd"{}};}
+\DoxyCodeLine{940     \}}
+\DoxyCodeLine{941     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5010c16aebc8c6273dcce5bf23752a4a}{trPageIndex}}()}
+\DoxyCodeLine{942     \{}
+\DoxyCodeLine{943       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík stránek"{}};}
+\DoxyCodeLine{944     \}}
+\DoxyCodeLine{945 }
+\DoxyCodeLine{947 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{949 \textcolor{comment}{}}
+\DoxyCodeLine{950     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a107e11e66a0c1c1e1681c547f0fd8bfc}{trNote}}()}
+\DoxyCodeLine{951     \{}
+\DoxyCodeLine{952       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Poznámka"{}};}
+\DoxyCodeLine{953     \}}
+\DoxyCodeLine{954     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a847dba7c6c4dd78ec3c1532ecd50e213}{trPublicTypes}}()}
+\DoxyCodeLine{955     \{}
+\DoxyCodeLine{956       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Veřejné typy"{}};}
+\DoxyCodeLine{957     \}}
+\DoxyCodeLine{958     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2745bb8dcb116e9038a3de46d6d32a40}{trPublicAttribs}}()}
+\DoxyCodeLine{959     \{}
+\DoxyCodeLine{960       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{961       \{}
+\DoxyCodeLine{962         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové položky"{}};}
+\DoxyCodeLine{963       \}}
+\DoxyCodeLine{964       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{965       \{}
+\DoxyCodeLine{966         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Veřejné atributy"{}};}
+\DoxyCodeLine{967       \}}
+\DoxyCodeLine{968     \}}
+\DoxyCodeLine{969     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0660163dc24153338d92e958cc168fa9}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{970     \{}
+\DoxyCodeLine{971       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické veřejné atributy"{}};}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abaa527dbf169b199bdef6c826935916d}{trProtectedTypes}}()}
+\DoxyCodeLine{974     \{}
+\DoxyCodeLine{975       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chráněné typy"{}};}
+\DoxyCodeLine{976     \}}
+\DoxyCodeLine{977     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_adf6eaef271a2de695b0cc0f60606719e}{trProtectedAttribs}}()}
+\DoxyCodeLine{978     \{}
+\DoxyCodeLine{979       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chráněné atributy"{}};}
+\DoxyCodeLine{980     \}}
+\DoxyCodeLine{981     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4c3abb5a3a67c84b907214aad223e97f}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{982     \{}
+\DoxyCodeLine{983       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické chráněné atributy"{}};}
+\DoxyCodeLine{984     \}}
+\DoxyCodeLine{985     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae01875a17455b5358cec33ed83be1068}{trPrivateTypes}}()}
+\DoxyCodeLine{986     \{}
+\DoxyCodeLine{987       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privátní typy"{}};}
+\DoxyCodeLine{988     \}}
+\DoxyCodeLine{989     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3f21d690e993f73a9b6d10667fd16340}{trPrivateAttribs}}()}
+\DoxyCodeLine{990     \{}
+\DoxyCodeLine{991       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privátní atributy"{}};}
+\DoxyCodeLine{992     \}}
+\DoxyCodeLine{993     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1a951cbb10aa69a7b9537f1b6e605087}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{994     \{}
+\DoxyCodeLine{995       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické privátní atributy"{}};}
+\DoxyCodeLine{996     \}}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{999 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{1001 \textcolor{comment}{}}
+\DoxyCodeLine{1003     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a81b2a6444aae79ffea6b1e8fd0aa6e18}{trTodo}}()}
+\DoxyCodeLine{1004     \{}
+\DoxyCodeLine{1005       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Plánované úpravy"{}};}
+\DoxyCodeLine{1006     \}}
+\DoxyCodeLine{1008     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9dea9ddff783bf07e7534eff4d306d35}{trTodoList}}()}
+\DoxyCodeLine{1009     \{}
+\DoxyCodeLine{1010       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam plánovaných úprav"{}};}
+\DoxyCodeLine{1011     \}}
+\DoxyCodeLine{1012 }
+\DoxyCodeLine{1014 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{1016 \textcolor{comment}{}}
+\DoxyCodeLine{1017     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac51804f350c2e266fdd4035c998901a8}{trReferencedBy}}()}
+\DoxyCodeLine{1018     \{}
+\DoxyCodeLine{1019       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Používá se v"{}};}
+\DoxyCodeLine{1020     \}}
+\DoxyCodeLine{1021     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aab80c98c7535d62f93664d9ffa593c6a}{trRemarks}}()}
+\DoxyCodeLine{1022     \{}
+\DoxyCodeLine{1023       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Poznámky"{}}; \textcolor{comment}{// ??? not checked in a context}}
+\DoxyCodeLine{1024     \}}
+\DoxyCodeLine{1025     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae7a7c3733790586ed65f01fd75a4bc85}{trAttention}}()}
+\DoxyCodeLine{1026     \{}
+\DoxyCodeLine{1027       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Upozornění"{}}; \textcolor{comment}{// ??? not checked in a context}}
+\DoxyCodeLine{1028     \}}
+\DoxyCodeLine{1029     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a29981851c884d8f4dd44575cfcb395d9}{trInclByDepGraph}}()}
+\DoxyCodeLine{1030     \{}
+\DoxyCodeLine{1031       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující graf ukazuje, které soubory přímo nebo "{}}}
+\DoxyCodeLine{1032              \textcolor{stringliteral}{"{}nepřímo vkládají tento soubor:"{}};}
+\DoxyCodeLine{1033     \}}
+\DoxyCodeLine{1034     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab736f094028424d6903e950d4d8481f0}{trSince}}()}
+\DoxyCodeLine{1035     \{}
+\DoxyCodeLine{1036       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Od"{}}; \textcolor{comment}{// ??? not checked in a context}}
+\DoxyCodeLine{1037     \}}
+\DoxyCodeLine{1038 }
+\DoxyCodeLine{1040 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1042 \textcolor{comment}{}}
+\DoxyCodeLine{1044     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a8db0254e1b8179caba1e484f3fa69e0f}{trLegendTitle}}()}
+\DoxyCodeLine{1045     \{}
+\DoxyCodeLine{1046       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vysvětlivky ke grafu"{}};}
+\DoxyCodeLine{1047     \}}
+\DoxyCodeLine{1049     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afe51ce33cdc6dc7161171591683b14aa}{trLegendDocs}}()}
+\DoxyCodeLine{1050     \{}
+\DoxyCodeLine{1051       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}Zde naleznete vysvětlení, jak mají být interpretovány grafy, "{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}které byly vygenerovány programem doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}Uvažujte následující příklad:\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}/*! Neviditelná třída, která se v grafu nezobrazuje, protože "{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}došlo k ořezání grafu. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}/*! Třída, u které došlo k ořezání grafu. Vztah dědičnosti "{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}je skryt. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}/* Třída, která není dokumentována komentáři programu doxygen. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}/*! Bázová třída děděná veřejně (public inheritance). */\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1066         \textcolor{stringliteral}{"{}/*! Šablona třídy. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1067         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1068         \textcolor{stringliteral}{"{}/*! Bázová třída, použitá pro chráněné dědění "{}}}
+\DoxyCodeLine{1069         \textcolor{stringliteral}{"{}(protected inheritance). */\(\backslash\)n"{}}}
+\DoxyCodeLine{1070         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1071         \textcolor{stringliteral}{"{}/*! Bázová třída, využitá pro privátní dědění "{}}}
+\DoxyCodeLine{1072         \textcolor{stringliteral}{"{}(private inheritance). */\(\backslash\)n"{}}}
+\DoxyCodeLine{1073         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1074         \textcolor{stringliteral}{"{}/*! Třída, která je využívána třídou Inherited. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1075         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1076         \textcolor{stringliteral}{"{}/*! Odvozená třída, která dědí z více tříd. */\(\backslash\)n"{}}}
+\DoxyCodeLine{1077         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1078         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1079         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1080         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1081         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1082         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1083         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1084         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1085         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1086         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1087         \textcolor{stringliteral}{"{}K výše uvedenému bude vygenerován následující graf:"{}}}
+\DoxyCodeLine{1088         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center></p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1089         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1090         \textcolor{stringliteral}{"{}Bloky (tj. uzly) v uvedeném grafu mají následující význam:\(\backslash\)n"{}}}
+\DoxyCodeLine{1091         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1092         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1093         \textcolor{stringliteral}{"{}<li>Šedě vyplněný obdélník reprezentuje strukturu nebo třídu, "{}}}
+\DoxyCodeLine{1094             \textcolor{stringliteral}{"{}pro kterou byl graf vygenerován.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1095         \textcolor{stringliteral}{"{}<li>Obdélník s černým obrysem označuje dokumentovanou "{}}}
+\DoxyCodeLine{1096             \textcolor{stringliteral}{"{}strukturu nebo třídu.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1097         \textcolor{stringliteral}{"{}<li>Obdélník s šedým obrysem označuje nedokumentovanou "{}}}
+\DoxyCodeLine{1098             \textcolor{stringliteral}{"{}strukturu nebo třídu.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1099         \textcolor{stringliteral}{"{}<li>Obdélník s červeným obrysem označuje dokumentovanou "{}}}
+\DoxyCodeLine{1100             \textcolor{stringliteral}{"{}strukturu nebo třídu, pro kterou\(\backslash\)n"{}}}
+\DoxyCodeLine{1101             \textcolor{stringliteral}{"{}nejsou zobrazeny všechny vztahy dědičnosti nebo obsažení. "{}}}
+\DoxyCodeLine{1102             \textcolor{stringliteral}{"{}Graf je ořezán v případě, kdy jej\(\backslash\)n"{}}}
+\DoxyCodeLine{1103             \textcolor{stringliteral}{"{}není možné umístit do vymezeného prostoru.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1104         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1105         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1106         \textcolor{stringliteral}{"{}Šipky (tj. hrany grafu) mají následující význam:\(\backslash\)n"{}}}
+\DoxyCodeLine{1107         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1108         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1109         \textcolor{stringliteral}{"{}<li>Tmavě modrá šipka se používá pro označení vztahu veřejné "{}}}
+\DoxyCodeLine{1110             \textcolor{stringliteral}{"{}dědičnosti (public) mezi dvěma třídami.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1111         \textcolor{stringliteral}{"{}<li>Tmavě zelená šipka označuje vztah chráněné dědičnosti "{}}}
+\DoxyCodeLine{1112             \textcolor{stringliteral}{"{}(protected).</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1113         \textcolor{stringliteral}{"{}<li>Tmavě červená šipka označuje vztah privátní dědičnosti "{}}}
+\DoxyCodeLine{1114             \textcolor{stringliteral}{"{}(private).</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1115         \textcolor{stringliteral}{"{}<li>Purpurová šipka kreslená čárkovaně se používá v případě, "{}}}
+\DoxyCodeLine{1116             \textcolor{stringliteral}{"{}kdy je třída obsažena v jiné třídě,\(\backslash\)n"{}}}
+\DoxyCodeLine{1117             \textcolor{stringliteral}{"{}nebo kdy je používána jinou třídou. Je označena identifikátorem "{}}}
+\DoxyCodeLine{1118             \textcolor{stringliteral}{"{}jedné nebo více proměných, přes které\(\backslash\)n"{}}}
+\DoxyCodeLine{1119             \textcolor{stringliteral}{"{}je třída nebo struktura zpřístupněna.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1120         \textcolor{stringliteral}{"{}<li>Žlutá šipka kreslená čárkovaně vyjadřuje vztah mezi instancí šablony "{}}}
+\DoxyCodeLine{1121             \textcolor{stringliteral}{"{}a šablonou třídy, na základě které byla\(\backslash\)n"{}}}
+\DoxyCodeLine{1122             \textcolor{stringliteral}{"{}instance šablony vytvořena. V popisu šipky jsou uvedeny  příslušné"{}}}
+\DoxyCodeLine{1123             \textcolor{stringliteral}{"{} parametry šablony.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1124         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1125     \}}
+\DoxyCodeLine{1127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9546f2702cbb8eb20f7a068954a31162}{trLegend}}()}
+\DoxyCodeLine{1128     \{}
+\DoxyCodeLine{1129       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}vysvětlivky"{}};}
+\DoxyCodeLine{1130     \}}
+\DoxyCodeLine{1131 }
+\DoxyCodeLine{1133 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1135 \textcolor{comment}{}}
+\DoxyCodeLine{1137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2273a0483e4356daf69934962e8a75ab}{trTest}}()}
+\DoxyCodeLine{1138     \{}
+\DoxyCodeLine{1139       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test"{}};}
+\DoxyCodeLine{1140     \}}
+\DoxyCodeLine{1142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9b32d2286210da8996bb6abd0ddcbe7c}{trTestList}}()}
+\DoxyCodeLine{1143     \{}
+\DoxyCodeLine{1144       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam testů"{}};}
+\DoxyCodeLine{1145     \}}
+\DoxyCodeLine{1146 }
+\DoxyCodeLine{1148 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1150 \textcolor{comment}{}}
+\DoxyCodeLine{1152     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9d557f14ba97f8ea4de97e7f88b9c1a0}{trProperties}}()}
+\DoxyCodeLine{1153     \{}
+\DoxyCodeLine{1154       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vlastnosti"{}};}
+\DoxyCodeLine{1155     \}}
+\DoxyCodeLine{1157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a684cbb1a875e13dcbcd7f88f9c96e44e}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1158     \{}
+\DoxyCodeLine{1159       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k vlastnosti"{}};}
+\DoxyCodeLine{1160     \}}
+\DoxyCodeLine{1162 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1164 \textcolor{comment}{}}
+\DoxyCodeLine{1166     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1248c34985a0016f9bb52e1ff2255e77}{trClasses}}()}
+\DoxyCodeLine{1167     \{}
+\DoxyCodeLine{1168       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1169       \{}
+\DoxyCodeLine{1170         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové struktury"{}};}
+\DoxyCodeLine{1171       \}}
+\DoxyCodeLine{1172       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1173       \{}
+\DoxyCodeLine{1174         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Třídy"{}};}
+\DoxyCodeLine{1175       \}}
+\DoxyCodeLine{1176     \}}
+\DoxyCodeLine{1178     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1150deca996d2294e651eab2ce55b3e6}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1179     \{}
+\DoxyCodeLine{1180       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Balík "{}}) + name;}
+\DoxyCodeLine{1181     \}}
+\DoxyCodeLine{1183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7f9a5cb82348d25cc39c6bd6a27fa68b}{trPackageListDescription}}()}
+\DoxyCodeLine{1184     \{}
+\DoxyCodeLine{1185       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam balíků se stručným popisem "{}}}
+\DoxyCodeLine{1186                     \textcolor{stringliteral}{"{}(pokud byl uveden):"{}};}
+\DoxyCodeLine{1187     \}}
+\DoxyCodeLine{1189     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac277d68bfff30f516e348d4cc6a7f86c}{trPackages}}()}
+\DoxyCodeLine{1190     \{}
+\DoxyCodeLine{1191       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Balíky"{}};}
+\DoxyCodeLine{1192     \}}
+\DoxyCodeLine{1194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1167f69c1226e098756566531f178695}{trDefineValue}}()}
+\DoxyCodeLine{1195     \{}
+\DoxyCodeLine{1196       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hodnota:"{}};}
+\DoxyCodeLine{1197     \}}
+\DoxyCodeLine{1198 }
+\DoxyCodeLine{1200 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1202 \textcolor{comment}{}}
+\DoxyCodeLine{1204     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afee8af424e80ab3c46243633176afc54}{trBug}}()}
+\DoxyCodeLine{1205     \{}
+\DoxyCodeLine{1206       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Chyba"{}};}
+\DoxyCodeLine{1207     \}}
+\DoxyCodeLine{1209     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aaf47832229e4dc495eb861a32d13ca30}{trBugList}}()}
+\DoxyCodeLine{1210     \{}
+\DoxyCodeLine{1211       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam chyb"{}};}
+\DoxyCodeLine{1212     \}}
+\DoxyCodeLine{1213 }
+\DoxyCodeLine{1215 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1217 \textcolor{comment}{}}
+\DoxyCodeLine{1243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a8c606b50d1afc33b7a86c36292a7b54b}{trRTFansicp}}()}
+\DoxyCodeLine{1244     \{}
+\DoxyCodeLine{1245       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1250"{}};}
+\DoxyCodeLine{1246     \}}
+\DoxyCodeLine{1247 }
+\DoxyCodeLine{1248 }
+\DoxyCodeLine{1252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a553efdc46375639c50cad98acf5203df}{trRTFCharSet}}()}
+\DoxyCodeLine{1253     \{}
+\DoxyCodeLine{1254       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}238"{}};}
+\DoxyCodeLine{1255     \}}
+\DoxyCodeLine{1256 }
+\DoxyCodeLine{1258     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac2aa9f9d434a7f6eb4feb917d682730a}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1259     \{}
+\DoxyCodeLine{1260       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík"{}};}
+\DoxyCodeLine{1261     \}}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a989173fb73821cd05b9022d338528e6f}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1268     \{}
+\DoxyCodeLine{1269       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tříd"{}} : \textcolor{stringliteral}{"{}tříd"{}}));}
+\DoxyCodeLine{1270       result += singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1271       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1272     \}}
+\DoxyCodeLine{1273 }
+\DoxyCodeLine{1278     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aff3e4fe98dc7e439cc8367c0ac1e1dca}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1279     \{}
+\DoxyCodeLine{1280       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Soubor"{}} : \textcolor{stringliteral}{"{}soubor"{}}));}
+\DoxyCodeLine{1281       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1282       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1283     \}}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1289     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a578cf2ce23f8343b797eb6541b401d3f}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1290     \{}
+\DoxyCodeLine{1291       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Jmenn"{}} : \textcolor{stringliteral}{"{}jmenn"{}}));}
+\DoxyCodeLine{1292       result += singular ? \textcolor{stringliteral}{"{}ý"{}} : \textcolor{stringliteral}{"{}é"{}};}
+\DoxyCodeLine{1293       result+=\textcolor{stringliteral}{"{} prostor"{}};}
+\DoxyCodeLine{1294       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1295       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1296     \}}
+\DoxyCodeLine{1297 }
+\DoxyCodeLine{1302     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4784647c17cdbf33aed76bc01c500eb2}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1303     \{}
+\DoxyCodeLine{1304       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Skupin"{}} : \textcolor{stringliteral}{"{}skupin"{}}));}
+\DoxyCodeLine{1305       result += singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1306       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1307     \}}
+\DoxyCodeLine{1308 }
+\DoxyCodeLine{1313     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a99ddd126be16149eed47e3c607bb620c}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1314     \{}
+\DoxyCodeLine{1315       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Stránk"{}} : \textcolor{stringliteral}{"{}stránk"{}}));}
+\DoxyCodeLine{1316       result += singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1317       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1318     \}}
+\DoxyCodeLine{1319 }
+\DoxyCodeLine{1324     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2d61740da3fefe1d80fe78835555bce5}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1325     \{}
+\DoxyCodeLine{1326       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Člen"{}} : \textcolor{stringliteral}{"{}člen"{}}));}
+\DoxyCodeLine{1327       \textcolor{keywordflow}{if} (!singular)  result += \textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1328       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1329     \}}
+\DoxyCodeLine{1330 }
+\DoxyCodeLine{1338     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a698757d212a12df7f650c4dc82df12e1}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1339     \{}
+\DoxyCodeLine{1340       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Global"{}} : \textcolor{stringliteral}{"{}global"{}}));}
+\DoxyCodeLine{1341       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1342       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1343     \}}
+\DoxyCodeLine{1344 }
+\DoxyCodeLine{1346 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1348 \textcolor{comment}{}}
+\DoxyCodeLine{1351     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_adef3362cee69f543048b0e08b400fcad}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1352     \{}
+\DoxyCodeLine{1353       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Auto"{}} : \textcolor{stringliteral}{"{}auto"{}}));}
+\DoxyCodeLine{1354       result += (singular) ? \textcolor{stringliteral}{"{}r"{}} : \textcolor{stringliteral}{"{}ři"{}};}
+\DoxyCodeLine{1355       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1356     \}}
+\DoxyCodeLine{1357 }
+\DoxyCodeLine{1359 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1361 \textcolor{comment}{}}
+\DoxyCodeLine{1364     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a35abf3f6fe6ad59907dc7bc5265e872f}{trReferences}}()}
+\DoxyCodeLine{1365     \{}
+\DoxyCodeLine{1366       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Odkazuje se na"{}};}
+\DoxyCodeLine{1367     \}}
+\DoxyCodeLine{1368 }
+\DoxyCodeLine{1370 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1372 \textcolor{comment}{}}
+\DoxyCodeLine{1376     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a70f7c22ba1a47b14f1c7babd702475a6}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1377     \{}
+\DoxyCodeLine{1378       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementuje "{}}+\mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1379     \}}
+\DoxyCodeLine{1380 }
+\DoxyCodeLine{1384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aebab1abf725031307c6182dfd88bd15f}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1385     \{}
+\DoxyCodeLine{1386       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementováno v "{}}+\mbox{\hyperlink{classTranslatorCzech_a76990cacd056f67d91d4fe784c7bcfca}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1387     \}}
+\DoxyCodeLine{1388 }
+\DoxyCodeLine{1390 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1392 \textcolor{comment}{}}
+\DoxyCodeLine{1396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a122ec8d634b0e4dd579752b446862208}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1397     \{}
+\DoxyCodeLine{1398       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Obsah"{}};}
+\DoxyCodeLine{1399     \}}
+\DoxyCodeLine{1400 }
+\DoxyCodeLine{1402 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1404 \textcolor{comment}{}}
+\DoxyCodeLine{1408     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab6babc7cf43e4be0634f83f513200550}{trDeprecatedList}}()}
+\DoxyCodeLine{1409     \{}
+\DoxyCodeLine{1410       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam zastaralých prvků"{}};}
+\DoxyCodeLine{1411     \}}
+\DoxyCodeLine{1412 }
+\DoxyCodeLine{1414 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1416 \textcolor{comment}{}}
+\DoxyCodeLine{1420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5411d69f698ce42fcca7d5ed3e9ae7ab}{trEvents}}()}
+\DoxyCodeLine{1421     \{}
+\DoxyCodeLine{1422       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Události"{}};}
+\DoxyCodeLine{1423     \}}
+\DoxyCodeLine{1425     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0644f7776c80bce90143f808f6299b7b}{trEventDocumentation}}()}
+\DoxyCodeLine{1426     \{}
+\DoxyCodeLine{1427       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace událostí"{}};}
+\DoxyCodeLine{1428     \}}
+\DoxyCodeLine{1429 }
+\DoxyCodeLine{1431 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1433 \textcolor{comment}{}}
+\DoxyCodeLine{1436     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aea4c9b20ea5461d0060e8396f9157422}{trPackageTypes}}()}
+\DoxyCodeLine{1437     \{}
+\DoxyCodeLine{1438       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typy v balíku"{}};}
+\DoxyCodeLine{1439     \}}
+\DoxyCodeLine{1443     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4c57c324266952da6f50df7f717cde28}{trPackageFunctions}}()}
+\DoxyCodeLine{1444     \{}
+\DoxyCodeLine{1445       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce v balíku"{}};}
+\DoxyCodeLine{1446     \}}
+\DoxyCodeLine{1447     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a37d1d9bee84d6f8b69b5c08282551039}{trPackageMembers}}()}
+\DoxyCodeLine{1448     \{}
+\DoxyCodeLine{1449       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Členy v balíku"{}};}
+\DoxyCodeLine{1450     \}}
+\DoxyCodeLine{1454     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6f9dd6367a672ca1a9f109474a4ee9f0}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1455     \{}
+\DoxyCodeLine{1456       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické funkce v balíku"{}};}
+\DoxyCodeLine{1457     \}}
+\DoxyCodeLine{1461     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5cd1b4cfc102e8e0ae7768823aa46b91}{trPackageAttribs}}()}
+\DoxyCodeLine{1462     \{}
+\DoxyCodeLine{1463       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atributy balíku"{}};}
+\DoxyCodeLine{1464     \}}
+\DoxyCodeLine{1468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a007495c5ee1b5ec8a7a84c76561a5ff3}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1469     \{}
+\DoxyCodeLine{1470       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statické atributy balíku"{}};}
+\DoxyCodeLine{1471     \}}
+\DoxyCodeLine{1472 }
+\DoxyCodeLine{1474 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1476 \textcolor{comment}{}}
+\DoxyCodeLine{1480     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac85dbb937992350c03a8e236da3041b1}{trAll}}()}
+\DoxyCodeLine{1481     \{}
+\DoxyCodeLine{1482       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vše"{}};}
+\DoxyCodeLine{1483     \}}
+\DoxyCodeLine{1485     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a655e2f987a1a8e57e46b98025cd0dfb7}{trCallGraph}}()}
+\DoxyCodeLine{1486     \{}
+\DoxyCodeLine{1487       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tato funkce volá..."{}};}
+\DoxyCodeLine{1488     \}}
+\DoxyCodeLine{1489 }
+\DoxyCodeLine{1491 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1493 \textcolor{comment}{}}
+\DoxyCodeLine{1497     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9e8cc117dd63c1cd8563c21e400f6b63}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1498     \{}
+\DoxyCodeLine{1499       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Výsledky vyhledávání"{}};}
+\DoxyCodeLine{1500     \}}
+\DoxyCodeLine{1509     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a60aa91665044c59bb7124454ebc03af3}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1510     \{}
+\DoxyCodeLine{1511       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1512       \{}
+\DoxyCodeLine{1513         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lituji. Vašemu dotazu neodpovídá žádný dokument."{}};}
+\DoxyCodeLine{1514       \}}
+\DoxyCodeLine{1515       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1516       \{}
+\DoxyCodeLine{1517         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nalezen jeden dokument, který vyhovuje vašemu dotazu."{}};}
+\DoxyCodeLine{1518       \}}
+\DoxyCodeLine{1519       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1520       \{}
+\DoxyCodeLine{1521         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nalezeno <b>\$num</b> dokumentů, které vyhovují vašemu "{}}}
+\DoxyCodeLine{1522                       \textcolor{stringliteral}{"{}dotazu. Nejlépe odpovídající dokumenty jsou zobrazeny "{}}}
+\DoxyCodeLine{1523                       \textcolor{stringliteral}{"{}jako první."{}};}
+\DoxyCodeLine{1524       \}}
+\DoxyCodeLine{1525     \}}
+\DoxyCodeLine{1529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae7016606545b5c6ca5437aa4fd1c87f5}{trSearchMatches}}()}
+\DoxyCodeLine{1530     \{}
+\DoxyCodeLine{1531       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nalezená slova:"{}};}
+\DoxyCodeLine{1532     \}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1535 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1537 \textcolor{comment}{}}
+\DoxyCodeLine{1540     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a06a0c380cbb43d799fa553f4838b45ee}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1541     \{}
+\DoxyCodeLine{1542       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Zdrojový soubor "{}}) + filename;}
+\DoxyCodeLine{1543     \}}
+\DoxyCodeLine{1544 }
+\DoxyCodeLine{1546 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1548 \textcolor{comment}{}}
+\DoxyCodeLine{1552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab1ba980534dfebb0e523a7a36f0a5489}{trDirIndex}}()}
+\DoxyCodeLine{1553     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchie adresářů"{}}; \}}
+\DoxyCodeLine{1554 }
+\DoxyCodeLine{1558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4469309f5c391636ecfe608d1680774d}{trDirDocumentation}}()}
+\DoxyCodeLine{1559     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k adresářům"{}}; \}}
+\DoxyCodeLine{1560 }
+\DoxyCodeLine{1564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5a70049ad39f783d34fdff2e6a289d40}{trDirectories}}()}
+\DoxyCodeLine{1565     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Adresáře"{}}; \}}
+\DoxyCodeLine{1566 }
+\DoxyCodeLine{1570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a41d07617b66a3fde9dc0b8919b049ea0}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1571     \{}
+\DoxyCodeLine{1572         \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Reference k adresáři "{}};}
+\DoxyCodeLine{1573         result += dirName;}
+\DoxyCodeLine{1574         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1575     \}}
+\DoxyCodeLine{1576 }
+\DoxyCodeLine{1580     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae31ae6026b12ff3423988ec06d2ba997}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1581     \{}
+\DoxyCodeLine{1582       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Adresář"{}} : \textcolor{stringliteral}{"{}adresář"{}}));}
+\DoxyCodeLine{1583       \textcolor{keywordflow}{if} (!singular)}
+\DoxyCodeLine{1584         result += \textcolor{stringliteral}{"{}e"{}};}
+\DoxyCodeLine{1585       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1586     \}}
+\DoxyCodeLine{1587 }
+\DoxyCodeLine{1589 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1591 \textcolor{comment}{}}
+\DoxyCodeLine{1595     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_adfb2800acfda8d8c258efd75b5bc7721}{trOverloadText}}()}
+\DoxyCodeLine{1596     \{}
+\DoxyCodeLine{1597        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jde o přetíženou (overloaded) metodu, "{}}}
+\DoxyCodeLine{1598               \textcolor{stringliteral}{"{}která má usnadnit používání. Od výše uvedené metody se liší "{}}}
+\DoxyCodeLine{1599               \textcolor{stringliteral}{"{}pouze jinak zadávanými argumenty."{}};}
+\DoxyCodeLine{1600     \}}
+\DoxyCodeLine{1601 }
+\DoxyCodeLine{1603 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1605 \textcolor{comment}{}}
+\DoxyCodeLine{1607     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2277c8495360bda093341137b440e23c}{trCallerGraph}}()}
+\DoxyCodeLine{1608     \{}
+\DoxyCodeLine{1609       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tuto funkci volají..."{}};}
+\DoxyCodeLine{1610     \}}
+\DoxyCodeLine{1611 }
+\DoxyCodeLine{1615     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a8b90e598df424c126b7413fe33134ec8}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1616     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace výčtových hodnot"{}}; \}}
+\DoxyCodeLine{1617 }
+\DoxyCodeLine{1619 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1621 \textcolor{comment}{}}
+\DoxyCodeLine{1623     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae1c9fbd277a3a3f61bbb2c953fe86585}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1624     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace členských funkcí/podprogramů"{}}; \}}
+\DoxyCodeLine{1625 }
+\DoxyCodeLine{1627     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aed6713142c9249fc0566224917208360}{trCompoundListFortran}}()}
+\DoxyCodeLine{1628     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam datových typů"{}}; \}}
+\DoxyCodeLine{1629 }
+\DoxyCodeLine{1631     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad2f8f61b7d7d3dbac0737ce650533c7a}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1632     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datová pole"{}}; \}}
+\DoxyCodeLine{1633 }
+\DoxyCodeLine{1635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ace1c18e4f6116a301f6a4ca57e06ac4a}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1636     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové typy se stručnými popisy:"{}}; \}}
+\DoxyCodeLine{1637 }
+\DoxyCodeLine{1639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad88edc6deb69f9a1e4b28cd59acf4c3a}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1640     \{}
+\DoxyCodeLine{1641       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Následuje seznam všech "{}};}
+\DoxyCodeLine{1642       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1643       \{}
+\DoxyCodeLine{1644         result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{1645       \}}
+\DoxyCodeLine{1646       result+=\textcolor{stringliteral}{"{}složek datových typů"{}};}
+\DoxyCodeLine{1647       result+=\textcolor{stringliteral}{"{} s odkazy na "{}};}
+\DoxyCodeLine{1648       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1649       \{}
+\DoxyCodeLine{1650          result+=\textcolor{stringliteral}{"{}dokumentaci datové struktury pro každou složku:"{}};}
+\DoxyCodeLine{1651       \}}
+\DoxyCodeLine{1652       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1653       \{}
+\DoxyCodeLine{1654           result+=\textcolor{stringliteral}{"{}příslušné datové typy:"{}};}
+\DoxyCodeLine{1655       \}}
+\DoxyCodeLine{1656       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1657     \}}
+\DoxyCodeLine{1658 }
+\DoxyCodeLine{1662     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_acded3cae09ce0601be33e32a08abab89}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1663     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík datových typů"{}}; \}}
+\DoxyCodeLine{1664 }
+\DoxyCodeLine{1668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac13a6ba14a9905698227dafadc76636e}{trTypeDocumentation}}()}
+\DoxyCodeLine{1669     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace k datovým typům"{}}; \}}
+\DoxyCodeLine{1670 }
+\DoxyCodeLine{1674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abf847aff2abe1d2197bfa9230ca6a124}{trSubprograms}}()}
+\DoxyCodeLine{1675     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce/podprogramy"{}}; \}}
+\DoxyCodeLine{1676 }
+\DoxyCodeLine{1680     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4c94d14e478f118ff3d46c93d5cbdfe5}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1681     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace funkce/podprogramu"{}}; \}}
+\DoxyCodeLine{1682 }
+\DoxyCodeLine{1686      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a63842f9d8539583c1e5ed3b1f45ab6b7}{trDataTypes}}()}
+\DoxyCodeLine{1687     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové typy"{}}; \}}
+\DoxyCodeLine{1688 }
+\DoxyCodeLine{1690     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9be2c1531d001b7bf2452f4301ad5add}{trModulesList}}()}
+\DoxyCodeLine{1691     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam modulů"{}}; \}}
+\DoxyCodeLine{1692 }
+\DoxyCodeLine{1694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac17790e5e208d3690f2d7229dac54796}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1695     \{}
+\DoxyCodeLine{1696       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Následuje seznam všech "{}};}
+\DoxyCodeLine{1697       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{1698       result+=\textcolor{stringliteral}{"{}modulů se stručnými popisy:"{}};}
+\DoxyCodeLine{1699       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1700     \}}
+\DoxyCodeLine{1701 }
+\DoxyCodeLine{1703     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af340f7c5b07689ffa9707c1ace522996}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1704                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1705                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1706     \{}
+\DoxyCodeLine{1707       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace "{}});}
+\DoxyCodeLine{1708       \textcolor{keywordflow}{if} (isTemplate) result += \textcolor{stringliteral}{"{}šablony "{}};}
+\DoxyCodeLine{1709       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1710       \{}
+\DoxyCodeLine{1711         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result += \textcolor{stringliteral}{"{}třídy "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1712         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result += \textcolor{stringliteral}{"{}typu "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1713         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result += \textcolor{stringliteral}{"{}unie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1714         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result += \textcolor{stringliteral}{"{}rozhraní "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1715         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result += \textcolor{stringliteral}{"{}protokolu "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1716         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result += \textcolor{stringliteral}{"{}kategorie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1717         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result += \textcolor{stringliteral}{"{}výjimky "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1718         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1719       \}}
+\DoxyCodeLine{1720       result += clName;}
+\DoxyCodeLine{1721       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1722 }
+\DoxyCodeLine{1723     \}}
+\DoxyCodeLine{1725     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1f6911ade1bee4728e0e85add62a7ade}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1726     \{}
+\DoxyCodeLine{1727       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentace modulu "{}};}
+\DoxyCodeLine{1728       result += namespaceName;}
+\DoxyCodeLine{1729       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1730     \}}
+\DoxyCodeLine{1731 }
+\DoxyCodeLine{1733     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5013233cc16ce172e2196194b1dfb3eb}{trModulesMembers}}()}
+\DoxyCodeLine{1734     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Části modulu"{}}; \}}
+\DoxyCodeLine{1735 }
+\DoxyCodeLine{1737     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af11829e16f9321de681d68696a228aae}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1738     \{}
+\DoxyCodeLine{1739       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Následuje seznam všech "{}};}
+\DoxyCodeLine{1740       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{1741       result+=\textcolor{stringliteral}{"{}částí modulů s odkazy "{}};}
+\DoxyCodeLine{1742       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1743       \{}
+\DoxyCodeLine{1744         result+=\textcolor{stringliteral}{"{}na dokumentaci modulu pro danou část:"{}};}
+\DoxyCodeLine{1745       \}}
+\DoxyCodeLine{1746       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1747       \{}
+\DoxyCodeLine{1748         result+=\textcolor{stringliteral}{"{}na moduly, ke kterým část patří:"{}};}
+\DoxyCodeLine{1749       \}}
+\DoxyCodeLine{1750       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1751     \}}
+\DoxyCodeLine{1752 }
+\DoxyCodeLine{1756     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae1cbd927b31f6c87ff35f795fab9b2f2}{trModulesIndex}}()}
+\DoxyCodeLine{1757     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík modulů"{}}; \}}
+\DoxyCodeLine{1758 }
+\DoxyCodeLine{1763     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae26073360ea7857d1ccdbfd5888d4936}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1764     \{}
+\DoxyCodeLine{1765       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));}
+\DoxyCodeLine{1766       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1767       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1768     \}}
+\DoxyCodeLine{1769 }
+\DoxyCodeLine{1773     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a630896cd6dc9b3676a679e621773be14}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1774         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1775     \{}
+\DoxyCodeLine{1776       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1777       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentace "{}};}
+\DoxyCodeLine{1778       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1779       \{}
+\DoxyCodeLine{1780         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}k tomuto modulu"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1781         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}k tomuto typu"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1782         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}k této unii"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1783         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}k tomuto rozhraní"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1784         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}k tomuto protokolu"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1785         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}k této kategorii"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1786         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}k této výjimce"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1787         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1788       \}}
+\DoxyCodeLine{1789       result+=\textcolor{stringliteral}{"{} byla vygenerována z "{}};}
+\DoxyCodeLine{1790       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}následujícího souboru:"{}};}
+\DoxyCodeLine{1791       \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}následujících souborů:"{}};}
+\DoxyCodeLine{1792       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1793     \}}
+\DoxyCodeLine{1794 }
+\DoxyCodeLine{1799     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1d323e601b7a72f042154d7f3fda9593}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1800     \{}
+\DoxyCodeLine{1801       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Typ"{}} : \textcolor{stringliteral}{"{}typ"{}}));}
+\DoxyCodeLine{1802       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1803       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1804     \}}
+\DoxyCodeLine{1805 }
+\DoxyCodeLine{1810     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad3fa0120c49499f1c4fb059508d3dc65}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1811     \{}
+\DoxyCodeLine{1812       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Podprogram"{}} : \textcolor{stringliteral}{"{}podprogram"{}}));}
+\DoxyCodeLine{1813       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{1814       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1815     \}}
+\DoxyCodeLine{1816 }
+\DoxyCodeLine{1818     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afd3fc41092b7463f0f832e3662366288}{trTypeConstraints}}()}
+\DoxyCodeLine{1819     \{}
+\DoxyCodeLine{1820       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Omezení typů (Type Constraints)"{}};}
+\DoxyCodeLine{1821     \}}
+\DoxyCodeLine{1822 }
+\DoxyCodeLine{1824 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1826 \textcolor{comment}{}}
+\DoxyCodeLine{1828     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7fda4914b0083bff83f65759f3c60465}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1829     \{}
+\DoxyCodeLine{1830       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Relace "{}} + \mbox{\hyperlink{classQCString}{QCString}}(name);}
+\DoxyCodeLine{1831     \}}
+\DoxyCodeLine{1832 }
+\DoxyCodeLine{1834     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a07c7249f8f2d79c3c4b178f10eb09473}{trLoading}}()}
+\DoxyCodeLine{1835     \{}
+\DoxyCodeLine{1836       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Načítám..."{}};}
+\DoxyCodeLine{1837     \}}
+\DoxyCodeLine{1838 }
+\DoxyCodeLine{1840     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a654d86b073aa580dfd0bdcc27cadff56}{trGlobalNamespace}}()}
+\DoxyCodeLine{1841     \{}
+\DoxyCodeLine{1842       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globální jmenný prostor"{}};}
+\DoxyCodeLine{1843     \}}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6f7099bfc63f164b21bc85814bc95e94}{trSearching}}()}
+\DoxyCodeLine{1847     \{}
+\DoxyCodeLine{1848       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vyhledávám..."{}};}
+\DoxyCodeLine{1849     \}}
+\DoxyCodeLine{1850 }
+\DoxyCodeLine{1852     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a06102d25b5bcefb28b5e0e67faa4b9a5}{trNoMatches}}()}
+\DoxyCodeLine{1853     \{}
+\DoxyCodeLine{1854       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nic se nenašlo"{}};}
+\DoxyCodeLine{1855     \}}
+\DoxyCodeLine{1856 }
+\DoxyCodeLine{1858 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1860 \textcolor{comment}{}}
+\DoxyCodeLine{1865     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a35e111053d6b419e6219dbf4d8595414}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1866     \{}
+\DoxyCodeLine{1867       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Soubor v "{}}+name;}
+\DoxyCodeLine{1868     \}}
+\DoxyCodeLine{1869 }
+\DoxyCodeLine{1874     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a89b8cce5cc582fe940bb5e7cbd7b1e14}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1875     \{}
+\DoxyCodeLine{1876       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vkládá (include) soubor z "{}}+name;}
+\DoxyCodeLine{1877     \}}
+\DoxyCodeLine{1878 }
+\DoxyCodeLine{1889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a48e59377a035fcd38d3a0df78f0f98f4}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1890                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1891                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1892     \{}
+\DoxyCodeLine{1893       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}po"{}},\textcolor{stringliteral}{"{}út"{}},\textcolor{stringliteral}{"{}st"{}},\textcolor{stringliteral}{"{}čt"{}},\textcolor{stringliteral}{"{}pá"{}},\textcolor{stringliteral}{"{}so"{}},\textcolor{stringliteral}{"{}ne"{}} \};}
+\DoxyCodeLine{1894       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}led"{}},\textcolor{stringliteral}{"{}úno"{}},\textcolor{stringliteral}{"{}bře"{}},\textcolor{stringliteral}{"{}dub"{}},\textcolor{stringliteral}{"{}kvě"{}},\textcolor{stringliteral}{"{}čer"{}},\textcolor{stringliteral}{"{}čec"{}},\textcolor{stringliteral}{"{}srp"{}},\textcolor{stringliteral}{"{}zář"{}},\textcolor{stringliteral}{"{}říj"{}},\textcolor{stringliteral}{"{}lis"{}},\textcolor{stringliteral}{"{}pro"{}} \};}
+\DoxyCodeLine{1895       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1896       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%d. \%s \%d"{}},days[dayOfWeek-\/1],day,months[month-\/1],year);}
+\DoxyCodeLine{1897       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1898       \{}
+\DoxyCodeLine{1899         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1900         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d.\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1901         sdate+=stime;}
+\DoxyCodeLine{1902       \}}
+\DoxyCodeLine{1903       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1904     \}}
+\DoxyCodeLine{1905 }
+\DoxyCodeLine{1907 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1909 \textcolor{comment}{}}
+\DoxyCodeLine{1911     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4a5a577ed4856ae95acd3c4e21016f79}{trCiteReferences}}()}
+\DoxyCodeLine{1912     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Odkazy na literaturu"{}}; \}}
+\DoxyCodeLine{1913 }
+\DoxyCodeLine{1915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a4ea7a83c65de11eef9640547fce14822}{trCopyright}}()}
+\DoxyCodeLine{1916     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}}; \}}
+\DoxyCodeLine{1917 }
+\DoxyCodeLine{1919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1c9899f22c4ae95819e87075f32f5eb5}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1920     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Graf závislosti na adresářích pro "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1921 }
+\DoxyCodeLine{1923 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1925 \textcolor{comment}{}}
+\DoxyCodeLine{1927     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a15941f83613d8d969fcc3164331b21f6}{trDetailLevel}}()}
+\DoxyCodeLine{1928     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}úroveň detailů"{}}; \}}
+\DoxyCodeLine{1929 }
+\DoxyCodeLine{1931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a9fc761503e57646ae0976e0db403382b}{trTemplateParameters}}()}
+\DoxyCodeLine{1932     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametry šablon"{}}; \}}
+\DoxyCodeLine{1933 }
+\DoxyCodeLine{1935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3925eedadc2e79f8d8ede9e0d2fc3d7f}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1936     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}a "{}}+number+\textcolor{stringliteral}{"{} další(ch)..."{}}; \}}
+\DoxyCodeLine{1937 }
+\DoxyCodeLine{1939     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_abf472af923eb272404b3b67ff6f4e764}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1940     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Dokumentace pro tento výčet byla vygenerována z "{}};}
+\DoxyCodeLine{1941       \textcolor{keywordflow}{if} (single)}
+\DoxyCodeLine{1942           result += \textcolor{stringliteral}{"{}následujícího souboru:"{}};}
+\DoxyCodeLine{1943       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1944           result += \textcolor{stringliteral}{"{}následujících souborů:"{}};}
+\DoxyCodeLine{1945       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1946     \}}
+\DoxyCodeLine{1947 }
+\DoxyCodeLine{1949     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a474eff0fd172da5ec0c9e34cf6502bd7}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1950     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reference k výčtu "{}}+\mbox{\hyperlink{classQCString}{QCString}}(name); \}}
+\DoxyCodeLine{1951 }
+\DoxyCodeLine{1953     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a58e07652ce29a1fa0eaafeb44ea1c8a8}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1954     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} dědí se z "{}}+what; \}}
+\DoxyCodeLine{1955 }
+\DoxyCodeLine{1959     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a52803f80796ce4469cd5fb8c16a53b7e}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1960     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Další zděděné členy"{}}; \}}
+\DoxyCodeLine{1961 }
+\DoxyCodeLine{1963 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1965 \textcolor{comment}{}}
+\DoxyCodeLine{1970     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_affd4bfc31138706a4ae0740d047227c7}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1971     \{}
+\DoxyCodeLine{1972       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}povolit"{}} : \textcolor{stringliteral}{"{}zakázat"{}};}
+\DoxyCodeLine{1973       \textcolor{keywordflow}{return} opt + \textcolor{stringliteral}{"{} synchronizaci panelů"{}};}
+\DoxyCodeLine{1974     \}}
+\DoxyCodeLine{1975 }
+\DoxyCodeLine{1980     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a46c6132e9e24796f3443864f8ab883dc}{trProvidedByCategory}}()}
+\DoxyCodeLine{1981     \{}
+\DoxyCodeLine{1982       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Deklarováno v kategorii @0."{}};}
+\DoxyCodeLine{1983     \}}
+\DoxyCodeLine{1984 }
+\DoxyCodeLine{1989     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad43714f03c8afe7e3095394a9e0be8e4}{trExtendsClass}}()}
+\DoxyCodeLine{1990     \{}
+\DoxyCodeLine{1991       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rozšiřuje třídu @0."{}};}
+\DoxyCodeLine{1992     \}}
+\DoxyCodeLine{1993 }
+\DoxyCodeLine{1997     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab5237ede416d7c005951eb006e57035d}{trClassMethods}}()}
+\DoxyCodeLine{1998     \{}
+\DoxyCodeLine{1999       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metody třídy"{}};}
+\DoxyCodeLine{2000     \}}
+\DoxyCodeLine{2001 }
+\DoxyCodeLine{2005     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a0bea8191ff76ae1dc265d1762a0c812f}{trInstanceMethods}}()}
+\DoxyCodeLine{2006     \{}
+\DoxyCodeLine{2007       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metody instance"{}};}
+\DoxyCodeLine{2008     \}}
+\DoxyCodeLine{2009 }
+\DoxyCodeLine{2012     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7eed62b280db41321834f3561c1025d8}{trMethodDocumentation}}()}
+\DoxyCodeLine{2013     \{}
+\DoxyCodeLine{2014       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace metody"{}};}
+\DoxyCodeLine{2015     \}}
+\DoxyCodeLine{2016 }
+\DoxyCodeLine{2018 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{2020 \textcolor{comment}{}}
+\DoxyCodeLine{2022     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af53f52a773c2e783a9b176cbf7132781}{trInterfaces}}()}
+\DoxyCodeLine{2023     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Exportovaná rozhraní"{}}; \}}
+\DoxyCodeLine{2024 }
+\DoxyCodeLine{2026     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afa1c7b06166b3b37e17e2b050e51e811}{trServices}}()}
+\DoxyCodeLine{2027     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Začleněné služby"{}}; \}}
+\DoxyCodeLine{2028 }
+\DoxyCodeLine{2030     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a2867d4779cd8a9c86eb592ea8373063c}{trConstantGroups}}()}
+\DoxyCodeLine{2031     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstantní skupiny"{}}; \}}
+\DoxyCodeLine{2032 }
+\DoxyCodeLine{2034     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af2c765800a77aa7b9aec1fc1244d2cfe}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{2035     \{}
+\DoxyCodeLine{2036       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Konstantní skupiny z "{}};}
+\DoxyCodeLine{2037       result += namespaceName;}
+\DoxyCodeLine{2038       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2039     \}}
+\DoxyCodeLine{2041     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afc47b7eccee8040e911db8b6a4cd5247}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{2042     \{}
+\DoxyCodeLine{2043       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis služby "{}};}
+\DoxyCodeLine{2044       result += sName;}
+\DoxyCodeLine{2045       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2046     \}}
+\DoxyCodeLine{2048     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a17fe6cd14782621432f918295072d32e}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{2049     \{}
+\DoxyCodeLine{2050       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis singletonu "{}};}
+\DoxyCodeLine{2051       result += sName;}
+\DoxyCodeLine{2052       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2053     \}}
+\DoxyCodeLine{2055     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae948f0820bce650419e4770080f5ee9b}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{2056     \{}
+\DoxyCodeLine{2057       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{2058       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentace k této službě byla vygenerována "{}};}
+\DoxyCodeLine{2059       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}z následujícího souboru:"{}};}
+\DoxyCodeLine{2060       \textcolor{keywordflow}{else}        result+=\textcolor{stringliteral}{"{}z následujících souborů:"{}};}
+\DoxyCodeLine{2061       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2062     \}}
+\DoxyCodeLine{2064     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad3a3896e272c126e340014c82e796830}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{2065     \{}
+\DoxyCodeLine{2066       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{2067       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentace k tomuto singletonu byla vygenerována "{}};}
+\DoxyCodeLine{2068       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}z následujícího souboru:"{}};}
+\DoxyCodeLine{2069       \textcolor{keywordflow}{else}        result+=\textcolor{stringliteral}{"{}z následujících souborů:"{}};}
+\DoxyCodeLine{2070       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2071     \}}
+\DoxyCodeLine{2072 }
+\DoxyCodeLine{2074 \textcolor{comment}{// new since 1.8.15}}
+\DoxyCodeLine{2076 \textcolor{comment}{}}
+\DoxyCodeLine{2078     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a45c6105efac935197ae0e4de0354ab6b}{trDesignUnitHierarchy}}()}
+\DoxyCodeLine{2079     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchie návrhových jednotek"{}}; \}}
+\DoxyCodeLine{2081     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae723a46292831b2b609b93701f047671}{trDesignUnitList}}()}
+\DoxyCodeLine{2082     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam návrhových jednotek"{}}; \}}
+\DoxyCodeLine{2084     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3f6c3f1491a44987e558e3cc9e74ff83}{trDesignUnitMembers}}()}
+\DoxyCodeLine{2085     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam členů návrhových jednotky"{}}; \}}
+\DoxyCodeLine{2087     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a83a4e56cbbb66ab552e6f6a2d3a4e288}{trDesignUnitListDescription}}()}
+\DoxyCodeLine{2088     \{}
+\DoxyCodeLine{2089         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam všech členů návrhové jednotky s odkazy na "{}}}
+\DoxyCodeLine{2090             \textcolor{stringliteral}{"{}entity, ke kterým příslušejí:"{}};}
+\DoxyCodeLine{2091     \}}
+\DoxyCodeLine{2093     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_acb21827c317ee33e53f38e99f9bdf5ac}{trDesignUnitIndex}}()}
+\DoxyCodeLine{2094     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík návrhových jednotek"{}}; \}}
+\DoxyCodeLine{2096     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a093dc22133e7e13e5e5956af24e639ab}{trDesignUnits}}()}
+\DoxyCodeLine{2097     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Návrhové jednotky"{}}; \}}
+\DoxyCodeLine{2099     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a22fc66feed25acf23d26b64345cab6fa}{trFunctionAndProc}}()}
+\DoxyCodeLine{2100     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce/Procedury/Procesy"{}}; \}}
+\DoxyCodeLine{2102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7771749fe0751b96abb2ebf57ddf6d8f}{trVhdlType}}(\mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} type,\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{2103     \{}
+\DoxyCodeLine{2104       \textcolor{keywordflow}{switch}(type)}
+\DoxyCodeLine{2105       \{}
+\DoxyCodeLine{2106         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ace1559d6b194d1712298e2d0040d7107}{VhdlDocGen::LIBRARY}}:}
+\DoxyCodeLine{2107           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Knihovna"{}};}
+\DoxyCodeLine{2108           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Knihovny"{}};}
+\DoxyCodeLine{2109         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a28636405fd1d55082e41bae5b5b3c3a5}{VhdlDocGen::PACKAGE}}:}
+\DoxyCodeLine{2110           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Balík"{}};}
+\DoxyCodeLine{2111           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Balíky"{}};}
+\DoxyCodeLine{2112         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a425d57cd5b88c50bf8d6a7f30f9aad5f}{VhdlDocGen::SIGNAL}}:}
+\DoxyCodeLine{2113           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signál"{}};}
+\DoxyCodeLine{2114           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signály"{}};}
+\DoxyCodeLine{2115         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a6e8760b776ac93d18d10f76f3e9b92a0}{VhdlDocGen::COMPONENT}}:}
+\DoxyCodeLine{2116           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Komponenta"{}};}
+\DoxyCodeLine{2117           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Komponenty"{}};}
+\DoxyCodeLine{2118         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0893bf5a72275367a8e6a3721c9086f6}{VhdlDocGen::CONSTANT}}:}
+\DoxyCodeLine{2119           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstanta"{}};}
+\DoxyCodeLine{2120           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstanty"{}};}
+\DoxyCodeLine{2121         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a604511e3915904fbe25310051952f859}{VhdlDocGen::ENTITY}}:}
+\DoxyCodeLine{2122           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Entita"{}};}
+\DoxyCodeLine{2123           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Entity"{}};}
+\DoxyCodeLine{2124         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0a5e79aae981605ec80283206d115283}{VhdlDocGen::TYPE}}:}
+\DoxyCodeLine{2125           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typ"{}};}
+\DoxyCodeLine{2126           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typy"{}};}
+\DoxyCodeLine{2127         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a0cd6b2634cdb63a17c75b4b223681084}{VhdlDocGen::SUBTYPE}}:}
+\DoxyCodeLine{2128           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Subtyp"{}};}
+\DoxyCodeLine{2129           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Subtypy"{}};}
+\DoxyCodeLine{2130         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a5b3da2e7667eed3c6f771079cda86e12}{VhdlDocGen::FUNCTION}}:}
+\DoxyCodeLine{2131           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce"{}};}
+\DoxyCodeLine{2132           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkce"{}};}
+\DoxyCodeLine{2133         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6af57d3961a03bd6b9bd2de810a5158370}{VhdlDocGen::RECORD}}:}
+\DoxyCodeLine{2134           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Záznam"{}};}
+\DoxyCodeLine{2135           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Záznamy"{}};}
+\DoxyCodeLine{2136         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a25acdad40807693c8face87fa6a34dae}{VhdlDocGen::PROCEDURE}}:}
+\DoxyCodeLine{2137           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Procedura"{}};}
+\DoxyCodeLine{2138           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Procedury"{}};}
+\DoxyCodeLine{2139         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a523358537aff4699052d808da11a58ab}{VhdlDocGen::ARCHITECTURE}}:}
+\DoxyCodeLine{2140           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Architektura"{}};}
+\DoxyCodeLine{2141           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Architektury"{}};}
+\DoxyCodeLine{2142         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a74fd577ccb143927e3b8dbd90242ea82}{VhdlDocGen::ATTRIBUTE}}:}
+\DoxyCodeLine{2143           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atribut"{}};}
+\DoxyCodeLine{2144           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atributy"{}};}
+\DoxyCodeLine{2145         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad8826a2843d98d994f2451775f57851f}{VhdlDocGen::PROCESS}}:}
+\DoxyCodeLine{2146           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Proces"{}};}
+\DoxyCodeLine{2147           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Procesy"{}};}
+\DoxyCodeLine{2148         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a96a5769416db537592ac9bd778e1ba15}{VhdlDocGen::PORT}}:}
+\DoxyCodeLine{2149           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Brána"{}};}
+\DoxyCodeLine{2150           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Brány"{}};}
+\DoxyCodeLine{2151         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aeab873f5f9da8d43d0f5b730e9b4ca8f}{VhdlDocGen::USE}}:}
+\DoxyCodeLine{2152           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klauzule use"{}};}
+\DoxyCodeLine{2153           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klauzule use"{}};}
+\DoxyCodeLine{2154         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a21dd6922b9f777cb0eca071002740a49}{VhdlDocGen::GENERIC}}:}
+\DoxyCodeLine{2155           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generický parametr"{}};}
+\DoxyCodeLine{2156           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generické parametry"{}};}
+\DoxyCodeLine{2157         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ae421d9c7eca60207baf35f4cbd0b1da2}{VhdlDocGen::PACKAGE\_BODY}}:}
+\DoxyCodeLine{2158           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tělo balíku"{}};}
+\DoxyCodeLine{2159         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f02979facca94d4d0113e895224a27e}{VhdlDocGen::UNITS}}:}
+\DoxyCodeLine{2160           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fyzikální jednotky"{}};}
+\DoxyCodeLine{2161         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a77f8601e3486282da0da7d4f5fb794db}{VhdlDocGen::SHAREDVARIABLE}}:}
+\DoxyCodeLine{2162           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sdílená proměnná"{}};}
+\DoxyCodeLine{2163           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sdílené proměnné"{}};}
+\DoxyCodeLine{2164         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a9f13ba47aabd6d1e602ccfacf08ae2fd}{VhdlDocGen::VFILE}}:}
+\DoxyCodeLine{2165           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Soubor"{}};}
+\DoxyCodeLine{2166           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Soubory"{}};}
+\DoxyCodeLine{2167         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a16a7b9d37ce120789952ba9bebec0b8c}{VhdlDocGen::GROUP}}:}
+\DoxyCodeLine{2168           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Skupina"{}};}
+\DoxyCodeLine{2169           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Skupiny"{}};}
+\DoxyCodeLine{2170         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6ad66184819af212c8e56c4c69765df23c}{VhdlDocGen::INSTANTIATION}}:}
+\DoxyCodeLine{2171           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vložená instance"{}};}
+\DoxyCodeLine{2172           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vložené instance"{}};}
+\DoxyCodeLine{2173         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a7793acc4468024b56c723d5b696163e5}{VhdlDocGen::ALIAS}}:}
+\DoxyCodeLine{2174           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Alias"{}};}
+\DoxyCodeLine{2175           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aliasy"{}};}
+\DoxyCodeLine{2176         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a69fc9806e87f3f09d80b348be3c8e4dc}{VhdlDocGen::CONFIG}}:}
+\DoxyCodeLine{2177           \textcolor{keywordflow}{if} (single) \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konfigurace"{}};}
+\DoxyCodeLine{2178           \textcolor{keywordflow}{else}        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konfigurace"{}};}
+\DoxyCodeLine{2179         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6aff47a9945ac0d2a4d504f95904173750}{VhdlDocGen::MISCELLANEOUS}}:}
+\DoxyCodeLine{2180           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ostatní"{}};}
+\DoxyCodeLine{2181         \textcolor{keywordflow}{case} \mbox{\hyperlink{classVhdlDocGen_a3f46a86d0561edb71388774696f6cea6a3634e4fcc00b052fe7b55fd319d009c9}{VhdlDocGen::UCF\_CONST}}:}
+\DoxyCodeLine{2182           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Omezení (constraints)"{}};}
+\DoxyCodeLine{2183         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{2184           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Třída"{}};}
+\DoxyCodeLine{2185       \}}
+\DoxyCodeLine{2186     \}}
+\DoxyCodeLine{2187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a22eb8753717431e7465556e96f73ac9a}{trCustomReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{2188     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace pro "{}}+\mbox{\hyperlink{classQCString}{QCString}}(name); \}}
+\DoxyCodeLine{2189 }
+\DoxyCodeLine{2190     \textcolor{comment}{/* Slice */}}
+\DoxyCodeLine{2191     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aabb24257c15c4175d8d209cae046cd0d}{trConstants}}()}
+\DoxyCodeLine{2192     \{}
+\DoxyCodeLine{2193         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstanty"{}};}
+\DoxyCodeLine{2194     \}}
+\DoxyCodeLine{2195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad1bcb749f289ab54f1d16632c8a73d8f}{trConstantDocumentation}}()}
+\DoxyCodeLine{2196     \{}
+\DoxyCodeLine{2197         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace konstant"{}};}
+\DoxyCodeLine{2198     \}}
+\DoxyCodeLine{2199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a6a6d68c1526b4981f4084d183ce08c6c}{trSequences}}()}
+\DoxyCodeLine{2200     \{}
+\DoxyCodeLine{2201         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sekvence"{}};}
+\DoxyCodeLine{2202     \}}
+\DoxyCodeLine{2203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac192039905fde70a8920688a66c0a13f}{trSequenceDocumentation}}()}
+\DoxyCodeLine{2204     \{}
+\DoxyCodeLine{2205         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace sekvence"{}};}
+\DoxyCodeLine{2206     \}}
+\DoxyCodeLine{2207     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ad8adb865da4c0a130dd80522c93a159d}{trDictionaries}}()}
+\DoxyCodeLine{2208     \{}
+\DoxyCodeLine{2209         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Slovníky"{}};}
+\DoxyCodeLine{2210     \}}
+\DoxyCodeLine{2211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ace00217c9cf0e9e641365f3a78fe9a1b}{trDictionaryDocumentation}}()}
+\DoxyCodeLine{2212     \{}
+\DoxyCodeLine{2213         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace slovníku"{}};}
+\DoxyCodeLine{2214     \}}
+\DoxyCodeLine{2215     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afc72bef5be97045a334f2e8d95ef6caf}{trSliceInterfaces}}()}
+\DoxyCodeLine{2216     \{}
+\DoxyCodeLine{2217         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rozhraní"{}};}
+\DoxyCodeLine{2218     \}}
+\DoxyCodeLine{2219     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a7e1faeb3369b564ef30028aadb9ecd81}{trInterfaceIndex}}()}
+\DoxyCodeLine{2220     \{}
+\DoxyCodeLine{2221         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík rozhraní"{}};}
+\DoxyCodeLine{2222     \}}
+\DoxyCodeLine{2223     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a19833d853e7f899c69e5d8826f87d527}{trInterfaceList}}()}
+\DoxyCodeLine{2224     \{}
+\DoxyCodeLine{2225         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam rozhraní"{}};}
+\DoxyCodeLine{2226     \}}
+\DoxyCodeLine{2227     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1ae44f33cba620b039df66ca100bdc68}{trInterfaceListDescription}}()}
+\DoxyCodeLine{2228     \{}
+\DoxyCodeLine{2229         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje jména rozhraní a jejich stručné popisy:"{}};}
+\DoxyCodeLine{2230     \}}
+\DoxyCodeLine{2231     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aff743908c7375e40a4f06faec93d33c7}{trInterfaceHierarchy}}()}
+\DoxyCodeLine{2232     \{}
+\DoxyCodeLine{2233         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchie rozhraní"{}};}
+\DoxyCodeLine{2234     \}}
+\DoxyCodeLine{2235     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ab9dbb696cbf22a0c9ed7b2f7a5a24812}{trInterfaceHierarchyDescription}}()}
+\DoxyCodeLine{2236     \{}
+\DoxyCodeLine{2237         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam, vyjadřující vztah dědičnosti rozhraní. Je seřazen přibližně (ale ne úplně) podle abecedy:"{}};}
+\DoxyCodeLine{2238     \}}
+\DoxyCodeLine{2239     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_add3aba39f1b470c02388e14f26abadc7}{trInterfaceDocumentation}}()}
+\DoxyCodeLine{2240     \{}
+\DoxyCodeLine{2241         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace rozhraní"{}};}
+\DoxyCodeLine{2242     \}}
+\DoxyCodeLine{2243     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac757affcae1a9829340924395d5754be}{trStructs}}()}
+\DoxyCodeLine{2244     \{}
+\DoxyCodeLine{2245         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Struktury"{}};}
+\DoxyCodeLine{2246     \}}
+\DoxyCodeLine{2247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5f90343d06ed89edc7c3094399b84982}{trStructIndex}}()}
+\DoxyCodeLine{2248     \{}
+\DoxyCodeLine{2249         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík struktur"{}};}
+\DoxyCodeLine{2250     \}}
+\DoxyCodeLine{2251     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a065763ee8a9edff40aa96927866b1ef0}{trStructList}}()}
+\DoxyCodeLine{2252     \{}
+\DoxyCodeLine{2253         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam struktur"{}};}
+\DoxyCodeLine{2254     \}}
+\DoxyCodeLine{2255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3dd86dfa182b0678440d3cd9573485f1}{trStructListDescription}}()}
+\DoxyCodeLine{2256     \{}
+\DoxyCodeLine{2257         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje jména struktur a jejich stručné popisy:"{}};}
+\DoxyCodeLine{2258     \}}
+\DoxyCodeLine{2259     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a15ddb489e6ff5f39d19609c73c1006b1}{trStructDocumentation}}()}
+\DoxyCodeLine{2260     \{}
+\DoxyCodeLine{2261         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace struktur"{}};}
+\DoxyCodeLine{2262     \}}
+\DoxyCodeLine{2263     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a33fed038fc24d001506dc1ce409f8bbc}{trExceptionIndex}}()}
+\DoxyCodeLine{2264     \{}
+\DoxyCodeLine{2265         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík vyjímek"{}};}
+\DoxyCodeLine{2266     \}}
+\DoxyCodeLine{2267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a82074c8bf130f4c6fd116eed1eec1c0d}{trExceptionList}}()}
+\DoxyCodeLine{2268     \{}
+\DoxyCodeLine{2269         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam vyjímek"{}};}
+\DoxyCodeLine{2270     \}}
+\DoxyCodeLine{2271     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a3bb08ed9876140c29beca7e178dd4185}{trExceptionListDescription}}()}
+\DoxyCodeLine{2272     \{}
+\DoxyCodeLine{2273         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Následující seznam obsahuje jména výjímek a jejich stručné popisy:"{}};}
+\DoxyCodeLine{2274     \}}
+\DoxyCodeLine{2275     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aa9f7e55438931f53bef882e6842b16a7}{trExceptionHierarchy}}()}
+\DoxyCodeLine{2276     \{}
+\DoxyCodeLine{2277         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarchie vyjímek"{}};}
+\DoxyCodeLine{2278     \}}
+\DoxyCodeLine{2279     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afa20e6904d6f820c6777a7cb264a079a}{trExceptionHierarchyDescription}}()}
+\DoxyCodeLine{2280     \{}
+\DoxyCodeLine{2281         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zde naleznete seznam, vyjadřující vztah dědičnosti vyjímek. Je seřazen přibližně (ale ne úplně) podle abecedy:"{}};}
+\DoxyCodeLine{2282     \}}
+\DoxyCodeLine{2283     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae8c1c60f25a373c53bbdf32f8740702e}{trExceptionDocumentation}}()}
+\DoxyCodeLine{2284     \{}
+\DoxyCodeLine{2285         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace vyjímek"{}};}
+\DoxyCodeLine{2286     \}}
+\DoxyCodeLine{2287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_afb333e7e00357eeb596734f74d9c3d82}{trCompoundReferenceSlice}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName, \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType, \textcolor{keywordtype}{bool} isLocal)}
+\DoxyCodeLine{2288     \{}
+\DoxyCodeLine{2289       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace "{}});}
+\DoxyCodeLine{2290       \textcolor{keywordflow}{if} (isLocal) result+=\textcolor{stringliteral}{"{} lokální"{}};}
+\DoxyCodeLine{2291       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{2292       \{}
+\DoxyCodeLine{2293         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} třídy "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2294         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} struktury "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2295         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} unie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2296         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} rozhraní "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2297         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:}
+\DoxyCodeLine{2298            \textcolor{keywordflow}{if} (isLocal) result+=\textcolor{stringliteral}{"{}ho"{}};}
+\DoxyCodeLine{2299            result+=\textcolor{stringliteral}{"{} protokolu "{}};}
+\DoxyCodeLine{2300         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2301         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategorie "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2302         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} vyjímky "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2303         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{2304       \}}
+\DoxyCodeLine{2305       result += clName;}
+\DoxyCodeLine{2306       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2307     \}}
+\DoxyCodeLine{2308     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af6830e1e72371835adc05185e8e65d56}{trOperations}}()}
+\DoxyCodeLine{2309     \{}
+\DoxyCodeLine{2310         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Operace"{}};}
+\DoxyCodeLine{2311     \}}
+\DoxyCodeLine{2312     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_af46da6922200d61f46815f722b6e44a6}{trOperationDocumentation}}()}
+\DoxyCodeLine{2313     \{}
+\DoxyCodeLine{2314         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace operace"{}};}
+\DoxyCodeLine{2315     \}}
+\DoxyCodeLine{2316     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a486f6a4c0991fadde3acfb382afa2051}{trDataMembers}}()}
+\DoxyCodeLine{2317     \{}
+\DoxyCodeLine{2318         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datové členy"{}};}
+\DoxyCodeLine{2319     \}}
+\DoxyCodeLine{2320     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a1081cff79137a22d757a066b40a99e08}{trDataMemberDocumentation}}()}
+\DoxyCodeLine{2321     \{}
+\DoxyCodeLine{2322         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace datových členů"{}};}
+\DoxyCodeLine{2323     \}}
+\DoxyCodeLine{2324 }
+\DoxyCodeLine{2326 \textcolor{comment}{// new since 1.8.19}}
+\DoxyCodeLine{2328 \textcolor{comment}{}}
+\DoxyCodeLine{2330     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a81647bd5f9a86df127771b2a00e4f087}{trDesignUnitDocumentation}}()}
+\DoxyCodeLine{2331     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace návrhové jednotky"{}}; \}}
+\DoxyCodeLine{2332 }
+\DoxyCodeLine{2334 \textcolor{comment}{// new since 1.9.2}}
+\DoxyCodeLine{2336 \textcolor{comment}{}}
+\DoxyCodeLine{2338     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_aca14f92d5706e907bf54e9a9d60512fb}{trConcept}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{2339     \{}
+\DoxyCodeLine{2340       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Koncept"{}} : \textcolor{stringliteral}{"{}koncept"{}}));}
+\DoxyCodeLine{2341       \textcolor{keywordflow}{if} (!singular) result+=\textcolor{stringliteral}{"{}y"{}};}
+\DoxyCodeLine{2342       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2343     \}}
+\DoxyCodeLine{2345     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a61cb38a6bb85165c9fc4a1515f30687b}{trConceptReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&conceptName)}
+\DoxyCodeLine{2346     \{}
+\DoxyCodeLine{2347       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}Dokumentace konceptu "{}});}
+\DoxyCodeLine{2348       result+=conceptName;}
+\DoxyCodeLine{2349       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2350     \}}
+\DoxyCodeLine{2351 }
+\DoxyCodeLine{2353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a96aba3267cc47bb2a964f23f78947bfc}{trConceptList}}()}
+\DoxyCodeLine{2354     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Seznam konceptů"{}}; \}}
+\DoxyCodeLine{2355 }
+\DoxyCodeLine{2357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ac6517d271f3f452cbc2b82b1dd0e3d9a}{trConceptIndex}}()}
+\DoxyCodeLine{2358     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rejstřík konceptů"{}}; \}}
+\DoxyCodeLine{2359 }
+\DoxyCodeLine{2361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_a5df43b4ea2ce33ce24174c867b31bf33}{trConceptDocumentation}}()}
+\DoxyCodeLine{2362     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentace konceptů"{}}; \}}
+\DoxyCodeLine{2363 }
+\DoxyCodeLine{2365     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae8c68c445ca518bfa7e83e9c108b0697}{trConceptListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{2366     \{}
+\DoxyCodeLine{2367       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Následuje seznam všech "{}};}
+\DoxyCodeLine{2368       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentovaných "{}};}
+\DoxyCodeLine{2369       result+=\textcolor{stringliteral}{"{}konceptů se stručnými popisy:"{}};}
+\DoxyCodeLine{2370       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{2371     \}}
+\DoxyCodeLine{2372 }
+\DoxyCodeLine{2374     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCzech_ae1d35b4936dd0eab0b245e1cc164449f}{trConceptDefinition}}()}
+\DoxyCodeLine{2375     \{}
+\DoxyCodeLine{2376       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definice konceptů"{}};}
+\DoxyCodeLine{2377     \}}
+\DoxyCodeLine{2378 \};}
+\DoxyCodeLine{2379 }
+\DoxyCodeLine{2380 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TRANSLATOR\_CZ\_H}}
+
+\end{DoxyCode}

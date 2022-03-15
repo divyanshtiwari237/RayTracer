@@ -1,0 +1,93 @@
+\hypertarget{utf8_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/utf8.cpp File Reference}
+\label{utf8_8cpp}\index{/mnt/c/projects/doxygen/src/utf8.cpp@{/mnt/c/projects/doxygen/src/utf8.cpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}caseconvert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}textstream.\+h\char`\"{}}\newline
+Include dependency graph for utf8.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}{get\+UTF8\+Char\+Num\+Bytes}} (char c)
+\item 
+std\+::string \mbox{\hyperlink{utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}{get\+UTF8\+Char\+At}} (const std\+::string \&input, size\+\_\+t pos)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{utf8_8cpp_a83a5739b379d70400986a723aefd42b0}{get\+Unicode\+For\+UTF8\+Char\+At}} (const std\+::string \&input, size\+\_\+t pos)
+\item 
+std\+::string \mbox{\hyperlink{utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convert\+UTF8\+To\+Lower}} (const std\+::string \&input)
+\item 
+std\+::string \mbox{\hyperlink{utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convert\+UTF8\+To\+Upper}} (const std\+::string \&input)
+\item 
+const char $\ast$ \mbox{\hyperlink{utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}{write\+UTF8\+Char}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t, const char $\ast$s)
+\item 
+bool \mbox{\hyperlink{utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}{last\+UTF8\+Char\+Is\+Multibyte}} (const std\+::string \&input)
+\item 
+bool \mbox{\hyperlink{utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}{is\+UTF8\+Char\+Upper\+Case}} (const std\+::string \&input, size\+\_\+t pos)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}{is\+UTF8\+Non\+Breakable\+Space}} (const char $\ast$input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}\label{utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}} 
+\index{utf8.cpp@{utf8.cpp}!convertUTF8ToLower@{convertUTF8ToLower}}
+\index{convertUTF8ToLower@{convertUTF8ToLower}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{convertUTF8ToLower()}{convertUTF8ToLower()}}
+{\footnotesize\ttfamily std\+::string convert\+UTF8\+To\+Lower (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})}
+
+Converts the input string into a lower case version, also taking into account non-\/\+ASCII characters that has a lower case variant. \mbox{\Hypertarget{utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}\label{utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}} 
+\index{utf8.cpp@{utf8.cpp}!convertUTF8ToUpper@{convertUTF8ToUpper}}
+\index{convertUTF8ToUpper@{convertUTF8ToUpper}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{convertUTF8ToUpper()}{convertUTF8ToUpper()}}
+{\footnotesize\ttfamily std\+::string convert\+UTF8\+To\+Upper (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})}
+
+Converts the input string into a upper case version, also taking into account non-\/\+ASCII characters that has a upper case variant. \mbox{\Hypertarget{utf8_8cpp_a83a5739b379d70400986a723aefd42b0}\label{utf8_8cpp_a83a5739b379d70400986a723aefd42b0}} 
+\index{utf8.cpp@{utf8.cpp}!getUnicodeForUTF8CharAt@{getUnicodeForUTF8CharAt}}
+\index{getUnicodeForUTF8CharAt@{getUnicodeForUTF8CharAt}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUnicodeForUTF8CharAt()}{getUnicodeForUTF8CharAt()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+Unicode\+For\+UTF8\+Char\+At (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns the 32bit Unicode value matching character at byte position pos in the UTF8 encoded input. Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}\label{utf8_8cpp_ac0c19c2bb475bc6f27dbf06345c865a3}} 
+\index{utf8.cpp@{utf8.cpp}!getUTF8CharAt@{getUTF8CharAt}}
+\index{getUTF8CharAt@{getUTF8CharAt}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUTF8CharAt()}{getUTF8CharAt()}}
+{\footnotesize\ttfamily std\+::string get\+UTF8\+Char\+At (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns the UTF8 character found at byte position pos in the input string. The resulting string can be a multi byte sequence. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}\label{utf8_8cpp_aaca02fb609a02d6006c4ae5d02a20b9b}} 
+\index{utf8.cpp@{utf8.cpp}!getUTF8CharNumBytes@{getUTF8CharNumBytes}}
+\index{getUTF8CharNumBytes@{getUTF8CharNumBytes}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{getUTF8CharNumBytes()}{getUTF8CharNumBytes()}}
+{\footnotesize\ttfamily uint8\+\_\+t get\+UTF8\+Char\+Num\+Bytes (\begin{DoxyParamCaption}\item[{char}]{first\+Byte }\end{DoxyParamCaption})}
+
+Returns the number of bytes making up a single UTF8 character given the first byte in the sequence. \mbox{\Hypertarget{utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}\label{utf8_8cpp_a3c47f3df6f4ebf0e04e0810d01c9b56f}} 
+\index{utf8.cpp@{utf8.cpp}!isUTF8CharUpperCase@{isUTF8CharUpperCase}}
+\index{isUTF8CharUpperCase@{isUTF8CharUpperCase}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{isUTF8CharUpperCase()}{isUTF8CharUpperCase()}}
+{\footnotesize\ttfamily bool is\+UTF8\+Char\+Upper\+Case (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input,  }\item[{size\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Returns true iff the input string at byte position pos holds an upper case character. \mbox{\Hypertarget{utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}\label{utf8_8cpp_a8c217509aa52433aa63d199ef77968d5}} 
+\index{utf8.cpp@{utf8.cpp}!isUTF8NonBreakableSpace@{isUTF8NonBreakableSpace}}
+\index{isUTF8NonBreakableSpace@{isUTF8NonBreakableSpace}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{isUTF8NonBreakableSpace()}{isUTF8NonBreakableSpace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} is\+UTF8\+Non\+Breakable\+Space (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input }\end{DoxyParamCaption})}
+
+Check if the first character pointed at by input is a non-\/breakable whitespace character. Returns the byte size of the character if there is match or 0 if not. \mbox{\Hypertarget{utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}\label{utf8_8cpp_a854871065a3ba8571af77887ebf7e8af}} 
+\index{utf8.cpp@{utf8.cpp}!lastUTF8CharIsMultibyte@{lastUTF8CharIsMultibyte}}
+\index{lastUTF8CharIsMultibyte@{lastUTF8CharIsMultibyte}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{lastUTF8CharIsMultibyte()}{lastUTF8CharIsMultibyte()}}
+{\footnotesize\ttfamily bool last\+UTF8\+Char\+Is\+Multibyte (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})}
+
+Returns true iff the last character in input is a multibyte character. \mbox{\Hypertarget{utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}\label{utf8_8cpp_ae9de248ba9e19731fb682352dcbc1b3c}} 
+\index{utf8.cpp@{utf8.cpp}!writeUTF8Char@{writeUTF8Char}}
+\index{writeUTF8Char@{writeUTF8Char}!utf8.cpp@{utf8.cpp}}
+\doxysubsubsection{\texorpdfstring{writeUTF8Char()}{writeUTF8Char()}}
+{\footnotesize\ttfamily const char $\ast$ write\+UTF8\+Char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t,  }\item[{const char $\ast$}]{s }\end{DoxyParamCaption})}
+
+Writes the UTF8 character pointed to by s to stream t and returns a pointer to the next character. Here is the call graph for this function\+:
+% FIG 3

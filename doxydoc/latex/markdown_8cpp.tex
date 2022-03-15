@@ -1,0 +1,322 @@
+\hypertarget{markdown_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/markdown.cpp File Reference}
+\label{markdown_8cpp}\index{/mnt/c/projects/doxygen/src/markdown.cpp@{/mnt/c/projects/doxygen/src/markdown.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}growbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentcnv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}section.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utf8.\+h\char`\"{}}\newline
+Include dependency graph for markdown.\+cpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTrace}{Trace}}
+\item 
+struct \mbox{\hyperlink{structTableCell}{Table\+Cell}}
+\item 
+struct \mbox{\hyperlink{structMarkdownOutlineParser_1_1Private}{Markdown\+Outline\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_ab1b100016578b875cd432e6b519ffc0b}{ENABLE\+\_\+\+TRACING}}
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a9076b4defb0a00583ea4006768d27605}{IOSTREAM}}~stdout
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a0b55304d97656b0dc4aba1723a099bb8}{DATA\+\_\+\+BUFSIZE}}~20
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a2f8599c4656a3716a2c45c746ed22033}{PRETTY\+\_\+\+FUNC}}~\+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a9f1e2fd281728ca4f1a8875f8d10b603}{TRACE}}(data)~\mbox{\hyperlink{classTrace}{Trace}} trace\+\_\+(\mbox{\hyperlink{markdown_8cpp_a2f8599c4656a3716a2c45c746ed22033}{PRETTY\+\_\+\+FUNC}},data);
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a6d673d4092b75bf2f2a20a74318f8db1}{TRACE\+\_\+\+MORE}}(...)~trace\+\_\+.\+trace(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a2ab6e5971f341977a6e1781d5ffeeb75}{TRACE\+\_\+\+RESULT}}(v)~trace\+\_\+.\+set\+Result(v);
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a9a0934c417cd4e7eb4175f8b67473ae0}{is\+Id\+Char}}(i)
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_ae5123abfeab113b1bfd10cc75e73b523}{extra\+Char}}(i)
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a40d3090d3cb97c1026a8828f308c765d}{is\+Open\+Emph\+Char}}(i)
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_ae014e192391a150ed4f5d5baff1bda5a}{ignore\+Close\+Emph\+Char}}(i)
+\item 
+\#define \mbox{\hyperlink{markdown_8cpp_a8651540cb26651ce580fdc9504e7fdf2}{is\+Li\+Tag}}(i)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611}{Explicit\+Page\+Result}} \{ \mbox{\hyperlink{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611ae2813323b951a15b22babe5224d9dabe}{explicit\+Page}}
+, \mbox{\hyperlink{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611a7e256e56ac82ab7e84c0a827a6f87530}{explicit\+Main\+Page}}
+, \mbox{\hyperlink{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611aed049ce087485c91fc2610599aebd142}{not\+Explicit}}
+ \}
+\item 
+enum \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726}{Alignment}} \{ \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4258b9785acff3438d08d41ddb4439d9}{Align\+None}}
+, \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a291bdf1a2284d5648efc75ee78fbeb4c}{Align\+Left}}
+, \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726afed76d6718c0a44a25c5e19ae8fb51d1}{Align\+Center}}
+, \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4758d977046d9c084a0eaf7434fd29e1}{Align\+Right}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{markdown_8cpp_a07ac1979bb5e5eda88291fe7f1d9adf4}{is\+Newline}} (const char $\ast$data)
+\item 
+bool \mbox{\hyperlink{markdown_8cpp_a0472225b4544d8bf79d541d7ff50a79f}{is\+Block\+Quote}} (const char $\ast$data, \mbox{\hyperlink{classint}{int}} size, \mbox{\hyperlink{classint}{int}} indent)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{markdown_8cpp_ac3bb1789abc2534eb3826e810df324d5}{find\+Table\+Columns}} (const char $\ast$data, \mbox{\hyperlink{classint}{int}} size, \mbox{\hyperlink{classint}{int}} \&start, \mbox{\hyperlink{classint}{int}} \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}, \mbox{\hyperlink{classint}{int}} \&columns)
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{markdown_8cpp_a0a158f67dd586087dac0e968ea384f09}{markdown\+File\+Name\+To\+Id}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{markdown_8cpp_ab90a38f35e109b0e55a693490232d93d}{g\+\_\+utf8\+\_\+nbsp}} = \char`\"{}\textbackslash{}xc2\textbackslash{}xa0\char`\"{}
+\item 
+const char $\ast$ \mbox{\hyperlink{markdown_8cpp_a5411339961a1e433bf9b59570c97fa6a}{g\+\_\+doxy\+\_\+nbsp}} = \char`\"{}\&\+\_\+doxy\+\_\+nbsp;\char`\"{}
+\item 
+const \mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{markdown_8cpp_ade474436ee7fd57bc2ed66945290d4d2}{code\+Block\+Indent}} = 4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{markdown_8cpp_a0b55304d97656b0dc4aba1723a099bb8}\label{markdown_8cpp_a0b55304d97656b0dc4aba1723a099bb8}} 
+\index{markdown.cpp@{markdown.cpp}!DATA\_BUFSIZE@{DATA\_BUFSIZE}}
+\index{DATA\_BUFSIZE@{DATA\_BUFSIZE}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{DATA\_BUFSIZE}{DATA\_BUFSIZE}}
+{\footnotesize\ttfamily \#define DATA\+\_\+\+BUFSIZE~20}
+
+\mbox{\Hypertarget{markdown_8cpp_ab1b100016578b875cd432e6b519ffc0b}\label{markdown_8cpp_ab1b100016578b875cd432e6b519ffc0b}} 
+\index{markdown.cpp@{markdown.cpp}!ENABLE\_TRACING@{ENABLE\_TRACING}}
+\index{ENABLE\_TRACING@{ENABLE\_TRACING}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{ENABLE\_TRACING}{ENABLE\_TRACING}}
+{\footnotesize\ttfamily \#define ENABLE\+\_\+\+TRACING}
+
+\mbox{\Hypertarget{markdown_8cpp_ae5123abfeab113b1bfd10cc75e73b523}\label{markdown_8cpp_ae5123abfeab113b1bfd10cc75e73b523}} 
+\index{markdown.cpp@{markdown.cpp}!extraChar@{extraChar}}
+\index{extraChar@{extraChar}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{extraChar}{extraChar}}
+{\footnotesize\ttfamily \#define extra\+Char(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  (data[i]==\textcolor{charliteral}{'-\/'} || data[i]==\textcolor{charliteral}{'+'} || data[i]==\textcolor{charliteral}{'!'} || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{'?'} || data[i]==\textcolor{charliteral}{'\$'} || data[i]==\textcolor{charliteral}{'@'} || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{'\&'} || data[i]==\textcolor{charliteral}{'*'} || data[i]==\textcolor{charliteral}{'\%'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{markdown_8cpp_ae014e192391a150ed4f5d5baff1bda5a}\label{markdown_8cpp_ae014e192391a150ed4f5d5baff1bda5a}} 
+\index{markdown.cpp@{markdown.cpp}!ignoreCloseEmphChar@{ignoreCloseEmphChar}}
+\index{ignoreCloseEmphChar@{ignoreCloseEmphChar}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{ignoreCloseEmphChar}{ignoreCloseEmphChar}}
+{\footnotesize\ttfamily \#define ignore\+Close\+Emph\+Char(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  (data[i]==\textcolor{charliteral}{'('}  || data[i]==\textcolor{charliteral}{'\{'} || data[i]==\textcolor{charliteral}{'['} || (data[i]==\textcolor{charliteral}{'<'} \&\& data[i+1]!=\textcolor{charliteral}{'/'}) || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{'\(\backslash\)\(\backslash\)'} || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{'@'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{markdown_8cpp_a9076b4defb0a00583ea4006768d27605}\label{markdown_8cpp_a9076b4defb0a00583ea4006768d27605}} 
+\index{markdown.cpp@{markdown.cpp}!IOSTREAM@{IOSTREAM}}
+\index{IOSTREAM@{IOSTREAM}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{IOSTREAM}{IOSTREAM}}
+{\footnotesize\ttfamily \#define IOSTREAM~stdout}
+
+\mbox{\Hypertarget{markdown_8cpp_a9a0934c417cd4e7eb4175f8b67473ae0}\label{markdown_8cpp_a9a0934c417cd4e7eb4175f8b67473ae0}} 
+\index{markdown.cpp@{markdown.cpp}!isIdChar@{isIdChar}}
+\index{isIdChar@{isIdChar}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{isIdChar}{isIdChar}}
+{\footnotesize\ttfamily \#define is\+Id\+Char(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  ((data[i]>=\textcolor{charliteral}{'a'} \&\& data[i]<=\textcolor{charliteral}{'z'}) || \(\backslash\)}
+\DoxyCodeLine{   (data[i]>=\textcolor{charliteral}{'A'} \&\& data[i]<=\textcolor{charliteral}{'Z'}) || \(\backslash\)}
+\DoxyCodeLine{   (data[i]>=\textcolor{charliteral}{'0'} \&\& data[i]<=\textcolor{charliteral}{'9'}) || \(\backslash\)}
+\DoxyCodeLine{   (\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}\textcolor{keyword}{>}(data[i])>=0x80))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{markdown_8cpp_a8651540cb26651ce580fdc9504e7fdf2}\label{markdown_8cpp_a8651540cb26651ce580fdc9504e7fdf2}} 
+\index{markdown.cpp@{markdown.cpp}!isLiTag@{isLiTag}}
+\index{isLiTag@{isLiTag}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{isLiTag}{isLiTag}}
+{\footnotesize\ttfamily \#define is\+Li\+Tag(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   (data[(i)]==\textcolor{charliteral}{'<'} \&\& \(\backslash\)}
+\DoxyCodeLine{   (data[(i)+1]==\textcolor{charliteral}{'l'} || data[(i)+1]==\textcolor{charliteral}{'L'}) \&\& \(\backslash\)}
+\DoxyCodeLine{   (data[(i)+2]==\textcolor{charliteral}{'i'} || data[(i)+2]==\textcolor{charliteral}{'I'}) \&\& \(\backslash\)}
+\DoxyCodeLine{   (data[(i)+3]==\textcolor{charliteral}{'>'}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{markdown_8cpp_a40d3090d3cb97c1026a8828f308c765d}\label{markdown_8cpp_a40d3090d3cb97c1026a8828f308c765d}} 
+\index{markdown.cpp@{markdown.cpp}!isOpenEmphChar@{isOpenEmphChar}}
+\index{isOpenEmphChar@{isOpenEmphChar}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{isOpenEmphChar}{isOpenEmphChar}}
+{\footnotesize\ttfamily \#define is\+Open\+Emph\+Char(\begin{DoxyParamCaption}\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  (data[i]==\textcolor{charliteral}{'\(\backslash\)n'} || data[i]==\textcolor{charliteral}{' '} || data[i]==\textcolor{charliteral}{'\(\backslash\)''} || data[i]==\textcolor{charliteral}{'<'} || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{'>'}  || data[i]==\textcolor{charliteral}{'\{'} || data[i]==\textcolor{charliteral}{'('}  || data[i]==\textcolor{charliteral}{'['} || \(\backslash\)}
+\DoxyCodeLine{   data[i]==\textcolor{charliteral}{','}  || data[i]==\textcolor{charliteral}{':'} || data[i]==\textcolor{charliteral}{';'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{markdown_8cpp_a2f8599c4656a3716a2c45c746ed22033}\label{markdown_8cpp_a2f8599c4656a3716a2c45c746ed22033}} 
+\index{markdown.cpp@{markdown.cpp}!PRETTY\_FUNC@{PRETTY\_FUNC}}
+\index{PRETTY\_FUNC@{PRETTY\_FUNC}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{PRETTY\_FUNC}{PRETTY\_FUNC}}
+{\footnotesize\ttfamily \#define PRETTY\+\_\+\+FUNC~\+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{markdown_8cpp_a9f1e2fd281728ca4f1a8875f8d10b603}\label{markdown_8cpp_a9f1e2fd281728ca4f1a8875f8d10b603}} 
+\index{markdown.cpp@{markdown.cpp}!TRACE@{TRACE}}
+\index{TRACE@{TRACE}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{TRACE}{TRACE}}
+{\footnotesize\ttfamily \#define TRACE(\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})~\mbox{\hyperlink{classTrace}{Trace}} trace\+\_\+(\mbox{\hyperlink{markdown_8cpp_a2f8599c4656a3716a2c45c746ed22033}{PRETTY\+\_\+\+FUNC}},data);}
+
+\mbox{\Hypertarget{markdown_8cpp_a6d673d4092b75bf2f2a20a74318f8db1}\label{markdown_8cpp_a6d673d4092b75bf2f2a20a74318f8db1}} 
+\index{markdown.cpp@{markdown.cpp}!TRACE\_MORE@{TRACE\_MORE}}
+\index{TRACE\_MORE@{TRACE\_MORE}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{TRACE\_MORE}{TRACE\_MORE}}
+{\footnotesize\ttfamily \#define TRACE\+\_\+\+MORE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~trace\+\_\+.\+trace(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);}
+
+\mbox{\Hypertarget{markdown_8cpp_a2ab6e5971f341977a6e1781d5ffeeb75}\label{markdown_8cpp_a2ab6e5971f341977a6e1781d5ffeeb75}} 
+\index{markdown.cpp@{markdown.cpp}!TRACE\_RESULT@{TRACE\_RESULT}}
+\index{TRACE\_RESULT@{TRACE\_RESULT}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{TRACE\_RESULT}{TRACE\_RESULT}}
+{\footnotesize\ttfamily \#define TRACE\+\_\+\+RESULT(\begin{DoxyParamCaption}\item[{}]{v }\end{DoxyParamCaption})~trace\+\_\+.\+set\+Result(v);}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726}\label{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726}} 
+\index{markdown.cpp@{markdown.cpp}!Alignment@{Alignment}}
+\index{Alignment@{Alignment}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{Alignment}{Alignment}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726}{Alignment}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignNone@{AlignNone}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!AlignNone@{AlignNone}}}\mbox{\Hypertarget{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4258b9785acff3438d08d41ddb4439d9}\label{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4258b9785acff3438d08d41ddb4439d9}} 
+Align\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignLeft@{AlignLeft}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!AlignLeft@{AlignLeft}}}\mbox{\Hypertarget{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a291bdf1a2284d5648efc75ee78fbeb4c}\label{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a291bdf1a2284d5648efc75ee78fbeb4c}} 
+Align\+Left&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignCenter@{AlignCenter}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!AlignCenter@{AlignCenter}}}\mbox{\Hypertarget{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726afed76d6718c0a44a25c5e19ae8fb51d1}\label{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726afed76d6718c0a44a25c5e19ae8fb51d1}} 
+Align\+Center&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AlignRight@{AlignRight}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!AlignRight@{AlignRight}}}\mbox{\Hypertarget{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4758d977046d9c084a0eaf7434fd29e1}\label{markdown_8cpp_acdfaca60ec19c0265bac2692d7982726a4758d977046d9c084a0eaf7434fd29e1}} 
+Align\+Right&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611}\label{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611}} 
+\index{markdown.cpp@{markdown.cpp}!ExplicitPageResult@{ExplicitPageResult}}
+\index{ExplicitPageResult@{ExplicitPageResult}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{ExplicitPageResult}{ExplicitPageResult}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611}{Explicit\+Page\+Result}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{explicitPage@{explicitPage}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!explicitPage@{explicitPage}}}\mbox{\Hypertarget{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611ae2813323b951a15b22babe5224d9dabe}\label{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611ae2813323b951a15b22babe5224d9dabe}} 
+explicit\+Page&docs start with a page command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{explicitMainPage@{explicitMainPage}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!explicitMainPage@{explicitMainPage}}}\mbox{\Hypertarget{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611a7e256e56ac82ab7e84c0a827a6f87530}\label{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611a7e256e56ac82ab7e84c0a827a6f87530}} 
+explicit\+Main\+Page&docs start with a mainpage command \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{notExplicit@{notExplicit}!markdown.cpp@{markdown.cpp}}\index{markdown.cpp@{markdown.cpp}!notExplicit@{notExplicit}}}\mbox{\Hypertarget{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611aed049ce087485c91fc2610599aebd142}\label{markdown_8cpp_a32bd5ad1ca53505df49807d933ab3611aed049ce087485c91fc2610599aebd142}} 
+not\+Explicit&docs doesn\textquotesingle{}t start with either page or mainpage \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{markdown_8cpp_ac3bb1789abc2534eb3826e810df324d5}\label{markdown_8cpp_ac3bb1789abc2534eb3826e810df324d5}} 
+\index{markdown.cpp@{markdown.cpp}!findTableColumns@{findTableColumns}}
+\index{findTableColumns@{findTableColumns}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{findTableColumns()}{findTableColumns()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} find\+Table\+Columns (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data,  }\item[{\mbox{\hyperlink{classint}{int}}}]{size,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{start,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{end,  }\item[{\mbox{\hyperlink{classint}{int}} \&}]{columns }\end{DoxyParamCaption})}
+
+Finds the location of the table\textquotesingle{}s contains in the string {\itshape data}. Only one line will be inspected. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & pointer to the string buffer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & the size of the buffer. \\
+\hline
+\mbox{\texttt{ out}}  & {\em start} & offset of the first character of the table content \\
+\hline
+\mbox{\texttt{ out}}  & {\em end} & offset of the last character of the table content \\
+\hline
+\mbox{\texttt{ out}}  & {\em columns} & number of table columns found \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The offset until the next line in the buffer. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{markdown_8cpp_a0472225b4544d8bf79d541d7ff50a79f}\label{markdown_8cpp_a0472225b4544d8bf79d541d7ff50a79f}} 
+\index{markdown.cpp@{markdown.cpp}!isBlockQuote@{isBlockQuote}}
+\index{isBlockQuote@{isBlockQuote}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{isBlockQuote()}{isBlockQuote()}}
+{\footnotesize\ttfamily bool is\+Block\+Quote (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data,  }\item[{\mbox{\hyperlink{classint}{int}}}]{size,  }\item[{\mbox{\hyperlink{classint}{int}}}]{indent }\end{DoxyParamCaption})}
+
+returns TRUE if this line starts a block quote \mbox{\Hypertarget{markdown_8cpp_a07ac1979bb5e5eda88291fe7f1d9adf4}\label{markdown_8cpp_a07ac1979bb5e5eda88291fe7f1d9adf4}} 
+\index{markdown.cpp@{markdown.cpp}!isNewline@{isNewline}}
+\index{isNewline@{isNewline}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{isNewline()}{isNewline()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} is\+Newline (\begin{DoxyParamCaption}\item[{const char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{markdown_8cpp_a0a158f67dd586087dac0e968ea384f09}\label{markdown_8cpp_a0a158f67dd586087dac0e968ea384f09}} 
+\index{markdown.cpp@{markdown.cpp}!markdownFileNameToId@{markdownFileNameToId}}
+\index{markdownFileNameToId@{markdownFileNameToId}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{markdownFileNameToId()}{markdownFileNameToId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} markdown\+File\+Name\+To\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})}
+
+processes string {\itshape s} and converts markdown into doxygen/html commands. Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{markdown_8cpp_ade474436ee7fd57bc2ed66945290d4d2}\label{markdown_8cpp_ade474436ee7fd57bc2ed66945290d4d2}} 
+\index{markdown.cpp@{markdown.cpp}!codeBlockIndent@{codeBlockIndent}}
+\index{codeBlockIndent@{codeBlockIndent}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{codeBlockIndent}{codeBlockIndent}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classint}{int}} code\+Block\+Indent = 4}
+
+\mbox{\Hypertarget{markdown_8cpp_a5411339961a1e433bf9b59570c97fa6a}\label{markdown_8cpp_a5411339961a1e433bf9b59570c97fa6a}} 
+\index{markdown.cpp@{markdown.cpp}!g\_doxy\_nbsp@{g\_doxy\_nbsp}}
+\index{g\_doxy\_nbsp@{g\_doxy\_nbsp}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_doxy\_nbsp}{g\_doxy\_nbsp}}
+{\footnotesize\ttfamily const char$\ast$ g\+\_\+doxy\+\_\+nbsp = \char`\"{}\&\+\_\+doxy\+\_\+nbsp;\char`\"{}}
+
+\mbox{\Hypertarget{markdown_8cpp_ab90a38f35e109b0e55a693490232d93d}\label{markdown_8cpp_ab90a38f35e109b0e55a693490232d93d}} 
+\index{markdown.cpp@{markdown.cpp}!g\_utf8\_nbsp@{g\_utf8\_nbsp}}
+\index{g\_utf8\_nbsp@{g\_utf8\_nbsp}!markdown.cpp@{markdown.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_utf8\_nbsp}{g\_utf8\_nbsp}}
+{\footnotesize\ttfamily const char$\ast$ g\+\_\+utf8\+\_\+nbsp = \char`\"{}\textbackslash{}xc2\textbackslash{}xa0\char`\"{}}
+

@@ -1,0 +1,124 @@
+\hypertarget{arguments_8h_source}{}\doxysection{arguments.\+h}
+\label{arguments_8h_source}\index{/mnt/c/projects/doxygen/src/arguments.h@{/mnt/c/projects/doxygen/src/arguments.h}}
+\mbox{\hyperlink{arguments_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef ARGUMENTS\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define ARGUMENTS\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26 \textcolor{keyword}{struct }\mbox{\hyperlink{structArgument}{Argument}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{31   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structArgument_aca66c2b989361c43f7e1adfe9d7f125d}{hasDocumentation}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{32 \textcolor{keyword}{  }\{}
+\DoxyCodeLine{33     \textcolor{keywordflow}{return} !\mbox{\hyperlink{structArgument_a334668ce5d1f650c804e69f1bc941a3b}{name}}.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() \&\& !\mbox{\hyperlink{structArgument_a5d6cd35aa392b1703acf14104b19c589}{docs}}.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}();}
+\DoxyCodeLine{34   \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_aff930f2a4cb85b5616be79b81db2341f}{attrib}};   }
+\DoxyCodeLine{37   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_a1ad588d2b3cc71fe3f74c8272b4ec32e}{type}};     }
+\DoxyCodeLine{38   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_ac20b3c80630f773cf72f13c6e44b235a}{canType}};  }
+\DoxyCodeLine{39   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_a334668ce5d1f650c804e69f1bc941a3b}{name}};     }
+\DoxyCodeLine{40   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_a9e33101befb3a977ac863d8a595ed210}{array}};    }
+\DoxyCodeLine{41   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_a4fe1d9319dede52f7551f59297772efa}{defval}};   }
+\DoxyCodeLine{42   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_a5d6cd35aa392b1703acf14104b19c589}{docs}};     }
+\DoxyCodeLine{43   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structArgument_aef7bdd7c7d69ebad70624bfebdfa7404}{typeConstraint}};  }
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{keyword}{enum} \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884}{RefQualifierType}}}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48   \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884a2884c5188b4762faa0af5910368dc137}{RefQualifierNone}},}
+\DoxyCodeLine{49   \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884a2e1e6eca62e2c9eb5971674fe87a6740}{RefQualifierLValue}},}
+\DoxyCodeLine{50   \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884ab1e4474d2e00a253e9d1f39215bf3ca7}{RefQualifierRValue}}}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{classArgumentList}{ArgumentList}}}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61   \textcolor{keyword}{public}:}
+\DoxyCodeLine{62     \textcolor{keyword}{using} \mbox{\hyperlink{classArgumentList_aa9ef55d3a80837e98fd2143f87b15a66}{Vec}} = std::vector<Argument>;}
+\DoxyCodeLine{63     \textcolor{keyword}{using} \mbox{\hyperlink{classArgumentList_abbcd1ba6301b5ee9e9a44c756f7584d0}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{64     \textcolor{keyword}{using} \mbox{\hyperlink{classArgumentList_a5b618acc2d69252daffc0923c889a061}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a3d2726240dff68120149845452e1d1ec}{hasDocumentation}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a2ed5c45b3909206446aaac4f1ab6d640}{hasParameters}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{70 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{71       \textcolor{keywordflow}{return} !\mbox{\hyperlink{classArgumentList_aaa15ddcfdb06a535a3398f1dc73d336d}{empty}}() || m\_noParameters;}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_af63051a24ce92667516c4f9a80e08619}{reset}}()}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75       \mbox{\hyperlink{classArgumentList_aaea73e4e41b4659443b1b5cdd525dd1f}{clear}}();}
+\DoxyCodeLine{76       m\_constSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{77       m\_volatileSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{78       m\_pureSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{79       m\_trailingReturnType.\mbox{\hyperlink{classQCString_a993474e2da59141336e6105b8e154f2b}{resize}}(0);}
+\DoxyCodeLine{80       m\_isDeleted = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{81       m\_refQualifier = \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884a2884c5188b4762faa0af5910368dc137}{RefQualifierNone}};}
+\DoxyCodeLine{82       m\_noParameters = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{comment}{// make vector accessible}}
+\DoxyCodeLine{86     \mbox{\hyperlink{classArgumentList_abbcd1ba6301b5ee9e9a44c756f7584d0}{iterator}} \mbox{\hyperlink{classArgumentList_acc52d012d093df1adede055164f69dc9}{begin}}()                      \{ \textcolor{keywordflow}{return} m\_args.begin(); \}}
+\DoxyCodeLine{87     \mbox{\hyperlink{classArgumentList_abbcd1ba6301b5ee9e9a44c756f7584d0}{iterator}} \mbox{\hyperlink{classArgumentList_a215181845c0d9f0525806a4165c4f552}{end}}()                        \{ \textcolor{keywordflow}{return} m\_args.end();   \}}
+\DoxyCodeLine{88     \mbox{\hyperlink{classArgumentList_a5b618acc2d69252daffc0923c889a061}{const\_iterator}} \mbox{\hyperlink{classArgumentList_ad9b04e3aa2b824b84d3242043c7128fe}{begin}}()\textcolor{keyword}{ const          }\{ \textcolor{keywordflow}{return} m\_args.cbegin(); \}}
+\DoxyCodeLine{89     \mbox{\hyperlink{classArgumentList_a5b618acc2d69252daffc0923c889a061}{const\_iterator}} \mbox{\hyperlink{classArgumentList_a18c70e7e30584e7f94635d578c8f767e}{end}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} m\_args.cend();   \}}
+\DoxyCodeLine{90     \mbox{\hyperlink{classArgumentList_a5b618acc2d69252daffc0923c889a061}{const\_iterator}} \mbox{\hyperlink{classArgumentList_a46a3bc9367f1790feba9500d7c60493a}{cbegin}}()\textcolor{keyword}{ const         }\{ \textcolor{keywordflow}{return} m\_args.cbegin(); \}}
+\DoxyCodeLine{91     \mbox{\hyperlink{classArgumentList_a5b618acc2d69252daffc0923c889a061}{const\_iterator}} \mbox{\hyperlink{classArgumentList_a43bbf946be0bd313a11ccb8f06a88f62}{cend}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} m\_args.cend();   \}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_aaa15ddcfdb06a535a3398f1dc73d336d}{empty}}()\textcolor{keyword}{ const                    }\{ \textcolor{keywordflow}{return} m\_args.empty(); \}}
+\DoxyCodeLine{93     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classArgumentList_a4d651caeb995400fad17d4ab4a020a3a}{size}}()\textcolor{keyword}{ const                   }\{ \textcolor{keywordflow}{return} m\_args.size();  \}}
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_aaea73e4e41b4659443b1b5cdd525dd1f}{clear}}()                          \{ m\_args.clear(); \}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_aa80c14f74871d9274671a9e33ac3c870}{push\_back}}(\textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&a)     \{ m\_args.push\_back(a); \}}
+\DoxyCodeLine{96     \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_a016f5a9b5431ebac34a2697258a1c085}{back}}()                      \{ \textcolor{keywordflow}{return} m\_args.back(); \}}
+\DoxyCodeLine{97     \textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_a4a3cefc0a494e7375c9f072b5728b06f}{back}}()\textcolor{keyword}{ const          }\{ \textcolor{keywordflow}{return} m\_args.back(); \}}
+\DoxyCodeLine{98     \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_a3c86608e0790d8d86314bf4bc24936c2}{front}}()                     \{ \textcolor{keywordflow}{return} m\_args.front(); \}}
+\DoxyCodeLine{99     \textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_ae85e611936b54f49f6a173c486391c35}{front}}()\textcolor{keyword}{ const         }\{ \textcolor{keywordflow}{return} m\_args.front(); \}}
+\DoxyCodeLine{100     \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_acc1e900dbe37733434eef1d805ee61ba}{at}}(\textcolor{keywordtype}{size\_t} i)                \{ \textcolor{keywordflow}{return} m\_args.at(i); \}}
+\DoxyCodeLine{101     \textcolor{keyword}{const} \mbox{\hyperlink{structArgument}{Argument}} \&\mbox{\hyperlink{classArgumentList_a3c47f644dbc3f4fb61e018889a744f81}{at}}(\textcolor{keywordtype}{size\_t} i)\textcolor{keyword}{ const    }\{ \textcolor{keywordflow}{return} m\_args.at(i); \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{comment}{// getters for list wide attributes}}
+\DoxyCodeLine{104     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a72440ac7985da3c0c465134bc0ddd2d5}{constSpecifier}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} m\_constSpecifier; \}}
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_ad03f25174e81a42a617a15195a8867b0}{volatileSpecifier}}()\textcolor{keyword}{ const        }\{ \textcolor{keywordflow}{return} m\_volatileSpecifier; \}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a20632203b62a0d845730849def34561f}{pureSpecifier}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} m\_pureSpecifier; \}}
+\DoxyCodeLine{107     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classArgumentList_a4cb7b4a29cb7e4564014d024f8de9bc5}{trailingReturnType}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_trailingReturnType; \}}
+\DoxyCodeLine{108     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a483b5375dcb5f02a27c8d5808ab7a7e9}{isDeleted}}()\textcolor{keyword}{ const                }\{ \textcolor{keywordflow}{return} m\_isDeleted; \}}
+\DoxyCodeLine{109     \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884}{RefQualifierType}} \mbox{\hyperlink{classArgumentList_a10a0f5f25aa7f3c97ac071169c85e4ac}{refQualifier}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_refQualifier; \}}
+\DoxyCodeLine{110     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classArgumentList_a17fe630d07d1579382657bde568ee0db}{noParameters}}()\textcolor{keyword}{ const             }\{ \textcolor{keywordflow}{return} m\_noParameters; \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_aaa8cb70709cb79c37f5c9ffdf6ea82d9}{setConstSpecifier}}(\textcolor{keywordtype}{bool} b)        \{ m\_constSpecifier = b; \}}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_af15b01fcff4f0be4ed8c40200752c8f3}{setVolatileSpecifier}}(\textcolor{keywordtype}{bool} b)     \{ m\_volatileSpecifier = b; \}}
+\DoxyCodeLine{114     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_a4dc90f086eb52e42816d5f2f813ed358}{setPureSpecifier}}(\textcolor{keywordtype}{bool} b)         \{ m\_pureSpecifier = b; \}}
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_a2a4aee2018dc2a3ca82bd152966949b1}{setTrailingReturnType}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) \{ m\_trailingReturnType = \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}; \}}
+\DoxyCodeLine{116     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_ab6d26192d62941751a6c0d53163fee4f}{setIsDeleted}}(\textcolor{keywordtype}{bool} b)             \{ m\_isDeleted = b; \}}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_aaae8c33d0b5b20d86407af80d4e1c713}{setRefQualifier}}(\mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884}{RefQualifierType}} t) \{ m\_refQualifier = t; \}}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{classArgumentList_add72bfdcd9da1cf65f419c062a16ce6d}{setNoParameters}}(\textcolor{keywordtype}{bool} b)          \{ m\_noParameters = b; \}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120   \textcolor{keyword}{private}:}
+\DoxyCodeLine{121     std::vector<Argument> m\_args;}
+\DoxyCodeLine{123     \textcolor{keywordtype}{bool} m\_constSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{125     \textcolor{keywordtype}{bool} m\_volatileSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{127     \textcolor{keywordtype}{bool} m\_pureSpecifier = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{129     \mbox{\hyperlink{classQCString}{QCString}} m\_trailingReturnType;}
+\DoxyCodeLine{131     \textcolor{keywordtype}{bool} m\_isDeleted = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{133     \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884}{RefQualifierType}} m\_refQualifier = \mbox{\hyperlink{arguments_8h_a4f78d801ad01da94c75f928280228884a2884c5188b4762faa0af5910368dc137}{RefQualifierNone}};}
+\DoxyCodeLine{135     \textcolor{keywordtype}{bool} m\_noParameters = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{136 \};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{using} \mbox{\hyperlink{arguments_8h_ab331f620c4acf00958747569efc1199a}{ArgumentLists}} = std::vector<ArgumentList>;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

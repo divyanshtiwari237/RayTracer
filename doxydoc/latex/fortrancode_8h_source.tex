@@ -1,0 +1,74 @@
+\hypertarget{fortrancode_8h_source}{}\doxysection{fortrancode.\+h}
+\label{fortrancode_8h_source}\index{/mnt/c/projects/doxygen/src/fortrancode.h@{/mnt/c/projects/doxygen/src/fortrancode.h}}
+\mbox{\hyperlink{fortrancode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef FORTRANCODE\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define FORTRANCODE\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parserintf_8h}{parserintf.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}};}
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}};}
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classFortranCodeParser}{FortranCodeParser}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCodeParserInterface}{CodeParserInterface}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31   \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \mbox{\hyperlink{classFortranCodeParser_afd583a7874bdbcd0ce7b08607a640264}{FortranCodeParser}}(\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266}{FortranFormat}} format=\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266a255a836d2cd9b5c3d58e71ff153598a5}{FortranFormat\_Unknown}});}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{classFortranCodeParser_a6d0ab2a0d90e46d2ce8e0fdd526b9d05}{\string~FortranCodeParser}}();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFortranCodeParser_ac476d9ee7019f70168a3fa6c3aeec17f}{parseCode}}(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&codeOutIntf,}
+\DoxyCodeLine{35                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&scopeName,}
+\DoxyCodeLine{36                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&input,}
+\DoxyCodeLine{37                    \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang,}
+\DoxyCodeLine{38                    \textcolor{keywordtype}{bool} isExampleBlock,}
+\DoxyCodeLine{39                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&exampleName=\mbox{\hyperlink{classQCString}{QCString}}(),}
+\DoxyCodeLine{40                    \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fileDef=0,}
+\DoxyCodeLine{41                    \textcolor{keywordtype}{int} startLine=-\/1,}
+\DoxyCodeLine{42                    \textcolor{keywordtype}{int} endLine=-\/1,}
+\DoxyCodeLine{43                    \textcolor{keywordtype}{bool} inlineFragment=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{44                    \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *memberDef=0,}
+\DoxyCodeLine{45                    \textcolor{keywordtype}{bool} showLineNumbers=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},}
+\DoxyCodeLine{46                    \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *searchCtx=0,}
+\DoxyCodeLine{47                    \textcolor{keywordtype}{bool} collectXRefs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}}
+\DoxyCodeLine{48                   );}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classFortranCodeParser_a8cb63db2c9c015c20f6795cb6aff55a7}{resetCodeParserState}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \textcolor{keyword}{struct }\mbox{\hyperlink{structFortranCodeParser_1_1Private}{Private}};}
+\DoxyCodeLine{53     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{54 \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{class }\mbox{\hyperlink{classFortranCodeParserFree}{FortranCodeParserFree}} : \textcolor{keyword}{public} \mbox{\hyperlink{classFortranCodeParser}{FortranCodeParser}}}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58   \textcolor{keyword}{public}:}
+\DoxyCodeLine{59     \mbox{\hyperlink{classFortranCodeParserFree_ab443de325ba0a9fbe4de2e69cef58a52}{FortranCodeParserFree}}() : \mbox{\hyperlink{classFortranCodeParser}{FortranCodeParser}}(\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266ac1608a3a222949660e26ab3b0b02c2d8}{FortranFormat\_Free}}) \{ \}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{class }\mbox{\hyperlink{classFortranCodeParserFixed}{FortranCodeParserFixed}} : \textcolor{keyword}{public} \mbox{\hyperlink{classFortranCodeParser}{FortranCodeParser}}}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64   \textcolor{keyword}{public}:}
+\DoxyCodeLine{65     \mbox{\hyperlink{classFortranCodeParserFixed_a62fa7fb95b546f07c970ece691605207}{FortranCodeParserFixed}}() : \mbox{\hyperlink{classFortranCodeParser}{FortranCodeParser}}(\mbox{\hyperlink{types_8h_ad3f2a8c13ceee9c0aaeabf930dd88266aeb38ac735dad655f0d49d92a9e4b68e9}{FortranFormat\_Fixed}}) \{ \}}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

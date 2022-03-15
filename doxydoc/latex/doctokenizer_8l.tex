@@ -1,0 +1,138 @@
+\hypertarget{doctokenizer_8l}{}\doxysection{/mnt/c/projects/doxygen/src/doctokenizer.l File Reference}
+\label{doctokenizer_8l}\index{/mnt/c/projects/doxygen/src/doctokenizer.l@{/mnt/c/projects/doxygen/src/doctokenizer.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include \char`\"{}doctokenizer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmdmapper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}section.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}definition.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for doctokenizer.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDocLexerContext}{Doc\+Lexer\+Context}}
+\item 
+struct \mbox{\hyperlink{structdoctokenizerYY__state}{doctokenizer\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{structDocTokenizer_1_1Private}{Doc\+Tokenizer\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a93254599b6550533edd446faac434b5d}{TK\+\_\+\+COMMAND\+\_\+\+SEL}}()~(yytext\mbox{[}0\mbox{]} == \textquotesingle{}@\textquotesingle{} ? \mbox{\hyperlink{doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} \+: \mbox{\hyperlink{doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}{TK\+\_\+\+COMMAND\+\_\+\+BS}})
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a6256e57feb94db36e0dd7c3c83c9180a}{line\+Count}}(s,  len)~do \{ for(\mbox{\hyperlink{classint}{int}} i=0;i$<$(\mbox{\hyperlink{classint}{int}})len;i++) if (s\mbox{[}i\mbox{]}==\textquotesingle{}\textbackslash{}n\textquotesingle{}) yyextra-\/$>$yy\+Line\+Nr++; \} while(0)
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_a86da2f5e3360caa90276fc24433d9512}{unput\+\_\+string}}(yytext,  yyleng)~do \{ for (\mbox{\hyperlink{classint}{int}} i=(\mbox{\hyperlink{classint}{int}})yyleng-\/1;i$>$=0;i-\/-\/) unput(yytext\mbox{[}i\mbox{]}); \} while(0)
+\item 
+\#define \mbox{\hyperlink{doctokenizer_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{doctokenizer_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{doctokenizer_8l_a08d427ab614e1a8142b07a629730673f}{extract\+Part\+After\+New\+Line}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{doctokenizer_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{doctokenizer_8l_a6256e57feb94db36e0dd7c3c83c9180a}\label{doctokenizer_8l_a6256e57feb94db36e0dd7c3c83c9180a}} 
+\index{doctokenizer.l@{doctokenizer.l}!lineCount@{lineCount}}
+\index{lineCount@{lineCount}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{lineCount}{lineCount}}
+{\footnotesize\ttfamily \#define line\+Count(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{len }\end{DoxyParamCaption})~do \{ for(\mbox{\hyperlink{classint}{int}} i=0;i$<$(\mbox{\hyperlink{classint}{int}})len;i++) if (s\mbox{[}i\mbox{]}==\textquotesingle{}\textbackslash{}n\textquotesingle{}) yyextra-\/$>$yy\+Line\+Nr++; \} while(0)}
+
+\mbox{\Hypertarget{doctokenizer_8l_a93254599b6550533edd446faac434b5d}\label{doctokenizer_8l_a93254599b6550533edd446faac434b5d}} 
+\index{doctokenizer.l@{doctokenizer.l}!TK\_COMMAND\_SEL@{TK\_COMMAND\_SEL}}
+\index{TK\_COMMAND\_SEL@{TK\_COMMAND\_SEL}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{TK\_COMMAND\_SEL}{TK\_COMMAND\_SEL}}
+{\footnotesize\ttfamily \#define TK\+\_\+\+COMMAND\+\_\+\+SEL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(yytext\mbox{[}0\mbox{]} == \textquotesingle{}@\textquotesingle{} ? \mbox{\hyperlink{doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa801f0729813c70a463eea12b8b179eb1}{TK\+\_\+\+COMMAND\+\_\+\+AT}} \+: \mbox{\hyperlink{doctokenizer_8h_a7722396ed46bc111e7b794948986f8afa5496d14215d41bfaf6ae12b33eb7130d}{TK\+\_\+\+COMMAND\+\_\+\+BS}})}
+
+\mbox{\Hypertarget{doctokenizer_8l_a86da2f5e3360caa90276fc24433d9512}\label{doctokenizer_8l_a86da2f5e3360caa90276fc24433d9512}} 
+\index{doctokenizer.l@{doctokenizer.l}!unput\_string@{unput\_string}}
+\index{unput\_string@{unput\_string}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{unput\_string}{unput\_string}}
+{\footnotesize\ttfamily \#define unput\+\_\+string(\begin{DoxyParamCaption}\item[{}]{yytext,  }\item[{}]{yyleng }\end{DoxyParamCaption})~do \{ for (\mbox{\hyperlink{classint}{int}} i=(\mbox{\hyperlink{classint}{int}})yyleng-\/1;i$>$=0;i-\/-\/) unput(yytext\mbox{[}i\mbox{]}); \} while(0)}
+
+\mbox{\Hypertarget{doctokenizer_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{doctokenizer_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{doctokenizer.l@{doctokenizer.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{doctokenizer_8l_aacfdca45fa4beb8b06172525a53c424a}\label{doctokenizer_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{doctokenizer.l@{doctokenizer.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{doctokenizer_8l_a85523a0c7d95c059d251b4e9829947aa}\label{doctokenizer_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{doctokenizer.l@{doctokenizer.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{doctokenizer_8l_ae78ac56cd1f29572e967ed7636952d15}\label{doctokenizer_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{doctokenizer.l@{doctokenizer.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{doctokenizer_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{doctokenizer_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{doctokenizer.l@{doctokenizer.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{doctokenizer_8l_a9484188abbc459dafcbd4c96425fa70b}\label{doctokenizer_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{doctokenizer.l@{doctokenizer.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{doctokenizer_8l_a08d427ab614e1a8142b07a629730673f}\label{doctokenizer_8l_a08d427ab614e1a8142b07a629730673f}} 
+\index{doctokenizer.l@{doctokenizer.l}!extractPartAfterNewLine@{extractPartAfterNewLine}}
+\index{extractPartAfterNewLine@{extractPartAfterNewLine}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{extractPartAfterNewLine()}{extractPartAfterNewLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} extract\+Part\+After\+New\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{doctokenizer_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{doctokenizer_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{doctokenizer.l@{doctokenizer.l}!yylex@{yylex}}
+\index{yylex@{yylex}!doctokenizer.l@{doctokenizer.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+

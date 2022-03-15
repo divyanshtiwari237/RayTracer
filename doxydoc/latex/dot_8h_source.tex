@@ -1,0 +1,64 @@
+\hypertarget{dot_8h_source}{}\doxysection{dot.\+h}
+\label{dot_8h_source}\index{/mnt/c/projects/doxygen/src/dot.h@{/mnt/c/projects/doxygen/src/dot.h}}
+\mbox{\hyperlink{dot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOT\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOT\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgraph_8h}{dotgraph.h}}"{}} \textcolor{comment}{// only for GraphOutputFormat}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotfilepatcher_8h}{dotfilepatcher.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotrunner_8h}{dotrunner.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classDotRunner}{DotRunner}};}
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classDotRunnerQueue}{DotRunnerQueue}};}
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classDotManager}{DotManager}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33   \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \mbox{\hyperlink{classDotManager}{DotManager}} *\mbox{\hyperlink{classDotManager_af6eb5ac505738992f7440e4a5948997f}{instance}}();}
+\DoxyCodeLine{35     \textcolor{comment}{//static void deleteInstance();}}
+\DoxyCodeLine{36     \mbox{\hyperlink{classDotRunner}{DotRunner}}*      \mbox{\hyperlink{classDotManager_affaee30a9c348252f29053e3dc53c77f}{createRunner}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& absDotName, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& md5Hash);}
+\DoxyCodeLine{37     \mbox{\hyperlink{classDotFilePatcher}{DotFilePatcher}} *\mbox{\hyperlink{classDotManager_a250e1025f4793941521d21081df9511f}{createFilePatcher}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotManager_a27d0eeafc0748ce44f369faed8f495d9}{run}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{private}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{classDotManager}{DotManager}}();}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDotManager}{\string~DotManager}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     std::map<std::string, std::unique\_ptr<DotRunner>>       m\_runners;}
+\DoxyCodeLine{45     std::map<std::string, DotFilePatcher>  m\_filePatchers;}
+\DoxyCodeLine{46     \mbox{\hyperlink{classDotRunnerQueue}{DotRunnerQueue}}        *m\_queue;}
+\DoxyCodeLine{47     std::vector< std::unique\_ptr<DotWorkerThread> > m\_workers;}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{dot_8h_aee48308a96887ccde586df24f0b73ca4}{writeDotGraphFromFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inFile,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outDir,}
+\DoxyCodeLine{51                            \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outFile,\mbox{\hyperlink{dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} format,}
+\DoxyCodeLine{52                            \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{dot_8h_ada988a5303d67622cb43bd75c247fec2}{writeDotImageMapFromFile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,}
+\DoxyCodeLine{54                               \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inFile, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& outDir,}
+\DoxyCodeLine{55                               \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& baseName,}
+\DoxyCodeLine{56                               \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&context,\textcolor{keywordtype}{int} graphId,}
+\DoxyCodeLine{57                               \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,\textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

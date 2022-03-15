@@ -1,0 +1,114 @@
+\hypertarget{markdown_8h_source}{}\doxysection{markdown.\+h}
+\label{markdown_8h_source}\index{/mnt/c/projects/doxygen/src/markdown.h@{/mnt/c/projects/doxygen/src/markdown.h}}
+\mbox{\hyperlink{markdown_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef MARKDOWN\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define MARKDOWN\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parserintf_8h}{parserintf.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{growbuf_8h}{growbuf.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classEntry}{Entry}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28 \textcolor{comment}{//QCString processMarkdown(const QCString \&fileName,const int lineNr,Entry *e,const QCString \&s);}}
+\DoxyCodeLine{29 \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{markdown_8h_a0a158f67dd586087dac0e968ea384f09}{markdownFileNameToId}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classEntry_a736f1dfadfe0c0fabb022c533aa27fdc}{fileName}});}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classMarkdown}{Markdown}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34   \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{classMarkdown_acb219dbca88da9e2c914070e1adc443d}{Markdown}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keywordtype}{int} indentLevel=0);}
+\DoxyCodeLine{36     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classMarkdown_ad40652cc4db61282f2b0ef5202927d10}{process}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&input, \textcolor{keywordtype}{int} \&startNewlines, \textcolor{keywordtype}{bool} fromParseInput = \textcolor{keyword}{false});}
+\DoxyCodeLine{37     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classMarkdown_a18a440a25d4a02fa5aa72d85f16aa1e5}{extractPageTitle}}(\mbox{\hyperlink{classQCString}{QCString}} \&docs,\mbox{\hyperlink{classQCString}{QCString}} \&\textcolor{keywordtype}{id},\textcolor{keywordtype}{int} \&prepend);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMarkdown_ab176950dfe9ce90a45af5db61b5acf88}{setIndentLevel}}(\textcolor{keywordtype}{int} level) \{ m\_indentLevel = level; \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keyword}{private}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{classQCString}{QCString}} detab(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{int} \&refIndent);}
+\DoxyCodeLine{42     \mbox{\hyperlink{classQCString}{QCString}} processQuotations(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{int} refIndent);}
+\DoxyCodeLine{43     \mbox{\hyperlink{classQCString}{QCString}} processBlocks(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{int} indent);}
+\DoxyCodeLine{44     \mbox{\hyperlink{classQCString}{QCString}} isBlockCommand(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} offset,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} isSpecialCommand(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} offset,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} findEndOfLine(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size,\textcolor{keywordtype}{int} \&pi,\textcolor{keywordtype}{int}\&i,\textcolor{keywordtype}{int} \&\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}});}
+\DoxyCodeLine{47     \textcolor{keywordtype}{int} processHtmlTagWrite(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} offset,\textcolor{keywordtype}{int} size,\textcolor{keywordtype}{bool} doWrite);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} processHtmlTag(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} offset,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} processEmphasis(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} offset,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} processEmphasis1(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{int} processEmphasis2(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} processEmphasis3(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} processNmdash(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} off,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} processQuoted(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int},\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} processCodeSpan(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} \textcolor{comment}{/*offset*/}, \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} addStrEscapeUtf8Nbsp(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} processSpecialCommand(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} offset, \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} processLink(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int},\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} findEmphasisChar(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} c\_size);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} processInline(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} writeMarkdownImage(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, \textcolor{keywordtype}{bool} inline\_img, \textcolor{keywordtype}{bool} explicitTitle,}
+\DoxyCodeLine{62                             \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&content,}
+\DoxyCodeLine{63                             \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&link, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&attributes,}
+\DoxyCodeLine{64                             \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} isHeaderline(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{bool} allowAdjustLevel);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} isAtxHeader(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size,}
+\DoxyCodeLine{67                        \mbox{\hyperlink{classQCString}{QCString}} \&header,\mbox{\hyperlink{classQCString}{QCString}} \&\textcolor{keywordtype}{id},\textcolor{keywordtype}{bool} allowAdjustLevel);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} writeOneLineHeaderOrRuler(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} writeFencedCodeBlock(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *lng,}
+\DoxyCodeLine{70                 \textcolor{keywordtype}{int} blockStart,\textcolor{keywordtype}{int} blockEnd);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{int} writeBlockQuote(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} writeCodeBlock(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size,\textcolor{keywordtype}{int} refIndent);}
+\DoxyCodeLine{73     \textcolor{keywordtype}{int} writeTableBlock(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *data,\textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75   \textcolor{keyword}{private}:}
+\DoxyCodeLine{76     \textcolor{keyword}{struct }LinkRef}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78       LinkRef(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&l,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&t) : link(l), title(t) \{\}}
+\DoxyCodeLine{79       \mbox{\hyperlink{classQCString}{QCString}} link;}
+\DoxyCodeLine{80       \mbox{\hyperlink{classQCString}{QCString}} title;}
+\DoxyCodeLine{81     \};}
+\DoxyCodeLine{82     \textcolor{keyword}{using} Action\_t = std::function<\mbox{\hyperlink{classint}{int}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *,\textcolor{keywordtype}{int},\textcolor{keywordtype}{int})>;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     std::unordered\_map<std::string,LinkRef> m\_linkRefs;}
+\DoxyCodeLine{85     \mbox{\hyperlink{classQCString}{QCString}}       m\_fileName;}
+\DoxyCodeLine{86     \textcolor{keywordtype}{int}            m\_lineNr = 0;}
+\DoxyCodeLine{87     \textcolor{keywordtype}{int}            m\_indentLevel=0;  \textcolor{comment}{// 0 is outside markdown, -\/1=page level}}
+\DoxyCodeLine{88     \mbox{\hyperlink{classGrowBuf}{GrowBuf}}        m\_out;}
+\DoxyCodeLine{89     Markdown::Action\_t m\_actions[256];}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{class }\mbox{\hyperlink{classMarkdownOutlineParser}{MarkdownOutlineParser}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOutlineParserInterface}{OutlineParserInterface}}}
+\DoxyCodeLine{94 \{}
+\DoxyCodeLine{95   \textcolor{keyword}{public}:}
+\DoxyCodeLine{96     \mbox{\hyperlink{classMarkdownOutlineParser_a8fb5ef90db1a3302c0bc0e06e684d880}{MarkdownOutlineParser}}();}
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMarkdownOutlineParser_a46ee966ea78ed5c76eb608e2af1f0dd4}{\string~MarkdownOutlineParser}}();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}{parseInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,}
+\DoxyCodeLine{99                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileBuf,}
+\DoxyCodeLine{100                     \textcolor{keyword}{const} std::shared\_ptr<Entry> \&root,}
+\DoxyCodeLine{101                     \mbox{\hyperlink{classClangTUParser}{ClangTUParser}} *clangParser);}
+\DoxyCodeLine{102     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classMarkdownOutlineParser_a5bc6a6ff0b95dec00d1dd81ab7278252}{needsPreprocessing}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}; \}}
+\DoxyCodeLine{103     \textcolor{keywordtype}{void} \mbox{\hyperlink{classMarkdownOutlineParser_aa01f3200563b06e0f9a6364f522685c8}{parsePrototype}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&text);}
+\DoxyCodeLine{104   \textcolor{keyword}{private}:}
+\DoxyCodeLine{105     \textcolor{keyword}{struct }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{106     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

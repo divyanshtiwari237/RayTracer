@@ -1,0 +1,82 @@
+\hypertarget{vhdljjparser_8h_source}{}\doxysection{vhdljjparser.\+h}
+\label{vhdljjparser_8h_source}\index{/mnt/c/projects/doxygen/src/vhdljjparser.h@{/mnt/c/projects/doxygen/src/vhdljjparser.h}}
+\mbox{\hyperlink{vhdljjparser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef VHDLJJPARSER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define VHDLJJPARSER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parserintf_8h}{parserintf.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ctype.h>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{entry_8h}{entry.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vhdldocgen_8h}{vhdldocgen.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{util_8h}{util.h}}"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{enum}  \{ \mbox{\hyperlink{vhdljjparser_8h_a61dadd085c1777f559549e05962b2c9ea8e89e0b7af6e95f474497610bb27e0ff}{GEN\_SEC}}=0x1, \mbox{\hyperlink{vhdljjparser_8h_a61dadd085c1777f559549e05962b2c9eaa5503414fe63aab4976c75c9a3ed1cd9}{PARAM\_SEC}},\mbox{\hyperlink{vhdljjparser_8h_a61dadd085c1777f559549e05962b2c9ea2280357a804e05bf9a4a5b0d6f16f242}{CONTEXT\_SEC}},\mbox{\hyperlink{vhdljjparser_8h_a61dadd085c1777f559549e05962b2c9ea4607367e534cc60250c99e26a99402ea}{PROTECTED\_SEC}} \} ;}
+\DoxyCodeLine{21 \textcolor{comment}{//void  parserVhdlfile(const char* inputBuffer);}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classVHDLOutlineParser}{VHDLOutlineParser}} : \textcolor{keyword}{public} \mbox{\hyperlink{classOutlineParserInterface}{OutlineParserInterface}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \textcolor{keyword}{public}:}
+\DoxyCodeLine{30     \mbox{\hyperlink{classVHDLOutlineParser_afed30c38099a7370ae59ee670b7dc5e4}{VHDLOutlineParser}}();}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{classVHDLOutlineParser_a3f5b8f268714934b22fd5405a6e24b35}{\string~VHDLOutlineParser}}();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_afe98061778ab170da03108ad813fa2e2}{parseInput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,}
+\DoxyCodeLine{33                     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileBuf,}
+\DoxyCodeLine{34                     \textcolor{keyword}{const} std::shared\_ptr<Entry> \&root,}
+\DoxyCodeLine{35                     \mbox{\hyperlink{classClangTUParser}{ClangTUParser}} *clangParser);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVHDLOutlineParser_ab82a8a552abea4291fba5796463fe76a}{needsPreprocessing}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}; \}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a6d25f36c3435b43a357c22163590dd3b}{parsePrototype}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&text);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// interface for generated parser code}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a4766c5dbf7960f4fa83455c58853bce6}{setLineParsed}}(\textcolor{keywordtype}{int} tok);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int} \mbox{\hyperlink{classVHDLOutlineParser_afdeb15eb8abda3117c648783e60133fc}{getLine}}(\textcolor{keywordtype}{int} tok);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{classVHDLOutlineParser_afdeb15eb8abda3117c648783e60133fc}{getLine}}();}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a6cf53b5cdea9c828c4b676c80d69860d}{lineCount}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a6cf53b5cdea9c828c4b676c80d69860d}{lineCount}}();}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a3f9439b30c125165e1c68f4d1b9a0cc0}{addProto}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s3,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s4,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s5,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *s6);}
+\DoxyCodeLine{49     \textcolor{comment}{//void addConfigureNode(const char* a,const char*b, bool,bool isLeaf,bool inlineConf);}}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_ac2e31cc9277992c8a5476747f6b5be4b}{createFunction}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *impure,\mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} spec,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fname);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a018e3122e5623344e47631f8553dc8a0}{addVhdlType}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *n,\textcolor{keywordtype}{int} startLine,\textcolor{keywordtype}{int} section, \mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} spec,\textcolor{keyword}{const} \textcolor{keywordtype}{char}* args,\textcolor{keyword}{const} \textcolor{keywordtype}{char}* type,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a25ca0d3dfb592d9137d79e2ac60c308a}{addCompInst}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *n, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* instName, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* comp,\textcolor{keywordtype}{int} iLine);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a3df5816f7dcd092e39a99ebaf9b983cf}{handleCommentBlock}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&doc,\textcolor{keywordtype}{bool} brief);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a5b9451af109dcbacac764ce1431b9d80}{handleFlowComment}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a9ecb445c39b769e5602ca96de2e93323}{initEntry}}(\mbox{\hyperlink{classEntry}{Entry}} *e);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a8e2731ccb031a7e2914e7583cc7bdff9}{newEntry}}();}
+\DoxyCodeLine{57     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVHDLOutlineParser_aabc6c0e6b285c280ffa531cace06e2e4}{isFuncProcProced}}();}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_aa6252fa90e33ae2f5a1a58b1ccf2c2f5}{pushLabel}}(\mbox{\hyperlink{classQCString}{QCString}} \&,\mbox{\hyperlink{classQCString}{QCString}}\&);}
+\DoxyCodeLine{59     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVHDLOutlineParser_aa32a03da6438377d962da12f57b0f2c0}{popLabel}}(\mbox{\hyperlink{classQCString}{QCString}} \& q);}
+\DoxyCodeLine{60     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVHDLOutlineParser_aae48ed44191778c99e285f17b7e14377}{addLibUseClause}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&type);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_afd4e9dc2db18f93819d8fbddf554efa4}{mapLibPackage}}( \mbox{\hyperlink{classEntry}{Entry}}* root);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_ab36fc7f90b85f9a369604444f3a6e203}{createFlow}}();}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a251d5cfa601b855d867ca28f7c149644}{error\_skipto}}(\textcolor{keywordtype}{int} kind);}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a7910d0ac9f615f9ce451bd0c71d15da6}{oneLineComment}}(\mbox{\hyperlink{classQCString}{QCString}} qcs);}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_af2256dfdfdf6a1d9be93a881cd4eb526}{setMultCommentLine}}();}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVHDLOutlineParser_ab3687656c1045cb4c1c5177bbab2c83e}{checkMultiComment}}(\mbox{\hyperlink{classQCString}{QCString}}\& qcs,\textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVHDLOutlineParser_a745036e883331351a306bae43e27c1a4}{insertEntryAtLine}}(std::shared\_ptr<Entry> ce,\textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{68     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classVHDLOutlineParser_ada253943236861987284e1b340603dbd}{getNameID}}();}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} \mbox{\hyperlink{classVHDLOutlineParser_a18ea453a7fdcb15b665135112de6ff06}{checkInlineCode}}(\mbox{\hyperlink{classQCString}{QCString}} \& doc);}
+\DoxyCodeLine{70   \textcolor{keyword}{private}:}
+\DoxyCodeLine{71     \textcolor{keyword}{struct }\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4dedaaa82165706f5dd0859648a09f1f64166}{Private}};}
+\DoxyCodeLine{72     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{const} \mbox{\hyperlink{entry_8h_abd47085ad2ebd874e6b5d92f426e31b1}{EntryList}} \&\mbox{\hyperlink{vhdljjparser_8h_a182203e7e4b8c08526f2bda22d394855}{getVhdlInstList}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{vhdljjparser_8h_a0e267341fc8fcfd1947c8b2d69d2ebb2}{filter2008VhdlComment}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

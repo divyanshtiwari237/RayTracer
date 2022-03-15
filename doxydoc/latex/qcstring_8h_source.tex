@@ -1,0 +1,655 @@
+\hypertarget{qcstring_8h_source}{}\doxysection{qcstring.\+h}
+\label{qcstring_8h_source}\index{/mnt/c/projects/doxygen/src/qcstring.h@{/mnt/c/projects/doxygen/src/qcstring.h}}
+\mbox{\hyperlink{qcstring_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{**}}
+\DoxyCodeLine{3 \textcolor{comment}{** Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{**}}
+\DoxyCodeLine{5 \textcolor{comment}{** Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{** documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{** granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{** for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{** See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{**}}
+\DoxyCodeLine{11 \textcolor{comment}{** Note: this is a reimplementation of the qcstring.h that came with}}
+\DoxyCodeLine{12 \textcolor{comment}{** an Qt version 2.2.3. For short strings it stores the string data inside}}
+\DoxyCodeLine{13 \textcolor{comment}{** the object. For long strings it uses a separate array with reference counting.}}
+\DoxyCodeLine{14 \textcolor{comment}{**}}
+\DoxyCodeLine{15 \textcolor{comment}{**********************************************************************/}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef QCSTRING\_H}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define QCSTRING\_H}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utf8_8h}{utf8.h}}"{}}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef FALSE}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define FALSE false}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#ifndef TRUE}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define TRUE true}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{38 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}   \mbox{\hyperlink{qcstring_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}};}
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{short}  \mbox{\hyperlink{qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}};}
+\DoxyCodeLine{40 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned}    \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}};}
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long}   \mbox{\hyperlink{qcstring_8h_a718b4eb2652c286f4d42dc18a8e71a1a}{ulong}};}
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} int64\_t         \mbox{\hyperlink{qcstring_8h_a7cde0074dfd288f2d70c0e035dacb28a}{int64}};}
+\DoxyCodeLine{43 \textcolor{keyword}{typedef} uint64\_t        \mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}};}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define ASSERT(x)  if ( !(x) )\(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{    fprintf(stderr,"{}ASSERT: \(\backslash\)"{}\%s\(\backslash\)"{} in \%s (\%d)\(\backslash\)n"{}},\#x,\_\_FILE\_\_,\_\_LINE\_\_)}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{49 \textcolor{comment}{  Safe and portable C string functions; extensions to standard string.h}}
+\DoxyCodeLine{50 \textcolor{comment}{ *****************************************************************************/}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keywordtype}{void} *\mbox{\hyperlink{qcstring_8h_ad44bc2f81d70fe50067f691cbae5075b}{qmemmove}}( \textcolor{keywordtype}{void} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} len );}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#if defined(\_OS\_WIN32\_)}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define qsnprintf \_snprintf}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define qsnprintf snprintf}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_a1e73cfb72105675c623c03460f72526c}{qstrdup}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} * );}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{inline} \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \mbox{\hyperlink{qcstring_8h_ac1578b26a53b25b8cf8e27207105b511}{cstrlen}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str )}
+\DoxyCodeLine{63 \{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(strlen(str)); \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{inline} \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \mbox{\hyperlink{qcstring_8h_a11e5896f8590cc97ce6be8f23f13c5f0}{qstrlen}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str )}
+\DoxyCodeLine{66 \{ \textcolor{keywordflow}{return} str ? \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(strlen(str)) : 0; \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{inline} \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_a58825c98e87a3c6671d68a3ec570c736}{cstrcpy}}( \textcolor{keywordtype}{char} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src )}
+\DoxyCodeLine{69 \{ \textcolor{keywordflow}{return} strcpy(dst,src); \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{inline} \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_ac32a77e081e980d3a32c45578b7be389}{qstrcpy}}( \textcolor{keywordtype}{char} *dst, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src )}
+\DoxyCodeLine{72 \{ \textcolor{keywordflow}{return} src ? strcpy(dst, src) : 0; \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keywordtype}{char} * \mbox{\hyperlink{qcstring_8h_a0c79403319144d439393ae9be9488c95}{qstrncpy}}(\textcolor{keywordtype}{char} *dst,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a4aef702902badadfa9f6caab9682441a}{cstrcmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2 )}
+\DoxyCodeLine{77 \{ \textcolor{keywordflow}{return} strcmp(str1,str2); \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{80 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0 || *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0; \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2 )}
+\DoxyCodeLine{83 \{ \textcolor{keywordflow}{return} (str1 \&\& str2) ? strcmp(str1,str2) :     \textcolor{comment}{// both non-\/empty}}
+\DoxyCodeLine{84          (\mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str1) \&\& \mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str2)) ? 0 : \textcolor{comment}{// both empty}}
+\DoxyCodeLine{85          \mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str1) ? -\/1 : 1;                 \textcolor{comment}{// one empty, other non-\/empty}}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a750def27de83beedc3ad5d22f962c72e}{cstrncmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{89 \{ \textcolor{keywordflow}{return} strncmp(str1,str2,len); \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a19faae287d13ccea75b1d5a0eb110d97}{qstrncmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{92 \{ \textcolor{keywordflow}{return} (str1 \&\& str2) ? strncmp(str1,str2,len) :  \textcolor{comment}{// both non-\/empty}}
+\DoxyCodeLine{93          (\mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str1) \&\& \mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str2)) ? 0 :   \textcolor{comment}{// both empty}}
+\DoxyCodeLine{94          \mbox{\hyperlink{qcstring_8h_aca1b05428632dc155c2f19349302c055}{qisempty}}(str1) ? -\/1 : 1;                   \textcolor{comment}{// one empty other non-\/empty}}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(\textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{98 \{ \textcolor{keywordflow}{return} c==\textcolor{charliteral}{' '} || c==\textcolor{charliteral}{'\(\backslash\)t'} || c==\textcolor{charliteral}{'\(\backslash\)n'} || c==\textcolor{charliteral}{'\(\backslash\)r'}; \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2 );}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2, \textcolor{keywordtype}{size\_t} len );}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 }
+\DoxyCodeLine{108 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}}}
+\DoxyCodeLine{109 \{}
+\DoxyCodeLine{110   \textcolor{keyword}{public}:}
+\DoxyCodeLine{111     \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{112    \mbox{\hyperlink{classQCString_a4fa08be873973d96383792ffaae89fc2}{\string~QCString}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{113     \mbox{\hyperlink{classQCString_a0736ebdb8e1fd97e6b30438e8b0d0dec}{QCString}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{114     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a04a7b9dff596efddfa23657de2f4737b}{operator=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{115     \mbox{\hyperlink{classQCString_af2d2b724d7b6e02f685c8dd946bc714c}{QCString}}( \mbox{\hyperlink{classQCString}{QCString}} \&\&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{116     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a5286159850b63aeddb204f8d03846096}{operator=}}( \mbox{\hyperlink{classQCString}{QCString}} \&\&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keyword}{explicit} \mbox{\hyperlink{classQCString_af7ecaca28abc410c18dc111da84a080c}{QCString}}( \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ) : m\_rep(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) \{\}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \mbox{\hyperlink{classQCString_a6e9d63203013767d7875ffe534899316}{QCString}}( std::string \&\&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) \{ m\_rep = std::move(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}); \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{125     \textcolor{keyword}{explicit} \mbox{\hyperlink{classQCString_a93ba56ae12bd27b9438842ce945157a1}{QCString}}( \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classQCString_ac084f55ab51f8b277cf01bb6e04f16ed}{size}} ) \{ m\_rep.resize(\mbox{\hyperlink{classQCString_ac084f55ab51f8b277cf01bb6e04f16ed}{size}}>0 ? \mbox{\hyperlink{classQCString_ac084f55ab51f8b277cf01bb6e04f16ed}{size}}-\/1 : 0); \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{130     \mbox{\hyperlink{classQCString_a2286f03edc20befca29cd2b2f57de1f6}{QCString}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}} ) : m\_rep(\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}?\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}:\textcolor{stringliteral}{"{}"{}}) \{\}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \mbox{\hyperlink{classQCString_abeb844f296f351124bfe2e83b7c54976}{QCString}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}, \textcolor{keywordtype}{size\_t} maxlen ) : m\_rep(\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}?\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}:\textcolor{stringliteral}{"{}"{}}) \{ m\_rep.resize(maxlen); \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{136     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_afa8d791236dd93fd013f718a91bf6bbd}{operator=}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}) \{ m\_rep = \mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}?\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}:\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a52597e3bc7b763938231deb3a62a0dab}{operator=}}( \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) \{ m\_rep = \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a31246261e7f2ae130c9235969b79075a}{isNull}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_rep.empty(); \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_rep.empty(); \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{147     \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \mbox{\hyperlink{classQCString_ac52596733e9110b778019946d73fb268}{length}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(m\_rep.size()); \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150     \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} \mbox{\hyperlink{classQCString_ac084f55ab51f8b277cf01bb6e04f16ed}{size}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(m\_rep.size()); \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{153     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_rep.c\_str(); \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{157     \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a5f5c9dc172d638c8d7b07010d100117a}{rawData}}() \{ \textcolor{keywordflow}{return} \&m\_rep[0]; \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a993474e2da59141336e6105b8e154f2b}{resize}}( \textcolor{keywordtype}{size\_t} newlen ) \{ m\_rep.resize( newlen>0 ? newlen-\/1 : 0 ); \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}; \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{167     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_ab1b9eb1b1ae95991e92b1aca06c96368}{truncate}}( \textcolor{keywordtype}{size\_t} pos ) \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_a993474e2da59141336e6105b8e154f2b}{resize}}( pos + 1 ); \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{175     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a2061c09e8d70cd279d9cc9feef33d2bb}{fill}}( \textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} len = -\/1 )}
+\DoxyCodeLine{176     \{}
+\DoxyCodeLine{177       \textcolor{keywordtype}{int} l = len==-\/1 ? \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(m\_rep.size()) : len;}
+\DoxyCodeLine{178       m\_rep = std::string(l,c);}
+\DoxyCodeLine{179       \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *format, ... );}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_a0182ece6b76dad6475dafb53e2faaf10}{find}}( \textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} index=0, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{185     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_a0182ece6b76dad6475dafb53e2faaf10}{find}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}, \textcolor{keywordtype}{int} index=0, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{186     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_a0182ece6b76dad6475dafb53e2faaf10}{find}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}, \textcolor{keywordtype}{int} index=0, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{187     \textcolor{comment}{//int   find( const QRegExp \&rx, int index=0 ) const;}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}( \textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} index=-\/1, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{190     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_ab47a6435c16d61d04fb448f1080b4e26}{findRev}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}, \textcolor{keywordtype}{int} index=-\/1, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{191     \textcolor{comment}{//int   findRev( const QRegExp \&rx, int index=-\/1 ) const;}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_aeeedb2810a85c682c2f2a86bcd2355a7}{contains}}( \textcolor{keywordtype}{char} c, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{194     \textcolor{keywordtype}{int} \mbox{\hyperlink{classQCString_aeeedb2810a85c682c2f2a86bcd2355a7}{contains}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}, \textcolor{keywordtype}{bool} cs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}} ) \textcolor{keyword}{const};}
+\DoxyCodeLine{195     \textcolor{comment}{//int contains( const QRegExp \&rx ) const;}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_af363dfe85e56f873aa3a373c70a33b24}{stripPrefix}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&prefix)}
+\DoxyCodeLine{198     \{}
+\DoxyCodeLine{199       \textcolor{keywordflow}{if} (prefix.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}() || m\_rep.empty()) \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{200       \textcolor{keywordflow}{if} (m\_rep.rfind(prefix.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),0)==0) \textcolor{comment}{// string starts with prefix}}
+\DoxyCodeLine{201       \{}
+\DoxyCodeLine{202         m\_rep.erase(0,prefix.\mbox{\hyperlink{classQCString_ac52596733e9110b778019946d73fb268}{length}}());}
+\DoxyCodeLine{203         \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}};}
+\DoxyCodeLine{204       \}}
+\DoxyCodeLine{205       \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{206     \}}
+\DoxyCodeLine{207     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a3524dfec9219699243b6baf0f33bd0f1}{stripPrefix}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *prefix)}
+\DoxyCodeLine{208     \{}
+\DoxyCodeLine{209       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_af363dfe85e56f873aa3a373c70a33b24}{stripPrefix}}(\mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(prefix));}
+\DoxyCodeLine{210     \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_aecf8b66312c4e97333219cc344c11a4f}{left}}( \textcolor{keywordtype}{size\_t} len )\textcolor{keyword}{ const}}
+\DoxyCodeLine{213 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{214       \textcolor{keywordflow}{return} m\_rep.empty() ? \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}() : \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(m\_rep.substr(0,len));}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a8f4aa5417f6a834f28c7148a1fe262d5}{right}}( \textcolor{keywordtype}{size\_t} len )\textcolor{keyword}{ const}}
+\DoxyCodeLine{218 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{219       \textcolor{keywordflow}{return} m\_rep.empty()    ? \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}() :}
+\DoxyCodeLine{220              len<m\_rep.size() ? \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(m\_rep.substr(m\_rep.size()-\/len,len)) :}
+\DoxyCodeLine{221              *\textcolor{keyword}{this};}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a27136caf9c0bc4daca574cda6f113551}{mid}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{size\_t} len=\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(-\/1))\textcolor{keyword}{ const}}
+\DoxyCodeLine{225 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{226       \textcolor{keywordtype}{size\_t} slen = m\_rep.size();}
+\DoxyCodeLine{227       \textcolor{keywordflow}{if} (len==\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}\textcolor{keyword}{>}(-\/1)) len = slen-\/index;}
+\DoxyCodeLine{228       \textcolor{keywordflow}{return} m\_rep.empty() || index>slen || len==0 ? \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}() :}
+\DoxyCodeLine{229              \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(m\_rep.substr(index,len));}
+\DoxyCodeLine{230     \}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a33688239622e659cfb469fbd62c9cccb}{lower}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{233 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{234       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(\mbox{\hyperlink{utf8_8cpp_a90000b3876f8ff0fed72d2c31ecdfe11}{convertUTF8ToLower}}(m\_rep));}
+\DoxyCodeLine{235     \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a113ff6fe5b14585eebdcafbf2fe88cc4}{upper}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{238 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{239       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(\mbox{\hyperlink{utf8_8cpp_a2027564d4381eb6e539320ee8b2e0bcd}{convertUTF8ToUpper}}(m\_rep));}
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a66269a694d9e6961bfd145bb4ca72f42}{stripWhiteSpace}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{244 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{245       \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}} = m\_rep.size();}
+\DoxyCodeLine{246       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}==0 || (!\mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[0]) \&\& !\mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}-\/1]))) \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{247       \textcolor{keywordtype}{size\_t} start=0,\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}=\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}-\/1;}
+\DoxyCodeLine{248       \textcolor{keywordflow}{while} (start<\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}} \&\& \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[start])) start++;}
+\DoxyCodeLine{249       \textcolor{keywordflow}{if} (start==\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}) \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(); \textcolor{comment}{// only whitespace}}
+\DoxyCodeLine{250       \textcolor{keywordflow}{while} (\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}>start \&\& \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}])) \mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}-\/-\/;}
+\DoxyCodeLine{251       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(m\_rep.substr(start,1+\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}-\/start));}
+\DoxyCodeLine{252     \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254     \textcolor{comment}{// Returns a quoted copy of this string, unless it is already quoted.}}
+\DoxyCodeLine{255     \textcolor{comment}{// Note that trailing and leading whitespace is removed.}}
+\DoxyCodeLine{256     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_af428b9307683dc2c090f7d837138b438}{quoted}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{257 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{258       \textcolor{keywordtype}{size\_t} start=0, \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}=m\_rep.size(), \mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}=\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}-\/1;}
+\DoxyCodeLine{259       \textcolor{keywordflow}{while} (start<\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}  \&\& \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[start])) start++; \textcolor{comment}{// skip over leading whitespace}}
+\DoxyCodeLine{260       \textcolor{keywordflow}{if} (start==\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}) \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(); \textcolor{comment}{// only whitespace}}
+\DoxyCodeLine{261       \textcolor{keywordflow}{while} (\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}>start \&\& \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}]))   \mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}-\/-\/;   \textcolor{comment}{// skip over trailing whitespace}}
+\DoxyCodeLine{262       \textcolor{keywordtype}{bool} needsQuotes=\textcolor{keyword}{false};}
+\DoxyCodeLine{263       \textcolor{keywordtype}{size\_t} i=start;}
+\DoxyCodeLine{264       \textcolor{keywordflow}{if} (i<\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}} \&\& m\_rep[i]!=\textcolor{charliteral}{'"{}'}) \textcolor{comment}{// stripped string has at least non-\/whitespace unquoted character}}
+\DoxyCodeLine{265       \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{while} (i<\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}} \&\& !needsQuotes) \textcolor{comment}{// check if the to be quoted part has at least one whitespace character}}
+\DoxyCodeLine{267         \{}
+\DoxyCodeLine{268           needsQuotes = \mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[i++]);}
+\DoxyCodeLine{269         \}}
+\DoxyCodeLine{270       \}}
+\DoxyCodeLine{271       \mbox{\hyperlink{classQCString}{QCString}} result(m\_rep.substr(start,1+\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}-\/start));}
+\DoxyCodeLine{272       \textcolor{keywordflow}{if} (needsQuotes)}
+\DoxyCodeLine{273       \{}
+\DoxyCodeLine{274         result.\mbox{\hyperlink{classQCString_a0a6a8fe99e596b149ee15138fa8dcf0c}{prepend}}(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{275         result.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{276       \}}
+\DoxyCodeLine{277       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{278     \}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{281     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_ae5612f003ab58972eb5769811876c5e3}{removeWhiteSpace}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{282 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{283       \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}} = m\_rep.size();}
+\DoxyCodeLine{284       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}}==0) \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{285       std::string result = m\_rep;}
+\DoxyCodeLine{286       \textcolor{keywordtype}{size\_t} src=0,dst=0;}
+\DoxyCodeLine{287       \textcolor{keywordflow}{while} (src<\mbox{\hyperlink{namespacecaseconvert_aae76dca73e523a1147f0aa3e23f1ee78}{sl}})}
+\DoxyCodeLine{288       \{}
+\DoxyCodeLine{289         \textcolor{keywordflow}{if} (!\mbox{\hyperlink{qcstring_8h_a77c877f20c7388af72f6a936072b5109}{qisspace}}(m\_rep[src])) result[dst++]=m\_rep[src];}
+\DoxyCodeLine{290         src++;}
+\DoxyCodeLine{291       \}}
+\DoxyCodeLine{292       \textcolor{keywordflow}{if} (dst<m\_rep.size()) result.resize(dst);}
+\DoxyCodeLine{293       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ad691e1087cc03e14e00d1147ae0ecab7}{QCString}}(result);}
+\DoxyCodeLine{294     \}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{298     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classQCString_a8d6ace0deb439b916b9f97f54a6c9cc2}{simplifyWhiteSpace}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_ae4e7678c93bacb8b7806597a8520ca54}{insert}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{301     \{}
+\DoxyCodeLine{302       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.length()>0)}
+\DoxyCodeLine{303       \{}
+\DoxyCodeLine{304         \textcolor{keywordtype}{size\_t} ol = m\_rep.size();}
+\DoxyCodeLine{305         \textcolor{keywordflow}{if} (index>ol) \textcolor{comment}{// insert beyond end of string and fill gap with spaces}}
+\DoxyCodeLine{306         \{}
+\DoxyCodeLine{307           m\_rep.resize(index+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.length());}
+\DoxyCodeLine{308           std::memset(\&m\_rep[ol],\textcolor{charliteral}{' '},index-\/ol);}
+\DoxyCodeLine{309           std::memcpy(\&m\_rep[index],\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.data(),\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.length()+1);}
+\DoxyCodeLine{310         \}}
+\DoxyCodeLine{311         \textcolor{keywordflow}{else} \textcolor{comment}{// insert inside the string}}
+\DoxyCodeLine{312         \{}
+\DoxyCodeLine{313           m\_rep.insert(index,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str());}
+\DoxyCodeLine{314         \}}
+\DoxyCodeLine{315       \}}
+\DoxyCodeLine{316       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{317     \}}
+\DoxyCodeLine{318     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a0acc09ca029c0a255063a7dc610be340}{insert}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{319     \{}
+\DoxyCodeLine{320       \textcolor{keywordtype}{size\_t} len = \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} ? \mbox{\hyperlink{qcstring_8h_a11e5896f8590cc97ce6be8f23f13c5f0}{qstrlen}}(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) : 0;}
+\DoxyCodeLine{321       \textcolor{keywordflow}{if} (len>0)}
+\DoxyCodeLine{322       \{}
+\DoxyCodeLine{323         \textcolor{keywordtype}{size\_t} ol = m\_rep.size();}
+\DoxyCodeLine{324         \textcolor{keywordflow}{if} (index>ol) \textcolor{comment}{// insert beyond end of string and fill gap with spaces}}
+\DoxyCodeLine{325         \{}
+\DoxyCodeLine{326           m\_rep.resize(index+len);}
+\DoxyCodeLine{327           std::memset(\&m\_rep[ol],\textcolor{charliteral}{' '},index-\/ol);}
+\DoxyCodeLine{328           std::memcpy(\&m\_rep[index],\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},len+1);}
+\DoxyCodeLine{329         \}}
+\DoxyCodeLine{330         \textcolor{keywordflow}{else} \textcolor{comment}{// insert inside the string}}
+\DoxyCodeLine{331         \{}
+\DoxyCodeLine{332           m\_rep.insert(index,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{333         \}}
+\DoxyCodeLine{334       \}}
+\DoxyCodeLine{335       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{336     \}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_abecd047709be2b8eda218b76bf9c385b}{insert}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{339     \{}
+\DoxyCodeLine{340       \textcolor{keywordtype}{char} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}[2] = \{ c, \textcolor{charliteral}{'\(\backslash\)0'} \};}
+\DoxyCodeLine{341       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ae4e7678c93bacb8b7806597a8520ca54}{insert}}(index,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{342     \}}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}( \textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{345     \{}
+\DoxyCodeLine{346       m\_rep+=c;}
+\DoxyCodeLine{347       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{348     \}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a303cf8f6a8f57a92e3bda9423ca643aa}{append}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{351     \{}
+\DoxyCodeLine{352       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_a3f8a3c4ff3e86b352ac49ee366dc2c5c}{operator+=}}(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a4fdaff21dfb70be75af14aed604e721b}{append}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{356     \{}
+\DoxyCodeLine{357       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_a3f8a3c4ff3e86b352ac49ee366dc2c5c}{operator+=}}(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{358     \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a747c5c5f38d0e2e43ac2716fd7413247}{append}}( \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{361     \{}
+\DoxyCodeLine{362       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_a3f8a3c4ff3e86b352ac49ee366dc2c5c}{operator+=}}(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{363     \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a0a6a8fe99e596b149ee15138fa8dcf0c}{prepend}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{366     \{}
+\DoxyCodeLine{367       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ae4e7678c93bacb8b7806597a8520ca54}{insert}}(0,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_acffefc809c8b24e32df929c2985bdf48}{prepend}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{371     \{}
+\DoxyCodeLine{372       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ae4e7678c93bacb8b7806597a8520ca54}{insert}}(0,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.data());}
+\DoxyCodeLine{373     \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a792b11db11f131e280229450e9ad4fba}{prepend}}( \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{376     \{}
+\DoxyCodeLine{377       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ae4e7678c93bacb8b7806597a8520ca54}{insert}}(0,\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.c\_str());}
+\DoxyCodeLine{378     \}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a66f15f4dde9edaf0aac741fa7d57bae8}{remove}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{381     \{}
+\DoxyCodeLine{382       \textcolor{keywordtype}{size\_t} ol = m\_rep.size();}
+\DoxyCodeLine{383       \textcolor{keywordflow}{if} (index<ol \&\& len>0) m\_rep.erase(index,index+len>=ol ? std::string::npos : len);}
+\DoxyCodeLine{384       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{385     \}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{387     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_ab536413a2bab9fe536e82067a3f164ed}{replace}}( \textcolor{keywordtype}{size\_t} index, \textcolor{keywordtype}{size\_t} len, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{388     \textcolor{comment}{//QCString \&replace( const QRegExp \&rx, const char *str );}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390     \textcolor{keywordtype}{short}  \mbox{\hyperlink{classQCString_a78370be7ab23f34c04724fceabe1c7f9}{toShort}}(  \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{391     \mbox{\hyperlink{qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{classQCString_a30ac10147a289ba403bea6343974314f}{toUShort}}( \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{392     \textcolor{keywordtype}{int}    \mbox{\hyperlink{classQCString_a8ab7ce60a26cdd29e1cf743664d0f6be}{toInt}}(    \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{393     \mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}}   \mbox{\hyperlink{classQCString_a6021caef1848cb349467bc969be95966}{toUInt}}(   \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{394     \textcolor{keywordtype}{long}   \mbox{\hyperlink{classQCString_adcc23d02d312491717f846354404fd92}{toLong}}(   \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{395     \mbox{\hyperlink{qcstring_8h_a718b4eb2652c286f4d42dc18a8e71a1a}{ulong}}  \mbox{\hyperlink{classQCString_a183b7ad64166a12bf3e0f21631b69d28}{toULong}}(  \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{396     \mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} \mbox{\hyperlink{classQCString_a09bcf9ec923139a3b26dd45c9b0b8341}{toUInt64}}( \textcolor{keywordtype}{bool} *ok=0, \textcolor{keywordtype}{int} base=10 ) \textcolor{keyword}{const};}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a87d2bfa3fcbf407c32fab784df368b2d}{setNum}}(\textcolor{keywordtype}{short} n)}
+\DoxyCodeLine{399     \{}
+\DoxyCodeLine{400       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{401       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{402     \}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a4d574918e9537bcccc0a9fa1d0bc768b}{setNum}}(\mbox{\hyperlink{qcstring_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} n)}
+\DoxyCodeLine{405     \{}
+\DoxyCodeLine{406       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{407       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{408     \}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a985317d53986ff869f6200eba01da503}{setNum}}(\textcolor{keywordtype}{int} n)}
+\DoxyCodeLine{411     \{}
+\DoxyCodeLine{412       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{413       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{414     \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_ac5b0c4579e3b07fcaad843477941cacd}{setNum}}(\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} n)}
+\DoxyCodeLine{417     \{}
+\DoxyCodeLine{418       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{419       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{420     \}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a258a420449cd4af46dca39fc4d5966ee}{setNum}}(\textcolor{keywordtype}{long} n)}
+\DoxyCodeLine{423     \{}
+\DoxyCodeLine{424       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{425       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{428     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a4ca37c090965c69bdc470a7f94a45b69}{setNum}}(\mbox{\hyperlink{qcstring_8h_a718b4eb2652c286f4d42dc18a8e71a1a}{ulong}} n)}
+\DoxyCodeLine{429     \{}
+\DoxyCodeLine{430       m\_rep = std::to\_string(n);}
+\DoxyCodeLine{431       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{432     \}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a1f43c0a4958cf17f086dc0e3a4b13a68}{startsWith}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )\textcolor{keyword}{ const}}
+\DoxyCodeLine{435 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{436       \textcolor{keywordflow}{if} (m\_rep.empty() || \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0;}
+\DoxyCodeLine{437       \textcolor{keywordflow}{return} m\_rep.rfind(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},0)==0; \textcolor{comment}{// looking "{}backward"{} starting and ending at index 0}}
+\DoxyCodeLine{438     \}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a856bdc110760824279f35a6f6f9a67a9}{startsWith}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )\textcolor{keyword}{ const}}
+\DoxyCodeLine{441 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{442       \textcolor{keywordflow}{if} (m\_rep.empty() || \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty();}
+\DoxyCodeLine{443       \textcolor{keywordflow}{return} m\_rep.rfind(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str(),0)==0; \textcolor{comment}{// looking "{}backward"{} starting and ending at index 0}}
+\DoxyCodeLine{444     \}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a419394d9b5a9a18d4465ce4017f646d0}{endsWith}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{447 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{448       \textcolor{keywordflow}{if} (m\_rep.empty() || \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}==0;}
+\DoxyCodeLine{449       \textcolor{keywordtype}{size\_t} l = strlen(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}});}
+\DoxyCodeLine{450       \textcolor{keywordflow}{return} m\_rep.length()>=l \&\& m\_rep.compare(m\_rep.length()-\/l, l, \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}, l)==0;}
+\DoxyCodeLine{451     \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQCString_a320d19fe1ec83dedf40139c185c02157}{endsWith}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})\textcolor{keyword}{ const}}
+\DoxyCodeLine{454 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{455       \textcolor{keywordtype}{size\_t} l = \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.length();}
+\DoxyCodeLine{456       \textcolor{keywordflow}{return} m\_rep.length()>=l \&\& m\_rep.compare(m\_rep.length()-\/l, l, \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str())==0;}
+\DoxyCodeLine{457     \}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#define HAS\_IMPLICIT\_CAST\_TO\_PLAIN\_C\_STRING 0}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{\#if HAS\_IMPLICIT\_CAST\_TO\_PLAIN\_C\_STRING}}
+\DoxyCodeLine{462     \textcolor{keyword}{operator} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *() \textcolor{keyword}{const}}
+\DoxyCodeLine{463     \{}
+\DoxyCodeLine{464       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}();}
+\DoxyCodeLine{465     \}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468     std::string \mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{469 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{470       \textcolor{keywordflow}{return} m\_rep;}
+\DoxyCodeLine{471     \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a3f8a3c4ff3e86b352ac49ee366dc2c5c}{operator+=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{474     \{}
+\DoxyCodeLine{475       m\_rep+=\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str();}
+\DoxyCodeLine{476       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{477     \}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a39cc26ea20a11b2ef1bf77f1a8385606}{operator+=}}( \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{480     \{}
+\DoxyCodeLine{481       m\_rep+=\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{482       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{483     \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{486     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_a844a24565e79b45a3c0951e314408dc9}{operator+=}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}} )}
+\DoxyCodeLine{487     \{}
+\DoxyCodeLine{488       \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) m\_rep+=\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{489       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{490     \}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#define HAS\_CHARACTER\_APPEND\_OPERATOR 1}}
+\DoxyCodeLine{493 \textcolor{preprocessor}{\#if HAS\_CHARACTER\_APPEND\_OPERATOR}}
+\DoxyCodeLine{495     \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classQCString_aeb47b4961cf545995555c00300ee1c0d}{operator+=}}( \textcolor{keywordtype}{char} c )}
+\DoxyCodeLine{496     \{}
+\DoxyCodeLine{497       m\_rep+=c;}
+\DoxyCodeLine{498       \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{499     \}}
+\DoxyCodeLine{500 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{503     \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classQCString_a4c8be5d062cc14919b53ff0a3c8f9a4f}{at}}( \textcolor{keywordtype}{size\_t} i)}
+\DoxyCodeLine{504     \{}
+\DoxyCodeLine{505       \textcolor{keywordflow}{return} m\_rep[i];}
+\DoxyCodeLine{506     \}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{508     \textcolor{keyword}{const} \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classQCString_acb462b152dd61c53ccde9b7194c167a8}{at}}( \textcolor{keywordtype}{size\_t} i)\textcolor{keyword}{ const}}
+\DoxyCodeLine{509 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{510       \textcolor{keywordflow}{return} m\_rep[i];}
+\DoxyCodeLine{511     \}}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{514     \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classQCString_aa782bd46ff195bbc19fe79e941bf554b}{operator[]}}( \textcolor{keywordtype}{int} i )}
+\DoxyCodeLine{515     \{}
+\DoxyCodeLine{516       \textcolor{keywordflow}{return} m\_rep[i];}
+\DoxyCodeLine{517     \}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519     \textcolor{keyword}{const} \textcolor{keywordtype}{char} \&\mbox{\hyperlink{classQCString_ad0780d51fe293140552c6dc494cc28bf}{operator[]}}( \textcolor{keywordtype}{int} i )\textcolor{keyword}{ const}}
+\DoxyCodeLine{520 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{521       \textcolor{keywordflow}{return} m\_rep[i];}
+\DoxyCodeLine{522     \}}
+\DoxyCodeLine{523 }
+\DoxyCodeLine{524   \textcolor{keyword}{private}:}
+\DoxyCodeLine{525     std::string m\_rep;}
+\DoxyCodeLine{526 \};}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{529 \textcolor{comment}{  QCString non-\/member operators}}
+\DoxyCodeLine{530 \textcolor{comment}{ *****************************************************************************/}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad13e4c478edbecac20fcbce2b86f1c35}{operator==}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{533 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) == 0; \}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{535 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad13e4c478edbecac20fcbce2b86f1c35}{operator==}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{536 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) == 0; \}}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad13e4c478edbecac20fcbce2b86f1c35}{operator==}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{539 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) == 0; \}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{541 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ae5703d567f3b2538d3832276940fd734}{operator!=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{542 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) != 0; \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ae5703d567f3b2538d3832276940fd734}{operator!=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{545 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) != 0; \}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ae5703d567f3b2538d3832276940fd734}{operator!=}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{548 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) != 0; \}}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad4b5026dbfb3a563bf69c94c70f954f0}{operator<}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& s2 )}
+\DoxyCodeLine{551 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) < 0; \}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad4b5026dbfb3a563bf69c94c70f954f0}{operator<}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{554 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) < 0; \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_ad4b5026dbfb3a563bf69c94c70f954f0}{operator<}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{557 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) < 0; \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_aaf859be3755b7aff5639142161bc7606}{operator<=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{560 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) <= 0; \}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_aaf859be3755b7aff5639142161bc7606}{operator<=}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{563 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) <= 0; \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{565 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_a21042d2bb0fb0aefd0afef200ff68648}{operator>}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{566 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) > 0; \}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_a21042d2bb0fb0aefd0afef200ff68648}{operator>}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{569 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) > 0; \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_a37897e7d8cd6ae9139071d10556b80a2}{operator>=}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{572 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),s2) >= 0; \}}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{574 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{qcstring_8h_a37897e7d8cd6ae9139071d10556b80a2}{operator>=}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{575 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_acd9682a0a00b8d6f0c8c1e4c23153126}{qstrcmp}}(s1,s2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}()) >= 0; \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{577 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_ad3bf496cd5400f4d0149b5e4a627735c}{operator+}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{578 \{}
+\DoxyCodeLine{579   \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(s1.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}()+s2.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{580 \}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582 }
+\DoxyCodeLine{583 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_ad3bf496cd5400f4d0149b5e4a627735c}{operator+}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s2 )}
+\DoxyCodeLine{584 \{}
+\DoxyCodeLine{585     \mbox{\hyperlink{classQCString}{QCString}} tmp(s1);}
+\DoxyCodeLine{586     tmp.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(s2);}
+\DoxyCodeLine{587     \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{588 \}}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_ad3bf496cd5400f4d0149b5e4a627735c}{operator+}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *s1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{591 \{}
+\DoxyCodeLine{592     \mbox{\hyperlink{classQCString}{QCString}} tmp(s1);}
+\DoxyCodeLine{593     tmp.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(s2);}
+\DoxyCodeLine{594     \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{595 \}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{597 \textcolor{preprocessor}{\#define HAD\_PLUS\_OPERATOR\_FOR\_CHAR 0}}
+\DoxyCodeLine{598 \textcolor{preprocessor}{\#if HAS\_PLUS\_OPERATOR\_FOR\_CHAR}}
+\DoxyCodeLine{599 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_ad3bf496cd5400f4d0149b5e4a627735c}{operator+}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s1, \textcolor{keywordtype}{char} c2 )}
+\DoxyCodeLine{600 \{}
+\DoxyCodeLine{601     \mbox{\hyperlink{classQCString}{QCString}} tmp( s1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}() );}
+\DoxyCodeLine{602     tmp.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(c2);}
+\DoxyCodeLine{603     \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{604 \}}
+\DoxyCodeLine{605 }
+\DoxyCodeLine{606 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_ad3bf496cd5400f4d0149b5e4a627735c}{operator+}}( \textcolor{keywordtype}{char} c1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&s2 )}
+\DoxyCodeLine{607 \{}
+\DoxyCodeLine{608     \mbox{\hyperlink{classQCString}{QCString}} tmp;}
+\DoxyCodeLine{609     tmp.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(c1);}
+\DoxyCodeLine{610     tmp.\mbox{\hyperlink{classQCString_a8f0a381fdae1427b1182baf0abde21e7}{append}}(s2);}
+\DoxyCodeLine{611     \textcolor{keywordflow}{return} tmp;}
+\DoxyCodeLine{612 \}}
+\DoxyCodeLine{613 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{614 }
+\DoxyCodeLine{615 \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{616 \{}
+\DoxyCodeLine{617   \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}; \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{618 \}}
+\DoxyCodeLine{619 }
+\DoxyCodeLine{620 \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{621 \{}
+\DoxyCodeLine{622   \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.data(); \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{623 \}}
+\DoxyCodeLine{624 }
+\DoxyCodeLine{625 \textcolor{keyword}{inline} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{qcstring_8h_a9851ebb5ae2f65b4d2b1d08421edbfd2}{qPrint}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{626 \{}
+\DoxyCodeLine{627   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.c\_str();}
+\DoxyCodeLine{628 \}}
+\DoxyCodeLine{629 }
+\DoxyCodeLine{630 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{qcstring_8h_ac7e12ef0c11e1acc583d1d66404c2557}{toStdString}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{631 \{}
+\DoxyCodeLine{632   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str();}
+\DoxyCodeLine{633 \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{635 \textcolor{comment}{//-\/-\/-\/-\/ overloads}}
+\DoxyCodeLine{636 }
+\DoxyCodeLine{637 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2 )}
+\DoxyCodeLine{638 \{}
+\DoxyCodeLine{639   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}(str1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str2);}
+\DoxyCodeLine{640 \}}
+\DoxyCodeLine{641 }
+\DoxyCodeLine{642 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str2 )}
+\DoxyCodeLine{643 \{}
+\DoxyCodeLine{644   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}(str1,str2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{645 \}}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{647 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str2 )}
+\DoxyCodeLine{648 \{}
+\DoxyCodeLine{649   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a3fcf9e9f5dafe61787ad66adae5a1e85}{qstricmp}}(str1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}());}
+\DoxyCodeLine{650 \}}
+\DoxyCodeLine{651 }
+\DoxyCodeLine{652 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str1, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str2, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{653 \{}
+\DoxyCodeLine{654   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}(str1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str2,len);}
+\DoxyCodeLine{655 \}}
+\DoxyCodeLine{656 }
+\DoxyCodeLine{657 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}( \textcolor{keyword}{const} \textcolor{keywordtype}{char} *str1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str2, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{658 \{}
+\DoxyCodeLine{659   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}(str1,str2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),len);}
+\DoxyCodeLine{660 \}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}( \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str1, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str2, \textcolor{keywordtype}{size\_t} len )}
+\DoxyCodeLine{663 \{}
+\DoxyCodeLine{664   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a8f98a1f201256d5d9ba6c20252dc3e22}{qstrnicmp}}(str1.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),str2.\mbox{\hyperlink{classQCString_ac3aa3ac1a1c36d3305eba22a2eb0d098}{data}}(),len);}
+\DoxyCodeLine{665 \}}
+\DoxyCodeLine{666 }
+\DoxyCodeLine{667 \textcolor{comment}{// helper functions}}
+\DoxyCodeLine{668 \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_a606914bff961461e7ff377c2c07713d4}{substitute}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&find,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{replace}});}
+\DoxyCodeLine{669 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_a606914bff961461e7ff377c2c07713d4}{substitute}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&str,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *find,\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{replace}})}
+\DoxyCodeLine{670 \{}
+\DoxyCodeLine{671   \textcolor{keywordflow}{return} \mbox{\hyperlink{qcstring_8h_a606914bff961461e7ff377c2c07713d4}{substitute}}(str,\mbox{\hyperlink{classQCString}{QCString}}(find),\mbox{\hyperlink{classQCString}{QCString}}(\mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{replace}}));}
+\DoxyCodeLine{672 \}}
+\DoxyCodeLine{673 \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_a606914bff961461e7ff377c2c07713d4}{substitute}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&src,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dst,\textcolor{keywordtype}{int} skip\_seq);}
+\DoxyCodeLine{674 }
+\DoxyCodeLine{675 \textcolor{keyword}{inline} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{qcstring_8h_a606914bff961461e7ff377c2c07713d4}{substitute}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keywordtype}{char} srcChar,\textcolor{keywordtype}{char} dstChar)}
+\DoxyCodeLine{676 \{}
+\DoxyCodeLine{677   std::string ss = \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str();}
+\DoxyCodeLine{678   \mbox{\hyperlink{namespacereg_a5f59e75927731a22be2be5e4d91075b1}{std::replace}}(ss.begin(),ss.end(),srcChar,dstChar);}
+\DoxyCodeLine{679   \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(ss);}
+\DoxyCodeLine{680 \}}
+\DoxyCodeLine{681 }
+\DoxyCodeLine{682 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{qcstring_8h_a4f1fac62cd55edb5dcfc30b7fe24c48d}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{683 \{}
+\DoxyCodeLine{684     os << \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str();}
+\DoxyCodeLine{685     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{686 \}}
+\DoxyCodeLine{687 }
+\DoxyCodeLine{688 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QCSTRING\_H}}
+
+\end{DoxyCode}

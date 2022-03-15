@@ -1,0 +1,1488 @@
+\hypertarget{translator__jp_8h_source}{}\doxysection{translator\+\_\+jp.\+h}
+\label{translator__jp_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_jp.h@{/mnt/c/projects/doxygen/src/translator\_jp.h}}
+\mbox{\hyperlink{translator__jp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/*}}
+\DoxyCodeLine{19 \textcolor{comment}{ * translator\_jp.h}}
+\DoxyCodeLine{20 \textcolor{comment}{ * Updates:}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 1.2.5)}}
+\DoxyCodeLine{22 \textcolor{comment}{ * First Translation}}
+\DoxyCodeLine{23 \textcolor{comment}{ *      by Kenji Nagamatsu}}
+\DoxyCodeLine{24 \textcolor{comment}{ * 1.2.12)}}
+\DoxyCodeLine{25 \textcolor{comment}{ * Update and Shift-\/Jis(\_WIN32) -\/> converted UTF-\/8 at version 1.8.5}}
+\DoxyCodeLine{26 \textcolor{comment}{ *      by Ryunosuke Sato (30-\/Dec-\/2001)}}
+\DoxyCodeLine{27 \textcolor{comment}{ * 1.5.8)}}
+\DoxyCodeLine{28 \textcolor{comment}{ * Translation for 1.5.8.}}
+\DoxyCodeLine{29 \textcolor{comment}{ *      by Hiroki Iseri (18-\/Feb-\/2009)}}
+\DoxyCodeLine{30 \textcolor{comment}{ * 1.8.5)}}
+\DoxyCodeLine{31 \textcolor{comment}{ * Translation Added for 1.8.4 and revised}}
+\DoxyCodeLine{32 \textcolor{comment}{ *      by Suzumizaki-\/Kimitaka (30-\/Aug-\/2013)}}
+\DoxyCodeLine{33 \textcolor{comment}{ */}}
+\DoxyCodeLine{34 \textcolor{comment}{/*}}
+\DoxyCodeLine{35 \textcolor{comment}{Messages for translators written in Japanese:}}
+\DoxyCodeLine{36 \textcolor{comment}{1.8.5 への追加にあたって過去の翻訳者三名への連絡を試みたところ、}}
+\DoxyCodeLine{37 \textcolor{comment}{井芹さん(Hiroki Iseri)さんからメールのお返事をいただけました。}}
+\DoxyCodeLine{38 \textcolor{comment}{その際教えていただいた過去の経緯によりますと当時連絡可能だった方々は}}
+\DoxyCodeLine{39 \textcolor{comment}{揃って従来訳から改変追加して構わない旨を表明されていたとのことです。}}
+\DoxyCodeLine{40 \textcolor{comment}{Doxygen の開発の方でもそれはそれでいーんじゃん？みたいな感じだったようで。}}
+\DoxyCodeLine{41 \textcolor{comment}{}}
+\DoxyCodeLine{42 \textcolor{comment}{井芹さんも同様の見解で、私(鈴見咲=Suzumizaki-\/Kimitaka)も}}
+\DoxyCodeLine{43 \textcolor{comment}{今後この翻訳に関わり続けられるかは非常に怪しいところですので}}
+\DoxyCodeLine{44 \textcolor{comment}{将来の追加訳・既存訳改良は臆することなく進めていってよいのでは}}
+\DoxyCodeLine{45 \textcolor{comment}{ないかと思います。無論作業の衝突があるのは不経済ですので現在進行形で}}
+\DoxyCodeLine{46 \textcolor{comment}{活発に更新している方がいないかの簡単な確認(MLとかGitとか)をやるのも}}
+\DoxyCodeLine{47 \textcolor{comment}{いいでしょうし、それでも偶然衝突したら不運を諦めて相互に調整しましょう。}}
+\DoxyCodeLine{48 \textcolor{comment}{}}
+\DoxyCodeLine{49 \textcolor{comment}{当面なさそうですが訳語の選択で喧嘩になることもあるかもしれません。}}
+\DoxyCodeLine{50 \textcolor{comment}{そのときは gettext を利用するようなパッチを作って doxygen の開発に}}
+\DoxyCodeLine{51 \textcolor{comment}{適用を求めるのが一番ではないかなと思います。}}
+\DoxyCodeLine{52 \textcolor{comment}{}}
+\DoxyCodeLine{53 \textcolor{comment}{1.6.0以前の既存の訳についても多少弄りました。}}
+\DoxyCodeLine{54 \textcolor{comment}{特に structure を構造体ではなく構成としていたのはあんまりでしたので。}}
+\DoxyCodeLine{55 \textcolor{comment}{ほか、C++ での利用前提で改変したところもありますが、それが他の言語で}}
+\DoxyCodeLine{56 \textcolor{comment}{問題のようでしたらお手数掛けて申し訳ないですが相応に再修正しちゃって}}
+\DoxyCodeLine{57 \textcolor{comment}{構いません。}}
+\DoxyCodeLine{58 \textcolor{comment}{}}
+\DoxyCodeLine{59 \textcolor{comment}{その際 doc/maintainers.txt を修正してから python doc/translator.py を}}
+\DoxyCodeLine{60 \textcolor{comment}{実行する点にご注意下さい。私のところに search 鈴見咲君高 と書いたのは}}
+\DoxyCodeLine{61 \textcolor{comment}{同姓同名がまず考えられないというのが大前提ですのでこちらもご注意。}}
+\DoxyCodeLine{62 \textcolor{comment}{}}
+\DoxyCodeLine{63 \textcolor{comment}{"{}詳解"{}の語が厳しすぎると思う向きはありましょうが、その程度には書けと。}}
+\DoxyCodeLine{64 \textcolor{comment}{明記されてないけど使われてる動作や戻り値が想定内なのか想定外なのか}}
+\DoxyCodeLine{65 \textcolor{comment}{わからんのはメンテで困るじゃないですか。}}
+\DoxyCodeLine{66 \textcolor{comment}{}}
+\DoxyCodeLine{67 \textcolor{comment}{(2013-\/08-\/30, 鈴見咲君高)}}
+\DoxyCodeLine{68 \textcolor{comment}{*/}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_JP\_H}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define TRANSLATOR\_JP\_H}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorJapanese}{TranslatorJapanese}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__15}{TranslatorAdapter\_1\_8\_15}}}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74   \textcolor{keyword}{public}:}
+\DoxyCodeLine{75     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a0b68286bc9bd3f03a24220d1c2f900f7}{idLanguage}}()}
+\DoxyCodeLine{76     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}japanese"{}}; \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aadd11e46585e4d05bd1d92733f3d86b8}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{CJKutf8\}\(\backslash\)n"{}};}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_adf7f5e019ca5e54a111d3d81310a2b63}{trISOLang}}()}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ja"{}};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a7d90b6720a6812b9428f0413678807c1}{getLanguageString}}()}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x411 Japanese"{}};}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aff9e398a5bba5fa1e345ffba08964466}{latexFontenc}}()}
+\DoxyCodeLine{91     \{}
+\DoxyCodeLine{92       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_abcfec41fcfaf972e191aa2bf14057b2f}{latexDocumentPre}}()}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{CJK\}\{UTF8\}\{min\}\(\backslash\)n"{}};}
+\DoxyCodeLine{97     \}}
+\DoxyCodeLine{98     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a42f015953ee9043a126064c16fccae46}{latexDocumentPost}}()}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{CJK\}\(\backslash\)n"{}};}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classTranslatorJapanese_a66edd6b2fbcb767d3197e7f26c12ce80}{needsPunctuation}}()}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{108     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a79ec63e57a7f3ee93379aeb0c0a488ba}{trRelatedFunctions}}()}
+\DoxyCodeLine{109     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関連関数"{}}; \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab68faec70a1979ff9b2b8d754b8cbf30}{trRelatedSubscript}}()}
+\DoxyCodeLine{113     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}（これらはメソッドではありません）"{}}; \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad16cb36fd418dbcc99b6d87fa1950050}{trDetailedDescription}}()}
+\DoxyCodeLine{117     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳解"{}}; \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aafd4d81360e19814aa5e8e99a2738444}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{121     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型定義メンバ詳解"{}}; \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{124     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac678de2e9035626add9a498001597c94}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{125     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙型メンバ詳解"{}}; \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{128     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8290eb235b1ac9997bbf1bc086ef9f45}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130       \textcolor{keywordflow}{if}( \mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_JAVA))}
+\DoxyCodeLine{131       \{}
+\DoxyCodeLine{132         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メソッド詳解"{}};}
+\DoxyCodeLine{133       \}}
+\DoxyCodeLine{134       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{135       \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数詳解"{}};}
+\DoxyCodeLine{137       \}}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aaafcf0473aaba6a49c204f9ca9d9f4f5}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{142     \{}
+\DoxyCodeLine{143       \textcolor{keywordflow}{if}( \mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{144       \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}フィールド詳解"{}};}
+\DoxyCodeLine{146       \}}
+\DoxyCodeLine{147       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{148       \{}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メンバ詳解"{}};}
+\DoxyCodeLine{150       \}}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ace0d0d1b6449e2ca250714c3893b856a}{trMore}}()}
+\DoxyCodeLine{155     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[詳解]"{}}; \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{158     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a98a6bb8e80def1a098f1a1e40bd00c0c}{trListOfAllMembers}}()}
+\DoxyCodeLine{159     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全メンバ一覧"{}}; \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac30ef2352b160302e767af80901c19be}{trMemberList}}()}
+\DoxyCodeLine{163     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メンバ一覧"{}}; \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{166     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a45dd215136b1a871f08e1a238223622f}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{167     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}継承メンバを含む "{}}; \}}
+\DoxyCodeLine{168     \textcolor{comment}{/* trIncludingInheritedMembers に続くように定義すること */}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a610b6aa5096254ab88ce10ca55e24640}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{172     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} の全メンバ一覧です。"{}}; \}}
+\DoxyCodeLine{173     \textcolor{comment}{/* trThisIsTheListOfAllMembers から続くように定義すること */}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a89036ab462eb1b804c7273f68532d231}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{179     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Doxygen により"{}};}
+\DoxyCodeLine{180       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result=\textcolor{stringliteral}{"{} "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}+\textcolor{stringliteral}{"{}の"{}};}
+\DoxyCodeLine{181       result+=\textcolor{stringliteral}{"{}ソースコードから抽出しました。"{}};}
+\DoxyCodeLine{182       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a7e33d5dda7b42867114222d1c2c86b0b}{trEnumName}}()}
+\DoxyCodeLine{187     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙名"{}}; \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{190     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a22c91fb4d65a211817217acc600afbd5}{trEnumValue}}()}
+\DoxyCodeLine{191     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙値"{}}; \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac6b129846bb438195e46847a70e7695c}{trDefinedIn}}()}
+\DoxyCodeLine{195     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定義場所: "{}}; \}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{202     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1fb3baf66fdddeaaa291d12fe8cb080b}{trModules}}()}
+\DoxyCodeLine{203     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール"{}}; \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac7607e00fecebe825dcf39bffd221b77}{trClassHierarchy}}()}
+\DoxyCodeLine{207     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス階層"{}}; \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a45a18ebd0370b6b778e5c00670800f45}{trCompoundList}}()}
+\DoxyCodeLine{211     \{}
+\DoxyCodeLine{212       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{213       \{}
+\DoxyCodeLine{214         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造"{}};}
+\DoxyCodeLine{215       \}}
+\DoxyCodeLine{216       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{217       \{}
+\DoxyCodeLine{218         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス一覧"{}};}
+\DoxyCodeLine{219       \}}
+\DoxyCodeLine{220     \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{223     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac148fa286f2272c5b9f3eba1e1e7a999}{trFileList}}()}
+\DoxyCodeLine{224     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイル一覧"{}}; \}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{227     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a908f5ff2ed76ee4a3551dfed32ca13f9}{trCompoundMembers}}()}
+\DoxyCodeLine{228     \{}
+\DoxyCodeLine{229       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{230       \{}
+\DoxyCodeLine{231         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データフィールド"{}};}
+\DoxyCodeLine{232       \}}
+\DoxyCodeLine{233       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{234       \{}
+\DoxyCodeLine{235         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラスメンバ"{}};}
+\DoxyCodeLine{236       \}}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{240     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9c84ad85b63c6806faa49dcf310d361d}{trFileMembers}}()}
+\DoxyCodeLine{241     \{}
+\DoxyCodeLine{242       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{243       \{}
+\DoxyCodeLine{244         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}大域各種"{}};}
+\DoxyCodeLine{245       \}}
+\DoxyCodeLine{246       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{247       \{}
+\DoxyCodeLine{248         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイルメンバ"{}};}
+\DoxyCodeLine{249       \}}
+\DoxyCodeLine{250     \}}
+\DoxyCodeLine{252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a107f31a390f322d8d20c73ac5732f249}{trRelatedPages}}()}
+\DoxyCodeLine{253     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}諸情報"{}}; \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9156009f1d3b6509fea32f5da43ffd66}{trExamples}}()}
+\DoxyCodeLine{257     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}各種例"{}}; \}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{260     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa2ecc8562e45c1e8ee020cd2a51923a1}{trSearch}}()}
+\DoxyCodeLine{261     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}検索"{}}; \}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{264     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af1edda6affca4f6f036214e25b62b830}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{265     \{}
+\DoxyCodeLine{266       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス階層一覧です。大雑把に文字符号順で並べられています。"{}};}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{270     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a171ccbfdd6e05fe54ae1ebcb43c19e47}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{271     \{}
+\DoxyCodeLine{272       \textcolor{comment}{/* 概要がついているのは見ればわかるので省略 */}}
+\DoxyCodeLine{273       \textcolor{comment}{/* extractAll こと EXTRACT\_ALL はすべての詳解が存在することを}}
+\DoxyCodeLine{274 \textcolor{comment}{         実際の有無を度外視してユーザーが保証する設定なので}}
+\DoxyCodeLine{275 \textcolor{comment}{         詳解がなければこの関数が返す文字列は当然に矛盾を起こす。}}
+\DoxyCodeLine{276 \textcolor{comment}{      */}}
+\DoxyCodeLine{277       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{278       \{}
+\DoxyCodeLine{279         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイル一覧です。"{}};}
+\DoxyCodeLine{280       \}}
+\DoxyCodeLine{281       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳解が付けられているファイルの一覧です。"{}};}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284 }
+\DoxyCodeLine{286     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a90bdebbd4af4fc90cc7d19188a785215}{trCompoundListDescription}}()}
+\DoxyCodeLine{287     \{}
+\DoxyCodeLine{288       \textcolor{comment}{/* 概要がついているのは見ればわかるので省略 */}}
+\DoxyCodeLine{289       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{290       \{}
+\DoxyCodeLine{291         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造一覧です。"{}};}
+\DoxyCodeLine{292       \}}
+\DoxyCodeLine{293       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{294       \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス・構造体・共用体・インターフェースの一覧です。"{}};}
+\DoxyCodeLine{296       \}}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ada64de6ac856c538fca1420ed6e1ca46}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{301     \{}
+\DoxyCodeLine{302       \textcolor{keyword}{const} \textcolor{keywordtype}{bool} forC = \mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C);}
+\DoxyCodeLine{303       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{304       \textcolor{keywordflow}{if} (forC)}
+\DoxyCodeLine{305       \{}
+\DoxyCodeLine{306         result = \textcolor{stringliteral}{"{}構造体・共用体の"{}};}
+\DoxyCodeLine{307       \}}
+\DoxyCodeLine{308       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{309       \{}
+\DoxyCodeLine{310         result += \textcolor{stringliteral}{"{}全"{}};}
+\DoxyCodeLine{311       \}}
+\DoxyCodeLine{312       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{313       \{}
+\DoxyCodeLine{314         result += \textcolor{stringliteral}{"{}詳解あり"{}};}
+\DoxyCodeLine{315       \}}
+\DoxyCodeLine{316       \textcolor{keywordflow}{if} (forC)}
+\DoxyCodeLine{317       \{}
+\DoxyCodeLine{318         result += \textcolor{stringliteral}{"{}フィールド"{}};}
+\DoxyCodeLine{319       \}}
+\DoxyCodeLine{320       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{321       \{}
+\DoxyCodeLine{322         result += \textcolor{stringliteral}{"{}クラスメンバ"{}};}
+\DoxyCodeLine{323       \}}
+\DoxyCodeLine{324       \textcolor{keywordflow}{if} (!extractAll \&\& !forC)}
+\DoxyCodeLine{325       \{}
+\DoxyCodeLine{326         result += \textcolor{stringliteral}{"{}の"{}};}
+\DoxyCodeLine{327       \}}
+\DoxyCodeLine{328       result += \textcolor{stringliteral}{"{}一覧です。"{}};}
+\DoxyCodeLine{329       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{330       \{}
+\DoxyCodeLine{331         \textcolor{keywordflow}{if} (forC)}
+\DoxyCodeLine{332         \{}
+\DoxyCodeLine{333           result+=\textcolor{stringliteral}{"{}各フィールド詳解"{}};}
+\DoxyCodeLine{334         \}}
+\DoxyCodeLine{335         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{336         \{}
+\DoxyCodeLine{337           result+=\textcolor{stringliteral}{"{}各クラスメンバ詳解"{}};}
+\DoxyCodeLine{338         \}}
+\DoxyCodeLine{339       \}}
+\DoxyCodeLine{340       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{341       \{}
+\DoxyCodeLine{342         \textcolor{keywordflow}{if} (forC)}
+\DoxyCodeLine{343         \{}
+\DoxyCodeLine{344           result+=\textcolor{stringliteral}{"{}各フィールドが属する構造体・共用体"{}};}
+\DoxyCodeLine{345         \}}
+\DoxyCodeLine{346         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{347         \{}
+\DoxyCodeLine{348           result+=\textcolor{stringliteral}{"{}各メンバが属するクラス"{}};}
+\DoxyCodeLine{349         \}}
+\DoxyCodeLine{350       \}}
+\DoxyCodeLine{351       result += \textcolor{stringliteral}{"{}へのリンクがあります。"{}};}
+\DoxyCodeLine{352       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{353     \}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{356     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4dde09015f9b85617fcc24ff893a085e}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*extractAll*/})}
+\DoxyCodeLine{357     \{}
+\DoxyCodeLine{358       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{359       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{360       \{}
+\DoxyCodeLine{361         result+=\textcolor{stringliteral}{"{}関数・変数・マクロ・列挙・型定義"{}};}
+\DoxyCodeLine{362       \}}
+\DoxyCodeLine{363       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{364       \{}
+\DoxyCodeLine{365         result+=\textcolor{stringliteral}{"{}ファイル直下のメンバ"{}};}
+\DoxyCodeLine{366       \}}
+\DoxyCodeLine{367       result+=\textcolor{stringliteral}{"{}一覧です。各々詳解があればそこへリンクしています。"{}};}
+\DoxyCodeLine{368       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{369     \}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{372     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a64634d888eea387e1678d0c7fbd7e510}{trExamplesDescription}}()}
+\DoxyCodeLine{373     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}各種例の一覧です。"{}}; \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{376     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_adf7b56555d2ab0c6a0263cdf785ce3f3}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{377     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}諸情報の一覧です。"{}}; \}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a055f2850d4543ca3bde12af63114ac78}{trModulesDescription}}()}
+\DoxyCodeLine{381     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全モジュールの一覧です。"{}}; \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_abd15dfd03f03cf0b753eeedb43a3b7eb}{trDocumentation}}()}
+\DoxyCodeLine{385     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳解"{}}; \}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{390     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afc8dced41f60d8ae454847f48c7fc471}{trModuleIndex}}()}
+\DoxyCodeLine{391     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール索引"{}}; \}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad3a716af39b29fc11c01c8f0f151fe17}{trHierarchicalIndex}}()}
+\DoxyCodeLine{397     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}階層索引"{}}; \}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{402     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8c73341c674393f0eee9ce844e4d3e77}{trCompoundIndex}}()}
+\DoxyCodeLine{403     \{}
+\DoxyCodeLine{404       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{405       \{}
+\DoxyCodeLine{406         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造索引"{}};}
+\DoxyCodeLine{407       \}}
+\DoxyCodeLine{408       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{409       \{}
+\DoxyCodeLine{410         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス索引"{}};}
+\DoxyCodeLine{411       \}}
+\DoxyCodeLine{412     \}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a744e9944d8d0ba02c581a720fe5e3ea3}{trFileIndex}}()}
+\DoxyCodeLine{418     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイル索引"{}}; \}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{423     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4a84703619c7fbf08d815a7e1ed5051b}{trModuleDocumentation}}()}
+\DoxyCodeLine{424     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール詳解"{}}; \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae30321cdfb2130dcd973ce5b4bb3d42e}{trClassDocumentation}}()}
+\DoxyCodeLine{430     \{}
+\DoxyCodeLine{431       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{432       \{}
+\DoxyCodeLine{433         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造詳解"{}};}
+\DoxyCodeLine{434       \}}
+\DoxyCodeLine{435       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{436       \{}
+\DoxyCodeLine{437           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{438       \}}
+\DoxyCodeLine{439       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{440       \{}
+\DoxyCodeLine{441         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス詳解"{}};}
+\DoxyCodeLine{442       \}}
+\DoxyCodeLine{443     \}}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{448     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aaae4a8fe9bc640dba47fc68934e5d04e}{trFileDocumentation}}()}
+\DoxyCodeLine{449     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイル詳解"{}}; \}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{454     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af9f10fc778f95f99edd3dec625eb66ae}{trExampleDocumentation}}()}
+\DoxyCodeLine{455     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}各例詳解"{}}; \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{458     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a3ef1208fb4ac77da0f22917cd73c0baf}{trReferenceManual}}()}
+\DoxyCodeLine{459     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}リファレンスマニュアル"{}}; \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{464     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a062913f0a85a43d682f437104db04189}{trDefines}}()}
+\DoxyCodeLine{465     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}マクロ定義"{}}; \}}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{470     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aeb8c46bfa311a65b58940f42f345a33f}{trTypedefs}}()}
+\DoxyCodeLine{471     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型定義"{}}; \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a77f78f5be3931f3684fd6f74e6b2b133}{trEnumerations}}()}
+\DoxyCodeLine{477     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙型"{}}; \}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{482     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae64726cd2c525bb4ae0898c0bab998f8}{trFunctions}}()}
+\DoxyCodeLine{483     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数"{}}; \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aed55bdddccf7f8eafc06f3def1d091b3}{trVariables}}()}
+\DoxyCodeLine{489     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}変数"{}}; \}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{494     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aba8a889c15994fe5f72524ac157a18cb}{trEnumerationValues}}()}
+\DoxyCodeLine{495     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙値"{}}; \}}
+\DoxyCodeLine{499     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a86e9f53fcbfd24cd8849d51fe935ad67}{trDefineDocumentation}}()}
+\DoxyCodeLine{500     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}マクロ定義詳解"{}}; \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{505     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5072f93dfba54ab434b7a22472bcee9a}{trTypedefDocumentation}}()}
+\DoxyCodeLine{506     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型定義詳解"{}}; \}}
+\DoxyCodeLine{507 }
+\DoxyCodeLine{511     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1165e4f89a8686a1aad2bfcb7d702c0b}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{512     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙型詳解"{}}; \}}
+\DoxyCodeLine{513 }
+\DoxyCodeLine{517     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aeaf830e54de627a69c9fac87f3002826}{trFunctionDocumentation}}()}
+\DoxyCodeLine{518     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数詳解"{}}; \}}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{523     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9f9101c6fe90d2148be17dbbaa683db1}{trVariableDocumentation}}()}
+\DoxyCodeLine{524     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}変数詳解"{}}; \}}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2b91fba77059169cea568e1304a1935a}{trCompounds}}()}
+\DoxyCodeLine{530     \{}
+\DoxyCodeLine{531       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{532       \{}
+\DoxyCodeLine{533         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造"{}};}
+\DoxyCodeLine{534       \}}
+\DoxyCodeLine{535       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{536       \{}
+\DoxyCodeLine{537         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス"{}};}
+\DoxyCodeLine{538       \}}
+\DoxyCodeLine{539     \}}
+\DoxyCodeLine{543     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a6218eab859ce3263c0309ddd37b049eb}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{544     \{}
+\DoxyCodeLine{545       \mbox{\hyperlink{classQCString}{QCString}} result = date+\textcolor{stringliteral}{"{}作成"{}};}
+\DoxyCodeLine{546       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} -\/ "{}} + projName;}
+\DoxyCodeLine{547       result+=\textcolor{stringliteral}{"{} / 構成: "{}};}
+\DoxyCodeLine{548       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{549     \}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad5f0323d1e2fb9db3e0c219db2d539a9}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{553     \{}
+\DoxyCodeLine{554       \textcolor{keywordflow}{return} clName+\textcolor{stringliteral}{"{} の継承関係図"{}};}
+\DoxyCodeLine{555     \}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5e367bc6baa5dc916fa8633c65635301}{trWarning}}()}
+\DoxyCodeLine{559     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}警告"{}}; \}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{562     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_abc86ceef2d5126c02e809ca52b1b029c}{trVersion}}()}
+\DoxyCodeLine{563     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}バージョン"{}}; \}}
+\DoxyCodeLine{564 }
+\DoxyCodeLine{566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a6d30bcc9994ff9850dd7cdb4892fcf85}{trDate}}()}
+\DoxyCodeLine{567     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}日付"{}}; \}}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9f333b1119ef3fc289221613e126f3d9}{trReturns}}()}
+\DoxyCodeLine{571     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}戻り値"{}}; \}}
+\DoxyCodeLine{572 }
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac1153821b3168a86be43711ca22ec72b}{trSeeAlso}}()}
+\DoxyCodeLine{575     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}参照"{}}; \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a34997a683bc00a6b9b4410731af7ad08}{trParameters}}()}
+\DoxyCodeLine{579     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}引数"{}}; \}}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{582     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a740f03ad885ee604d5b0b94c43711f05}{trExceptions}}()}
+\DoxyCodeLine{583     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}例外"{}}; \}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{586     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab91e98e794a42802f4d9058c80a64478}{trGeneratedBy}}()}
+\DoxyCodeLine{587     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}構築:"{}}; \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{590 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{592 \textcolor{comment}{}}
+\DoxyCodeLine{594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aeb30ffc6599808c003bdd5c270e81cb4}{trNamespaceList}}()}
+\DoxyCodeLine{595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間一覧"{}}; \}}
+\DoxyCodeLine{596 }
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af5b31a9e3585f90971d5813c927f67ef}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{599     \{}
+\DoxyCodeLine{600       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{601       \{}
+\DoxyCodeLine{602         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全名前空間の一覧です。"{}};}
+\DoxyCodeLine{603       \}}
+\DoxyCodeLine{604       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}詳解が付いた名前空間の一覧です。"{}};}
+\DoxyCodeLine{605     \}}
+\DoxyCodeLine{606 }
+\DoxyCodeLine{610     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a92fb4864a83ece67254ab57745316676}{trFriends}}()}
+\DoxyCodeLine{611     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}フレンド"{}}; \}}
+\DoxyCodeLine{612 }
+\DoxyCodeLine{614 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{616 \textcolor{comment}{}}
+\DoxyCodeLine{620     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4f76f007a15be60b0141e5892495baaf}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{621     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}フレンドと関連関数の詳解"{}}; \}}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{624 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{626 \textcolor{comment}{}}
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a470283e4aef7c46405d154cf41bc514c}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{629                                  \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{630                                  \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{631     \{}
+\DoxyCodeLine{632       \mbox{\hyperlink{classQCString}{QCString}} result=clName+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{633       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{634       \{}
+\DoxyCodeLine{635         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}クラス"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{636         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}構造体"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{637         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}共用体"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{638         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}インタフェース"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{639         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}プロトコル"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{640         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}カテゴリ"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{641         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{642         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{643       \}}
+\DoxyCodeLine{644       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}テンプレート"{}};}
+\DoxyCodeLine{645       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{646     \}}
+\DoxyCodeLine{647 }
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a07660f233fdfa3e5ceb93aae08898789}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{650     \{}
+\DoxyCodeLine{651       \mbox{\hyperlink{classQCString}{QCString}} result=fileName+\textcolor{stringliteral}{"{} ファイル"{}};}
+\DoxyCodeLine{652       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{653     \}}
+\DoxyCodeLine{654 }
+\DoxyCodeLine{656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8203808669e501c228daf75ff568bdda}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{657     \{}
+\DoxyCodeLine{658       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName+\textcolor{stringliteral}{"{} 名前空間"{}};}
+\DoxyCodeLine{659       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{660     \}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662     \textcolor{comment}{/* these are for the member sections of a class, struct or union */}}
+\DoxyCodeLine{663     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab721fa5801317d8037757f1b6582b3bd}{trPublicMembers}}()}
+\DoxyCodeLine{664     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開メンバ関数"{}}; \}}
+\DoxyCodeLine{665     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8946ae6c27716ca0501af93656c05b79}{trPublicSlots}}()}
+\DoxyCodeLine{666     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開スロット"{}}; \}}
+\DoxyCodeLine{667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a64b15c69a852bcdac53a1bf2e4a709eb}{trSignals}}()}
+\DoxyCodeLine{668     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}シグナル"{}}; \}}
+\DoxyCodeLine{669     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a236750c9b3c9cc84d1d596bf5894fed8}{trStaticPublicMembers}}()}
+\DoxyCodeLine{670     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的公開メンバ関数"{}}; \}}
+\DoxyCodeLine{671     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad19808a4977c2bfa865ac7be0dced1a8}{trProtectedMembers}}()}
+\DoxyCodeLine{672     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}限定公開メンバ関数"{}}; \}}
+\DoxyCodeLine{673     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a28c021d9e5c0ef097b7cc9ef8a307cbd}{trProtectedSlots}}()}
+\DoxyCodeLine{674     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}限定公開スロット"{}}; \}}
+\DoxyCodeLine{675     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a51128f9bc7f1647ca231d869c79d9e89}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{676     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的限定公開メンバ関数"{}}; \}}
+\DoxyCodeLine{677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a64edcf5abd0076ac8e33825f366c4071}{trPrivateMembers}}()}
+\DoxyCodeLine{678     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非公開メンバ関数"{}}; \}}
+\DoxyCodeLine{679     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ace65727509c8910d2aaf2f501cfcc78b}{trPrivateSlots}}()}
+\DoxyCodeLine{680     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非公開スロット"{}}; \}}
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a46c4b0f187212b955f6438dabb8129e3}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{682     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的非公開メンバ関数"{}}; \}}
+\DoxyCodeLine{683 }
+\DoxyCodeLine{687     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{688     \{}
+\DoxyCodeLine{689       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{690       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{691       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{692       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{693       \{}
+\DoxyCodeLine{694         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{695         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{696                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{697 }
+\DoxyCodeLine{698         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{699         \{}
+\DoxyCodeLine{700           result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{701         \}}
+\DoxyCodeLine{702       \}}
+\DoxyCodeLine{703       \textcolor{keywordflow}{if} ( result.\mbox{\hyperlink{classQCString_ac52596733e9110b778019946d73fb268}{length}}() > 60 )}
+\DoxyCodeLine{704       \{}
+\DoxyCodeLine{705         \mbox{\hyperlink{classQCString}{QCString}} countStr;}
+\DoxyCodeLine{706         countStr.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} (計\%d項目)"{}}, numEntries);}
+\DoxyCodeLine{707         result += countStr;}
+\DoxyCodeLine{708       \}}
+\DoxyCodeLine{709       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{710     \}}
+\DoxyCodeLine{711 }
+\DoxyCodeLine{715     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a591e1b53f07df66db75f27177d15cd4e}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{716     \{}
+\DoxyCodeLine{717       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}を継承しています。"{}};}
+\DoxyCodeLine{718     \}}
+\DoxyCodeLine{719 }
+\DoxyCodeLine{723     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_acacdae5b68f4284239a14ab975cfec20}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{724     \{}
+\DoxyCodeLine{725       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}に継承されています。"{}};}
+\DoxyCodeLine{726     \}}
+\DoxyCodeLine{727 }
+\DoxyCodeLine{731     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8aa7007e007b8e7adb8c8fcb950ed871}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{732     \{}
+\DoxyCodeLine{733       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}を再実装しています。"{}};}
+\DoxyCodeLine{734     \}}
+\DoxyCodeLine{735 }
+\DoxyCodeLine{739     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a77d748f2a9f3ddc7dc3f9cc0e6a48c69}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{740     \{}
+\DoxyCodeLine{741       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}で再実装されています。"{}};}
+\DoxyCodeLine{742     \}}
+\DoxyCodeLine{743 }
+\DoxyCodeLine{745     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae0bfa7eb76fed603dba4b1356639acda}{trNamespaceMembers}}()}
+\DoxyCodeLine{746     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間メンバ"{}}; \}}
+\DoxyCodeLine{747 }
+\DoxyCodeLine{749     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a19a57945319cbc2bf83d26939c812517}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{750     \{}
+\DoxyCodeLine{751       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}これは"{}};}
+\DoxyCodeLine{752       result+=\textcolor{stringliteral}{"{}名前空間の一覧です。それぞれ"{}};}
+\DoxyCodeLine{753       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{754       \{}
+\DoxyCodeLine{755         result+=\textcolor{stringliteral}{"{}の名前空間"{}};}
+\DoxyCodeLine{756       \}}
+\DoxyCodeLine{757       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{758       \{}
+\DoxyCodeLine{759         result+=\textcolor{stringliteral}{"{}が属している名前空間"{}};}
+\DoxyCodeLine{760       \}}
+\DoxyCodeLine{761       result+=\textcolor{stringliteral}{"{}へリンクしています。"{}};}
+\DoxyCodeLine{762       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{763     \}}
+\DoxyCodeLine{767     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a236517c4d6c7bdf26cc79fd555a959df}{trNamespaceIndex}}()}
+\DoxyCodeLine{768     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間索引"{}}; \}}
+\DoxyCodeLine{769 }
+\DoxyCodeLine{773     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a250823f8ed193feca9eb5d15ffe11919}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{774     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間詳解"{}}; \}}
+\DoxyCodeLine{775 }
+\DoxyCodeLine{777 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{779 \textcolor{comment}{}}
+\DoxyCodeLine{783     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a16500bded4b5f2ac97867d30c45cba56}{trNamespaces}}()}
+\DoxyCodeLine{784     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間"{}}; \}}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{787 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{789 \textcolor{comment}{}}
+\DoxyCodeLine{793     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a7fb359b2893fe33fd41ebde830eb8461}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{794         \textcolor{keywordtype}{bool} \textcolor{comment}{/*single*/})}
+\DoxyCodeLine{795     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{796       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{797       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}この"{}};}
+\DoxyCodeLine{798       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{799       \{}
+\DoxyCodeLine{800         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}クラス"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{801         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}構造体"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{802         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}共用体"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{803         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}インタフェース"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{804         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}プロトコル"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{805         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}カテゴリ"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{806         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{807         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{808       \}}
+\DoxyCodeLine{809       result+=\textcolor{stringliteral}{"{}詳解は次のファイルから抽出されました:"{}};}
+\DoxyCodeLine{810       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{811     \}}
+\DoxyCodeLine{812 }
+\DoxyCodeLine{814 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{816 \textcolor{comment}{}}
+\DoxyCodeLine{818     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5bedf06a919affd25020b0fdddc82cdf}{trReturnValues}}()}
+\DoxyCodeLine{819     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}戻り値"{}}; \}}
+\DoxyCodeLine{820 }
+\DoxyCodeLine{823     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a25159d29b4c967bf3e9d2de18ba43243}{trMainPage}}()}
+\DoxyCodeLine{824     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}総合概要"{}}; \}}
+\DoxyCodeLine{825 }
+\DoxyCodeLine{829     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad4a31890e3764bed24d09c54ab887dcc}{trPageAbbreviation}}()}
+\DoxyCodeLine{830     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}p."{}}; \}}
+\DoxyCodeLine{831 }
+\DoxyCodeLine{833 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{835 \textcolor{comment}{}}
+\DoxyCodeLine{836     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a12ea6d2966bcd4e9ea8c84c8e0b9e4c0}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{837     \{}
+\DoxyCodeLine{838       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} @1 の @0 行目に定義があります。"{}};}
+\DoxyCodeLine{839     \}}
+\DoxyCodeLine{840     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa5a14c105b4dac4061f40f59dbea5f62}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{841     \{}
+\DoxyCodeLine{842       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} @0 に定義があります。"{}};}
+\DoxyCodeLine{843     \}}
+\DoxyCodeLine{844 }
+\DoxyCodeLine{846 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{848 \textcolor{comment}{}}
+\DoxyCodeLine{849     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a32428e29aaea6e4fb5c43beb478d5de0}{trDeprecated}}()}
+\DoxyCodeLine{850     \{}
+\DoxyCodeLine{851       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非推奨"{}};}
+\DoxyCodeLine{852     \}}
+\DoxyCodeLine{853 }
+\DoxyCodeLine{855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_add519eb450bc270cfedbec474f7a0351}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{856     \{}
+\DoxyCodeLine{857       \textcolor{keywordflow}{return} clName+\textcolor{stringliteral}{"{} 連携図"{}};}
+\DoxyCodeLine{858     \}}
+\DoxyCodeLine{860     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab26b7b2378632c9944661cd528c05c95}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{861     \{}
+\DoxyCodeLine{862     \textcolor{keywordflow}{return} fName+\textcolor{stringliteral}{"{} の依存先関係図:"{}};}
+\DoxyCodeLine{863     \}}
+\DoxyCodeLine{865     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad0c8515f91e3f7b545411d5e0d771cbb}{trConstructorDocumentation}}()}
+\DoxyCodeLine{866     \{}
+\DoxyCodeLine{867       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}構築子と解体子"{}};}
+\DoxyCodeLine{868     \}}
+\DoxyCodeLine{870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a22a29bc4bb4e274586b19b8412906384}{trGotoSourceCode}}()}
+\DoxyCodeLine{871     \{}
+\DoxyCodeLine{872       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[ソースコード]"{}};}
+\DoxyCodeLine{873     \}}
+\DoxyCodeLine{875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5bff5a3ad64b157e71b5dfa39b7643c5}{trGotoDocumentation}}()}
+\DoxyCodeLine{876     \{}
+\DoxyCodeLine{877       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[詳解]"{}};}
+\DoxyCodeLine{878     \}}
+\DoxyCodeLine{880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a79d08f0f287feb495aae81306185ac54}{trPrecondition}}()}
+\DoxyCodeLine{881     \{}
+\DoxyCodeLine{882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}事前条件"{}};}
+\DoxyCodeLine{883     \}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab4a35f62a710fe919436c217ba9b949a}{trPostcondition}}()}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}事後条件"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad4cd27f745b3a8024d8c2886a9df93fd}{trInvariant}}()}
+\DoxyCodeLine{891     \{}
+\DoxyCodeLine{892       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}不変"{}};}
+\DoxyCodeLine{893     \}}
+\DoxyCodeLine{895     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af932b07c746cf4b8a41ba1a0bccd0a4a}{trInitialValue}}()}
+\DoxyCodeLine{896     \{}
+\DoxyCodeLine{897       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}初期値:"{}};}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a430df42a03c1679e583994d57c7c0962}{trCode}}()}
+\DoxyCodeLine{901     \{}
+\DoxyCodeLine{902       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}コード"{}};}
+\DoxyCodeLine{903     \}}
+\DoxyCodeLine{904     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad768b8498fa024b0a076455334a79f09}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{905     \{}
+\DoxyCodeLine{906       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス階層図"{}};}
+\DoxyCodeLine{907     \}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a65e03a8596ce2a73de499e5e8d87c4f3}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{909     \{}
+\DoxyCodeLine{910       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[クラス階層図]"{}};}
+\DoxyCodeLine{911     \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a79a6308a4ec965b1a13c418772ed1a56}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{913     \{}
+\DoxyCodeLine{914       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}[クラス階層表]"{}};}
+\DoxyCodeLine{915     \}}
+\DoxyCodeLine{916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a90f3e9eeb88bd07952ac6cdc76f2a491}{trPageIndex}}()}
+\DoxyCodeLine{917     \{}
+\DoxyCodeLine{918       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ページ索引"{}};}
+\DoxyCodeLine{919     \}}
+\DoxyCodeLine{921 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{923 \textcolor{comment}{}}
+\DoxyCodeLine{924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a932562e582e0e3b904a4999eb62ffeb1}{trNote}}()}
+\DoxyCodeLine{925     \{}
+\DoxyCodeLine{926       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}覚え書き"{}};}
+\DoxyCodeLine{927     \}}
+\DoxyCodeLine{928     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a620d147646ec7a393adab74862aa9090}{trPublicTypes}}()}
+\DoxyCodeLine{929     \{}
+\DoxyCodeLine{930       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開型"{}};}
+\DoxyCodeLine{931     \}}
+\DoxyCodeLine{932     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ace92aa3cad86d209619b7fc04d3c9ef0}{trPublicAttribs}}()}
+\DoxyCodeLine{933     \{}
+\DoxyCodeLine{934       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{935       \{}
+\DoxyCodeLine{936         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}フィールド"{}};}
+\DoxyCodeLine{937       \}}
+\DoxyCodeLine{938       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{939       \{}
+\DoxyCodeLine{940         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}公開変数類"{}};}
+\DoxyCodeLine{941       \}}
+\DoxyCodeLine{942     \}}
+\DoxyCodeLine{943     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa4b1b45675fba804f2ebbf05e6a069ff}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{944     \{}
+\DoxyCodeLine{945       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的公開変数類"{}};}
+\DoxyCodeLine{946     \}}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aebd5443c914a6c76754d94a43b8465c7}{trProtectedTypes}}()}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}限定公開型"{}};}
+\DoxyCodeLine{950     \}}
+\DoxyCodeLine{951     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a22e15d72365f2ad68a1d034326818b11}{trProtectedAttribs}}()}
+\DoxyCodeLine{952     \{}
+\DoxyCodeLine{953       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}限定公開変数類"{}};}
+\DoxyCodeLine{954     \}}
+\DoxyCodeLine{955     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afc2901166a69f4e7f937e77a163dd0c5}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{956     \{}
+\DoxyCodeLine{957       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的限定公開変数類"{}};}
+\DoxyCodeLine{958     \}}
+\DoxyCodeLine{959     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa8b47ea8a7622bda83e47107b115f383}{trPrivateTypes}}()}
+\DoxyCodeLine{960     \{}
+\DoxyCodeLine{961       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非公開型"{}};}
+\DoxyCodeLine{962     \}}
+\DoxyCodeLine{963     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_adc3cf43668085ce9adb3a003c410452a}{trPrivateAttribs}}()}
+\DoxyCodeLine{964     \{}
+\DoxyCodeLine{965       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非公開変数類"{}};}
+\DoxyCodeLine{966     \}}
+\DoxyCodeLine{967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1b92173cdae974a135306219625e2175}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{968     \{}
+\DoxyCodeLine{969       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的非公開変数類"{}};}
+\DoxyCodeLine{970     \}}
+\DoxyCodeLine{971 }
+\DoxyCodeLine{973 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{975 \textcolor{comment}{}}
+\DoxyCodeLine{977     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2f3fd7761ecbcdb61c4279cfa42006d6}{trTodo}}()}
+\DoxyCodeLine{978     \{}
+\DoxyCodeLine{979       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}todo"{}};}
+\DoxyCodeLine{980     \}}
+\DoxyCodeLine{982     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a34ec4a876b0ba587cf001c0a7133874f}{trTodoList}}()}
+\DoxyCodeLine{983     \{}
+\DoxyCodeLine{984       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}todo一覧"{}};}
+\DoxyCodeLine{985     \}}
+\DoxyCodeLine{986 }
+\DoxyCodeLine{988 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{990 \textcolor{comment}{}}
+\DoxyCodeLine{991     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ade375250044a6dff85412e37b28da836}{trReferencedBy}}()}
+\DoxyCodeLine{992     \{}
+\DoxyCodeLine{993       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}参照元"{}};}
+\DoxyCodeLine{994     \}}
+\DoxyCodeLine{995     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af7c4f99658cb6131dfea9d6979d2df35}{trRemarks}}()}
+\DoxyCodeLine{996     \{}
+\DoxyCodeLine{997       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}注釈"{}};}
+\DoxyCodeLine{998     \}}
+\DoxyCodeLine{999     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac3300fba8c356c468f3335607367dace}{trAttention}}()}
+\DoxyCodeLine{1000     \{}
+\DoxyCodeLine{1001       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}注意"{}};}
+\DoxyCodeLine{1002     \}}
+\DoxyCodeLine{1003     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac7fe0105a7c5342f554908ffadd71177}{trInclByDepGraph}}()}
+\DoxyCodeLine{1004     \{}
+\DoxyCodeLine{1005       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}被依存関係図:"{}};}
+\DoxyCodeLine{1006     \}}
+\DoxyCodeLine{1007     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aaba5780efec4ed3fdff59628a0d452e2}{trSince}}()}
+\DoxyCodeLine{1008     \{}
+\DoxyCodeLine{1009       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}から"{}};}
+\DoxyCodeLine{1010     \}}
+\DoxyCodeLine{1011 }
+\DoxyCodeLine{1013 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1015 \textcolor{comment}{}}
+\DoxyCodeLine{1017     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a51f0d8b9dcc0f2062396e6684e5a1b33}{trLegendTitle}}()}
+\DoxyCodeLine{1018     \{}
+\DoxyCodeLine{1019       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}グラフの凡例"{}};}
+\DoxyCodeLine{1020     \}}
+\DoxyCodeLine{1022     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a3e6100664d0cca416bc9c36eb6ed7aab}{trLegendDocs}}()}
+\DoxyCodeLine{1023     \{}
+\DoxyCodeLine{1024       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}Doxygen が生成したグラフを読み方について。<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}次のコード例をご覧ください。\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}/*! 全体の大きさの関係で見えなくなるクラスです。 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}/*! 表示を切り捨てられたクラス(Invisibleクラスの分が見えません) */\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}/* Doxygen 用のコメントコードがないクラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}/*! 公開継承されているクラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}/*! 限定公開で継承されているクラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}/*! 非公開継承されているクラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}/*! Inherited クラス内で使われているクラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}/*! 複数のクラスを継承している上位クラス */\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)c MAX\_DOT\_GRAPH\_"{}} \textcolor{comment}{/* わざわざちょん切っているのは doc/translator.py の検出回避のため */}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}HEIGHT タグに 200 を与えた設定ファイル"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}を使うと、次のようなグラフとなります。"{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}<p><center><img src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}グラフ内の矩形は構造体やクラスを表しています。色の意味は次の通りです。\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}<li>中を黒く塗られた四角は、図が注目している起点です。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}<li>黒枠は詳解があることを示しています。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}<li>灰色枠で示されたクラス等には詳解がありません。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{stringliteral}{"{}<li>赤枠で示されたものは詳解を持つクラスですが、"{}}}
+\DoxyCodeLine{1066         \textcolor{stringliteral}{"{}指定された大きさに収まらないことから一部の継承・包含関係が"{}}}
+\DoxyCodeLine{1067         \textcolor{stringliteral}{"{}省略されていることを表します。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1068         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1069         \textcolor{stringliteral}{"{}<p>矢印の意味は次の通りです。</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1070         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1071         \textcolor{stringliteral}{"{}<li>青い矢印は二つのクラス間の公開継承関係を示します。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1072         \textcolor{stringliteral}{"{}<li>緑の矢印は限定公開の継承関係を示します。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1073         \textcolor{stringliteral}{"{}<li>赤の矢印は非公開の継承関係を示します。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1074         \textcolor{stringliteral}{"{}<li>紫の破線矢印は、そのクラスが他のクラスに含まれているか、"{}}}
+\DoxyCodeLine{1075       \textcolor{stringliteral}{"{}利用されていることを示します。また、矢印のラベルは矢の先にあるクラス等を"{}}}
+\DoxyCodeLine{1076       \textcolor{stringliteral}{"{}アクセスしている矢の根本のメンバを表しています。</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1077         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1078     \}}
+\DoxyCodeLine{1080     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a50d8792e98dbd99347bf81cd6cb59bd2}{trLegend}}()}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}凡例"{}};}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1084 }
+\DoxyCodeLine{1086 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1088 \textcolor{comment}{}}
+\DoxyCodeLine{1090     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a41a3f9a92f3abdccdc791388d040e794}{trTest}}()}
+\DoxyCodeLine{1091     \{}
+\DoxyCodeLine{1092       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}テスト"{}};}
+\DoxyCodeLine{1093     \}}
+\DoxyCodeLine{1095     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4df1657534bc411aabdc8e7edc399e5a}{trTestList}}()}
+\DoxyCodeLine{1096     \{}
+\DoxyCodeLine{1097       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}テスト一覧"{}};}
+\DoxyCodeLine{1098     \}}
+\DoxyCodeLine{1099 }
+\DoxyCodeLine{1101 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1103 \textcolor{comment}{}}
+\DoxyCodeLine{1105     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae003f3fae0dbdbdd541274d665804a45}{trProperties}}()}
+\DoxyCodeLine{1106     \{}
+\DoxyCodeLine{1107       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}プロパティ"{}};}
+\DoxyCodeLine{1108     \}}
+\DoxyCodeLine{1110     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a45c643c6e836843a45bf02695217a98a}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1111     \{}
+\DoxyCodeLine{1112       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}プロパティ詳解"{}};}
+\DoxyCodeLine{1113     \}}
+\DoxyCodeLine{1114 }
+\DoxyCodeLine{1115 }
+\DoxyCodeLine{1117 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1119 \textcolor{comment}{}}
+\DoxyCodeLine{1121     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad84cb0b3598d4fbec1959b9e664c5714}{trClasses}}()}
+\DoxyCodeLine{1122     \{}
+\DoxyCodeLine{1123       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1124     \{}
+\DoxyCodeLine{1125       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ構造"{}};}
+\DoxyCodeLine{1126     \}}
+\DoxyCodeLine{1127       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1128     \{}
+\DoxyCodeLine{1129       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス"{}};}
+\DoxyCodeLine{1130     \}}
+\DoxyCodeLine{1131     \}}
+\DoxyCodeLine{1133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a65ab2ee54af0e902c19281331ee57d50}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1134     \{}
+\DoxyCodeLine{1135       \textcolor{keywordflow}{return} name+\textcolor{stringliteral}{"{} パッケージ"{}};}
+\DoxyCodeLine{1136     \}}
+\DoxyCodeLine{1138     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afed2a6851ca809632d284d331ea0c4e3}{trPackageListDescription}}()}
+\DoxyCodeLine{1139     \{}
+\DoxyCodeLine{1140       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}パッケージ一覧です。"{}};}
+\DoxyCodeLine{1141     \}}
+\DoxyCodeLine{1143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4c78ec3aba82e4e5c12bab8f6da15311}{trPackages}}()}
+\DoxyCodeLine{1144     \{}
+\DoxyCodeLine{1145       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}パッケージ"{}};}
+\DoxyCodeLine{1146     \}}
+\DoxyCodeLine{1147 }
+\DoxyCodeLine{1149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5a68d01de2ed6ab1c5a37596bf7e395d}{trDefineValue}}()}
+\DoxyCodeLine{1150     \{}
+\DoxyCodeLine{1151       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}値:"{}};}
+\DoxyCodeLine{1152     \}}
+\DoxyCodeLine{1153 }
+\DoxyCodeLine{1154 }
+\DoxyCodeLine{1156 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1158 \textcolor{comment}{}}
+\DoxyCodeLine{1160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aefc77d8dc5d731929a925a885f2167ea}{trBug}}()}
+\DoxyCodeLine{1161     \{}
+\DoxyCodeLine{1162       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}バグ"{}};}
+\DoxyCodeLine{1163     \}}
+\DoxyCodeLine{1165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a75db1decf69567f638257057f071dd16}{trBugList}}()}
+\DoxyCodeLine{1166     \{}
+\DoxyCodeLine{1167       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}バグ一覧"{}};}
+\DoxyCodeLine{1168     \}}
+\DoxyCodeLine{1169 }
+\DoxyCodeLine{1171 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1173 \textcolor{comment}{}}
+\DoxyCodeLine{1199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1d3e75d8d22d0d3f04acd4339bba931d}{trRTFansicp}}()}
+\DoxyCodeLine{1200     \{}
+\DoxyCodeLine{1201       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}932"{}};}
+\DoxyCodeLine{1202     \}}
+\DoxyCodeLine{1203 }
+\DoxyCodeLine{1204 }
+\DoxyCodeLine{1208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4a63767c84738f67dec5afa48da40760}{trRTFCharSet}}()}
+\DoxyCodeLine{1209     \{}
+\DoxyCodeLine{1210       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}128"{}};}
+\DoxyCodeLine{1211     \}}
+\DoxyCodeLine{1212 }
+\DoxyCodeLine{1214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a077e2e41ece9d5eb8f1312d4acb535f3}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1215     \{}
+\DoxyCodeLine{1216       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}索引"{}};}
+\DoxyCodeLine{1217     \}}
+\DoxyCodeLine{1218 }
+\DoxyCodeLine{1223     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa06bfdcdbfe8c2b59abbbb754a9598fe}{trClass}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1224     \{}
+\DoxyCodeLine{1225       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラス"{}};}
+\DoxyCodeLine{1226     \}}
+\DoxyCodeLine{1227 }
+\DoxyCodeLine{1232     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac66c7700778f3d1409d2670c9123e55e}{trFile}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1233     \{}
+\DoxyCodeLine{1234       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ファイル"{}};}
+\DoxyCodeLine{1235     \}}
+\DoxyCodeLine{1236 }
+\DoxyCodeLine{1241     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1112852197d7af74daae91dedd6a6d12}{trNamespace}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1242     \{}
+\DoxyCodeLine{1243       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}名前空間"{}};}
+\DoxyCodeLine{1244     \}}
+\DoxyCodeLine{1245 }
+\DoxyCodeLine{1250     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a487dfcdae65de19b8d6f2b77e37b3bfd}{trGroup}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1251     \{}
+\DoxyCodeLine{1252       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}グループ"{}};}
+\DoxyCodeLine{1253     \}}
+\DoxyCodeLine{1254 }
+\DoxyCodeLine{1259     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af028c18c284cd40c40a136efc53eab13}{trPage}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1260     \{}
+\DoxyCodeLine{1261       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ページ"{}};}
+\DoxyCodeLine{1262     \}}
+\DoxyCodeLine{1263 }
+\DoxyCodeLine{1268     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1ac54c351748990e35f5a3774e58216e}{trMember}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1269     \{}
+\DoxyCodeLine{1270       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メンバ"{}};}
+\DoxyCodeLine{1271     \}}
+\DoxyCodeLine{1272 }
+\DoxyCodeLine{1277     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af77cef2f7175f04e29588d2eedb4accd}{trGlobal}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1278     \{}
+\DoxyCodeLine{1279       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}大域各種"{}};}
+\DoxyCodeLine{1280     \}}
+\DoxyCodeLine{1281 }
+\DoxyCodeLine{1283 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1285 \textcolor{comment}{}}
+\DoxyCodeLine{1288     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1d20c21ed02a1ab2f4fb7b6db59a7e58}{trAuthor}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1289     \{}
+\DoxyCodeLine{1290       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}著者"{}};}
+\DoxyCodeLine{1291     \}}
+\DoxyCodeLine{1292 }
+\DoxyCodeLine{1294 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1296 \textcolor{comment}{}}
+\DoxyCodeLine{1299     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa830da2a5eeb6a506c907e597376af0c}{trReferences}}()}
+\DoxyCodeLine{1300     \{}
+\DoxyCodeLine{1301       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}参照先"{}};}
+\DoxyCodeLine{1302     \}}
+\DoxyCodeLine{1303 }
+\DoxyCodeLine{1305 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1307 \textcolor{comment}{}}
+\DoxyCodeLine{1311     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac2e4cbb4cdbf04f217211f6035e6f20a}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1312     \{}
+\DoxyCodeLine{1313       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}を実装しています。"{}};}
+\DoxyCodeLine{1314     \}}
+\DoxyCodeLine{1315 }
+\DoxyCodeLine{1319     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad9c3549fb27b3a61b1ab51f9d424beb3}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1320     \{}
+\DoxyCodeLine{1321       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorJapanese_a2d1dcae8604927539b593930394dd6dd}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}で実装されています。"{}};}
+\DoxyCodeLine{1322     \}}
+\DoxyCodeLine{1324 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1326 \textcolor{comment}{}}
+\DoxyCodeLine{1330     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a17418fd40efebdcce6a71679c57454f1}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1331     \{}
+\DoxyCodeLine{1332       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}目次"{}};}
+\DoxyCodeLine{1333     \}}
+\DoxyCodeLine{1334 }
+\DoxyCodeLine{1336 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1338 \textcolor{comment}{}}
+\DoxyCodeLine{1342     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af90f29d1e0a9ab6d2edf88a47705fece}{trDeprecatedList}}()}
+\DoxyCodeLine{1343     \{}
+\DoxyCodeLine{1344       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}非推奨一覧"{}};}
+\DoxyCodeLine{1345     \}}
+\DoxyCodeLine{1346 }
+\DoxyCodeLine{1348 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1350 \textcolor{comment}{}}
+\DoxyCodeLine{1354     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa76891354ed3cd9b0ccdd0aab601b022}{trEvents}}()}
+\DoxyCodeLine{1355     \{}
+\DoxyCodeLine{1356       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}イベント"{}};}
+\DoxyCodeLine{1357     \}}
+\DoxyCodeLine{1359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5c0b0cd38680a740837e989505918799}{trEventDocumentation}}()}
+\DoxyCodeLine{1360     \{}
+\DoxyCodeLine{1361       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}イベント詳解"{}};}
+\DoxyCodeLine{1362     \}}
+\DoxyCodeLine{1363 }
+\DoxyCodeLine{1365 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1367 \textcolor{comment}{}}
+\DoxyCodeLine{1370     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a3a0ca96e9bd66dfd07c036fd83b4ce1a}{trPackageTypes}}()}
+\DoxyCodeLine{1371     \{}
+\DoxyCodeLine{1372       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}パッケージ内の型定義"{}};}
+\DoxyCodeLine{1373     \}}
+\DoxyCodeLine{1377     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a3ff71b60d43f0edc3df906b4ddee6c24}{trPackageFunctions}}()}
+\DoxyCodeLine{1378     \{}
+\DoxyCodeLine{1379       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数"{}};}
+\DoxyCodeLine{1380     \}}
+\DoxyCodeLine{1381     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a16b15f694d21b68f06d73b613e01a0fa}{trPackageMembers}}()}
+\DoxyCodeLine{1382     \{}
+\DoxyCodeLine{1383       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}パッケージ内のメンバ"{}};}
+\DoxyCodeLine{1384     \}}
+\DoxyCodeLine{1385 }
+\DoxyCodeLine{1389     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae11ae42eeb3b49f51d984410117c5903}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1390     \{}
+\DoxyCodeLine{1391       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的関数"{}};}
+\DoxyCodeLine{1392     \}}
+\DoxyCodeLine{1396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a001f6707a68e0a6b3584992448c01da2}{trPackageAttribs}}()}
+\DoxyCodeLine{1397     \{}
+\DoxyCodeLine{1398       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}変数"{}};}
+\DoxyCodeLine{1399     \}}
+\DoxyCodeLine{1403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_adc6184c3384caa35775d1ac26cd56f51}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1404     \{}
+\DoxyCodeLine{1405       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}静的変数"{}};}
+\DoxyCodeLine{1406     \}}
+\DoxyCodeLine{1407 }
+\DoxyCodeLine{1409 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1411 \textcolor{comment}{}}
+\DoxyCodeLine{1415     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a914c07ec81642d7abb5b81bd65d730f0}{trAll}}()}
+\DoxyCodeLine{1416     \{}
+\DoxyCodeLine{1417       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}全て"{}};}
+\DoxyCodeLine{1418     \}}
+\DoxyCodeLine{1420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad7c66b02e985c4442a7f9df0add5dcfc}{trCallGraph}}()}
+\DoxyCodeLine{1421     \{}
+\DoxyCodeLine{1422       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}呼び出し関係図:"{}};}
+\DoxyCodeLine{1423     \}}
+\DoxyCodeLine{1424 }
+\DoxyCodeLine{1426 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1428 \textcolor{comment}{}}
+\DoxyCodeLine{1432     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afe9d042891dc2843e36bf470ec4894ca}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1433     \{}
+\DoxyCodeLine{1434       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}検索結果"{}};}
+\DoxyCodeLine{1435     \}}
+\DoxyCodeLine{1444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a11cdeaff91d4cc21c4e211ad9e771334}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1445     \{}
+\DoxyCodeLine{1446       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1447       \{}
+\DoxyCodeLine{1448         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}入力条件を満たす文書がありません。"{}};}
+\DoxyCodeLine{1449       \}}
+\DoxyCodeLine{1450       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1451       \{}
+\DoxyCodeLine{1452         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}入力条件を満たす文書が <b>1</b> 件ありました."{}};}
+\DoxyCodeLine{1453       \}}
+\DoxyCodeLine{1454       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1455       \{}
+\DoxyCodeLine{1456         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}入力条件を満たす文書が <b>\$num</b> 件ありました. "{}}}
+\DoxyCodeLine{1457                \textcolor{stringliteral}{"{}一致度の高いものから表示されます."{}};}
+\DoxyCodeLine{1458       \}}
+\DoxyCodeLine{1459     \}}
+\DoxyCodeLine{1463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ace28229368ed50a03b464c93f64165d9}{trSearchMatches}}()}
+\DoxyCodeLine{1464     \{}
+\DoxyCodeLine{1465       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}照合語:"{}};}
+\DoxyCodeLine{1466     \}}
+\DoxyCodeLine{1467 }
+\DoxyCodeLine{1469 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1471 \textcolor{comment}{}}
+\DoxyCodeLine{1474     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af846fcd0b7f8fc1af60c8d5a753016a8}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1475     \{}
+\DoxyCodeLine{1476       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} ソースファイル"{}};}
+\DoxyCodeLine{1477     \}}
+\DoxyCodeLine{1478 }
+\DoxyCodeLine{1480 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1482 \textcolor{comment}{}}
+\DoxyCodeLine{1486     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a027c07f499a03ce03ad158c869115472}{trDirIndex}}()}
+\DoxyCodeLine{1487     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ディレクトリ索引"{}}; \}}
+\DoxyCodeLine{1488 }
+\DoxyCodeLine{1492     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9e9000357236606370551cd6e26ed037}{trDirDocumentation}}()}
+\DoxyCodeLine{1493     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ディレクトリ詳解"{}}; \}}
+\DoxyCodeLine{1494 }
+\DoxyCodeLine{1498     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a060115ae997a9bc3bbc7191d0dddbaea}{trDirectories}}()}
+\DoxyCodeLine{1499     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ディレクトリ"{}}; \}}
+\DoxyCodeLine{1500 }
+\DoxyCodeLine{1504     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a827a901874ab79683675cbf9e0dd0626}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1505     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} ディレクトリリファレンス"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1506 }
+\DoxyCodeLine{1510     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a08f91c6cd462e77469139a47f04777c7}{trDir}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1511     \{}
+\DoxyCodeLine{1512       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ディレクトリ"{}};}
+\DoxyCodeLine{1513     \}}
+\DoxyCodeLine{1514 }
+\DoxyCodeLine{1516 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1518 \textcolor{comment}{}}
+\DoxyCodeLine{1522     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2b504f1eeebf18f26ed6c6696432e178}{trOverloadText}}()}
+\DoxyCodeLine{1523     \{}
+\DoxyCodeLine{1524        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}これはオーバーロードされたメンバ関数です。"{}}}
+\DoxyCodeLine{1525               \textcolor{stringliteral}{"{}利便性のために用意されています。"{}}}
+\DoxyCodeLine{1526               \textcolor{stringliteral}{"{}元の関数との違いは引き数のみです。"{}};}
+\DoxyCodeLine{1527     \}}
+\DoxyCodeLine{1528 }
+\DoxyCodeLine{1530 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1532 \textcolor{comment}{}}
+\DoxyCodeLine{1534     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a954ec2b6811c3c9e02023be9ed7c0f15}{trCallerGraph}}()}
+\DoxyCodeLine{1535     \{}
+\DoxyCodeLine{1536       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}被呼び出し関係図:"{}};}
+\DoxyCodeLine{1537     \}}
+\DoxyCodeLine{1538 }
+\DoxyCodeLine{1542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af07831d86b7a4f50b7fd3133cec19435}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1543     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}列挙型詳解"{}}; \}}
+\DoxyCodeLine{1544 }
+\DoxyCodeLine{1545 }
+\DoxyCodeLine{1547 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1549 \textcolor{comment}{}}
+\DoxyCodeLine{1551     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a771a6eff68529e84c4a7d45dcf275ce1}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1552     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メンバ関数/サブルーチン詳解"{}}; \}}
+\DoxyCodeLine{1553 }
+\DoxyCodeLine{1555     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2584089d5a59af148ae40bf306e01453}{trCompoundListFortran}}()}
+\DoxyCodeLine{1556     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ型一覧"{}}; \}}
+\DoxyCodeLine{1557 }
+\DoxyCodeLine{1559     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a33ef8b96e715216da5a944f4cd64d254}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1560     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データフィールド"{}}; \}}
+\DoxyCodeLine{1561 }
+\DoxyCodeLine{1563     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ac53f12f510b4b1919134719b58ff5e30}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1564     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}これはデータ型の一覧です:"{}}; \}}
+\DoxyCodeLine{1565 }
+\DoxyCodeLine{1567     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a23b306cff1d8f703e3a1789414ad6111}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1568     \{}
+\DoxyCodeLine{1569       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}これは"{}};}
+\DoxyCodeLine{1570       result+=\textcolor{stringliteral}{"{}フィールドの一覧です。それぞれ"{}};}
+\DoxyCodeLine{1571       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1572       \{}
+\DoxyCodeLine{1573           result+=\textcolor{stringliteral}{"{}が属しているデータ型"{}};}
+\DoxyCodeLine{1574       \}}
+\DoxyCodeLine{1575       result+=\textcolor{stringliteral}{"{}の詳解へリンクしています。"{}};}
+\DoxyCodeLine{1576       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1577     \}}
+\DoxyCodeLine{1578 }
+\DoxyCodeLine{1582     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a21fe76ea8b0c8c210a94c65d171dcc60}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1583     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ型索引"{}}; \}}
+\DoxyCodeLine{1584 }
+\DoxyCodeLine{1588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_acb201d57d0c010243e24e1262ddd6271}{trTypeDocumentation}}()}
+\DoxyCodeLine{1589     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ型詳解"{}}; \}}
+\DoxyCodeLine{1590 }
+\DoxyCodeLine{1594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_acd8b5b61925f4d04424f10111f94daae}{trSubprograms}}()}
+\DoxyCodeLine{1595     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数/サブルーチン"{}}; \}}
+\DoxyCodeLine{1596 }
+\DoxyCodeLine{1597 }
+\DoxyCodeLine{1601     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afe1749201f814a91249daed400e03888}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1602     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}関数/サブルーチン詳解"{}}; \}}
+\DoxyCodeLine{1603 }
+\DoxyCodeLine{1607      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a45062c61a35ca4f9dab8f943c9a26c13}{trDataTypes}}()}
+\DoxyCodeLine{1608     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}データ型"{}}; \}}
+\DoxyCodeLine{1609 }
+\DoxyCodeLine{1611     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a968f9e75902ec573a9bca1d3507317af}{trModulesList}}()}
+\DoxyCodeLine{1612     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール一覧"{}}; \}}
+\DoxyCodeLine{1613 }
+\DoxyCodeLine{1615     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a0d87a4f031ff4b5554c52b998f7f6d1e}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1616     \{}
+\DoxyCodeLine{1617       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{1618       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1619       \{}
+\DoxyCodeLine{1620         result+=\textcolor{stringliteral}{"{}詳解が記されている"{}};}
+\DoxyCodeLine{1621       \}}
+\DoxyCodeLine{1622       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1623       \{}
+\DoxyCodeLine{1624         result+=\textcolor{stringliteral}{"{}全"{}};}
+\DoxyCodeLine{1625       \}}
+\DoxyCodeLine{1626       result+=\textcolor{stringliteral}{"{}モジュールの一覧です"{}};}
+\DoxyCodeLine{1627       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1628     \}}
+\DoxyCodeLine{1629 }
+\DoxyCodeLine{1631     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2fb5da44f611c7a6642a6cca811161fa}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1632                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1633                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1634     \{}
+\DoxyCodeLine{1635       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1636       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1637       \{}
+\DoxyCodeLine{1638         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}モジュール "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1639         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}TYPE "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1640         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}共用体 "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1641         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}インターフェース "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1642         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}プロトコル "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1643         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}カテゴリ "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1644         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外 "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1645         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1646       \}}
+\DoxyCodeLine{1647       \textcolor{keywordflow}{if} (isTemplate) result += \textcolor{stringliteral}{"{}テンプレート "{}};}
+\DoxyCodeLine{1648       result+=clName;}
+\DoxyCodeLine{1649       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1650     \}}
+\DoxyCodeLine{1652     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a47144d005ee64de4cdeda9ea5fa420b0}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1653     \{}
+\DoxyCodeLine{1654       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1655       result+=\textcolor{stringliteral}{"{}モジュール"{}};}
+\DoxyCodeLine{1656       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1657     \}}
+\DoxyCodeLine{1658 }
+\DoxyCodeLine{1660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4175582f2eac50a965e39f1cfca2b125}{trModulesMembers}}()}
+\DoxyCodeLine{1661     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュールメンバ"{}}; \}}
+\DoxyCodeLine{1662 }
+\DoxyCodeLine{1664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae7648c8c570d99fa6e60725385716b74}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1665     \{}
+\DoxyCodeLine{1666       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}これはモジュールメンバ一覧です。それぞれ "{}};}
+\DoxyCodeLine{1667       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1668       \{}
+\DoxyCodeLine{1669         result+=\textcolor{stringliteral}{"{}属しているモジュール"{}};}
+\DoxyCodeLine{1670       \}}
+\DoxyCodeLine{1671       result+=\textcolor{stringliteral}{"{}の詳解へリンクしています。"{}};}
+\DoxyCodeLine{1672       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1673     \}}
+\DoxyCodeLine{1674 }
+\DoxyCodeLine{1678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a246e8cf46ee7e2af07831b55cf5b9608}{trModulesIndex}}()}
+\DoxyCodeLine{1679     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール索引"{}}; \}}
+\DoxyCodeLine{1680 }
+\DoxyCodeLine{1685     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a357fb0ca2586478cf1f0d1ce81fa78a1}{trModule}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1686     \{}
+\DoxyCodeLine{1687       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}モジュール"{}};}
+\DoxyCodeLine{1688     \}}
+\DoxyCodeLine{1692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a21b41a1dce30b8cbca15050d62ba62b2}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1693         \textcolor{keywordtype}{bool} \textcolor{comment}{/*single*/})}
+\DoxyCodeLine{1694     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1695       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1696       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}次のファイルから"{}};}
+\DoxyCodeLine{1697       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1698       \{}
+\DoxyCodeLine{1699         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}モジュール"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1700         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}型"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1701         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}共用体"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1702         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}インターフェース"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1703         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}プロトコル"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1704         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}カテゴリ"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1705         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}例外"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1706         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1707       \}}
+\DoxyCodeLine{1708       result+=\textcolor{stringliteral}{"{}の詳解が抽出されました:"{}};}
+\DoxyCodeLine{1709       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1710     \}}
+\DoxyCodeLine{1715     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_afe53027b537d75f15b36d972ef1c83f4}{trType}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1716     \{}
+\DoxyCodeLine{1717       \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}型"{}};}
+\DoxyCodeLine{1718       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1719     \}}
+\DoxyCodeLine{1724     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8af1dd8d9b0ee2f95eb53bd7996b3580}{trSubprogram}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*first\_capital*/}, \textcolor{keywordtype}{bool} \textcolor{comment}{/*singular*/})}
+\DoxyCodeLine{1725     \{}
+\DoxyCodeLine{1726       \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}サブプログラム"{}};}
+\DoxyCodeLine{1727       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1728     \}}
+\DoxyCodeLine{1729 }
+\DoxyCodeLine{1731     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab939c0522440d2a44474efb3594e4b29}{trTypeConstraints}}()}
+\DoxyCodeLine{1732     \{}
+\DoxyCodeLine{1733       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}型制約"{}};}
+\DoxyCodeLine{1734     \}}
+\DoxyCodeLine{1735 }
+\DoxyCodeLine{1737 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1739 \textcolor{comment}{}}
+\DoxyCodeLine{1741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aa74d5f519e053f1d870ed30817de4220}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1742     \{}
+\DoxyCodeLine{1743       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} 関係"{}};}
+\DoxyCodeLine{1744     \}}
+\DoxyCodeLine{1745 }
+\DoxyCodeLine{1747     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a25ecacc49af6381bb740bb9e2a68c42c}{trLoading}}()}
+\DoxyCodeLine{1748     \{}
+\DoxyCodeLine{1749       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}読み取り中…"{}};}
+\DoxyCodeLine{1750     \}}
+\DoxyCodeLine{1751 }
+\DoxyCodeLine{1753     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a5dc83a5a2f62b37815e590c651c7805c}{trGlobalNamespace}}()}
+\DoxyCodeLine{1754     \{}
+\DoxyCodeLine{1755       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}大域名前空間"{}};}
+\DoxyCodeLine{1756     \}}
+\DoxyCodeLine{1757 }
+\DoxyCodeLine{1759     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a6e75ae8c17f2b5b43814b15eaf7693c9}{trSearching}}()}
+\DoxyCodeLine{1760     \{}
+\DoxyCodeLine{1761       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}検索中…"{}};}
+\DoxyCodeLine{1762     \}}
+\DoxyCodeLine{1763 }
+\DoxyCodeLine{1765     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a67dcb66cf4ac9376069a6064100b3e0e}{trNoMatches}}()}
+\DoxyCodeLine{1766     \{}
+\DoxyCodeLine{1767       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}一致する文字列を見つけられません"{}};}
+\DoxyCodeLine{1768     \}}
+\DoxyCodeLine{1769 }
+\DoxyCodeLine{1771 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1773 \textcolor{comment}{}}
+\DoxyCodeLine{1778     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ace496f1086ba52ac4362bb0d81358b07}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1779     \{}
+\DoxyCodeLine{1780       \textcolor{keywordflow}{return} name+\textcolor{stringliteral}{"{}にあるファイル"{}};}
+\DoxyCodeLine{1781     \}}
+\DoxyCodeLine{1782 }
+\DoxyCodeLine{1787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a27834a80b2016e084d8a4b96c33db679}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1788     \{}
+\DoxyCodeLine{1789       \textcolor{keywordflow}{return} name+\textcolor{stringliteral}{"{}にあるファイルを include している"{}};}
+\DoxyCodeLine{1790     \}}
+\DoxyCodeLine{1791 }
+\DoxyCodeLine{1802     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a6be353f75bc39756320621241ee4f385}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1803                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1804                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1805     \{}
+\DoxyCodeLine{1806       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}月"{}}, \textcolor{stringliteral}{"{}火"{}}, \textcolor{stringliteral}{"{}水"{}}, \textcolor{stringliteral}{"{}木"{}}, \textcolor{stringliteral}{"{}金"{}}, \textcolor{stringliteral}{"{}土"{}}, \textcolor{stringliteral}{"{}日"{}} \};}
+\DoxyCodeLine{1807       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1808       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%.4d年\%.2d月\%.2d日(\%s)"{}},year,month,day,days[dayOfWeek-\/1]);}
+\DoxyCodeLine{1809       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1810       \{}
+\DoxyCodeLine{1811         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1812         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d時\%.2d分\%.2d秒"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1813         sdate+=stime;}
+\DoxyCodeLine{1814       \}}
+\DoxyCodeLine{1815       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1816     \}}
+\DoxyCodeLine{1817 }
+\DoxyCodeLine{1819 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1821 \textcolor{comment}{}}
+\DoxyCodeLine{1823     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad2d0fd23566c18aaefedc6f154072401}{trCiteReferences}}()}
+\DoxyCodeLine{1824     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}書誌参照"{}}; \}}
+\DoxyCodeLine{1825 }
+\DoxyCodeLine{1827     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a1d736d77bc42bc6cc37db2f620ff9121}{trCopyright}}()}
+\DoxyCodeLine{1828     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}著作権所有"{}}; \}}
+\DoxyCodeLine{1829 }
+\DoxyCodeLine{1831     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a8c6a213230de89242537956749644250}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1832     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} のディレクトリ依存関係図"{}}; \}}
+\DoxyCodeLine{1833 }
+\DoxyCodeLine{1835 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1837 \textcolor{comment}{}}
+\DoxyCodeLine{1839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a2777a4ec6aa939b008cbd34b9b084729}{trDetailLevel}}()}
+\DoxyCodeLine{1840     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}表示階層"{}}; \}}
+\DoxyCodeLine{1841 }
+\DoxyCodeLine{1843     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ad7d2c82a4ab7f02e45460179ec188464}{trTemplateParameters}}()}
+\DoxyCodeLine{1844     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}テンプレート引数"{}}; \}}
+\DoxyCodeLine{1845 }
+\DoxyCodeLine{1847     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a54f7d9f13f719d351d583befbcfad9c2}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1848     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ほか "{}}+number+\textcolor{stringliteral}{"{} 件…"{}}; \}}
+\DoxyCodeLine{1849 }
+\DoxyCodeLine{1851     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a9a2691028093ed98f8ecb5b16e5903f7}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1852     \{}
+\DoxyCodeLine{1853       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}次のファイルからこの列挙についての詳解を抽出しました:"{}};}
+\DoxyCodeLine{1854     \}}
+\DoxyCodeLine{1855 }
+\DoxyCodeLine{1857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_adf28b382e203a29057ac211f3a2c91df}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1858     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}列挙 "{}})+name+\textcolor{stringliteral}{"{} 詳解"{}}; \}}
+\DoxyCodeLine{1859 }
+\DoxyCodeLine{1861     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a76d436e5bf204ab0517d9d6139cee6f8}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1862     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}基底クラス "{}})+what+\textcolor{stringliteral}{"{} に属する継承"{}}+members; \}}
+\DoxyCodeLine{1863 }
+\DoxyCodeLine{1867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a13b991d50c189d057a8fdb99763b8f98}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1868     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}その他の継承メンバ"{}}; \}}
+\DoxyCodeLine{1869 }
+\DoxyCodeLine{1871 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1873 \textcolor{comment}{}}
+\DoxyCodeLine{1878     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a26c13eefdf17423eb2f7a04eb7416894}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1879     \{}
+\DoxyCodeLine{1880 }
+\DoxyCodeLine{1881       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}有効"{}} : \textcolor{stringliteral}{"{}無効"{}};}
+\DoxyCodeLine{1882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クリックで同期表示が"{}}+opt+\textcolor{stringliteral}{"{}になります"{}};}
+\DoxyCodeLine{1883     \}}
+\DoxyCodeLine{1884 }
+\DoxyCodeLine{1889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af2c9ab0ae3d70a4d00410f86665847b0}{trProvidedByCategory}}()}
+\DoxyCodeLine{1890     \{}
+\DoxyCodeLine{1891       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@0 カテゴリーから提供されています。"{}};}
+\DoxyCodeLine{1892     \}}
+\DoxyCodeLine{1893 }
+\DoxyCodeLine{1898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a95ed5aea5be1a95219829cf0bd920b5a}{trExtendsClass}}()}
+\DoxyCodeLine{1899     \{}
+\DoxyCodeLine{1900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@0 を拡張しています。"{}};}
+\DoxyCodeLine{1901     \}}
+\DoxyCodeLine{1902 }
+\DoxyCodeLine{1906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a0790c233fafbc9884b5061fd3298a153}{trClassMethods}}()}
+\DoxyCodeLine{1907     \{}
+\DoxyCodeLine{1908       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}クラスメソッド"{}};}
+\DoxyCodeLine{1909     \}}
+\DoxyCodeLine{1910 }
+\DoxyCodeLine{1914     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a59790428299178e856eedbfab9117ebc}{trInstanceMethods}}()}
+\DoxyCodeLine{1915     \{}
+\DoxyCodeLine{1916       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}実体メソッド"{}};}
+\DoxyCodeLine{1917     \}}
+\DoxyCodeLine{1918 }
+\DoxyCodeLine{1921     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_aedb0e792f5d6b3b9a50794f1982263ff}{trMethodDocumentation}}()}
+\DoxyCodeLine{1922     \{}
+\DoxyCodeLine{1923       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}メソッド詳解"{}};}
+\DoxyCodeLine{1924     \}}
+\DoxyCodeLine{1925 }
+\DoxyCodeLine{1927 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1929 \textcolor{comment}{}}
+\DoxyCodeLine{1931     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ab202913125e78765f22b022c382e1c75}{trInterfaces}}()}
+\DoxyCodeLine{1932     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}実装されたインターフォース"{}}; \}}
+\DoxyCodeLine{1933 }
+\DoxyCodeLine{1935     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a47f643d05a0af26f61d5fbd420f3a464}{trServices}}()}
+\DoxyCodeLine{1936     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}継承されたサービス"{}}; \}}
+\DoxyCodeLine{1937 }
+\DoxyCodeLine{1939     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a012b03719809e57b67b162f97337ba70}{trConstantGroups}}()}
+\DoxyCodeLine{1940     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}定数グループ"{}}; \}}
+\DoxyCodeLine{1941 }
+\DoxyCodeLine{1943     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a4fb2583cb0e8142c2eccb6dd6a89625a}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1944     \{}
+\DoxyCodeLine{1945       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1946       result+=\textcolor{stringliteral}{"{} 定数グループ詳解"{}};}
+\DoxyCodeLine{1947       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1948     \}}
+\DoxyCodeLine{1950     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a67debe85c87f19e4960f0e53fd1ee49f}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1951     \{}
+\DoxyCodeLine{1952       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1953       result+=\textcolor{stringliteral}{"{} サービス詳解"{}};}
+\DoxyCodeLine{1954       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1955     \}}
+\DoxyCodeLine{1957     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_af981d2e2eec04912c7f027b8f764b546}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1958     \{}
+\DoxyCodeLine{1959       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1960       result+=\textcolor{stringliteral}{"{} Singleton 詳解"{}};}
+\DoxyCodeLine{1961       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1962     \}}
+\DoxyCodeLine{1964     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_a534e4442a40c69f6d6062a15867be6ba}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*single*/})}
+\DoxyCodeLine{1965     \{}
+\DoxyCodeLine{1966       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1967       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}次のファイルからこのサービスについて"{}}}
+\DoxyCodeLine{1968              \textcolor{stringliteral}{"{}の詳解を抽出しました:"{}};}
+\DoxyCodeLine{1969     \}}
+\DoxyCodeLine{1971     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorJapanese_ae8d24af5ecea3255910984c87d21ddb4}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*single*/})}
+\DoxyCodeLine{1972     \{}
+\DoxyCodeLine{1973       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1974       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}次のファイルからこの Singleton について"{}}}
+\DoxyCodeLine{1975              \textcolor{stringliteral}{"{}の詳解を抽出しました:"{}};}
+\DoxyCodeLine{1976     \}}
+\DoxyCodeLine{1977 }
+\DoxyCodeLine{1978 \};}
+\DoxyCodeLine{1979 }
+\DoxyCodeLine{1980 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

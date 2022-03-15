@@ -1,0 +1,119 @@
+\hypertarget{scanner_8l}{}\doxysection{/mnt/c/projects/doxygen/src/scanner.l File Reference}
+\label{scanner_8l}\index{/mnt/c/projects/doxygen/src/scanner.l@{/mnt/c/projects/doxygen/src/scanner.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}scanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clangparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for scanner.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structscannerYY__state}{scanner\+YY\+\_\+state}}
+\item 
+struct \mbox{\hyperlink{structCOutlineParser_1_1Private}{COutline\+Parser\+::\+Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{scanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{scanner_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{scanner_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{scanner_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{scanner_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{scanner_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{scanner_8l_a7656679a311cb6f8c5269ada7d1f8bd4}{fix\+Argument\+List\+For\+Java\+Script}} (\mbox{\hyperlink{classArgumentList}{Argument\+List}} \&al)
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{scanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{scanner_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{scanner_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{scanner.l@{scanner.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{scanner_8l_aacfdca45fa4beb8b06172525a53c424a}\label{scanner_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{scanner.l@{scanner.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{scanner_8l_a85523a0c7d95c059d251b4e9829947aa}\label{scanner_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{scanner.l@{scanner.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{scanner_8l_ae78ac56cd1f29572e967ed7636952d15}\label{scanner_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{scanner.l@{scanner.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{scanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{scanner_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{scanner.l@{scanner.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{scanner_8l_a9484188abbc459dafcbd4c96425fa70b}\label{scanner_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{scanner.l@{scanner.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{scanner_8l_a7656679a311cb6f8c5269ada7d1f8bd4}\label{scanner_8l_a7656679a311cb6f8c5269ada7d1f8bd4}} 
+\index{scanner.l@{scanner.l}!fixArgumentListForJavaScript@{fixArgumentListForJavaScript}}
+\index{fixArgumentListForJavaScript@{fixArgumentListForJavaScript}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{fixArgumentListForJavaScript()}{fixArgumentListForJavaScript()}}
+{\footnotesize\ttfamily void fix\+Argument\+List\+For\+Java\+Script (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classArgumentList}{Argument\+List}} \&}]{al }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{scanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{scanner_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{scanner.l@{scanner.l}!yylex@{yylex}}
+\index{yylex@{yylex}!scanner.l@{scanner.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+
+Slice states Prototype scanner states comment parsing states C++20 concepts 

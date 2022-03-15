@@ -1,0 +1,116 @@
+\hypertarget{classCOutlineParser}{}\doxysection{COutline\+Parser Class Reference}
+\label{classCOutlineParser}\index{COutlineParser@{COutlineParser}}
+
+
+C-\/like language parser using state-\/based lexical scanning.  
+
+
+
+
+{\ttfamily \#include $<$scanner.\+h$>$}
+
+
+
+Inheritance diagram for COutline\+Parser\+:
+% FIG 0
+
+
+Collaboration diagram for COutline\+Parser\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCOutlineParser_1_1Private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCOutlineParser_a5d4323648b52f514ea8c0c71537359a5}{COutline\+Parser}} ()
+\item 
+virtual \mbox{\hyperlink{classCOutlineParser_a9cbcfb80de80dfad2341d030750d8f53}{$\sim$\+COutline\+Parser}} ()
+\item 
+void \mbox{\hyperlink{classCOutlineParser_ab29ff7519601510e414da9fae6a82c28}{parse\+Input}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, const char $\ast$file\+Buf, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&root, \mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$clang\+Parser)
+\item 
+bool \mbox{\hyperlink{classCOutlineParser_ad24e798117e9abe1d2926ea5fc69babc}{needs\+Preprocessing}} (const \mbox{\hyperlink{classQCString}{QCString}} \&extension) const
+\item 
+void \mbox{\hyperlink{classCOutlineParser_af5ec7bd6a3a1dc91c3939b61134b6618}{parse\+Prototype}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C-\/like language parser using state-\/based lexical scanning. 
+
+This is the language parser for doxygen. It is somewhat fuzzy and supports C++ and various languages that are closely related to C++, such as C, C\#, Objective-\/C, Java, PHP, and IDL. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCOutlineParser_a5d4323648b52f514ea8c0c71537359a5}\label{classCOutlineParser_a5d4323648b52f514ea8c0c71537359a5}} 
+\index{COutlineParser@{COutlineParser}!COutlineParser@{COutlineParser}}
+\index{COutlineParser@{COutlineParser}!COutlineParser@{COutlineParser}}
+\doxysubsubsection{\texorpdfstring{COutlineParser()}{COutlineParser()}}
+{\footnotesize\ttfamily COutline\+Parser\+::\+COutline\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCOutlineParser_a9cbcfb80de80dfad2341d030750d8f53}\label{classCOutlineParser_a9cbcfb80de80dfad2341d030750d8f53}} 
+\index{COutlineParser@{COutlineParser}!````~COutlineParser@{$\sim$COutlineParser}}
+\index{````~COutlineParser@{$\sim$COutlineParser}!COutlineParser@{COutlineParser}}
+\doxysubsubsection{\texorpdfstring{$\sim$COutlineParser()}{~COutlineParser()}}
+{\footnotesize\ttfamily COutline\+Parser\+::$\sim$\+COutline\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCOutlineParser_ad24e798117e9abe1d2926ea5fc69babc}\label{classCOutlineParser_ad24e798117e9abe1d2926ea5fc69babc}} 
+\index{COutlineParser@{COutlineParser}!needsPreprocessing@{needsPreprocessing}}
+\index{needsPreprocessing@{needsPreprocessing}!COutlineParser@{COutlineParser}}
+\doxysubsubsection{\texorpdfstring{needsPreprocessing()}{needsPreprocessing()}}
+{\footnotesize\ttfamily bool COutline\+Parser\+::needs\+Preprocessing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{extension }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns TRUE if the language identified by {\itshape extension} needs the C preprocessor to be run before feed the result to the input parser. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classCOutlineParser_ab29ff7519601510e414da9fae6a82c28}{parse\+Input()}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a0df8efc6ad67956cf54b7dec68c932b4}{Outline\+Parser\+Interface}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classCOutlineParser_ab29ff7519601510e414da9fae6a82c28}\label{classCOutlineParser_ab29ff7519601510e414da9fae6a82c28}} 
+\index{COutlineParser@{COutlineParser}!parseInput@{parseInput}}
+\index{parseInput@{parseInput}!COutlineParser@{COutlineParser}}
+\doxysubsubsection{\texorpdfstring{parseInput()}{parseInput()}}
+{\footnotesize\ttfamily void COutline\+Parser\+::parse\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{const char $\ast$}]{file\+Buf,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&}]{root,  }\item[{\mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$}]{clang\+Parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Parses a single input file with the goal to build an \mbox{\hyperlink{classEntry}{Entry}} tree. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Name} & The full name of the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Buf} & The contents of the file (zero terminated). \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em root} & The root of the tree of \mbox{\hyperlink{classEntry}{Entry}} $\ast$nodes representing the information extracted from the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em clang\+Parser} & The clang translation unit parser object or nullptr if disabled. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}{Outline\+Parser\+Interface}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classCOutlineParser_af5ec7bd6a3a1dc91c3939b61134b6618}\label{classCOutlineParser_af5ec7bd6a3a1dc91c3939b61134b6618}} 
+\index{COutlineParser@{COutlineParser}!parsePrototype@{parsePrototype}}
+\index{parsePrototype@{parsePrototype}!COutlineParser@{COutlineParser}}
+\doxysubsubsection{\texorpdfstring{parsePrototype()}{parsePrototype()}}
+{\footnotesize\ttfamily void COutline\+Parser\+::parse\+Prototype (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Callback function called by the comment block scanner. It provides a string {\itshape text} containing the prototype of a function or variable. The parser should parse this and store the information in the \mbox{\hyperlink{classEntry}{Entry}} node that corresponds with the node for which the comment block parser was invoked. 
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a69a5b6af5318cae09594b6a48d6b0d99}{Outline\+Parser\+Interface}}.
+
+Here is the call graph for this function\+:
+% FIG 4
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{scanner_8h}{scanner.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{scanner_8l}{scanner.\+l}}\end{DoxyCompactItemize}

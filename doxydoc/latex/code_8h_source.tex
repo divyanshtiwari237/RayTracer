@@ -1,0 +1,62 @@
+\hypertarget{code_8h_source}{}\doxysection{code.\+h}
+\label{code_8h_source}\index{/mnt/c/projects/doxygen/src/code.h@{/mnt/c/projects/doxygen/src/code.h}}
+\mbox{\hyperlink{code_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef CODE\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define CODE\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parserintf_8h}{parserintf.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}};}
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classDefinition}{Definition}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classCCodeParser}{CCodeParser}} : \textcolor{keyword}{public} \mbox{\hyperlink{classCodeParserInterface}{CodeParserInterface}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30   \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{classCCodeParser_a53fde266eef5df6e4c65286e04fd739c}{CCodeParser}}();}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \mbox{\hyperlink{classCCodeParser_adb3b8fb4ed153a2b2816fb3e6cf2d724}{\string~CCodeParser}}();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCCodeParser_abe80053c52c16b64365b2f65e73b3617}{parseCode}}(\mbox{\hyperlink{classCodeOutputInterface}{CodeOutputInterface}} \&codeOutIntf,}
+\DoxyCodeLine{34                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&scopeName,}
+\DoxyCodeLine{35                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&input,}
+\DoxyCodeLine{36                    \mbox{\hyperlink{types_8h_a9974623ce72fc23df5d64426b9178bf2}{SrcLangExt}} lang,}
+\DoxyCodeLine{37                    \textcolor{keywordtype}{bool} isExampleBlock,}
+\DoxyCodeLine{38                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&exampleName=\mbox{\hyperlink{classQCString}{QCString}}(),}
+\DoxyCodeLine{39                    \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fileDef=0,}
+\DoxyCodeLine{40                    \textcolor{keywordtype}{int} startLine=-\/1,}
+\DoxyCodeLine{41                    \textcolor{keywordtype}{int} endLine=-\/1,}
+\DoxyCodeLine{42                    \textcolor{keywordtype}{bool} inlineFragment=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{43                    \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *memberDef=0,}
+\DoxyCodeLine{44                    \textcolor{keywordtype}{bool} showLineNumbers=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},}
+\DoxyCodeLine{45                    \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *searchCtx=0,}
+\DoxyCodeLine{46                    \textcolor{keywordtype}{bool} collectXRefs=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}}
+\DoxyCodeLine{47                   );}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCCodeParser_a1a7bbbf0cf32695c5f51c618507b8041}{resetCodeParserState}}();}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classCCodeParser_a93aa7a5adf58ca0282b3d19f4cdb07b4}{setInsideCodeLine}}(\textcolor{keywordtype}{bool} inp);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCCodeParser_af6a8bc3a1f0f692975cc1fbde99fbbce}{insideCodeLine}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{51   \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \textcolor{keyword}{struct }\mbox{\hyperlink{structCCodeParser_1_1Private}{Private}};}
+\DoxyCodeLine{53     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{54 \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

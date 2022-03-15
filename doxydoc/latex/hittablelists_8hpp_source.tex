@@ -1,0 +1,46 @@
+\hypertarget{hittablelists_8hpp_source}{}\doxysection{hittablelists.\+hpp}
+\label{hittablelists_8hpp_source}\index{utilities/include/hittablelists.hpp@{utilities/include/hittablelists.hpp}}
+\mbox{\hyperlink{hittablelists_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HITTABLE\_LISTS}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HITTABLE\_LISTS}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{hittable_8hpp}{hittable.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include<memory>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using} std::shared\_ptr;}
+\DoxyCodeLine{9 \textcolor{keyword}{using} std::make\_shared;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classHittableLists}{HittableLists}} : \textcolor{keyword}{public} \mbox{\hyperlink{classHittable}{Hittable}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{public}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{classHittableLists_a69ab4e9b2224ce46063ed80c2a07123d}{HittableLists}}()\{\}}
+\DoxyCodeLine{15         \mbox{\hyperlink{classHittableLists_a893f3d44dc3b1e7fd4fcdf7992fff53e}{HittableLists}}(shared\_ptr<Hittable> \textcolor{keywordtype}{object})}
+\DoxyCodeLine{16         \{ }
+\DoxyCodeLine{17             \mbox{\hyperlink{classHittableLists_a18486f0304c1350c9e3b5f1f22734bf1}{add}}(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{18         \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \textcolor{keywordtype}{void} \mbox{\hyperlink{classHittableLists_acd0c10c4b80dd81b8c74500727c68068}{clear}}()}
+\DoxyCodeLine{21         \{}
+\DoxyCodeLine{22             \mbox{\hyperlink{classHittableLists_a94c96a402510ee6b2ed55caf700f5961}{objects}}.clear();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} \mbox{\hyperlink{classHittableLists_a18486f0304c1350c9e3b5f1f22734bf1}{add}} (shared\_ptr<Hittable> \textcolor{keywordtype}{object})}
+\DoxyCodeLine{27         \{}
+\DoxyCodeLine{28             \mbox{\hyperlink{classHittableLists_a94c96a402510ee6b2ed55caf700f5961}{objects}}.push\_back(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHittableLists_a29fec6cf93da47f9246cd3de334e498e}{hit}}(\mbox{\hyperlink{classRay}{Ray}} r,\textcolor{keywordtype}{double} t\_min,\textcolor{keywordtype}{double} t\_max,\mbox{\hyperlink{structhitRecord}{hitRecord}} \&rec) \textcolor{keyword}{override};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keyword}{public}:}
+\DoxyCodeLine{34             std::vector<shared\_ptr<Hittable>> \mbox{\hyperlink{classHittableLists_a94c96a402510ee6b2ed55caf700f5961}{objects}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

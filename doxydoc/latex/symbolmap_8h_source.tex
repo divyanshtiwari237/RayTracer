@@ -1,0 +1,75 @@
+\hypertarget{symbolmap_8h_source}{}\doxysection{symbolmap.\+h}
+\label{symbolmap_8h_source}\index{/mnt/c/projects/doxygen/src/symbolmap.h@{/mnt/c/projects/doxygen/src/symbolmap.h}}
+\mbox{\hyperlink{symbolmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef SYMBOLMAP\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define SYMBOLMAP\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{29 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classSymbolMap}{SymbolMap}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32   \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \textcolor{keyword}{using} \mbox{\hyperlink{classSymbolMap_af163fde1625af00fe48af2a874b29204}{Ptr}} = T *;}
+\DoxyCodeLine{34     \textcolor{keyword}{using} \mbox{\hyperlink{classSymbolMap_aa6aa4329e49e84adbb927f61751f43a9}{Map}} = std::multimap<std::string,Ptr>;}
+\DoxyCodeLine{35     \textcolor{keyword}{using} \mbox{\hyperlink{classSymbolMap_a908627b07109135e822be81c8cd570e9}{iterator}} = \textcolor{keyword}{typename} Map::iterator;}
+\DoxyCodeLine{36     \textcolor{keyword}{using} \mbox{\hyperlink{classSymbolMap_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} = \textcolor{keyword}{typename} Map::const\_iterator;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSymbolMap_a5ee5036f5adbd147a02e4aa476fc8b72}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\mbox{\hyperlink{classSymbolMap_af163fde1625af00fe48af2a874b29204}{Ptr}} def)}
+\DoxyCodeLine{40     \{}
+\DoxyCodeLine{41       m\_map.insert(\{name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}(),def\});}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSymbolMap_a36b000d1d74ec4820b0d1c3a57dd645c}{remove}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\mbox{\hyperlink{classSymbolMap_af163fde1625af00fe48af2a874b29204}{Ptr}} def)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47       \textcolor{keyword}{auto} range = \mbox{\hyperlink{classSymbolMap_abd4aed07bc7ac9abd15f1046875a4698}{find}}(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{48       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it=range.first; it!=range.second; )}
+\DoxyCodeLine{49       \{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} (it-\/>second==def) it = m\_map.erase(it); \textcolor{keywordflow}{else} ++it;}
+\DoxyCodeLine{51       \}}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{56     std::pair<const\_iterator,const\_iterator> \mbox{\hyperlink{classSymbolMap_abd4aed07bc7ac9abd15f1046875a4698}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)\textcolor{keyword}{ const}}
+\DoxyCodeLine{57 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{58       \textcolor{keywordflow}{return} m\_map.equal\_range(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{63     std::pair<iterator,iterator> \mbox{\hyperlink{classSymbolMap_a60f9f5470f9a88e9a0d375eaab0ff459}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{64     \{}
+\DoxyCodeLine{65       \textcolor{keywordflow}{return} m\_map.equal\_range(name.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \mbox{\hyperlink{classSymbolMap_a908627b07109135e822be81c8cd570e9}{iterator}} \mbox{\hyperlink{classSymbolMap_ab9cd4fa2b43e0199d4cef45ff3cbb37e}{begin}}()             \{ \textcolor{keywordflow}{return} m\_map.begin();  \}}
+\DoxyCodeLine{69     \mbox{\hyperlink{classSymbolMap_a908627b07109135e822be81c8cd570e9}{iterator}} \mbox{\hyperlink{classSymbolMap_a6069b0857a4c760cefa51b569820156c}{end}}()               \{ \textcolor{keywordflow}{return} m\_map.end();    \}}
+\DoxyCodeLine{70     \mbox{\hyperlink{classSymbolMap_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} \mbox{\hyperlink{classSymbolMap_a740d72033e533f71065ea8cf3b3f3d2a}{begin}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_map.cbegin(); \}}
+\DoxyCodeLine{71     \mbox{\hyperlink{classSymbolMap_a53fbe4b99c651adaaf27f506450a9a1d}{const\_iterator}} \mbox{\hyperlink{classSymbolMap_ad5f1eb80c8797531fa0421d9bf68e8dd}{end}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_map.cend();   \}}
+\DoxyCodeLine{72     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSymbolMap_aeed554c8b958d2b8c6dcba5611d2b8cf}{empty}}()\textcolor{keyword}{ const           }\{ \textcolor{keywordflow}{return} m\_map.empty();  \}}
+\DoxyCodeLine{73     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classSymbolMap_a3ec557747fe6bc14435c354f4ccafd7d}{size}}()\textcolor{keyword}{ const          }\{ \textcolor{keywordflow}{return} m\_map.size();   \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75   \textcolor{keyword}{private}:}
+\DoxyCodeLine{76     \mbox{\hyperlink{classSymbolMap_aa6aa4329e49e84adbb927f61751f43a9}{Map}} m\_map;}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,444 @@
+\hypertarget{classdef_8h_source}{}\doxysection{classdef.\+h}
+\label{classdef_8h_source}\index{/mnt/c/projects/doxygen/src/classdef.h@{/mnt/c/projects/doxygen/src/classdef.h}}
+\mbox{\hyperlink{classdef_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef CLASSDEF\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define CLASSDEF\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{definition_8h}{definition.h}}"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arguments_8h}{arguments.h}}"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{membergroup_8h}{membergroup.h}}"{}}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{struct }\mbox{\hyperlink{structArgument}{Argument}};}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}};}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberList}{MemberList}};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberLists}{MemberLists}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classClassLinkedRefMap}{ClassLinkedRefMap}};}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classOutputList}{OutputList}};}
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{37 \textcolor{keyword}{class }\mbox{\hyperlink{classFileList}{FileList}};}
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceDef}{NamespaceDef}};}
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{classExampleList}{ExampleList}};}
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberNameInfoLinkedMap}{MemberNameInfoLinkedMap}};}
+\DoxyCodeLine{42 \textcolor{keyword}{class }PackageDef;}
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupDef}{GroupDef}};}
+\DoxyCodeLine{44 \textcolor{keyword}{struct }\mbox{\hyperlink{structIncludeInfo}{IncludeInfo}};}
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDefImpl}{ClassDefImpl}};}
+\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDef}{ClassDef}};}
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}};}
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{classUsesClassList}{UsesClassList}};}
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classConstraintClassList}{ConstraintClassList}};}
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberGroupList}{MemberGroupList}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{54 \textcolor{keyword}{struct }\mbox{\hyperlink{structBaseClassDef}{BaseClassDef}}}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56   \mbox{\hyperlink{structBaseClassDef_a20901e8922d1379dd9343fde68dca5a9}{BaseClassDef}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&n,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} p, \mbox{\hyperlink{types_8h_ab16236bdd10ddf4d73a9847350f0017e}{Specifier}} v,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&t) :}
+\DoxyCodeLine{57         \mbox{\hyperlink{structBaseClassDef_a2a62f0f7057f4cd514f3d1417191ff26}{classDef}}(cd), \mbox{\hyperlink{structBaseClassDef_ae7703a5a743ee3b6c066d8037fc71f4e}{usedName}}(n), \mbox{\hyperlink{structBaseClassDef_ab5a986f56300bfa53f7c4cff58196294}{prot}}(p), \mbox{\hyperlink{structBaseClassDef_a844100c6fcd90233e01e52fc92107464}{virt}}(v), \mbox{\hyperlink{structBaseClassDef_a2b8a712d468d70c6c80b5c07f49711ae}{templSpecifiers}}(t) \{\}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60   \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{structBaseClassDef_a2a62f0f7057f4cd514f3d1417191ff26}{classDef}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{65   \mbox{\hyperlink{classQCString}{QCString}}   \mbox{\hyperlink{structBaseClassDef_ae7703a5a743ee3b6c066d8037fc71f4e}{usedName}};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{70   \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} \mbox{\hyperlink{structBaseClassDef_ab5a986f56300bfa53f7c4cff58196294}{prot}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{75   \mbox{\hyperlink{types_8h_ab16236bdd10ddf4d73a9847350f0017e}{Specifier}}  \mbox{\hyperlink{structBaseClassDef_a844100c6fcd90233e01e52fc92107464}{virt}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{78   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structBaseClassDef_a2b8a712d468d70c6c80b5c07f49711ae}{templSpecifiers}};}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{keyword}{using} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} = std::vector<BaseClassDef>;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84 \textcolor{keyword}{struct }\mbox{\hyperlink{structTemplateInstanceDef}{TemplateInstanceDef}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86   \mbox{\hyperlink{structTemplateInstanceDef_acc212d044208171eb268fc4c010a5e2c}{TemplateInstanceDef}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ts,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd) : \mbox{\hyperlink{structTemplateInstanceDef_a2ad956c19b3608a6ab8e6b4b15856a9c}{templSpec}}(ts), \mbox{\hyperlink{structTemplateInstanceDef_af2f08132d4637d98487ec30f4f9847a1}{classDef}}(cd) \{\}}
+\DoxyCodeLine{87   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structTemplateInstanceDef_a2ad956c19b3608a6ab8e6b4b15856a9c}{templSpec}};}
+\DoxyCodeLine{88   \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{structTemplateInstanceDef_af2f08132d4637d98487ec30f4f9847a1}{classDef}};}
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{using} \mbox{\hyperlink{classdef_8h_ac6ced1c572e645da3d141b20bad3aeb4}{TemplateInstanceList}} = std::vector<TemplateInstanceDef>;}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{using} \mbox{\hyperlink{classdef_8h_a52c06547a303385be1dc01559096a3d9}{TemplateNameMap}} = std::map<std::string,int>;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{using} \mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} = std::set<const ClassDef*>;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 }
+\DoxyCodeLine{103 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDef}{ClassDef}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDefinition}{Definition}}}
+\DoxyCodeLine{104 \{}
+\DoxyCodeLine{105   \textcolor{keyword}{public}:}
+\DoxyCodeLine{107     \textcolor{keyword}{enum} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{CompoundType}} \{ \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{Class}},     \textcolor{comment}{//=Entry::CLASS\_SEC,}}
+\DoxyCodeLine{108                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{Struct}},    \textcolor{comment}{//=Entry::STRUCT\_SEC,}}
+\DoxyCodeLine{109                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{Union}},     \textcolor{comment}{//=Entry::UNION\_SEC,}}
+\DoxyCodeLine{110                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{Interface}}, \textcolor{comment}{//=Entry::INTERFACE\_SEC,}}
+\DoxyCodeLine{111                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{Protocol}},  \textcolor{comment}{//=Entry::PROTOCOL\_SEC,}}
+\DoxyCodeLine{112                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{Category}},  \textcolor{comment}{//=Entry::CATEGORY\_SEC,}}
+\DoxyCodeLine{113                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{Exception}}, \textcolor{comment}{//=Entry::EXCEPTION\_SEC}}
+\DoxyCodeLine{114                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939aaf2c9d4d2eaa6e6a614d7bd164a29c0e}{Service}},   \textcolor{comment}{//=Entry::CLASS\_SEC}}
+\DoxyCodeLine{115                         \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a34f6a5dd42307d62a5fe3038b245a667}{Singleton}}, \textcolor{comment}{//=Entry::CLASS\_SEC}}
+\DoxyCodeLine{116                       \};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{119     \textcolor{comment}{// -\/-\/-\/ getters}}
+\DoxyCodeLine{120     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDefinition_aa41b6bc53dcf93ecf745698aaf15ef8e}{DefType}} \mbox{\hyperlink{classClassDef_a7b541a98ef9a239a1e7f86e1d7a97478}{definitionType}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a12a8f241e90a0cb0bdf19c27bf2025b0}{getOutputFileBase}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a8476d860cfdada4916c4dc722f0bea07}{getInstanceOutputFileBase}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{130     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_ad14ea5ae079a471daac0a502e2979f5d}{getSourceFileBase}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a5ca8b91f73e7989abdceb8958dcb0b59}{getReference}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{136     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_acf7bae107b28803a3e61764be26b7351}{isReference}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a6b24aeece30ae83930ed2a3ca0621fec}{isLocal}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassLinkedRefMap}{ClassLinkedRefMap}} \mbox{\hyperlink{classClassDef_aeb64dc8f57c5d07f1b1d55bc560a7004}{getClasses}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{145     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a1597c29c2b7ea73bc1d65dc0e303bbe4}{hasDocumentation}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{148     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a1fd0e2c039c6d81ffa25579184568e87}{hasDetailedDescription}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{151     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_aabe7312465f1dfe18360ed5effbf7c32}{collaborationGraphFileName}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a4feb0d6c2afb9ab04ba7faec2becf27e}{inheritanceGraphFileName}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_af634536e75a73d841ccd9f5dae55d4c2}{displayName}}(\textcolor{keywordtype}{bool} includeScope=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{CompoundType}} \mbox{\hyperlink{classClassDef_ae8ba915e00984129bcbbaa4efff48b00}{compoundType}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{163     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a239fe977638806153345cd2411c28062}{compoundTypeString}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{168     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&\mbox{\hyperlink{classClassDef_a38001a11a297629e363c0db5b1968ab3}{baseClasses}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDef_a053f323d6b837a81cd86a82ce3c4d4a4}{updateBaseClasses}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&bcd) = 0;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{175     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&\mbox{\hyperlink{classClassDef_afdeec11149bf831c4c6dd297f7c4e34d}{subClasses}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDef_a6916d56bb83637aa0be3054cb0f46ac1}{updateSubClasses}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&bcd) = 0;}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberNameInfoLinkedMap}{MemberNameInfoLinkedMap}} \&\mbox{\hyperlink{classClassDef_ac8f58a78e8196768f3ddd17e645cf7f9}{memberNameInfoLinkedMap}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{188     \textcolor{keyword}{virtual} \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} \mbox{\hyperlink{classClassDef_a759c68ae0af03a49aff1a86d383af68d}{protection}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{192     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_ab44ea1cae6c5a0ff7ea797e355672e87}{isLinkableInProject}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{197     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a659ebf886a21ea56b51354c22b91b0dc}{isLinkable}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a3067e647412a923d7743258c89eabe75}{isVisibleInHierarchy}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{203     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a1a79f778ae2201c52ee19c048763d4fa}{visibleInParentsDeclList}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{207     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&\mbox{\hyperlink{classClassDef_a201b8f24043f9b7c7cc59d55282f6d47}{templateArguments}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{212     \textcolor{comment}{//virtual NamespaceDef *getNamespaceDef() const = 0;}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{217     \textcolor{keyword}{virtual} \mbox{\hyperlink{classFileDef}{FileDef}}      *\mbox{\hyperlink{classClassDef_aed4a0864e51e5a3ac616f6c8e10f56c6}{getFileDef}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *\mbox{\hyperlink{classClassDef_a3bec35936216530bf2385a8dfd2ab0e5}{getMemberByName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{228     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a6e04ce67becb080a6a695ba906ab836c}{isBaseClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *bcd,\textcolor{keywordtype}{bool} followInstances,\textcolor{keywordtype}{int} level=0) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{233     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a9a4c36f29d33a44a6b7460e89a7cd741}{isSubClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *bcd,\textcolor{keywordtype}{int} level=0) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{238     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_aa4f8aa899e9bf12dacd3442c9647bac4}{isAccessibleMember}}(\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{243     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_ac6ced1c572e645da3d141b20bad3aeb4}{TemplateInstanceList}} \&\mbox{\hyperlink{classClassDef_a3ceb3e484b62599117b5eb424c10fd10}{getTemplateInstances}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{248     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classClassDef_ae587759f556ea0d641b92a30e923a7c9}{templateMaster}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{251     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a30f19d5b8fb17b204b9e41d19b2ca49f}{isTemplate}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{structIncludeInfo}{IncludeInfo}} *\mbox{\hyperlink{classClassDef_af0c57a31c5cbef35d12de99e88745f66}{includeInfo}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classUsesClassList}{UsesClassList}} \&\mbox{\hyperlink{classClassDef_a4a15dff9d9567c126433228fff77837b}{usedImplementationClasses}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classUsesClassList}{UsesClassList}} \&\mbox{\hyperlink{classClassDef_ade6f41d07606c61673264a5d50e95c61}{usedByImplementationClasses}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classConstraintClassList}{ConstraintClassList}} \&\mbox{\hyperlink{classClassDef_acd8e27ea299fea8b7d180608bfb1326b}{templateTypeConstraints}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a9eabb427f58a6631c73f76c6856694a7}{isTemplateArgument}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{267     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *\mbox{\hyperlink{classClassDef_af158ff26690f46d57ccc0ced2fd3ba8f}{findInnerCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{276     \textcolor{keyword}{virtual} \mbox{\hyperlink{arguments_8h_ab331f620c4acf00958747569efc1199a}{ArgumentLists}} \mbox{\hyperlink{classClassDef_a43e4fb6ebed35075ecee567872abbe20}{getTemplateParameterLists}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a992e8c99863faeff7f1f8703a8b53628}{qualifiedNameWithTemplateParameters}}(}
+\DoxyCodeLine{279         \textcolor{keyword}{const} \mbox{\hyperlink{arguments_8h_ab331f620c4acf00958747569efc1199a}{ArgumentLists}} *actualParams=0,\mbox{\hyperlink{qcstring_8h_a4d3943ddea65db7163a58e6c7e8df95a}{uint}} *actualParamIndex=0) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{284     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a12dd6a6b0ac63233a82327a8b2d2d9f2}{isAbstract}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{287     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a4d9613dc45d98c8cd04a6fcf6a4f21ee}{isObjectiveC}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{290     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a25f184cac0ea4de2d27b0c0957ab9b77}{isFortran}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{293     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a8bfbc9a9cc5af4db69a0b5a796a28d38}{isCSharp}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{296     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a18c81095d49e7a4e05820d9928deaa45}{isFinal}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{299     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a3bcc0025ce9b44d8617da2abaf0eb978}{isSealed}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{302     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_ab61c051bbda755836c90d7be3d63e4f2}{isPublished}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{305     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a8a066b13127c13f73ae916af7d883ea1}{isExtension}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{308     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a8c23670661fa0360c44d3352b16135b4}{isForwardDeclared}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{311     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_aebcf69f2e74678dc5e62f1b528c9b902}{isInterface}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{314     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classClassDef_a81969b4626cb26cd6061f6c54d051827}{categoryOf}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{319     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a2bdad1ebef918dac2ae32233c26ef723}{className}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{322     \textcolor{keyword}{virtual} \mbox{\hyperlink{classMemberList}{MemberList}} *\mbox{\hyperlink{classClassDef_a7d2f9d08207ecf5b227c11f8b4ea6d9f}{getMemberList}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{325     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberLists}{MemberLists}} \&\mbox{\hyperlink{classClassDef_a283e841b3eb34d0ba2e0e106a4e3ad59}{getMemberLists}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{328     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberGroupList}{MemberGroupList}} \&\mbox{\hyperlink{classClassDef_add2c3b56273ce664bbaeb0ce1c8f420c}{getMemberGroups}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a52c06547a303385be1dc01559096a3d9}{TemplateNameMap}} \&\mbox{\hyperlink{classClassDef_aaf3dc7118f6d91b7bc741e29f45215b1}{getTemplateBaseClassNames}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_afee08a2576eb4d2888560c89ab2e1614}{isUsedOnly}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a7016b59e40eefbd4e9a1cc6fa43e0bff}{anchor}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{335     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_ac86d2e29cb6233d073aa4c9b5ea726af}{isEmbeddedInOuterScope}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a7396ab268485c570718f3274105b3f48}{isSimple}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classClassDef_a7b4e443b14553fba6f95e3462b531149}{tagLessReference}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *\mbox{\hyperlink{classClassDef_a88fd3d3f7762f2a3c7b3634b554ce579}{isSmartPointer}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a9a3699b6766321cef5a194b6fa1a9d2c}{isJavaEnum}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_afb51998523ff484408b2a96fd4f3fced}{title}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_a8dc67c6c1096d9c72d3daa092c0f480a}{generatedFromFiles}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{348     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classFileList}{FileList}} \&\mbox{\hyperlink{classClassDef_ab6ba54124ee74df07036e2473579264d}{usedFiles}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&\mbox{\hyperlink{classClassDef_aa4c4caac2adb12c3207df5936ba2c90b}{typeConstraints}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{351     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classExampleList}{ExampleList}} \&\mbox{\hyperlink{classClassDef_a980a867140493e4cf4fd9ded7ee75e55}{getExamples}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{352     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a4da7081ddd605c4b0f972d4aeadaf1a0}{hasExamples}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_ac620ac7f22f673e84410b1ceca0af3be}{getMemberListFileName}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{354     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a1e2ce9f8d0cb3b6f1ba0317ca8dbb714}{subGrouping}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a0e9ae30aa6558cef5fd9bda03c1bb569}{isSliceLocal}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{357     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDef_a8bfa7122b5f501c389a13c2d55219f44}{hasNonReferenceSuperClass}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classClassDef_af404e73b14943149542cf4202bc0ab6d}{requiresClause}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{362     \textcolor{comment}{// -\/-\/-\/ count members -\/-\/-\/-\/}}
+\DoxyCodeLine{363     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classClassDef_aa08a21c84b7e1718d8f2701bc3af6291}{countMembersIncludingGrouped}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,}
+\DoxyCodeLine{366                 \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom,\textcolor{keywordtype}{bool} additional) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classClassDef_aaed5a1330ded27cf8e803ff5fc57de6f}{countInheritanceNodes}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{368     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classClassDef_a34e5ae84196ce8bc924914b4a8a4bd5e}{countMemberDeclarations}}(\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom,}
+\DoxyCodeLine{369                 \textcolor{keywordtype}{int} lt2,\textcolor{keywordtype}{bool} invert,\textcolor{keywordtype}{bool} showAlways,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{372     \textcolor{comment}{// -\/-\/-\/ helpers -\/-\/-\/-\/}}
+\DoxyCodeLine{373     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classClassDef_a9cdbbcba038909c2ae9de31c14e30d3b}{insertTemplateInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} startLine,\textcolor{keywordtype}{int} startColumn,}
+\DoxyCodeLine{376                                 \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&templSpec,\textcolor{keywordtype}{bool} \&freshInstance) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{377     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDef_acd75a76f95d8eacddd4afbb7dc8693a2}{writeDeclarationLink}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keywordtype}{bool} \&found,}
+\DoxyCodeLine{378                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&header,\textcolor{keywordtype}{bool} localNames) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \};}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDefinitionMutable}{DefinitionMutable}}, \textcolor{keyword}{public} \mbox{\hyperlink{classClassDef}{ClassDef}}}
+\DoxyCodeLine{383 \{}
+\DoxyCodeLine{384   \textcolor{keyword}{public}:}
+\DoxyCodeLine{385     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{386     \textcolor{comment}{// -\/-\/-\/ setters -\/-\/-\/-\/}}
+\DoxyCodeLine{387     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ab8538398ef1512b81297ba04af813924}{setIncludeFile}}(\mbox{\hyperlink{classFileDef}{FileDef}} *fd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&incName,\textcolor{keywordtype}{bool} local,\textcolor{keywordtype}{bool} force) = 0;}
+\DoxyCodeLine{390     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a433e1fc2bf9d074747f0e7479d1c9653}{setFileDef}}(\mbox{\hyperlink{classFileDef}{FileDef}} *fd) = 0;}
+\DoxyCodeLine{391     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aee97719f20204be072d7de3a445296d7}{setSubGrouping}}(\textcolor{keywordtype}{bool} enabled) = 0;}
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aad450d410ef63ffbd30b47be5a70e742}{setProtection}}(\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} p) = 0;}
+\DoxyCodeLine{393     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a587dbea5e2811999a97fcedbb5619eff}{setGroupDefForAllMembers}}(\mbox{\hyperlink{classGroupDef}{GroupDef}} *g,\mbox{\hyperlink{structGrouping_a9f0ec5ab376b083ebe3274ea79fd2d70}{Grouping::GroupPri\_t}} pri,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} startLine,\textcolor{keywordtype}{bool} hasDocs) = 0;}
+\DoxyCodeLine{394     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ae43d1ddb8b8a545ca6f12980c3c17034}{setIsStatic}}(\textcolor{keywordtype}{bool} b) = 0;}
+\DoxyCodeLine{395     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_abd16aabc699670ad3d110122f710d944}{setCompoundType}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{CompoundType}} t) = 0;}
+\DoxyCodeLine{396     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a0eed3eca2f487ea375047fa77f3fe322}{setClassName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}) = 0;}
+\DoxyCodeLine{397     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a75509a25871fd66cd880bff396a086fd}{setClassSpecifier}}(\mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} spec) = 0;}
+\DoxyCodeLine{398     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a763c629167d89e9ffcfd0c59d43bc7d5}{setTemplateArguments}}(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al) = 0;}
+\DoxyCodeLine{399     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a28f3153dca572de010e0123e2efbb7a5}{setTemplateBaseClassNames}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a52c06547a303385be1dc01559096a3d9}{TemplateNameMap}} \&templateNames) = 0;}
+\DoxyCodeLine{400     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a7a79a2f8d3698eb9e654332da668b259}{setTemplateMaster}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *tm) = 0;}
+\DoxyCodeLine{401     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aadad154d921a40f51f94b6a300fe95fc}{setTypeConstraints}}(\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&al) = 0;}
+\DoxyCodeLine{402     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aa29fd7952f1c8eb27ec028f721752ef2}{setCategoryOf}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd) = 0;}
+\DoxyCodeLine{403     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a9ebbd33fff9657c55529319f4a355309}{setUsedOnly}}(\textcolor{keywordtype}{bool} b) = 0;}
+\DoxyCodeLine{404     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a9c8efa9791f60a2d93bfb735d5880f86}{setTagLessReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd) = 0;}
+\DoxyCodeLine{405     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a936af1cfff9c4995a482031ba3fe07a1}{setName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}) = 0;}
+\DoxyCodeLine{406     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a30706a65a1692c85e8791a82ab40fad4}{setMetaData}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&md) = 0;}
+\DoxyCodeLine{407     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a9aeaf894c5b89c28322bcaaeef220c0c}{setRequiresClause}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&req) = 0;}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{410     \textcolor{comment}{// -\/-\/-\/ actions -\/-\/-\/-\/}}
+\DoxyCodeLine{411     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a761d9f7cc2f81e4ac4211e265540bace}{insertBaseClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}},\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} p,\mbox{\hyperlink{types_8h_ab16236bdd10ddf4d73a9847350f0017e}{Specifier}} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&t=\mbox{\hyperlink{classQCString}{QCString}}()) = 0;}
+\DoxyCodeLine{414     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a9455d0a7225968447a4bb2b7ce6eb46c}{insertSubClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} p,\mbox{\hyperlink{types_8h_ab16236bdd10ddf4d73a9847350f0017e}{Specifier}} \mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&t=\mbox{\hyperlink{classQCString}{QCString}}()) = 0;}
+\DoxyCodeLine{415     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aceb3bff3f6febf20e1abb61386da66e7}{insertMember}}(\mbox{\hyperlink{classMemberDef}{MemberDef}} *) = 0;}
+\DoxyCodeLine{416     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a98844b40b53f9e938671fe274771754f}{insertUsedFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *) = 0;}
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ad59851d3155ba565dfe74bbb919435cc}{addMembersToTemplateInstance}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classArgumentList}{ArgumentList}} \&\mbox{\hyperlink{classClassDef_a201b8f24043f9b7c7cc59d55282f6d47}{templateArguments}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&templSpec) = 0;}
+\DoxyCodeLine{418     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a51368b2e8ca9891a4ba4f9cf13bcdb88}{addInnerCompound}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d) = 0;}
+\DoxyCodeLine{419     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classClassDefMutable_ae24cc8d57767aa81b004bc941de52e90}{addExample}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classClassDef_a7016b59e40eefbd4e9a1cc6fa43e0bff}{anchor}},\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}) = 0;}
+\DoxyCodeLine{420     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a495b362e77fb13df4c06880dcd36daae}{addUsedClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&accessName,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot) = 0;}
+\DoxyCodeLine{421     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_acc27a2bc4401c6769868027174ae8859}{addUsedByClass}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&accessName,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot) = 0;}
+\DoxyCodeLine{422     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a2612e395bff76cdb264d5e2a2165ddd2}{makeTemplateArgument}}(\textcolor{keywordtype}{bool} b=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}) = 0;}
+\DoxyCodeLine{423     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a84cabed2f3be53244c3f999960f040cf}{mergeCategory}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *category) = 0;}
+\DoxyCodeLine{424     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ac6574e432cbe06bbe10532e99ae1e4d9}{findSectionsInDocumentation}}() = 0;}
+\DoxyCodeLine{425     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a1c90cadafedf7c5aabf13652c88929d9}{addMembersToMemberGroup}}() = 0;}
+\DoxyCodeLine{426     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a8e6e94e29c2e6db09e38213e1525cd64}{addListReferences}}() = 0;}
+\DoxyCodeLine{427     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a02add5668fa40a4104eee73bafae1a55}{addTypeConstraints}}() = 0;}
+\DoxyCodeLine{428     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a003956b60072c315dd1d0b219ac8509c}{computeAnchors}}() = 0;}
+\DoxyCodeLine{429     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_add1551ed5dda937cb558185bd9f6a26f}{mergeMembers}}() = 0;}
+\DoxyCodeLine{430     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aa5eb04ce72bf8939bc7f1e101fb385ad}{sortMemberLists}}() = 0;}
+\DoxyCodeLine{431     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_abe388143a997de70f1730c5a4da5dbf5}{distributeMemberGroupDocumentation}}() = 0;}
+\DoxyCodeLine{432     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a584286323030eb7d8b980932db316393}{reclassifyMember}}(\mbox{\hyperlink{classMemberDefMutable}{MemberDefMutable}} *md,\mbox{\hyperlink{types_8h_a63e3de542c5d38de617ab78c8c8f5a41}{MemberType}} t) = 0;}
+\DoxyCodeLine{433     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_abfb14856f2e7b09ad3583fb16953b8e0}{removeMemberFromLists}}(\mbox{\hyperlink{classMemberDef}{MemberDef}} *md) = 0;}
+\DoxyCodeLine{434     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_abb17571af31f200efe39466c2e96dd30}{setAnonymousEnumType}}() = 0;}
+\DoxyCodeLine{435     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a1ba28a556105e009bab4a3a1321e4de9}{countMembers}}() = 0;}
+\DoxyCodeLine{436     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ad3f331c1d12e6f5256e749173835b2b8}{sortAllMembersList}}() = 0;}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{439     \textcolor{comment}{// -\/-\/-\/ write output -\/-\/-\/-\/}}
+\DoxyCodeLine{440     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{442     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a1cf2cee2b4fc875308d2f3dffc45a83e}{writeDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{443     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_af0eba0ab21b01fc31bb9cf8fb2c1d1e7}{writeDocumentationForInnerClasses}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{444     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a7057026a4be6a181eae7ceac0e8a7f8e}{writeMemberPages}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{445     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_af5ec2fcecd83972e7418725bf40f9345}{writeMemberList}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{446     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_ae75f6c570eaef9ca12848c1fed3a3494}{writeDeclaration}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md,\textcolor{keywordtype}{bool} inGroup,}
+\DoxyCodeLine{447                  \textcolor{keywordtype}{int} indentLevel, \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inheritId) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{448     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a04beb4319a59ad16b7684c345eb799b6}{writeQuickMemberLinks}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *md) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{449     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a0ec43a9202e0339e6022c6d9ee6602ea}{writeSummaryLinks}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{450     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a51d483e2dfa5353eb539a594e79c8d58}{writeInlineDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{451     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a954daa410c414dae7ff9571f618c389c}{writeTagFile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&) = 0;}
+\DoxyCodeLine{452     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_aff2ebc0f29ddb4ec88ede73953682276}{writeMemberDeclarations}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\mbox{\hyperlink{classdef_8h_a6a57c19877e781003273aacd8c7b18fe}{ClassDefSet}} \&visitedClasses,}
+\DoxyCodeLine{453                  \mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classClassDef_afb51998523ff484408b2a96fd4f3fced}{title}},}
+\DoxyCodeLine{454                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&subTitle=\mbox{\hyperlink{classQCString}{QCString}}(),}
+\DoxyCodeLine{455                  \textcolor{keywordtype}{bool} showInline=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom=0,}
+\DoxyCodeLine{456                  \textcolor{keywordtype}{int} lt2=-\/1,\textcolor{keywordtype}{bool} invert=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},\textcolor{keywordtype}{bool} showAlways=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{457     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classClassDefMutable_a785f5cfb30497385fd978a035c335bb2}{addGroupedInheritedMembers}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol,\mbox{\hyperlink{types_8h_abe8ad5992f8938a28f918f51b199aa19}{MemberListType}} lt,}
+\DoxyCodeLine{458                  \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *inheritedFrom,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&inheritId) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461 \};}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{464 \mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}} *\mbox{\hyperlink{classdef_8h_a1a3c0b17bfb52e5b9a800b62386fdb90}{createClassDef}}(}
+\DoxyCodeLine{465              \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} startLine,\textcolor{keywordtype}{int} startColumn,}
+\DoxyCodeLine{466              \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} ct,}
+\DoxyCodeLine{467              \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ref=\mbox{\hyperlink{classQCString}{QCString}}(),\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName=\mbox{\hyperlink{classQCString}{QCString}}(),}
+\DoxyCodeLine{468              \textcolor{keywordtype}{bool} isSymbol=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\textcolor{keywordtype}{bool} isJavaEnum=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classdef_8h_afb364ad10f2478640e415534f8cd23c3}{createClassDefAlias}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *newScope,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{472 \textcolor{comment}{// -\/-\/-\/ Cast functions}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474 \mbox{\hyperlink{classClassDef}{ClassDef}}            *\mbox{\hyperlink{classdef_8h_ac7e9d22a4c24e745c1ab16d0af527da2}{toClassDef}}(\mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{475 \mbox{\hyperlink{classClassDef}{ClassDef}}            *\mbox{\hyperlink{classdef_8h_ac7e9d22a4c24e745c1ab16d0af527da2}{toClassDef}}(\mbox{\hyperlink{classDefinitionMutable}{DefinitionMutable}} *d);}
+\DoxyCodeLine{476 \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}      *\mbox{\hyperlink{classdef_8h_ac7e9d22a4c24e745c1ab16d0af527da2}{toClassDef}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{477 \mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}}     *\mbox{\hyperlink{classdef_8h_a2d0bf73f7801534e7e2b6e5fc03ed6f5}{toClassDefMutable}}(\mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{478 \mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}}     *\mbox{\hyperlink{classdef_8h_a2d0bf73f7801534e7e2b6e5fc03ed6f5}{toClassDefMutable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{479 }
+\DoxyCodeLine{480 \textcolor{comment}{// -\/-\/-\/ Helpers}}
+\DoxyCodeLine{481 \textcolor{comment}{//}}
+\DoxyCodeLine{482 \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{classdef_8h_a3349b7e69fa32e5e6ebd2a40d40d6878}{getClass}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key);}
+\DoxyCodeLine{483 \textcolor{keyword}{inline} \mbox{\hyperlink{classClassDefMutable}{ClassDefMutable}} *\mbox{\hyperlink{classdef_8h_a7a69e84416f85b6fd78f21b6d5effb67}{getClassMutable}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)}
+\DoxyCodeLine{484 \{}
+\DoxyCodeLine{485   \textcolor{keywordflow}{return} \mbox{\hyperlink{classdef_8h_a2d0bf73f7801534e7e2b6e5fc03ed6f5}{toClassDefMutable}}(\mbox{\hyperlink{classdef_8h_a3349b7e69fa32e5e6ebd2a40d40d6878}{getClass}}(key));}
+\DoxyCodeLine{486 \}}
+\DoxyCodeLine{487 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdef_8h_ac0eadc7d7582ad6fd7727ce0f417e96a}{hasVisibleRoot}}(\textcolor{keyword}{const} \mbox{\hyperlink{classdef_8h_a173eca34c5a9473651c05a4d92c355fe}{BaseClassList}} \&bcl);}
+\DoxyCodeLine{488 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdef_8h_af0c88e52d4d7424c0840a23a522dc330}{classHasVisibleChildren}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{489 \textcolor{keywordtype}{bool} \mbox{\hyperlink{classdef_8h_abf9fad8d7ee7f78e152b542bcd38061d}{classVisibleInIndex}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd);}
+\DoxyCodeLine{490 \textcolor{keywordtype}{int} \mbox{\hyperlink{classdef_8h_a19ebee64db945b01ff5b36cd2b7ed0ca}{minClassDistance}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *bcd,\textcolor{keywordtype}{int} level=0);}
+\DoxyCodeLine{491 \mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} \mbox{\hyperlink{classdef_8h_a1c8b5464000c08445cd8b953bf217fcd}{classInheritedProtectionLevel}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *bcd,\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4ded}{Protection}} prot=\mbox{\hyperlink{types_8h_a90e352184df58cd09455fe9996cd4deda2d47e20e63deb55d32228fde32f6b513}{Public}},\textcolor{keywordtype}{int} level=0);}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{497 \textcolor{keyword}{struct }\mbox{\hyperlink{structUsesClassDef}{UsesClassDef}}}
+\DoxyCodeLine{498 \{}
+\DoxyCodeLine{499   \mbox{\hyperlink{structUsesClassDef_a315e3fb5ca3523ec88e0ede4d4accafe}{UsesClassDef}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd) : \mbox{\hyperlink{structUsesClassDef_ae9ace813f9031b4afb6894e5ad15f901}{classDef}}(cd)}
+\DoxyCodeLine{500   \{}
+\DoxyCodeLine{501   \}}
+\DoxyCodeLine{502  \mbox{\hyperlink{structUsesClassDef_a6aa317cfd4a4f5312d9a081328b52b5e}{\string~UsesClassDef}}()}
+\DoxyCodeLine{503   \{}
+\DoxyCodeLine{504   \}}
+\DoxyCodeLine{505   \textcolor{keywordtype}{void} \mbox{\hyperlink{structUsesClassDef_ac3b5c2f408116e9da744697d8d876796}{addAccessor}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{506   \{}
+\DoxyCodeLine{507     \textcolor{keywordflow}{if} (\mbox{\hyperlink{structUsesClassDef_abd90fd9dc0e0cb8edede35fa3a58e885}{accessors}}.find(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str())==\mbox{\hyperlink{structUsesClassDef_abd90fd9dc0e0cb8edede35fa3a58e885}{accessors}}.end())}
+\DoxyCodeLine{508     \{}
+\DoxyCodeLine{509       \mbox{\hyperlink{structUsesClassDef_abd90fd9dc0e0cb8edede35fa3a58e885}{accessors}}.insert(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str());}
+\DoxyCodeLine{510     \}}
+\DoxyCodeLine{511   \}}
+\DoxyCodeLine{513   \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{structUsesClassDef_ae9ace813f9031b4afb6894e5ad15f901}{classDef}};}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{518   \mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{StringSet}} \mbox{\hyperlink{structUsesClassDef_abd90fd9dc0e0cb8edede35fa3a58e885}{accessors}};}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{521   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structUsesClassDef_a5f65373ed5c0409ef538193d0e58f06d}{templSpecifiers}};}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{523   \textcolor{keywordtype}{bool} \mbox{\hyperlink{structUsesClassDef_a0373cf528ea065d333d13b085cf50b90}{containment}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{524 \};}
+\DoxyCodeLine{525 }
+\DoxyCodeLine{526 \textcolor{keyword}{class }\mbox{\hyperlink{classUsesClassList}{UsesClassList}} : \textcolor{keyword}{public} std::vector<UsesClassDef>}
+\DoxyCodeLine{527 \{}
+\DoxyCodeLine{528 \};}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{534 \textcolor{keyword}{struct }\mbox{\hyperlink{structConstraintClassDef}{ConstraintClassDef}}}
+\DoxyCodeLine{535 \{}
+\DoxyCodeLine{536   \mbox{\hyperlink{structConstraintClassDef_a511b92d880437fdff407845cc372ca1d}{ConstraintClassDef}}(\mbox{\hyperlink{classClassDef}{ClassDef}} *cd) : \mbox{\hyperlink{structConstraintClassDef_a19b68e8a482c234e891caf07a74608ef}{classDef}}(cd)}
+\DoxyCodeLine{537   \{}
+\DoxyCodeLine{538   \}}
+\DoxyCodeLine{539  \mbox{\hyperlink{structConstraintClassDef_a4ca4a048dae5ff6bbd9376e947e7cc0e}{\string~ConstraintClassDef}}()}
+\DoxyCodeLine{540   \{}
+\DoxyCodeLine{541   \}}
+\DoxyCodeLine{542   \textcolor{keywordtype}{void} \mbox{\hyperlink{structConstraintClassDef_aa0de42a40a226e9f3373d90386d9d271}{addAccessor}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{543   \{}
+\DoxyCodeLine{544     \textcolor{keywordflow}{if} (\mbox{\hyperlink{structConstraintClassDef_a57c368314075b446f998c4c140d570a1}{accessors}}.find(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str())==\mbox{\hyperlink{structConstraintClassDef_a57c368314075b446f998c4c140d570a1}{accessors}}.end())}
+\DoxyCodeLine{545     \{}
+\DoxyCodeLine{546       \mbox{\hyperlink{structConstraintClassDef_a57c368314075b446f998c4c140d570a1}{accessors}}.insert(\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.str());}
+\DoxyCodeLine{547     \}}
+\DoxyCodeLine{548   \}}
+\DoxyCodeLine{550   \mbox{\hyperlink{classClassDef}{ClassDef}} *\mbox{\hyperlink{structConstraintClassDef_a19b68e8a482c234e891caf07a74608ef}{classDef}};}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{555   \mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{StringSet}} \mbox{\hyperlink{structConstraintClassDef_a57c368314075b446f998c4c140d570a1}{accessors}};}
+\DoxyCodeLine{556 \};}
+\DoxyCodeLine{557 }
+\DoxyCodeLine{558 \textcolor{keyword}{class }\mbox{\hyperlink{classConstraintClassList}{ConstraintClassList}} : \textcolor{keyword}{public} std::vector<ConstraintClassDef>}
+\DoxyCodeLine{559 \{}
+\DoxyCodeLine{560 \};}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

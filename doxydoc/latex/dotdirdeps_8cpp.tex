@@ -1,0 +1,79 @@
+\hypertarget{dotdirdeps_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/dotdirdeps.cpp File Reference}
+\label{dotdirdeps_8cpp}\index{/mnt/c/projects/doxygen/src/dotdirdeps.cpp@{/mnt/c/projects/doxygen/src/dotdirdeps.cpp}}
+{\ttfamily \#include \char`\"{}dotdirdeps.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}image.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for dotdirdeps.\+cpp\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDotDirProperty}{Dot\+Dir\+Property}}
+\item 
+class \mbox{\hyperlink{classDotDirPropertyBuilder}{Dot\+Dir\+Property\+Builder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} = std\+::map$<$ std\+::string, const \mbox{\hyperlink{classDirDef}{Dir\+Def}} $\ast$ $>$
+\item 
+typedef std\+::vector$<$ std\+::pair$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classDirRelation}{Dir\+Relation}} $>$, bool $>$ $>$ \mbox{\hyperlink{dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}{write\+Dot\+Dir\+Dep\+Graph}} (\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&t, const \mbox{\hyperlink{classDirDef}{Dir\+Def}} $\ast$dd, bool link\+Relations)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}\label{dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!DirDefMap@{DirDefMap}}
+\index{DirDefMap@{DirDefMap}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{DirDefMap}{DirDefMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{dotdirdeps_8cpp_aa012bdc6c0e896cccb8121b3c6b7ad60}{Dir\+Def\+Map}} =  std\+::map$<$std\+::string,const \mbox{\hyperlink{classDirDef}{Dir\+Def}} $\ast$$>$}
+
+\mbox{\Hypertarget{dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}\label{dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!DirRelations@{DirRelations}}
+\index{DirRelations@{DirRelations}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{DirRelations}{DirRelations}}
+{\footnotesize\ttfamily typedef std\+::vector$<$ std\+::pair$<$ std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{classDirRelation}{Dir\+Relation}}$>$, bool$>$ $>$ \mbox{\hyperlink{dotdirdeps_8cpp_a0540771f72e56700a0d30f72580d0065}{Dir\+Relations}}}
+
+Elements consist of (1) directory relation and (2) whether it is pointing only to inherited dependees. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}\label{dotdirdeps_8cpp_ac4e7090b3ce2c42151afd6b83298096f}} 
+\index{dotdirdeps.cpp@{dotdirdeps.cpp}!writeDotDirDepGraph@{writeDotDirDepGraph}}
+\index{writeDotDirDepGraph@{writeDotDirDepGraph}!dotdirdeps.cpp@{dotdirdeps.cpp}}
+\doxysubsubsection{\texorpdfstring{writeDotDirDepGraph()}{writeDotDirDepGraph()}}
+{\footnotesize\ttfamily void write\+Dot\+Dir\+Dep\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTextStream}{Text\+Stream}} \&}]{t,  }\item[{const \mbox{\hyperlink{classDirDef}{Dir\+Def}} $\ast$}]{dd,  }\item[{bool}]{link\+Relations }\end{DoxyParamCaption})}
+
+Write DOT code for directory dependency graph.
+
+Code is generated for a directory. Successors (sub-\/directories) of this directory are recursively drawn. Recursion is limited by {\ttfamily DIR\+\_\+\+GRAPH\+\_\+\+MAX\+\_\+\+DEPTH}. The dependencies of those directories are drawn.
+
+If a dependee is not part of directory tree above, then the dependency is drawn to the first parent of the dependee, whose parent is an ancestor (sub-\/directory) of the original directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & stream where the DOT code is written to \\
+\hline
+{\em dd} & directory for which the graph is generated for \\
+\hline
+{\em link\+Relations} & if true, hyperlinks to the list of file dependencies are added \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 1

@@ -1,0 +1,502 @@
+\hypertarget{translator_8h_source}{}\doxysection{translator.\+h}
+\label{translator_8h_source}\index{/mnt/c/projects/doxygen/src/translator.h@{/mnt/c/projects/doxygen/src/translator.h}}
+\mbox{\hyperlink{translator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define TRANSLATOR\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{classdef_8h}{classdef.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslator}{Translator}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8841e027d8a0e661d0cef7e06d75c22a}{updateNeededMessage}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(); \}}
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \mbox{\hyperlink{classTranslator_a319cef253c918d91c68dac02753eda2a}{\string~Translator}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// Please, have a look at comments inside the translator\_en.h file}}
+\DoxyCodeLine{37     \textcolor{comment}{// to learn the meaning of the following methods.  The translator\_en.h}}
+\DoxyCodeLine{38     \textcolor{comment}{// file contains the TranslatorEnglish implementation, which is}}
+\DoxyCodeLine{39     \textcolor{comment}{// always up-\/to-\/date (by definition).}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af1d1a225ccc757c51c6cecfeda886b93}{idLanguage}}() = 0;}
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa2cff88fa1aa000c9f5efe2ac12c4448}{latexLanguageSupportCommand}}() = 0;}
+\DoxyCodeLine{51     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a573b483369d8d7cf7d85831a9da356be}{latexFontenc}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}T1"{}}); \}}
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa515f98fc4cdc6fba85aa02ec6c98b87}{latexFont}}() \{}
+\DoxyCodeLine{53       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[scaled=.90]\{helvet\}\(\backslash\)n"{}}}
+\DoxyCodeLine{54              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{courier\}\(\backslash\)n"{}}}
+\DoxyCodeLine{55              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)renewcommand\{\(\backslash\)\(\backslash\)familydefault\}\{\(\backslash\)\(\backslash\)sfdefault\}\(\backslash\)n"{}});}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{61     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9fe33a516bc0ec6825a967294dd5d686}{latexDocumentPre}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}"{}}); \}}
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4bcba7a46f227760b534b35760688da6}{latexDocumentPost}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}"{}}); \}}
+\DoxyCodeLine{70     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9e87df46e59ca15713f43205aeb17ea0}{latexCommandName}}()}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72       \mbox{\hyperlink{classQCString}{QCString}} latex\_command = \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_CMD\_NAME);}
+\DoxyCodeLine{73       \textcolor{keywordflow}{if} (latex\_command.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latex\_command = \textcolor{stringliteral}{"{}latex"{}};}
+\DoxyCodeLine{74       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{75       \{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (latex\_command == \textcolor{stringliteral}{"{}latex"{}}) latex\_command = \textcolor{stringliteral}{"{}pdflatex"{}};}
+\DoxyCodeLine{77       \}}
+\DoxyCodeLine{78       \textcolor{keywordflow}{return} latex\_command;}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a32d242636756c9b302e74454bfb3fa5f}{trISOLang}}() = 0;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af52da90d0c6a2055ee63d18eb900f171}{getLanguageString}}() = 0;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{148     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classTranslator_ab003646f994f29a35e3348eb5c007da9}{needsPunctuation}}() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af90d4efa4402e01bd8212af18b6a2c05}{trRelatedFunctions}}() = 0;}
+\DoxyCodeLine{153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a766626cb6f268088fec86e9d3c20b2f3}{trRelatedSubscript}}() = 0;}
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6f0826040d05174e350c90920651bf45}{trDetailedDescription}}() = 0;}
+\DoxyCodeLine{155     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a381da0ae49e0801e0699b0e10b448d0b}{trMemberTypedefDocumentation}}() = 0;}
+\DoxyCodeLine{156     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa327ece6b24bc5201a45a9fdee813556}{trMemberEnumerationDocumentation}}() = 0;}
+\DoxyCodeLine{157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aaf453b274c90d92010dd4673e3cdae93}{trMemberFunctionDocumentation}}() = 0;}
+\DoxyCodeLine{158     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7951a0dfe5173b444a0bf464148c5961}{trMemberDataDocumentation}}() = 0;}
+\DoxyCodeLine{159     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a739f39ac982745ec61d60bb8ed57bd6d}{trMore}}() = 0;}
+\DoxyCodeLine{160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ade3aeeb9d926bef235edea112a4aae3e}{trListOfAllMembers}}() = 0;}
+\DoxyCodeLine{161     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a00110754c6a4bf3250db05aeec9ce441}{trMemberList}}() = 0;}
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7d3db35076be3c4855bd784f02948583}{trThisIsTheListOfAllMembers}}() = 0;}
+\DoxyCodeLine{163     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a158a1104617de4cdbe589d2c2f678cb1}{trIncludingInheritedMembers}}() = 0;}
+\DoxyCodeLine{164     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9dd7e1320ba9493a5f85de295f2191dd}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}) = 0;}
+\DoxyCodeLine{165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_abc6078e0cfddec33bfd37104629c8aa5}{trEnumName}}() = 0;}
+\DoxyCodeLine{166     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac967d215eaeada1586591ff86fcb27ee}{trEnumValue}}() = 0;}
+\DoxyCodeLine{167     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_adcf22e25b6f53f1e98a5461fa6fd4615}{trDefinedIn}}() = 0;}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a30ab06b4873f2a1147790b1f19070daa}{trModules}}() = 0;}
+\DoxyCodeLine{172     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa0239ddf927f682dd691ea075cb8c675}{trClassHierarchy}}() = 0;}
+\DoxyCodeLine{173     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af66045c049fb505e2e09605d641f2ff2}{trCompoundList}}() = 0;}
+\DoxyCodeLine{174     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac461556d9c97028bde87745fdc97b3cb}{trFileList}}() = 0;}
+\DoxyCodeLine{175     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6c32b990a668865e04330007c37ecb2a}{trCompoundMembers}}() = 0;}
+\DoxyCodeLine{176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab1ae470cc9c32e47bdebde8141940ffe}{trFileMembers}}() = 0;}
+\DoxyCodeLine{177     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9211862fab0f3438ac948b60175c3a8f}{trRelatedPages}}() = 0;}
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad0aac429d4bcd4489a41e395c5244976}{trExamples}}() = 0;}
+\DoxyCodeLine{179     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2069e8807c39f57f4e665367d3e214d0}{trSearch}}() = 0;}
+\DoxyCodeLine{180     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a05c4c5ca2361559b5424e6dbadcbdf5c}{trClassHierarchyDescription}}() = 0;}
+\DoxyCodeLine{181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a30b48fc385dd9707a52622ffebc4392e}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{182     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a031a3a5017a0548c73bb764c7a6b24f4}{trCompoundListDescription}}() = 0;}
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3f5797671f227e6a206aaa866973fcb2}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{184     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ace231b43d772f05ca59d0aa18cbdd51b}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{185     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6f98d005e7b74f9d189abc30e3d48e6c}{trExamplesDescription}}() = 0;}
+\DoxyCodeLine{186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a69514c5a8d25925e7cd60245ca5e8e73}{trRelatedPagesDescription}}() = 0;}
+\DoxyCodeLine{187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a36c9337d60e94df29e4c7769910e0272}{trModulesDescription}}() = 0;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a49c727268a64ce6b2989070c475d14be}{trDocumentation}}() = 0;}
+\DoxyCodeLine{192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1528b760ac55c716b31a5bfeb0fce464}{trModuleIndex}}() = 0;}
+\DoxyCodeLine{193     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2bd618847b3b5a486bc777240d791c5f}{trHierarchicalIndex}}() = 0;}
+\DoxyCodeLine{194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7040654c74fbc401fab833fa581ab04d}{trCompoundIndex}}() = 0;}
+\DoxyCodeLine{195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a211fb54600da7fd1c98dc7b45e045f6b}{trFileIndex}}() = 0;}
+\DoxyCodeLine{196     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8af0b797724f6454dd670173ecdea786}{trModuleDocumentation}}() = 0;}
+\DoxyCodeLine{197     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7f2ce6d3f52323d11e2ec9021c1daff1}{trClassDocumentation}}() = 0;}
+\DoxyCodeLine{198     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a60511677ac6d642d9ad9226e6a225550}{trFileDocumentation}}() = 0;}
+\DoxyCodeLine{199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7829ffeeebcaaddb10372921956a2d6e}{trExampleDocumentation}}() = 0;}
+\DoxyCodeLine{200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af35d27f8e080e06312ae9a70edcaaeaf}{trReferenceManual}}() = 0;}
+\DoxyCodeLine{201     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_afe1d9b3dcd74bb8fb8c116c2c0e86e2e}{trDefines}}() = 0;}
+\DoxyCodeLine{202     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_afcd2ee932660156f0d368863391e1c90}{trTypedefs}}() = 0;}
+\DoxyCodeLine{203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa64aafd8ba4afe93889cf3ca459eb862}{trEnumerations}}() = 0;}
+\DoxyCodeLine{204     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a47b276e3a96dfc48a2466b16b04c1360}{trFunctions}}() = 0;}
+\DoxyCodeLine{205     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a436fe2e6f0ba8c4cdb544dd72a6e72a2}{trVariables}}() = 0;}
+\DoxyCodeLine{206     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a61bb38a3a5fa42b9e1b1045a5151f092}{trEnumerationValues}}() = 0;}
+\DoxyCodeLine{207     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a931507210a6681017dbcfadedc0a30ce}{trDefineDocumentation}}() = 0;}
+\DoxyCodeLine{208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a74a96db24fcfdcaea9988b7ffff60271}{trTypedefDocumentation}}() = 0;}
+\DoxyCodeLine{209     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a688c81619f410644c0fb5b3e7d96b4d6}{trEnumerationTypeDocumentation}}() = 0;}
+\DoxyCodeLine{210     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3733d3cbf05292e37f9c6503e92e30ff}{trFunctionDocumentation}}() = 0;}
+\DoxyCodeLine{211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a637b04555eedd43402fe240760f302ea}{trVariableDocumentation}}() = 0;}
+\DoxyCodeLine{212     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8e2b65d58a4997060ee9f2feff75046b}{trCompounds}}() = 0;}
+\DoxyCodeLine{213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ade034ca30aff9cee3e24c3b498cdc3bc}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName) = 0;}
+\DoxyCodeLine{214     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_accaa2f30946a8b80b9347457f3090cc3}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName) = 0;}
+\DoxyCodeLine{215     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad00b8ff1d576631ed24b1aaf81f21b82}{trWarning}}() = 0;}
+\DoxyCodeLine{216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5969dae9422940f4675aa18304b16087}{trVersion}}() = 0;}
+\DoxyCodeLine{217     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa1e4638e8942601483cf2ba078b86f05}{trDate}}() = 0;}
+\DoxyCodeLine{218     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6085a6938ea5edb5b1a61874983260e5}{trReturns}}() = 0;}
+\DoxyCodeLine{219     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad1f5dba74deba99cafcf97a3df60164e}{trSeeAlso}}() = 0;}
+\DoxyCodeLine{220     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aab8ec7804a21da51d6e6447d5dd19aea}{trParameters}}() = 0;}
+\DoxyCodeLine{221     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a638f0cdaaad952acdd6830c76ff740fc}{trExceptions}}() = 0;}
+\DoxyCodeLine{222     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8ba96cf4ebea87a6706e8544661cb0c9}{trGeneratedBy}}() = 0;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{225 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{227 \textcolor{comment}{}}
+\DoxyCodeLine{228     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa204b3cebbb1807093fb76afca1e41e1}{trNamespaceList}}() = 0;}
+\DoxyCodeLine{229     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab47254ac74585b9a1f5aa51a689d2058}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab046901f13c045c05588f7e45a3f806d}{trFriends}}() = 0;}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{233 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{235 \textcolor{comment}{}}
+\DoxyCodeLine{236     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aec367f7f7b16943d6bb41572a728d064}{trRelatedFunctionDocumentation}}() = 0;}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{241 \textcolor{comment}{}}
+\DoxyCodeLine{242     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a272732383a9564fc3bd204c12e3d6362}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{243                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{244                                     \textcolor{keywordtype}{bool} isTemplate) = 0;}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a30792c89ec72b82b5edb8c1a602358f1}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName) = 0;}
+\DoxyCodeLine{247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a140ef235dc1e9c678f9e4d3990283ec7}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName) = 0;}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4b4790665d064a1848772cf91ca8d022}{trPublicMembers}}() = 0;}
+\DoxyCodeLine{250     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a636e0e1cc32864447d2445935842a5ee}{trPublicSlots}}() = 0;}
+\DoxyCodeLine{251     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a970ddc9df41ebdd40d97719faa7190d9}{trSignals}}() = 0;}
+\DoxyCodeLine{252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae7017c5aa5b5356a852c29fc6db86128}{trStaticPublicMembers}}() = 0;}
+\DoxyCodeLine{253     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a46439037035e4dc2cec3de8477c90b73}{trProtectedMembers}}() = 0;}
+\DoxyCodeLine{254     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5259c79b898160c0c23b17b9dccb785a}{trProtectedSlots}}() = 0;}
+\DoxyCodeLine{255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9996790ddc011f76b9305fdee0d54534}{trStaticProtectedMembers}}() = 0;}
+\DoxyCodeLine{256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1567e42b2461ef41cd5baa346ee0aee2}{trPrivateMembers}}() = 0;}
+\DoxyCodeLine{257     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1db1cd6e798b4dfadcdb3b11e6623632}{trPrivateSlots}}() = 0;}
+\DoxyCodeLine{258     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6328b8e557a9f3d364f1eff1ae2854d1}{trStaticPrivateMembers}}() = 0;}
+\DoxyCodeLine{259     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a31e719b4e290a359ddbb78132bf3f494}{trWriteList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{260     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a837ce455893cb96869ab2cd7c049b729}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{261     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac285a2e20bd3f084e02fbcc43c3e0caa}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{262     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab4194f85d265659e3b0a962e3d2050f7}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{263     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4c9b9e653e7d5b65307b2fd68c3c1dfb}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{264     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad4395d9d41cc9ab23624034e328401b5}{trNamespaceMembers}}() = 0;}
+\DoxyCodeLine{265     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_acfb4ee07ff2d845063e70216569fad6c}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{266     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a283f3fe348325ea95b6d65add32af790}{trNamespaceIndex}}() = 0;}
+\DoxyCodeLine{267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a0760fb42dec2f5417768814ed628a26a}{trNamespaceDocumentation}}() = 0;}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{270 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{272 \textcolor{comment}{}}
+\DoxyCodeLine{273     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aeb0ea0117f3c89b8d35780b8d5aa3640}{trNamespaces}}() = 0;}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{276 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{278 \textcolor{comment}{}}
+\DoxyCodeLine{279     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab6cb87a7a16f256661ea6e7e08d333cb}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{280                                           \textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{283 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{285 \textcolor{comment}{}}
+\DoxyCodeLine{286     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af3f57cf1b57db46a8958688c4945daad}{trReturnValues}}() = 0;}
+\DoxyCodeLine{287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae315af2d9a5d19fb5df34e76c5b0a182}{trMainPage}}() = 0;}
+\DoxyCodeLine{288     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a800bf5724b6cff1053d43470090e2963}{trPageAbbreviation}}() = 0;}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{291 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{293 \textcolor{comment}{}}
+\DoxyCodeLine{294     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ade090183d43e3f6a3bcebf03a89ebdfd}{trDefinedAtLineInSourceFile}}() = 0;}
+\DoxyCodeLine{295     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7107b47ae388237e48ccf1fc4c3b3f77}{trDefinedInSourceFile}}() = 0;}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{298 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{300 \textcolor{comment}{}}
+\DoxyCodeLine{301     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa03a2c19570b7e2ba76c4d7b70485cfc}{trDeprecated}}() = 0;}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{304 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{306 \textcolor{comment}{}}
+\DoxyCodeLine{307     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a12dc094d188edbe3a801de8bb9f77c22}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName) = 0;}
+\DoxyCodeLine{308     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a34760488c51cbbf81fef47688e1b146e}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName) = 0;}
+\DoxyCodeLine{309     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af0bb3238975bac96f454f69e9b940538}{trConstructorDocumentation}}() = 0;}
+\DoxyCodeLine{310     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a32f89b2666555fc695a9f06f8d808570}{trGotoSourceCode}}() = 0;}
+\DoxyCodeLine{311     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad513407b6d899db23bf73ae8c05a2c3a}{trGotoDocumentation}}() = 0;}
+\DoxyCodeLine{312     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1908a5ec684a3fb38fdfc50346d18530}{trPrecondition}}() = 0;}
+\DoxyCodeLine{313     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a970c167e640eff619d4202266c4cb0ce}{trPostcondition}}() = 0;}
+\DoxyCodeLine{314     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af9a644c79e6da8b784bb0fe03a37fb15}{trInvariant}}() = 0;}
+\DoxyCodeLine{315     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a79f4a5405cc412a027d7d35dd9b3d2d9}{trInitialValue}}() = 0;}
+\DoxyCodeLine{316     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af85261d5c63262a8dfdf918fd1b35fc2}{trCode}}() = 0;}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a365fa800907a883b1659566f420ee4ee}{trGraphicalHierarchy}}() = 0;}
+\DoxyCodeLine{319     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a28654b6dd890c89f1df2a6ff11f65976}{trGotoGraphicalHierarchy}}() = 0;}
+\DoxyCodeLine{320     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab8e328e4648c861e894f7c7348e2a9cf}{trGotoTextualHierarchy}}() = 0;}
+\DoxyCodeLine{321     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5e4d73ddc4d881e32b687dfcc29a8118}{trPageIndex}}() = 0;}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{324 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{326 \textcolor{comment}{}}
+\DoxyCodeLine{327     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9172f5a9cd750add7d839c184e349cd2}{trNote}}() = 0;}
+\DoxyCodeLine{328     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5a9f4647349c2f0b239b98e174bf1a3a}{trPublicTypes}}() = 0;}
+\DoxyCodeLine{329     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad9680f03e2a6c433ef003cb2cae62113}{trPublicAttribs}}() = 0;}
+\DoxyCodeLine{330     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af21395ae106dc7613c68e5e2ea523445}{trStaticPublicAttribs}}() = 0;}
+\DoxyCodeLine{331     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa83fb42d457d2ccea5284e22e24f1856}{trProtectedTypes}}() = 0;}
+\DoxyCodeLine{332     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6674f1658eea9aa3280b115d767e1441}{trProtectedAttribs}}() = 0;}
+\DoxyCodeLine{333     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1ea34ab09695b03d15c7e080c9508be4}{trStaticProtectedAttribs}}() = 0;}
+\DoxyCodeLine{334     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a087da7af77da7427f9a20936e3413947}{trPrivateTypes}}() = 0;}
+\DoxyCodeLine{335     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a677cff738d86652a45f63b464f31dc81}{trPrivateAttribs}}() = 0;}
+\DoxyCodeLine{336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a01eab1086b6ee5c5162ff14bb49310d9}{trStaticPrivateAttribs}}() = 0;}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{339 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{341 \textcolor{comment}{}}
+\DoxyCodeLine{342     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a681cf622bc34bd65a3505fbf4cdcec07}{trTodo}}() = 0;}
+\DoxyCodeLine{343     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aee6d584921e7851c57e016cb0c64c01b}{trTodoList}}() = 0;}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{346 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{348 \textcolor{comment}{}}
+\DoxyCodeLine{349     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a56b84cff6c76c108b33a8a1bc95a826c}{trReferencedBy}}() = 0;}
+\DoxyCodeLine{350     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7e3a80bdd1f03467f8a5e3fa21614a84}{trRemarks}}() = 0;}
+\DoxyCodeLine{351     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a988fcf036a857cf3761ee11638ce9179}{trAttention}}() = 0;}
+\DoxyCodeLine{352     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2331edf6365c5c71d9317e5b5bc4da8c}{trInclByDepGraph}}() = 0;}
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a416b08f410f1cd41ba1e5bc286b467d6}{trSince}}() = 0;}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{356 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{358 \textcolor{comment}{}}
+\DoxyCodeLine{359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_add6f65cea99a2aaffd476604277bda13}{trLegendTitle}}() = 0;}
+\DoxyCodeLine{360     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a897f4914e877c88c5970c71099d22fdb}{trLegendDocs}}() = 0;}
+\DoxyCodeLine{361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a976b00badc594fa4d38ac4a9ab527a17}{trLegend}}() = 0;}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{364 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{366 \textcolor{comment}{}}
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a092d95033a0447968f3c536b42e29dc5}{trTest}}() = 0;}
+\DoxyCodeLine{368     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad29041fc573a780089d35d5b61533567}{trTestList}}() = 0;}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{371 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{373 \textcolor{comment}{}}
+\DoxyCodeLine{374     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af77d1512b4b3c84c0e37492d0c9fa249}{trProperties}}() = 0;}
+\DoxyCodeLine{375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a238509e37848af806a976776bc8af8cb}{trPropertyDocumentation}}() = 0;}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{378 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{380 \textcolor{comment}{}}
+\DoxyCodeLine{381     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a182de1d9ac67d054637647d67d90f788}{trClasses}}() = 0;}
+\DoxyCodeLine{382     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a098564ddace843a7b8699cf38c662173}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{383     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a0d426f7f05e8f1ce512709d7dc24a302}{trPackageListDescription}}() = 0;}
+\DoxyCodeLine{384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5d327e7906daeed24aa27d26f2a7c98a}{trPackages}}() = 0;}
+\DoxyCodeLine{385     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a33b3a92d21ec58a5cba1043aefbd466b}{trDefineValue}}() = 0;}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{388 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{390 \textcolor{comment}{}}
+\DoxyCodeLine{391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a09bd1ed5d149f8b2c37f660d7d84cfde}{trBug}}() = 0;}
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a904e5e013c7329eb66fd98bc6709d4d5}{trBugList}}() = 0;}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{395 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{397 \textcolor{comment}{}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{424     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9953a4c0e6a4fc7d017abcd5c2939e0f}{trRTFansicp}}() = 0;}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{454     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_afad391f3cbfb5ce6332b7239f8e2049a}{trRTFCharSet}}() = 0;}
+\DoxyCodeLine{455     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a023a76a06189f153d11dc150c664fbd8}{trRTFGeneralIndex}}() = 0;}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457     \textcolor{comment}{// Translation of the word}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a887fa58ae73ee4585bd9d89359049196}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{460     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_adcedc68246e92cc1e7e3c6e5a457acba}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{461     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4a3ca0198450342adb8599f00531a881}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3e440062dda08d55c8f9f99d572f6af0}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6cf8494079dacb3504df0b71f1bd62f8}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{464     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa8a315987247035ab2aed48303716535}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{465     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5a2679653633e7b81db3158b90216704}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{468 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{470 \textcolor{comment}{}}
+\DoxyCodeLine{471     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab1d687861b87ec383f96cc0b323be6eb}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{474 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{476 \textcolor{comment}{}}
+\DoxyCodeLine{477     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9c8edf9885d809f859f7c91d847d2f67}{trReferences}}() = 0;}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{480 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{482 \textcolor{comment}{}}
+\DoxyCodeLine{483     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af6f635d2008014eab980bc9aa8544606}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{484     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7d211e806e62d4203fa532b4735be716}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries) = 0;}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{487 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{489 \textcolor{comment}{}}
+\DoxyCodeLine{490     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a68212eef7295b4a261cd05b88f00aa8b}{trRTFTableOfContents}}() = 0;}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{493 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{495 \textcolor{comment}{}}
+\DoxyCodeLine{496     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3da3ae447f82df17863e3ab80be0a8e9}{trDeprecatedList}}() = 0;}
+\DoxyCodeLine{497 }
+\DoxyCodeLine{499 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{501 \textcolor{comment}{}}
+\DoxyCodeLine{502     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac9e66274bee002ddd496457b2f3dc266}{trEvents}}() = 0;}
+\DoxyCodeLine{503     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2c96efb89bc411ddbfe8250f9d0e2e24}{trEventDocumentation}}() = 0;}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{506 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{508 \textcolor{comment}{}}
+\DoxyCodeLine{509     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad3328af2789b15e01a5050ffc7851d47}{trPackageTypes}}() = 0;}
+\DoxyCodeLine{510     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a479942c7b2a575f7d71f4aa50bf35718}{trPackageFunctions}}() = 0;}
+\DoxyCodeLine{511     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a55faa09f74a1f8abfcda6c3cfe444d3a}{trPackageMembers}}() = 0;}
+\DoxyCodeLine{512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aefcf5d93c2464f3ab6b51b98d6dab29f}{trStaticPackageFunctions}}() = 0;}
+\DoxyCodeLine{513     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac65b5c2a08b0b0df895d762ee1b90493}{trPackageAttribs}}() = 0;}
+\DoxyCodeLine{514     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a186a1a9583c01752d452af26fd28d2b0}{trStaticPackageAttribs}}() = 0;}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{517 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{519 \textcolor{comment}{}}
+\DoxyCodeLine{520     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a008615452dda018b06bfea08a2d1d552}{trAll}}() = 0;}
+\DoxyCodeLine{521     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5f2fd294c6ca32ec48a76eff010b4ae0}{trCallGraph}}() = 0;}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{524 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{526 \textcolor{comment}{}}
+\DoxyCodeLine{527     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a39e01cdc61885a896f0ca9fbf700987d}{trSearchResultsTitle}}() = 0;}
+\DoxyCodeLine{528     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aac55ca755f3f6bffc8baf2162bea7771}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments) = 0;}
+\DoxyCodeLine{529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a144382f5d8b61298e894387a7938559e}{trSearchMatches}}() = 0;}
+\DoxyCodeLine{530 }
+\DoxyCodeLine{532 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{534 \textcolor{comment}{}}
+\DoxyCodeLine{535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a25a12bd37f32c6ff636cd7d227175a5a}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename) = 0;}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{538 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{540 \textcolor{comment}{}}
+\DoxyCodeLine{541     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a11169ba583e072969866a1c2ab5adacb}{trDirIndex}}() = 0;}
+\DoxyCodeLine{542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab3aee25a206ae53f6d4198b736a6b87d}{trDirDocumentation}}() = 0;}
+\DoxyCodeLine{543     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a15ab2414971ee4ece3b2b59f7a4f67bf}{trDirectories}}() = 0;}
+\DoxyCodeLine{544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af91f456b04ee9b4a27f286a49fc23a33}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName) = 0;}
+\DoxyCodeLine{545     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a63ce770ac66730a13f1686202e0c5d46}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{548 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{550 \textcolor{comment}{}}
+\DoxyCodeLine{551     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af933c719d65181b1cb11a7d07db37a09}{trOverloadText}}() = 0;}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{554 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{556 \textcolor{comment}{}}
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4c8eaa74686abf7667ee9f0ac0b0bacd}{trCallerGraph}}() = 0;}
+\DoxyCodeLine{558     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aea7d68b2384a8a88eaa88638e1af2d51}{trEnumerationValueDocumentation}}() = 0;}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{561 \textcolor{comment}{// new since 1.5.4}}
+\DoxyCodeLine{563 \textcolor{comment}{}}
+\DoxyCodeLine{564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a0b6cc2ce49b7b1587e958fd537bf2f22}{trMemberFunctionDocumentationFortran}}() = 0;}
+\DoxyCodeLine{565     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa63e646006549a0504783bcb9049a5c0}{trCompoundListFortran}}() = 0;}
+\DoxyCodeLine{566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aef130f6aef47d68ad82b30299a8f704f}{trCompoundMembersFortran}}() = 0;}
+\DoxyCodeLine{567     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aee8fb1ec3c97865efe420ed67ca49c58}{trCompoundListDescriptionFortran}}() = 0;}
+\DoxyCodeLine{568     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af9d5b1d1ff55debe8079331a2e32ea4a}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{569     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab704a3dfea30bf2f98e1d2b568027ecd}{trCompoundIndexFortran}}() = 0;}
+\DoxyCodeLine{570     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a96a7cdf0b35d6c092875b364bac5f2cf}{trTypeDocumentation}}() = 0;}
+\DoxyCodeLine{571     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad8bee4c72ece7c603742a06d2e097bb2}{trSubprograms}}() = 0;}
+\DoxyCodeLine{572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a66fabf8785f82dbb59804f67dc4aae84}{trSubprogramDocumentation}}() = 0;}
+\DoxyCodeLine{573     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a0a0157cfc45d1bc085438bf1d3cca3bb}{trDataTypes}}() = 0;}
+\DoxyCodeLine{574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a307b9ec047c97330b93adcdebb43a548}{trModulesList}}() = 0;}
+\DoxyCodeLine{575     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5273ea86727c6460eae628782d416669}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{576     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af202992af9669ac40ed2574dc0c13562}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{577                                  \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{578                                  \textcolor{keywordtype}{bool} isTemplate) = 0;}
+\DoxyCodeLine{579     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a846f57b4ca7bdc487eb403ffe3bcc7fa}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName) = 0;}
+\DoxyCodeLine{580     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a73e62152bb05ffe75997806daf5e0b8d}{trModulesMembers}}() = 0;}
+\DoxyCodeLine{581     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7702dae5014c8f51767c12eb540d34e0}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{582     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aaa71718cc9cdcceea109f72ab6c23b44}{trModulesIndex}}() = 0;}
+\DoxyCodeLine{583     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aacb52f5a80d2ad3e47b983a8d34c4371}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a58bd3fc18bce920201e873ed4338e9a7}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{585                      \textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{586     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1fb2258a8a0fed41d8efec2ab2c88dce}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{587     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8afff623bf7e3a0e950ed28df4abd482}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3695f44e92e6478f7a4f0aabf7cf37ad}{trTypeConstraints}}() = 0;}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{591 \textcolor{comment}{// new since 1.6.0}}
+\DoxyCodeLine{593 \textcolor{comment}{}}
+\DoxyCodeLine{594     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7f34ebb879373b613c76214e6e77a4ac}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{595     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a44cd9d9f06489e63609a980c7218e20c}{trLoading}}() = 0;}
+\DoxyCodeLine{596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa8d8adf1538babeb7e637ef4dba5549c}{trGlobalNamespace}}() = 0;}
+\DoxyCodeLine{597     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a679d91793083e8bda60dbf346aad2623}{trSearching}}() = 0;}
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7c29a8b20c38ea5a2195bef0864bd21f}{trNoMatches}}() = 0;}
+\DoxyCodeLine{599 }
+\DoxyCodeLine{601 \textcolor{comment}{// new since 1.6.3}}
+\DoxyCodeLine{603 \textcolor{comment}{}}
+\DoxyCodeLine{604     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af0ae5eeb8f0f0a0238017fed8bf2aaa3}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{605     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a084166199bb2561feb9f056e4f3da489}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{606     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa96be72c23a1d2139b068552e3a539c4}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{607                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{608                                 \textcolor{keywordtype}{bool} includeTime) = 0;}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{611 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{613 \textcolor{comment}{}}
+\DoxyCodeLine{614     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3a5e754a2583632dfe5d49a1f7dd5b74}{trCiteReferences}}() = 0;}
+\DoxyCodeLine{615     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9bef11a773c5cf0878f4d833b78df577}{trCopyright}}() = 0;}
+\DoxyCodeLine{616     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1f106a5c0506e65b2cc8fdb09ce9fa62}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{617 }
+\DoxyCodeLine{619 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{621 \textcolor{comment}{}}
+\DoxyCodeLine{622     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae7fe2488d7ab8950d24415d95d22bc80}{trDetailLevel}}() = 0;}
+\DoxyCodeLine{623     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aad2e6bdd6f4e8d2b1eba09ff00c6db2e}{trTemplateParameters}}() = 0;}
+\DoxyCodeLine{624     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_abd4b544ad269cb9d961884cd00f14fca}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number) = 0;}
+\DoxyCodeLine{625     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af21afaff7590eb294ec7fb3b18029909}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{626     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3befe2b4b27cc2947b3d3045561e675b}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{627     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a24bb807aebd790720af10e031fe476c7}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what) = 0;}
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa08d0eb2be4b26dcd40f9984c89201cf}{trAdditionalInheritedMembers}}() = 0;}
+\DoxyCodeLine{629 }
+\DoxyCodeLine{631 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{633 \textcolor{comment}{}}
+\DoxyCodeLine{634     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac02207b116aa38a252f1f192e320fafe}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable) = 0;}
+\DoxyCodeLine{635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a30fce1c46473ab0238add58ddc68355e}{trProvidedByCategory}}() = 0;}
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a49a3a1c8b254d7586c30f86034607563}{trExtendsClass}}() = 0;}
+\DoxyCodeLine{637     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a666db44cbf3d6b05822b996aaec11a6b}{trClassMethods}}() = 0;}
+\DoxyCodeLine{638     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a51e57e0c406deea98a63e914a626eca6}{trInstanceMethods}}() = 0;}
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3bc5923ca3f5c0903cb3c94bdbabb8b3}{trMethodDocumentation}}() = 0;}
+\DoxyCodeLine{640 }
+\DoxyCodeLine{642 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{644 \textcolor{comment}{}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a9307d88ecc721be9da078cfcc87c0239}{trInterfaces}}() = 0;}
+\DoxyCodeLine{646     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa3d6ef2fa2f254b99c66c67c8b2e8ec3}{trServices}}() = 0;}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5b6e4ccf6b60056e1e525f90b924ce61}{trConstantGroups}}() = 0;}
+\DoxyCodeLine{648     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3a68032be485c9b37305bf2dfd738a19}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName) = 0;}
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae0d322113ba0cbd8abd60503f0d2a9e9}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName) = 0;}
+\DoxyCodeLine{650     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a810cbf2a7449889e98f5c5d11c62a620}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName) = 0;}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2ac28449f8a213c58f9301f8ba23f3da}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{652     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a8d86724d12b9a4fc73a0a08ff1ebf3d1}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{653 }
+\DoxyCodeLine{655 \textcolor{comment}{// new since 1.8.15}}
+\DoxyCodeLine{657 \textcolor{comment}{}}
+\DoxyCodeLine{658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6bb26b6125acf88344c8730be0fad254}{trDesignUnitHierarchy}}() = 0;}
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_abf3c0bc07f3ccbe6748efbcd6fc906d9}{trDesignUnitList}}() = 0;}
+\DoxyCodeLine{660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af101667a891c464f4c72cf0ebd6aa529}{trDesignUnitMembers}}() = 0;}
+\DoxyCodeLine{661     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab2b9472034c2443779998a45bb712c97}{trDesignUnitListDescription}}() = 0;}
+\DoxyCodeLine{662     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af7055b11742c82e166bf02d9189d70be}{trDesignUnitIndex}}() = 0;}
+\DoxyCodeLine{663     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af39391797c54dce9f530c4d77341b37b}{trDesignUnits}}() = 0;}
+\DoxyCodeLine{664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a302e752086f5155ea1ffc689a91b3e57}{trFunctionAndProc}}() = 0;}
+\DoxyCodeLine{665     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a39d71540a7d5037f03c633fdcad785f6}{trVhdlType}}(\mbox{\hyperlink{qcstring_8h_abc0f5bc07737e498f287334775dff2b6}{uint64}} type,\textcolor{keywordtype}{bool} single) = 0;}
+\DoxyCodeLine{666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae49d86719b9b65372fc8455c747981d3}{trCustomReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name) = 0;}
+\DoxyCodeLine{667 }
+\DoxyCodeLine{668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6666670ff2d8a1f1e25a9d3f64bb2ea5}{trConstants}}() = 0;}
+\DoxyCodeLine{669     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3e0a389bd271153054fddec917bf4945}{trConstantDocumentation}}() = 0;}
+\DoxyCodeLine{670     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a297730e06678d2e3c0b80742719dacbd}{trSequences}}() = 0;}
+\DoxyCodeLine{671     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aa27edcf1b2595996013abc2f9252e197}{trSequenceDocumentation}}() = 0;}
+\DoxyCodeLine{672     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae08f4f9023cb1e1d26f1c127d7897771}{trDictionaries}}() = 0;}
+\DoxyCodeLine{673     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab93b3227e857cd5104b6118f1ffa8682}{trDictionaryDocumentation}}() = 0;}
+\DoxyCodeLine{674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a609ebeb1557b22a4faeed69900017551}{trSliceInterfaces}}() = 0;}
+\DoxyCodeLine{675     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2f5a7c7b48a8581076a0e2884e39cd65}{trInterfaceIndex}}() = 0;}
+\DoxyCodeLine{676     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a40e9ed80f1f17f580386a6d9b74c7f95}{trInterfaceList}}() = 0;}
+\DoxyCodeLine{677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae3baa70ff9d1903db7eb2e366039531f}{trInterfaceListDescription}}() = 0;}
+\DoxyCodeLine{678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a7ede19a0a1691ea148511b6f8cdb587b}{trInterfaceHierarchy}}() = 0;}
+\DoxyCodeLine{679     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6c9a3d8c7e0fb143416c55e50ae71fdf}{trInterfaceHierarchyDescription}}() = 0;}
+\DoxyCodeLine{680     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af61f5090e507de90af4d0f5c6e3aae53}{trInterfaceDocumentation}}() = 0;}
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4723dccd65374bfd0aadab9f17535fd2}{trStructs}}() = 0;}
+\DoxyCodeLine{682     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab7c5f07bdc45f9e481b10da2e02c15ff}{trStructIndex}}() = 0;}
+\DoxyCodeLine{683     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad8a55c8d924f91c37fd2ccf1fbd8e64f}{trStructList}}() = 0;}
+\DoxyCodeLine{684     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ad8db80bc9358def985c7b2fe269afb95}{trStructListDescription}}() = 0;}
+\DoxyCodeLine{685     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a6c5200bba1acd6c4cfa066a1fc2cba06}{trStructDocumentation}}() = 0;}
+\DoxyCodeLine{686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af14c265f2ca13139eafc78bfb18f5712}{trExceptionIndex}}() = 0;}
+\DoxyCodeLine{687     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a89dbc7f478ddf76d905b1b7970a2216c}{trExceptionList}}() = 0;}
+\DoxyCodeLine{688     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2c8f86043c64d033441b709c0c341a36}{trExceptionListDescription}}() = 0;}
+\DoxyCodeLine{689     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1226cf0f5e60e94ef1425f21ff2b6fd2}{trExceptionHierarchy}}() = 0;}
+\DoxyCodeLine{690     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a4c102c2109128b98e5f1b24aeacb370d}{trExceptionHierarchyDescription}}() = 0;}
+\DoxyCodeLine{691     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a16ad7f78c8162a65fccab1bcd5b8e607}{trExceptionDocumentation}}() = 0;}
+\DoxyCodeLine{692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af533935abdbca221d1c3a54dbec00ed1}{trCompoundReferenceSlice}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName, \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType, \textcolor{keywordtype}{bool} isLocal) = 0;}
+\DoxyCodeLine{693     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a66130cd9aafbf6efb3378941eaa24ea2}{trOperations}}() = 0;}
+\DoxyCodeLine{694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a61fd045de7ecfa62a9c5281c130ca16b}{trOperationDocumentation}}() = 0;}
+\DoxyCodeLine{695     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a5775a63083678b134dcda60ad14674bd}{trDataMembers}}() = 0;}
+\DoxyCodeLine{696     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a2fe2c78152cbf79bc7c06f740ba39c7e}{trDataMemberDocumentation}}() = 0;}
+\DoxyCodeLine{697 }
+\DoxyCodeLine{699 \textcolor{comment}{// new since 1.8.19}}
+\DoxyCodeLine{701 \textcolor{comment}{}}
+\DoxyCodeLine{702     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ae3a08b45d9a47eabf316c6d06e21a525}{trDesignUnitDocumentation}}() = 0;}
+\DoxyCodeLine{703 }
+\DoxyCodeLine{705 \textcolor{comment}{// new since 1.9.2}}
+\DoxyCodeLine{707 \textcolor{comment}{}}
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a3b7180ac90ac11a5e4591102e9b3e880}{trConcept}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular) = 0;}
+\DoxyCodeLine{709     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ab8de1d3cbb5c0aec8e81c5aace559f40}{trConceptReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&conceptName) = 0;}
+\DoxyCodeLine{710     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a340ea5cc62608e79447bbb634f5fb4d6}{trConceptList}}() = 0;}
+\DoxyCodeLine{711     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_a1319678cbf768cc6083b93846d226fa0}{trConceptIndex}}() = 0;}
+\DoxyCodeLine{712     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_aec4fcf07808e6e67e202de0a7fac31fe}{trConceptDocumentation}}() = 0;}
+\DoxyCodeLine{713     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_af795ed9ac09bbccab1451850a162da72}{trConceptListDescription}}(\textcolor{keywordtype}{bool} extractAll) = 0;}
+\DoxyCodeLine{714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslator_ac99a154819b622b63ad39bc97ed5fa74}{trConceptDefinition}}() = 0;}
+\DoxyCodeLine{715 \};}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{717 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

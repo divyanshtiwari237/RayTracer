@@ -1,0 +1,110 @@
+\hypertarget{dir_8h_source}{}\doxysection{dir.\+h}
+\label{dir_8h_source}\index{/mnt/c/projects/doxygen/src/dir.h@{/mnt/c/projects/doxygen/src/dir.h}}
+\mbox{\hyperlink{dir_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2021 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DIR\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DIR\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{fileinfo_8h}{fileinfo.h}}"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{classDirEntry}{DirEntry}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26   \textcolor{keyword}{public}:}
+\DoxyCodeLine{27    \mbox{\hyperlink{classDirEntry_a010b1c84f2bd5743458d8a626cece46d}{\string~DirEntry}}();}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirEntry_a195ba799a139d08af4c53c63e453c971}{is\_directory}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirEntry_a2d5d18d5054f7349ee226b28352b26b9}{is\_regular\_file}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirEntry_ad9ec459dc0de49292ada5d2d4dbff21c}{is\_symlink}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{31     std::string \mbox{\hyperlink{classDirEntry_a4894a6a99948ea8aa42e61583d66b62f}{path}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{32   \textcolor{keyword}{private}:}
+\DoxyCodeLine{33     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classDirIterator}{DirIterator}};}
+\DoxyCodeLine{34     \mbox{\hyperlink{classDirEntry}{DirEntry}}();}
+\DoxyCodeLine{35     \textcolor{keyword}{struct }\mbox{\hyperlink{structDirEntry_1_1Private}{Private}};}
+\DoxyCodeLine{36     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{classDirIterator}{DirIterator}}}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41   \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \textcolor{keyword}{using} \mbox{\hyperlink{classDirEntry}{value\_type}} = \mbox{\hyperlink{classDirEntry}{DirEntry}};}
+\DoxyCodeLine{43     \textcolor{keyword}{using} \mbox{\hyperlink{classDirIterator_a1220d59d9dfb89d43504c5e9466364d7}{difference\_type}} = std::ptrdiff\_t;}
+\DoxyCodeLine{44     \textcolor{keyword}{using} \mbox{\hyperlink{classDirEntry}{pointer}} = \mbox{\hyperlink{classDirEntry}{value\_type}}*;}
+\DoxyCodeLine{45     \textcolor{keyword}{using} \mbox{\hyperlink{classDirEntry}{reference}} = \mbox{\hyperlink{classDirEntry}{value\_type}}\&;}
+\DoxyCodeLine{46     \textcolor{keyword}{using} \mbox{\hyperlink{classDirIterator_a1ce3bd2279cef163ec80d5b74da4276d}{iterator\_category}} = std::input\_iterator\_tag;}
+\DoxyCodeLine{47     \mbox{\hyperlink{classDirIterator}{DirIterator}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it);}
+\DoxyCodeLine{48     \mbox{\hyperlink{classDirIterator}{DirIterator}} \&\mbox{\hyperlink{classDirIterator_aa6af63e61d1cd8a695c70210d1200696}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it);}
+\DoxyCodeLine{49     \mbox{\hyperlink{classDirIterator}{DirIterator}} \mbox{\hyperlink{classDirIterator_a21357cd7836791a40ecd6db98fa864f2}{operator++}}();}
+\DoxyCodeLine{50     \textcolor{keyword}{const} \mbox{\hyperlink{classDirEntry}{value\_type}} \&\mbox{\hyperlink{classDirIterator_a54db35ff62b7ab4045a593b92ac8780d}{operator*}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{51     \textcolor{keyword}{const} \mbox{\hyperlink{classDirEntry}{value\_type}} *\mbox{\hyperlink{classDirIterator_a6956f8bf3894639348454cb62784c74f}{operator-\/>}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirIterator_a9285cecfcff40959eed73e1da7d139da}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it1,\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it2);}
+\DoxyCodeLine{54     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirIterator_acde2fab844e4f384c5d715f06f0835f4}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it1,\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&it2);}
+\DoxyCodeLine{55     \textcolor{keyword}{friend} \mbox{\hyperlink{classDirIterator}{DirIterator}} \mbox{\hyperlink{classDirIterator_a6c544e0039887bf39e3c9e85f55d8ebc}{begin}}(\mbox{\hyperlink{classDirIterator}{DirIterator}} it) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{56     \textcolor{keyword}{friend} \mbox{\hyperlink{classDirIterator}{DirIterator}} \mbox{\hyperlink{classDirIterator_abb4720f72b574f81dc4f7aea0e653a64}{end}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirIterator}{DirIterator}} \&) \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{57    \mbox{\hyperlink{classDirIterator_a2d20623f235e252893d994957ec2a9f6}{\string~DirIterator}}();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59   \textcolor{keyword}{private}:}
+\DoxyCodeLine{60     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{classDir}{Dir}};}
+\DoxyCodeLine{61     \mbox{\hyperlink{classDirIterator}{DirIterator}}();}
+\DoxyCodeLine{62     \mbox{\hyperlink{classDirIterator}{DirIterator}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{63     \textcolor{keyword}{struct }\mbox{\hyperlink{structDirIterator_1_1Private}{Private}};}
+\DoxyCodeLine{64     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classDir}{Dir}} final}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70   \textcolor{keyword}{public}:}
+\DoxyCodeLine{71     \mbox{\hyperlink{classDir_a115c8eedb11ea03f79338a780920ae84}{Dir}}();}
+\DoxyCodeLine{72     \mbox{\hyperlink{classDir_a115c8eedb11ea03f79338a780920ae84}{Dir}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{73     \mbox{\hyperlink{classDir_a115c8eedb11ea03f79338a780920ae84}{Dir}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDir}{Dir}} \&d);}
+\DoxyCodeLine{74     \mbox{\hyperlink{classDir}{Dir}} \&\mbox{\hyperlink{classDir_a1ab17baf6d6b6c4bd1a46893151f6fad}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDir}{Dir}} \&d);}
+\DoxyCodeLine{75    \mbox{\hyperlink{classDir_a427bcc717e5668e764fa1a4432c74b54}{\string~Dir}}();}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDir_a2bb647584a701cb526874a8c0cd68c13}{setPath}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{77     std::string \mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \mbox{\hyperlink{classDirIterator}{DirIterator}} \mbox{\hyperlink{classDir_aa20a9ce6fb86596abe5047d96b2f6624}{iterator}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a117f773f834b8fdf99aac033fe12ecfb}{isEmpty}}(\textcolor{keyword}{const} std::string subdir) \textcolor{keyword}{const};}
+\DoxyCodeLine{82     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83     std::string \mbox{\hyperlink{classDir_a9648972511650311756008587b2ef819}{filePath}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}},\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{84     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}},\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a286f4b1852b489ffcc8b6837c7e6bd8e}{mkdir}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}},\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{86     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_ab0dd8833adb3178d976d3125955fbe8c}{rmdir}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}},\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a5a64060f8e1731e8f00da7e8f7051e4b}{remove}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}},\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{88     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_ab14881c67dae32902aa709517177e5ce}{rename}}(\textcolor{keyword}{const} std::string \&orgName,\textcolor{keyword}{const} std::string \&newName,}
+\DoxyCodeLine{89                 \textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{90     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a9030897a481039125a70690719bc720d}{copy}}(\textcolor{keyword}{const} std::string \&src,\textcolor{keyword}{const} std::string \&dest,\textcolor{keywordtype}{bool} acceptsAbsPath=\textcolor{keyword}{true}) \textcolor{keyword}{const};}
+\DoxyCodeLine{91     std::string \mbox{\hyperlink{classDir_a226b0db1117e46393bbb241e545f8609}{absPath}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a540dfe05e13dfbacf37b778978747eff}{isRelative}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_a30fb0271610a8148e2c5b31ec2e4299d}{isRelativePath}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{96     \textcolor{keyword}{static} std::string \mbox{\hyperlink{classDir_a0f62ab07068c5f966bca7ce280f4ed49}{currentDirPath}}();}
+\DoxyCodeLine{97     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDir_ab3b09edc88159dc30426999bdc7d6d7b}{setCurrent}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{98     \textcolor{keyword}{static} std::string \mbox{\hyperlink{classDir_ab25b50ffd43d7163ea07a6625dfe9088}{cleanDirPath}}(\textcolor{keyword}{const} std::string \&\mbox{\hyperlink{classDir_ac277cdc273640905e941d9e6262bc594}{path}});}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{keyword}{private}:}
+\DoxyCodeLine{101     \textcolor{keyword}{struct }\mbox{\hyperlink{structDir_1_1Private}{Private}};}
+\DoxyCodeLine{102     std::unique\_ptr<Private> p;}
+\DoxyCodeLine{103 \};}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

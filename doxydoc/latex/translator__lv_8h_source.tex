@@ -1,0 +1,1412 @@
+\hypertarget{translator__lv_8h_source}{}\doxysection{translator\+\_\+lv.\+h}
+\label{translator__lv_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_lv.h@{/mnt/c/projects/doxygen/src/translator\_lv.h}}
+\mbox{\hyperlink{translator__lv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_LV\_H}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define TRANSLATOR\_LV\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{44 \textcolor{comment}{/* Translation from English to Latvian by Lauris Bukšis-\/Haberkorns}}
+\DoxyCodeLine{45 \textcolor{comment}{ *  (lauris@nix.lv)}}
+\DoxyCodeLine{46 \textcolor{comment}{ *  -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{47 \textcolor{comment}{ *  Project start                  : 24.Sept.2012}}
+\DoxyCodeLine{48 \textcolor{comment}{ *  Last Doxygen version covered   : 1.8.2}}
+\DoxyCodeLine{49 \textcolor{comment}{ */}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorLatvian}{TranslatorLatvian}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__4}{TranslatorAdapter\_1\_8\_4}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53   \textcolor{keyword}{public}:}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a724d8bb368bebdb041ca89a028dacaa9}{idLanguage}}()}
+\DoxyCodeLine{64     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}latvian"{}}; \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{77     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ad5a5a341d588b065968055dc1046f534}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T2A]\{fontenc\}\(\backslash\)n"{}}}
+\DoxyCodeLine{80              \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[latvian]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0e6e2e332399ac6c5c73afd1c029e825}{trISOLang}}()}
+\DoxyCodeLine{84     \{}
+\DoxyCodeLine{85       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}lv"{}};}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab3020e746f65798ad2ab41e4ea81f912}{getLanguageString}}()}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x426 Latvian"{}};}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{95     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1563b4e100c4f77f0c6becd26bff110c}{trRelatedFunctions}}()}
+\DoxyCodeLine{96     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Saistītās funkcijas"{}}; \}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{99     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1d22bc3c12c4e3c45c91d34f69c65cdf}{trRelatedSubscript}}()}
+\DoxyCodeLine{100     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Šīs nav elementu funkcijas.)"{}}; \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{103     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aaa3976198fafcb7cdc4e35ad34d02f0c}{trDetailedDescription}}()}
+\DoxyCodeLine{104     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Detalizēts apraksts"{}}; \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae9c91f54b92cd009e15964d3f5af69ca}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{108     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementa Typedef dokumentācija"{}}; \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{111     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a81e572e110838a8aa246bc95f947895b}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{112     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementa uzskaitījumliterāļa dokumentācija"{}}; \}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a175d1bdf4e2f65d671630fb84d859f28}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{116     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementa funkcijas dokumentācija"{}}; \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{119     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_abef9bdea20454169ef123b4b03652f12}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{120     \{}
+\DoxyCodeLine{121       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{122       \{}
+\DoxyCodeLine{123         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lauka dokumentācija"{}};}
+\DoxyCodeLine{124       \}}
+\DoxyCodeLine{125       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{126       \{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementa datu dokumentācija"{}};}
+\DoxyCodeLine{128       \}}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3f517151b45640f3a7d4c95571f74e3b}{trMore}}()}
+\DoxyCodeLine{133     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}vairāk..."{}}; \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{136     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afd19dbe67d2168354525ccc8acdafc37}{trListOfAllMembers}}()}
+\DoxyCodeLine{137     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Visu elementu saraksts"{}}; \}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{140     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3f3598caec1fa2624a6b7917e80f9278}{trMemberList}}()}
+\DoxyCodeLine{141     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementu saraksts"{}}; \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{144     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a87c54590b98c9c3741c5c6e99823f9ba}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{145     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šis ir pilns elementu saraksts klasei "{}}; \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{148     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a55c496a9d7406b6f74a0d4cab7c31644}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{149     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, ieskaitot mantotos elementus."{}}; \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4e8ba1c05e816e2e1a877ce7855d4465}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{155     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Automātiski ģenerēts izmantojot Doxygen"{}};}
+\DoxyCodeLine{156       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} priekš "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{157       result+=\textcolor{stringliteral}{"{} no pirmkoda."{}};}
+\DoxyCodeLine{158       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{162     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1aec545d75fa37e696c0a3125b52f362}{trEnumName}}()}
+\DoxyCodeLine{163     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}uzskaitījuma nosaukums"{}}; \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{166     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af530ff043fadc1c037700658791fb1f6}{trEnumValue}}()}
+\DoxyCodeLine{167     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}uzskaitījuma vērtība"{}}; \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{170     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afb62bee8d3e05aff4cbf7e7f1925abf1}{trDefinedIn}}()}
+\DoxyCodeLine{171     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}definēts"{}}; \}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0f720afc4aabc7b14b5dcbb0fa660b1a}{trModules}}()}
+\DoxyCodeLine{179     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļi"{}}; \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{182     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3bede943433c8f8780694a95e01d9bc6}{trClassHierarchy}}()}
+\DoxyCodeLine{183     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klašu hierarhija"{}}; \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a774912f9063889456a8398f9cade2081}{trCompoundList}}()}
+\DoxyCodeLine{187     \{}
+\DoxyCodeLine{188       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{189       \{}
+\DoxyCodeLine{190         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu struktūras"{}};}
+\DoxyCodeLine{191       \}}
+\DoxyCodeLine{192       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{193       \{}
+\DoxyCodeLine{194         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klašu saraksts"{}};}
+\DoxyCodeLine{195       \}}
+\DoxyCodeLine{196     \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a9989ea77a5b895a8c0cc664a3554472d}{trFileList}}()}
+\DoxyCodeLine{200     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Failu saraksts"{}}; \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5e6acb7e96b6695cf7ac4bfb998920cb}{trCompoundMembers}}()}
+\DoxyCodeLine{204     \{}
+\DoxyCodeLine{205       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{206       \{}
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu lauki"{}};}
+\DoxyCodeLine{208       \}}
+\DoxyCodeLine{209       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{210       \{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klases elementi"{}};}
+\DoxyCodeLine{212       \}}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1c61d3734d9e83db23d28accfb207e93}{trFileMembers}}()}
+\DoxyCodeLine{217     \{}
+\DoxyCodeLine{218       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{219       \{}
+\DoxyCodeLine{220         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globālie"{}};}
+\DoxyCodeLine{221       \}}
+\DoxyCodeLine{222       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{223       \{}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Faila elementi"{}};}
+\DoxyCodeLine{225       \}}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{229     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac7196bb7ca7fdfd0c76b2840a6a3999c}{trRelatedPages}}()}
+\DoxyCodeLine{230     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Saistītās lapas"{}}; \}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{233     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a6a64f9108b45b2dfaf2df0907acfca5c}{trExamples}}()}
+\DoxyCodeLine{234     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Piemēri"{}}; \}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{237     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a372a7f6b342d6f6f362c531c3aa6beaa}{trSearch}}()}
+\DoxyCodeLine{238     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Meklēt"{}}; \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{241     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa582689c5bbb57f3e77f45cc57fd684d}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{242     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šis mantojamības saraksts ir sakārtots aptuveni, "{}}}
+\DoxyCodeLine{243              \textcolor{stringliteral}{"{}bet ne pilnībā, alfabēta secībā:"{}};}
+\DoxyCodeLine{244     \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_adc3822bdbeb4f1d3b5a34bef746d519d}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{248     \{}
+\DoxyCodeLine{249       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{250       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{251       result+=\textcolor{stringliteral}{"{}failu saraksts ar īsu aprakstu:"{}};}
+\DoxyCodeLine{252       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af7d2f321f2962b8b056af6dd439a761d}{trCompoundListDescription}}()}
+\DoxyCodeLine{257     \{}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{260       \{}
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visas datu struktūras ar īsu aprakstu:"{}};}
+\DoxyCodeLine{262       \}}
+\DoxyCodeLine{263       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE))}
+\DoxyCodeLine{264       \{}
+\DoxyCodeLine{265         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visas klases ar īsu aprakstu:"{}};}
+\DoxyCodeLine{266       \}}
+\DoxyCodeLine{267       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{268       \{}
+\DoxyCodeLine{269         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visas klases, struktūras, "{}}}
+\DoxyCodeLine{270                \textcolor{stringliteral}{"{}apvienojumi un interfeisi ar īsu aprakstu:"{}};}
+\DoxyCodeLine{271       \}}
+\DoxyCodeLine{272     \}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{275     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aaf247a8f1280242ec8af70da0b28b81f}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{276     \{}
+\DoxyCodeLine{277       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{278       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{279       \{}
+\DoxyCodeLine{280         result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{281       \}}
+\DoxyCodeLine{282       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{283       \{}
+\DoxyCodeLine{284         result+=\textcolor{stringliteral}{"{}struktūru un apvienojumu lauku"{}};}
+\DoxyCodeLine{285       \}}
+\DoxyCodeLine{286       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{287       \{}
+\DoxyCodeLine{288         result+=\textcolor{stringliteral}{"{}klases elementu"{}};}
+\DoxyCodeLine{289       \}}
+\DoxyCodeLine{290       result+=\textcolor{stringliteral}{"{} saraksts ar saitēm uz "{}};}
+\DoxyCodeLine{291       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{292       \{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{294         \{}
+\DoxyCodeLine{295           result+=\textcolor{stringliteral}{"{}struktūru/apvienojumu dokumentāciju katram laukam:"{}};}
+\DoxyCodeLine{296         \}}
+\DoxyCodeLine{297         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{298         \{}
+\DoxyCodeLine{299           result+=\textcolor{stringliteral}{"{}klases dokumentāciju katram elementam:"{}};}
+\DoxyCodeLine{300         \}}
+\DoxyCodeLine{301       \}}
+\DoxyCodeLine{302       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{303       \{}
+\DoxyCodeLine{304         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{305         \{}
+\DoxyCodeLine{306           result+=\textcolor{stringliteral}{"{}struktūrām/apvienojumiem, kam tie pieder:"{}};}
+\DoxyCodeLine{307         \}}
+\DoxyCodeLine{308         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{309         \{}
+\DoxyCodeLine{310           result+=\textcolor{stringliteral}{"{}klasēm, kam tie pieder:"{}};}
+\DoxyCodeLine{311         \}}
+\DoxyCodeLine{312       \}}
+\DoxyCodeLine{313       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{314     \}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{317     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2a3bfe2d35a83ecc1f45471f3ef2f390}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{318     \{}
+\DoxyCodeLine{319       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{320       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{323       \{}
+\DoxyCodeLine{324         result+=\textcolor{stringliteral}{"{}funkciju, mainīgo, definīciju, uzskaitījumliterāļu un typedefs"{}};}
+\DoxyCodeLine{325       \}}
+\DoxyCodeLine{326       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{327       \{}
+\DoxyCodeLine{328         result+=\textcolor{stringliteral}{"{}faila elementu"{}};}
+\DoxyCodeLine{329       \}}
+\DoxyCodeLine{330       result+=\textcolor{stringliteral}{"{} saraksts ar saitēm uz "{}};}
+\DoxyCodeLine{331       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{332         result+=\textcolor{stringliteral}{"{}failiem, kam tie pieder:"{}};}
+\DoxyCodeLine{333       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{334         result+=\textcolor{stringliteral}{"{}dokumentāciju:"{}};}
+\DoxyCodeLine{335       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{336     \}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{339     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a58d01a1801f5919281724f6ebcf83b14}{trExamplesDescription}}()}
+\DoxyCodeLine{340     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visu piemēru saraksts:"{}}; \}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{343     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aaa089fd18d76d73605066a318c73c7ef}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{344     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Here is a list of all related documentation pages:"{}}; \}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{347     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a86678221c9cc9adc2c20a304adea5c5d}{trModulesDescription}}()}
+\DoxyCodeLine{348     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visu moduļu saraksts:"{}}; \}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a450a60a274341ca3eebc2fdffae6b453}{trDocumentation}}()}
+\DoxyCodeLine{354     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentācija"{}}; \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{359     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_adcee44d3b829f29f8ae12e49545953fa}{trModuleIndex}}()}
+\DoxyCodeLine{360     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļu indekss"{}}; \}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{365     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac073d989a8d00ca9b96898f7e6b668a6}{trHierarchicalIndex}}()}
+\DoxyCodeLine{366     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarhijas indekss"{}}; \}}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{371     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2670f6b5d525f66b012bc3a5d5723708}{trCompoundIndex}}()}
+\DoxyCodeLine{372     \{}
+\DoxyCodeLine{373       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{374       \{}
+\DoxyCodeLine{375         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu struktūru indess"{}};}
+\DoxyCodeLine{376       \}}
+\DoxyCodeLine{377       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{378       \{}
+\DoxyCodeLine{379         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klašu indekss"{}};}
+\DoxyCodeLine{380       \}}
+\DoxyCodeLine{381     \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{386     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a99bd39bea975f6df9f40c792b0b50f48}{trFileIndex}}()}
+\DoxyCodeLine{387     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Failu indekss"{}}; \}}
+\DoxyCodeLine{388 }
+\DoxyCodeLine{392     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae783a0abe511b715d27b865a15a06f22}{trModuleDocumentation}}()}
+\DoxyCodeLine{393     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļa dokumentācija"{}}; \}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{398     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afb9e6466b8d02b276b8517f4d825e7ee}{trClassDocumentation}}()}
+\DoxyCodeLine{399     \{}
+\DoxyCodeLine{400       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{401       \{}
+\DoxyCodeLine{402         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu struktūras dokomentācija"{}};}
+\DoxyCodeLine{403       \}}
+\DoxyCodeLine{404       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{405       \{}
+\DoxyCodeLine{406           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{407       \}}
+\DoxyCodeLine{408       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{409       \{}
+\DoxyCodeLine{410         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klases dokumentācija"{}};}
+\DoxyCodeLine{411       \}}
+\DoxyCodeLine{412     \}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2706102bd6adf31030e1b290e3799b9c}{trFileDocumentation}}()}
+\DoxyCodeLine{418     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Faila dokumentācija"{}}; \}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{423     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a641b538c690d3574673976b7eed5a173}{trExampleDocumentation}}()}
+\DoxyCodeLine{424     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Piemēri"{}}; \}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{427     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a38d9281f40c98c8a62afbedd3b473976}{trReferenceManual}}()}
+\DoxyCodeLine{428     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rokasgrāmata"{}}; \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{433     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af867c5d6a1972bcf017763dcebf7f9ee}{trDefines}}()}
+\DoxyCodeLine{434     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Makro"{}}; \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{439     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a34f07e680ff02e64b548e73fc4008c92}{trTypedefs}}()}
+\DoxyCodeLine{440     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedefs"{}}; \}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{445     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a14ea9ed21ddd309faa6f646fe55235f8}{trEnumerations}}()}
+\DoxyCodeLine{446     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uzskaitījumi"{}}; \}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{451     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a85a2153154638a1ce89de80d2d4e1b4e}{trFunctions}}()}
+\DoxyCodeLine{452     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcijas"{}}; \}}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{457     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a24496bf9a3a964cd9fc88a5b5651729f}{trVariables}}()}
+\DoxyCodeLine{458     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mainīgie"{}}; \}}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{463     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a982bcaf79d436aa10cb72015208150ac}{trEnumerationValues}}()}
+\DoxyCodeLine{464     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uzskaitījumliterāļi"{}}; \}}
+\DoxyCodeLine{465 }
+\DoxyCodeLine{469     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4f886fc5fded9d2b5dede74285944272}{trDefineDocumentation}}()}
+\DoxyCodeLine{470     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Makro definīcijas dokumentācija"{}}; \}}
+\DoxyCodeLine{471 }
+\DoxyCodeLine{475     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0c2e8f5aa34674ddcdabc807ad43d64e}{trTypedefDocumentation}}()}
+\DoxyCodeLine{476     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedef dokumentācija"{}}; \}}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{481     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a9e300ba73ec5a1f0087e46885ab86909}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{482     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uzskaitījumliterāļa tipa dokumentācija"{}}; \}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{487     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5a2d4567d00f5f05358803311596b454}{trFunctionDocumentation}}()}
+\DoxyCodeLine{488     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcijas dokumentācija"{}}; \}}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{493     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae10fb8f6a17d0a8a0892ecc421b185fb}{trVariableDocumentation}}()}
+\DoxyCodeLine{494     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mainīgo dokumentācija"{}}; \}}
+\DoxyCodeLine{495 }
+\DoxyCodeLine{499     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac378d64a355fdeb5c4c5302d594f31b8}{trCompounds}}()}
+\DoxyCodeLine{500     \{}
+\DoxyCodeLine{501       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{502       \{}
+\DoxyCodeLine{503         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu struktūras"{}};}
+\DoxyCodeLine{504       \}}
+\DoxyCodeLine{505       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{506       \{}
+\DoxyCodeLine{507         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klases"{}};}
+\DoxyCodeLine{508       \}}
+\DoxyCodeLine{509     \}}
+\DoxyCodeLine{510 }
+\DoxyCodeLine{514     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae42d5263f0d62250427a8ba220cb7d39}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{515     \{}
+\DoxyCodeLine{516       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Ģenerēts "{}}+date;}
+\DoxyCodeLine{517       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} projektam "{}}+projName;}
+\DoxyCodeLine{518       result+=\textcolor{stringliteral}{"{} ar"{}};}
+\DoxyCodeLine{519       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{520     \}}
+\DoxyCodeLine{521 }
+\DoxyCodeLine{523     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a52e7f4601ccc1f81ea5af757985b8877}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{524     \{}
+\DoxyCodeLine{525       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mantojamības diagramma klasei "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{526     \}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac0fdbd5b68297fd28f8d0acf594474cc}{trWarning}}()}
+\DoxyCodeLine{530     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Brīdinājums"{}}; \}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{533     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a44c017266b7fa7bac7299280adda2e03}{trVersion}}()}
+\DoxyCodeLine{534     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Versija"{}}; \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{537     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0c27033fbc29758948d56b104370738f}{trDate}}()}
+\DoxyCodeLine{538     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datums"{}}; \}}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{541     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5acec088893bb72e8f984901a067c832}{trReturns}}()}
+\DoxyCodeLine{542     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atgriež"{}}; \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{545     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a8ac0714fa779b7bbc19a2268a753185b}{trSeeAlso}}()}
+\DoxyCodeLine{546     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Skatīties arī"{}}; \}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{549     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa4bd4a2b667e18ecab7b28383604f6f8}{trParameters}}()}
+\DoxyCodeLine{550     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametri"{}}; \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{553     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aacde6e4e96f397053eeddabaa9ecaadd}{trExceptions}}()}
+\DoxyCodeLine{554     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Izņēmumi"{}}; \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1de8a2c8f8df5d4227864cb0953b8a72}{trGeneratedBy}}()}
+\DoxyCodeLine{558     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ģenerēts ar"{}}; \}}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{561 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{563 \textcolor{comment}{}}
+\DoxyCodeLine{565     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae09945c3bc7de35001d4dd654baeab14}{trNamespaceList}}()}
+\DoxyCodeLine{566     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nosaukumvietu saraksts"{}}; \}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{569     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a96bc2bcb265c451f3758338b1ab3500f}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{570     \{}
+\DoxyCodeLine{571       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visas "{}};}
+\DoxyCodeLine{572       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentētās "{}};}
+\DoxyCodeLine{573       result+=\textcolor{stringliteral}{"{}nosaukumvietas ar īsu aprakstu:"{}};}
+\DoxyCodeLine{574       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{575     \}}
+\DoxyCodeLine{576 }
+\DoxyCodeLine{580     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0a1d89b67fe87f1c834c650c6fe1ab15}{trFriends}}()}
+\DoxyCodeLine{581     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Draugi"{}}; \}}
+\DoxyCodeLine{582 }
+\DoxyCodeLine{584 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{586 \textcolor{comment}{}}
+\DoxyCodeLine{590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1deea29bb96c93b1cc1487dcfe2b3cb8}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Draugu un saistīto funkciju dokumentācija"{}}; \}}
+\DoxyCodeLine{592 }
+\DoxyCodeLine{594 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{596 \textcolor{comment}{}}
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab201e50f5df78894ff64297cc20632a7}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{599                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{600                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{601     \{}
+\DoxyCodeLine{602       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{603       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{604       \{}
+\DoxyCodeLine{605         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} klases"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{606         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} struktūras"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{607         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} apvienojuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{608         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} interfeisa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{609         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokola"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{610         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategorijas"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{611         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} izņēmuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{612         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{613       \}}
+\DoxyCodeLine{614       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} veidnes"{}};}
+\DoxyCodeLine{615       result+=\textcolor{stringliteral}{"{} apraksts"{}};}
+\DoxyCodeLine{616       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{617     \}}
+\DoxyCodeLine{618 }
+\DoxyCodeLine{620     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1a5958385ce986079b5df1ffc43682e6}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{621     \{}
+\DoxyCodeLine{622       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{623       result+=\textcolor{stringliteral}{"{} faila apraksts"{}};}
+\DoxyCodeLine{624       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{625     \}}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3694b5872d2dfcdf826ac632ded0a714}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{629     \{}
+\DoxyCodeLine{630       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{631       result+=\textcolor{stringliteral}{"{} nosaukumvietas apraksts"{}};}
+\DoxyCodeLine{632       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{633     \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{635     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a58fc7a42ec51136818980612397ac634}{trPublicMembers}}()}
+\DoxyCodeLine{636     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publiskās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{637     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae1395decd7dd85a52111309ff91014ec}{trPublicSlots}}()}
+\DoxyCodeLine{638     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publiskās spraugas"{}}; \}}
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a626d89e318c916155764e78a14a327c5}{trSignals}}()}
+\DoxyCodeLine{640     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signāli"{}}; \}}
+\DoxyCodeLine{641     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa6c00d988da3285cc1a8471bd0ea9830}{trStaticPublicMembers}}()}
+\DoxyCodeLine{642     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskās publiskās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{643     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_acdc9162d95e45a132123407c2b13381a}{trProtectedMembers}}()}
+\DoxyCodeLine{644     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aizsargātās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2948f88ea533c986607ab5fb3a58d9f1}{trProtectedSlots}}()}
+\DoxyCodeLine{646     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aizsargātās spraugas"{}}; \}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0ad40ce999411d25fa4f747c2155916b}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{648     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskās aizsargātās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0e321e5a3d1cc601c1bc14bc3c6d789d}{trPrivateMembers}}()}
+\DoxyCodeLine{650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privātās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a501c727651fc8bb2b8e5574b0f00e9db}{trPrivateSlots}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privātās spraugas"{}}; \}}
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a99ccd69bb84067135e0d2e8a2f76b47f}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{654     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskās privātās elementa funkcijas"{}}; \}}
+\DoxyCodeLine{655 }
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{660     \{}
+\DoxyCodeLine{661       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{662       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{663       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{664       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{665       \{}
+\DoxyCodeLine{666         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{667         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{668                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{669 }
+\DoxyCodeLine{670         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{671         \{}
+\DoxyCodeLine{672           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{673             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{674           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{675             result+=\textcolor{stringliteral}{"{}, un "{}};}
+\DoxyCodeLine{676         \}}
+\DoxyCodeLine{677       \}}
+\DoxyCodeLine{678       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{679     \}}
+\DoxyCodeLine{680 }
+\DoxyCodeLine{684     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4201f12dd064159256b38f14d61c609a}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{685     \{}
+\DoxyCodeLine{686       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Manto no "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{687     \}}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a97b725795c862d1913a11bc9417834a8}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{693     \{}
+\DoxyCodeLine{694       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiek mantots "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{695     \}}
+\DoxyCodeLine{696 }
+\DoxyCodeLine{700     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa00dd19fc14a067b0ec3b69c56402052}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{701     \{}
+\DoxyCodeLine{702       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pārimplementēts no "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{703     \}}
+\DoxyCodeLine{704 }
+\DoxyCodeLine{708     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a01648054f14b27fe72eb8a4a85ab1c28}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{709     \{}
+\DoxyCodeLine{710       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pārimplementēts "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712 }
+\DoxyCodeLine{714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a7b0ddfd60b5a949f7d80b6643976fdcd}{trNamespaceMembers}}()}
+\DoxyCodeLine{715     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nosaukumvietas elementi"{}}; \}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{718     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a8107165bea06594e1ca56c4e29dd8681}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{719     \{}
+\DoxyCodeLine{720       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visi "{}};}
+\DoxyCodeLine{721       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentētie "{}};}
+\DoxyCodeLine{722       result+=\textcolor{stringliteral}{"{}nosaukumvietas elementi ar saitēm uz "{}};}
+\DoxyCodeLine{723       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{724         result+=\textcolor{stringliteral}{"{}nosaukumvieta dokumentāciju katram elementam:"{}};}
+\DoxyCodeLine{725       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{726         result+=\textcolor{stringliteral}{"{}nosaukumvietu, kam tie pieder:"{}};}
+\DoxyCodeLine{727       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{728     \}}
+\DoxyCodeLine{732     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa29f1b80c956ddc119c2ad088cab5d47}{trNamespaceIndex}}()}
+\DoxyCodeLine{733     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nosaukumvietu indekss"{}}; \}}
+\DoxyCodeLine{734 }
+\DoxyCodeLine{738     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0644f201c43e9f20a601b9d9d71df202}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{739     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nosaukumvietas dokumentācija"{}}; \}}
+\DoxyCodeLine{740 }
+\DoxyCodeLine{742 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{744 \textcolor{comment}{}}
+\DoxyCodeLine{748     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ada12163c7bf5c1cea263e706916de578}{trNamespaces}}()}
+\DoxyCodeLine{749     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nosaukumvietas"{}}; \}}
+\DoxyCodeLine{750 }
+\DoxyCodeLine{752 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{754 \textcolor{comment}{}}
+\DoxyCodeLine{758     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a248b23dcbcb24ba075b68ef9559e6476}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{759         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{760     \{ \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{761       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šī"{}};}
+\DoxyCodeLine{762       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{763       \{}
+\DoxyCodeLine{764         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}s klases"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{765         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}s struktūras"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{766         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} apvienojuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{767         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} interfeisa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{768         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokola"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{769         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}s kategorijas"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{770         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} izņēmuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{771         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{772       \}}
+\DoxyCodeLine{773       result+=\textcolor{stringliteral}{"{} dokumentācijas tika ģenerēta no šāda fail"{}};}
+\DoxyCodeLine{774       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}a:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}iem:"{}};}
+\DoxyCodeLine{775       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{776     \}}
+\DoxyCodeLine{777 }
+\DoxyCodeLine{779 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{781 \textcolor{comment}{}}
+\DoxyCodeLine{783     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab3c10648da834e15c743342b06f37768}{trReturnValues}}()}
+\DoxyCodeLine{784     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atgriežamās vērtības"{}}; \}}
+\DoxyCodeLine{785 }
+\DoxyCodeLine{788     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4912ddc972266330e41d3a1eeffa8e1d}{trMainPage}}()}
+\DoxyCodeLine{789     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sākumlapa"{}}; \}}
+\DoxyCodeLine{790 }
+\DoxyCodeLine{794     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aceb4e5b6fc3616b2f4e9a33f16935278}{trPageAbbreviation}}()}
+\DoxyCodeLine{795     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}lpp."{}}; \}}
+\DoxyCodeLine{796 }
+\DoxyCodeLine{798 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{800 \textcolor{comment}{}}
+\DoxyCodeLine{801     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aaff881aa0f87a8ea51a250b41928e291}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{802     \{}
+\DoxyCodeLine{803       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definēts līnijā @0 failā @1."{}};}
+\DoxyCodeLine{804     \}}
+\DoxyCodeLine{805     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac0a3e8478ea3e6cc35b8aa3d92bba848}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{806     \{}
+\DoxyCodeLine{807       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definēts failā @0."{}};}
+\DoxyCodeLine{808     \}}
+\DoxyCodeLine{809 }
+\DoxyCodeLine{811 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{813 \textcolor{comment}{}}
+\DoxyCodeLine{814     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5dccc1beb3f58428496468eea228485f}{trDeprecated}}()}
+\DoxyCodeLine{815     \{}
+\DoxyCodeLine{816       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Novecojusi"{}};}
+\DoxyCodeLine{817     \}}
+\DoxyCodeLine{818 }
+\DoxyCodeLine{820 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{822 \textcolor{comment}{}}
+\DoxyCodeLine{824     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a53cbb9447c4b98a1c035901bc5d0c5fb}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{825     \{}
+\DoxyCodeLine{826       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sadarbības diagramma klasei "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{827     \}}
+\DoxyCodeLine{829     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2592c32a3af6df66dee6854fefc68851}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{830     \{}
+\DoxyCodeLine{831       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Include dependency graph for "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{832     \}}
+\DoxyCodeLine{834     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a27b6dbfbd8e73eed1e4834e71b56b767}{trConstructorDocumentation}}()}
+\DoxyCodeLine{835     \{}
+\DoxyCodeLine{836       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Konstruktora un destruktora dokumentācija"{}};}
+\DoxyCodeLine{837     \}}
+\DoxyCodeLine{839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af7cc65b07ccde8f2fe503c65c4308b95}{trGotoSourceCode}}()}
+\DoxyCodeLine{840     \{}
+\DoxyCodeLine{841       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iet uz šī faila pirmkodu."{}};}
+\DoxyCodeLine{842     \}}
+\DoxyCodeLine{844     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afe1b55d8d8cd600a5c72b96315d2fb65}{trGotoDocumentation}}()}
+\DoxyCodeLine{845     \{}
+\DoxyCodeLine{846       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ietu uz šī faila dokumentāciju."{}};}
+\DoxyCodeLine{847     \}}
+\DoxyCodeLine{849     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aba7b76d7af873ff097bcc7cc8e7c7555}{trPrecondition}}()}
+\DoxyCodeLine{850     \{}
+\DoxyCodeLine{851       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pirmsnosacījums"{}};}
+\DoxyCodeLine{852     \}}
+\DoxyCodeLine{854     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a91fa8a89b0d70595da0c75fd23b31f16}{trPostcondition}}()}
+\DoxyCodeLine{855     \{}
+\DoxyCodeLine{856       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pēcnosacījums"{}};}
+\DoxyCodeLine{857     \}}
+\DoxyCodeLine{859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa21a0757219fb5972ce3cd463b55fee1}{trInvariant}}()}
+\DoxyCodeLine{860     \{}
+\DoxyCodeLine{861       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariants"{}};}
+\DoxyCodeLine{862     \}}
+\DoxyCodeLine{864     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a19fe082bc876f6bbcbc680ca0d9d4f41}{trInitialValue}}()}
+\DoxyCodeLine{865     \{}
+\DoxyCodeLine{866       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sākotnējā vērtība:"{}};}
+\DoxyCodeLine{867     \}}
+\DoxyCodeLine{869     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5864e4602c0632be51b804e2cb136c7b}{trCode}}()}
+\DoxyCodeLine{870     \{}
+\DoxyCodeLine{871       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}pirmkods"{}};}
+\DoxyCodeLine{872     \}}
+\DoxyCodeLine{873     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1c55a99f05f23e91cf07a12c6da906d4}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{874     \{}
+\DoxyCodeLine{875       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafiska klases hierarhija"{}};}
+\DoxyCodeLine{876     \}}
+\DoxyCodeLine{877     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a54314ce198bc4fdbbebbf159cf509cfc}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{878     \{}
+\DoxyCodeLine{879       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iet uz grafisku klases hierarhiju"{}};}
+\DoxyCodeLine{880     \}}
+\DoxyCodeLine{881     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aecc9dc353b9550240c216f30df69f378}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{882     \{}
+\DoxyCodeLine{883       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iet uz tekstuālu klases hierarhiju"{}};}
+\DoxyCodeLine{884     \}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3e0b653740d4f7d1b8b1c6e411b64474}{trPageIndex}}()}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lapas indekss"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{889 }
+\DoxyCodeLine{891 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{893 \textcolor{comment}{}}
+\DoxyCodeLine{894     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5af857294727c2017b3fbdbc3da4456a}{trNote}}()}
+\DoxyCodeLine{895     \{}
+\DoxyCodeLine{896       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Piezīme"{}};}
+\DoxyCodeLine{897     \}}
+\DoxyCodeLine{898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1be577a3640fab66666a0d49f147fbbb}{trPublicTypes}}()}
+\DoxyCodeLine{899     \{}
+\DoxyCodeLine{900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publiskie tipi"{}};}
+\DoxyCodeLine{901     \}}
+\DoxyCodeLine{902     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1762a85578cb38692d311dcdbe04bf6b}{trPublicAttribs}}()}
+\DoxyCodeLine{903     \{}
+\DoxyCodeLine{904       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{905       \{}
+\DoxyCodeLine{906         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu lauki"{}};}
+\DoxyCodeLine{907       \}}
+\DoxyCodeLine{908       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{909       \{}
+\DoxyCodeLine{910         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Publiskie atribūti"{}};}
+\DoxyCodeLine{911       \}}
+\DoxyCodeLine{912     \}}
+\DoxyCodeLine{913     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5c5ab89c282c51f047df241917676ba0}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{914     \{}
+\DoxyCodeLine{915       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskie publiskie atribūti"{}};}
+\DoxyCodeLine{916     \}}
+\DoxyCodeLine{917     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a247fea3de6faf1ffb6e7362cd1239cb9}{trProtectedTypes}}()}
+\DoxyCodeLine{918     \{}
+\DoxyCodeLine{919       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aizsargātie tipi"{}};}
+\DoxyCodeLine{920     \}}
+\DoxyCodeLine{921     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5e0c70dfd56227ccc27c41374cfac809}{trProtectedAttribs}}()}
+\DoxyCodeLine{922     \{}
+\DoxyCodeLine{923       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Aizsargātie atribūti"{}};}
+\DoxyCodeLine{924     \}}
+\DoxyCodeLine{925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_abb8d740d8512f68508d022b4b4ef821b}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{926     \{}
+\DoxyCodeLine{927       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskie aizsargātie atribūti"{}};}
+\DoxyCodeLine{928     \}}
+\DoxyCodeLine{929     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af8ce0bfff4cbad6c9812898c523d7fee}{trPrivateTypes}}()}
+\DoxyCodeLine{930     \{}
+\DoxyCodeLine{931       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privātie tipi"{}};}
+\DoxyCodeLine{932     \}}
+\DoxyCodeLine{933     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a742e19cc6ec05c7f916a36c701f8d7d2}{trPrivateAttribs}}()}
+\DoxyCodeLine{934     \{}
+\DoxyCodeLine{935       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privātie atribūti"{}};}
+\DoxyCodeLine{936     \}}
+\DoxyCodeLine{937     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a49716c8f6821647b66562f492d1bf965}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{938     \{}
+\DoxyCodeLine{939       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskie privātie atribūti"{}};}
+\DoxyCodeLine{940     \}}
+\DoxyCodeLine{941 }
+\DoxyCodeLine{943 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{945 \textcolor{comment}{}}
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ad24f03043167f6fcbb22f6b6466a4821}{trTodo}}()}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Jāizdara"{}};}
+\DoxyCodeLine{950     \}}
+\DoxyCodeLine{952     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aeddd351f59b60261ba93ec27141854ff}{trTodoList}}()}
+\DoxyCodeLine{953     \{}
+\DoxyCodeLine{954       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Darāmo darbu saraksts"{}};}
+\DoxyCodeLine{955     \}}
+\DoxyCodeLine{956 }
+\DoxyCodeLine{958 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{960 \textcolor{comment}{}}
+\DoxyCodeLine{961     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aff076f18ca9abedf86ba56e60fa44432}{trReferencedBy}}()}
+\DoxyCodeLine{962     \{}
+\DoxyCodeLine{963       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atsauces no"{}};}
+\DoxyCodeLine{964     \}}
+\DoxyCodeLine{965     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a00036283d0e6e0c2e9eacf1ac41dae06}{trRemarks}}()}
+\DoxyCodeLine{966     \{}
+\DoxyCodeLine{967       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Piebildes"{}};}
+\DoxyCodeLine{968     \}}
+\DoxyCodeLine{969     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a056195b563c16d485f9baa3f105d55a9}{trAttention}}()}
+\DoxyCodeLine{970     \{}
+\DoxyCodeLine{971       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uzmanību"{}};}
+\DoxyCodeLine{972     \}}
+\DoxyCodeLine{973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a9d6a56170b1de84d698463a90e85711a}{trInclByDepGraph}}()}
+\DoxyCodeLine{974     \{}
+\DoxyCodeLine{975       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šis grafs rāda kuri faili tieši vai "{}}}
+\DoxyCodeLine{976              \textcolor{stringliteral}{"{}netieši iekļauj šo failu:"{}};}
+\DoxyCodeLine{977     \}}
+\DoxyCodeLine{978     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_addf863e4efb51427c6da52a4b04c2aeb}{trSince}}()}
+\DoxyCodeLine{979     \{}
+\DoxyCodeLine{980       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kopš"{}};}
+\DoxyCodeLine{981     \}}
+\DoxyCodeLine{982 }
+\DoxyCodeLine{984 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{986 \textcolor{comment}{}}
+\DoxyCodeLine{988     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac4a6956c3ab5375cd0b27c1d37c01450}{trLegendTitle}}()}
+\DoxyCodeLine{989     \{}
+\DoxyCodeLine{990       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafika leģenda"{}};}
+\DoxyCodeLine{991     \}}
+\DoxyCodeLine{995     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_adf0012745dfab4069701c6025f5df45d}{trLegendDocs}}()}
+\DoxyCodeLine{996     \{}
+\DoxyCodeLine{997       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{998         \textcolor{stringliteral}{"{}This page explains how to interpret the graphs that are generated "{}}}
+\DoxyCodeLine{999         \textcolor{stringliteral}{"{}by doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1000         \textcolor{stringliteral}{"{}Consider the following example:\(\backslash\)n"{}}}
+\DoxyCodeLine{1001         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1002         \textcolor{stringliteral}{"{}/*! Invisible class because of truncation */\(\backslash\)n"{}}}
+\DoxyCodeLine{1003         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1004         \textcolor{stringliteral}{"{}/*! Truncated class, inheritance relation is hidden */\(\backslash\)n"{}}}
+\DoxyCodeLine{1005         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}/* Class not documented with doxygen comments */\(\backslash\)n"{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}/*! Class that is inherited using public inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}/*! Class that is inherited using protected inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}/*! Class that is inherited using private inheritance */\(\backslash\)n"{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}/*! Class that is used by the Inherited class */\(\backslash\)n"{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}/*! Super class that inherits a number of other classes */\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}This will result in the following graph:"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center></p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}The boxes in the above graph have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}<li>\%A filled gray box represents the struct or class for which the "{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}graph is generated.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}<li>\%A box with a black border denotes a documented struct or class.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}<li>\%A box with a gray border denotes an undocumented struct or class.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}<li>\%A box with a red border denotes a documented struct or class for"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}which not all inheritance/containment relations are shown. \%A graph is "{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}truncated if it does not fit within the specified boundaries.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}The arrows have the following meaning:\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}</p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}<li>\%A dark blue arrow is used to visualize a public inheritance "{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}relation between two classes.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}<li>\%A dark green arrow is used for protected inheritance.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}<li>\%A dark red arrow is used for private inheritance.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}<li>\%A purple dashed arrow is used if a class is contained or used "{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}by another class. The arrow is labeled with the variable(s) "{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}through which the pointed class or struct is accessible.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}<li>\%A yellow dashed arrow denotes a relation between a template instance and "{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}the template class it was instantiated from. The arrow is labeled with "{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}the template parameters of the instance.</li>\(\backslash\)n"{}}}
+\DoxyCodeLine{1057         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1058     \}}
+\DoxyCodeLine{1060     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a98d820d53a217539838e457cd1393916}{trLegend}}()}
+\DoxyCodeLine{1061     \{}
+\DoxyCodeLine{1062       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}leģenda"{}};}
+\DoxyCodeLine{1063     \}}
+\DoxyCodeLine{1064 }
+\DoxyCodeLine{1066 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1068 \textcolor{comment}{}}
+\DoxyCodeLine{1070     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aedaa1eb15dbad1481248ffa69b584dca}{trTest}}()}
+\DoxyCodeLine{1071     \{}
+\DoxyCodeLine{1072       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testi"{}};}
+\DoxyCodeLine{1073     \}}
+\DoxyCodeLine{1075     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a95e6770fccd1961e453cf4fafd6486bf}{trTestList}}()}
+\DoxyCodeLine{1076     \{}
+\DoxyCodeLine{1077       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testu saraksts"{}};}
+\DoxyCodeLine{1078     \}}
+\DoxyCodeLine{1079 }
+\DoxyCodeLine{1081 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1083 \textcolor{comment}{}}
+\DoxyCodeLine{1085     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a434581e902c35c53a8b95705b920ca8b}{trProperties}}()}
+\DoxyCodeLine{1086     \{}
+\DoxyCodeLine{1087       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rekvizīti"{}};}
+\DoxyCodeLine{1088     \}}
+\DoxyCodeLine{1090     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_acf1d81d6a8a713daaa428e4155c185d8}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1091     \{}
+\DoxyCodeLine{1092       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rekvizītu dokumentācija"{}};}
+\DoxyCodeLine{1093     \}}
+\DoxyCodeLine{1094 }
+\DoxyCodeLine{1096 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1098 \textcolor{comment}{}}
+\DoxyCodeLine{1100     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa6afa8cad79e473a2b9f3367e9dca169}{trClasses}}()}
+\DoxyCodeLine{1101     \{}
+\DoxyCodeLine{1102       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1103       \{}
+\DoxyCodeLine{1104         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu struktūras"{}};}
+\DoxyCodeLine{1105       \}}
+\DoxyCodeLine{1106       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1107       \{}
+\DoxyCodeLine{1108         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klases"{}};}
+\DoxyCodeLine{1109       \}}
+\DoxyCodeLine{1110     \}}
+\DoxyCodeLine{1112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4341e63a289d1042b5f12bc9f44ba427}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1113     \{}
+\DoxyCodeLine{1114       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakotne "{}}+name;}
+\DoxyCodeLine{1115     \}}
+\DoxyCodeLine{1117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2ce4c653c8157341eb5da8e3275a1861}{trPackageListDescription}}()}
+\DoxyCodeLine{1118     \{}
+\DoxyCodeLine{1119       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Here are the packages with brief descriptions (if available):"{}};}
+\DoxyCodeLine{1120     \}}
+\DoxyCodeLine{1122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1fbaa5241a205d860272f239b6d415cd}{trPackages}}()}
+\DoxyCodeLine{1123     \{}
+\DoxyCodeLine{1124       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakotnes"{}};}
+\DoxyCodeLine{1125     \}}
+\DoxyCodeLine{1127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a645dfdf558e7f0a2749ccff085fddce5}{trDefineValue}}()}
+\DoxyCodeLine{1128     \{}
+\DoxyCodeLine{1129       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vērtība:"{}};}
+\DoxyCodeLine{1130     \}}
+\DoxyCodeLine{1131 }
+\DoxyCodeLine{1133 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1135 \textcolor{comment}{}}
+\DoxyCodeLine{1137     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa3fd977163a6ccdbc7617f7edfe2245d}{trBug}}()}
+\DoxyCodeLine{1138     \{}
+\DoxyCodeLine{1139       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kļūda"{}};}
+\DoxyCodeLine{1140     \}}
+\DoxyCodeLine{1142     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a2f139e8c57353ebcdc3b11daaa4ba4cc}{trBugList}}()}
+\DoxyCodeLine{1143     \{}
+\DoxyCodeLine{1144       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kļūdu saraksts"{}};}
+\DoxyCodeLine{1145     \}}
+\DoxyCodeLine{1146 }
+\DoxyCodeLine{1148 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1150 \textcolor{comment}{}}
+\DoxyCodeLine{1176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a69eda1383838391ddc6633bb881d0df4}{trRTFansicp}}()}
+\DoxyCodeLine{1177     \{}
+\DoxyCodeLine{1178       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1257"{}};}
+\DoxyCodeLine{1179     \}}
+\DoxyCodeLine{1180 }
+\DoxyCodeLine{1181 }
+\DoxyCodeLine{1185     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a75d9c10a0e6401330ddd1a36471cff91}{trRTFCharSet}}()}
+\DoxyCodeLine{1186     \{}
+\DoxyCodeLine{1187       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}186"{}};}
+\DoxyCodeLine{1188     \}}
+\DoxyCodeLine{1189 }
+\DoxyCodeLine{1191     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a233385f80402b364f7f89bd217ee2b43}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1192     \{}
+\DoxyCodeLine{1193       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indekss"{}};}
+\DoxyCodeLine{1194     \}}
+\DoxyCodeLine{1195 }
+\DoxyCodeLine{1200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aab8dd49a826bce1e1a22f2d1ef61e4ed}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1201     \{}
+\DoxyCodeLine{1202       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Klase"{}} : \textcolor{stringliteral}{"{}klase"{}}));}
+\DoxyCodeLine{1203       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1204       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1205     \}}
+\DoxyCodeLine{1206 }
+\DoxyCodeLine{1211     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa634d033192560ad81e4400dcf2cc6c7}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1212     \{}
+\DoxyCodeLine{1213       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Fail"{}} : \textcolor{stringliteral}{"{}fail"{}}));}
+\DoxyCodeLine{1214       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}s"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1215       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1216     \}}
+\DoxyCodeLine{1217 }
+\DoxyCodeLine{1222     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aeaacdfc872e76eb468a98ee4841a7337}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1223     \{}
+\DoxyCodeLine{1224       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Nosaukumvieta"{}} : \textcolor{stringliteral}{"{}nosaukumvieta"{}}));}
+\DoxyCodeLine{1225       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1226       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1227     \}}
+\DoxyCodeLine{1228 }
+\DoxyCodeLine{1233     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac06fda1845a57e2c95f8d9634d858214}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1234     \{}
+\DoxyCodeLine{1235       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Grupa"{}} : \textcolor{stringliteral}{"{}grupa"{}}));}
+\DoxyCodeLine{1236       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1237       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1238     \}}
+\DoxyCodeLine{1239 }
+\DoxyCodeLine{1244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_adf124d405da5473cc5adb4af0e2ed0b2}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1245     \{}
+\DoxyCodeLine{1246       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Lapa"{}} : \textcolor{stringliteral}{"{}lapa"{}}));}
+\DoxyCodeLine{1247       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1248       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1249     \}}
+\DoxyCodeLine{1250 }
+\DoxyCodeLine{1255     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a9462bbc83dedf3fb50d623bc491f7554}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1256     \{}
+\DoxyCodeLine{1257       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Element"{}} : \textcolor{stringliteral}{"{}element"{}}));}
+\DoxyCodeLine{1258       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}s"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1259       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1260     \}}
+\DoxyCodeLine{1261 }
+\DoxyCodeLine{1266     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a69050c0c8a1ac59b3580b741d8e7bb99}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1267     \{}
+\DoxyCodeLine{1268       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Globāl"{}} : \textcolor{stringliteral}{"{}globāl"{}}));}
+\DoxyCodeLine{1269       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}ais"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ie"{}};}
+\DoxyCodeLine{1270       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1271     \}}
+\DoxyCodeLine{1272 }
+\DoxyCodeLine{1274 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1276 \textcolor{comment}{}}
+\DoxyCodeLine{1279     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a560343a111fb14350d9ee29851ce3de2}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1280     \{}
+\DoxyCodeLine{1281       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Autor"{}} : \textcolor{stringliteral}{"{}autor"{}}));}
+\DoxyCodeLine{1282       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}s"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1283       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1284     \}}
+\DoxyCodeLine{1285 }
+\DoxyCodeLine{1287 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1289 \textcolor{comment}{}}
+\DoxyCodeLine{1292     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ad136c52938e2f02d801e4d69968956e2}{trReferences}}()}
+\DoxyCodeLine{1293     \{}
+\DoxyCodeLine{1294       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atsauces"{}};}
+\DoxyCodeLine{1295     \}}
+\DoxyCodeLine{1296 }
+\DoxyCodeLine{1298 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1300 \textcolor{comment}{}}
+\DoxyCodeLine{1304     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ada6f3c12a3fff42231971fb2452cdb5d}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1305     \{}
+\DoxyCodeLine{1306       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Īsteno "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1307     \}}
+\DoxyCodeLine{1308 }
+\DoxyCodeLine{1312     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ad65d7884e953950b2cffc847a8b5dc90}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1313     \{}
+\DoxyCodeLine{1314       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Īstenots "{}}+\mbox{\hyperlink{classTranslatorLatvian_a8fde583c9c1d5dba53242a8dff8ff6c9}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1315     \}}
+\DoxyCodeLine{1316 }
+\DoxyCodeLine{1318 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1320 \textcolor{comment}{}}
+\DoxyCodeLine{1324     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab3563e94c62d7b52691a8ea260e2c901}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1325     \{}
+\DoxyCodeLine{1326       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Satura rādītājs"{}};}
+\DoxyCodeLine{1327     \}}
+\DoxyCodeLine{1328 }
+\DoxyCodeLine{1330 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1332 \textcolor{comment}{}}
+\DoxyCodeLine{1336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aab81dcf029c6395e18f9716736441d32}{trDeprecatedList}}()}
+\DoxyCodeLine{1337     \{}
+\DoxyCodeLine{1338       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Novecojušo saraksts"{}};}
+\DoxyCodeLine{1339     \}}
+\DoxyCodeLine{1340 }
+\DoxyCodeLine{1342 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1344 \textcolor{comment}{}}
+\DoxyCodeLine{1348     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a68994faaf7f8921a0f314911ddb88a42}{trEvents}}()}
+\DoxyCodeLine{1349     \{}
+\DoxyCodeLine{1350       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Notikumi"{}};}
+\DoxyCodeLine{1351     \}}
+\DoxyCodeLine{1353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a894ab88d36cb6e57963acbd2e1a0603a}{trEventDocumentation}}()}
+\DoxyCodeLine{1354     \{}
+\DoxyCodeLine{1355       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Notikumu dokumentācija"{}};}
+\DoxyCodeLine{1356     \}}
+\DoxyCodeLine{1357 }
+\DoxyCodeLine{1359 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1361 \textcolor{comment}{}}
+\DoxyCodeLine{1364     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a982f6c35348f2aac06c5ca9620465571}{trPackageTypes}}()}
+\DoxyCodeLine{1365     \{}
+\DoxyCodeLine{1366       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakas tipi"{}};}
+\DoxyCodeLine{1367     \}}
+\DoxyCodeLine{1371     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af520cb80b780e6cb68352d312559c539}{trPackageFunctions}}()}
+\DoxyCodeLine{1372     \{}
+\DoxyCodeLine{1373       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakas funkcijas"{}};}
+\DoxyCodeLine{1374     \}}
+\DoxyCodeLine{1375     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afca38b5858a41a8b6abbabecd056c190}{trPackageMembers}}()}
+\DoxyCodeLine{1376     \{}
+\DoxyCodeLine{1377       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakas elementi"{}};}
+\DoxyCodeLine{1378     \}}
+\DoxyCodeLine{1382     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a690e46e29f64fd6e6009cd1e3d59ff56}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1383     \{}
+\DoxyCodeLine{1384       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskās pakas funkcijas"{}};}
+\DoxyCodeLine{1385     \}}
+\DoxyCodeLine{1389     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af63e436d228cae8f81fe84bb299eed10}{trPackageAttribs}}()}
+\DoxyCodeLine{1390     \{}
+\DoxyCodeLine{1391       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakas atribūti"{}};}
+\DoxyCodeLine{1392     \}}
+\DoxyCodeLine{1396     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a473be083b0daf554663b2fabebd2f77b}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1397     \{}
+\DoxyCodeLine{1398       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiskie pakas atribūti"{}};}
+\DoxyCodeLine{1399     \}}
+\DoxyCodeLine{1400 }
+\DoxyCodeLine{1402 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1404 \textcolor{comment}{}}
+\DoxyCodeLine{1408     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab1c9c0c7e963a02e1d8678c0b63dcf4b}{trAll}}()}
+\DoxyCodeLine{1409     \{}
+\DoxyCodeLine{1410       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Visi"{}};}
+\DoxyCodeLine{1411     \}}
+\DoxyCodeLine{1413     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a79f7503563a22db84b7f4175dfd69c12}{trCallGraph}}()}
+\DoxyCodeLine{1414     \{}
+\DoxyCodeLine{1415       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visu funkciju izsaugumu grafs:"{}};}
+\DoxyCodeLine{1416     \}}
+\DoxyCodeLine{1417 }
+\DoxyCodeLine{1419 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1421 \textcolor{comment}{}}
+\DoxyCodeLine{1425     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a69715d6cd736ce17ac8476baf8bd0b44}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1426     \{}
+\DoxyCodeLine{1427       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Meklēšanas rezultāti"{}};}
+\DoxyCodeLine{1428     \}}
+\DoxyCodeLine{1437     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a61933ec05bfbd11cda84ba671163515c}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1438     \{}
+\DoxyCodeLine{1439       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1440       \{}
+\DoxyCodeLine{1441         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Netika atrasts neviens dokuments."{}};}
+\DoxyCodeLine{1442       \}}
+\DoxyCodeLine{1443       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1444       \{}
+\DoxyCodeLine{1445         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atrasts <b>1</b> dokuments."{}};}
+\DoxyCodeLine{1446       \}}
+\DoxyCodeLine{1447       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1448       \{}
+\DoxyCodeLine{1449         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atrasti <b>\$num</b> Dokumenti. "{}}}
+\DoxyCodeLine{1450                \textcolor{stringliteral}{"{}Sākumā attēlo tos, kas atbilst visprecīzāk."{}};}
+\DoxyCodeLine{1451       \}}
+\DoxyCodeLine{1452     \}}
+\DoxyCodeLine{1456     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a3856fb5d3cb295c5f0840cfbaf5a78c6}{trSearchMatches}}()}
+\DoxyCodeLine{1457     \{}
+\DoxyCodeLine{1458       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atbilst meklētajam:"{}};}
+\DoxyCodeLine{1459     \}}
+\DoxyCodeLine{1460 }
+\DoxyCodeLine{1462 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1464 \textcolor{comment}{}}
+\DoxyCodeLine{1467     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4d467cfc281c7edc62a2f64ad176fc6f}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1468     \{}
+\DoxyCodeLine{1469       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} pirmkoda fails"{}};}
+\DoxyCodeLine{1470     \}}
+\DoxyCodeLine{1471 }
+\DoxyCodeLine{1473 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1475 \textcolor{comment}{}}
+\DoxyCodeLine{1479     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac4c7c586d8b6a02cd6383b0c7b4a0cf3}{trDirIndex}}()}
+\DoxyCodeLine{1480     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Direktoriju struktūra"{}}; \}}
+\DoxyCodeLine{1481 }
+\DoxyCodeLine{1485     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a90f3bfe6d0e97a539c4c7ac41b20dc1b}{trDirDocumentation}}()}
+\DoxyCodeLine{1486     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Direktorijas dokumentācija"{}}; \}}
+\DoxyCodeLine{1487 }
+\DoxyCodeLine{1491     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_affc6f859a4dd72f8e96925abac0c248c}{trDirectories}}()}
+\DoxyCodeLine{1492     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Direktorijas"{}}; \}}
+\DoxyCodeLine{1493 }
+\DoxyCodeLine{1497     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa69fcda1c6b933aacf243c54ce054792}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1498     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Direktorijas "{}}; result+=dirName; result+=\textcolor{stringliteral}{"{} atsauce"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1499 }
+\DoxyCodeLine{1503     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a864e383950c3b0a730b176e9d79dcc98}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1504     \{}
+\DoxyCodeLine{1505       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Direktorija"{}} : \textcolor{stringliteral}{"{}direktorija"{}}));}
+\DoxyCodeLine{1506       \textcolor{keywordflow}{if} (!singular) result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1507       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1508     \}}
+\DoxyCodeLine{1509 }
+\DoxyCodeLine{1511 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1513 \textcolor{comment}{}}
+\DoxyCodeLine{1517     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a93f8a85f04b8fc4930f134753e0ca761}{trOverloadText}}()}
+\DoxyCodeLine{1518     \{}
+\DoxyCodeLine{1519        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šī ir elementa pārslogota funkcija, kas "{}}}
+\DoxyCodeLine{1520               \textcolor{stringliteral}{"{}parādīta tikai informātīvo nolūkos. Tā atšķiras no iepriekšapraksītās "{}}}
+\DoxyCodeLine{1521               \textcolor{stringliteral}{"{}funkcijas tikai ar parametriem, ko tā saņem."{}};}
+\DoxyCodeLine{1522     \}}
+\DoxyCodeLine{1523 }
+\DoxyCodeLine{1525 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1527 \textcolor{comment}{}}
+\DoxyCodeLine{1529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a25807d43d627f1f67657fd1e60a1c3af}{trCallerGraph}}()}
+\DoxyCodeLine{1530     \{}
+\DoxyCodeLine{1531       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir šīs funkcijas izsaukuma grafs:"{}};}
+\DoxyCodeLine{1532     \}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1537     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a1fcfc6a0ddc8a35840a0ce2ffc59fcee}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1538     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uzskaitījumliterāļa dokumentācija"{}}; \}}
+\DoxyCodeLine{1539 }
+\DoxyCodeLine{1541 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1543 \textcolor{comment}{}}
+\DoxyCodeLine{1545     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a29d2260f23ac112bbdfea98fa12b3f69}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1546     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Elementa funckijas/apakšrutīnas dokumentācija"{}}; \}}
+\DoxyCodeLine{1547 }
+\DoxyCodeLine{1549     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a83702eedf5252a5db09e4ab05e7c4641}{trCompoundListFortran}}()}
+\DoxyCodeLine{1550     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu tipu saraksts"{}}; \}}
+\DoxyCodeLine{1551 }
+\DoxyCodeLine{1553     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_acaaf3d78109d12e2dfb897b8939d53d1}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1554     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu lauki"{}}; \}}
+\DoxyCodeLine{1555 }
+\DoxyCodeLine{1557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ad11ecc4782761f738ff844d953956665}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1558     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Šeit ir visu datu tipu saraksts ar īsu aprakstu:"{}}; \}}
+\DoxyCodeLine{1559 }
+\DoxyCodeLine{1561     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af48ca81a520d1330103a9684f5e90b4c}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1562     \{}
+\DoxyCodeLine{1563       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{1564       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1565       \{}
+\DoxyCodeLine{1566         result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{1567       \}}
+\DoxyCodeLine{1568       result+=\textcolor{stringliteral}{"{}datu tipu saraksts"{}};}
+\DoxyCodeLine{1569       result+=\textcolor{stringliteral}{"{} ar saitēm uz "{}};}
+\DoxyCodeLine{1570       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1571       \{}
+\DoxyCodeLine{1572          result+=\textcolor{stringliteral}{"{}datu struktūras dokumentāciju katram elementam:"{}};}
+\DoxyCodeLine{1573       \}}
+\DoxyCodeLine{1574       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1575       \{}
+\DoxyCodeLine{1576          result+=\textcolor{stringliteral}{"{}datu tipiem, kam tie pieder:"{}};}
+\DoxyCodeLine{1577       \}}
+\DoxyCodeLine{1578       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1579     \}}
+\DoxyCodeLine{1580 }
+\DoxyCodeLine{1584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a73c04162ecd8c06cccee4129cd63d633}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu tipu indekss"{}}; \}}
+\DoxyCodeLine{1586 }
+\DoxyCodeLine{1590     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a66321785df3724e8bc4fde55c17b5187}{trTypeDocumentation}}()}
+\DoxyCodeLine{1591     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu tipa dokumentācija"{}}; \}}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a290521476148cedf4f9f19763d2f8767}{trSubprograms}}()}
+\DoxyCodeLine{1597     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcijas/Apakšrutīnas"{}}; \}}
+\DoxyCodeLine{1598 }
+\DoxyCodeLine{1602     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afc484bd38a979840ce6a8b103c1897e8}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1603     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcijas/Apakšrutīnas dokumentācija"{}}; \}}
+\DoxyCodeLine{1604 }
+\DoxyCodeLine{1608      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa9b9f0017d09cd059c0b7ee6f66379eb}{trDataTypes}}()}
+\DoxyCodeLine{1609     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datu tipi"{}}; \}}
+\DoxyCodeLine{1610 }
+\DoxyCodeLine{1612     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aea1d2c7afa2ad24f23016f547b7a53fc}{trModulesList}}()}
+\DoxyCodeLine{1613     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļu saraksts"{}}; \}}
+\DoxyCodeLine{1614 }
+\DoxyCodeLine{1616     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a945e00c8b53c4d356cd2dfa054d28a9e}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1617     \{}
+\DoxyCodeLine{1618       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{1619       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{1620       result+=\textcolor{stringliteral}{"{}moduļu saraksts ar īsu aprakstu:"{}};}
+\DoxyCodeLine{1621       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1622     \}}
+\DoxyCodeLine{1623 }
+\DoxyCodeLine{1625     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a307ed5d6498676f49e04b2a8a5961129}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1626                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1627                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1628     \{}
+\DoxyCodeLine{1629       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1630       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1631       \{}
+\DoxyCodeLine{1632         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} moduļa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1633         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} tipa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1634         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} apvienojuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1635         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} interfeisa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1636         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokola"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1637         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategorijas"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1638         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} izņēmuma"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1639         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1640       \}}
+\DoxyCodeLine{1641       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} sagataves"{}};}
+\DoxyCodeLine{1642       result+=\textcolor{stringliteral}{"{} atsauce"{}};}
+\DoxyCodeLine{1643       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1644     \}}
+\DoxyCodeLine{1646     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a5ee979efa30a57b8e9bd40920d3f7a05}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1647     \{}
+\DoxyCodeLine{1648       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1649       result+=\textcolor{stringliteral}{"{} moduļu atsauce"{}};}
+\DoxyCodeLine{1650       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1651     \}}
+\DoxyCodeLine{1652 }
+\DoxyCodeLine{1654     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af5c08881335d62614972f8a2853c4cbe}{trModulesMembers}}()}
+\DoxyCodeLine{1655     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļa elementi"{}}; \}}
+\DoxyCodeLine{1656 }
+\DoxyCodeLine{1658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afac86ad3334aca121bfed96fcd0c5c61}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1659     \{}
+\DoxyCodeLine{1660       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Šeit ir visu "{}};}
+\DoxyCodeLine{1661       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentēto "{}};}
+\DoxyCodeLine{1662       result+=\textcolor{stringliteral}{"{}moduļa elementu saraksts ar saitēm uz "{}};}
+\DoxyCodeLine{1663       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1664       \{}
+\DoxyCodeLine{1665         result+=\textcolor{stringliteral}{"{}moduļa dokumentāciju katram elementam:"{}};}
+\DoxyCodeLine{1666       \}}
+\DoxyCodeLine{1667       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1668       \{}
+\DoxyCodeLine{1669         result+=\textcolor{stringliteral}{"{}moduļiem, kuriem tie pieder:"{}};}
+\DoxyCodeLine{1670       \}}
+\DoxyCodeLine{1671       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1672     \}}
+\DoxyCodeLine{1673 }
+\DoxyCodeLine{1677     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a22bbe030d98d4f055d9b42a60e163816}{trModulesIndex}}()}
+\DoxyCodeLine{1678     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduļu indekss"{}}; \}}
+\DoxyCodeLine{1679 }
+\DoxyCodeLine{1684     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a6069533d4897fd837c6c1c017439d104}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1685     \{}
+\DoxyCodeLine{1686       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modu"{}} : \textcolor{stringliteral}{"{}modu"{}}));}
+\DoxyCodeLine{1687       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}lis"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}ļi"{}};}
+\DoxyCodeLine{1688       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1689     \}}
+\DoxyCodeLine{1690 }
+\DoxyCodeLine{1694     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae8609f4dbd33e7c73f80e43feeec83a6}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1695         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1696     \{}
+\DoxyCodeLine{1697       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1698       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentācija š"{}};}
+\DoxyCodeLine{1699       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1700       \{}
+\DoxyCodeLine{1701         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}im modulim"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1702         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}im tipam"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1703         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}im apvienojumam"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1704         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}im interfeisam"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1705         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}im protokolam"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1706         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}ai kategorijai"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1707         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}im izņēmumam"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1708         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1709       \}}
+\DoxyCodeLine{1710       result+=\textcolor{stringliteral}{"{} tika ģenerēta no fail"{}};}
+\DoxyCodeLine{1711       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}a:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}iem:"{}};}
+\DoxyCodeLine{1712       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1713     \}}
+\DoxyCodeLine{1714 }
+\DoxyCodeLine{1719     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac80e39a067a0cf072f746592efa1c3d8}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1720     \{}
+\DoxyCodeLine{1721       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tip"{}} : \textcolor{stringliteral}{"{}tip"{}}));}
+\DoxyCodeLine{1722       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}s"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1723       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1724     \}}
+\DoxyCodeLine{1725 }
+\DoxyCodeLine{1730     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aae04fa9189ce30f0152704f6bc9e4e75}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1731     \{}
+\DoxyCodeLine{1732       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Apakšprogramma"{}} : \textcolor{stringliteral}{"{}apakšprogramma"{}}));}
+\DoxyCodeLine{1733       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}s"{}};}
+\DoxyCodeLine{1734       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1735     \}}
+\DoxyCodeLine{1736 }
+\DoxyCodeLine{1738     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a802d19d5c6f488ac0d18ea3f734ee9fd}{trTypeConstraints}}()}
+\DoxyCodeLine{1739     \{}
+\DoxyCodeLine{1740       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipa ierobežojumi"{}};}
+\DoxyCodeLine{1741     \}}
+\DoxyCodeLine{1742 }
+\DoxyCodeLine{1744 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1746 \textcolor{comment}{}}
+\DoxyCodeLine{1748     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aaf402e790f3d750580fafc7df0fb072a}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1749     \{}
+\DoxyCodeLine{1750       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} relācija"{}};}
+\DoxyCodeLine{1751     \}}
+\DoxyCodeLine{1752 }
+\DoxyCodeLine{1754     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae3a60ea9102c987a4409193f10d9b10d}{trLoading}}()}
+\DoxyCodeLine{1755     \{}
+\DoxyCodeLine{1756       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tiek veikta ielāde..."{}};}
+\DoxyCodeLine{1757     \}}
+\DoxyCodeLine{1758 }
+\DoxyCodeLine{1760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac0d2571ddf076d9e0e2dc4ff808f029a}{trGlobalNamespace}}()}
+\DoxyCodeLine{1761     \{}
+\DoxyCodeLine{1762       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Global Namespace"{}};}
+\DoxyCodeLine{1763     \}}
+\DoxyCodeLine{1764 }
+\DoxyCodeLine{1766     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_af4941a5011eeaf8e581f9861d892d6fa}{trSearching}}()}
+\DoxyCodeLine{1767     \{}
+\DoxyCodeLine{1768       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Meklē..."{}};}
+\DoxyCodeLine{1769     \}}
+\DoxyCodeLine{1770 }
+\DoxyCodeLine{1772     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a7b78bee9e9c1dcbed020df9810d2ede7}{trNoMatches}}()}
+\DoxyCodeLine{1773     \{}
+\DoxyCodeLine{1774       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nav atbilstību"{}};}
+\DoxyCodeLine{1775     \}}
+\DoxyCodeLine{1776 }
+\DoxyCodeLine{1778 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1780 \textcolor{comment}{}}
+\DoxyCodeLine{1785     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a817fe7cac0badc61dca8bc0f2c28d64a}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1786     \{}
+\DoxyCodeLine{1787       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}File in "{}}+name;}
+\DoxyCodeLine{1788     \}}
+\DoxyCodeLine{1789 }
+\DoxyCodeLine{1794     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a6a6c144679284e109c77de4eb8c714fb}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1795     \{}
+\DoxyCodeLine{1796       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Includes file in "{}}+name;}
+\DoxyCodeLine{1797     \}}
+\DoxyCodeLine{1798 }
+\DoxyCodeLine{1809     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a0fdc35505e7beca6f241f31ed3a21f59}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1810                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1811                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1812     \{}
+\DoxyCodeLine{1813       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Pirm"{}},\textcolor{stringliteral}{"{}Otr"{}},\textcolor{stringliteral}{"{}Tr"{}},\textcolor{stringliteral}{"{}Cet"{}},\textcolor{stringliteral}{"{}Piekt"{}},\textcolor{stringliteral}{"{}Sest"{}},\textcolor{stringliteral}{"{}Sv"{}} \};}
+\DoxyCodeLine{1814       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Jan"{}},\textcolor{stringliteral}{"{}Feb"{}},\textcolor{stringliteral}{"{}Mar"{}},\textcolor{stringliteral}{"{}Apr"{}},\textcolor{stringliteral}{"{}Mai"{}},\textcolor{stringliteral}{"{}Jūn"{}},\textcolor{stringliteral}{"{}Jūl"{}},\textcolor{stringliteral}{"{}Aug"{}},\textcolor{stringliteral}{"{}Sept"{}},\textcolor{stringliteral}{"{}Okt"{}},\textcolor{stringliteral}{"{}Nov"{}},\textcolor{stringliteral}{"{}Dec"{}} \};}
+\DoxyCodeLine{1815       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1816       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1817       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1818       \{}
+\DoxyCodeLine{1819         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1820         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1821         sdate+=stime;}
+\DoxyCodeLine{1822       \}}
+\DoxyCodeLine{1823       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1824     \}}
+\DoxyCodeLine{1825 }
+\DoxyCodeLine{1827 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1829 \textcolor{comment}{}}
+\DoxyCodeLine{1831     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_abe5515ffd2d28049cf44714cdf88645d}{trCiteReferences}}()}
+\DoxyCodeLine{1832     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bibliogrāfiskās atsauces"{}}; \}}
+\DoxyCodeLine{1833 }
+\DoxyCodeLine{1835     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a9f2850846c016bf33121ecf1c07976f2}{trCopyright}}()}
+\DoxyCodeLine{1836     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Autortiesības"{}}; \}}
+\DoxyCodeLine{1837 }
+\DoxyCodeLine{1839     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_afdfd9372531388fd23d4898008089d5e}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1840     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Atkarību grafs direktorijai "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1841 }
+\DoxyCodeLine{1843 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1845 \textcolor{comment}{}}
+\DoxyCodeLine{1847     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a820efa2c530441f7cb95c7e670d1b153}{trDetailLevel}}()}
+\DoxyCodeLine{1848     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}detalizācijas līmenis"{}}; \}}
+\DoxyCodeLine{1849 }
+\DoxyCodeLine{1851     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a41f737a605fbd032fa299d9c8b1ad5dc}{trTemplateParameters}}()}
+\DoxyCodeLine{1852     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sagataves parametri"{}}; \}}
+\DoxyCodeLine{1853 }
+\DoxyCodeLine{1855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4aecfc6ae33b8e484a44cd2cca747157}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1856     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}un vēl "{}}+number+\textcolor{stringliteral}{"{}..."{}}; \}}
+\DoxyCodeLine{1857 }
+\DoxyCodeLine{1859     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a7882f7574de5adf1d4f549332e990877}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1860     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Dokumentācija šim uzskaitījumliterālim tika ģenerēta no sekojoš"{}};}
+\DoxyCodeLine{1861       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}a"{}}; \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}iem"{}};}
+\DoxyCodeLine{1862       result+=\textcolor{stringliteral}{"{} fail"{}};}
+\DoxyCodeLine{1863       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}a"{}}; \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}iem"{}};}
+\DoxyCodeLine{1864       result+=\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1865       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1866     \}}
+\DoxyCodeLine{1867 }
+\DoxyCodeLine{1869     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aa9989df0fc1ccf439e22dae0ccc76dd4}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1870     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} uzskaitījumliterāļa atsauce"{}}; \}}
+\DoxyCodeLine{1871 }
+\DoxyCodeLine{1873     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_aeae95243337299c71ed47ee25596f7d7}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1874     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} manto no "{}}+what; \}}
+\DoxyCodeLine{1875 }
+\DoxyCodeLine{1879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac2eb645cd5e2482eb39b911de950e6cb}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1880     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Papildus mantotie elementi"{}}; \}}
+\DoxyCodeLine{1881 }
+\DoxyCodeLine{1883 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1885 \textcolor{comment}{}}
+\DoxyCodeLine{1890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ac9133a6359ba4c605ddfbbdb1a4db12a}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1891     \{}
+\DoxyCodeLine{1892       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}iespējotu"{}} : \textcolor{stringliteral}{"{}atspējotu"{}};}
+\DoxyCodeLine{1893       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}uzklikšķināt, lai "{}}+opt+\textcolor{stringliteral}{"{} paneļu sinhronizāciju"{}};}
+\DoxyCodeLine{1894     \}}
+\DoxyCodeLine{1895 }
+\DoxyCodeLine{1900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab3fd6b93bf152fcd134ae2f657d81dec}{trProvidedByCategory}}()}
+\DoxyCodeLine{1901     \{}
+\DoxyCodeLine{1902       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nodrošina kategorija @0."{}};}
+\DoxyCodeLine{1903     \}}
+\DoxyCodeLine{1904 }
+\DoxyCodeLine{1909     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a92ae08c24e206607521d096c932e3953}{trExtendsClass}}()}
+\DoxyCodeLine{1910     \{}
+\DoxyCodeLine{1911       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paplašina klasi @0."{}};}
+\DoxyCodeLine{1912     \}}
+\DoxyCodeLine{1913 }
+\DoxyCodeLine{1917     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ab5588d92b34793b3647b5c1324baf1b0}{trClassMethods}}()}
+\DoxyCodeLine{1918     \{}
+\DoxyCodeLine{1919       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klases metodes"{}};}
+\DoxyCodeLine{1920     \}}
+\DoxyCodeLine{1921 }
+\DoxyCodeLine{1925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_a4350c6a3e2f8445f686d682c610c9084}{trInstanceMethods}}()}
+\DoxyCodeLine{1926     \{}
+\DoxyCodeLine{1927       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Instances metodes"{}};}
+\DoxyCodeLine{1928     \}}
+\DoxyCodeLine{1929 }
+\DoxyCodeLine{1932     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorLatvian_ae1e2acb4bb3f93a24c92d6312fc9644a}{trMethodDocumentation}}()}
+\DoxyCodeLine{1933     \{}
+\DoxyCodeLine{1934       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metožu dokumentācija"{}};}
+\DoxyCodeLine{1935     \}}
+\DoxyCodeLine{1936 \};}
+\DoxyCodeLine{1937 }
+\DoxyCodeLine{1938 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,350 @@
+\hypertarget{linkedmap_8h_source}{}\doxysection{linkedmap.\+h}
+\label{linkedmap_8h_source}\index{/mnt/c/projects/doxygen/src/linkedmap.h@{/mnt/c/projects/doxygen/src/linkedmap.h}}
+\mbox{\hyperlink{linkedmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef LINKEDMAP\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define LINKEDMAP\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32 \textcolor{keyword}{template}<\textcolor{keyword}{class} T, \textcolor{keyword}{class} Hash = std::hash<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{33                   \textcolor{keyword}{class} KeyEqual = std::equal\_to<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{34                   \textcolor{keyword}{class} Map = std::unordered\_map<std::\textcolor{keywordtype}{string},T*,Hash,KeyEqual > >}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classLinkedMap}{LinkedMap}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37   \textcolor{keyword}{public}:}
+\DoxyCodeLine{38     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} = std::unique\_ptr<T>;}
+\DoxyCodeLine{39     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_ac4cfcf6ff5a2f4c0cb16d52eded44146}{Vec}} = std::vector<Ptr>;}
+\DoxyCodeLine{40     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_a972c395a37e958118752ebda8c7ec6d3}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{41     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{42     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} = \textcolor{keyword}{typename} Vec::reverse\_iterator;}
+\DoxyCodeLine{43     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedMap_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} = \textcolor{keyword}{typename} Vec::const\_reverse\_iterator;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{47     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(\textcolor{keyword}{const} std::string \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{48 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{49       \textcolor{keyword}{auto} it = m\_lookup.find(key);}
+\DoxyCodeLine{50       \textcolor{keywordflow}{return} it!=m\_lookup.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{55     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedMap_aa43fff2a2b489b77245b73478b391136}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{56 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{57       \textcolor{keyword}{auto} it = m\_lookup.find(key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{58       \textcolor{keywordflow}{return} it!=m\_lookup.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{63     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedMap_aed32ef99019918a4c854c58e3fa4f918}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{64 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{65       \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(std::string(key ? key : \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69     T* \mbox{\hyperlink{classLinkedMap_a658afbac162b60faccc48da30fc39470}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedMap}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75     T* \mbox{\hyperlink{classLinkedMap_a8049d249bddabf8b19862a1013c151da}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedMap}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81     T* \mbox{\hyperlink{classLinkedMap_a22821349a515cf453414cd64dc5bd750}{find}}(\textcolor{keyword}{const} std::string \&key)}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedMap}{LinkedMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key));}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{89     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{90     T *\mbox{\hyperlink{classLinkedMap_acddca8cb09f114936f6b80276f2c9c1b}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, Args\&\&... args)}
+\DoxyCodeLine{91     \{}
+\DoxyCodeLine{92       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{93       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{94       \{}
+\DoxyCodeLine{95         std::string key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{96         \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(\mbox{\hyperlink{classQCString}{QCString}}(k),std::forward<Args>(args)...);}
+\DoxyCodeLine{97         result = ptr.get();}
+\DoxyCodeLine{98         m\_lookup.insert(\{key,result\});}
+\DoxyCodeLine{99         m\_entries.push\_back(std::move(ptr));}
+\DoxyCodeLine{100       \}}
+\DoxyCodeLine{101       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{102     \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{105     T *\mbox{\hyperlink{classLinkedMap_a32a09a931c866f27807ceeabb48946f4}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&k, Args\&\&... args)}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107       std::string key = k.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}();}
+\DoxyCodeLine{108       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{109       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{110       \{}
+\DoxyCodeLine{111         \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(k,std::forward<Args>(args)...);}
+\DoxyCodeLine{112         result = ptr.get();}
+\DoxyCodeLine{113         m\_lookup.insert(\{key,result\});}
+\DoxyCodeLine{114         m\_entries.push\_back(std::move(ptr));}
+\DoxyCodeLine{115       \}}
+\DoxyCodeLine{116       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{123     T *\mbox{\hyperlink{classLinkedMap_addab86ba882be1f9c4137b6ceb095991}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\&ptr)}
+\DoxyCodeLine{124     \{}
+\DoxyCodeLine{125       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{126       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{127       \{}
+\DoxyCodeLine{128         std::string key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{129         result = ptr.get();}
+\DoxyCodeLine{130         m\_lookup.insert(\{key,result\});}
+\DoxyCodeLine{131         m\_entries.push\_back(std::move(ptr));}
+\DoxyCodeLine{132       \}}
+\DoxyCodeLine{133       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     T *\mbox{\hyperlink{classLinkedMap_ab0ee1991e602ebd106de0fe5884979b6}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&k, \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\&ptr)}
+\DoxyCodeLine{137     \{}
+\DoxyCodeLine{138       std::string key = k.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}();}
+\DoxyCodeLine{139       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{140       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{141       \{}
+\DoxyCodeLine{142         result = ptr.get();}
+\DoxyCodeLine{143         m\_lookup.insert(\{key,result\});}
+\DoxyCodeLine{144         m\_entries.push\_back(std::move(ptr));}
+\DoxyCodeLine{145       \}}
+\DoxyCodeLine{146       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{152     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{153     T *\mbox{\hyperlink{classLinkedMap_ac5e00dabde23084cd671b0fe61772297}{prepend}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, Args\&\&... args)}
+\DoxyCodeLine{154     \{}
+\DoxyCodeLine{155       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(k);}
+\DoxyCodeLine{156       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{157       \{}
+\DoxyCodeLine{158         std::string key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{159         \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(key.c\_str(),std::forward<Args>(args)...);}
+\DoxyCodeLine{160         result = ptr.get();}
+\DoxyCodeLine{161         m\_lookup.insert(\{key,result\});}
+\DoxyCodeLine{162         m\_entries.push\_front(std::move(ptr));}
+\DoxyCodeLine{163       \}}
+\DoxyCodeLine{164       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \textcolor{keyword}{template}<\textcolor{keyword}{class}...Args>}
+\DoxyCodeLine{168     T *\mbox{\hyperlink{classLinkedMap_a1f76d619b8096fc4446808b378b8ce14}{prepend}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key, Args\&\&... args)}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170       T *result = \mbox{\hyperlink{classLinkedMap_ad7659775b7de962b4fe0921456baf4f4}{find}}(key);}
+\DoxyCodeLine{171       \textcolor{keywordflow}{if} (result==\textcolor{keyword}{nullptr})}
+\DoxyCodeLine{172       \{}
+\DoxyCodeLine{173         \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} ptr = std::make\_unique<T>(key,std::forward<Args>(args)...);}
+\DoxyCodeLine{174         result = ptr.get();}
+\DoxyCodeLine{175         m\_lookup.insert(\{key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}(),result\});}
+\DoxyCodeLine{176         m\_entries.push\_front(std::move(ptr));}
+\DoxyCodeLine{177       \}}
+\DoxyCodeLine{178       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{183     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedMap_a6150feb21a667df3826df38c1a0878fa}{del}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)}
+\DoxyCodeLine{184     \{}
+\DoxyCodeLine{185       \textcolor{keyword}{auto} it = m\_lookup.find(key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{186       \textcolor{keywordflow}{if} (it!=m\_lookup.end())}
+\DoxyCodeLine{187       \{}
+\DoxyCodeLine{188         \textcolor{keyword}{auto} vecit = std::find\_if(m\_entries.begin(),m\_entries.end(),[obj=it-\/>second](\textcolor{keyword}{auto} \&el) \{ return el.get()==obj; \});}
+\DoxyCodeLine{189         \textcolor{keywordflow}{if} (vecit!=m\_entries.end()) \textcolor{comment}{// should always be true}}
+\DoxyCodeLine{190         \{}
+\DoxyCodeLine{191           m\_entries.erase(vecit);}
+\DoxyCodeLine{192           m\_lookup.erase(it);}
+\DoxyCodeLine{193           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195       \}}
+\DoxyCodeLine{196       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{197     \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\mbox{\hyperlink{classLinkedMap_adf2840eabd548e287a9db8c40d453eb2}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)             \{ \textcolor{keywordflow}{return} m\_entries[pos];      \}}
+\DoxyCodeLine{200     \textcolor{keyword}{const} \mbox{\hyperlink{classLinkedMap_a73e8a4070e6a4399bde615098e2b074d}{Ptr}} \&\mbox{\hyperlink{classLinkedMap_a58e9cb2ea5649b464cd9a34f58ace816}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_entries[pos];      \}}
+\DoxyCodeLine{201     \mbox{\hyperlink{classLinkedMap_a972c395a37e958118752ebda8c7ec6d3}{iterator}} \mbox{\hyperlink{classLinkedMap_a4f9f85656f6481dc10277057d168d74e}{begin}}()                        \{ \textcolor{keywordflow}{return} m\_entries.begin();   \}}
+\DoxyCodeLine{202     \mbox{\hyperlink{classLinkedMap_a972c395a37e958118752ebda8c7ec6d3}{iterator}} \mbox{\hyperlink{classLinkedMap_aa5583f9f11e470f5810a431a795f64d2}{end}}()                          \{ \textcolor{keywordflow}{return} m\_entries.end();     \}}
+\DoxyCodeLine{203     \mbox{\hyperlink{classLinkedMap_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} \mbox{\hyperlink{classLinkedMap_a97730addaf4399cae4511cea404a482b}{begin}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} m\_entries.cbegin();  \}}
+\DoxyCodeLine{204     \mbox{\hyperlink{classLinkedMap_a761eb01323123cf737f88cf65adaa95d}{const\_iterator}} \mbox{\hyperlink{classLinkedMap_ae54a6938e3c17da11dd1d23a6217499d}{end}}()\textcolor{keyword}{ const              }\{ \textcolor{keywordflow}{return} m\_entries.cend();    \}}
+\DoxyCodeLine{205     \mbox{\hyperlink{classLinkedMap_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} \mbox{\hyperlink{classLinkedMap_aca527abc73458116bb7c965a4417ab42}{rbegin}}()               \{ \textcolor{keywordflow}{return} m\_entries.rbegin();  \}}
+\DoxyCodeLine{206     \mbox{\hyperlink{classLinkedMap_a3f1e6d91dde39b1a948a67f401a5afaa}{reverse\_iterator}} \mbox{\hyperlink{classLinkedMap_a833c562ee3244c51c48acb2284e56f89}{rend}}()                 \{ \textcolor{keywordflow}{return} m\_entries.rend();    \}}
+\DoxyCodeLine{207     \mbox{\hyperlink{classLinkedMap_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} \mbox{\hyperlink{classLinkedMap_ac7bb388567d79b9d1e97198cdde6c3f0}{rbegin}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_entries.crbegin(); \}}
+\DoxyCodeLine{208     \mbox{\hyperlink{classLinkedMap_addcb5d41602952016038d8315e183d49}{const\_reverse\_iterator}} \mbox{\hyperlink{classLinkedMap_aa92f5f3a31fd45d04e4bb38e04112f5b}{rend}}()\textcolor{keyword}{ const     }\{ \textcolor{keywordflow}{return} m\_entries.crend();   \}}
+\DoxyCodeLine{209     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedMap_a9a1da7be0df75c8ef81cdb3d825c6df3}{empty}}()\textcolor{keyword}{ const                      }\{ \textcolor{keywordflow}{return} m\_entries.empty();   \}}
+\DoxyCodeLine{210     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classLinkedMap_ac1237f7ce32427ef9f9f334d0b97b1fb}{size}}()\textcolor{keyword}{ const                     }\{ \textcolor{keywordflow}{return} m\_entries.size();    \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinkedMap_a607048cb06f6ad98ae763d5734db73d4}{clear}}()}
+\DoxyCodeLine{213     \{}
+\DoxyCodeLine{214       m\_entries.clear();}
+\DoxyCodeLine{215       m\_lookup.clear();}
+\DoxyCodeLine{216     \}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218   \textcolor{keyword}{private}:}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220     Map m\_lookup;}
+\DoxyCodeLine{221     \mbox{\hyperlink{classLinkedMap_ac4cfcf6ff5a2f4c0cb16d52eded44146}{Vec}} m\_entries;}
+\DoxyCodeLine{222 \};}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{228 \textcolor{keyword}{template}<\textcolor{keyword}{class} T, \textcolor{keyword}{class} Hash = std::hash<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{229                   \textcolor{keyword}{class} KeyEqual = std::equal\_to<std::\textcolor{keywordtype}{string}>,}
+\DoxyCodeLine{230                   \textcolor{keyword}{class} Map = std::unordered\_map<std::\textcolor{keywordtype}{string},T*,Hash,KeyEqual > >}
+\DoxyCodeLine{231 \textcolor{keyword}{class }\mbox{\hyperlink{classLinkedRefMap}{LinkedRefMap}}}
+\DoxyCodeLine{232 \{}
+\DoxyCodeLine{233   \textcolor{keyword}{public}:}
+\DoxyCodeLine{234     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_a9db9596845180652ad8b36774d6d9b30}{Ptr}} = T*;}
+\DoxyCodeLine{235     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_ae57b9ddb3cac6283df8b9747dff2e1da}{Vec}} = std::vector<Ptr>;}
+\DoxyCodeLine{236     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_aee7c1420984bc5d41ef945689343be5c}{iterator}} = \textcolor{keyword}{typename} Vec::iterator;}
+\DoxyCodeLine{237     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} = \textcolor{keyword}{typename} Vec::const\_iterator;}
+\DoxyCodeLine{238     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} = \textcolor{keyword}{typename} Vec::reverse\_iterator;}
+\DoxyCodeLine{239     \textcolor{keyword}{using} \mbox{\hyperlink{classLinkedRefMap_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} = \textcolor{keyword}{typename} Vec::const\_reverse\_iterator;}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{243     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(\textcolor{keyword}{const} std::string \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{244 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{245       \textcolor{keyword}{auto} it = m\_lookup.find(key);}
+\DoxyCodeLine{246       \textcolor{keywordflow}{return} it!=m\_lookup.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{247     \}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{251     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedRefMap_a3d3f8cefe5cfd6d46e95889817b92140}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{252 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{253       \textcolor{keyword}{auto} it = m\_lookup.find(key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{254       \textcolor{keywordflow}{return} it!=m\_lookup.end() ? it-\/>second : \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{255     \}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{259     \textcolor{keyword}{const} T *\mbox{\hyperlink{classLinkedRefMap_aed765c5f6f6956643f0753c9ea1d714e}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)\textcolor{keyword}{ const}}
+\DoxyCodeLine{260 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{261       \textcolor{keywordflow}{return} \mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(std::string(key ? key : \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{265     T* \mbox{\hyperlink{classLinkedRefMap_a0e393b31c768a9de5d04455a8596e1a9}{find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *key)}
+\DoxyCodeLine{266     \{}
+\DoxyCodeLine{267       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedRefMap}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     T* \mbox{\hyperlink{classLinkedRefMap_a2f413af4720b2f575c911b78ee3a70b1}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)}
+\DoxyCodeLine{271     \{}
+\DoxyCodeLine{272       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedRefMap}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{273     \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{276     T* \mbox{\hyperlink{classLinkedRefMap_a6dab86c77d6037d5fc0be82fca6e1587}{find}}(\textcolor{keyword}{const} std::string \&key)}
+\DoxyCodeLine{277     \{}
+\DoxyCodeLine{278       \textcolor{keywordflow}{return} \textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keyword}{const }\mbox{\hyperlink{classLinkedRefMap}{LinkedRefMap}}\&\textcolor{keyword}{>}(*this).\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key));}
+\DoxyCodeLine{279     \}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{284     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_a273fe87b60116a378346a858e11e4b6e}{add}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, T* obj)}
+\DoxyCodeLine{285     \{}
+\DoxyCodeLine{286       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(k)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{287       \{}
+\DoxyCodeLine{288         std::string key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{289         m\_lookup.insert(\{key,obj\});}
+\DoxyCodeLine{290         m\_entries.push\_back(obj);}
+\DoxyCodeLine{291         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{292       \}}
+\DoxyCodeLine{293       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{294       \{}
+\DoxyCodeLine{295         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{296       \}}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_acaf21f8a88dc994cf1de14246e679579}{add}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&k, T* obj)}
+\DoxyCodeLine{300     \{}
+\DoxyCodeLine{301       std::string key = k.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}();}
+\DoxyCodeLine{302       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{303       \{}
+\DoxyCodeLine{304         m\_lookup.insert(\{key,obj\});}
+\DoxyCodeLine{305         m\_entries.push\_back(obj);}
+\DoxyCodeLine{306         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{307       \}}
+\DoxyCodeLine{308       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{309       \{}
+\DoxyCodeLine{310         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{311       \}}
+\DoxyCodeLine{312     \}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{317     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_a821db7bc14f1498938bd5314502f3655}{prepend}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *k, T* obj)}
+\DoxyCodeLine{318     \{}
+\DoxyCodeLine{319       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(k)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{320       \{}
+\DoxyCodeLine{321         std::string key(k ? k : \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{322         m\_lookup.insert(\{key,obj\});}
+\DoxyCodeLine{323         m\_entries.insert(m\_entries.begin(),obj);}
+\DoxyCodeLine{324         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{325       \}}
+\DoxyCodeLine{326       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{327       \{}
+\DoxyCodeLine{328         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{329       \}}
+\DoxyCodeLine{330     \}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_a98b0589fd4091da2efa1c5ee2da43f73}{prepend}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key, T* obj)}
+\DoxyCodeLine{333     \{}
+\DoxyCodeLine{334       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classLinkedRefMap_a9f6506fe8d15e7f43f61929560a3c377}{find}}(key)==\textcolor{keyword}{nullptr}) \textcolor{comment}{// new element}}
+\DoxyCodeLine{335       \{}
+\DoxyCodeLine{336         m\_lookup.insert(\{key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}(),obj\});}
+\DoxyCodeLine{337         m\_entries.insert(m\_entries.begin(),obj);}
+\DoxyCodeLine{338         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{339       \}}
+\DoxyCodeLine{340       \textcolor{keywordflow}{else} \textcolor{comment}{// already existing, don't add}}
+\DoxyCodeLine{341       \{}
+\DoxyCodeLine{342         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{343       \}}
+\DoxyCodeLine{344     \}}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{348     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_a5fad70772de2ff561c5883f5a8919c5d}{del}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&key)}
+\DoxyCodeLine{349     \{}
+\DoxyCodeLine{350       \textcolor{keyword}{auto} it = m\_lookup.find(key.\mbox{\hyperlink{classQCString_a9824b07232eea418ab3b3e7dc3178eec}{str}}());}
+\DoxyCodeLine{351       \textcolor{keywordflow}{if} (it!=m\_lookup.end())}
+\DoxyCodeLine{352       \{}
+\DoxyCodeLine{353         \textcolor{keyword}{auto} vecit = std::find\_if(m\_entries.begin(),m\_entries.end(),[obj=it-\/>second](\textcolor{keyword}{auto} \&el) \{ return el.get()==obj; \});}
+\DoxyCodeLine{354         \textcolor{keywordflow}{if} (vecit!=m\_entries.end()) \textcolor{comment}{// should always be true}}
+\DoxyCodeLine{355         \{}
+\DoxyCodeLine{356           m\_entries.erase(vecit);}
+\DoxyCodeLine{357           m\_lookup.erase(it);}
+\DoxyCodeLine{358           \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{359         \}}
+\DoxyCodeLine{360       \}}
+\DoxyCodeLine{361       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{362     \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \mbox{\hyperlink{classLinkedRefMap_a9db9596845180652ad8b36774d6d9b30}{Ptr}} \&\mbox{\hyperlink{classLinkedRefMap_a89581f93afd0740dee45e136d1a54546}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)             \{ \textcolor{keywordflow}{return} m\_entries[pos];      \}}
+\DoxyCodeLine{365     \textcolor{keyword}{const} \mbox{\hyperlink{classLinkedRefMap_a9db9596845180652ad8b36774d6d9b30}{Ptr}} \&\mbox{\hyperlink{classLinkedRefMap_a09d227163284233b8e37f3a265510b49}{operator[]}}(\textcolor{keywordtype}{size\_t} pos)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_entries[pos];      \}}
+\DoxyCodeLine{366     \mbox{\hyperlink{classLinkedRefMap_aee7c1420984bc5d41ef945689343be5c}{iterator}} \mbox{\hyperlink{classLinkedRefMap_ac2f30ce85fd85bfb75bcb56bd10fe9a4}{begin}}()                        \{ \textcolor{keywordflow}{return} m\_entries.begin();   \}}
+\DoxyCodeLine{367     \mbox{\hyperlink{classLinkedRefMap_aee7c1420984bc5d41ef945689343be5c}{iterator}} \mbox{\hyperlink{classLinkedRefMap_a7d843d470df85d608d8d47b2a56c5e80}{end}}()                          \{ \textcolor{keywordflow}{return} m\_entries.end();     \}}
+\DoxyCodeLine{368     \mbox{\hyperlink{classLinkedRefMap_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} \mbox{\hyperlink{classLinkedRefMap_a77a3307eb17ea829836140639cb52115}{begin}}()\textcolor{keyword}{ const            }\{ \textcolor{keywordflow}{return} m\_entries.cbegin();  \}}
+\DoxyCodeLine{369     \mbox{\hyperlink{classLinkedRefMap_ae9d600d6dc898d3efd063381f60eaaf7}{const\_iterator}} \mbox{\hyperlink{classLinkedRefMap_a6fed959ab40da898bbebfdb3c8653b2c}{end}}()\textcolor{keyword}{ const              }\{ \textcolor{keywordflow}{return} m\_entries.cend();    \}}
+\DoxyCodeLine{370     \mbox{\hyperlink{classLinkedRefMap_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} \mbox{\hyperlink{classLinkedRefMap_ac971d2e3cc8e2651f5648b6946b25bd7}{rbegin}}()               \{ \textcolor{keywordflow}{return} m\_entries.rbegin();  \}}
+\DoxyCodeLine{371     \mbox{\hyperlink{classLinkedRefMap_a7c63027ad3bccd9ba3a87b2818ecf12a}{reverse\_iterator}} \mbox{\hyperlink{classLinkedRefMap_a2a306a67c71e29179b309647309d6e96}{rend}}()                 \{ \textcolor{keywordflow}{return} m\_entries.rend();    \}}
+\DoxyCodeLine{372     \mbox{\hyperlink{classLinkedRefMap_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} \mbox{\hyperlink{classLinkedRefMap_a2d088d23b0ce73cf2ed3b8cfc2fbe89d}{rbegin}}()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} m\_entries.crbegin(); \}}
+\DoxyCodeLine{373     \mbox{\hyperlink{classLinkedRefMap_a5d04d68baaeb769cfe0e3cfa9873e40f}{const\_reverse\_iterator}} \mbox{\hyperlink{classLinkedRefMap_ab67fb1418120d42cf91a2a033a6b16ad}{rend}}()\textcolor{keyword}{ const     }\{ \textcolor{keywordflow}{return} m\_entries.crend();   \}}
+\DoxyCodeLine{374     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classLinkedRefMap_ad4eea714e29d412612981ac2a8bcab40}{empty}}()\textcolor{keyword}{ const                      }\{ \textcolor{keywordflow}{return} m\_entries.empty();   \}}
+\DoxyCodeLine{375     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{classLinkedRefMap_a5fe0b41a59bcf683e2ade44911a3fe1d}{size}}()\textcolor{keyword}{ const                     }\{ \textcolor{keywordflow}{return} m\_entries.size();    \}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377     \textcolor{keywordtype}{void} \mbox{\hyperlink{classLinkedRefMap_ad67fa2110f306614b020782b88c28c83}{clear}}()}
+\DoxyCodeLine{378     \{}
+\DoxyCodeLine{379       m\_entries.clear();}
+\DoxyCodeLine{380       m\_lookup.clear();}
+\DoxyCodeLine{381     \}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383   \textcolor{keyword}{private}:}
+\DoxyCodeLine{384     Map m\_lookup;}
+\DoxyCodeLine{385     \mbox{\hyperlink{classLinkedRefMap_ae57b9ddb3cac6283df8b9747dff2e1da}{Vec}} m\_entries;}
+\DoxyCodeLine{386 \};}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 }
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

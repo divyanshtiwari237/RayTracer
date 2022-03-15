@@ -1,0 +1,95 @@
+\hypertarget{dotgroupcollaboration_8h_source}{}\doxysection{dotgroupcollaboration.\+h}
+\label{dotgroupcollaboration_8h_source}\index{/mnt/c/projects/doxygen/src/dotgroupcollaboration.h@{/mnt/c/projects/doxygen/src/dotgroupcollaboration.h}}
+\mbox{\hyperlink{dotgroupcollaboration_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTGROUPCOLLABORATION\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTGROUPCOLLABORATION\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotnode_8h}{dotnode.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dotgraph_8h}{dotgraph.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{groupdef_8h}{groupdef.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classDotGroupCollaboration}{DotGroupCollaboration}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDotGraph}{DotGraph}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30   public :}
+\DoxyCodeLine{31     \mbox{\hyperlink{classDotGroupCollaboration_a20ec74da8ed6727681b3ba3c61fffb42}{DotGroupCollaboration}}(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}}* gd);}
+\DoxyCodeLine{32    \mbox{\hyperlink{classDotGroupCollaboration_a12add4fb219d598569440c259239263b}{\string~DotGroupCollaboration}}();}
+\DoxyCodeLine{33     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotGroupCollaboration_a1e26ce5a2563ee5144ef66ff9cf88461}{writeGraph}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t, \mbox{\hyperlink{dotgraph_8h_ac60ef98d62b78366a17c9f1bda96523f}{GraphOutputFormat}} gf,\mbox{\hyperlink{dotgraph_8h_a8680135da08a5ef57cebe20060912dcc}{EmbeddedOutputFormat}} ef,}
+\DoxyCodeLine{34                         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&path,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{35                         \textcolor{keywordtype}{bool} writeImageMap=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},\textcolor{keywordtype}{int} graphId=-\/1);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotGroupCollaboration_aff85d0009e3f7499e83ec7c346025a9e}{isTrivial}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotGroupCollaboration_a74d64ef96e3256c6724f923cb34c48eb}{getBaseName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDotGroupCollaboration_a2ca4f613e0fc5014b659f3d71c93e6ac}{getMapLabel}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDotGroupCollaboration_a6a369ead778d33c7211fb1ca01ec8d4b}{computeTheGraph}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43   private :}
+\DoxyCodeLine{44     \textcolor{keyword}{enum} EdgeType}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46       tmember = 0,}
+\DoxyCodeLine{47       tclass,}
+\DoxyCodeLine{48       tnamespace,}
+\DoxyCodeLine{49       tfile,}
+\DoxyCodeLine{50       tpages,}
+\DoxyCodeLine{51       tdir,}
+\DoxyCodeLine{52       thierarchy}
+\DoxyCodeLine{53     \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{struct }Link}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57       Link(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&lab,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&u) : label(lab), url(u) \{\}}
+\DoxyCodeLine{58       \mbox{\hyperlink{classQCString}{QCString}} label;}
+\DoxyCodeLine{59       \mbox{\hyperlink{classQCString}{QCString}} url;}
+\DoxyCodeLine{60     \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keyword}{struct }Edge}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64       Edge(\mbox{\hyperlink{classDotNode}{DotNode}} *start,\mbox{\hyperlink{classDotNode}{DotNode}} *\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}},EdgeType type)}
+\DoxyCodeLine{65         : pNStart(start), pNEnd(\mbox{\hyperlink{dir_8cpp_abb4720f72b574f81dc4f7aea0e653a64}{end}}), eType(type) \{\}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67       \mbox{\hyperlink{classDotNode}{DotNode}}* pNStart;}
+\DoxyCodeLine{68       \mbox{\hyperlink{classDotNode}{DotNode}}* pNEnd;}
+\DoxyCodeLine{69       EdgeType eType;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71       std::vector<Link> links;}
+\DoxyCodeLine{72       \textcolor{keywordtype}{void} write( \mbox{\hyperlink{classTextStream}{TextStream}} \&t ) \textcolor{keyword}{const};}
+\DoxyCodeLine{73     \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} buildGraph(\textcolor{keyword}{const} \mbox{\hyperlink{classGroupDef}{GroupDef}}* gd);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} addCollaborationMember(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}}* def, \mbox{\hyperlink{classQCString}{QCString}}\& url, EdgeType eType );}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} addMemberList( \textcolor{keyword}{class} \mbox{\hyperlink{classMemberList}{MemberList}}* ml );}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} writeGraphHeader(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&title) \textcolor{keyword}{const};}
+\DoxyCodeLine{79     Edge* addEdge( \mbox{\hyperlink{classDotNode}{DotNode}}* \_pNStart, \mbox{\hyperlink{classDotNode}{DotNode}}* \_pNEnd, EdgeType \_eType,}
+\DoxyCodeLine{80         \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& \_label, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& \_url );}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{classDotNode}{DotNode}}        *m\_rootNode;}
+\DoxyCodeLine{83     \mbox{\hyperlink{classDotNodeMap}{DotNodeMap}}      m\_usedNodes;}
+\DoxyCodeLine{84     \mbox{\hyperlink{classQCString}{QCString}}        m\_diskName;}
+\DoxyCodeLine{85     std::vector< std::unique\_ptr<Edge> >     m\_edges;}
+\DoxyCodeLine{86 \};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{keyword}{using} \mbox{\hyperlink{dotgroupcollaboration_8h_abcfc41a5c2578bfaf5b65795bec81c21}{DotGroupCollaborationPtr}} = std::shared\_ptr<DotGroupCollaboration>;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

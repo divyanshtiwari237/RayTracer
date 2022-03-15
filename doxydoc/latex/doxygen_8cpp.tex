@@ -1,0 +1,323 @@
+\hypertarget{doxygen_8cpp}{}\doxysection{/mnt/c/projects/doxygen/src/doxygen.cpp File Reference}
+\label{doxygen_8cpp}\index{/mnt/c/projects/doxygen/src/doxygen.cpp@{/mnt/c/projects/doxygen/src/doxygen.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$clocale$>$}\newline
+{\ttfamily \#include $<$locale$>$}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}entry.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}index.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pre.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tagreader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}msc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dirdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outputlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}declinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}latexgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mangen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}language.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htmlhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qhp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ftvhelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defargs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}rtfgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sqlite3gen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xmlgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docbookgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}perlmodgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}reflist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pagedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bufstr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}commentcnv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmdmapper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}searchindex\+\_\+js.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parserintf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}htags.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pycode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pyscanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fortrancode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fortranscanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}xmlcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sqlcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lexcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lexscanner.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}code.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}portable.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdljjparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdldocgen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vhdlcode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}eclipsehelp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}markdown.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arguments.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memberlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}layout.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}groupdef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}classlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}namespacedef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filename.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membername.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}membergroup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}docsets.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}formula.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}context.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}emoji.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plantuml.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stlsupport.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}threadpool.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clangparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}symbolresolver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}regex.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fileinfo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dir.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}conceptdef.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStatistics}{Statistics}}
+\item 
+class \mbox{\hyperlink{classNullOutlineParser}{Null\+Outline\+Parser}}
+\begin{DoxyCompactList}\small\item\em /dev/null outline parser \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{doxygen_8cpp_a00a46160235f50699b76044397fa30b6}{HAS\+\_\+\+SIGNALS}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282}{Find\+Base\+Class\+Relation\+\_\+\+Mode}} \{ \mbox{\hyperlink{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a6c980be09446a2dd4f17a17e4669385a}{Template\+Instances}}
+, \mbox{\hyperlink{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282aa853d9fba4d0c76d851f8b4016375a26}{Documented\+Only}}
+, \mbox{\hyperlink{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a679f8bf08f6fa67f52059bbb4dbc9eed}{Undocumented}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_ac574253826b0b2a23c4c9bcf2ec89f62}{init\+Resources}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a798729dca95209ecdc609807a653a2bf}{clear\+All}} ()
+\item 
+\mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{doxygen_8cpp_a255ee5917ab88a261843376db88293a5}{strip\+Template\+Specifiers}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s)
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ \mbox{\hyperlink{doxygen_8cpp_aa2b4c58062de6e3075936abc6c29dd7e}{get\+Template\+Arguments\+From\+Name}} (const \mbox{\hyperlink{classQCString}{QCString}} \&name, const \mbox{\hyperlink{arguments_8h_ab331f620c4acf00958747569efc1199a}{Argument\+Lists}} \&t\+Arg\+Lists)
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a21cfa81a6854b108ab53153e9db19d3c}{distribute\+Class\+Group\+Relations}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a001e5e4b6b99ed83d3333cc3adf5afd2}{print\+Nav\+Tree}} (\mbox{\hyperlink{classEntry}{Entry}} $\ast$root, \mbox{\hyperlink{classint}{int}} indent)
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_afe13c7f7b30d6f6a92dc108e74d5d76b}{read\+File\+Or\+Directory}} (const \mbox{\hyperlink{classQCString}{QCString}} \&s, \mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$fn\+Map, \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$excl\+Set, const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$pat\+List, const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$excl\+Pat\+List, \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$result\+List, \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$result\+Set, bool recursive, bool error\+If\+Not\+Exist, \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$kill\+Set, \mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{String\+Set}} $\ast$paths)
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_af229513c065c90147eff5559f0844c00}{read\+Aliases}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::function$<$ std\+::unique\+\_\+ptr$<$ T $>$() $>$ \mbox{\hyperlink{doxygen_8cpp_aab74855004b94a68364eb38e4e859617}{make\+\_\+parser\+\_\+factory}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}{init\+Doxygen}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_ae12e94f5218f3afc8df4086a2121cd4d}{clean\+Up\+Doxygen}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}{read\+Configuration}} (\mbox{\hyperlink{classint}{int}} argc, char $\ast$$\ast$argv)
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}{check\+Configuration}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}{adjust\+Configuration}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a7ed1fdd15e6ed566c33a63fcd30d53c4}{search\+Input\+Files}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}{parse\+Input}} ()
+\item 
+void \mbox{\hyperlink{doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}{generate\+Output}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStatistics}{Statistics}} \mbox{\hyperlink{doxygen_8cpp_a188b1d1bbead4549a91cbf57fa60e652}{g\+\_\+s}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{doxygen_8cpp_a00a46160235f50699b76044397fa30b6}\label{doxygen_8cpp_a00a46160235f50699b76044397fa30b6}} 
+\index{doxygen.cpp@{doxygen.cpp}!HAS\_SIGNALS@{HAS\_SIGNALS}}
+\index{HAS\_SIGNALS@{HAS\_SIGNALS}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{HAS\_SIGNALS}{HAS\_SIGNALS}}
+{\footnotesize\ttfamily \#define HAS\+\_\+\+SIGNALS}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282}\label{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282}} 
+\index{doxygen.cpp@{doxygen.cpp}!FindBaseClassRelation\_Mode@{FindBaseClassRelation\_Mode}}
+\index{FindBaseClassRelation\_Mode@{FindBaseClassRelation\_Mode}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{FindBaseClassRelation\_Mode}{FindBaseClassRelation\_Mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282}{Find\+Base\+Class\+Relation\+\_\+\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TemplateInstances@{TemplateInstances}!doxygen.cpp@{doxygen.cpp}}\index{doxygen.cpp@{doxygen.cpp}!TemplateInstances@{TemplateInstances}}}\mbox{\Hypertarget{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a6c980be09446a2dd4f17a17e4669385a}\label{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a6c980be09446a2dd4f17a17e4669385a}} 
+Template\+Instances&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DocumentedOnly@{DocumentedOnly}!doxygen.cpp@{doxygen.cpp}}\index{doxygen.cpp@{doxygen.cpp}!DocumentedOnly@{DocumentedOnly}}}\mbox{\Hypertarget{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282aa853d9fba4d0c76d851f8b4016375a26}\label{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282aa853d9fba4d0c76d851f8b4016375a26}} 
+Documented\+Only&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Undocumented@{Undocumented}!doxygen.cpp@{doxygen.cpp}}\index{doxygen.cpp@{doxygen.cpp}!Undocumented@{Undocumented}}}\mbox{\Hypertarget{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a679f8bf08f6fa67f52059bbb4dbc9eed}\label{doxygen_8cpp_a20dd0d19305a4da127968489dc0cc282a679f8bf08f6fa67f52059bbb4dbc9eed}} 
+Undocumented&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}\label{doxygen_8cpp_a10458b8a16238a4eae5fb5019df747e8}} 
+\index{doxygen.cpp@{doxygen.cpp}!adjustConfiguration@{adjustConfiguration}}
+\index{adjustConfiguration@{adjustConfiguration}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{adjustConfiguration()}{adjustConfiguration()}}
+{\footnotesize\ttfamily void adjust\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+adjust globals that depend on configuration settings. Here is the call graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}\label{doxygen_8cpp_a2426bb829c785229969c3052f3e37fb1}} 
+\index{doxygen.cpp@{doxygen.cpp}!checkConfiguration@{checkConfiguration}}
+\index{checkConfiguration@{checkConfiguration}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{checkConfiguration()}{checkConfiguration()}}
+{\footnotesize\ttfamily void check\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+check and resolve config options Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{doxygen_8cpp_ae12e94f5218f3afc8df4086a2121cd4d}\label{doxygen_8cpp_ae12e94f5218f3afc8df4086a2121cd4d}} 
+\index{doxygen.cpp@{doxygen.cpp}!cleanUpDoxygen@{cleanUpDoxygen}}
+\index{cleanUpDoxygen@{cleanUpDoxygen}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{cleanUpDoxygen()}{cleanUpDoxygen()}}
+{\footnotesize\ttfamily void clean\+Up\+Doxygen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{doxygen_8cpp_a798729dca95209ecdc609807a653a2bf}\label{doxygen_8cpp_a798729dca95209ecdc609807a653a2bf}} 
+\index{doxygen.cpp@{doxygen.cpp}!clearAll@{clearAll}}
+\index{clearAll@{clearAll}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{clearAll()}{clearAll()}}
+{\footnotesize\ttfamily void clear\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_a21cfa81a6854b108ab53153e9db19d3c}\label{doxygen_8cpp_a21cfa81a6854b108ab53153e9db19d3c}} 
+\index{doxygen.cpp@{doxygen.cpp}!distributeClassGroupRelations@{distributeClassGroupRelations}}
+\index{distributeClassGroupRelations@{distributeClassGroupRelations}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{distributeClassGroupRelations()}{distributeClassGroupRelations()}}
+{\footnotesize\ttfamily void distribute\+Class\+Group\+Relations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}\label{doxygen_8cpp_a3efb8cd50f4362e3d58e72febfb872fa}} 
+\index{doxygen.cpp@{doxygen.cpp}!generateOutput@{generateOutput}}
+\index{generateOutput@{generateOutput}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{generateOutput()}{generateOutput()}}
+{\footnotesize\ttfamily void generate\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+add extra languages for which we can only produce syntax highlighted codeHere is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{doxygen_8cpp_aa2b4c58062de6e3075936abc6c29dd7e}\label{doxygen_8cpp_aa2b4c58062de6e3075936abc6c29dd7e}} 
+\index{doxygen.cpp@{doxygen.cpp}!getTemplateArgumentsFromName@{getTemplateArgumentsFromName}}
+\index{getTemplateArgumentsFromName@{getTemplateArgumentsFromName}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{getTemplateArgumentsFromName()}{getTemplateArgumentsFromName()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classArgumentList}{Argument\+List}} $>$ get\+Template\+Arguments\+From\+Name (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{name,  }\item[{const \mbox{\hyperlink{arguments_8h_ab331f620c4acf00958747569efc1199a}{Argument\+Lists}} \&}]{t\+Arg\+Lists }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}\label{doxygen_8cpp_a122070be7aebc9e3ab560b58fdd922c9}} 
+\index{doxygen.cpp@{doxygen.cpp}!initDoxygen@{initDoxygen}}
+\index{initDoxygen@{initDoxygen}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{initDoxygen()}{initDoxygen()}}
+{\footnotesize\ttfamily void init\+Doxygen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{doxygen_8cpp_ac574253826b0b2a23c4c9bcf2ec89f62}\label{doxygen_8cpp_ac574253826b0b2a23c4c9bcf2ec89f62}} 
+\index{doxygen.cpp@{doxygen.cpp}!initResources@{initResources}}
+\index{initResources@{initResources}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{initResources()}{initResources()}}
+{\footnotesize\ttfamily void init\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_aab74855004b94a68364eb38e4e859617}\label{doxygen_8cpp_aab74855004b94a68364eb38e4e859617}} 
+\index{doxygen.cpp@{doxygen.cpp}!make\_parser\_factory@{make\_parser\_factory}}
+\index{make\_parser\_factory@{make\_parser\_factory}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{make\_parser\_factory()}{make\_parser\_factory()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::function$<$ std\+::unique\+\_\+ptr$<$ T $>$() $>$ make\+\_\+parser\+\_\+factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}\label{doxygen_8cpp_a59d66805ece9da6ffd55fa4cc8252ef1}} 
+\index{doxygen.cpp@{doxygen.cpp}!parseInput@{parseInput}}
+\index{parseInput@{parseInput}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{parseInput()}{parseInput()}}
+{\footnotesize\ttfamily void parse\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_a001e5e4b6b99ed83d3333cc3adf5afd2}\label{doxygen_8cpp_a001e5e4b6b99ed83d3333cc3adf5afd2}} 
+\index{doxygen.cpp@{doxygen.cpp}!printNavTree@{printNavTree}}
+\index{printNavTree@{printNavTree}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{printNavTree()}{printNavTree()}}
+{\footnotesize\ttfamily void print\+Nav\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntry}{Entry}} $\ast$}]{root,  }\item[{\mbox{\hyperlink{classint}{int}}}]{indent }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{doxygen_8cpp_af229513c065c90147eff5559f0844c00}\label{doxygen_8cpp_af229513c065c90147eff5559f0844c00}} 
+\index{doxygen.cpp@{doxygen.cpp}!readAliases@{readAliases}}
+\index{readAliases@{readAliases}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{readAliases()}{readAliases()}}
+{\footnotesize\ttfamily void read\+Aliases (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}\label{doxygen_8cpp_ab0fa1b0c948e78e0d0d749ff1f5740b5}} 
+\index{doxygen.cpp@{doxygen.cpp}!readConfiguration@{readConfiguration}}
+\index{readConfiguration@{readConfiguration}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{readConfiguration()}{readConfiguration()}}
+{\footnotesize\ttfamily void read\+Configuration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classint}{int}}}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_afe13c7f7b30d6f6a92dc108e74d5d76b}\label{doxygen_8cpp_afe13c7f7b30d6f6a92dc108e74d5d76b}} 
+\index{doxygen.cpp@{doxygen.cpp}!readFileOrDirectory@{readFileOrDirectory}}
+\index{readFileOrDirectory@{readFileOrDirectory}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{readFileOrDirectory()}{readFileOrDirectory()}}
+{\footnotesize\ttfamily void read\+File\+Or\+Directory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s,  }\item[{\mbox{\hyperlink{classFileNameLinkedMap}{File\+Name\+Linked\+Map}} $\ast$}]{fn\+Map,  }\item[{\mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$}]{excl\+Set,  }\item[{const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$}]{pat\+List,  }\item[{const \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$}]{excl\+Pat\+List,  }\item[{\mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{String\+Vector}} $\ast$}]{result\+List,  }\item[{\mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$}]{result\+Set,  }\item[{bool}]{recursive,  }\item[{bool}]{error\+If\+Not\+Exist,  }\item[{\mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{String\+Unordered\+Set}} $\ast$}]{kill\+Set,  }\item[{\mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{String\+Set}} $\ast$}]{paths }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{doxygen_8cpp_a7ed1fdd15e6ed566c33a63fcd30d53c4}\label{doxygen_8cpp_a7ed1fdd15e6ed566c33a63fcd30d53c4}} 
+\index{doxygen.cpp@{doxygen.cpp}!searchInputFiles@{searchInputFiles}}
+\index{searchInputFiles@{searchInputFiles}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{searchInputFiles()}{searchInputFiles()}}
+{\footnotesize\ttfamily void search\+Input\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{doxygen_8cpp_a255ee5917ab88a261843376db88293a5}\label{doxygen_8cpp_a255ee5917ab88a261843376db88293a5}} 
+\index{doxygen.cpp@{doxygen.cpp}!stripTemplateSpecifiers@{stripTemplateSpecifiers}}
+\index{stripTemplateSpecifiers@{stripTemplateSpecifiers}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{stripTemplateSpecifiers()}{stripTemplateSpecifiers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQCString}{QCString}} strip\+Template\+Specifiers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{s }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{doxygen_8cpp_a188b1d1bbead4549a91cbf57fa60e652}\label{doxygen_8cpp_a188b1d1bbead4549a91cbf57fa60e652}} 
+\index{doxygen.cpp@{doxygen.cpp}!g\_s@{g\_s}}
+\index{g\_s@{g\_s}!doxygen.cpp@{doxygen.cpp}}
+\doxysubsubsection{\texorpdfstring{g\_s}{g\_s}}
+{\footnotesize\ttfamily class \mbox{\hyperlink{classStatistics}{Statistics}} g\+\_\+s}
+

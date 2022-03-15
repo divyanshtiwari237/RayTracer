@@ -1,0 +1,1464 @@
+\hypertarget{translator__kr_8h_source}{}\doxysection{translator\+\_\+kr.\+h}
+\label{translator__kr_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_kr.h@{/mnt/c/projects/doxygen/src/translator\_kr.h}}
+\mbox{\hyperlink{translator__kr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_KR\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define TRANSLATOR\_KR\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{/* Korean translators}}
+\DoxyCodeLine{21 \textcolor{comment}{ * doxygen-\/svn}}
+\DoxyCodeLine{22 \textcolor{comment}{ *   * fly1004@gmail.com}}
+\DoxyCodeLine{23 \textcolor{comment}{ * doxygen-\/1.5.3}}
+\DoxyCodeLine{24 \textcolor{comment}{ *   * Astromaker(http://ngps.net/)}}
+\DoxyCodeLine{25 \textcolor{comment}{ *   * gpgiki(http://www.gpgstudy.com/gpgiki/)}}
+\DoxyCodeLine{26 \textcolor{comment}{ * doxygen-\/1.2.11}}
+\DoxyCodeLine{27 \textcolor{comment}{ *   * ryk */}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorKorean}{TranslatorKorean}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__15}{TranslatorAdapter\_1\_8\_15}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53   \textcolor{keyword}{public}:}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{63     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa41f60e69b2c9cb5873fa7aff1625a49}{idLanguage}}()}
+\DoxyCodeLine{64     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}korean"{}}; \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{80     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aca14550a63c96a39db1c703bc834c766}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82       \textcolor{comment}{// I'm not sure what this should be.}}
+\DoxyCodeLine{83       \textcolor{comment}{// When I figure it out, I'll update this.}}
+\DoxyCodeLine{84       \textcolor{comment}{// see http://www.ktug.or.kr/jsboard/read.php?table=operate\&no=4422\&page=1}}
+\DoxyCodeLine{85       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{kotex\}\(\backslash\)n"{}};}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af309b5d610ebe93451744e88db8a0f20}{latexCommandName}}()}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89       \mbox{\hyperlink{classQCString}{QCString}} latex\_command = \mbox{\hyperlink{config_8h_a737741e6991bdb5694a50075437a9d89}{Config\_getString}}(LATEX\_CMD\_NAME);}
+\DoxyCodeLine{90       \textcolor{keywordflow}{if} (latex\_command.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) latex\_command = \textcolor{stringliteral}{"{}latex"{}};}
+\DoxyCodeLine{91       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(USE\_PDFLATEX))}
+\DoxyCodeLine{92       \{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{if} (latex\_command == \textcolor{stringliteral}{"{}latex"{}}) latex\_command = \textcolor{stringliteral}{"{}xelatex"{}};}
+\DoxyCodeLine{94       \}}
+\DoxyCodeLine{95       \textcolor{keywordflow}{return} latex\_command;}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac77a2cf4d1437644a85504722492d54a}{trISOLang}}()}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ko"{}};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0414f5ff3d33ab0cab50f1d3e2645c68}{getLanguageString}}()}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x412 Korean"{}};}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classTranslatorKorean_af306b40227ca060fe1bfeee982e2ec31}{needsPunctuation}}()}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae9fa94f5a3ef46d1e824f7c6e804dfad}{trRelatedFunctions}}()}
+\DoxyCodeLine{113     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}관련된 함수들"{}}; \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa90bf0e4a7bb5c89cde511affbb65126}{trRelatedSubscript}}()}
+\DoxyCodeLine{117     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(다음은 멤버 함수들이 아닙니다. 주의하십시오.)"{}}; \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a363daf2b9ae9fa4719ffc0194b23872c}{trDetailedDescription}}()}
+\DoxyCodeLine{121     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}상세한 설명"{}}; \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{124     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a403e4a3b1720e6c420386296d72260aa}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{125     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 타입정의 문서화"{}}; \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{128     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a92809a89f37f709fa100b7723daff4f8}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{129     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 열거형 문서화"{}}; \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{132     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa4b7b176cd22329c6b32b1451d421187}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{133     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 함수 문서화"{}}; \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{136     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acf6f5ef874132851f5c4aee0e1ebbea8}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{137     \{}
+\DoxyCodeLine{138       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{139       \{}
+\DoxyCodeLine{140           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}필드 문서화"{}};}
+\DoxyCodeLine{141       \}}
+\DoxyCodeLine{142       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{143       \{}
+\DoxyCodeLine{144           \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 데이터 문서화"{}};}
+\DoxyCodeLine{145       \}}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a076b041b290add4061aec5b517fa4282}{trMore}}()}
+\DoxyCodeLine{150     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}더 자세히 ..."{}}; \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af00d2e0f5692c1f18a1c210152945e28}{trListOfAllMembers}}()}
+\DoxyCodeLine{154     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모든 멤버 목록"{}}; \}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a80596b4faca0782e31636dd410eeeaa1}{trMemberList}}()}
+\DoxyCodeLine{158     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 목록"{}}; \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aaf0b580274be3dbd8ef9450b59eaf66d}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{162     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음에 대한 모든 멤버의 목록입니다 : "{}}; \}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{165     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a59f4092697dffe2feb9376d0cdd8c43a}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{166     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{} (모든 상속된 멤버들도 포함합니다.)"{}}; \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{171     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acd9379dc0a6661bed929f05f5402d735}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{172     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}소스 코드로부터 "{}};}
+\DoxyCodeLine{173       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}+\textcolor{stringliteral}{"{}를 위해 "{}};}
+\DoxyCodeLine{174       result+=\textcolor{stringliteral}{"{}Doxygen에 의해 자동으로 생성됨."{}};}
+\DoxyCodeLine{175       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{176     \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{179     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a21a2924f7a9c319d9c987c0c17aad7f0}{trEnumName}}()}
+\DoxyCodeLine{180     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 이름"{}}; \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{183     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a6f0da64b700565a28d3d77b845be2c92}{trEnumValue}}()}
+\DoxyCodeLine{184     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 값"{}}; \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7669eacf7955000ccba6d58c5461c6be}{trDefinedIn}}()}
+\DoxyCodeLine{188     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음에서 정의됨 :"{}}; \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{195     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac801e4392e5f7529932197b6e8f0df58}{trModules}}()}
+\DoxyCodeLine{196     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈"{}}; \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a539a3afdba8a5d1cd2e7767c80fb3530}{trClassHierarchy}}()}
+\DoxyCodeLine{200     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 계통도"{}}; \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7fabb7366451101d44b8991b82d4aeef}{trCompoundList}}()}
+\DoxyCodeLine{204     \{}
+\DoxyCodeLine{205       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{206       \{}
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 구조"{}};}
+\DoxyCodeLine{208       \}}
+\DoxyCodeLine{209       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{210       \{}
+\DoxyCodeLine{211         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 목록"{}};}
+\DoxyCodeLine{212       \}}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad87384a8302368da89285245ac81e506}{trFileList}}()}
+\DoxyCodeLine{217     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}파일 목록"{}}; \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{220     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a5d88062deeab02114426dc8337e0c392}{trCompoundMembers}}()}
+\DoxyCodeLine{221     \{}
+\DoxyCodeLine{222       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{223       \{}
+\DoxyCodeLine{224         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 필드"{}};}
+\DoxyCodeLine{225       \}}
+\DoxyCodeLine{226       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{227       \{}
+\DoxyCodeLine{228         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 멤버"{}};}
+\DoxyCodeLine{229       \}}
+\DoxyCodeLine{230     \}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{233     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a491409a10a59c8bf78bd993a2f566686}{trFileMembers}}()}
+\DoxyCodeLine{234     \{}
+\DoxyCodeLine{235       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{236       \{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}전역"{}};}
+\DoxyCodeLine{238       \}}
+\DoxyCodeLine{239       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{240       \{}
+\DoxyCodeLine{241         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}파일 멤버"{}};}
+\DoxyCodeLine{242       \}}
+\DoxyCodeLine{243     \}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{246     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aff14382691c92f2af204f12aca3d6dac}{trRelatedPages}}()}
+\DoxyCodeLine{247     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}관련된 페이지"{}}; \}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{250     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4532ba0db931e3bde21d05ca0157bb40}{trExamples}}()}
+\DoxyCodeLine{251     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}예제"{}}; \}}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{254     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af75be9d9049596f6edf949f3601121e0}{trSearch}}()}
+\DoxyCodeLine{255     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}검색"{}}; \}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{258     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a5931a79b5388fe14f2dcd26c7a62884c}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{259     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 상속 목록은 완전하진 않지만 알파벳순으로 대략적으로 정렬되어있습니다.:"{}};}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{263     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ab73b0ce0feb86a606ca11afaaffa6500}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{264     \{}
+\DoxyCodeLine{265       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{266       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{267       result+=\textcolor{stringliteral}{"{}모든 파일에 대한 목록입니다. (간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{268       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{269     \}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{272     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad0fda6b27e9c8eb58deaa2f9f8143088}{trCompoundListDescription}}()}
+\DoxyCodeLine{273     \{}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{276       \{}
+\DoxyCodeLine{277         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 데이터 구조들입니다. (간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{278       \}}
+\DoxyCodeLine{279       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{280       \{}
+\DoxyCodeLine{281         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 클래스, 구조체, 공용체 그리고 인터페이스들입니다. "{}}}
+\DoxyCodeLine{282                \textcolor{stringliteral}{"{}(간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{283       \}}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{287     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a5c90a9e2f9fb9671f167172eb0e53d5d}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{288     \{}
+\DoxyCodeLine{289       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{290       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{291       \{}
+\DoxyCodeLine{292         result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{293       \}}
+\DoxyCodeLine{294       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{295       \{}
+\DoxyCodeLine{296         result+=\textcolor{stringliteral}{"{}모든 구조체와 공용체의 필드들"{}};}
+\DoxyCodeLine{297       \}}
+\DoxyCodeLine{298       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{299       \{}
+\DoxyCodeLine{300         result+=\textcolor{stringliteral}{"{}모든 클래스 멤버들"{}};}
+\DoxyCodeLine{301       \}}
+\DoxyCodeLine{302       result+=\textcolor{stringliteral}{"{}의 목록입니다. "{}};}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{305       \{}
+\DoxyCodeLine{306         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{307         \{}
+\DoxyCodeLine{308           result+=\textcolor{stringliteral}{"{}각 필드들은 해당 필드에 대한 구조체와 공용체의 "{}}}
+\DoxyCodeLine{309           \textcolor{stringliteral}{"{}문서화 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{310         \}}
+\DoxyCodeLine{311         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{312         \{}
+\DoxyCodeLine{313           result+=\textcolor{stringliteral}{"{}각 멤버들은 해당 멤버에 대한 클래스의 문서화 페이지의 "{}}}
+\DoxyCodeLine{314           \textcolor{stringliteral}{"{}링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{315         \}}
+\DoxyCodeLine{316       \}}
+\DoxyCodeLine{317       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{318       \{}
+\DoxyCodeLine{319         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{320         \{}
+\DoxyCodeLine{321           result+=\textcolor{stringliteral}{"{}각 필드들은 해당 필드가 속해 있는 구조체와 공용체에 "{}}}
+\DoxyCodeLine{322           \textcolor{stringliteral}{"{}대한 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{323         \}}
+\DoxyCodeLine{324         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{325         \{}
+\DoxyCodeLine{326           result+=\textcolor{stringliteral}{"{}각 멤버들은 해당 멤버가 속해 있는 클래스에 대한 "{}}}
+\DoxyCodeLine{327           \textcolor{stringliteral}{"{}링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{328         \}}
+\DoxyCodeLine{329       \}}
+\DoxyCodeLine{330       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{331     \}}
+\DoxyCodeLine{332 }
+\DoxyCodeLine{334     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a372e6e556b533425358effd137e604f7}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{335     \{}
+\DoxyCodeLine{336       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{337       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된  "{}};}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{340       \{}
+\DoxyCodeLine{341         result+=\textcolor{stringliteral}{"{}모든 함수, 변수, 매크로, 열거형, 타입정의들"{}};}
+\DoxyCodeLine{342       \}}
+\DoxyCodeLine{343       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{344       \{}
+\DoxyCodeLine{345         result+=\textcolor{stringliteral}{"{}파일 멤버들"{}};}
+\DoxyCodeLine{346       \}}
+\DoxyCodeLine{347       result+=\textcolor{stringliteral}{"{}의 목록입니다. "{}};}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349       result+=\textcolor{stringliteral}{"{}각 항목은 "{}};}
+\DoxyCodeLine{350       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{351         result+=\textcolor{stringliteral}{"{}그들이 속한 파일 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{352       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{353         result+=\textcolor{stringliteral}{"{}그들에 대한 문서화 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{354       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{355     \}}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{358     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad10a70724298842340ece3453ee2618f}{trExamplesDescription}}()}
+\DoxyCodeLine{359     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 모든 예제들의 목록입니다.:"{}}; \}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{362     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a02c07cb9769e38431f3ee34b9cb46d19}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{363     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 관련된 모든 문서화 페이지들의 목록입니다.:"{}}; \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{366     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a72058383adde1d48bb365defcd561235}{trModulesDescription}}()}
+\DoxyCodeLine{367     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 모든 모듈들의 목록입니다.:"{}}; \}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369     \textcolor{comment}{// index titles (the project name is prepended for these)}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{372     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7377c2f68dead97b59471d5979a1a940}{trDocumentation}}()}
+\DoxyCodeLine{373     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}문서화"{}}; \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{378     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a78c2f92238ed2dcca3456f88482b9e7c}{trModuleIndex}}()}
+\DoxyCodeLine{379     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈 색인"{}}; \}}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{384     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae8c31d2a88a97f93c605f6c2d5eb040e}{trHierarchicalIndex}}()}
+\DoxyCodeLine{385     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}계통도 색인"{}}; \}}
+\DoxyCodeLine{386 }
+\DoxyCodeLine{390     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a744e09d20edaa2a62c09b46928dc7bb0}{trCompoundIndex}}()}
+\DoxyCodeLine{391     \{}
+\DoxyCodeLine{392       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{393       \{}
+\DoxyCodeLine{394         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 구조 색인"{}};}
+\DoxyCodeLine{395       \}}
+\DoxyCodeLine{396       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{397       \{}
+\DoxyCodeLine{398         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 색인"{}};}
+\DoxyCodeLine{399       \}}
+\DoxyCodeLine{400     \}}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{405     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a37bf65384fea26de2c044141a5b9ee74}{trFileIndex}}()}
+\DoxyCodeLine{406     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}파일 색인"{}}; \}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{411     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae61a415c872901505bdc470a38aeb2a0}{trModuleDocumentation}}()}
+\DoxyCodeLine{412     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈 문서화"{}}; \}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abd327cbf4d2620a8d3a3d9e4d9ed5b55}{trClassDocumentation}}()}
+\DoxyCodeLine{418     \{}
+\DoxyCodeLine{419       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{420       \{}
+\DoxyCodeLine{421         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 구조 문서화"{}};}
+\DoxyCodeLine{422       \}}
+\DoxyCodeLine{423       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{424       \{}
+\DoxyCodeLine{425           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{426       \}}
+\DoxyCodeLine{427       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{428       \{}
+\DoxyCodeLine{429         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 문서화"{}};}
+\DoxyCodeLine{430       \}}
+\DoxyCodeLine{431     \}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{436     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af752c722b8870b72054edb8b96408c91}{trFileDocumentation}}()}
+\DoxyCodeLine{437     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}파일 문서화"{}}; \}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{442     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4824f5f504a44deb5f0a222ef112e381}{trExampleDocumentation}}()}
+\DoxyCodeLine{443     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}예제 문서화"{}}; \}}
+\DoxyCodeLine{444 }
+\DoxyCodeLine{446     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a601b6fdfd2679c06f23092c337f38cd1}{trReferenceManual}}()}
+\DoxyCodeLine{447     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}참조 매뉴얼"{}}; \}}
+\DoxyCodeLine{448 }
+\DoxyCodeLine{452     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8b5d03487d482043a7c87d2f7bad1a56}{trDefines}}()}
+\DoxyCodeLine{453     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}매크로"{}}; \}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{458     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_afd7669c5e1cdc57395490ad2fa7312b2}{trTypedefs}}()}
+\DoxyCodeLine{459     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}타입정의"{}}; \}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{464     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8ff1d64ea2d3d013f012fc8b26dab587}{trEnumerations}}()}
+\DoxyCodeLine{465     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 타입"{}}; \}}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{470     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ab144346dcb0d01e77740432b3715077d}{trFunctions}}()}
+\DoxyCodeLine{471     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}함수"{}}; \}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aed04ca3a039ac6abf08497c6dbb53030}{trVariables}}()}
+\DoxyCodeLine{477     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}변수"{}}; \}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{482     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a56da3ae55f29b186d10a2175894828c6}{trEnumerationValues}}()}
+\DoxyCodeLine{483     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 멤버"{}}; \}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{488     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ade2b771872af0732662d65985c5b7880}{trDefineDocumentation}}()}
+\DoxyCodeLine{489     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}매크로 문서화"{}}; \}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{494     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a48b0c41bbc23a9ebe4b2b6635683096d}{trTypedefDocumentation}}()}
+\DoxyCodeLine{495     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}타입정의 문서화"{}}; \}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{500     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a289c01f6511e838a3e2f85660e9cf4ce}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{501     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 타입 문서화"{}}; \}}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{506     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aac8f224e390e14875e16f8521370a549}{trFunctionDocumentation}}()}
+\DoxyCodeLine{507     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}함수 문서화"{}}; \}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{512     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acf0731c412807d9242edf0c959819264}{trVariableDocumentation}}()}
+\DoxyCodeLine{513     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}변수 문서화"{}}; \}}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{518     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a16909409dbd4cb56727c3667cd98f76e}{trCompounds}}()}
+\DoxyCodeLine{519     \{}
+\DoxyCodeLine{520       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{521       \{}
+\DoxyCodeLine{522         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 구조"{}};}
+\DoxyCodeLine{523       \}}
+\DoxyCodeLine{524       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{525       \{}
+\DoxyCodeLine{526         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스"{}};}
+\DoxyCodeLine{527       \}}
+\DoxyCodeLine{528     \}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{533     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa3d977fdb229978356a9a61745c2ae32}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{534     \{}
+\DoxyCodeLine{535       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}생성시간 : "{}}+date;}
+\DoxyCodeLine{536       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{}, 프로젝트명 : "{}}+projName;}
+\DoxyCodeLine{537       result+=\textcolor{stringliteral}{"{}, 생성자 : "{}};}
+\DoxyCodeLine{538       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{539     \}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{542     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac7722b449948fc527da1623fddb25d0f}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{543     \{}
+\DoxyCodeLine{544       \textcolor{keywordflow}{return} clName+\textcolor{stringliteral}{"{}에 대한 상속 다이어그램 : "{}};}
+\DoxyCodeLine{545     \}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{548     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac143c4d603b1421e07835cd456a855e3}{trWarning}}()}
+\DoxyCodeLine{549     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}경고"{}}; \}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{552     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac488c12c6596eb95556cd86fb8caa947}{trVersion}}()}
+\DoxyCodeLine{553     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}버전"{}}; \}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac3617be636d998b8ce4abc44d69c2f71}{trDate}}()}
+\DoxyCodeLine{557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}날짜"{}}; \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{560     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_adb482ae60c550ffdae208d91f2090ec4}{trReturns}}()}
+\DoxyCodeLine{561     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}반환값"{}}; \}}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a1b5025112fd90610ece7596edf0ae5c2}{trSeeAlso}}()}
+\DoxyCodeLine{565     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}참고"{}}; \}}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{568     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ade647bddb19c4560a822af54604e6cb6}{trParameters}}()}
+\DoxyCodeLine{569     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}매개변수"{}}; \}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3a949bf771391965536d4d812938db2a}{trExceptions}}()}
+\DoxyCodeLine{573     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}예외"{}}; \}}
+\DoxyCodeLine{574 }
+\DoxyCodeLine{576     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8f7be1959b617957bbca2f9f3a1043c0}{trGeneratedBy}}()}
+\DoxyCodeLine{577     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음에 의해 생성됨 : "{}}; \}}
+\DoxyCodeLine{578 }
+\DoxyCodeLine{580 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{582 \textcolor{comment}{}}
+\DoxyCodeLine{584     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a2f48a9a529be94f9147c6bccee403ed2}{trNamespaceList}}()}
+\DoxyCodeLine{585     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}네임스페이스 목록"{}}; \}}
+\DoxyCodeLine{586 }
+\DoxyCodeLine{588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a58c3ecd46779c0794c9edafff4d6d25d}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{589     \{}
+\DoxyCodeLine{590       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{591       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{592       result+=\textcolor{stringliteral}{"{}모든 네임스페이스에 대한 목록입니다. (간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{593       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{594     \}}
+\DoxyCodeLine{595 }
+\DoxyCodeLine{599     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9ca507e1f57306b0b59a0649575d4974}{trFriends}}()}
+\DoxyCodeLine{600     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Friends"{}}; \}}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{603 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{605 \textcolor{comment}{}}
+\DoxyCodeLine{609     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a52706772f4cecda6b9ee119b823697fd}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{610     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Friend, 그리고 관련된 함수 문서화"{}}; \}}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{613 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{615 \textcolor{comment}{}}
+\DoxyCodeLine{617     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3b6a2007ae6740d239adcddd5c8b31de}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{618                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{619                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{620     \{}
+\DoxyCodeLine{621       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{622       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{623       \{}
+\DoxyCodeLine{624         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} 클래스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{625         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} 구조체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{626         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} 공용체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{627         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} 인터페이스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{628         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} 프로토콜"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{629         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} 카테고리"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{630         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} 예외"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{631         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{632       \}}
+\DoxyCodeLine{633       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} 템플릿"{}};}
+\DoxyCodeLine{634       result+=\textcolor{stringliteral}{"{} 참조"{}};}
+\DoxyCodeLine{635       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{636     \}}
+\DoxyCodeLine{637 }
+\DoxyCodeLine{639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3c782638bfdf5557ea17868304005590}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{640     \{}
+\DoxyCodeLine{641       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{642       result+=\textcolor{stringliteral}{"{} 파일 참조"{}};}
+\DoxyCodeLine{643       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{644     \}}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a61b64b14b6e81b4046a24c7926dae8fa}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{648     \{}
+\DoxyCodeLine{649       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{650       result+=\textcolor{stringliteral}{"{} 네임스페이스 참조"{}};}
+\DoxyCodeLine{651       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{652     \}}
+\DoxyCodeLine{653 }
+\DoxyCodeLine{654     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a00499eedcf1034e4344acd460113c9fa}{trPublicMembers}}()}
+\DoxyCodeLine{655     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public 멤버 함수"{}}; \}}
+\DoxyCodeLine{656     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac40ad706d0aeea68e5b8fd6971150aac}{trPublicSlots}}()}
+\DoxyCodeLine{657     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public Slots"{}}; \}}
+\DoxyCodeLine{658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ace8198601598c12d237f7a46cc0547dc}{trSignals}}()}
+\DoxyCodeLine{659     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signals"{}}; \}}
+\DoxyCodeLine{660     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0c7a843d8aaeeb2e31e319f3baf1f167}{trStaticPublicMembers}}()}
+\DoxyCodeLine{661     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Public 멤버 함수"{}}; \}}
+\DoxyCodeLine{662     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4103757babc4be7e266358e2f132c9d7}{trProtectedMembers}}()}
+\DoxyCodeLine{663     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected 멤버 함수"{}}; \}}
+\DoxyCodeLine{664     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acab5209f93e85dab202d929051310f32}{trProtectedSlots}}()}
+\DoxyCodeLine{665     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected Slots"{}}; \}}
+\DoxyCodeLine{666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af250990c1e356f8c18d4b5fbfb0e06d6}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{667     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Protected 멤버 함수"{}}; \}}
+\DoxyCodeLine{668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0d726cecf67928c2d007627b7db1a51c}{trPrivateMembers}}()}
+\DoxyCodeLine{669     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private 멤버 함수"{}}; \}}
+\DoxyCodeLine{670     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae1cb45c7dbaebb658c6d6cd26a5fe360}{trPrivateSlots}}()}
+\DoxyCodeLine{671     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private Slots"{}}; \}}
+\DoxyCodeLine{672     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a29c7115d40b94e92f8678dcfc1667d73}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{673     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Private 멤버 함수"{}}; \}}
+\DoxyCodeLine{674 }
+\DoxyCodeLine{678     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{679     \{}
+\DoxyCodeLine{680       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{681       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{682       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{683       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{684       \{}
+\DoxyCodeLine{685         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{686         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{687                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{688 }
+\DoxyCodeLine{689         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{690         \{}
+\DoxyCodeLine{691           \textcolor{comment}{//if (i<numEntries-\/2) // not the fore last entry}}
+\DoxyCodeLine{692             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{693           \textcolor{comment}{//else                // the fore last entry}}
+\DoxyCodeLine{694           \textcolor{comment}{//  result+="{}, "{};     // TODO: does the 'and' need to be translated here?}}
+\DoxyCodeLine{695         \}}
+\DoxyCodeLine{696       \}}
+\DoxyCodeLine{697       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{698     \}}
+\DoxyCodeLine{699 }
+\DoxyCodeLine{703     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a62cc3f6b49464ef5dd2510acb27fb8a3}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{704     \{}
+\DoxyCodeLine{705       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}를(을) 상속했습니다."{}};}
+\DoxyCodeLine{706     \}}
+\DoxyCodeLine{707 }
+\DoxyCodeLine{711     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4f4e11bd97bbc8085f27acc24ed3589f}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{712     \{}
+\DoxyCodeLine{713       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}에 의해 상속되었습니다."{}};}
+\DoxyCodeLine{714     \}}
+\DoxyCodeLine{715 }
+\DoxyCodeLine{719     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_adb280dfe0d68931720084415a0acf4ce}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{720     \{}
+\DoxyCodeLine{721       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}(으)로부터 재구현되었습니다."{}};}
+\DoxyCodeLine{722     \}}
+\DoxyCodeLine{723 }
+\DoxyCodeLine{727     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0d00fff3f8d45dc50dbba13cdbeeda8e}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{728     \{}
+\DoxyCodeLine{729       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}에서 재구현되었습니다."{}};}
+\DoxyCodeLine{730     \}}
+\DoxyCodeLine{731 }
+\DoxyCodeLine{733     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a6ce21c7ac7219d53a41104e12e999194}{trNamespaceMembers}}()}
+\DoxyCodeLine{734     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}네임스페이스 멤버"{}}; \}}
+\DoxyCodeLine{735 }
+\DoxyCodeLine{737     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a556b6d251881f034048810aae61a79ea}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{738     \{}
+\DoxyCodeLine{739       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{740       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{741       result+=\textcolor{stringliteral}{"{}모든 네임스페이스 멤버들의 목록입니다. "{}};}
+\DoxyCodeLine{742       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{743         result+=\textcolor{stringliteral}{"{}각 멤버들은 해당 멤버의 네임스페이스 문서화 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{744       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{745         result+=\textcolor{stringliteral}{"{}각 멤버들은 해당 멤버가 속한 네임스페이스 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{746       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{747     \}}
+\DoxyCodeLine{751     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a6f5dc9bca3b4f39e532cbcc23e3c1cee}{trNamespaceIndex}}()}
+\DoxyCodeLine{752     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}네임스페이스 색인"{}}; \}}
+\DoxyCodeLine{753 }
+\DoxyCodeLine{757     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a42750039cd92218dd88247dd2383d936}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{758     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}네임스페이스 문서화"{}}; \}}
+\DoxyCodeLine{759 }
+\DoxyCodeLine{761 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{763 \textcolor{comment}{}}
+\DoxyCodeLine{767     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3a7eff64086f6f9222fa568850dbbd99}{trNamespaces}}()}
+\DoxyCodeLine{768     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}네임스페이스"{}}; \}}
+\DoxyCodeLine{769 }
+\DoxyCodeLine{771 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{773 \textcolor{comment}{}}
+\DoxyCodeLine{777     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a08e85e571cdbaf043e49167f1642c149}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{778         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{779     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{780       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{781       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}이 "{}};}
+\DoxyCodeLine{782       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{783       \{}
+\DoxyCodeLine{784         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}클래스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{785         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}구조체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{786         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}공용체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{787         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}인터페이스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{788         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}프로토콜"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{789         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}카테고리"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{790         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}예외"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{791         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{792       \}}
+\DoxyCodeLine{793       result+=\textcolor{stringliteral}{"{}에 대한 문서화 페이지는 다음의 파일"{}};}
+\DoxyCodeLine{794       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{795       result+=\textcolor{stringliteral}{"{}로부터 생성되었습니다.:"{}};}
+\DoxyCodeLine{796       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{797     \}}
+\DoxyCodeLine{798 }
+\DoxyCodeLine{800 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{802 \textcolor{comment}{}}
+\DoxyCodeLine{804     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a87748fc58e2c9caf6f675de139fad528}{trReturnValues}}()}
+\DoxyCodeLine{805     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}반환값"{}}; \}}
+\DoxyCodeLine{806 }
+\DoxyCodeLine{809     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3bd080d9676a9ed087342e3410f7864f}{trMainPage}}()}
+\DoxyCodeLine{810     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}메인 페이지"{}}; \}}
+\DoxyCodeLine{811 }
+\DoxyCodeLine{815     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac84e27e791237f3d36a71eb372963e76}{trPageAbbreviation}}()}
+\DoxyCodeLine{816     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}페이지"{}}; \}}
+\DoxyCodeLine{817 }
+\DoxyCodeLine{819 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{821 \textcolor{comment}{}}
+\DoxyCodeLine{822     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9f9f03ba71146f35814f9d474f02ac38}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{823     \{}
+\DoxyCodeLine{824       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@1 파일의 @0 번째 라인에서 정의되었습니다."{}};}
+\DoxyCodeLine{825     \}}
+\DoxyCodeLine{826     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad1751438305fb35e8f9f3186c325d7a9}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{827     \{}
+\DoxyCodeLine{828       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}@0 파일에서 정의되었습니다."{}};}
+\DoxyCodeLine{829     \}}
+\DoxyCodeLine{830 }
+\DoxyCodeLine{832 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{834 \textcolor{comment}{}}
+\DoxyCodeLine{835     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a2f2d5b8a6439e68c2aad283640b8ca22}{trDeprecated}}()}
+\DoxyCodeLine{836     \{}
+\DoxyCodeLine{837       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}잘못된 코드"{}};}
+\DoxyCodeLine{838     \}}
+\DoxyCodeLine{839 }
+\DoxyCodeLine{841 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{843 \textcolor{comment}{}}
+\DoxyCodeLine{845     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a71b9f6bb70a0b1bdb9fde760254ed783}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{846     \{}
+\DoxyCodeLine{847       \textcolor{keywordflow}{return} clName+\textcolor{stringliteral}{"{}에 대한 협력 다이어그램:"{}};}
+\DoxyCodeLine{848     \}}
+\DoxyCodeLine{850     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aadda5224341993ffe2162f6e59fdbc2e}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{851     \{}
+\DoxyCodeLine{852       \textcolor{keywordflow}{return} fName+\textcolor{stringliteral}{"{}에 대한 include 의존 그래프"{}};}
+\DoxyCodeLine{853     \}}
+\DoxyCodeLine{855     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a2c6b9321fa2340af82c888da7aa29674}{trConstructorDocumentation}}()}
+\DoxyCodeLine{856     \{}
+\DoxyCodeLine{857       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}생성자 \& 소멸자 문서화"{}};}
+\DoxyCodeLine{858     \}}
+\DoxyCodeLine{860     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a79b17bf6dc1086ee02bf54d8af4bb509}{trGotoSourceCode}}()}
+\DoxyCodeLine{861     \{}
+\DoxyCodeLine{862       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 파일의 소스 코드 페이지로 가기"{}};}
+\DoxyCodeLine{863     \}}
+\DoxyCodeLine{865     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aac238fd69bed086c5ab922c49684c2ce}{trGotoDocumentation}}()}
+\DoxyCodeLine{866     \{}
+\DoxyCodeLine{867       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 파일의 문서화 페이지로 가기"{}};}
+\DoxyCodeLine{868     \}}
+\DoxyCodeLine{870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3f7b1b72bb394aefeb1310f00f9ee604}{trPrecondition}}()}
+\DoxyCodeLine{871     \{}
+\DoxyCodeLine{872       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}전제조건"{}};}
+\DoxyCodeLine{873     \}}
+\DoxyCodeLine{875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a6aa0eed34fcb8f4d511ff26299e45ad1}{trPostcondition}}()}
+\DoxyCodeLine{876     \{}
+\DoxyCodeLine{877       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}후미조건"{}};}
+\DoxyCodeLine{878     \}}
+\DoxyCodeLine{880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a74db9cdb8dc967ee1877ca22cea1bf34}{trInvariant}}()}
+\DoxyCodeLine{881     \{}
+\DoxyCodeLine{882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}변하지 않는"{}};}
+\DoxyCodeLine{883     \}}
+\DoxyCodeLine{885     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af07d6e70c8d3d6b2b2ab81e88e1bb887}{trInitialValue}}()}
+\DoxyCodeLine{886     \{}
+\DoxyCodeLine{887       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}초기값:"{}};}
+\DoxyCodeLine{888     \}}
+\DoxyCodeLine{890     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af840cab56e4173f7313d77d5309ae0ee}{trCode}}()}
+\DoxyCodeLine{891     \{}
+\DoxyCodeLine{892       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}코드"{}};}
+\DoxyCodeLine{893     \}}
+\DoxyCodeLine{894     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0eacba488d6c74579f5f87cd0c906fec}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{895     \{}
+\DoxyCodeLine{896       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}그래픽컬한 클래스 계통도"{}};}
+\DoxyCodeLine{897     \}}
+\DoxyCodeLine{898     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_afe36d6a5edd8c9fb7963d5e121c2812a}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{899     \{}
+\DoxyCodeLine{900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}그래픽컬한 클래스 계통도 페이지로 가기"{}};}
+\DoxyCodeLine{901     \}}
+\DoxyCodeLine{902     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac0b1db8d4ac3b24d5e77878b8f17c90d}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{903     \{}
+\DoxyCodeLine{904       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}텍스트 형식의 클래스 계통도 페이지로 가기"{}};}
+\DoxyCodeLine{905     \}}
+\DoxyCodeLine{906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a66ac7cae33d79ccd3b222d5c3d5c21e4}{trPageIndex}}()}
+\DoxyCodeLine{907     \{}
+\DoxyCodeLine{908       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}페이지 색인"{}};}
+\DoxyCodeLine{909     \}}
+\DoxyCodeLine{910 }
+\DoxyCodeLine{912 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{914 \textcolor{comment}{}}
+\DoxyCodeLine{915     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7ce571a20e87f4516b1242b49931a5e7}{trNote}}()}
+\DoxyCodeLine{916     \{}
+\DoxyCodeLine{917       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}주의"{}};}
+\DoxyCodeLine{918     \}}
+\DoxyCodeLine{919     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abf952f790cd6c685829d07330b4d3414}{trPublicTypes}}()}
+\DoxyCodeLine{920     \{}
+\DoxyCodeLine{921       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public 타입"{}};}
+\DoxyCodeLine{922     \}}
+\DoxyCodeLine{923     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a77dfb7538d0c2fc5699b29c8de66253b}{trPublicAttribs}}()}
+\DoxyCodeLine{924     \{}
+\DoxyCodeLine{925       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{926       \{}
+\DoxyCodeLine{927         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 필드"{}};}
+\DoxyCodeLine{928       \}}
+\DoxyCodeLine{929       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{930       \{}
+\DoxyCodeLine{931         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public 속성"{}};}
+\DoxyCodeLine{932       \}}
+\DoxyCodeLine{933     \}}
+\DoxyCodeLine{934     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abdcbd4a1e70026701d32b4523e0a0c73}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{935     \{}
+\DoxyCodeLine{936       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Public 속성"{}};}
+\DoxyCodeLine{937     \}}
+\DoxyCodeLine{938     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0814427c888b7ee0ba558bf30198e176}{trProtectedTypes}}()}
+\DoxyCodeLine{939     \{}
+\DoxyCodeLine{940       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected 타입"{}};}
+\DoxyCodeLine{941     \}}
+\DoxyCodeLine{942     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7b7f98bce6940f06668869e20ac5fa48}{trProtectedAttribs}}()}
+\DoxyCodeLine{943     \{}
+\DoxyCodeLine{944       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected 속성"{}};}
+\DoxyCodeLine{945     \}}
+\DoxyCodeLine{946     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a888d80406af3a3063c9d1d36d06ee3cd}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{947     \{}
+\DoxyCodeLine{948       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Protected 속성"{}};}
+\DoxyCodeLine{949     \}}
+\DoxyCodeLine{950     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a91df6a11a829a635931d8f217485a8f4}{trPrivateTypes}}()}
+\DoxyCodeLine{951     \{}
+\DoxyCodeLine{952       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private 타입"{}};}
+\DoxyCodeLine{953     \}}
+\DoxyCodeLine{954     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a175c5e72074b65d712e075d0cde1589c}{trPrivateAttribs}}()}
+\DoxyCodeLine{955     \{}
+\DoxyCodeLine{956       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private 속성"{}};}
+\DoxyCodeLine{957     \}}
+\DoxyCodeLine{958     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a849783c4350f3870b07fe7dcdf28b4a0}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{959     \{}
+\DoxyCodeLine{960       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 Private 속성"{}};}
+\DoxyCodeLine{961     \}}
+\DoxyCodeLine{962 }
+\DoxyCodeLine{964 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{966 \textcolor{comment}{}}
+\DoxyCodeLine{968     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af182c1ab673fce1be5dd85c1f3b522f4}{trTodo}}()}
+\DoxyCodeLine{969     \{}
+\DoxyCodeLine{970       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}할일"{}};}
+\DoxyCodeLine{971     \}}
+\DoxyCodeLine{973     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0558b670966019e531b1de9291c0ecb7}{trTodoList}}()}
+\DoxyCodeLine{974     \{}
+\DoxyCodeLine{975       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}할일 목록"{}};}
+\DoxyCodeLine{976     \}}
+\DoxyCodeLine{977 }
+\DoxyCodeLine{979 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{981 \textcolor{comment}{}}
+\DoxyCodeLine{982     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aeafcc708f12d07b65fce3ade40a4d81b}{trReferencedBy}}()}
+\DoxyCodeLine{983     \{}
+\DoxyCodeLine{984       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음에 의해서 참조됨 : "{}};}
+\DoxyCodeLine{985     \}}
+\DoxyCodeLine{986     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a705b1330daf2e3c20142444eef74d496}{trRemarks}}()}
+\DoxyCodeLine{987     \{}
+\DoxyCodeLine{988       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Remarks"{}};}
+\DoxyCodeLine{989     \}}
+\DoxyCodeLine{990     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a110a232a371c1eb6cba0e00109d21465}{trAttention}}()}
+\DoxyCodeLine{991     \{}
+\DoxyCodeLine{992         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}주의"{}};}
+\DoxyCodeLine{993     \}}
+\DoxyCodeLine{994     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a76f712d7595d1b1041ee536a0f7ab1c3}{trInclByDepGraph}}()}
+\DoxyCodeLine{995     \{}
+\DoxyCodeLine{996       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 그래프는 이 파일을 직/간접적으로 include 하는 파일들을 보여줍니다.:"{}};}
+\DoxyCodeLine{997     \}}
+\DoxyCodeLine{998     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ab670b0885b3a3da2b437f4b0bdc8e6de}{trSince}}()}
+\DoxyCodeLine{999     \{}
+\DoxyCodeLine{1000       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Since"{}};}
+\DoxyCodeLine{1001     \}}
+\DoxyCodeLine{1002 }
+\DoxyCodeLine{1004 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{1006 \textcolor{comment}{}}
+\DoxyCodeLine{1008     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_adcc36a0092e43e6de666d8279594994a}{trLegendTitle}}()}
+\DoxyCodeLine{1009     \{}
+\DoxyCodeLine{1010       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}그래프 범례"{}};}
+\DoxyCodeLine{1011     \}}
+\DoxyCodeLine{1015     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acedc5de6772bc4d5970b4834b40702ea}{trLegendDocs}}()}
+\DoxyCodeLine{1016     \{}
+\DoxyCodeLine{1017       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}이 페이지는 doxygen에 의해 생성된 그래프들을 이해하는 방법을 설명합니다.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}다음의 예제를 참고하십시오.:\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}/*! 생략되었기 때문에 보이지 않는 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}/*! Truncated 클래스, 상속관계가 숨겨짐 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}/* doxygen 주석에 의해서 문서화되지 않는 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}/*! public 상속을 통해서 상속된 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}/*! 템플릿 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}/*! protected 상속을 통해서 상속된 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1033         \textcolor{stringliteral}{"{}/*! private 상속을 통해서 상속된 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1034         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1035         \textcolor{stringliteral}{"{}/*! 상속되어진 클래스에 의해 (멤버로) 사용되어지는 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1036         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{1037         \textcolor{stringliteral}{"{}/*! 다른 클래스들을 상속하는 슈퍼 클래스 */\(\backslash\)n"{}}}
+\DoxyCodeLine{1038         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1039         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1040         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{1041         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{1042         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{1043         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{1044         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{1045         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{1046         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1047         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1048         \textcolor{stringliteral}{"{}다음과 같은 그래프가 출력될 것입니다. :"{}}}
+\DoxyCodeLine{1049         \textcolor{stringliteral}{"{}<p><center><img alt=\(\backslash\)"{}\(\backslash\)"{} src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1050         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1051         \textcolor{stringliteral}{"{}위 그래프의 박스들은 다음과 같은 의미를 가집니다. :\(\backslash\)n"{}}}
+\DoxyCodeLine{1052         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1053         \textcolor{stringliteral}{"{}<li>\%A 회색으로 채워진 박스는 이 그래프를 생성해 낸 구조체나 클래스를 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1054         \textcolor{stringliteral}{"{}<li>\%A 검은색 테두리의 박스는 문서화된 구조체나 클래스를 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1055         \textcolor{stringliteral}{"{}<li>\%A 회색 테두리의 박스는 문서화되지 않은 구조체나 클래스를 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1056         \textcolor{stringliteral}{"{}<li>\%A 빨간색 테두리의 박스는 모든 상속이나 포함관계가 보여지지 않는 "{}}}
+\DoxyCodeLine{1057     \textcolor{stringliteral}{"{}구조체나 클래스를 의미합니다."{}}}
+\DoxyCodeLine{1058         \textcolor{stringliteral}{"{}\%A 만약 그래프가 지정된 경계내에 맞지 않으면, 그래프가 잘려집니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1059         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1060         \textcolor{stringliteral}{"{}화살표들은 다음과 같은 의미를 가집니다. :\(\backslash\)n"{}}}
+\DoxyCodeLine{1061         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1062         \textcolor{stringliteral}{"{}<li>\%A 어두운 파랑색 화살표는 두 클래스들 간에 public 상속이 있음을 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1063         \textcolor{stringliteral}{"{}<li>\%A 어두운 연두색 화살표는 protected 상속이 있음을 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1064         \textcolor{stringliteral}{"{}<li>\%A 어두운 빨간색 화살표는 private 상속이 있음을 의미합니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1065         \textcolor{stringliteral}{"{}<li>\%A 보라색 점선 화살표는 다른 클래스에 의해 포함되거나 사용되어짐을 의미합니다. "{}}}
+\DoxyCodeLine{1066     \textcolor{stringliteral}{"{}화살표의 라벨은 화살표가 가리키는 클래스나 구조체로 접근하는 변수명(들)으로 붙습니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1067         \textcolor{stringliteral}{"{}<li>\%A 노란색 점선 화살표는 템플릿 인스턴스와 템프릿 클래스에 대한 관계를 의미합니다. "{}}}
+\DoxyCodeLine{1068     \textcolor{stringliteral}{"{}화살표의 라벨은 인스턴스의 템플릿 파라메터로 붙습니다.\(\backslash\)n"{}}}
+\DoxyCodeLine{1069         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1070     \}}
+\DoxyCodeLine{1072     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a86598f68ad4cf61ff99125b1c7a35cab}{trLegend}}()}
+\DoxyCodeLine{1073     \{}
+\DoxyCodeLine{1074       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}범례"{}};}
+\DoxyCodeLine{1075     \}}
+\DoxyCodeLine{1076 }
+\DoxyCodeLine{1078 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1080 \textcolor{comment}{}}
+\DoxyCodeLine{1082     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a1f2f12bb760a8c49b7a12aa3adb72dbf}{trTest}}()}
+\DoxyCodeLine{1083     \{}
+\DoxyCodeLine{1084       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}테스트"{}};}
+\DoxyCodeLine{1085     \}}
+\DoxyCodeLine{1087     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aed1f9bd363efefee64aba4fcac1e76ff}{trTestList}}()}
+\DoxyCodeLine{1088     \{}
+\DoxyCodeLine{1089       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}테스트 목록"{}};}
+\DoxyCodeLine{1090     \}}
+\DoxyCodeLine{1091 }
+\DoxyCodeLine{1093 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1095 \textcolor{comment}{}}
+\DoxyCodeLine{1097     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0bc3ea70a010f0ffe0f1acc321a78b1d}{trProperties}}()}
+\DoxyCodeLine{1098     \{}
+\DoxyCodeLine{1099       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}속성"{}};}
+\DoxyCodeLine{1100     \}}
+\DoxyCodeLine{1102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8b6ba1e21463d1f6a4784eb1370f624a}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1103     \{}
+\DoxyCodeLine{1104       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}속성 문서화"{}};}
+\DoxyCodeLine{1105     \}}
+\DoxyCodeLine{1106 }
+\DoxyCodeLine{1108 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1110 \textcolor{comment}{}}
+\DoxyCodeLine{1112     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae442abef028e4615393d07dfb39f15b3}{trClasses}}()}
+\DoxyCodeLine{1113     \{}
+\DoxyCodeLine{1114       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{1115       \{}
+\DoxyCodeLine{1116         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 구조"{}};}
+\DoxyCodeLine{1117       \}}
+\DoxyCodeLine{1118       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1119       \{}
+\DoxyCodeLine{1120         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스"{}};}
+\DoxyCodeLine{1121       \}}
+\DoxyCodeLine{1122     \}}
+\DoxyCodeLine{1124     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ae62477fd45428e9e9172016bbc29b304}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1125     \{}
+\DoxyCodeLine{1126       \textcolor{keywordflow}{return} name+\textcolor{stringliteral}{"{} 패키지"{}};}
+\DoxyCodeLine{1127     \}}
+\DoxyCodeLine{1129     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7f85a138a7e0f37564094905686177f9}{trPackageListDescription}}()}
+\DoxyCodeLine{1130     \{}
+\DoxyCodeLine{1131       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음은 패키지들입니다. (가능한한 간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{1132     \}}
+\DoxyCodeLine{1134     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ace3e33c1989ea0b200ecbcfcb69bb205}{trPackages}}()}
+\DoxyCodeLine{1135     \{}
+\DoxyCodeLine{1136       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패키지"{}};}
+\DoxyCodeLine{1137     \}}
+\DoxyCodeLine{1139     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4dd19b3883ff980ba96f7c337717e966}{trDefineValue}}()}
+\DoxyCodeLine{1140     \{}
+\DoxyCodeLine{1141       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}값:"{}};}
+\DoxyCodeLine{1142     \}}
+\DoxyCodeLine{1143 }
+\DoxyCodeLine{1145 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1147 \textcolor{comment}{}}
+\DoxyCodeLine{1149     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aebdfc5077da35af0f2c97e3af5b5ad68}{trBug}}()}
+\DoxyCodeLine{1150     \{}
+\DoxyCodeLine{1151       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}버그"{}};}
+\DoxyCodeLine{1152     \}}
+\DoxyCodeLine{1154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0ce4e429855d853b7b88f51380c7f788}{trBugList}}()}
+\DoxyCodeLine{1155     \{}
+\DoxyCodeLine{1156       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}버그 목록"{}};}
+\DoxyCodeLine{1157     \}}
+\DoxyCodeLine{1158 }
+\DoxyCodeLine{1160 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1162 \textcolor{comment}{}}
+\DoxyCodeLine{1188     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9f814151d64327b59b1819e756329d9f}{trRTFansicp}}()}
+\DoxyCodeLine{1189     \{}
+\DoxyCodeLine{1190       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}949"{}};}
+\DoxyCodeLine{1191     \}}
+\DoxyCodeLine{1192 }
+\DoxyCodeLine{1193 }
+\DoxyCodeLine{1197     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abc7c0238b498ea5bf2a6c9aeafac207d}{trRTFCharSet}}()}
+\DoxyCodeLine{1198     \{}
+\DoxyCodeLine{1199       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}129"{}};}
+\DoxyCodeLine{1200     \}}
+\DoxyCodeLine{1201 }
+\DoxyCodeLine{1203     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a65b285ca91229329881bde2ac0febcd2}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1204     \{}
+\DoxyCodeLine{1205       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}색인"{}};}
+\DoxyCodeLine{1206     \}}
+\DoxyCodeLine{1207 }
+\DoxyCodeLine{1212     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a47f5df8924d85212293da8f90b15c38f}{trClass}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1213     \{}
+\DoxyCodeLine{1214       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}클래스"{}});}
+\DoxyCodeLine{1215       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1216       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1217     \}}
+\DoxyCodeLine{1218 }
+\DoxyCodeLine{1223     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa4c52e8d32d016b14a77cff015f9c9ee}{trFile}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1224     \{}
+\DoxyCodeLine{1225       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}파일"{}});}
+\DoxyCodeLine{1226       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1227       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1228     \}}
+\DoxyCodeLine{1229 }
+\DoxyCodeLine{1234     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa12d74e00aee44683191bb6f0e20b50d}{trNamespace}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1235     \{}
+\DoxyCodeLine{1236       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}네임스페이스"{}});}
+\DoxyCodeLine{1237       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1238       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1239     \}}
+\DoxyCodeLine{1240 }
+\DoxyCodeLine{1245     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abb8abbd3d17b2c6b9052eb9dc1ba31f0}{trGroup}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1246     \{}
+\DoxyCodeLine{1247       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}그룹"{}});}
+\DoxyCodeLine{1248       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1249       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1250     \}}
+\DoxyCodeLine{1251 }
+\DoxyCodeLine{1256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a25d4e603ab21d42defd20e0caf6932cf}{trPage}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1257     \{}
+\DoxyCodeLine{1258       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}페이지"{}});}
+\DoxyCodeLine{1259       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1260       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1261     \}}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7de68f427722af2148122f7863b099d2}{trMember}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1268     \{}
+\DoxyCodeLine{1269       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}멤버"{}});}
+\DoxyCodeLine{1270       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1271       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1272     \}}
+\DoxyCodeLine{1273 }
+\DoxyCodeLine{1278     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a825ad7820d84629c6c64aeaceb38ac88}{trGlobal}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1279     \{}
+\DoxyCodeLine{1280       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}전역"{}});}
+\DoxyCodeLine{1281       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{1282       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1283     \}}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1286 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1288 \textcolor{comment}{}}
+\DoxyCodeLine{1291     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7a9cc0313f8ad406e6339ea01dd05562}{trAuthor}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1292     \{}
+\DoxyCodeLine{1293       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}작성자"{}});}
+\DoxyCodeLine{1294       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1295       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1296     \}}
+\DoxyCodeLine{1297 }
+\DoxyCodeLine{1299 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1301 \textcolor{comment}{}}
+\DoxyCodeLine{1304     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3364d5730272c08985751784a44eb24b}{trReferences}}()}
+\DoxyCodeLine{1305     \{}
+\DoxyCodeLine{1306       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}다음을 참조함 : "{}};}
+\DoxyCodeLine{1307     \}}
+\DoxyCodeLine{1308 }
+\DoxyCodeLine{1310 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1312 \textcolor{comment}{}}
+\DoxyCodeLine{1316     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a15af8276ab99323b2c70e06b39c2fa7a}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1317     \{}
+\DoxyCodeLine{1318       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}를 구현."{}};}
+\DoxyCodeLine{1319     \}}
+\DoxyCodeLine{1320 }
+\DoxyCodeLine{1324     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a06804d4e2253eea63c74f45109aec2ee}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1325     \{}
+\DoxyCodeLine{1326       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorKorean_a702965892122f3ef3ee3145a16ce3357}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}에서 구현되었습니다."{}};}
+\DoxyCodeLine{1327     \}}
+\DoxyCodeLine{1328 }
+\DoxyCodeLine{1330 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1332 \textcolor{comment}{}}
+\DoxyCodeLine{1336     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a283fcda4bac83cc8d6726cc68d50e524}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1337     \{}
+\DoxyCodeLine{1338       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}목차"{}};}
+\DoxyCodeLine{1339     \}}
+\DoxyCodeLine{1340 }
+\DoxyCodeLine{1342 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1344 \textcolor{comment}{}}
+\DoxyCodeLine{1348     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4ae1b349f783775530cb0f8850ec9511}{trDeprecatedList}}()}
+\DoxyCodeLine{1349     \{}
+\DoxyCodeLine{1350       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}잘못된 코드 목록"{}};}
+\DoxyCodeLine{1351     \}}
+\DoxyCodeLine{1352 }
+\DoxyCodeLine{1354 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1356 \textcolor{comment}{}}
+\DoxyCodeLine{1360     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af3d6f5fd9b0c11943c05f231ad03c150}{trEvents}}()}
+\DoxyCodeLine{1361     \{}
+\DoxyCodeLine{1362       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이벤트"{}};}
+\DoxyCodeLine{1363     \}}
+\DoxyCodeLine{1365     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9b93b09881dae65623c1c5c562462aff}{trEventDocumentation}}()}
+\DoxyCodeLine{1366     \{}
+\DoxyCodeLine{1367       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이벤트 문서화"{}};}
+\DoxyCodeLine{1368     \}}
+\DoxyCodeLine{1369 }
+\DoxyCodeLine{1371 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1373 \textcolor{comment}{}}
+\DoxyCodeLine{1376     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a4767bc3f094854d52d0426464d6008e4}{trPackageTypes}}()}
+\DoxyCodeLine{1377     \{}
+\DoxyCodeLine{1378       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패키지 타입"{}};}
+\DoxyCodeLine{1379     \}}
+\DoxyCodeLine{1383     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af5464b537b8051ac84a288dab90fe3f4}{trPackageFunctions}}()}
+\DoxyCodeLine{1384     \{}
+\DoxyCodeLine{1385       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패키지 함수"{}};}
+\DoxyCodeLine{1386     \}}
+\DoxyCodeLine{1387     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a819b222b40e70efaa83097b093e67ed5}{trPackageMembers}}()}
+\DoxyCodeLine{1388     \{}
+\DoxyCodeLine{1389       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패키지 멤버들"{}};}
+\DoxyCodeLine{1390     \}}
+\DoxyCodeLine{1394     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a702dcc608198307e14b86177e1d2ed39}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1395     \{}
+\DoxyCodeLine{1396       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 패키지 함수"{}};}
+\DoxyCodeLine{1397     \}}
+\DoxyCodeLine{1401     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8559c442e96678b90b5f70fff31d92f8}{trPackageAttribs}}()}
+\DoxyCodeLine{1402     \{}
+\DoxyCodeLine{1403       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패키지 속성"{}};}
+\DoxyCodeLine{1404     \}}
+\DoxyCodeLine{1408     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad12e30ffe7ac39eef326618ffbb63854}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1409     \{}
+\DoxyCodeLine{1410       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}정적 패키지 속성"{}};}
+\DoxyCodeLine{1411     \}}
+\DoxyCodeLine{1412 }
+\DoxyCodeLine{1414 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1416 \textcolor{comment}{}}
+\DoxyCodeLine{1420     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a96bcbf48971de0f72c00acfca3fee9ca}{trAll}}()}
+\DoxyCodeLine{1421     \{}
+\DoxyCodeLine{1422       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모두"{}};}
+\DoxyCodeLine{1423     \}}
+\DoxyCodeLine{1425     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0c9c9d921a209328cc20f944447d3f63}{trCallGraph}}()}
+\DoxyCodeLine{1426     \{}
+\DoxyCodeLine{1427       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 함수 내부에서 호출하는 함수들에 대한 그래프입니다.:"{}};}
+\DoxyCodeLine{1428     \}}
+\DoxyCodeLine{1429 }
+\DoxyCodeLine{1431 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1433 \textcolor{comment}{}}
+\DoxyCodeLine{1437     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa8be7c0f7412661dc5ae06c1772806f7}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1438     \{}
+\DoxyCodeLine{1439       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}검색 결과"{}};}
+\DoxyCodeLine{1440     \}}
+\DoxyCodeLine{1449     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3ee64a5e4635a5d9a428a0d8acfcf0ea}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1450     \{}
+\DoxyCodeLine{1451       \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1452       \{}
+\DoxyCodeLine{1453         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}죄송합니다. 질의에 일치하는 문서가 없습니다."{}};}
+\DoxyCodeLine{1454       \}}
+\DoxyCodeLine{1455       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1456       \{}
+\DoxyCodeLine{1457         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}질의에 일치하는 <b>1</b> 개의 문서를 찾았습니다."{}};}
+\DoxyCodeLine{1458       \}}
+\DoxyCodeLine{1459       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1460       \{}
+\DoxyCodeLine{1461         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}질의에 일치하는 <b>\$num</b> 개의 문서를 찾았습니다. "{}}}
+\DoxyCodeLine{1462                \textcolor{stringliteral}{"{}가장 많이 일치하는 문서를 가장 먼저 보여줍니다."{}};}
+\DoxyCodeLine{1463       \}}
+\DoxyCodeLine{1464     \}}
+\DoxyCodeLine{1468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a14a41f288f48978a6c8c193494818f32}{trSearchMatches}}()}
+\DoxyCodeLine{1469     \{}
+\DoxyCodeLine{1470       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}결과:"{}};}
+\DoxyCodeLine{1471     \}}
+\DoxyCodeLine{1472 }
+\DoxyCodeLine{1474 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1476 \textcolor{comment}{}}
+\DoxyCodeLine{1479     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad43b7a8eaf87e6687c829e6bc4b5b81c}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1480     \{}
+\DoxyCodeLine{1481       \textcolor{keywordflow}{return} filename + \textcolor{stringliteral}{"{} 소스 파일"{}};}
+\DoxyCodeLine{1482     \}}
+\DoxyCodeLine{1483 }
+\DoxyCodeLine{1485 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1487 \textcolor{comment}{}}
+\DoxyCodeLine{1491     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a5c4fd5ffbb44f7651f9808b7ca324d1b}{trDirIndex}}()}
+\DoxyCodeLine{1492     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}디렉토리 계통도"{}}; \}}
+\DoxyCodeLine{1493 }
+\DoxyCodeLine{1497     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ade40cfebcc4dd63032402d8fab3dcd66}{trDirDocumentation}}()}
+\DoxyCodeLine{1498     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}디렉토리 문서화"{}}; \}}
+\DoxyCodeLine{1499 }
+\DoxyCodeLine{1503     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aaf735e849b61302e9546a94fb545ca0e}{trDirectories}}()}
+\DoxyCodeLine{1504     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}디렉토리"{}}; \}}
+\DoxyCodeLine{1505 }
+\DoxyCodeLine{1509     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a03242a43db63f2412b2a1741d4cdf80b}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1510     \{ \mbox{\hyperlink{classQCString}{QCString}} result=dirName; result+=\textcolor{stringliteral}{"{} 디렉토리 참조"{}}; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1511 }
+\DoxyCodeLine{1515     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a86717f83e00ae8877bf9bae2b41772dd}{trDir}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1516     \{}
+\DoxyCodeLine{1517       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}디렉토리"{}});}
+\DoxyCodeLine{1518       \textcolor{keywordflow}{if} (singular) result+=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1519       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1520     \}}
+\DoxyCodeLine{1521 }
+\DoxyCodeLine{1523 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1525 \textcolor{comment}{}}
+\DoxyCodeLine{1529     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a02a2526670077f9d12f2c16dd836e4ed}{trOverloadText}}()}
+\DoxyCodeLine{1530     \{}
+\DoxyCodeLine{1531        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 함수는 편의를 제공하기 위해 오버로드된 멤버 함수입니다. "{}}}
+\DoxyCodeLine{1532               \textcolor{stringliteral}{"{}위의 함수와 틀린 점은 단지 받아들이는 아규먼트(argument)가 다르다는 것입니다."{}};}
+\DoxyCodeLine{1533     \}}
+\DoxyCodeLine{1534 }
+\DoxyCodeLine{1536 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1538 \textcolor{comment}{}}
+\DoxyCodeLine{1540     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a5758b71ecd43c86e70bc4879f65e0067}{trCallerGraph}}()}
+\DoxyCodeLine{1541     \{}
+\DoxyCodeLine{1542       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}이 함수를 호출하는 함수들에 대한 그래프입니다.:"{}};}
+\DoxyCodeLine{1543     \}}
+\DoxyCodeLine{1544 }
+\DoxyCodeLine{1548     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af6d9e6bc52deeeca5ead7f9083f8099b}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1549     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}열거형 문서화"{}}; \}}
+\DoxyCodeLine{1550 }
+\DoxyCodeLine{1552 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1554 \textcolor{comment}{}}
+\DoxyCodeLine{1556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af7a255882ab03e122e2dd6d5b1f7223b}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}멤버 함수/서브루틴 문서화"{}}; \}}
+\DoxyCodeLine{1558 }
+\DoxyCodeLine{1560     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aaadeec829930d258a7064f6a90545d4f}{trCompoundListFortran}}()}
+\DoxyCodeLine{1561     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 타입 목록"{}}; \}}
+\DoxyCodeLine{1562 }
+\DoxyCodeLine{1564     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a3fc6d38e3bb16bef81009a67a76300ab}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1565     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 필드"{}}; \}}
+\DoxyCodeLine{1566 }
+\DoxyCodeLine{1568     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa5ac6f40895c988e82a039f24d0d7af2}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1569     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}대략적인 설명과 함께 데이터 타입들의 목록입니다.:"{}}; \}}
+\DoxyCodeLine{1570 }
+\DoxyCodeLine{1572     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aae94b4f8eff979fee43e96c596395bcb}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1573     \{}
+\DoxyCodeLine{1574       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{1575       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1576       \{}
+\DoxyCodeLine{1577         result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{1578       \}}
+\DoxyCodeLine{1579       result+=\textcolor{stringliteral}{"{}모든 데이터 타입 멤버들의 목록입니다. "{}};}
+\DoxyCodeLine{1580 }
+\DoxyCodeLine{1581       result+=\textcolor{stringliteral}{"{}각 항목은 "{}};}
+\DoxyCodeLine{1582       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1583       \{}
+\DoxyCodeLine{1584          result+=\textcolor{stringliteral}{"{}각 멤버에 대한 데이터 구조 문서화 페이지의 링크를 가지고 있습니다."{}};}
+\DoxyCodeLine{1585       \}}
+\DoxyCodeLine{1586       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1587       \{}
+\DoxyCodeLine{1588          result+=\textcolor{stringliteral}{"{}그들이 속한 데이터 타입의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{1589       \}}
+\DoxyCodeLine{1590       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1591     \}}
+\DoxyCodeLine{1592 }
+\DoxyCodeLine{1596     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8147d72a8b9d61b0bb0518cb7388e307}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1597     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 타입 색인"{}}; \}}
+\DoxyCodeLine{1598 }
+\DoxyCodeLine{1602     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aa90ae72e2809467cd71af1875b2d2d6a}{trTypeDocumentation}}()}
+\DoxyCodeLine{1603     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 타입 문서화"{}}; \}}
+\DoxyCodeLine{1604 }
+\DoxyCodeLine{1608     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a1c8be8fe694bfd04194706b9c41e04ac}{trSubprograms}}()}
+\DoxyCodeLine{1609     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}함수/서브루틴"{}}; \}}
+\DoxyCodeLine{1610 }
+\DoxyCodeLine{1614     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a906183f849589c0a52239fb9714b8421}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1615     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}함수/서브루틴 문서화"{}}; \}}
+\DoxyCodeLine{1616 }
+\DoxyCodeLine{1620      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ad7520d47e583017a1bcbdce8e2864bb0}{trDataTypes}}()}
+\DoxyCodeLine{1621     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}데이터 타입들"{}}; \}}
+\DoxyCodeLine{1622 }
+\DoxyCodeLine{1624     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af469ef927e0c319daced69693d93f5f4}{trModulesList}}()}
+\DoxyCodeLine{1625     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈 목록"{}}; \}}
+\DoxyCodeLine{1626 }
+\DoxyCodeLine{1628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a74f558d5fab07ab025eb2d83cbafc981}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1629     \{}
+\DoxyCodeLine{1630       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{1631       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{1632       result+=\textcolor{stringliteral}{"{}모든 모듈에 대한 목록입니다. (간략한 설명만을 보여줍니다) :"{}};}
+\DoxyCodeLine{1633       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1634     \}}
+\DoxyCodeLine{1635 }
+\DoxyCodeLine{1637     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a61a1c133149561ed26b877ea55ba5e48}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1638                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1639                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1640     \{}
+\DoxyCodeLine{1641       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1642       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1643       \{}
+\DoxyCodeLine{1644         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} 모듈"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1645         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} 타입"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1646         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} 공용체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1647         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} 인터페이스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1648         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} 프로토콜"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1649         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} 카테고리"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1650         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} 예외"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1651         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1652       \}}
+\DoxyCodeLine{1653       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} 템플릿"{}};}
+\DoxyCodeLine{1654       result+=\textcolor{stringliteral}{"{} 참조"{}};}
+\DoxyCodeLine{1655       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1656     \}}
+\DoxyCodeLine{1658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aaf78b1887bed900994e50ff139cb969d}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1659     \{}
+\DoxyCodeLine{1660       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1661       result+=\textcolor{stringliteral}{"{} 모듈 참조"{}};}
+\DoxyCodeLine{1662       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1663     \}}
+\DoxyCodeLine{1664 }
+\DoxyCodeLine{1666     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7fec794c7eb28db63dd2815204a11cb3}{trModulesMembers}}()}
+\DoxyCodeLine{1667     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈 멤버들"{}}; \}}
+\DoxyCodeLine{1668 }
+\DoxyCodeLine{1670     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9d1ea9e499810c8dbc812fc976cd583a}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1671     \{}
+\DoxyCodeLine{1672       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음은 "{}};}
+\DoxyCodeLine{1673       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}문서화된 "{}};}
+\DoxyCodeLine{1674       result+=\textcolor{stringliteral}{"{}모든 모듈 멤버의 목록입니다. "{}};}
+\DoxyCodeLine{1675       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1676       \{}
+\DoxyCodeLine{1677         result+=\textcolor{stringliteral}{"{}각 항목은 각 멤버의 모듈 문서화 페이지의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{1678       \}}
+\DoxyCodeLine{1679       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1680       \{}
+\DoxyCodeLine{1681         result+=\textcolor{stringliteral}{"{}각 항목은 그들이 속한 모듈의 링크를 가지고 있습니다. :"{}};}
+\DoxyCodeLine{1682       \}}
+\DoxyCodeLine{1683       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1684     \}}
+\DoxyCodeLine{1685 }
+\DoxyCodeLine{1689     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a27ed6bf015e7486973035b3a4dc79707}{trModulesIndex}}()}
+\DoxyCodeLine{1690     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}모듈 색인"{}}; \}}
+\DoxyCodeLine{1691 }
+\DoxyCodeLine{1696     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a040e4dc351893d295b522fae7fa52ece}{trModule}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1697     \{}
+\DoxyCodeLine{1698       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}모듈"{}});}
+\DoxyCodeLine{1699       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1700       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1701     \}}
+\DoxyCodeLine{1705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a9fe58e5e96a6f39f6c2b702c4998b5da}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1706         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1707     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1708       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1709       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}다음 파일"{}};}
+\DoxyCodeLine{1710       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1711       result+=\textcolor{stringliteral}{"{}로부터 생성된 "{}};}
+\DoxyCodeLine{1712       result+=\textcolor{stringliteral}{"{}이 "{}};}
+\DoxyCodeLine{1713       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1714       \{}
+\DoxyCodeLine{1715         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}모듈"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1716         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}타입"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1717         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}공용체"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1718         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}인터페이스"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1719         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}프로토콜"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1720         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}카테고리"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1721         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}예외"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1722         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1723       \}}
+\DoxyCodeLine{1724       result+=\textcolor{stringliteral}{"{}의 문서화 페이지:"{}};}
+\DoxyCodeLine{1725       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1726     \}}
+\DoxyCodeLine{1731     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a6cf3e25885e35207ff84754d5d684fa1}{trType}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1732     \{}
+\DoxyCodeLine{1733       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}타입"{}});}
+\DoxyCodeLine{1734       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1735       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1736     \}}
+\DoxyCodeLine{1741     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a78b10bbfbcbdf7f747c0dc98944e2686}{trSubprogram}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1742     \{}
+\DoxyCodeLine{1743       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}서브프로그램"{}});}
+\DoxyCodeLine{1744       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1745       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1746     \}}
+\DoxyCodeLine{1747 }
+\DoxyCodeLine{1749     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a40330c41363d6d093241961165b9da30}{trTypeConstraints}}()}
+\DoxyCodeLine{1750     \{}
+\DoxyCodeLine{1751       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}타입 한정자들"{}};}
+\DoxyCodeLine{1752     \}}
+\DoxyCodeLine{1753 }
+\DoxyCodeLine{1755 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1757 \textcolor{comment}{}}
+\DoxyCodeLine{1759     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af2e16be464f269b4ee434acd75929948}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1760     \{}
+\DoxyCodeLine{1761       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} 관계"{}};}
+\DoxyCodeLine{1762     \}}
+\DoxyCodeLine{1763 }
+\DoxyCodeLine{1765     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a16e71cfc77963d54b0b3c94c66e7a786}{trLoading}}()}
+\DoxyCodeLine{1766     \{}
+\DoxyCodeLine{1767       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}로딩중..."{}};}
+\DoxyCodeLine{1768     \}}
+\DoxyCodeLine{1769 }
+\DoxyCodeLine{1771     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8678e9f40973a9741c3056712e369abc}{trGlobalNamespace}}()}
+\DoxyCodeLine{1772     \{}
+\DoxyCodeLine{1773       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}전역 이름공간"{}};}
+\DoxyCodeLine{1774     \}}
+\DoxyCodeLine{1775 }
+\DoxyCodeLine{1777     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a60b48444c1dd59762c5b3930204987db}{trSearching}}()}
+\DoxyCodeLine{1778     \{}
+\DoxyCodeLine{1779       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}검색중..."{}};}
+\DoxyCodeLine{1780     \}}
+\DoxyCodeLine{1781 }
+\DoxyCodeLine{1783     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a988e494a80995269b735242a3a4150ae}{trNoMatches}}()}
+\DoxyCodeLine{1784     \{}
+\DoxyCodeLine{1785       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}일치하는것 없음"{}};}
+\DoxyCodeLine{1786     \}}
+\DoxyCodeLine{1787 }
+\DoxyCodeLine{1789 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1791 \textcolor{comment}{}}
+\DoxyCodeLine{1796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a722771d5a5e801f19ee0802d245ae119}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1797     \{}
+\DoxyCodeLine{1798       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name) + \textcolor{stringliteral}{"{}의 파일"{}};}
+\DoxyCodeLine{1799     \}}
+\DoxyCodeLine{1800 }
+\DoxyCodeLine{1805     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0222ee5b30a1ab4cf4f68fe17b9c5d66}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1806     \{}
+\DoxyCodeLine{1807       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name) + \textcolor{stringliteral}{"{}의 파일 포함"{}};}
+\DoxyCodeLine{1808     \}}
+\DoxyCodeLine{1809 }
+\DoxyCodeLine{1820     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abf39ae7ff1f7844473f9091eed4f5888}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1821                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1822                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1823     \{}
+\DoxyCodeLine{1824       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}월"{}},\textcolor{stringliteral}{"{}화"{}},\textcolor{stringliteral}{"{}수"{}},\textcolor{stringliteral}{"{}목"{}},\textcolor{stringliteral}{"{}금"{}},\textcolor{stringliteral}{"{}토"{}},\textcolor{stringliteral}{"{}일"{}} \};}
+\DoxyCodeLine{1825       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}1월"{}},\textcolor{stringliteral}{"{}2월"{}},\textcolor{stringliteral}{"{}3월"{}},\textcolor{stringliteral}{"{}4월"{}},\textcolor{stringliteral}{"{}5월"{}},\textcolor{stringliteral}{"{}6월"{}},\textcolor{stringliteral}{"{}7월"{}},\textcolor{stringliteral}{"{}8월"{}},\textcolor{stringliteral}{"{}9월"{}},\textcolor{stringliteral}{"{}10월"{}},\textcolor{stringliteral}{"{}11월"{}},\textcolor{stringliteral}{"{}12월"{}} \};}
+\DoxyCodeLine{1826       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1827       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1828       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1829       \{}
+\DoxyCodeLine{1830         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1831         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1832         sdate+=stime;}
+\DoxyCodeLine{1833       \}}
+\DoxyCodeLine{1834       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1835     \}}
+\DoxyCodeLine{1836 }
+\DoxyCodeLine{1838 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1840 \textcolor{comment}{}}
+\DoxyCodeLine{1842     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a55998cd0285a3d19fadeacc40825fbb5}{trCiteReferences}}()}
+\DoxyCodeLine{1843     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}참고 문헌"{}}; \}}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a911c8854c48591cc1471fd4f6c1133b9}{trCopyright}}()}
+\DoxyCodeLine{1847     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}}; \}}
+\DoxyCodeLine{1848 }
+\DoxyCodeLine{1850     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_acbd86ba71b8c8fe3fbecaebd5afd6867}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1851     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name) + \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}에 대한 디렉토리 의존성 그래프:"{}}); \}}
+\DoxyCodeLine{1852 }
+\DoxyCodeLine{1854 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1856 \textcolor{comment}{}}
+\DoxyCodeLine{1858     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a136e6478302ac1b2fee739f4f4053d56}{trDetailLevel}}()}
+\DoxyCodeLine{1859     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}상세 단계"{}}; \}}
+\DoxyCodeLine{1860 }
+\DoxyCodeLine{1862     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aeae11aa112012a4945a724857f636acf}{trTemplateParameters}}()}
+\DoxyCodeLine{1863     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}템플릿 파라메터"{}}; \}}
+\DoxyCodeLine{1864 }
+\DoxyCodeLine{1866     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_abfd2acd5bfd7852b8184b7a9c630ffc4}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1867     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}그리고 "{}})+number+\textcolor{stringliteral}{"{}개 더..."{}}; \}}
+\DoxyCodeLine{1868 }
+\DoxyCodeLine{1870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a601868bc904ff732ec99ec5886066faa}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} \textcolor{comment}{/*single*/})}
+\DoxyCodeLine{1871     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}이 열거형에 대한 문서가 다음 파일(들)로부터 생성되었습니다.:"{}};}
+\DoxyCodeLine{1872       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1873     \}}
+\DoxyCodeLine{1874 }
+\DoxyCodeLine{1876     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af9d0e872a8e71bcbc57c85ad862153ef}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1877     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Enum Reference"{}}; \}}
+\DoxyCodeLine{1878 }
+\DoxyCodeLine{1880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aca7517dc6cbff5eea52e90ecc579b716}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1881     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(what) + \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}(으)로부터 상속된 "{}}) + \mbox{\hyperlink{classQCString}{QCString}}(members); \}}
+\DoxyCodeLine{1882 }
+\DoxyCodeLine{1886     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a096ae3361ae83defe9af3576640f046e}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1887     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}추가로 상속된 멤버들"{}}; \}}
+\DoxyCodeLine{1888 }
+\DoxyCodeLine{1890 \textcolor{comment}{// new since 1.8.2}}
+\DoxyCodeLine{1892 \textcolor{comment}{}}
+\DoxyCodeLine{1897     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a446b002d4dd72752c0999337b1393ef1}{trPanelSynchronisationTooltip}}(\textcolor{keywordtype}{bool} enable)}
+\DoxyCodeLine{1898     \{}
+\DoxyCodeLine{1899       \mbox{\hyperlink{classQCString}{QCString}} opt = enable ? \textcolor{stringliteral}{"{}활성화"{}} : \textcolor{stringliteral}{"{}비활성화"{}};}
+\DoxyCodeLine{1900       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}패널 동기화를 "{}}+opt+\textcolor{stringliteral}{"{}하기 위해 클릭하십시오"{}};}
+\DoxyCodeLine{1901     \}}
+\DoxyCodeLine{1902 }
+\DoxyCodeLine{1907     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_af196b1d7279afbc65b8dda44ce762dc5}{trProvidedByCategory}}()}
+\DoxyCodeLine{1908     \{}
+\DoxyCodeLine{1909       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}카테고리 @0에 의해 제공됨."{}};}
+\DoxyCodeLine{1910     \}}
+\DoxyCodeLine{1911 }
+\DoxyCodeLine{1916     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a75a4e4c569fcfd2d93760151477489f2}{trExtendsClass}}()}
+\DoxyCodeLine{1917     \{}
+\DoxyCodeLine{1918       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 @0 확장."{}};}
+\DoxyCodeLine{1919     \}}
+\DoxyCodeLine{1920 }
+\DoxyCodeLine{1924     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a7f125d37850a9fe95e285dbce3ace5b3}{trClassMethods}}()}
+\DoxyCodeLine{1925     \{}
+\DoxyCodeLine{1926       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}클래스 메소드들"{}};}
+\DoxyCodeLine{1927     \}}
+\DoxyCodeLine{1928 }
+\DoxyCodeLine{1932     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a65a32b76e6abc671c7d7aba9594613b1}{trInstanceMethods}}()}
+\DoxyCodeLine{1933     \{}
+\DoxyCodeLine{1934       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}인스턴스 메소드들"{}};}
+\DoxyCodeLine{1935     \}}
+\DoxyCodeLine{1936 }
+\DoxyCodeLine{1939     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a755dec4d84768a66ec18c401c23f5e97}{trMethodDocumentation}}()}
+\DoxyCodeLine{1940     \{}
+\DoxyCodeLine{1941       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}메소드 문서화"{}};}
+\DoxyCodeLine{1942     \}}
+\DoxyCodeLine{1943 }
+\DoxyCodeLine{1945 \textcolor{comment}{// new since 1.8.4}}
+\DoxyCodeLine{1947 \textcolor{comment}{}}
+\DoxyCodeLine{1949     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a04a9331e7df2bcbcda7292d653955653}{trInterfaces}}()}
+\DoxyCodeLine{1950     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}익스포트된 인터페이스들"{}}; \}}
+\DoxyCodeLine{1951 }
+\DoxyCodeLine{1953     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a650db331250ec35f164e9a8c7763ca22}{trServices}}()}
+\DoxyCodeLine{1954     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}포함된 서비스들"{}}; \}}
+\DoxyCodeLine{1955 }
+\DoxyCodeLine{1957     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a08d1ba766aaae7466eb378aeb6b0c25b}{trConstantGroups}}()}
+\DoxyCodeLine{1958     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}상수 그룹들"{}}; \}}
+\DoxyCodeLine{1959 }
+\DoxyCodeLine{1961     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ab5c7dfd3b8fd850c22f195651c10d55f}{trConstantGroupReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1962     \{}
+\DoxyCodeLine{1963       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1964       result+=\textcolor{stringliteral}{"{} 상수 그룹 레퍼런스"{}};}
+\DoxyCodeLine{1965       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1966     \}}
+\DoxyCodeLine{1968     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_ac09b43661c005c8bfd5f2badba87c0e2}{trServiceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1969     \{}
+\DoxyCodeLine{1970       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1971       result+=\textcolor{stringliteral}{"{} 서비스 레퍼런스"{}};}
+\DoxyCodeLine{1972       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1973     \}}
+\DoxyCodeLine{1975     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a0ec5bc7376d0b3b2647c2296dfec5d77}{trSingletonReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&sName)}
+\DoxyCodeLine{1976     \{}
+\DoxyCodeLine{1977       \mbox{\hyperlink{classQCString}{QCString}} result=sName;}
+\DoxyCodeLine{1978       result+=\textcolor{stringliteral}{"{} 싱글톤 레퍼런스"{}};}
+\DoxyCodeLine{1979       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1980     \}}
+\DoxyCodeLine{1982     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_aedacbfa496ebf67af407c473633a9b93}{trServiceGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1983     \{}
+\DoxyCodeLine{1984       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1985       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}이 서비스에 대한 문서화는 다음의 파일"{}};}
+\DoxyCodeLine{1986       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1987       result+=\textcolor{stringliteral}{"{}로부터 생성되었습니다.:"{}};}
+\DoxyCodeLine{1988       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1989     \}}
+\DoxyCodeLine{1991     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorKorean_a8e7c61f844a33dda5bd8f78e3703c939}{trSingletonGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1992     \{}
+\DoxyCodeLine{1993       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1994       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}이 싱글톤에 대한 문서화는 다음의 파일"{}};}
+\DoxyCodeLine{1995       \textcolor{keywordflow}{if} (!single) result+=\textcolor{stringliteral}{"{}들"{}};}
+\DoxyCodeLine{1996       result+=\textcolor{stringliteral}{"{}로부터 생성되었습니다.:"{}};}
+\DoxyCodeLine{1997       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1998     \}}
+\DoxyCodeLine{1999 }
+\DoxyCodeLine{2000 \};}
+\DoxyCodeLine{2001 }
+\DoxyCodeLine{2002 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

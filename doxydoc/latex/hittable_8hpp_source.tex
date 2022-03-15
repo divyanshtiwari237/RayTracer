@@ -1,0 +1,52 @@
+\hypertarget{hittable_8hpp_source}{}\doxysection{hittable.\+hpp}
+\label{hittable_8hpp_source}\index{utilities/include/hittable.hpp@{utilities/include/hittable.hpp}}
+\mbox{\hyperlink{hittable_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef HITTABLE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define HITTABLE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ray_8hpp}{ray.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{maths_8hpp}{maths.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{material_8hpp}{material.hpp}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{classMaterial}{Material}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{struct }\mbox{\hyperlink{structhitRecord}{hitRecord}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \mbox{\hyperlink{classvec3}{point3}} \mbox{\hyperlink{structhitRecord_ab20902674a2b6fff1bf4112555fa5d82}{p}};}
+\DoxyCodeLine{13     \mbox{\hyperlink{classvec3}{vec3}} \mbox{\hyperlink{structhitRecord_a3dd1a3676807a0766466c189dc6803a7}{normal}};}
+\DoxyCodeLine{14     shared\_ptr<Material> \mbox{\hyperlink{structhitRecord_a1319408eaa58b1da56e2db91a49ca95c}{matPtr}};}
+\DoxyCodeLine{15     \textcolor{keywordtype}{double} \mbox{\hyperlink{structhitRecord_ac72cb219cc28ad054bdc495633d94cea}{t}};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structhitRecord_ae1152fd51af54ce7e19d3b586c7f53d4}{frontFace}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{structhitRecord_a239cac854ae07576b540836210d45ba3}{setfrontFace}}(\mbox{\hyperlink{classRay}{Ray}} r, \mbox{\hyperlink{classvec3}{vec3}} outwardNormal)}
+\DoxyCodeLine{19     \{}
+\DoxyCodeLine{20         \mbox{\hyperlink{structhitRecord_ae1152fd51af54ce7e19d3b586c7f53d4}{frontFace}} = \mbox{\hyperlink{classvec3_a88bef807d84ef9306f1005d6b7a6f566}{vec3::dot}}(r.\mbox{\hyperlink{classRay_ab6a0e4aeed160ae936a7333e603b2b33}{getDir}}(),outwardNormal)<0;}
+\DoxyCodeLine{21         \mbox{\hyperlink{structhitRecord_a3dd1a3676807a0766466c189dc6803a7}{normal}} = \mbox{\hyperlink{structhitRecord_ae1152fd51af54ce7e19d3b586c7f53d4}{frontFace}}? outwardNormal:-\/outwardNormal;}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classHittable}{Hittable}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classHittable_a5df73fab3f6682b7188b8ea453a63b89}{hit}}(\mbox{\hyperlink{classRay}{Ray}} r,\textcolor{keywordtype}{double} t\_min,\textcolor{keywordtype}{double} t\_max,\mbox{\hyperlink{structhitRecord}{hitRecord}}\& rec) =0;}
+\DoxyCodeLine{30 \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classSphere}{Sphere}}: \textcolor{keyword}{public} \mbox{\hyperlink{classHittable}{Hittable}}}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{keyword}{public}:}
+\DoxyCodeLine{35         \mbox{\hyperlink{classSphere_a890a63ff583cb88e7ec4e840b4ef5eb9}{Sphere}}()\{\};}
+\DoxyCodeLine{36         \mbox{\hyperlink{classSphere_a30a9b5d6117967a5a40af1cacd25b9de}{Sphere}}(\mbox{\hyperlink{classvec3}{point3}} \mbox{\hyperlink{classSphere_a295a9a91615e9c93cb2ccc270243fe98}{center}}, \textcolor{keywordtype}{double} r, shared\_ptr<Material> \mbox{\hyperlink{classSphere_a5d918c0ec3abd42c90a928766056f24b}{matPtr}}): \mbox{\hyperlink{classSphere_a295a9a91615e9c93cb2ccc270243fe98}{center}}(\mbox{\hyperlink{classSphere_a295a9a91615e9c93cb2ccc270243fe98}{center}}),\mbox{\hyperlink{classSphere_a45d6c6c870fac7c2a885ad2e226334ad}{radius}}(r), \mbox{\hyperlink{classSphere_a5d918c0ec3abd42c90a928766056f24b}{matPtr}}(\mbox{\hyperlink{classSphere_a5d918c0ec3abd42c90a928766056f24b}{matPtr}})\{\};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSphere_a3bc9b192ab9350d21eb4b0e4ae14d47a}{hit}}(\mbox{\hyperlink{classRay}{Ray}} r, \textcolor{keywordtype}{double} t\_min,\textcolor{keywordtype}{double} t\_max, \mbox{\hyperlink{structhitRecord}{hitRecord}}\& rec) \textcolor{keyword}{override};}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{40     \textcolor{keyword}{public}:}
+\DoxyCodeLine{41         \mbox{\hyperlink{classvec3}{point3}} \mbox{\hyperlink{classSphere_a295a9a91615e9c93cb2ccc270243fe98}{center}};}
+\DoxyCodeLine{42         \textcolor{keywordtype}{double} \mbox{\hyperlink{classSphere_a45d6c6c870fac7c2a885ad2e226334ad}{radius}};}
+\DoxyCodeLine{43         shared\_ptr<Material> \mbox{\hyperlink{classSphere_a5d918c0ec3abd42c90a928766056f24b}{matPtr}};}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

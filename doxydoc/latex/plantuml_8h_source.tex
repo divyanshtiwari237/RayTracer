@@ -1,0 +1,82 @@
+\hypertarget{plantuml_8h_source}{}\doxysection{plantuml.\+h}
+\label{plantuml_8h_source}\index{/mnt/c/projects/doxygen/src/plantuml.h@{/mnt/c/projects/doxygen/src/plantuml.h}}
+\mbox{\hyperlink{plantuml_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef PLANTUML\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define PLANTUML\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define DIVIDE\_COUNT            4}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define MIN\_PLANTUML\_COUNT      8}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classQCString}{QCString}};}
+\DoxyCodeLine{29 \textcolor{keyword}{struct }\mbox{\hyperlink{structPlantumlContent}{PlantumlContent}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31   \mbox{\hyperlink{structPlantumlContent_afadd2d0f1a42d9a092b4a68d98f544b6}{PlantumlContent}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&content\_, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outDir\_, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile\_, \textcolor{keywordtype}{int} srcLine\_)}
+\DoxyCodeLine{32      : \mbox{\hyperlink{structPlantumlContent_ae524c2dcc6627afc48c7330d075e644f}{content}}(content\_), \mbox{\hyperlink{structPlantumlContent_a7fa27a91f9b6267a46abcea77b867c18}{outDir}}(outDir\_), \mbox{\hyperlink{structPlantumlContent_a4c6687d2b665f51f631ac384e197394b}{srcFile}}(srcFile\_), \mbox{\hyperlink{structPlantumlContent_a4aa74c2430af8576d46aff1758a3a68b}{srcLine}}(srcLine\_) \{\}}
+\DoxyCodeLine{33   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structPlantumlContent_ae524c2dcc6627afc48c7330d075e644f}{content}};}
+\DoxyCodeLine{34   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structPlantumlContent_a7fa27a91f9b6267a46abcea77b867c18}{outDir}};}
+\DoxyCodeLine{35   \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{structPlantumlContent_a4c6687d2b665f51f631ac384e197394b}{srcFile}};}
+\DoxyCodeLine{36   \textcolor{keywordtype}{int} \mbox{\hyperlink{structPlantumlContent_a4aa74c2430af8576d46aff1758a3a68b}{srcLine}};}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{classPlantumlManager}{PlantumlManager}}}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42   \textcolor{keyword}{public}:}
+\DoxyCodeLine{44     \textcolor{keyword}{enum} \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5}{OutputFormat}} \{ \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5a1414704243dc148d478bed8064a73046}{PUML\_BITMAP}}, \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5aef367a42db272e040b6fec4c65f52b36}{PUML\_EPS}}, \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5a49f2c9b51c65731b8708f8c193a63ccf}{PUML\_SVG}} \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{static} \mbox{\hyperlink{classPlantumlManager}{PlantumlManager}} \&\mbox{\hyperlink{classPlantumlManager_ae264d99d8756b63a55c341b4768ad28b}{instance}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlantumlManager_af38a83e442553a769951c724353cbe6a}{run}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{61     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classPlantumlManager_a130528e98a8216e9c63b7a0c9f1966d9}{writePlantUMLSource}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outDir,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,}
+\DoxyCodeLine{62                                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&content, \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5}{OutputFormat}} format,}
+\DoxyCodeLine{63                                  \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&engine,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,}
+\DoxyCodeLine{64                                  \textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{classPlantumlManager_af6f1c6249e4127996095d0086442fa0f}{generatePlantUMLOutput}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&baseName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outDir,\mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5}{OutputFormat}} format);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{using} \mbox{\hyperlink{classPlantumlManager_a048a99dc52eba3af7f76da9ec19932c1}{FilesMap}}   = std::map< std::string, StringVector    >;}
+\DoxyCodeLine{74     \textcolor{keyword}{using} \mbox{\hyperlink{classPlantumlManager_a37056adb8bfd9b17785be907ff97a588}{ContentMap}} = std::map< std::string, PlantumlContent >;}
+\DoxyCodeLine{75   \textcolor{keyword}{private}:}
+\DoxyCodeLine{76     \mbox{\hyperlink{classPlantumlManager}{PlantumlManager}}();}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} insert(\textcolor{keyword}{const} std::string \&key,}
+\DoxyCodeLine{78                 \textcolor{keyword}{const} std::string \&value,}
+\DoxyCodeLine{79                 \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&outDir,}
+\DoxyCodeLine{80                 \mbox{\hyperlink{classPlantumlManager_a73ccdfc6400a28af7d9d2f92215b9af5}{OutputFormat}} format,}
+\DoxyCodeLine{81                 \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&puContent,}
+\DoxyCodeLine{82                 \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&srcFile,}
+\DoxyCodeLine{83                 \textcolor{keywordtype}{int} srcLine);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \mbox{\hyperlink{classPlantumlManager_a048a99dc52eba3af7f76da9ec19932c1}{FilesMap}}   m\_pngPlantumlFiles;}
+\DoxyCodeLine{86     \mbox{\hyperlink{classPlantumlManager_a048a99dc52eba3af7f76da9ec19932c1}{FilesMap}}   m\_svgPlantumlFiles;}
+\DoxyCodeLine{87     \mbox{\hyperlink{classPlantumlManager_a048a99dc52eba3af7f76da9ec19932c1}{FilesMap}}   m\_epsPlantumlFiles;}
+\DoxyCodeLine{88     \mbox{\hyperlink{classPlantumlManager_a37056adb8bfd9b17785be907ff97a588}{ContentMap}} m\_pngPlantumlContent;               \textcolor{comment}{// use circular queue for using multi-\/processor (multi threading)}}
+\DoxyCodeLine{89     \mbox{\hyperlink{classPlantumlManager_a37056adb8bfd9b17785be907ff97a588}{ContentMap}} m\_svgPlantumlContent;}
+\DoxyCodeLine{90     \mbox{\hyperlink{classPlantumlManager_a37056adb8bfd9b17785be907ff97a588}{ContentMap}} m\_epsPlantumlContent;}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 }
+
+\end{DoxyCode}

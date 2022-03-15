@@ -1,0 +1,61 @@
+\hypertarget{condparser_8h_source}{}\doxysection{condparser.\+h}
+\label{condparser_8h_source}\index{/mnt/c/projects/doxygen/src/condparser.h@{/mnt/c/projects/doxygen/src/condparser.h}}
+\mbox{\hyperlink{condparser_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CONDPARSER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CONDPARSER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classCondParser}{CondParser}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \textcolor{comment}{// public functions}}
+\DoxyCodeLine{30   \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{classCondParser_a28282ad4ee865a4601722ae5c4f7ea97}{CondParser}}() : m\_e(0), m\_tokenType(NOTHING) \{\}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classCondParser_af254c02cc742b034cf62a9846b7b9749}{parse}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName,\textcolor{keywordtype}{int} lineNr,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&expr);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{comment}{// enumerations}}
+\DoxyCodeLine{35   \textcolor{keyword}{private}:}
+\DoxyCodeLine{36     \textcolor{keyword}{enum} TOKENTYPE}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38       NOTHING = -\/1,}
+\DoxyCodeLine{39       DELIMITER,}
+\DoxyCodeLine{40       VARIABLE,}
+\DoxyCodeLine{41       UNKNOWN}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43     \textcolor{keyword}{enum} OPERATOR\_ID}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45       UNKNOWN\_OP = -\/1,}
+\DoxyCodeLine{46       AND = 1,}
+\DoxyCodeLine{47       OR,}
+\DoxyCodeLine{48       NOT}
+\DoxyCodeLine{49     \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{comment}{// data}}
+\DoxyCodeLine{52   \textcolor{keyword}{private}:}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \mbox{\hyperlink{classQCString}{QCString}} m\_err;                 }
+\DoxyCodeLine{55     \mbox{\hyperlink{classQCString}{QCString}} m\_expr;                }
+\DoxyCodeLine{56     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *m\_e;                }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{classQCString}{QCString}} m\_token;               }
+\DoxyCodeLine{59     TOKENTYPE m\_tokenType;          }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// private functions}}
+\DoxyCodeLine{62   \textcolor{keyword}{private}:}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} getToken();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{bool} parseLevel1();}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} parseLevel2();}
+\DoxyCodeLine{67     \textcolor{keywordtype}{bool} parseLevel3();}
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} parseVar();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} evalOperator(\textcolor{keyword}{const} \textcolor{keywordtype}{int} opId, \textcolor{keywordtype}{bool} lhs, \textcolor{keywordtype}{bool} rhs);}
+\DoxyCodeLine{71     \textcolor{keywordtype}{bool} evalVariable(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&varName);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{int} getOperatorId(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&opName);}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{76 }
+
+\end{DoxyCode}

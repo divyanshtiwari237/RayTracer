@@ -1,0 +1,176 @@
+\hypertarget{dirdef_8h_source}{}\doxysection{dirdef.\+h}
+\label{dirdef_8h_source}\index{/mnt/c/projects/doxygen/src/dirdef.h@{/mnt/c/projects/doxygen/src/dirdef.h}}
+\mbox{\hyperlink{dirdef_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DIRDEF\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DIRDEF\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linkedmap_8h}{linkedmap.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{definition_8h}{definition.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{classFileList}{FileList}};}
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classOutputList}{OutputList}};}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classUsedDir}{UsedDir}};}
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classFilePair}{FilePair}};}
+\DoxyCodeLine{32 \textcolor{keyword}{class }FilePairDict;}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classDirDef}{DirDef}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classDirList}{DirList}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keywordtype}{bool} \mbox{\hyperlink{dirdef_8h_a868969982c8fee16854bcc7735cd977e}{compareDirDefs}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *item1, \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *item2);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classFilePair}{FilePair}}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43   \textcolor{keyword}{public}:}
+\DoxyCodeLine{44     \mbox{\hyperlink{classFilePair_a4672b1147b73bf5ba7d80623305301a5}{FilePair}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *src,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *dst) : m\_src(src), m\_dst(dst) \{\}}
+\DoxyCodeLine{45     \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *\mbox{\hyperlink{classFilePair_af2d6496071d0600d526b177f390f565f}{source}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_src; \}}
+\DoxyCodeLine{46     \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *\mbox{\hyperlink{classFilePair_a41e11ef0ac20ee3aaf35ef88292fdbcf}{destination}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_dst; \}}
+\DoxyCodeLine{47     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classFilePair_a4fa66c88e9e7ecd2ad19da2ee00e7808}{key}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *srcFd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *dstFd);}
+\DoxyCodeLine{48   \textcolor{keyword}{private}:}
+\DoxyCodeLine{49     \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *m\_src;}
+\DoxyCodeLine{50     \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *m\_dst;}
+\DoxyCodeLine{51 \};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{56 \textcolor{keyword}{class }\mbox{\hyperlink{classFilePairLinkedMap}{FilePairLinkedMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedMap}{LinkedMap}}<FilePair>}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classUsedDir}{UsedDir}}}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65   \textcolor{keyword}{public}:}
+\DoxyCodeLine{66     \mbox{\hyperlink{classUsedDir_ab39375942f8340b04bbd3c471e52f6fb}{UsedDir}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *\mbox{\hyperlink{classUsedDir_a9f9871ef38cb735feebfe0b338ca4e2c}{dir}});}
+\DoxyCodeLine{67     \textcolor{keyword}{virtual} \mbox{\hyperlink{classUsedDir_a5bd1a329733b6036d161f36139ed3915}{\string~UsedDir}}();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUsedDir_a9944cb27f5ddd2a96b8f0c49bd744e49}{addFileDep}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *srcFd,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *dstFd, \textcolor{keywordtype}{bool} srcDirect, \textcolor{keywordtype}{bool} dstDirect);}
+\DoxyCodeLine{77     \mbox{\hyperlink{classFilePair}{FilePair}} *\mbox{\hyperlink{classUsedDir_add0da96fe9168b96abed52d016b621b2}{findFilePair}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name);}
+\DoxyCodeLine{78     \textcolor{keyword}{const} \mbox{\hyperlink{classFilePairLinkedMap}{FilePairLinkedMap}} \&\mbox{\hyperlink{classUsedDir_ae451dc891c59da794d54796d1002bd64}{filePairs}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_filePairs; \}}
+\DoxyCodeLine{79     \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *\mbox{\hyperlink{classUsedDir_a9f9871ef38cb735feebfe0b338ca4e2c}{dir}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_dir; \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUsedDir_ac811027be125869ba23da94b5dd631c2}{hasDirectDeps}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_hasDirectDeps; \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUsedDir_ac799f97624a4a2a3d6698ef82f969591}{hasDirectSrcDeps}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_hasDirectSrcDeps; \}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classUsedDir_a6620a736948a61103b4281aef2a2d59c}{hasDirectDstDeps}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_hasDirectDstDeps; \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} \mbox{\hyperlink{classUsedDir_a24c2c709540ee61b987ae5b80d0b4ec3}{sort}}();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98   \textcolor{keyword}{private}:}
+\DoxyCodeLine{99     \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *m\_dir;}
+\DoxyCodeLine{100     \mbox{\hyperlink{classFilePairLinkedMap}{FilePairLinkedMap}} m\_filePairs;}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{bool} m\_hasDirectDeps    = \textcolor{keyword}{false};}
+\DoxyCodeLine{103     \textcolor{keywordtype}{bool} m\_hasDirectSrcDeps = \textcolor{keyword}{false};}
+\DoxyCodeLine{104     \textcolor{keywordtype}{bool} m\_hasDirectDstDeps = \textcolor{keyword}{false};}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110 \textcolor{keyword}{class }\mbox{\hyperlink{classDirDef}{DirDef}} : \textcolor{keyword}{public} \mbox{\hyperlink{classDefinitionMutable}{DefinitionMutable}}, \textcolor{keyword}{public} \mbox{\hyperlink{classDefinition}{Definition}}}
+\DoxyCodeLine{111 \{}
+\DoxyCodeLine{112   \textcolor{keyword}{public}:}
+\DoxyCodeLine{113     \textcolor{keyword}{class }\mbox{\hyperlink{classDirDef_1_1UsedDirLinkedMap}{UsedDirLinkedMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedMap}{LinkedMap}}<UsedDir> \{\};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{// accessors}}
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDefinition_aa41b6bc53dcf93ecf745698aaf15ef8e}{DefType}} \mbox{\hyperlink{classDirDef_a9e7302596cce913a1582a148750c3a8b}{definitionType}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{117     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirDef_a1fdadd32de095dd846b619f8d220f03c}{getOutputFileBase}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{118     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirDef_a54dae70ac3db8125d78f0e37d1a3ad10}{anchor}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{119     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_a1309c47dcbdd73a87091d7dddf2cbf56}{isLinkableInProject}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{120     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_a87ae739d4bbaf8ee8bb26ee2bfbb28f9}{isLinkable}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{121     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirDef_af3fcefaea98b00aff4c81b7fb9fc65c2}{displayName}}(\textcolor{keywordtype}{bool}=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}}) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirDef_aa198c67f6d58fdae57c8502913ed35d7}{shortName}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{123     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a3fe601b4ae16a054ac736cca97548ed3}{addSubDir}}(\mbox{\hyperlink{classDirDef}{DirDef}} *subdir) = 0;}
+\DoxyCodeLine{124     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classFileList}{FileList}} \&\mbox{\hyperlink{classDirDef_af40b99e4906aef816aa768682712df74}{getFiles}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{125     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a27bd05b3cd5090cc15bab855722a2304}{addFile}}(\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *fd) = 0;}
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classDirList}{DirList}} \&\mbox{\hyperlink{classDirDef_abc75cce4fc67690a3ebbd158e3d63938}{subDirs}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{127     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_afa5aedb69f8e651bb29d872f2f143a8d}{hasSubdirs}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{128     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classDirDef_a033ad6b8c0287ed15da29dadca48eb6f}{level}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{129     \textcolor{keyword}{virtual} \mbox{\hyperlink{classDirDef}{DirDef}} *\mbox{\hyperlink{classDirDef_a6ddd6f5e08f9a04cc43cf15e388bc2af}{parent}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{130     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} \mbox{\hyperlink{classDirDef_af01c314d69c65e2ad2eab58bf818d362}{dirCount}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{131     \textcolor{keyword}{virtual} \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef_1_1UsedDirLinkedMap}{UsedDirLinkedMap}} \&\mbox{\hyperlink{classDirDef_acf2258b5d619e2eb34f09dd33d34de0f}{usedDirs}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{132     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_a0f20c877247e4d8d75c9bbd560ce8ea8}{isParentOf}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *dir) \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{133     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_a9e56a10ce2c4dc81dd0d2124ba770166}{depGraphIsTrivial}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{134     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirDef_af8b6f68862a45953981fccc3ffd549a2}{shortTitle}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{135     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDirDef_a8085285cb7436bd9dce9221dee46b05c}{hasDetailedDescription}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{comment}{// generate output}}
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a18b146ceae4f86a05243c6410932e0df}{writeDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol) = 0;}
+\DoxyCodeLine{139     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a6eab2330477387d00617df76a77645b7}{writeTagFile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t) = 0;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_afe6abc229cda99ea58cd1baf0f5f9947}{setDiskName}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{classDefinition_a9374fedd7f64fea7e0e164302d1a9e61}{name}}) = 0;}
+\DoxyCodeLine{142     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_abb0f2798cf135ad4439b8b5bb3c8a3d8}{setDirCount}}(\textcolor{keywordtype}{int} count) = 0;}
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a04a8557aa86a9e48a43f8d323263ed77}{sort}}() = 0;}
+\DoxyCodeLine{144     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a813174b06fcb3d896bfb6eecec0a5b85}{setParent}}(\mbox{\hyperlink{classDirDef}{DirDef}} *\mbox{\hyperlink{classDirDef_a6ddd6f5e08f9a04cc43cf15e388bc2af}{parent}}) = 0;}
+\DoxyCodeLine{145     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a14f12566739a8f408796d45d77e53d34}{setLevel}}() = 0;}
+\DoxyCodeLine{146     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a7080956a2fe6049dc2fa115cfd1aef5b}{addUsesDependency}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *usedDir,\textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *srcFd,}
+\DoxyCodeLine{147                                    \textcolor{keyword}{const} \mbox{\hyperlink{classFileDef}{FileDef}} *dstFd,\textcolor{keywordtype}{bool} srcDirect, \textcolor{keywordtype}{bool} dstDirect) = 0;}
+\DoxyCodeLine{148     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirDef_a30adfc53f0749f09c2e633841872739b}{computeDependencies}}() = 0;}
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{comment}{// -\/-\/-\/ Cast functions}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \mbox{\hyperlink{classDirDef}{DirDef}}            *\mbox{\hyperlink{dirdef_8h_ad0d3cefa1a824ceaccafcb643850ee5e}{toDirDef}}(\mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{154 \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}}      *\mbox{\hyperlink{dirdef_8h_ad0d3cefa1a824ceaccafcb643850ee5e}{toDirDef}}(\textcolor{keyword}{const} \mbox{\hyperlink{classDefinition}{Definition}} *d);}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{157 \textcolor{keyword}{class }\mbox{\hyperlink{classDirRelation}{DirRelation}}}
+\DoxyCodeLine{158 \{}
+\DoxyCodeLine{159   \textcolor{keyword}{public}:}
+\DoxyCodeLine{160     \mbox{\hyperlink{classDirRelation_af7ea0932aa290846b11b631dbdde6f65}{DirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name,\textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}} *src,\mbox{\hyperlink{classUsedDir}{UsedDir}} *dst)}
+\DoxyCodeLine{161       : m\_name(name), m\_src(src), m\_dst(dst) \{\}}
+\DoxyCodeLine{162     \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}}  *\mbox{\hyperlink{classDirRelation_aab57e18f87ae233fae48a141b9d9fcba}{source}}()\textcolor{keyword}{ const      }\{ \textcolor{keywordflow}{return} m\_src; \}}
+\DoxyCodeLine{163     \mbox{\hyperlink{classUsedDir}{UsedDir}} *\mbox{\hyperlink{classDirRelation_a2fc1b42862174170fcb18d6b997b7fcf}{destination}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_dst; \}}
+\DoxyCodeLine{164     \textcolor{keywordtype}{void} \mbox{\hyperlink{classDirRelation_a5fa861050993dafb351589f2f1c05326}{writeDocumentation}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol);}
+\DoxyCodeLine{165     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classDirRelation_a73890fdede27fd42215794b10b76b05a}{getOutputFileBase}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_name; \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167   \textcolor{keyword}{private}:}
+\DoxyCodeLine{168     \mbox{\hyperlink{classQCString}{QCString}} m\_name;}
+\DoxyCodeLine{169     \textcolor{keyword}{const} \mbox{\hyperlink{classDirDef}{DirDef}}  *m\_src;}
+\DoxyCodeLine{170     \mbox{\hyperlink{classUsedDir}{UsedDir}} *m\_dst;}
+\DoxyCodeLine{171 \};}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{174 \textcolor{keyword}{class }\mbox{\hyperlink{classDirLinkedMap}{DirLinkedMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedMap}{LinkedMap}}<DirDef>}
+\DoxyCodeLine{175 \{}
+\DoxyCodeLine{176 \};}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{179 \textcolor{keyword}{class }\mbox{\hyperlink{classDirList}{DirList}} : \textcolor{keyword}{public} std::vector<const DirDef*>}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181 \};}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{keyword}{class }\mbox{\hyperlink{classDirRelationLinkedMap}{DirRelationLinkedMap}} : \textcolor{keyword}{public} \mbox{\hyperlink{classLinkedMap}{LinkedMap}}<DirRelation>}
+\DoxyCodeLine{184 \{}
+\DoxyCodeLine{185 \};}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{keywordtype}{void} \mbox{\hyperlink{dirdef_8h_a9d5caa3df18ab19e549d3b603a716780}{buildDirectories}}();}
+\DoxyCodeLine{190 \textcolor{keywordtype}{void} \mbox{\hyperlink{dirdef_8h_aeb63b0db3ac92afc6ef8fd7a34129001}{generateDirDocs}}(\mbox{\hyperlink{classOutputList}{OutputList}} \&ol);}
+\DoxyCodeLine{191 \textcolor{keywordtype}{void} \mbox{\hyperlink{dirdef_8h_abf61ee43dee8d980a631843cd26b71cb}{computeDirDependencies}}();}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

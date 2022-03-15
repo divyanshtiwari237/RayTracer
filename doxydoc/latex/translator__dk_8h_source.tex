@@ -1,0 +1,1338 @@
+\hypertarget{translator__dk_8h_source}{}\doxysection{translator\+\_\+dk.\+h}
+\label{translator__dk_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_dk.h@{/mnt/c/projects/doxygen/src/translator\_dk.h}}
+\mbox{\hyperlink{translator__dk_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*-\/*-\/ c-\/basic-\/offset: 2; tab-\/width: 8 -\/*-\/*/}}
+\DoxyCodeLine{2 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{9 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{10 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{11 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{15 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ */}}
+\DoxyCodeLine{22 \textcolor{comment}{/*}}
+\DoxyCodeLine{23 \textcolor{comment}{ * Danish translation by}}
+\DoxyCodeLine{24 \textcolor{comment}{ * Erik Søe Sørensen <eriksoe@daimi.au.dk>}}
+\DoxyCodeLine{25 \textcolor{comment}{ *}}
+\DoxyCodeLine{26 \textcolor{comment}{ * First version (not complete) for Doxygen 1.2.7}}
+\DoxyCodeLine{27 \textcolor{comment}{ * Extended and revised for Doxygen 1.3}}
+\DoxyCodeLine{28 \textcolor{comment}{ * Extended and revised for Doxygen 1.3.4}}
+\DoxyCodeLine{29 \textcolor{comment}{ * Extended and revised for Doxygen 1.3.8}}
+\DoxyCodeLine{30 \textcolor{comment}{ */}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{/*  Translator's notes:}}
+\DoxyCodeLine{33 \textcolor{comment}{}}
+\DoxyCodeLine{34 \textcolor{comment}{    Oversættelseskonventioner:}}
+\DoxyCodeLine{35 \textcolor{comment}{    (Konventioner for konventioner:}}
+\DoxyCodeLine{36 \textcolor{comment}{      '?'    angiver oversættelser, jeg har været i tvivl om}}
+\DoxyCodeLine{37 \textcolor{comment}{      '??'   angiver tvivlsomme oversættelser}}
+\DoxyCodeLine{38 \textcolor{comment}{      '..?'  angiver ord, der endnu ikke er fundet en oversættelse til}}
+\DoxyCodeLine{39 \textcolor{comment}{      '(do.)' angiver ord, der med vilje ikke er oversat, idet jeg selv}}
+\DoxyCodeLine{40 \textcolor{comment}{             overvejende bruger det engelske udtryk}}
+\DoxyCodeLine{41 \textcolor{comment}{      '(-\/> \_)' angiver ord, der er fundet en oversættelse til, men som jeg}}
+\DoxyCodeLine{42 \textcolor{comment}{            vægrer mig ved at oversætte.}}
+\DoxyCodeLine{43 \textcolor{comment}{          'KLID:\_' angiver ord, hvor jeg med overlæg har rettet mig efter}}
+\DoxyCodeLine{44 \textcolor{comment}{        KLID.dk's oversættelsesguide (enig eller ej).}}
+\DoxyCodeLine{45 \textcolor{comment}{    )}}
+\DoxyCodeLine{46 \textcolor{comment}{    bug -\/> 'kendt fejl'}}
+\DoxyCodeLine{47 \textcolor{comment}{    class -\/> klasse}}
+\DoxyCodeLine{48 \textcolor{comment}{    compound -\/> 'sammensat type'}}
+\DoxyCodeLine{49 \textcolor{comment}{    constructor -\/> konstruktør ?}}
+\DoxyCodeLine{50 \textcolor{comment}{    destructor -\/> destruktør ?}}
+\DoxyCodeLine{51 \textcolor{comment}{    directory -\/> KLID:katalog (kunne også være 'bibliotek','mappe','folder')}}
+\DoxyCodeLine{52 \textcolor{comment}{    event -\/> begivenhed ?}}
+\DoxyCodeLine{53 \textcolor{comment}{    exception (-\/> undtagelse ?)}}
+\DoxyCodeLine{54 \textcolor{comment}{    friend ..?}}
+\DoxyCodeLine{55 \textcolor{comment}{    interface -\/> grænseflade ?}}
+\DoxyCodeLine{56 \textcolor{comment}{    member -\/> medlem (TODO)}}
+\DoxyCodeLine{57 \textcolor{comment}{    namespace -\/> (do.)}}
+\DoxyCodeLine{58 \textcolor{comment}{    overloaded -\/> KLID:overdefineret}}
+\DoxyCodeLine{59 \textcolor{comment}{    private -\/> privat}}
+\DoxyCodeLine{60 \textcolor{comment}{    property -\/> egenskab?}}
+\DoxyCodeLine{61 \textcolor{comment}{    protected -\/> beskyttet ??}}
+\DoxyCodeLine{62 \textcolor{comment}{    public -\/> offentlig}}
+\DoxyCodeLine{63 \textcolor{comment}{    reference(vb) -\/> "{}indeholde referencer til"{} (?)}}
+\DoxyCodeLine{64 \textcolor{comment}{    slot ..?}}
+\DoxyCodeLine{65 \textcolor{comment}{    source code -\/> kildekode}}
+\DoxyCodeLine{66 \textcolor{comment}{    struct -\/> datastruktur}}
+\DoxyCodeLine{67 \textcolor{comment}{    template (-\/> skabelon ?)}}
+\DoxyCodeLine{68 \textcolor{comment}{    typedef -\/> typedefinition (?)}}
+\DoxyCodeLine{69 \textcolor{comment}{    todo -\/> (do.)}}
+\DoxyCodeLine{70 \textcolor{comment}{    union ..?}}
+\DoxyCodeLine{71 \textcolor{comment}{}}
+\DoxyCodeLine{72 \textcolor{comment}{    Specielle forbindelser:}}
+\DoxyCodeLine{73 \textcolor{comment}{    'Inheritance diagram' -\/> Stamtræ  (selvom Nedarvningsdiagram også gik an)}}
+\DoxyCodeLine{74 \textcolor{comment}{}}
+\DoxyCodeLine{75 \textcolor{comment}{}}
+\DoxyCodeLine{76 \textcolor{comment}{    -\/-\/-\/-\/-\/}}
+\DoxyCodeLine{77 \textcolor{comment}{}}
+\DoxyCodeLine{78 \textcolor{comment}{    (Konstruktivt) input modtages med glæde!}}
+\DoxyCodeLine{79 \textcolor{comment}{    -\/-\/ Erik Søe Sørensen <eriksoe@daimi.au.dk>}}
+\DoxyCodeLine{80 \textcolor{comment}{}}
+\DoxyCodeLine{81 \textcolor{comment}{}}
+\DoxyCodeLine{82 \textcolor{comment}{    links -\/> (links.)}}
+\DoxyCodeLine{83 \textcolor{comment}{    -\/-\/ Poul-\/Erik Hansen}}
+\DoxyCodeLine{84 \textcolor{comment}{}}
+\DoxyCodeLine{85 \textcolor{comment}{ */}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_DK\_H}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define TRANSLATOR\_DK\_H}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorDanish}{TranslatorDanish}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__0}{TranslatorAdapter\_1\_8\_0}}}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92   \textcolor{keyword}{public}:}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{// -\/-\/-\/ Language control methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{102     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9a79ab8cb2b324ba59a0c995d6da83dd}{idLanguage}}()}
+\DoxyCodeLine{103     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}danish"{}}; \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac4bb41e0786fcef60cbc30741af37c0a}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{119     \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[danish]\{babel\}\(\backslash\)n"{}};}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0de3606a2927777d3a4b0fd5b43a8c3a}{trISOLang}}()}
+\DoxyCodeLine{123     \{}
+\DoxyCodeLine{124       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}da"{}};}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4a1ef99f14b08d51e9841f3957dd03bd}{getLanguageString}}()}
+\DoxyCodeLine{127     \{}
+\DoxyCodeLine{128       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x406 Danish"{}};}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{comment}{// -\/-\/-\/ Language translation methods -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8eea9b76bc53e93ee50aa683c22e11d8}{trRelatedFunctions}}()}
+\DoxyCodeLine{135     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Relaterede funktioner"{}}; \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{138     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a341494adb2fbb97abf12bff9871c0b1c}{trRelatedSubscript}}()}
+\DoxyCodeLine{139     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(Bemærk at disse ikke er medlems-\/funktioner.)"{}}; \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{143     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7a7335e696d11478a7b2bb0a1fa24c54}{trDetailedDescription}}()}
+\DoxyCodeLine{144     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Detaljeret beskrivelse"{}}; \}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{147     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a84d042539871695bf6f2d7138b831e4a}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{148     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af medlems-\/typedefinitioner"{}}; \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{151     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a09b79ec15802d96c9626666c16452733}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{152     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af medlems-\/enumerationer"{}}; \}}
+\DoxyCodeLine{153     \textcolor{comment}{// medlems-\/enumerationer -\/> 'indeholdte enumerationer'}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{156     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a44b5d09bc816d376c9a6407759f5dbf2}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{157     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af medlemsfunktioner"{}}; \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{160     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a02f49a5be5bb94262215075ff3e03037}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{161     \{}
+\DoxyCodeLine{162       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Felt-\/dokumentation"{}};}
+\DoxyCodeLine{164       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af feltvariable"{}};}
+\DoxyCodeLine{166       \}}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{170     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8932b41cc74e969bb4c98dac0f7d1954}{trMore}}()}
+\DoxyCodeLine{171     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Mere..."{}}; \}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{174     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab7f13b8ed5b486a083ed50bddf5c2a5b}{trListOfAllMembers}}()}
+\DoxyCodeLine{175     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liste over alle medlemmer"{}}; \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a74d6667632fc516bf87905b01754bb30}{trMemberList}}()}
+\DoxyCodeLine{179     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liste over medlemmer"{}}; \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{182     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_abc402e9cc655fabde18b1d7426ce6264}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{183     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dette er den komplette liste over medlemmer i "{}}; \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6418fe1f9a358c61cbe7dc6333d81823}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{187     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, inklusive alle nedarvede medlemmer."{}}; \}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{192     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab9387d6d42b3b9dd821bad488c3d8bfb}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{193     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Automatisk genereret af Doxygen"{}};}
+\DoxyCodeLine{194       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} for "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{195       result+=\textcolor{stringliteral}{"{} ud fra kildekoden."{}};}
+\DoxyCodeLine{196       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{197     \}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a67543b35aa1064141b931c21b100e683}{trEnumName}}()}
+\DoxyCodeLine{201     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enumerationsnavn"{}}; \}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{204     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a932304de8980cbc82e14f3bd3886aa78}{trEnumValue}}()}
+\DoxyCodeLine{205     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enumerationsværdi"{}}; \}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_abfacd5c7b61d5b0bc2a8e50191d19296}{trDefinedIn}}()}
+\DoxyCodeLine{209     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}defineret i"{}}; \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211     \textcolor{comment}{// quick reference sections}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{216     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a860facaa53d81296134b2d14dd1cbb95}{trModules}}()}
+\DoxyCodeLine{217     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduler"{}}; \}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{220     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a300b3f211445feffcae15f627baf5200}{trClassHierarchy}}()}
+\DoxyCodeLine{221     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klassehierarki"{}}; \}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{224     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a384b0e20781089797caa5a03e4905db8}{trCompoundList}}()}
+\DoxyCodeLine{225     \{}
+\DoxyCodeLine{226       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{227         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datastrukturer"{}};}
+\DoxyCodeLine{228       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Oversigt over sammensatte typer"{}};}
+\DoxyCodeLine{230       \}}
+\DoxyCodeLine{231     \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{234     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a02c7f5a5fbc3f616c001739d76e46dfe}{trFileList}}()}
+\DoxyCodeLine{235     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Filoversigt"{}}; \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{238     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aca09787007926f6be652b0361aacedf8}{trCompoundMembers}}()}
+\DoxyCodeLine{239     \{}
+\DoxyCodeLine{240       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{241         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data-\/felter"{}};}
+\DoxyCodeLine{242       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{243         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Felter i sammensatte typer"{}};}
+\DoxyCodeLine{244       \}}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{248     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6a29a5d2185a56c12c9083d371adb616}{trFileMembers}}()}
+\DoxyCodeLine{249     \{}
+\DoxyCodeLine{250       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{251         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globale symboler"{}};}
+\DoxyCodeLine{252       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{253     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Placering i filer"{}}; \textcolor{comment}{// Fil-\/medlemmer"{}; //TODO}}
+\DoxyCodeLine{254     \textcolor{comment}{//"{}Globale definitioner"{} ?}}
+\DoxyCodeLine{255       \}}
+\DoxyCodeLine{256     \}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{259     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7acc39389eeb513a72caaf28a50f09fa}{trRelatedPages}}()}
+\DoxyCodeLine{260     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Relaterede sider"{}}; \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{263     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a17e7124ddfb6c21019a0471e6ec61fcb}{trExamples}}()}
+\DoxyCodeLine{264     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Eksempler"{}}; \}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{267     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4b132405346efb11acbf1268b1f6cc34}{trSearch}}()}
+\DoxyCodeLine{268     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Søg"{}}; \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{271     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4ed302f6eb80e8ac4834c01d391e60c4}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{272     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Denne nedarvningsliste er sorteret næsten -\/ "{}}}
+\DoxyCodeLine{273              \textcolor{stringliteral}{"{}men ikke nødvendigvis helt -\/ alfabetisk:"{}};}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{277     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a74e6926db08ce24de7bc2796ac8d0e68}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{278     \{}
+\DoxyCodeLine{279       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};}
+\DoxyCodeLine{280       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumenterede "{}};}
+\DoxyCodeLine{281       result+=\textcolor{stringliteral}{"{}filer med korte beskrivelser:"{}};}
+\DoxyCodeLine{282       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{283     \}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{286     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8803ad79c15b0490b4637720750a961d}{trCompoundListDescription}}()}
+\DoxyCodeLine{287     \{}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{290         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er datastrukturerne med korte beskrivelser:"{}};}
+\DoxyCodeLine{291       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_SLICE)) \{}
+\DoxyCodeLine{292         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er klasserne med korte beskrivelser:"{}};}
+\DoxyCodeLine{293       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{294         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er klasserne, datastrukturerne, "{}}}
+\DoxyCodeLine{295                \textcolor{stringliteral}{"{}unionerne og grænsefladerne med korte beskrivelser:"{}};}
+\DoxyCodeLine{296       \}}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{300     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a176b7592eb6fd7c8d619154d4ef61db2}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{301     \{}
+\DoxyCodeLine{302       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};}
+\DoxyCodeLine{303       \textcolor{keywordflow}{if} (!extractAll) \{}
+\DoxyCodeLine{304         result+=\textcolor{stringliteral}{"{}dokumenterede "{}};}
+\DoxyCodeLine{305       \}}
+\DoxyCodeLine{306       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{307         result+=\textcolor{stringliteral}{"{}felter i datastrukturer og unioner"{}};}
+\DoxyCodeLine{308       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{309         result+=\textcolor{stringliteral}{"{}klassemedlemmer"{}};}
+\DoxyCodeLine{310       \}}
+\DoxyCodeLine{311       result+=\textcolor{stringliteral}{"{} med links til "{}};}
+\DoxyCodeLine{312       \textcolor{keywordflow}{if} (!extractAll) \{}
+\DoxyCodeLine{313         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{314           result+=\textcolor{stringliteral}{"{}datastruktur/unions-\/dokumentationen for hvert felt:"{}};}
+\DoxyCodeLine{315         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{316           result+=\textcolor{stringliteral}{"{}klassedokumentationen for hvert medlem:"{}};}
+\DoxyCodeLine{317         \}}
+\DoxyCodeLine{318       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{319         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{320           result+=\textcolor{stringliteral}{"{}de datastrukturer/unioner, de hører til:"{}};}
+\DoxyCodeLine{321         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{322           result+=\textcolor{stringliteral}{"{}de klasser, de hører til:"{}};}
+\DoxyCodeLine{323         \}}
+\DoxyCodeLine{324       \}}
+\DoxyCodeLine{325       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{326     \}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{329     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a119a6d86a03c65d1263f7f37f296c0bd}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{330     \{}
+\DoxyCodeLine{331       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};}
+\DoxyCodeLine{332       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumenterede "{}};}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{335         result+=\textcolor{stringliteral}{"{}funktioner, variable, \#defines, enumerationer "{}}}
+\DoxyCodeLine{336         \textcolor{stringliteral}{"{}og typedefinitioner"{}};}
+\DoxyCodeLine{337       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{338         result+=\textcolor{stringliteral}{"{}fil-\/medlemmer"{}};}
+\DoxyCodeLine{339       \}}
+\DoxyCodeLine{340       result+=\textcolor{stringliteral}{"{}, med links til "{}};}
+\DoxyCodeLine{341       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{342         result+=\textcolor{stringliteral}{"{}de filer, de tilhører:"{}};}
+\DoxyCodeLine{343       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{344         result+=\textcolor{stringliteral}{"{}deres dokumentation:"{}};}
+\DoxyCodeLine{345       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{346     \}}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{349     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab9c30651b8adc22d073cc1ed96c1fca7}{trExamplesDescription}}()}
+\DoxyCodeLine{350     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er en liste over alle eksempler:"{}}; \}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aff794706fde2eb4e4f6b1a9497ce4acf}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{354     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er en liste over alle relaterede dokumentationssider:"{}}; \}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{357     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab4701fe2a5a9992255a074c848f39469}{trModulesDescription}}()}
+\DoxyCodeLine{358     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er en liste over alle moduler:"{}}; \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{361     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_abf5c7558e37d696661ed17439a1ce967}{trDocumentation}}()}
+\DoxyCodeLine{362     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation"{}}; \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{367     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad2088e7a730483bdcf4fa0f88be4e730}{trModuleIndex}}()}
+\DoxyCodeLine{368     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modul-\/indeks"{}}; \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{373     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac778eb5f4405565f817a431f1c061529}{trHierarchicalIndex}}()}
+\DoxyCodeLine{374     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hierarkisk indeks"{}}; \}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{379     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4320c4622a15ba230c9c8400d934d941}{trCompoundIndex}}()}
+\DoxyCodeLine{380     \{}
+\DoxyCodeLine{381       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{382         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indeks over datastrukturer"{}};}
+\DoxyCodeLine{383       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{384         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indeks over sammensatte typer"{}};}
+\DoxyCodeLine{385       \}}
+\DoxyCodeLine{386     \}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{391     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a53c7ef385fcbccb45c3d3f5c285f1fea}{trFileIndex}}()}
+\DoxyCodeLine{392     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fil-\/indeks"{}}; \}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{397     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa2e13777a125889108684d20837db889}{trModuleDocumentation}}()}
+\DoxyCodeLine{398     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modul-\/dokumentation"{}}; \}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{403     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae4a2fb26324d398306b2d6910edb85e1}{trClassDocumentation}}()}
+\DoxyCodeLine{404     \{}
+\DoxyCodeLine{405       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{406       \{}
+\DoxyCodeLine{407         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datastruktur-\/documentation"{}};}
+\DoxyCodeLine{408       \}}
+\DoxyCodeLine{409       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{410       \{}
+\DoxyCodeLine{411           \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{412       \}}
+\DoxyCodeLine{413       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{414       \{}
+\DoxyCodeLine{415         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasse-\/dokumentation"{}};}
+\DoxyCodeLine{416       \}}
+\DoxyCodeLine{417     \}}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{422     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a17c1a50380f634ac0a15efc68269464b}{trFileDocumentation}}()}
+\DoxyCodeLine{423     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fil-\/dokumentation"{}}; \}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{428     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a43cff9c74ec5524657c36e4bf7f2a33b}{trExampleDocumentation}}()}
+\DoxyCodeLine{429     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Eksempel-\/dokumentation"{}}; \}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{432     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3ae1dcfc2b5aef387244c5a1af96596d}{trReferenceManual}}()}
+\DoxyCodeLine{433     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referencemanual"{}}; \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{438     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a82265b14a899a448ad98bdce4d916202}{trDefines}}()}
+\DoxyCodeLine{439     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\#Defines"{}}; \}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a413ba351d0a7fd4ebd78c1ae764e33e3}{trTypedefs}}()}
+\DoxyCodeLine{445     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedefinitioner"{}}; \}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{450     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a07884d28639a160b023a067984cbe901}{trEnumerations}}()}
+\DoxyCodeLine{451     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerationer"{}}; \}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{456     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a43ed9c54a8127fd53edef674ffac756c}{trFunctions}}()}
+\DoxyCodeLine{457     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktioner"{}}; \}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9cf5b54f0fd396d56eefece30a584721}{trVariables}}()}
+\DoxyCodeLine{463     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Variable"{}}; \}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_afc90bece8c05803ca2cfc639f29e827f}{trEnumerationValues}}()}
+\DoxyCodeLine{469     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumerationsværdier"{}}; \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{474     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3ea2d1c4881bade028ef74f6202db437}{trDefineDocumentation}}()}
+\DoxyCodeLine{475     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\#Define-\/dokumentation"{}}; \}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{480     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a740284318dfd8030d3b4aef905923f02}{trTypedefDocumentation}}()}
+\DoxyCodeLine{481     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af typedefinitioner"{}}; \}}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{486     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4b64eda641679cb576ebbd9d84028c95}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{487     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af enumerations-\/typer"{}}; \}}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{492     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a09c94be7996ebad077f4d606a302072b}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{493     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af enumerations-\/værdier"{}}; \}}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{498     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0bf26de2a9d886f7046fe57b6ca8c7ec}{trFunctionDocumentation}}()}
+\DoxyCodeLine{499     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktions-\/dokumentation"{}}; \}}
+\DoxyCodeLine{500 }
+\DoxyCodeLine{504     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1dc26788215b395df5e6a7cc140cab65}{trVariableDocumentation}}()}
+\DoxyCodeLine{505     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Variabel-\/dokumentation"{}}; \}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{510     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a20d7f7a0a8de7b063a7178f77123a9b6}{trCompounds}}()}
+\DoxyCodeLine{511     \{}
+\DoxyCodeLine{512       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{513         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datastrukturer"{}};}
+\DoxyCodeLine{514       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{515         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sammensatte typer"{}};}
+\DoxyCodeLine{516       \}}
+\DoxyCodeLine{517     \}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{522     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7b5fd5b223b23d7469ca72f132feeb2a}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{523     \{}
+\DoxyCodeLine{524       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Genereret "{}}+date;}
+\DoxyCodeLine{525       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} for "{}}+projName;}
+\DoxyCodeLine{526       result+=\textcolor{stringliteral}{"{} af"{}};}
+\DoxyCodeLine{527       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{528     \}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{531     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a5f1c69bebc7008f533790134dc9a93ea}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{532     \{}
+\DoxyCodeLine{533       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stamtræ for "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{534     \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{537     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8fb5364c3f0c25f881cc5e17804cecf2}{trWarning}}()}
+\DoxyCodeLine{538     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Advarsel"{}}; \}}
+\DoxyCodeLine{539 }
+\DoxyCodeLine{541     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3ec30a802881bcce47cc7cefc233579a}{trVersion}}()}
+\DoxyCodeLine{542     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Version"{}}; \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{545     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a5bb8f0a475b985f1c7efc4a1ccaf012f}{trDate}}()}
+\DoxyCodeLine{546     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dato"{}}; \}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{549     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6edba281f68c0ec0b7635cc7658dd4ca}{trReturns}}()}
+\DoxyCodeLine{550     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Returnerer"{}}; \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{553     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a274c72f881b3a6ca1071ece70a4fd608}{trSeeAlso}}()}
+\DoxyCodeLine{554     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Se også"{}}; \}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{557     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9b88bbcfc4fcb0a2bb39ef9a0f57d71a}{trParameters}}()}
+\DoxyCodeLine{558     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametre"{}}; \}}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{561     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0758e2f55138823aa68e7eb0a779452f}{trExceptions}}()}
+\DoxyCodeLine{562     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Undtagelser"{}}; \}    \textcolor{comment}{// "{}Exceptions"{}}}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{565     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2de240cadcdf4de2b63107a9b41d2faf}{trGeneratedBy}}()}
+\DoxyCodeLine{566     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Genereret af"{}}; \}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{569 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{571 \textcolor{comment}{}}
+\DoxyCodeLine{573     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a23e071c06bf9130c337d49cd9e8c2109}{trNamespaceList}}()}
+\DoxyCodeLine{574     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Oversigt over namespaces"{}}; \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{577     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aaf42e62866517b736531d676197bf7bb}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{578     \{}
+\DoxyCodeLine{579       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};}
+\DoxyCodeLine{580       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumenterede "{}};}
+\DoxyCodeLine{581       result+=\textcolor{stringliteral}{"{}namespaces med korte beskrivelser:"{}};}
+\DoxyCodeLine{582       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{583     \}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{588     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a34ae3117946ec380fb220149b897366f}{trFriends}}()}
+\DoxyCodeLine{589     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Friends"{}}; \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{592 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{594 \textcolor{comment}{}}
+\DoxyCodeLine{598     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6d72c03f3e8ce22c544e6221eeeb61cf}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{599     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af friends og af relaterede funktioner"{}}; \}}
+\DoxyCodeLine{600 }
+\DoxyCodeLine{602 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{604 \textcolor{comment}{}}
+\DoxyCodeLine{606     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae0769889c19d2aea4666caf885cbf440}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{607                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{608                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{609     \{}
+\DoxyCodeLine{610       \mbox{\hyperlink{classQCString}{QCString}} result=clName+\textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{611       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{612       \{}
+\DoxyCodeLine{613         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Klasse-\/"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{614         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Datastruktur-\/"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{615         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Union-\/"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{616         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Grænseflade-\/"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{617         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protokol-\/"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{618         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Kategori-\/"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Category-\/"{}}}
+\DoxyCodeLine{619         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Undtagelse-\/"{}}; \textcolor{keywordflow}{break};   \textcolor{comment}{//  "{} Exception"{}}}
+\DoxyCodeLine{620         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{621       \}}
+\DoxyCodeLine{622       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{}skabelon-\/"{}};  \textcolor{comment}{// "{}template-\/"{}}}
+\DoxyCodeLine{623       result+=\textcolor{stringliteral}{"{}reference"{}};}
+\DoxyCodeLine{624       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{625     \}}
+\DoxyCodeLine{626 }
+\DoxyCodeLine{628     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9679ae0a7c5ef5f5af45a372b2710934}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{629     \{}
+\DoxyCodeLine{630       \mbox{\hyperlink{classQCString}{QCString}} result=fileName;}
+\DoxyCodeLine{631       result+=\textcolor{stringliteral}{"{} filreference"{}};}
+\DoxyCodeLine{632       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{633     \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{636     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a31172a795f8546da139fcf90edb84715}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{637     \{}
+\DoxyCodeLine{638       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{639       result+=\textcolor{stringliteral}{"{} namespace-\/reference"{}};}
+\DoxyCodeLine{640       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{641     \}}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{643     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a17518dfc88db00cc4d8b11043f166e2c}{trPublicMembers}}()}
+\DoxyCodeLine{644     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Offentlige metoder"{}}; \}}
+\DoxyCodeLine{645     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a72bed46447c6bf7a55ce1ea5d4d3eafe}{trPublicSlots}}()}
+\DoxyCodeLine{646     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Offentlige slots"{}}; \}}
+\DoxyCodeLine{647     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa46a321c75ba498ca06df96157420925}{trSignals}}()}
+\DoxyCodeLine{648     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signaler"{}}; \}}
+\DoxyCodeLine{649     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a72dfd81f3244a82c31af4a00acc97dd3}{trStaticPublicMembers}}()}
+\DoxyCodeLine{650     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, offentlige metoder"{}}; \}}
+\DoxyCodeLine{651     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1c36a68a1434af62db7b7e450ef86909}{trProtectedMembers}}()}
+\DoxyCodeLine{652     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Beskyttede metoder"{}}; \}}
+\DoxyCodeLine{653     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a63e6342e8ff2a623aa012ddc01489d12}{trProtectedSlots}}()}
+\DoxyCodeLine{654     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Beskyttede slots"{}}; \}}
+\DoxyCodeLine{655     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a98a043616876ae3979cf60a4872393ef}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{656     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, beskyttede metoder"{}}; \}}
+\DoxyCodeLine{657     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac7b65ac3ceb609b9bd30675c220ac598}{trPrivateMembers}}()}
+\DoxyCodeLine{658     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private metoder"{}}; \}}
+\DoxyCodeLine{659     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa9876d4d21ef4d68afaed6abba935ecc}{trPrivateSlots}}()}
+\DoxyCodeLine{660     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private slots"{}}; \}}
+\DoxyCodeLine{661     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1a7cd0c6880109c581cc13d188877284}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{662     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, private metoder"{}}; \}}
+\DoxyCodeLine{663 }
+\DoxyCodeLine{667     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{668     \{}
+\DoxyCodeLine{669       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{670       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{671       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{672       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++) \{}
+\DoxyCodeLine{673         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{674         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{675                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677         \textcolor{keywordflow}{if} (i!=numEntries-\/1) \{ \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{678           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{679             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{680           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{681             result+=\textcolor{stringliteral}{"{} og "{}};}
+\DoxyCodeLine{682         \}}
+\DoxyCodeLine{683       \}}
+\DoxyCodeLine{684       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{685     \}}
+\DoxyCodeLine{686 }
+\DoxyCodeLine{690     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7a2493c9703346cdf7f4667cd0ab00ba}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{691     \{}
+\DoxyCodeLine{692       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nedarver "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{693     \}}
+\DoxyCodeLine{694 }
+\DoxyCodeLine{698     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a127a260b250547992284bd0590c6188b}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{699     \{}
+\DoxyCodeLine{700       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nedarvet af "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{701     \}}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{706     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a91a3f0362c99e788b5ddea3fbecdcab1}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{707     \{}
+\DoxyCodeLine{708       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Overskriver metode fra "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{709     \}}
+\DoxyCodeLine{710 }
+\DoxyCodeLine{714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a25fc08a37c87825457da45c9b381f24a}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{715     \{}
+\DoxyCodeLine{716       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementeret i "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{717     \}}
+\DoxyCodeLine{718 }
+\DoxyCodeLine{720     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0db0ddb3dc7bc807afec5d0000fc6d09}{trNamespaceMembers}}()}
+\DoxyCodeLine{721     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace-\/medlemmer"{}}; \}}
+\DoxyCodeLine{722 }
+\DoxyCodeLine{724     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a36db40efda78a5865fcee126d42d7f63}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{725     \{}
+\DoxyCodeLine{726       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};}
+\DoxyCodeLine{727       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumenterede "{}};}
+\DoxyCodeLine{728       result+=\textcolor{stringliteral}{"{}namespace-\/medlemmer med links til "{}};}
+\DoxyCodeLine{729       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{730         result+=\textcolor{stringliteral}{"{}namespace-\/dokumentationen for hvert medlem:"{}};}
+\DoxyCodeLine{731       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{732         result+=\textcolor{stringliteral}{"{}det namespace, de hører til:"{}};}
+\DoxyCodeLine{733       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{734     \}}
+\DoxyCodeLine{738     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3a5f9da039040cc83959b262257d16c5}{trNamespaceIndex}}()}
+\DoxyCodeLine{739     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace-\/indeks"{}}; \}}
+\DoxyCodeLine{740 }
+\DoxyCodeLine{744     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aff67bbe4ab5cf1a80b4adff71845005a}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{745     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespace-\/dokumentation"{}}; \}}
+\DoxyCodeLine{746 }
+\DoxyCodeLine{748 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{750 \textcolor{comment}{}}
+\DoxyCodeLine{754     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3a6815f8ce55647c7dc89e09aca72175}{trNamespaces}}()}
+\DoxyCodeLine{755     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Namespaces"{}}; \}}
+\DoxyCodeLine{756 }
+\DoxyCodeLine{758 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{760 \textcolor{comment}{}}
+\DoxyCodeLine{764     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a36ecff3054f04a48bd925a5504268595}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{765         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{766     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{767       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{768       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentationen for denne "{}};}
+\DoxyCodeLine{769       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{770       \{}
+\DoxyCodeLine{771         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}klasse"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{772         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}datastruktur"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{773         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{774         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}grænseflade"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{775         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokol"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}protocol"{}}}
+\DoxyCodeLine{776         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategori"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{}category"{}}}
+\DoxyCodeLine{777         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}undtagelse"{}}; \textcolor{keywordflow}{break};  \textcolor{comment}{// "{}exception"{}}}
+\DoxyCodeLine{778         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{779       \}}
+\DoxyCodeLine{780       result+=\textcolor{stringliteral}{"{} blev genereret ud fra fil"{}};}
+\DoxyCodeLine{781       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}en:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}erne:"{}};}
+\DoxyCodeLine{782       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{783     \}}
+\DoxyCodeLine{784 }
+\DoxyCodeLine{786 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{788 \textcolor{comment}{}}
+\DoxyCodeLine{790     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a61066d9146eebf28cc0e9a3cdd3e63fe}{trReturnValues}}()}
+\DoxyCodeLine{791     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Returværdier"{}}; \}}
+\DoxyCodeLine{792 }
+\DoxyCodeLine{795     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad7767cd4646f24f42f1239d0fcebc633}{trMainPage}}()}
+\DoxyCodeLine{796     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hovedside"{}}; \}}
+\DoxyCodeLine{797 }
+\DoxyCodeLine{801     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa17e2218848b1810def3b63ea85c5ae7}{trPageAbbreviation}}()}
+\DoxyCodeLine{802     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}s."{}}; \}}
+\DoxyCodeLine{803 }
+\DoxyCodeLine{805 \textcolor{comment}{// new since 0.49-\/991003}}
+\DoxyCodeLine{807 \textcolor{comment}{}}
+\DoxyCodeLine{808     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aada43fcef0f224440665b94ba7db2832}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{809     \{}
+\DoxyCodeLine{810       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Defineret på linje @0 i filen @1."{}};}
+\DoxyCodeLine{811     \}}
+\DoxyCodeLine{812 }
+\DoxyCodeLine{813     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a344334f13a4e7ce50b8797f09cf3af42}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{814     \{}
+\DoxyCodeLine{815       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Defineret i filen @0."{}};}
+\DoxyCodeLine{816     \}}
+\DoxyCodeLine{817 }
+\DoxyCodeLine{819 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{821 \textcolor{comment}{}}
+\DoxyCodeLine{822     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8b73c05efc3971b66922cb1e6d4c1657}{trDeprecated}}()}
+\DoxyCodeLine{823     \{}
+\DoxyCodeLine{824       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Frarådes -\/ fortidslevn"{}}; \textcolor{comment}{// ?? -\/ What is the context?}}
+\DoxyCodeLine{825       \textcolor{comment}{// "{}Ugleset"{} :)}}
+\DoxyCodeLine{826     \}}
+\DoxyCodeLine{827 }
+\DoxyCodeLine{829 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{831 \textcolor{comment}{}}
+\DoxyCodeLine{833     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a23964aec5e5aa00f03b56db338dc9431}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{834     \{}
+\DoxyCodeLine{835       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Samarbejdsdiagram for "{}}+clName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{836     \}}
+\DoxyCodeLine{838     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae14102036f604e56ee4366f5f72547e6}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{839     \{}
+\DoxyCodeLine{840       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Inklusions-\/afhængighedsgraf for "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{841     \}}
+\DoxyCodeLine{843     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a635196ff77e23ea8cf1d79fecf80bf24}{trConstructorDocumentation}}()}
+\DoxyCodeLine{844     \{}
+\DoxyCodeLine{845       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentation af konstruktører og destruktører"{}};}
+\DoxyCodeLine{846       \textcolor{comment}{// "{}Constructor \& Destructor dokumentation"{};}}
+\DoxyCodeLine{847     \}}
+\DoxyCodeLine{848 }
+\DoxyCodeLine{850     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2e5b849f3850979290affa099e3cc08f}{trGotoSourceCode}}()}
+\DoxyCodeLine{851     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hop til denne fils kildekode."{}}; \}}
+\DoxyCodeLine{853     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab1ac30ddf6f9931ca4a1a2a172a8842a}{trGotoDocumentation}}()}
+\DoxyCodeLine{854     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hop til denne fils dokumentation."{}}; \}}
+\DoxyCodeLine{855 }
+\DoxyCodeLine{857     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab965213cf0fce79c44112ea43a58372c}{trPrecondition}}()}
+\DoxyCodeLine{858     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Forudsætninger (precondition)"{}}; \}}
+\DoxyCodeLine{860     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7aa83866089ee54ba4e32605cb33a3bd}{trPostcondition}}()}
+\DoxyCodeLine{861     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Resultat (postcondition)"{}}; \}}
+\DoxyCodeLine{863     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3c0dd532545c73f1027c590e1260c83e}{trInvariant}}()}
+\DoxyCodeLine{864     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invariant"{}}; \}}
+\DoxyCodeLine{865 }
+\DoxyCodeLine{867     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0b026a4d31f91df0600308066eae732f}{trInitialValue}}()}
+\DoxyCodeLine{868     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Startværdi:"{}}; \}}
+\DoxyCodeLine{869 }
+\DoxyCodeLine{871     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_af8115ac047c1111084180e5c870fec1b}{trCode}}()}
+\DoxyCodeLine{872     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}kildekode"{}}; \}}
+\DoxyCodeLine{873     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a43bb2a4dfa9bd5a3da8410389cd9f65b}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{874     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafisk klassehierarki"{}}; \}}
+\DoxyCodeLine{875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa394b9c3c99093567ac83890dd1aede7}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{876     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hop til det grafiske klassehierarki"{}}; \}}
+\DoxyCodeLine{877     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3f5c1e1c9acd63d15eedfb3837bcb965}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{878     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hop til det tekstuelle klassehierarki"{}}; \}}
+\DoxyCodeLine{879     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a800348a5158d66e259ec4ec4bec007b6}{trPageIndex}}()}
+\DoxyCodeLine{880     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sideindeks"{}}; \}}
+\DoxyCodeLine{881 }
+\DoxyCodeLine{883 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{885 \textcolor{comment}{}}
+\DoxyCodeLine{886     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1b7999142c674489d4443e2a1e20ddba}{trNote}}()}
+\DoxyCodeLine{887     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Note"{}}; \}}
+\DoxyCodeLine{888     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab37f259f634718ba94d25710c28e4f8a}{trPublicTypes}}()}
+\DoxyCodeLine{889     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Offentlige typer"{}}; \}}
+\DoxyCodeLine{890 }
+\DoxyCodeLine{891     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa8ed0a7d82c6791285a30807f805a806}{trPublicAttribs}}()}
+\DoxyCodeLine{892     \{}
+\DoxyCodeLine{893       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{894         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datafelter"{}};}
+\DoxyCodeLine{895       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{896         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Offentlige attributter"{}};}
+\DoxyCodeLine{897       \}}
+\DoxyCodeLine{898     \}}
+\DoxyCodeLine{899 }
+\DoxyCodeLine{900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aff1e7997b972fcd3109480b3f9527749}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{901     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, offentlige attributter"{}}; \}}
+\DoxyCodeLine{902     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae8134602c85ed31b10dc797c6a996174}{trProtectedTypes}}()}
+\DoxyCodeLine{903     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Beskyttede typer"{}}; \}}
+\DoxyCodeLine{904     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a862dc9ede49135efc1e1891e2fb41f39}{trProtectedAttribs}}()}
+\DoxyCodeLine{905     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Beskyttede attributter"{}}; \}}
+\DoxyCodeLine{906     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad2679c190d73c03cf2c45490056e7091}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{907     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, beskyttede attributter"{}}; \}}
+\DoxyCodeLine{908     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2e06025182becd76d1491aff3d42f318}{trPrivateTypes}}()}
+\DoxyCodeLine{909     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private typer"{}}; \}}
+\DoxyCodeLine{910     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6cf8078dc6372df0e5455c5436508e96}{trPrivateAttribs}}()}
+\DoxyCodeLine{911     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private attributter"{}}; \}}
+\DoxyCodeLine{912     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3fe00d12680075ee99292fe0eb698ef4}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{913     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske, private attributter"{}}; \}}
+\DoxyCodeLine{914 }
+\DoxyCodeLine{916 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{918 \textcolor{comment}{}}
+\DoxyCodeLine{920     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab6eb817b9d388b6cc72a5411d550b7ad}{trTodo}}()}
+\DoxyCodeLine{921     \{}
+\DoxyCodeLine{922       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Todo"{}};}
+\DoxyCodeLine{923     \}}
+\DoxyCodeLine{925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a42583f7fe0e755408b18b133be7b8264}{trTodoList}}()}
+\DoxyCodeLine{926     \{}
+\DoxyCodeLine{927       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Todo-\/liste"{}};}
+\DoxyCodeLine{928     \}}
+\DoxyCodeLine{929 }
+\DoxyCodeLine{931 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{933 \textcolor{comment}{}}
+\DoxyCodeLine{934     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7fe6b6f5e8b2292302b5c66ae9f7beab}{trReferencedBy}}()}
+\DoxyCodeLine{935     \{}
+\DoxyCodeLine{936       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Refereret til af"{}};}
+\DoxyCodeLine{937     \}}
+\DoxyCodeLine{938     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa03472bb661eb4e2926f0f874bed355e}{trRemarks}}()}
+\DoxyCodeLine{939     \{}
+\DoxyCodeLine{940       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bemærkninger"{}};}
+\DoxyCodeLine{941     \}}
+\DoxyCodeLine{942     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1fe8d9ae9d2563e8b572e2ec228c1c73}{trAttention}}()}
+\DoxyCodeLine{943     \{}
+\DoxyCodeLine{944       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}OBS"{}};}
+\DoxyCodeLine{945     \}}
+\DoxyCodeLine{946     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa57d8ea095a2f78341a5cbfdb4b4cb2c}{trInclByDepGraph}}()}
+\DoxyCodeLine{947     \{}
+\DoxyCodeLine{948       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{949     \textcolor{stringliteral}{"{}Denne graf viser, hvilke filer der direkte eller "{}}}
+\DoxyCodeLine{950     \textcolor{stringliteral}{"{}indirekte inkluderer denne fil:"{}};}
+\DoxyCodeLine{951     \}}
+\DoxyCodeLine{952     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a01d0be006537827619418cf393ae9456}{trSince}}()}
+\DoxyCodeLine{953     \{}
+\DoxyCodeLine{954       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Siden"{}};}
+\DoxyCodeLine{955     \}}
+\DoxyCodeLine{956 }
+\DoxyCodeLine{958 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{960 \textcolor{comment}{}}
+\DoxyCodeLine{962     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4b7e314fb2afe267abff3d12cb389cde}{trLegendTitle}}()}
+\DoxyCodeLine{963     \{}
+\DoxyCodeLine{964       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graf-\/forklaring"{}};}
+\DoxyCodeLine{965     \}}
+\DoxyCodeLine{967     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2ec816acf5677a0596d056812f35fd2c}{trLegendDocs}}() \textcolor{comment}{//TODO}}
+\DoxyCodeLine{968     \{}
+\DoxyCodeLine{969       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{970         \textcolor{stringliteral}{"{}Denne side forklarer, hvordan man skal fortolke de grafer, "{}}}
+\DoxyCodeLine{971         \textcolor{stringliteral}{"{}der genereres af doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{972         \textcolor{stringliteral}{"{}Tag følgende eksempel:\(\backslash\)n"{}}}
+\DoxyCodeLine{973         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{974         \textcolor{stringliteral}{"{}/*! Klasse der er usynlig pg.a. beskæring */\(\backslash\)n"{}}}
+\DoxyCodeLine{975         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{976         \textcolor{stringliteral}{"{}/*! Beskåret klasse: nedarvningsrelation er skjult */\(\backslash\)n"{}}}
+\DoxyCodeLine{977         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{978         \textcolor{stringliteral}{"{}/* Klasse der ikke er dokumenteret med doxygen-\/kommentarer */\(\backslash\)n"{}}}
+\DoxyCodeLine{979         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{980         \textcolor{stringliteral}{"{}/*! Klasse der nedarves fra offentligt */\(\backslash\)n"{}}}
+\DoxyCodeLine{981         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{982         \textcolor{stringliteral}{"{}/*! En template-\/klasse */\(\backslash\)n"{}}}
+\DoxyCodeLine{983         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{984         \textcolor{stringliteral}{"{}/*! Klasse der nedarves fra beskyttet */\(\backslash\)n"{}}}
+\DoxyCodeLine{985         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{986         \textcolor{stringliteral}{"{}/*! Klasse der nedarves fra privat */\(\backslash\)n"{}}}
+\DoxyCodeLine{987         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{988         \textcolor{stringliteral}{"{}/*! Klasse der bruges af Inherited-\/klassen */\(\backslash\)n"{}}}
+\DoxyCodeLine{989         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{990         \textcolor{stringliteral}{"{}/*! Klasse der nedarver en masse andre klasser */\(\backslash\)n"{}}}
+\DoxyCodeLine{991         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{992         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{993         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{994         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{995         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{996         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{997         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{998         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{999         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{1000         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{1001         \textcolor{stringliteral}{"{}Hvis \(\backslash\)\(\backslash\)c MAX\_DOT\_GRAPH\_HEIGHT i konfigurationsfilen "{}}}
+\DoxyCodeLine{1002         \textcolor{stringliteral}{"{}er sat til 240, vil dette resultere i følgende graf:"{}}}
+\DoxyCodeLine{1003         \textcolor{stringliteral}{"{}<p><center><img src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{1004         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{1005         \textcolor{stringliteral}{"{}De forskellige slags kasser i ovenstående graf har følgende "{}}}
+\DoxyCodeLine{1006         \textcolor{stringliteral}{"{}betydninger:\(\backslash\)n"{}}}
+\DoxyCodeLine{1007         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1008         \textcolor{stringliteral}{"{}<li>\%En udfyldt sort kasse repræsenterer den datastruktur eller "{}}}
+\DoxyCodeLine{1009         \textcolor{stringliteral}{"{}klasse, grafen er genereret for.\(\backslash\)n"{}}}
+\DoxyCodeLine{1010         \textcolor{stringliteral}{"{}<li>\%En kasse med sort kant betegner en dokumenteret datastruktur "{}}}
+\DoxyCodeLine{1011         \textcolor{stringliteral}{"{} eller klasse.\(\backslash\)n"{}}}
+\DoxyCodeLine{1012         \textcolor{stringliteral}{"{}<li>\%En kasse med grå kant betegner en udokumenteret datastruktur "{}}}
+\DoxyCodeLine{1013         \textcolor{stringliteral}{"{} eller klasse.\(\backslash\)n"{}}}
+\DoxyCodeLine{1014         \textcolor{stringliteral}{"{}<li>\%En kasse med rød kant betegner en dokumenteret datastruktur "{}}}
+\DoxyCodeLine{1015         \textcolor{stringliteral}{"{} eller klasse, for hvilken ikke alle "{}}}
+\DoxyCodeLine{1016         \textcolor{stringliteral}{"{}nedarvnings-\/ og indeholdelses-\/relationer er vist. "{}}}
+\DoxyCodeLine{1017         \textcolor{stringliteral}{"{}\%Grafer beskæres, hvis de fylder mere end de specificerede dimensioner.\(\backslash\)n "{}}}
+\DoxyCodeLine{1018         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1019         \textcolor{stringliteral}{"{}Pilene har følgende betydninger:\(\backslash\)n"{}}}
+\DoxyCodeLine{1020         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{1021         \textcolor{stringliteral}{"{}<li>\%En mørkeblå pil viser en offentlig nedarvningsrelation "{}}}
+\DoxyCodeLine{1022         \textcolor{stringliteral}{"{}mellem to klasser.\(\backslash\)n"{}}}
+\DoxyCodeLine{1023         \textcolor{stringliteral}{"{}<li>\%En mørkegrøn pil viser en beskyttet nedarvningsrelation.\(\backslash\)n"{}}}
+\DoxyCodeLine{1024         \textcolor{stringliteral}{"{}<li>\%En mørkerød pil viser en privat nedarvningsrelation.\(\backslash\)n"{}}}
+\DoxyCodeLine{1025         \textcolor{stringliteral}{"{}<li>\%En lilla, stiplet pil bruges, når en klasse er indeholdt i "{}}}
+\DoxyCodeLine{1026         \textcolor{stringliteral}{"{}eller benyttes af en anden klasse. "{}}}
+\DoxyCodeLine{1027         \textcolor{stringliteral}{"{}Ved pilen står navnet på den eller de variable, gennem hvilke(n) "{}}}
+\DoxyCodeLine{1028         \textcolor{stringliteral}{"{}den klasse, pilen peger på, er tilgængelig.\(\backslash\)n"{}}}
+\DoxyCodeLine{1029         \textcolor{stringliteral}{"{}<li>\%En gul, stiplet pil viser forholdet mellem en template-\/instans "{}}}
+\DoxyCodeLine{1030         \textcolor{stringliteral}{"{}og den template-\/klasse, den er instantieret fra."{}}}
+\DoxyCodeLine{1031         \textcolor{stringliteral}{"{}Ved pilen står template-\/parametrene brugt ved instantieringen.\(\backslash\)n"{}}}
+\DoxyCodeLine{1032         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{1033     \}}
+\DoxyCodeLine{1035     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aab388740bbd2c158d96e721dbe39f218}{trLegend}}()}
+\DoxyCodeLine{1036     \{}
+\DoxyCodeLine{1037       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}forklaring til graf"{}};}
+\DoxyCodeLine{1038     \}}
+\DoxyCodeLine{1039 }
+\DoxyCodeLine{1041 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{1043 \textcolor{comment}{}}
+\DoxyCodeLine{1045     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aefcdbed48a512082ad9b3990509e2f9b}{trTest}}()}
+\DoxyCodeLine{1046     \{}
+\DoxyCodeLine{1047       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test"{}};}
+\DoxyCodeLine{1048     \}}
+\DoxyCodeLine{1050     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9ec3d7448d274bc46d1be1509c1edfb5}{trTestList}}()}
+\DoxyCodeLine{1051     \{}
+\DoxyCodeLine{1052       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Testliste"{}};}
+\DoxyCodeLine{1053     \}}
+\DoxyCodeLine{1054 }
+\DoxyCodeLine{1056 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{1058 \textcolor{comment}{}}
+\DoxyCodeLine{1060     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a7749a0634f21ba789efddc9fb9d613b5}{trProperties}}()}
+\DoxyCodeLine{1061     \{}
+\DoxyCodeLine{1062       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Egenskaber"{}};}
+\DoxyCodeLine{1063     \}}
+\DoxyCodeLine{1065     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a21fc47378317f9f588d71d59192f8747}{trPropertyDocumentation}}()}
+\DoxyCodeLine{1066     \{}
+\DoxyCodeLine{1067       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Egenskabsdokumentation"{}};}
+\DoxyCodeLine{1068     \}}
+\DoxyCodeLine{1069 }
+\DoxyCodeLine{1071 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{1073 \textcolor{comment}{}}
+\DoxyCodeLine{1075     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a36581fbf7c66b425997625deac22f3c3}{trClasses}}()}
+\DoxyCodeLine{1076     \{}
+\DoxyCodeLine{1077       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C)) \{}
+\DoxyCodeLine{1078         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datastrukturer"{}};}
+\DoxyCodeLine{1079       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{1080         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klasser"{}};}
+\DoxyCodeLine{1081       \}}
+\DoxyCodeLine{1082     \}}
+\DoxyCodeLine{1084     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac121a808a22b080a003cc63c4bb31676}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1085     \{}
+\DoxyCodeLine{1086       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakke "{}}+name;}
+\DoxyCodeLine{1087     \}}
+\DoxyCodeLine{1089     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3a4ee7f0a8edc758c93b4529125bddca}{trPackageListDescription}}()}
+\DoxyCodeLine{1090     \{}
+\DoxyCodeLine{1091       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1092     \textcolor{stringliteral}{"{}Her er en liste over pakkerne, med korte beskrivelser "{}}}
+\DoxyCodeLine{1093     \textcolor{stringliteral}{"{}(hvor en sådan findes):"{}};}
+\DoxyCodeLine{1094     \}}
+\DoxyCodeLine{1096     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ade8313084d14f2dac2cae5499a980000}{trPackages}}()}
+\DoxyCodeLine{1097     \{}
+\DoxyCodeLine{1098       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pakker"{}};}
+\DoxyCodeLine{1099     \}}
+\DoxyCodeLine{1101     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a5c1808e13d44b5bae8dd1d7102b87a5e}{trDefineValue}}()}
+\DoxyCodeLine{1102     \{}
+\DoxyCodeLine{1103       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Værdi:"{}};}
+\DoxyCodeLine{1104     \}}
+\DoxyCodeLine{1105 }
+\DoxyCodeLine{1107 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{1109 \textcolor{comment}{}}
+\DoxyCodeLine{1111     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1948478202433cf0684428c518b3b708}{trBug}}()}
+\DoxyCodeLine{1112     \{}
+\DoxyCodeLine{1113       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kendte fejl"{}};}
+\DoxyCodeLine{1114     \}}
+\DoxyCodeLine{1116     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_acd3f0e5b114937f9317b744c0308dd0a}{trBugList}}()}
+\DoxyCodeLine{1117     \{}
+\DoxyCodeLine{1118       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liste over kendte fejl"{}};}
+\DoxyCodeLine{1119     \}}
+\DoxyCodeLine{1120 }
+\DoxyCodeLine{1122 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{1124 \textcolor{comment}{}}
+\DoxyCodeLine{1133     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a95baec5866d6291c86fd305c78d61dfe}{trRTFansicp}}()}
+\DoxyCodeLine{1134     \{}
+\DoxyCodeLine{1135       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1252"{}};}
+\DoxyCodeLine{1136     \}}
+\DoxyCodeLine{1137 }
+\DoxyCodeLine{1139     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aab009d63da34b815ec122c2d5b4455f1}{trRTFCharSet}}()}
+\DoxyCodeLine{1140     \{}
+\DoxyCodeLine{1141       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{1142     \}}
+\DoxyCodeLine{1143 }
+\DoxyCodeLine{1145     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4783025520356d386bfd1f4413fa35c6}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{1146     \{}
+\DoxyCodeLine{1147       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indeks"{}};}
+\DoxyCodeLine{1148     \}}
+\DoxyCodeLine{1149 }
+\DoxyCodeLine{1154     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac4e20f06350563a06c182724b19782b6}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1155     \{}
+\DoxyCodeLine{1156       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}klasse"{}}, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{1157     \}}
+\DoxyCodeLine{1158 }
+\DoxyCodeLine{1163     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a692f575435aa3546ea32a6a98255efda}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1164     \{}
+\DoxyCodeLine{1165       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}fil"{}}, \textcolor{stringliteral}{"{}er"{}});}
+\DoxyCodeLine{1166     \}}
+\DoxyCodeLine{1167 }
+\DoxyCodeLine{1172     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_abab7ef00cc51eb265597124961d8f86b}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1173     \{}
+\DoxyCodeLine{1174       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}namespace"{}}, \textcolor{stringliteral}{"{}s"{}});}
+\DoxyCodeLine{1175     \}}
+\DoxyCodeLine{1176 }
+\DoxyCodeLine{1181     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad7719d9271d6e6d9defb78f4c741070f}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1182     \{}
+\DoxyCodeLine{1183       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}gruppe"{}}, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{1184     \}}
+\DoxyCodeLine{1185 }
+\DoxyCodeLine{1190     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a1256474293033a84f1e9e1a50117e6ad}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1191     \{}
+\DoxyCodeLine{1192       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}side"{}}, \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{1193     \}}
+\DoxyCodeLine{1194 }
+\DoxyCodeLine{1199     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a47299e4b6d01f9bdd0a60eb72d3a5f64}{trMember}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1200     \{}
+\DoxyCodeLine{1201       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}medlem"{}}, \textcolor{stringliteral}{"{}mer"{}});}
+\DoxyCodeLine{1202     \}}
+\DoxyCodeLine{1203 }
+\DoxyCodeLine{1208     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2e8422aabc8b6384f3290e559a21b5a9}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1209     \{}
+\DoxyCodeLine{1210       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}global"{}}, \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{1211     \}}
+\DoxyCodeLine{1212 }
+\DoxyCodeLine{1214 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{1216 \textcolor{comment}{}}
+\DoxyCodeLine{1219     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0043467eabe0fc797268e9404c17d26b}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1220     \{}
+\DoxyCodeLine{1221       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}forfatter"{}}, \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{1222     \}}
+\DoxyCodeLine{1223 }
+\DoxyCodeLine{1225 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{1227 \textcolor{comment}{}}
+\DoxyCodeLine{1230     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aef4dbb56629664fccd583460f9193fe5}{trReferences}}()}
+\DoxyCodeLine{1231     \{}
+\DoxyCodeLine{1232       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indeholder referencer til"{}};}
+\DoxyCodeLine{1233     \}}
+\DoxyCodeLine{1234 }
+\DoxyCodeLine{1236 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{1238 \textcolor{comment}{}}
+\DoxyCodeLine{1242     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9d0bca8f89d36acc016338d4fec90df1}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1243     \{}
+\DoxyCodeLine{1244       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementerer "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1245     \}}
+\DoxyCodeLine{1246 }
+\DoxyCodeLine{1250     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a70fa6793d0817fea24f31df31aca2fa6}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1251     \{}
+\DoxyCodeLine{1252       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementeret i "{}}+\mbox{\hyperlink{classTranslatorDanish_ae6dd9f8fb876f6a70629593a306af7cf}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1253     \}}
+\DoxyCodeLine{1254 }
+\DoxyCodeLine{1256 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1258 \textcolor{comment}{}}
+\DoxyCodeLine{1262     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa9aaee102538d82916c34baedf0a08c9}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1263     \{}
+\DoxyCodeLine{1264       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indholdsfortegnelse"{}};}
+\DoxyCodeLine{1265     \}}
+\DoxyCodeLine{1266 }
+\DoxyCodeLine{1268 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1270 \textcolor{comment}{}}
+\DoxyCodeLine{1274     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad1086a15d4d98a840d221df9422d7f12}{trDeprecatedList}}()}
+\DoxyCodeLine{1275     \{}
+\DoxyCodeLine{1276       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Liste over fortidslevn, hvis brug frarådes"{}};}
+\DoxyCodeLine{1277     \}}
+\DoxyCodeLine{1278 }
+\DoxyCodeLine{1280 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1282 \textcolor{comment}{}}
+\DoxyCodeLine{1286     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_adc3dc4dd23171bced014aafbd5593081}{trEvents}}()}
+\DoxyCodeLine{1287     \{}
+\DoxyCodeLine{1288       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Begivenheder"{}};}
+\DoxyCodeLine{1289     \}}
+\DoxyCodeLine{1291     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2848147167e0fcc24a293ffa5ba63b34}{trEventDocumentation}}()}
+\DoxyCodeLine{1292     \{}
+\DoxyCodeLine{1293       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Begivenhedsdokumentation"{}};}
+\DoxyCodeLine{1294     \}}
+\DoxyCodeLine{1295 }
+\DoxyCodeLine{1297 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1299 \textcolor{comment}{}}
+\DoxyCodeLine{1300     \textcolor{comment}{/* Java: Entities with package scope... */}}
+\DoxyCodeLine{1301     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a824552c3ba05d9074ad637ac48f6926f}{trPackageTypes}}()}
+\DoxyCodeLine{1302     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typer med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1303     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a417cd155176d403a5b94303efcb50c77}{trPackageFunctions}}()}
+\DoxyCodeLine{1304     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Metoder med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1305     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0fb5728d0c6953d4fcc985cb2de03b37}{trPackageMembers}}()}
+\DoxyCodeLine{1306     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Medlemmer med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1307     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8f50fbc917681f6cb4ffa18bafc23c5c}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1308     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske metoder med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1309     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aea2b801be4a160edd3b027ee3cc8a3bd}{trPackageAttribs}}()}
+\DoxyCodeLine{1310     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Attributter med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1311     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a075bdd56e636834d9ab77f105864c7ff}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1312     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statiske attributter med pakke-\/scope"{}}; \}}
+\DoxyCodeLine{1313 }
+\DoxyCodeLine{1315 \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1317 \textcolor{comment}{}}
+\DoxyCodeLine{1321     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a95603ec5d4da100a4239606c48bd3a30}{trAll}}()}
+\DoxyCodeLine{1322     \{}
+\DoxyCodeLine{1323       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Alle"{}};}
+\DoxyCodeLine{1324     \}}
+\DoxyCodeLine{1325 }
+\DoxyCodeLine{1327     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae932ffa641d9bbf298b28a63c4dd9e58}{trCallGraph}}()}
+\DoxyCodeLine{1328     \{}
+\DoxyCodeLine{1329       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er kald-\/grafen for denne funktion:"{}};}
+\DoxyCodeLine{1330     \}}
+\DoxyCodeLine{1331 }
+\DoxyCodeLine{1333 \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1335 \textcolor{comment}{}}
+\DoxyCodeLine{1339     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a96dcc5dd9e7b1ee7bdcf140b78eee43d}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1340     \{}
+\DoxyCodeLine{1341       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Søgeresultater"{}};}
+\DoxyCodeLine{1342     \}}
+\DoxyCodeLine{1343 }
+\DoxyCodeLine{1352     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a56db4f7240e3db3c645fe66c3f01fba5}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1353     \{}
+\DoxyCodeLine{1354       \textcolor{keywordflow}{if} (numDocuments==0) \{}
+\DoxyCodeLine{1355         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Beklager -\/ ingen dokumenter passede til din forespørgsel."{}};}
+\DoxyCodeLine{1356       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1) \{}
+\DoxyCodeLine{1357         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fandt <b>1</b> dokument, der passer til din forespørgsel."{}};}
+\DoxyCodeLine{1358       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{1359         \textcolor{keywordflow}{return}}
+\DoxyCodeLine{1360       \textcolor{stringliteral}{"{}Fandt <b>\$num</b> dokumenter, der passer til din forespørgsel. "{}}}
+\DoxyCodeLine{1361       \textcolor{stringliteral}{"{}De, der passer bedst, vises først."{}};}
+\DoxyCodeLine{1362       \}}
+\DoxyCodeLine{1363     \}}
+\DoxyCodeLine{1364 }
+\DoxyCodeLine{1368     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a07d7b2ce5706c959b8efbd1fba192472}{trSearchMatches}}()}
+\DoxyCodeLine{1369     \{}
+\DoxyCodeLine{1370       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Fundne ord:"{}}; \textcolor{comment}{//translation?}}
+\DoxyCodeLine{1371     \}}
+\DoxyCodeLine{1372 }
+\DoxyCodeLine{1374 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1376 \textcolor{comment}{}}
+\DoxyCodeLine{1380     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac468aa253ba333d750aef289ab0a58e8}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1381     \{}
+\DoxyCodeLine{1382       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kildefilen "{}} + filename;}
+\DoxyCodeLine{1383     \}}
+\DoxyCodeLine{1384 }
+\DoxyCodeLine{1385 }
+\DoxyCodeLine{1387 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1389 \textcolor{comment}{}}
+\DoxyCodeLine{1393     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a78189c2d18b041d98b808b00052c8c00}{trDirIndex}}()}
+\DoxyCodeLine{1394     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Katalogstruktur"{}}; \}}
+\DoxyCodeLine{1395 }
+\DoxyCodeLine{1399     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a879da65e434991246126ca67ed49fbb2}{trDirDocumentation}}()}
+\DoxyCodeLine{1400     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Katalog-\/dokumentation"{}}; \}}
+\DoxyCodeLine{1401 }
+\DoxyCodeLine{1405     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a58e73287fb67094c6dc1c8824d83217f}{trDirectories}}()}
+\DoxyCodeLine{1406     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kataloger"{}}; \}}
+\DoxyCodeLine{1407 }
+\DoxyCodeLine{1411     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a0763387f9462dc4ba123d72e95b0b6b0}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1412       \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Indhold af kataloget "{}}; result+=dirName; \textcolor{keywordflow}{return} result;\}}
+\DoxyCodeLine{1413 }
+\DoxyCodeLine{1417     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3e5197e99dcf66474981d186f1b07939}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1418     \{}
+\DoxyCodeLine{1419       \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(first\_capital, singular, \textcolor{stringliteral}{"{}katalog"{}}, \textcolor{stringliteral}{"{}er"{}});}
+\DoxyCodeLine{1420     \}}
+\DoxyCodeLine{1421 }
+\DoxyCodeLine{1423 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1425 \textcolor{comment}{}}
+\DoxyCodeLine{1429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a610a64a8aaec8ff73acaf6c42c98433b}{trOverloadText}}()}
+\DoxyCodeLine{1430     \{}
+\DoxyCodeLine{1431        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dette er en overdefineret medlemsfunktion, "{}}}
+\DoxyCodeLine{1432               \textcolor{stringliteral}{"{}defineret af bekvemmelighedshensyn. "{}}}
+\DoxyCodeLine{1433           \textcolor{stringliteral}{"{}Den adskiller sig kun fra den ovenstående funktion i, "{}}}
+\DoxyCodeLine{1434           \textcolor{stringliteral}{"{}hvilke argumenter den tager."{}};}
+\DoxyCodeLine{1435     \}}
+\DoxyCodeLine{1436 }
+\DoxyCodeLine{1438 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1440 \textcolor{comment}{}}
+\DoxyCodeLine{1442     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a8e70ce804e5afc7eac9391edd2668f1f}{trCallerGraph}}()}
+\DoxyCodeLine{1443     \{}
+\DoxyCodeLine{1444       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er kalder-\/grafen for denne funktion:"{}};}
+\DoxyCodeLine{1445     \}}
+\DoxyCodeLine{1446 }
+\DoxyCodeLine{1447     \textcolor{comment}{// None translated yet PEH 2010-\/11-\/27}}
+\DoxyCodeLine{1448     \textcolor{comment}{// Subroutine}}
+\DoxyCodeLine{1449 }
+\DoxyCodeLine{1451     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad261e64c39e5ba47c0100db4b88bb88a}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1452     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Medlem Funktion/Subroutine Dokumentation"{}}; \}  \textcolor{comment}{// "{}Member Function/Subroutine Documentation"{}}}
+\DoxyCodeLine{1453 }
+\DoxyCodeLine{1457     \textcolor{comment}{/*}}
+\DoxyCodeLine{1458 \textcolor{comment}{    virtual QCString trEnumerationValueDocumentation()}}
+\DoxyCodeLine{1459 \textcolor{comment}{      \{ return "{}Enumerator-\/dokumentation"{}; \} //TODO?}}
+\DoxyCodeLine{1460 \textcolor{comment}{*/}}
+\DoxyCodeLine{1461 }
+\DoxyCodeLine{1462 }
+\DoxyCodeLine{1464 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1466 \textcolor{comment}{}}
+\DoxyCodeLine{1468     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a447b042d5c8092fe9458fbba01eda814}{trCompoundListFortran}}()}
+\DoxyCodeLine{1469     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data Type Liste"{}}; \}       \textcolor{comment}{// "{}Data Types List"{}}}
+\DoxyCodeLine{1470 }
+\DoxyCodeLine{1472     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_add31f1de5778df55b717465844a6dea1}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1473     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Data felter"{}}; \}   \textcolor{comment}{// "{}Data Fields"{}}}
+\DoxyCodeLine{1474 }
+\DoxyCodeLine{1476     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3f278f32e828bde2cce5380bbe560f66}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1477     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Her er de datatyper med kort beskrivelse:"{}}; \}  \textcolor{comment}{// "{}Here are the data types with brief descriptions:"{}}}
+\DoxyCodeLine{1478 }
+\DoxyCodeLine{1480     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac672f73b85740797aabac6b958c83a53}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1481     \{}
+\DoxyCodeLine{1482       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste af alle "{}}; \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1483       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1484       \{}
+\DoxyCodeLine{1485         result+=\textcolor{stringliteral}{"{}dokumenteret "{}};  \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1486       \}}
+\DoxyCodeLine{1487       result+=\textcolor{stringliteral}{"{}datatype medlemmer"{}}; \textcolor{comment}{//  "{}data types members"{}}}
+\DoxyCodeLine{1488       result+=\textcolor{stringliteral}{"{} med links til "{}};    \textcolor{comment}{// "{} with links to "{}}}
+\DoxyCodeLine{1489       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1490       \{}
+\DoxyCodeLine{1491          result+=\textcolor{stringliteral}{"{}data strukturer dokumenteret for hver medlem"{}};    \textcolor{comment}{// "{}the data structure documentation for each member"{}}}
+\DoxyCodeLine{1492       \}}
+\DoxyCodeLine{1493       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1494       \{}
+\DoxyCodeLine{1495          result+=\textcolor{stringliteral}{"{}de datatyper som de tilhører:"{}};  \textcolor{comment}{// "{}the data types they belong to:"{}}}
+\DoxyCodeLine{1496       \}}
+\DoxyCodeLine{1497       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1498     \}}
+\DoxyCodeLine{1499 }
+\DoxyCodeLine{1503     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a485989c469752296a1aa78db10db3603}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1504     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datatype indeks"{}}; \}   \textcolor{comment}{// "{}Data Type Index"{}}}
+\DoxyCodeLine{1505 }
+\DoxyCodeLine{1509     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa34f4dd28e9913527eb3c9f19faadd7e}{trTypeDocumentation}}()}
+\DoxyCodeLine{1510     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datatype dokumentation"{}}; \}   \textcolor{comment}{// "{}Data Type Documentation"{}}}
+\DoxyCodeLine{1511 }
+\DoxyCodeLine{1515     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a351a750f1abe7133a5a674e46ac9dc45}{trSubprograms}}()}
+\DoxyCodeLine{1516     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktioner/Subroutiner"{}}; \} \textcolor{comment}{// "{}Functions/Subroutines"{}}}
+\DoxyCodeLine{1517 }
+\DoxyCodeLine{1521     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ab47e9988928a8e3900226c7abf06e0a8}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1522     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funktion/Subroutine dokumentation"{}}; \} \textcolor{comment}{// "{}Function/Subroutine Documentation"{}}}
+\DoxyCodeLine{1523 }
+\DoxyCodeLine{1527      \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ae1798ff67ba1e0fbdbba1efe26fcecfa}{trDataTypes}}()}
+\DoxyCodeLine{1528     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datatyper"{}}; \}    \textcolor{comment}{// "{}Data Types"{}}}
+\DoxyCodeLine{1529 }
+\DoxyCodeLine{1531     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa432303edf5024bd895f14e11d2a64eb}{trModulesList}}()}
+\DoxyCodeLine{1532     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulliste"{}}; \}  \textcolor{comment}{// "{}Modules List"{}}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1535     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a40b5a6104ed57a5f5495732972d9b863}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1536     \{}
+\DoxyCodeLine{1537       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en liste over alle "{}};     \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1538       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumenteret "{}};       \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1539       result+=\textcolor{stringliteral}{"{}moduler med kort beskrivelse:"{}};   \textcolor{comment}{// "{}modules with brief descriptions:"{}}}
+\DoxyCodeLine{1540       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1541     \}}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a05af5443b0b951748f72dbc5f3c37e1e}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1545                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1546                                     \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1547     \{}
+\DoxyCodeLine{1548       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1549       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1550       \{}
+\DoxyCodeLine{1551         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Modul"{}}; \textcolor{keywordflow}{break};     \textcolor{comment}{// "{} Module"{}}}
+\DoxyCodeLine{1552         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Type"{}}; \textcolor{keywordflow}{break};      \textcolor{comment}{// "{} Type"{}}}
+\DoxyCodeLine{1553         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Union"{}}; \textcolor{keywordflow}{break};     \textcolor{comment}{// "{} Union"{}}}
+\DoxyCodeLine{1554         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Grænseflade"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Interface"{}}}
+\DoxyCodeLine{1555         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protocol"{}}; \textcolor{keywordflow}{break};      \textcolor{comment}{// "{} Protocol"{}}}
+\DoxyCodeLine{1556         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Kategori"{}}; \textcolor{keywordflow}{break};      \textcolor{comment}{// "{} Category"{}}}
+\DoxyCodeLine{1557         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Undtagelse"{}}; \textcolor{keywordflow}{break}; \textcolor{comment}{// "{} Exception"{}}}
+\DoxyCodeLine{1558         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1559       \}}
+\DoxyCodeLine{1560       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Template"{}};}
+\DoxyCodeLine{1561       result+=\textcolor{stringliteral}{"{} Reference"{}};}
+\DoxyCodeLine{1562       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1563     \}}
+\DoxyCodeLine{1564 }
+\DoxyCodeLine{1566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa9a1c1b068cd4fb9ec14fe5312ca4ff4}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1567     \{}
+\DoxyCodeLine{1568       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1569       result+=\textcolor{stringliteral}{"{} Modulreference"{}};  \textcolor{comment}{// "{} Module Reference"{}}}
+\DoxyCodeLine{1570       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1571     \}}
+\DoxyCodeLine{1572 }
+\DoxyCodeLine{1574     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9a2de5b46f1ec6faed8208e7c15c1670}{trModulesMembers}}()}
+\DoxyCodeLine{1575     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulmedlemmer"{}}; \}    \textcolor{comment}{// "{}Module Members"{}}}
+\DoxyCodeLine{1576 }
+\DoxyCodeLine{1578     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aa26e0b1eca8077c9c59712c5f09887fb}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1579     \{}
+\DoxyCodeLine{1580       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Her er en list over alle "{}};     \textcolor{comment}{// "{}Here is a list of all "{}}}
+\DoxyCodeLine{1581       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}Dokumentet "{}};       \textcolor{comment}{// "{}documented "{}}}
+\DoxyCodeLine{1582       result+=\textcolor{stringliteral}{"{}modulmemlemmer med link til "{}};      \textcolor{comment}{// "{}module members with links to "{}}}
+\DoxyCodeLine{1583       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1584       \{}
+\DoxyCodeLine{1585         result+=\textcolor{stringliteral}{"{}dokumentation for hvert model medlem:"{}};    \textcolor{comment}{// "{}the module documentation for each member:"{}}}
+\DoxyCodeLine{1586       \}}
+\DoxyCodeLine{1587       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1588       \{}
+\DoxyCodeLine{1589         result+=\textcolor{stringliteral}{"{}moduler de tilhøre:"{}};  \textcolor{comment}{// "{}the modules they belong to:"{}}}
+\DoxyCodeLine{1590       \}}
+\DoxyCodeLine{1591       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1592     \}}
+\DoxyCodeLine{1593 }
+\DoxyCodeLine{1597     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a60f4695411b83cb469b4ea92f69f136d}{trModulesIndex}}()}
+\DoxyCodeLine{1598     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Modulindekser"{}}; \}     \textcolor{comment}{// "{}Modules Index"{}}}
+\DoxyCodeLine{1599 }
+\DoxyCodeLine{1604     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad668d61e95181ea0750d1e5359ce134f}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1605     \{}
+\DoxyCodeLine{1606       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));   \textcolor{comment}{// "{}Module"{} : "{}module"{}));}}
+\DoxyCodeLine{1607       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}er"{}};  \textcolor{comment}{// "{}s"{};}}
+\DoxyCodeLine{1608       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1609     \}}
+\DoxyCodeLine{1610 }
+\DoxyCodeLine{1614     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a9112914f46dc2688ba460797d08c9793}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1615         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1616     \{}
+\DoxyCodeLine{1617       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1618       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}The documentation for this "{}};}
+\DoxyCodeLine{1619       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1620       \{}
+\DoxyCodeLine{1621         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}modul"{}}; \textcolor{keywordflow}{break};        \textcolor{comment}{// "{}module"{}}}
+\DoxyCodeLine{1622         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}type"{}}; \textcolor{keywordflow}{break};         \textcolor{comment}{// "{}type"{}}}
+\DoxyCodeLine{1623         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}union"{}}; \textcolor{keywordflow}{break};        \textcolor{comment}{// "{}union"{}}}
+\DoxyCodeLine{1624         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}grænseflade"{}}; \textcolor{keywordflow}{break};  \textcolor{comment}{// "{}interface"{}}}
+\DoxyCodeLine{1625         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokol"{}}; \textcolor{keywordflow}{break};     \textcolor{comment}{// "{}protocol"{}}}
+\DoxyCodeLine{1626         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategori"{}}; \textcolor{keywordflow}{break};     \textcolor{comment}{// "{}category"{}}}
+\DoxyCodeLine{1627         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}undtagelse"{}}; \textcolor{keywordflow}{break};   \textcolor{comment}{// "{}exception"{}}}
+\DoxyCodeLine{1628         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1629       \}}
+\DoxyCodeLine{1630       result+=\textcolor{stringliteral}{"{} var lavet udfra følgende file"{}};                   \textcolor{comment}{// "{} was generated from the following file"{}}}
+\DoxyCodeLine{1631       \textcolor{keywordflow}{if} (single) result+=\textcolor{stringliteral}{"{}:"{}}; \textcolor{keywordflow}{else} result+=\textcolor{stringliteral}{"{}r:"{}};                 \textcolor{comment}{// "{}:"{} / "{}s:"{}}}
+\DoxyCodeLine{1632       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1633     \}}
+\DoxyCodeLine{1634 }
+\DoxyCodeLine{1639     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ad824f35152e985879e8c48603393687b}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1640     \{}
+\DoxyCodeLine{1641       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Type"{}} : \textcolor{stringliteral}{"{}type"{}}));   \textcolor{comment}{// "{}Type"{} : "{}type"{}}}
+\DoxyCodeLine{1642       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}r"{}};                          \textcolor{comment}{// "{}s"{}}}
+\DoxyCodeLine{1643       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1644     \}}
+\DoxyCodeLine{1645 }
+\DoxyCodeLine{1650     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a2506998cfc0654bed4d5575106697dd9}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1651     \{}
+\DoxyCodeLine{1652       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Subprogram"{}} : \textcolor{stringliteral}{"{}subprogram"{}}));   \textcolor{comment}{// "{}Subprogram"{} : "{}subprogram"{}}}
+\DoxyCodeLine{1653       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}er"{}};                                     \textcolor{comment}{// "{}s"{}}}
+\DoxyCodeLine{1654       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1655     \}}
+\DoxyCodeLine{1656 }
+\DoxyCodeLine{1658     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a170dceaf0c66de4a6057aef089fe8102}{trTypeConstraints}}()}
+\DoxyCodeLine{1659     \{}
+\DoxyCodeLine{1660       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}typebegrænsninger"{}};        \textcolor{comment}{// "{}Type Constraints"{}}}
+\DoxyCodeLine{1661     \}}
+\DoxyCodeLine{1662 }
+\DoxyCodeLine{1664 \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1666 \textcolor{comment}{}}
+\DoxyCodeLine{1668     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a55ff9052f3594f19eb69ee21103012f9}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1669     \{}
+\DoxyCodeLine{1670       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(name)+\textcolor{stringliteral}{"{} Relation"{}};        \textcolor{comment}{// "{} Relation"{}}}
+\DoxyCodeLine{1671     \}}
+\DoxyCodeLine{1672 }
+\DoxyCodeLine{1674     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a4146afb518e742269190704e3c8fc6ae}{trLoading}}()}
+\DoxyCodeLine{1675     \{}
+\DoxyCodeLine{1676       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indlæser..."{}};          \textcolor{comment}{// "{}Loading..."{}}}
+\DoxyCodeLine{1677     \}}
+\DoxyCodeLine{1678 }
+\DoxyCodeLine{1680     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac29a78886ffbbe26155c998d6a15b82b}{trGlobalNamespace}}()}
+\DoxyCodeLine{1681     \{}
+\DoxyCodeLine{1682       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globalt Namespace"{}};    \textcolor{comment}{// "{}Global Namespace"{}}}
+\DoxyCodeLine{1683     \}}
+\DoxyCodeLine{1684 }
+\DoxyCodeLine{1686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_aab046ce1b4220094347ced6badfadb3b}{trSearching}}()}
+\DoxyCodeLine{1687     \{}
+\DoxyCodeLine{1688       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Søger..."{}};    \textcolor{comment}{// "{}Searching..."{}}}
+\DoxyCodeLine{1689     \}}
+\DoxyCodeLine{1690 }
+\DoxyCodeLine{1692     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a94da6629b40041ddec9f763aef31ba44}{trNoMatches}}()}
+\DoxyCodeLine{1693     \{}
+\DoxyCodeLine{1694       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ingen fund"{}};      \textcolor{comment}{// "{}No Matches"{}}}
+\DoxyCodeLine{1695     \}}
+\DoxyCodeLine{1696 }
+\DoxyCodeLine{1698 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1700 \textcolor{comment}{}}
+\DoxyCodeLine{1705     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a38a7adbfbc241669d2afa8279df856bc}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1706     \{}
+\DoxyCodeLine{1707       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}File i "{}}+name;     \textcolor{comment}{// "{}File in "{}}}
+\DoxyCodeLine{1708     \}}
+\DoxyCodeLine{1709 }
+\DoxyCodeLine{1714     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a3398190ebb1db99e6d8a40fee33e82df}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1715     \{}
+\DoxyCodeLine{1716       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Inkluderer file i "{}}+name;    \textcolor{comment}{// "{}Includes file in "{}}}
+\DoxyCodeLine{1717     \}}
+\DoxyCodeLine{1718 }
+\DoxyCodeLine{1729     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a6b1b8f959c432ab7959b2509d0195c1f}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1730                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1731                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1732     \{}
+\DoxyCodeLine{1733       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Man"{}},\textcolor{stringliteral}{"{}Tir"{}},\textcolor{stringliteral}{"{}Ons"{}},\textcolor{stringliteral}{"{}Tor"{}},\textcolor{stringliteral}{"{}Fre"{}},\textcolor{stringliteral}{"{}Lør"{}},\textcolor{stringliteral}{"{}Søn"{}} \}; \textcolor{comment}{// \{ "{}Mon"{},"{}Tue"{},"{}Wed"{},"{}Thu"{},"{}Fri"{},"{}Sat"{},"{}Sun"{} \};}}
+\DoxyCodeLine{1734       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Jan"{}},\textcolor{stringliteral}{"{}Feb"{}},\textcolor{stringliteral}{"{}Mar"{}},\textcolor{stringliteral}{"{}Apr"{}},\textcolor{stringliteral}{"{}Maj"{}},\textcolor{stringliteral}{"{}Jun"{}},\textcolor{stringliteral}{"{}Jul"{}},\textcolor{stringliteral}{"{}Aug"{}},\textcolor{stringliteral}{"{}Sep"{}},\textcolor{stringliteral}{"{}Okt"{}},\textcolor{stringliteral}{"{}Nov"{}},\textcolor{stringliteral}{"{}Dec"{}} \};    \textcolor{comment}{//  \{ "{}Jan"{},"{}Feb"{},"{}Mar"{},"{}Apr"{},"{}May"{},"{}Jun"{},"{}Jul"{},"{}Aug"{},"{}Sep"{},"{}Oct"{},"{}Nov"{},"{}Dec"{} \};}}
+\DoxyCodeLine{1735       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1736       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1737       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1738       \{}
+\DoxyCodeLine{1739         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1740         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1741         sdate+=stime;}
+\DoxyCodeLine{1742       \}}
+\DoxyCodeLine{1743       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1744     \}}
+\DoxyCodeLine{1745 }
+\DoxyCodeLine{1747 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1749 \textcolor{comment}{}}
+\DoxyCodeLine{1750     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a5dfbb408f0d3aea6af3b16dbc16974a3}{trCiteReferences}}()}
+\DoxyCodeLine{1751     \{}
+\DoxyCodeLine{1752       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bibliografiske referencer"{}};}
+\DoxyCodeLine{1753     \}}
+\DoxyCodeLine{1754 }
+\DoxyCodeLine{1755     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac6e19d1f52eebb5f38cf72ef9fff123c}{trCopyright}}()}
+\DoxyCodeLine{1756     \{}
+\DoxyCodeLine{1757       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}};}
+\DoxyCodeLine{1758     \}}
+\DoxyCodeLine{1759 }
+\DoxyCodeLine{1760     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_a25b9f5f9dd602b9730f0fb4759d91bf8}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1761     \{}
+\DoxyCodeLine{1762       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Afhængighedsgraf for katalog "{}})+name+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{1763     \}}
+\DoxyCodeLine{1764 }
+\DoxyCodeLine{1765 }
+\DoxyCodeLine{1766 }
+\DoxyCodeLine{1767 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ For internal use: -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1768   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{1772     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorDanish_ac3ca30b3b28709fda517d2970d12cf18}{createNoun}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular,}
+\DoxyCodeLine{1773             \textcolor{keyword}{const} \textcolor{keywordtype}{char}* base, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* plurSuffix)}
+\DoxyCodeLine{1774     \{}
+\DoxyCodeLine{1775       \mbox{\hyperlink{classQCString}{QCString}} result(base);}
+\DoxyCodeLine{1776       \textcolor{keywordflow}{if} (first\_capital) result[0] = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\mbox{\hyperlink{namespacecaseconvert_acc04182275d1fa45e3b0e0c8413371e7}{toupper}}(result[0]));}
+\DoxyCodeLine{1777       \textcolor{keywordflow}{if} (!singular)  result+=plurSuffix;}
+\DoxyCodeLine{1778       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1779     \}}
+\DoxyCodeLine{1780 \};}
+\DoxyCodeLine{1781 }
+\DoxyCodeLine{1782 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,148 @@
+\hypertarget{doxygen_8h_source}{}\doxysection{doxygen.\+h}
+\label{doxygen_8h_source}\index{/mnt/c/projects/doxygen/src/doxygen.h@{/mnt/c/projects/doxygen/src/doxygen.h}}
+\mbox{\hyperlink{doxygen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOXYGEN\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOXYGEN\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{containers_8h}{containers.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{membergroup_8h}{membergroup.h}}"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dirdef_8h}{dirdef.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memberlist_8h}{memberlist.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{define_8h}{define.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cache_8h}{cache.h}}"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{symbolmap_8h}{symbolmap.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define THREAD\_LOCAL thread\_local}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define AtomicInt    std::atomic\_int}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define AtomicBool   std::atomic\_bool}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{classRefList}{RefList}};}
+\DoxyCodeLine{32 \textcolor{keyword}{class }\mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}};}
+\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classPageDef}{PageDef}};}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classSearchIndexIntf}{SearchIndexIntf}};}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classParserManager}{ParserManager}};}
+\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classBufStr}{BufStr}};}
+\DoxyCodeLine{37 \textcolor{keyword}{class }CiteDict;}
+\DoxyCodeLine{38 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberDef}{MemberDef}};}
+\DoxyCodeLine{39 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupDef}{GroupDef}};}
+\DoxyCodeLine{40 \textcolor{keyword}{class }\mbox{\hyperlink{classGroupLinkedMap}{GroupLinkedMap}};}
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{classFileDef}{FileDef}};}
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classClassDef}{ClassDef}};}
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}};}
+\DoxyCodeLine{44 \textcolor{keyword}{class }\mbox{\hyperlink{classConceptLinkedMap}{ConceptLinkedMap}};}
+\DoxyCodeLine{45 \textcolor{keyword}{class }\mbox{\hyperlink{classMemberNameLinkedMap}{MemberNameLinkedMap}};}
+\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}};}
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceLinkedMap}{NamespaceLinkedMap}};}
+\DoxyCodeLine{48 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceDef}{NamespaceDef}};}
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classDirRelationLinkedMap}{DirRelationLinkedMap}};}
+\DoxyCodeLine{50 \textcolor{keyword}{class }\mbox{\hyperlink{classIndexList}{IndexList}};}
+\DoxyCodeLine{51 \textcolor{keyword}{class }FormulaList;}
+\DoxyCodeLine{52 \textcolor{keyword}{class }FormulaDict;}
+\DoxyCodeLine{53 \textcolor{keyword}{class }FormulaNameDict;}
+\DoxyCodeLine{54 \textcolor{keyword}{class }\mbox{\hyperlink{classPreprocessor}{Preprocessor}};}
+\DoxyCodeLine{55 \textcolor{keyword}{struct }\mbox{\hyperlink{structMemberGroupInfo}{MemberGroupInfo}};}
+\DoxyCodeLine{56 \textcolor{keyword}{class }\mbox{\hyperlink{classNamespaceDefMutable}{NamespaceDefMutable}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{struct }\mbox{\hyperlink{structLookupInfo}{LookupInfo}}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60   \mbox{\hyperlink{structLookupInfo_aed425b34d67d2534d2751e81ce6ab410}{LookupInfo}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{61   \mbox{\hyperlink{structLookupInfo_aa4667c5093dbc45532b355cceb10e8f4}{LookupInfo}}(\textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}} *cd,\textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *td,\mbox{\hyperlink{classQCString}{QCString}} ts,\mbox{\hyperlink{classQCString}{QCString}} rt)}
+\DoxyCodeLine{62     : \mbox{\hyperlink{structLookupInfo_a1d1ba3d847121ee10716bda07db3cee2}{classDef}}(cd), \mbox{\hyperlink{structLookupInfo_abae8ff1217132e626eeb3380cc700053}{typeDef}}(td), \mbox{\hyperlink{structLookupInfo_ab6109313beafe89f7d42431f8da344fb}{templSpec}}(ts),\mbox{\hyperlink{structLookupInfo_a55af5dfe2282dcc19615ac1e0ace76ff}{resolvedType}}(rt) \{\}}
+\DoxyCodeLine{63   \textcolor{keyword}{const} \mbox{\hyperlink{classClassDef}{ClassDef}}  *\mbox{\hyperlink{structLookupInfo_a1d1ba3d847121ee10716bda07db3cee2}{classDef}} = 0;}
+\DoxyCodeLine{64   \textcolor{keyword}{const} \mbox{\hyperlink{classMemberDef}{MemberDef}} *\mbox{\hyperlink{structLookupInfo_abae8ff1217132e626eeb3380cc700053}{typeDef}} = 0;}
+\DoxyCodeLine{65   \mbox{\hyperlink{classQCString}{QCString}}   \mbox{\hyperlink{structLookupInfo_ab6109313beafe89f7d42431f8da344fb}{templSpec}};}
+\DoxyCodeLine{66   \mbox{\hyperlink{classQCString}{QCString}}   \mbox{\hyperlink{structLookupInfo_a55af5dfe2282dcc19615ac1e0ace76ff}{resolvedType}};}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{using} \mbox{\hyperlink{doxygen_8h_a868ddbc1b921f1e5662b4bda25550ec0}{ClangUsrMap}} = std::unordered\_map<std::string,const Definition *>;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{classDoxygen}{Doxygen}}}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77   \textcolor{keyword}{public}:}
+\DoxyCodeLine{78     \textcolor{keyword}{static} \mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}}           *\mbox{\hyperlink{classDoxygen_a5f4b7acdd27a42865b4832e4e7ffe82c}{classLinkedMap}};}
+\DoxyCodeLine{79     \textcolor{keyword}{static} \mbox{\hyperlink{classClassLinkedMap}{ClassLinkedMap}}           *\mbox{\hyperlink{classDoxygen_aa0f09f8179e2e4b6da595beaa37e17dd}{hiddenClassLinkedMap}};}
+\DoxyCodeLine{80     \textcolor{keyword}{static} \mbox{\hyperlink{classConceptLinkedMap}{ConceptLinkedMap}}         *\mbox{\hyperlink{classDoxygen_a0de9b52b3098ea1a4bee5e248e8287c8}{conceptLinkedMap}};}
+\DoxyCodeLine{81     \textcolor{keyword}{static} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}}            *\mbox{\hyperlink{classDoxygen_a6cfac206c42a62e6e3ba66d5d4e4a471}{exampleLinkedMap}};}
+\DoxyCodeLine{82     \textcolor{keyword}{static} \mbox{\hyperlink{classPageLinkedMap}{PageLinkedMap}}            *\mbox{\hyperlink{classDoxygen_abd2756663a014ee48e1660d32a48cac5}{pageLinkedMap}};}
+\DoxyCodeLine{83     \textcolor{keyword}{static} std::unique\_ptr<PageDef>  \mbox{\hyperlink{classDoxygen_a2cc3616eca3e3c550a211d8b1eaf4661}{mainPage}};}
+\DoxyCodeLine{84     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}                      \mbox{\hyperlink{classDoxygen_a419b27a523ea0261e58103f998c68a12}{insideMainPage}};}
+\DoxyCodeLine{85     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_adf89ce3e8f07b60c5344d0b24f6fe28d}{includeNameLinkedMap}};}
+\DoxyCodeLine{86     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_ae1bf779155bea73ec696cba27e640e66}{exampleNameLinkedMap}};}
+\DoxyCodeLine{87     \textcolor{keyword}{static} \mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{StringSet}}                 \mbox{\hyperlink{classDoxygen_ad68ff89dc43bc20044466f747b85548b}{inputPaths}};}
+\DoxyCodeLine{88     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_a31a5a5856417ba3f05eccaf1f85e9958}{inputNameLinkedMap}};}
+\DoxyCodeLine{89     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_a7062fae1e1507b5c093fe5b71a866371}{imageNameLinkedMap}};}
+\DoxyCodeLine{90     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_a6f249e6dd71a6676bc83208245fd141e}{dotFileNameLinkedMap}};}
+\DoxyCodeLine{91     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_a7803b98b056d6e21a7466729671af103}{mscFileNameLinkedMap}};}
+\DoxyCodeLine{92     \textcolor{keyword}{static} \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}}        *\mbox{\hyperlink{classDoxygen_aa57c01a474ac221e7ad9222ecd0aa68f}{diaFileNameLinkedMap}};}
+\DoxyCodeLine{93     \textcolor{keyword}{static} \mbox{\hyperlink{classMemberNameLinkedMap}{MemberNameLinkedMap}}      *\mbox{\hyperlink{classDoxygen_adc3a52f780a8b6a6f0653e357b09af6b}{memberNameLinkedMap}};}
+\DoxyCodeLine{94     \textcolor{keyword}{static} \mbox{\hyperlink{classMemberNameLinkedMap}{MemberNameLinkedMap}}      *\mbox{\hyperlink{classDoxygen_a6c68c48d8e3dac65c86b39ab838a5f9e}{functionNameLinkedMap}};}
+\DoxyCodeLine{95     \textcolor{keyword}{static} \mbox{\hyperlink{containers_8h_ae9221c0a3b5a2b23e4d7d2cbb8e0d66e}{StringUnorderedMap}}        \mbox{\hyperlink{classDoxygen_af38512474f6a7cc0e1e4dcb6f38bda86}{namespaceAliasMap}};}
+\DoxyCodeLine{96     \textcolor{keyword}{static} \mbox{\hyperlink{classGroupLinkedMap}{GroupLinkedMap}}           *\mbox{\hyperlink{classDoxygen_afd89d49084b42d085e9d40fc2636da9c}{groupLinkedMap}};}
+\DoxyCodeLine{97     \textcolor{keyword}{static} \mbox{\hyperlink{classNamespaceLinkedMap}{NamespaceLinkedMap}}       *\mbox{\hyperlink{classDoxygen_a033b4829afda05c5eef5cd54749b19bf}{namespaceLinkedMap}};}
+\DoxyCodeLine{98     \textcolor{keyword}{static} \mbox{\hyperlink{containers_8h_a873c44d3c59f807466bccf9641063c6f}{StringMap}}                 \mbox{\hyperlink{classDoxygen_a98db8877fab38d89788a95a01f95ce3d}{tagDestinationMap}};}
+\DoxyCodeLine{99     \textcolor{keyword}{static} \mbox{\hyperlink{containers_8h_a873c44d3c59f807466bccf9641063c6f}{StringMap}}                 \mbox{\hyperlink{classDoxygen_a30d9861c06732776f510b0fe36f46c49}{aliasMap}};}
+\DoxyCodeLine{100     \textcolor{keyword}{static} \mbox{\hyperlink{membergroup_8h_a6e45b7986d21b8425baf0e1d59e2443b}{MemberGroupInfoMap}}        \mbox{\hyperlink{classDoxygen_a866fad781ec64b6a1acc904f31756124}{memberGroupInfoMap}};}
+\DoxyCodeLine{101     \textcolor{keyword}{static} \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{StringUnorderedSet}}        \mbox{\hyperlink{classDoxygen_a2f51dd7f38c65ae685a20618265d5d97}{expandAsDefinedSet}};}
+\DoxyCodeLine{102     \textcolor{keyword}{static} \mbox{\hyperlink{classNamespaceDefMutable}{NamespaceDefMutable}}      *\mbox{\hyperlink{classDoxygen_a70414f815dfe6f9b6605380312f0dbc2}{globalScope}};}
+\DoxyCodeLine{103     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}                  \mbox{\hyperlink{classDoxygen_aa98afe79970170f82848bc45b0f076ec}{htmlFileExtension}};}
+\DoxyCodeLine{104     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}                      \mbox{\hyperlink{classDoxygen_a19687ee2473747b1c587aa6c033daa6c}{parseSourcesNeeded}};}
+\DoxyCodeLine{105     \textcolor{keyword}{static} \mbox{\hyperlink{classSearchIndexIntf}{SearchIndexIntf}}          *\mbox{\hyperlink{classDoxygen_a806fe73b71f926356bf12291778769b6}{searchIndex}};}
+\DoxyCodeLine{106     \textcolor{keyword}{static} \mbox{\hyperlink{classSymbolMap}{SymbolMap<Definition>}}    *\mbox{\hyperlink{classDoxygen_adcf907e4baf6aafe25d9a812c2f58e14}{symbolMap}};}
+\DoxyCodeLine{107     \textcolor{keyword}{static} \mbox{\hyperlink{doxygen_8h_a868ddbc1b921f1e5662b4bda25550ec0}{ClangUsrMap}}              *\mbox{\hyperlink{classDoxygen_aec084fa8f7420ce3fcba490a3e1dace7}{clangUsrMap}};}
+\DoxyCodeLine{108     \textcolor{keyword}{static} \mbox{\hyperlink{classCache}{Cache<std::string,LookupInfo>}} *\mbox{\hyperlink{classDoxygen_ab37d3f524e2a19568e0ee45d9dc041ee}{lookupCache}};}
+\DoxyCodeLine{109     \textcolor{keyword}{static} \mbox{\hyperlink{classDirLinkedMap}{DirLinkedMap}}             *\mbox{\hyperlink{classDoxygen_ad179803c33ab064adfd6adf681a0a805}{dirLinkedMap}};}
+\DoxyCodeLine{110     \textcolor{keyword}{static} \mbox{\hyperlink{classDirRelationLinkedMap}{DirRelationLinkedMap}}      \mbox{\hyperlink{classDoxygen_aeb009dfd4eca1e806843a68765b975db}{dirRelations}};}
+\DoxyCodeLine{111     \textcolor{keyword}{static} \mbox{\hyperlink{classParserManager}{ParserManager}}            *\mbox{\hyperlink{classDoxygen_a3882f6ce51621c77d409060e46cae378}{parserManager}};}
+\DoxyCodeLine{112     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}                      \mbox{\hyperlink{classDoxygen_a0f0f967e0b97a2292ba58f22b8a1e817}{suppressDocWarnings}};}
+\DoxyCodeLine{113     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}                  \mbox{\hyperlink{classDoxygen_ab044e0b3e178d1ba542e38a9c206d57a}{filterDBFileName}};}
+\DoxyCodeLine{114     \textcolor{keyword}{static} \mbox{\hyperlink{classIndexList}{IndexList}}                *\mbox{\hyperlink{classDoxygen_a91aa9805ef52783816d9da5e457b8cfb}{indexList}};}
+\DoxyCodeLine{115     \textcolor{keyword}{static} \textcolor{keywordtype}{int}                       \mbox{\hyperlink{classDoxygen_a6a2eb84be879cca04e934c86d7b0cd94}{subpageNestingLevel}};}
+\DoxyCodeLine{116     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}                  \mbox{\hyperlink{classDoxygen_a89b66309f30c63ea1a7b5d5d17bf12bf}{spaces}};}
+\DoxyCodeLine{117     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}                      \mbox{\hyperlink{classDoxygen_ac07e39c40aff392de965adff59f779ff}{generatingXmlOutput}};}
+\DoxyCodeLine{118     \textcolor{keyword}{static} \mbox{\hyperlink{define_8h_a03cb5e6dd6299e96b69f71141d2d47d3}{DefinesPerFileList}}        \mbox{\hyperlink{classDoxygen_ac6caf5a4de22f8ae50c8abb089aa6f19}{macroDefinitions}};}
+\DoxyCodeLine{119     \textcolor{keyword}{static} \textcolor{keywordtype}{bool}                      \mbox{\hyperlink{classDoxygen_a2f0b4861ce24f35bde91d6cbd44ef168}{clangAssistedParsing}};}
+\DoxyCodeLine{120     \textcolor{keyword}{static} \mbox{\hyperlink{classQCString}{QCString}}                  \mbox{\hyperlink{classDoxygen_a7c5087d2281180ed406f3415c5978c97}{verifiedDotPath}};}
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a122070be7aebc9e3ab560b58fdd922c9}{initDoxygen}}();}
+\DoxyCodeLine{124 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_ab0fa1b0c948e78e0d0d749ff1f5740b5}{readConfiguration}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv);}
+\DoxyCodeLine{125 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a2426bb829c785229969c3052f3e37fb1}{checkConfiguration}}();}
+\DoxyCodeLine{126 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a10458b8a16238a4eae5fb5019df747e8}{adjustConfiguration}}();}
+\DoxyCodeLine{127 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a59d66805ece9da6ffd55fa4cc8252ef1}{parseInput}}();}
+\DoxyCodeLine{128 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a3efb8cd50f4362e3d58e72febfb872fa}{generateOutput}}();}
+\DoxyCodeLine{129 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_af229513c065c90147eff5559f0844c00}{readAliases}}();}
+\DoxyCodeLine{130 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a8592436620f81c20ce6dbaf343b1323c}{readFormulaRepository}}(\mbox{\hyperlink{classQCString}{QCString}} dir, \textcolor{keywordtype}{bool} cmp = \mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}});}
+\DoxyCodeLine{131 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_ae12e94f5218f3afc8df4086a2121cd4d}{cleanUpDoxygen}}();}
+\DoxyCodeLine{132 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_a166bb1605aa340a599e6f1949cbb8555}{readFileOrDirectory}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}},}
+\DoxyCodeLine{133                         \mbox{\hyperlink{classFileNameLinkedMap}{FileNameLinkedMap}} *fnDict,}
+\DoxyCodeLine{134                         \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{StringUnorderedSet}} *exclSet,}
+\DoxyCodeLine{135                         \textcolor{keyword}{const} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} *patList,}
+\DoxyCodeLine{136                         \textcolor{keyword}{const} \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} *exclPatList,}
+\DoxyCodeLine{137                         \mbox{\hyperlink{containers_8h_ac8d53003529fb2d062d614077fe6857c}{StringVector}} *resultList,}
+\DoxyCodeLine{138                         \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{StringUnorderedSet}} *resultSet,}
+\DoxyCodeLine{139                         \textcolor{keywordtype}{bool} recursive,}
+\DoxyCodeLine{140                         \textcolor{keywordtype}{bool} errorIfNotExist=\mbox{\hyperlink{qcstring_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{TRUE}},}
+\DoxyCodeLine{141                         \mbox{\hyperlink{containers_8h_a68c09b08e1fafb7be76584846eebe628}{StringUnorderedSet}} *killSet = 0,}
+\DoxyCodeLine{142                         \mbox{\hyperlink{containers_8h_a0bc125fc346e538d66d5ea1c33428f00}{StringSet}} *paths = 0}
+\DoxyCodeLine{143                        );}
+\DoxyCodeLine{144 \textcolor{keywordtype}{void} \mbox{\hyperlink{doxygen_8h_ac255dacdd078434c7a54f5fa6494d97e}{copyAndFilterFile}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fileName,\mbox{\hyperlink{classBufStr}{BufStr}} \&dest);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

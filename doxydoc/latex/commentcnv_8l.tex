@@ -1,0 +1,132 @@
+\hypertarget{commentcnv_8l}{}\doxysection{/mnt/c/projects/doxygen/src/commentcnv.l File Reference}
+\label{commentcnv_8l}\index{/mnt/c/projects/doxygen/src/commentcnv.l@{/mnt/c/projects/doxygen/src/commentcnv.l}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}bufstr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}message.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}doxygen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}condparser.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}doxygen\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for commentcnv.\+l\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcommentcnvYY__CondCtx}{commentcnv\+YY\+\_\+\+Cond\+Ctx}}
+\item 
+struct \mbox{\hyperlink{structCommentCtx}{Comment\+Ctx}}
+\item 
+struct \mbox{\hyperlink{structcommentcnvYY__state}{commentcnv\+YY\+\_\+state}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_a5d5508008cac8fb66fca3baa4e9b6584}{YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}}
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_a85523a0c7d95c059d251b4e9829947aa}{YY\+\_\+\+NO\+\_\+\+INPUT}}~1
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_ae78ac56cd1f29572e967ed7636952d15}{YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H}}~1
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_ad2d4757a71db55920db987818db35c8a}{ADDCHAR}}(c)~yyextra-\/$>$out\+Buf-\/$>$add\+Char(c)
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_a1117d7f184b00ad97132044c2362da58}{ADDARRAY}}(a,  s)~yyextra-\/$>$out\+Buf-\/$>$add\+Array(a,s)
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}{USE\+\_\+\+STATE2\+STRING}}~0
+\item 
+\#define \mbox{\hyperlink{commentcnv_8l_aacfdca45fa4beb8b06172525a53c424a}{YY\+\_\+\+INPUT}}(buf,  result,  max\+\_\+size)~result=yyread(yyscanner,buf,max\+\_\+size);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef yyguts\+\_\+t $\ast$ \mbox{\hyperlink{commentcnv_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classint}{int}} \mbox{\hyperlink{commentcnv_8l_a1d80d8ed8c19744ed31163f6e7525e54}{yylex}} (\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}} yyscanner)
+\item 
+void \mbox{\hyperlink{commentcnv_8l_a04d92f4281c65ebe972f5bf92bcb4a09}{convert\+Cpp\+Comments}} (\mbox{\hyperlink{classBufStr}{Buf\+Str}} $\ast$in\+Buf, \mbox{\hyperlink{classBufStr}{Buf\+Str}} $\ast$out\+Buf, const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{commentcnv_8l_a1117d7f184b00ad97132044c2362da58}\label{commentcnv_8l_a1117d7f184b00ad97132044c2362da58}} 
+\index{commentcnv.l@{commentcnv.l}!ADDARRAY@{ADDARRAY}}
+\index{ADDARRAY@{ADDARRAY}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{ADDARRAY}{ADDARRAY}}
+{\footnotesize\ttfamily \#define ADDARRAY(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{s }\end{DoxyParamCaption})~yyextra-\/$>$out\+Buf-\/$>$add\+Array(a,s)}
+
+\mbox{\Hypertarget{commentcnv_8l_ad2d4757a71db55920db987818db35c8a}\label{commentcnv_8l_ad2d4757a71db55920db987818db35c8a}} 
+\index{commentcnv.l@{commentcnv.l}!ADDCHAR@{ADDCHAR}}
+\index{ADDCHAR@{ADDCHAR}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{ADDCHAR}{ADDCHAR}}
+{\footnotesize\ttfamily \#define ADDCHAR(\begin{DoxyParamCaption}\item[{}]{c }\end{DoxyParamCaption})~yyextra-\/$>$out\+Buf-\/$>$add\+Char(c)}
+
+\mbox{\Hypertarget{commentcnv_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}\label{commentcnv_8l_a1d0e1b21cfd1d3709de673b9a6e8a53b}} 
+\index{commentcnv.l@{commentcnv.l}!USE\_STATE2STRING@{USE\_STATE2STRING}}
+\index{USE\_STATE2STRING@{USE\_STATE2STRING}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{USE\_STATE2STRING}{USE\_STATE2STRING}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+STATE2\+STRING~0}
+
+\mbox{\Hypertarget{commentcnv_8l_aacfdca45fa4beb8b06172525a53c424a}\label{commentcnv_8l_aacfdca45fa4beb8b06172525a53c424a}} 
+\index{commentcnv.l@{commentcnv.l}!YY\_INPUT@{YY\_INPUT}}
+\index{YY\_INPUT@{YY\_INPUT}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{YY\_INPUT}{YY\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+INPUT(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{result,  }\item[{}]{max\+\_\+size }\end{DoxyParamCaption})~result=yyread(yyscanner,buf,max\+\_\+size);}
+
+\mbox{\Hypertarget{commentcnv_8l_a85523a0c7d95c059d251b4e9829947aa}\label{commentcnv_8l_a85523a0c7d95c059d251b4e9829947aa}} 
+\index{commentcnv.l@{commentcnv.l}!YY\_NO\_INPUT@{YY\_NO\_INPUT}}
+\index{YY\_NO\_INPUT@{YY\_NO\_INPUT}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_INPUT}{YY\_NO\_INPUT}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+INPUT~1}
+
+\mbox{\Hypertarget{commentcnv_8l_ae78ac56cd1f29572e967ed7636952d15}\label{commentcnv_8l_ae78ac56cd1f29572e967ed7636952d15}} 
+\index{commentcnv.l@{commentcnv.l}!YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}}
+\index{YY\_NO\_UNISTD\_H@{YY\_NO\_UNISTD\_H}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{YY\_NO\_UNISTD\_H}{YY\_NO\_UNISTD\_H}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+NO\+\_\+\+UNISTD\+\_\+H~1}
+
+\mbox{\Hypertarget{commentcnv_8l_a5d5508008cac8fb66fca3baa4e9b6584}\label{commentcnv_8l_a5d5508008cac8fb66fca3baa4e9b6584}} 
+\index{commentcnv.l@{commentcnv.l}!YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+\index{YY\_TYPEDEF\_YY\_SCANNER\_T@{YY\_TYPEDEF\_YY\_SCANNER\_T}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{YY\_TYPEDEF\_YY\_SCANNER\_T}{YY\_TYPEDEF\_YY\_SCANNER\_T}}
+{\footnotesize\ttfamily \#define YY\+\_\+\+TYPEDEF\+\_\+\+YY\+\_\+\+SCANNER\+\_\+T}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{commentcnv_8l_a9484188abbc459dafcbd4c96425fa70b}\label{commentcnv_8l_a9484188abbc459dafcbd4c96425fa70b}} 
+\index{commentcnv.l@{commentcnv.l}!yyscan\_t@{yyscan\_t}}
+\index{yyscan\_t@{yyscan\_t}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{yyscan\_t}{yyscan\_t}}
+{\footnotesize\ttfamily typedef yyguts\+\_\+t$\ast$ \mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{commentcnv_8l_a04d92f4281c65ebe972f5bf92bcb4a09}\label{commentcnv_8l_a04d92f4281c65ebe972f5bf92bcb4a09}} 
+\index{commentcnv.l@{commentcnv.l}!convertCppComments@{convertCppComments}}
+\index{convertCppComments@{convertCppComments}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{convertCppComments()}{convertCppComments()}}
+{\footnotesize\ttfamily void convert\+Cpp\+Comments (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classBufStr}{Buf\+Str}} $\ast$}]{in\+Buf,  }\item[{\mbox{\hyperlink{classBufStr}{Buf\+Str}} $\ast$}]{out\+Buf,  }\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name }\end{DoxyParamCaption})}
+
+This function does three things\+:
+\begin{DoxyEnumerate}
+\item It converts multi-\/line C++ style comment blocks (that are aligned) to C style comment blocks (if MULTILINE\+\_\+\+CPP\+\_\+\+IS\+\_\+\+BRIEF is set to NO).
+\item It replaces aliases with their definition (see ALIASES)
+\item It handles conditional sections (cond...endcond blocks) 
+\end{DoxyEnumerate}Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{commentcnv_8l_a1d80d8ed8c19744ed31163f6e7525e54}\label{commentcnv_8l_a1d80d8ed8c19744ed31163f6e7525e54}} 
+\index{commentcnv.l@{commentcnv.l}!yylex@{yylex}}
+\index{yylex@{yylex}!commentcnv.l@{commentcnv.l}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classint}{int}} yylex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{code_8l_a9484188abbc459dafcbd4c96425fa70b}{yyscan\+\_\+t}}}]{yyscanner }\end{DoxyParamCaption})}
+

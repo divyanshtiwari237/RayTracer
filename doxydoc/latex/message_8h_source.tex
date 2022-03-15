@@ -1,0 +1,53 @@
+\hypertarget{message_8h_source}{}\doxysection{message.\+h}
+\label{message_8h_source}\index{/mnt/c/projects/doxygen/src/message.h@{/mnt/c/projects/doxygen/src/message.h}}
+\mbox{\hyperlink{message_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ * Copyright (C) 1997-\/2020 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef MESSAGE\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define MESSAGE\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <cstdarg>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef \_\_GNUC\_\_}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define PRINTFLIKE(FORMAT, PARAM ) \_\_attribute\_\_((format(printf, FORMAT, PARAM)))}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define PRINTFLIKE(FORMAT, PARAM )}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a256173d6ad99e62fc2f4afad5409933a}{msg}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(1,2);}
+\DoxyCodeLine{29 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a98645a9007f170571a5865b92ceda5e3}{warn}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(3, 4);}
+\DoxyCodeLine{30 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a3dd1fc83df965011daf3fc3a4dfb66fc}{va\_warn}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}}, \textcolor{keywordtype}{int} line, const \textcolor{keywordtype}{char}* fmt, va\_list args);}
+\DoxyCodeLine{31 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_ae6153a6152e57505cfd23fbc4d8cf366}{warn\_simple}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *text);}
+\DoxyCodeLine{32 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a701e56fb2ea23eda40c3516c21def63d}{warn\_undoc}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(3, 4);}
+\DoxyCodeLine{33 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a4948943c7340a3caa764aa90f98967d9}{warn\_incomplete\_doc}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(3, 4);}
+\DoxyCodeLine{34 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a537941065fafd97d497a9fd01177389a}{warn\_doc\_error}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(3, 4);}
+\DoxyCodeLine{35 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_aa9b2f2212c468c73d782e9fd5dc7e098}{warn\_uncond}}(const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(1, 2);}
+\DoxyCodeLine{36 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a02ef5f67e0f1f876ad2e38462c9a71c2}{err}}(const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(1, 2);}
+\DoxyCodeLine{37 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_aeab6bdc80baea6fa74dda7bc65c12cc5}{err\_full}}(const \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_ad3d65a3e98ad183dea4b1904045afa08}{file}},\textcolor{keywordtype}{int} line,const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(3, 4);}
+\DoxyCodeLine{38 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a4610c4f07144bf7e2b4cc7288b014930}{term}}(const \textcolor{keywordtype}{char} *fmt, ...) \mbox{\hyperlink{message_8h_a7a5323beca671eda66eb64aaf4618e4c}{PRINTFLIKE}}(1, 2);}
+\DoxyCodeLine{39 \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_a73afcb61ffc2a888acfcafa4747817d0}{initWarningFormat}}();}
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_aad9799c2a434877f36bc92beb8966567}{warn\_flush}}();}
+\DoxyCodeLine{41 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_ae3d3e3fe0dd73eb3fe463e99d2bd4a73}{finishWarnExit}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 extern \textcolor{keywordtype}{void} \mbox{\hyperlink{message_8h_afeaf3cf484d932b2198498b3209f7e03}{printlex}}(\textcolor{keywordtype}{int} dbg, \textcolor{keywordtype}{bool} enter, const \textcolor{keywordtype}{char} *lexName, const \textcolor{keywordtype}{char} *fileName);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#undef PRINTFLIKE}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

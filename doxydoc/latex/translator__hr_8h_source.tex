@@ -1,0 +1,1283 @@
+\hypertarget{translator__hr_8h_source}{}\doxysection{translator\+\_\+hr.\+h}
+\label{translator__hr_8h_source}\index{/mnt/c/projects/doxygen/src/translator\_hr.h@{/mnt/c/projects/doxygen/src/translator\_hr.h}}
+\mbox{\hyperlink{translator__hr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{ *}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Copyright (C) 1997-\/2015 by Dimitri van Heesch.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{8 \textcolor{comment}{ * documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{9 \textcolor{comment}{ * granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{10 \textcolor{comment}{ * for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * See the GNU General Public License for more details.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{14 \textcolor{comment}{ * input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{*/}}
+\DoxyCodeLine{17 \textcolor{comment}{// translation by Boris Bralo <boris.bralo@gmail.com>}}
+\DoxyCodeLine{18 \textcolor{comment}{// Updates:}}
+\DoxyCodeLine{19 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{20 \textcolor{comment}{// 2000/08/20}}
+\DoxyCodeLine{21 \textcolor{comment}{//  -\/ Better handling of ISO-\/8859-\/2/ WIN 1250 stuff based on (actually stolen from :-\/)) Czech translations}}
+\DoxyCodeLine{22 \textcolor{comment}{//    implemented by Petr Prikryl (prikrylp@skil.cz).}}
+\DoxyCodeLine{23 \textcolor{comment}{//    As opposed to Czech translation this one assumes that Doxygen strings are written in Linux ( it's true,}}
+\DoxyCodeLine{24 \textcolor{comment}{//    I don't have QT pro licence ) , and uses ISOToWin function when built in WIN32}}
+\DoxyCodeLine{25 \textcolor{comment}{//}}
+\DoxyCodeLine{26 \textcolor{comment}{// 2000/09/18}}
+\DoxyCodeLine{27 \textcolor{comment}{// -\/ Added strings from 1.2.1}}
+\DoxyCodeLine{28 \textcolor{comment}{// -\/ Removed unneeeded decode() calls}}
+\DoxyCodeLine{29 \textcolor{comment}{// -\/ Changed some CS terminology}}
+\DoxyCodeLine{30 \textcolor{comment}{//}}
+\DoxyCodeLine{31 \textcolor{comment}{// 2001/01/22}}
+\DoxyCodeLine{32 \textcolor{comment}{// -\/ Added strings from 1.2.4}}
+\DoxyCodeLine{33 \textcolor{comment}{//}}
+\DoxyCodeLine{34 \textcolor{comment}{// 2001/05/25}}
+\DoxyCodeLine{35 \textcolor{comment}{// -\/ Added strings and up to and including 1.2.7\_20010524}}
+\DoxyCodeLine{36 \textcolor{comment}{// -\/ Removed obsolete method trFiles()}}
+\DoxyCodeLine{37 \textcolor{comment}{// -\/ Removed obsolete method trAuthor()}}
+\DoxyCodeLine{38 \textcolor{comment}{// -\/ Removed obsolete method trAuthor()}}
+\DoxyCodeLine{39 \textcolor{comment}{// -\/ Removed obsolete method trVerbatimHeadert()}}
+\DoxyCodeLine{40 \textcolor{comment}{// -\/ Method latexBabelPackage() removed, ude latexLanguageSupportCommand}}
+\DoxyCodeLine{41 \textcolor{comment}{//}}
+\DoxyCodeLine{42 \textcolor{comment}{// 2001/11/13}}
+\DoxyCodeLine{43 \textcolor{comment}{// -\/ inherits from Translator}}
+\DoxyCodeLine{44 \textcolor{comment}{// -\/ Added strings for 1.2.11}}
+\DoxyCodeLine{45 \textcolor{comment}{// -\/ better output for C documentation (trCompoundMembersDescription(), trClassDocumentation())}}
+\DoxyCodeLine{46 \textcolor{comment}{//}}
+\DoxyCodeLine{47 \textcolor{comment}{// 2001/11/13}}
+\DoxyCodeLine{48 \textcolor{comment}{// -\/ Added strings for 1.2.13}}
+\DoxyCodeLine{49 \textcolor{comment}{//}}
+\DoxyCodeLine{50 \textcolor{comment}{// 2003/02/26}}
+\DoxyCodeLine{51 \textcolor{comment}{// -\/ Added strings for 1.2.18}}
+\DoxyCodeLine{52 \textcolor{comment}{//}}
+\DoxyCodeLine{53 \textcolor{comment}{// 2003/04/29}}
+\DoxyCodeLine{54 \textcolor{comment}{// -\/ Added strings for 1.3.0}}
+\DoxyCodeLine{55 \textcolor{comment}{//}}
+\DoxyCodeLine{56 \textcolor{comment}{// 2004/06/21}}
+\DoxyCodeLine{57 \textcolor{comment}{// -\/ Added strings for 1.3.8}}
+\DoxyCodeLine{58 \textcolor{comment}{//}}
+\DoxyCodeLine{59 \textcolor{comment}{// 2004/09/15}}
+\DoxyCodeLine{60 \textcolor{comment}{// -\/ Added strings for 1.3.9}}
+\DoxyCodeLine{61 \textcolor{comment}{//}}
+\DoxyCodeLine{62 \textcolor{comment}{// 2005/02/28}}
+\DoxyCodeLine{63 \textcolor{comment}{// -\/ Removed obsolete (unused) methods}}
+\DoxyCodeLine{64 \textcolor{comment}{//}}
+\DoxyCodeLine{65 \textcolor{comment}{// 2005/03/21}}
+\DoxyCodeLine{66 \textcolor{comment}{// -\/ Added strings for 1.4.1}}
+\DoxyCodeLine{67 \textcolor{comment}{//}}
+\DoxyCodeLine{68 \textcolor{comment}{// 2006/06/11}}
+\DoxyCodeLine{69 \textcolor{comment}{// -\/ Added strings for 1.4.6}}
+\DoxyCodeLine{70 \textcolor{comment}{//}}
+\DoxyCodeLine{71 \textcolor{comment}{// 2009/01/09}}
+\DoxyCodeLine{72 \textcolor{comment}{// -\/ Updated trLegendDocs}}
+\DoxyCodeLine{73 \textcolor{comment}{//}}
+\DoxyCodeLine{74 \textcolor{comment}{// 2010/03/04}}
+\DoxyCodeLine{75 \textcolor{comment}{// -\/ Updates for "{}new since 1.6.0 (mainly for the new search engine)"{}.}}
+\DoxyCodeLine{76 \textcolor{comment}{// -\/ UTF-\/8}}
+\DoxyCodeLine{77 \textcolor{comment}{// -\/ removed decode()}}
+\DoxyCodeLine{78 \textcolor{comment}{//}}
+\DoxyCodeLine{79 \textcolor{comment}{// 2010/05/27}}
+\DoxyCodeLine{80 \textcolor{comment}{// -\/ Updates for 1.6.3}}
+\DoxyCodeLine{81 \textcolor{comment}{// 2012/04/12}}
+\DoxyCodeLine{82 \textcolor{comment}{// -\/ Updates for 1.8.0}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#ifndef TRANSLATOR\_HR\_H}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define TRANSLATOR\_HR\_H}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{class }\mbox{\hyperlink{classTranslatorCroatian}{TranslatorCroatian}} : \textcolor{keyword}{public} \mbox{\hyperlink{classTranslatorAdapter__1__8__2}{TranslatorAdapter\_1\_8\_2}}}
+\DoxyCodeLine{87 \{}
+\DoxyCodeLine{88   \textcolor{keyword}{private}:}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{keyword}{public}:}
+\DoxyCodeLine{91     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a7523d1409b7194459972bcdd86aeec53}{idLanguage}}()}
+\DoxyCodeLine{92     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}croatian"{}}; \}}
+\DoxyCodeLine{93     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a1cffa3c7123adf9908782aa71d9db01a}{latexLanguageSupportCommand}}()}
+\DoxyCodeLine{94     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[croatian]\{babel\}\(\backslash\)n"{}}; \}}
+\DoxyCodeLine{95     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5ab45a4e65dc72ce370d261618ca8d0b}{trISOLang}}()}
+\DoxyCodeLine{96     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}hr"{}}; \}}
+\DoxyCodeLine{97     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac0f1e9ef8ef8103ab101d2d481e2e05d}{getLanguageString}}()}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}0x41A Croatian"{}};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac41fa972eea583d5272a10427fbda600}{trRelatedFunctions}}()}
+\DoxyCodeLine{102     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Povezane funkcije"{}}; \}}
+\DoxyCodeLine{103     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2b92f76643fa9d0ddab3788451faff54}{trRelatedSubscript}}()}
+\DoxyCodeLine{104     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}(To nisu member funkcije.)"{}}; \}}
+\DoxyCodeLine{105     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aab786ef813bb0d4ad68f4a27179f459b}{trDetailedDescription}}()}
+\DoxyCodeLine{106     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Detaljno objašnjenje"{}}; \}}
+\DoxyCodeLine{107     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4a65b3f3158b1c165147210eeec46727}{trMemberTypedefDocumentation}}()}
+\DoxyCodeLine{108     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija typedef članova"{}}; \}}
+\DoxyCodeLine{109     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ace83dd0eb8a14d9586b491974b905059}{trMemberEnumerationDocumentation}}()}
+\DoxyCodeLine{110     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija enumeracijskih članova"{}}; \}}
+\DoxyCodeLine{111     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad8b78086d04741b748a1af06e8ba79eb}{trMemberFunctionDocumentation}}()}
+\DoxyCodeLine{112     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija funkcija"{}}; \}}
+\DoxyCodeLine{113     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae22d44e26020fe839f0417a1b961e783}{trMemberDataDocumentation}}()}
+\DoxyCodeLine{114     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentacija varijabli"{}}; \}}
+\DoxyCodeLine{115     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a70115911bfa1637d70e8c36e27c29e09}{trMore}}()}
+\DoxyCodeLine{116     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Opširnije..."{}}; \}}
+\DoxyCodeLine{117     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a73888dc950a905e617e21975933ceb98}{trListOfAllMembers}}()}
+\DoxyCodeLine{118     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis svih članova"{}}; \}}
+\DoxyCodeLine{119     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0880dcabde46c25dbc651bfa93ef882a}{trMemberList}}()}
+\DoxyCodeLine{120     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis članova."{}}; \}}
+\DoxyCodeLine{121     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6f02d6323882bcb79f28d56dfdcaa3e3}{trThisIsTheListOfAllMembers}}()}
+\DoxyCodeLine{122     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ovo je popis svih članova"{}}; \}}
+\DoxyCodeLine{123     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4a0d2fb86ef05cf02138f20e7db931d6}{trIncludingInheritedMembers}}()}
+\DoxyCodeLine{124     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}, uključujući naslijeđene članove."{}}; \}}
+\DoxyCodeLine{125     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a36691e14ed05afc70ecc7b9ca8db013c}{trGeneratedAutomatically}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}})}
+\DoxyCodeLine{126     \{ \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}napravljeno automatski Doxygen-\/om"{}};}
+\DoxyCodeLine{127       \textcolor{keywordflow}{if} (!\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}}.isEmpty()) result+=\textcolor{stringliteral}{"{} za "{}}+\mbox{\hyperlink{namespacecaseconvert_a2d40a560e370c1b43ad3f58ac4dfa416}{s}};}
+\DoxyCodeLine{128       result+=\textcolor{stringliteral}{"{} iz programskog koda."{}};}
+\DoxyCodeLine{129       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{130     \}}
+\DoxyCodeLine{131     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a23f116107340f319395577b4b27544c0}{trEnumName}}()}
+\DoxyCodeLine{132     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum ime"{}}; \}}
+\DoxyCodeLine{133     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aba84efaf044d45b4346b1571b3ca7d26}{trEnumValue}}()}
+\DoxyCodeLine{134     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}enum vrijednost"{}}; \}}
+\DoxyCodeLine{135     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab7a1306d24134206985667f3ca1700d3}{trDefinedIn}}()}
+\DoxyCodeLine{136     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}definirano u"{}}; \}}
+\DoxyCodeLine{137     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a454efe3076f6fa0bc0eb0ac068de933c}{trModules}}()}
+\DoxyCodeLine{138     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Moduli"{}}; \}}
+\DoxyCodeLine{139     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a72b8f9b536b824bfadd25872c157a4cc}{trClassHierarchy}}()}
+\DoxyCodeLine{140     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stablo klasa"{}}; \}}
+\DoxyCodeLine{141     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac7f213d4a8bf45a0ee550c37178b358f}{trCompoundList}}()}
+\DoxyCodeLine{142     \{}
+\DoxyCodeLine{143         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{144         \{}
+\DoxyCodeLine{145             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sve strukture"{}};}
+\DoxyCodeLine{146         \}}
+\DoxyCodeLine{147         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{148         \{}
+\DoxyCodeLine{149             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sve klase"{}};}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151     \}}
+\DoxyCodeLine{152     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a231955b8ad9040b51dfdd746e9656aae}{trFileList}}()}
+\DoxyCodeLine{153     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis datoteka"{}}; \}}
+\DoxyCodeLine{154     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa187db48d1c9741cfe1c02888a6fad65}{trCompoundMembers}}()}
+\DoxyCodeLine{155     \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{157             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Svi članovi struktura"{}};}
+\DoxyCodeLine{158         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{159             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Svi članovi klasa"{}};}
+\DoxyCodeLine{160     \}}
+\DoxyCodeLine{161     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_afa198fcb31399b71aff381e598a7ea06}{trFileMembers}}()}
+\DoxyCodeLine{162     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}članovi klasa u datoteci"{}}; \}}
+\DoxyCodeLine{163     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2de0db33917bb434378a0e6944e7a07a}{trRelatedPages}}()}
+\DoxyCodeLine{164     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stranice povezane s ovom"{}}; \}}
+\DoxyCodeLine{165     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a04f1b677976dae44ec702486b3a9f9c9}{trExamples}}()}
+\DoxyCodeLine{166     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Primjeri"{}}; \}}
+\DoxyCodeLine{167     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aab0904cf34cfbf91d4c653b495b5c692}{trSearch}}()}
+\DoxyCodeLine{168     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Traži"{}}; \}}
+\DoxyCodeLine{169     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a430c88ba1f2c79193435968896c0bd0a}{trClassHierarchyDescription}}()}
+\DoxyCodeLine{170     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stablo naslijeđivanja je složeno "{}}}
+\DoxyCodeLine{171              \textcolor{stringliteral}{"{}približno po abecedi:"{}};}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aaf7edf04dfaf8ddd5125f07bc10def84}{trFileListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{174     \{}
+\DoxyCodeLine{175       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis svih "{}};}
+\DoxyCodeLine{176       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{177       result+=\textcolor{stringliteral}{"{}datoteka, s kratkim opisom:"{}};}
+\DoxyCodeLine{178       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a830ea189c1fd46b397c51dff457c8b78}{trCompoundListDescription}}()}
+\DoxyCodeLine{181     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis svih klasa, unija i struktura "{}}}
+\DoxyCodeLine{182           \textcolor{stringliteral}{"{}s kratkim opisom :"{}};}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af7d4f44fd9c44bdc80d338fc590ffe92}{trCompoundMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{185     \{}
+\DoxyCodeLine{186       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis svih "{}};}
+\DoxyCodeLine{187       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{188           result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{191           result+=\textcolor{stringliteral}{"{}članova klasa s linkovima na "{}};}
+\DoxyCodeLine{192       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{193           result+=\textcolor{stringliteral}{"{}članova struktura s linkovima na "{}};}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{196       \{}
+\DoxyCodeLine{197           result+=\textcolor{stringliteral}{"{}dokumentaciju svakog člana:"{}};}
+\DoxyCodeLine{198       \}}
+\DoxyCodeLine{199       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{200       \{}
+\DoxyCodeLine{201           \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{202               result+=\textcolor{stringliteral}{"{}dokumentaciju klase :"{}};}
+\DoxyCodeLine{203           \textcolor{keywordflow}{else}}
+\DoxyCodeLine{204               result +=\textcolor{stringliteral}{"{}dokumentaciju strukture"{}};}
+\DoxyCodeLine{205       \}}
+\DoxyCodeLine{206       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{207     \}}
+\DoxyCodeLine{208     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad3e62bfc2eed7ea3638e0021dd58ebab}{trFileMembersDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{209     \{}
+\DoxyCodeLine{210       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis svih "{}};}
+\DoxyCodeLine{211       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{212           result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{213       result+=\textcolor{stringliteral}{"{}članova s linkovima na "{}};}
+\DoxyCodeLine{214       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{215           result+=\textcolor{stringliteral}{"{}dokumentaciju datoteke u kojima se nalaze:"{}};}
+\DoxyCodeLine{216       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{217           result+=\textcolor{stringliteral}{"{}datoteke u kojima se nalaze:"{}};}
+\DoxyCodeLine{218       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{219     \}}
+\DoxyCodeLine{220     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad9aced40f06ea2d269ecaa5ce170d37d}{trExamplesDescription}}()}
+\DoxyCodeLine{221     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis primjera :"{}}; \}}
+\DoxyCodeLine{222     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab40505e7b4beee3b735493ff720ce352}{trRelatedPagesDescription}}()}
+\DoxyCodeLine{223     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis povezanih stranica:"{}}; \}}
+\DoxyCodeLine{224     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a9fc7033af91d089e67444d79c955ec8c}{trModulesDescription}}()}
+\DoxyCodeLine{225     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis svih modula:"{}}; \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a67b8d919f0b3d00ddba94708a1980e41}{trDocumentation}}()}
+\DoxyCodeLine{228     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija"{}}; \}}
+\DoxyCodeLine{229     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a74e4cf039d5c88894ebd38599dae0b74}{trModuleIndex}}()}
+\DoxyCodeLine{230     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo modula"{}}; \}}
+\DoxyCodeLine{231     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a20a42ae660190b3e05ab3f837552258c}{trHierarchicalIndex}}()}
+\DoxyCodeLine{232     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Hijerarhijsko kazalo"{}}; \}}
+\DoxyCodeLine{233     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4e422c12dc3293aa5f434853a39cf23c}{trCompoundIndex}}()}
+\DoxyCodeLine{234     \{}
+\DoxyCodeLine{235       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{236       \{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo struktura podataka"{}};}
+\DoxyCodeLine{238       \}}
+\DoxyCodeLine{239       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{240       \{}
+\DoxyCodeLine{241     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Skupno kazalo "{}};}
+\DoxyCodeLine{242       \}}
+\DoxyCodeLine{243     \}}
+\DoxyCodeLine{244     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_adcb2a49d79e1b49094cd401febbc64d0}{trFileIndex}}()}
+\DoxyCodeLine{245     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo datoteka"{}}; \}}
+\DoxyCodeLine{246     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3ea4f0ea04154b06f71c613f4b0e1ccb}{trModuleDocumentation}}()}
+\DoxyCodeLine{247     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija modula"{}}; \}}
+\DoxyCodeLine{248     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a650181301b661b9bfc3274a5572c9191}{trClassDocumentation}}()}
+\DoxyCodeLine{249     \{}
+\DoxyCodeLine{250       \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_FOR\_C))}
+\DoxyCodeLine{251       \{}
+\DoxyCodeLine{252         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija struktura podataka"{}};}
+\DoxyCodeLine{253       \}}
+\DoxyCodeLine{254       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{config_8h_a5373d0332a31f16ad7a42037733e8c79}{Config\_getBool}}(OPTIMIZE\_OUTPUT\_VHDL))}
+\DoxyCodeLine{255       \{}
+\DoxyCodeLine{256         \textcolor{keywordflow}{return} \mbox{\hyperlink{classTranslatorAdapter__1__8__19_a4ee9915ad5d8a985e154d312208e78fe}{trDesignUnitDocumentation}}();}
+\DoxyCodeLine{257       \}}
+\DoxyCodeLine{258       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{259       \{}
+\DoxyCodeLine{260         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija klasa"{}};}
+\DoxyCodeLine{261       \}}
+\DoxyCodeLine{262     \}}
+\DoxyCodeLine{263     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_acc604b5eab2af2b093b44ccace0cd29d}{trFileDocumentation}}()}
+\DoxyCodeLine{264     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija datoteka"{}}; \}}
+\DoxyCodeLine{265     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a124b09a77bc13436da9510702b3d8a29}{trExampleDocumentation}}()}
+\DoxyCodeLine{266     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija primjera"{}}; \}}
+\DoxyCodeLine{267     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a7de0e07d0a3e544b2fd6d9065bf20b8e}{trReferenceManual}}()}
+\DoxyCodeLine{268     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Priručnik"{}}; \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae9776e74b12f89092fd1f655f0f3785e}{trDefines}}()}
+\DoxyCodeLine{271     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definicije"{}}; \}}
+\DoxyCodeLine{272     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a714801f3f6108d1ec0e1daab2f6b2ce7}{trTypedefs}}()}
+\DoxyCodeLine{273     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Typedef-\/ovi"{}}; \}}
+\DoxyCodeLine{274     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4dab60c8cdc4cef01a3bd7d3e7cbe034}{trEnumerations}}()}
+\DoxyCodeLine{275     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Enumeracije"{}}; \}}
+\DoxyCodeLine{276     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4e8997d5d3fb756f475978b615c54da9}{trFunctions}}()}
+\DoxyCodeLine{277     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcije"{}}; \}}
+\DoxyCodeLine{278     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac73892a1e2e5087680071dd286428f65}{trVariables}}()}
+\DoxyCodeLine{279     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Varijable"{}}; \}}
+\DoxyCodeLine{280     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a430cdb17675e81a713a3eaa50f899505}{trEnumerationValues}}()}
+\DoxyCodeLine{281     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vrijednosti enumeracija"{}}; \}}
+\DoxyCodeLine{282     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a51514e3c361fb79992ee7d6b694197f0}{trDefineDocumentation}}()}
+\DoxyCodeLine{283     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija definicija"{}}; \}}
+\DoxyCodeLine{284     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a562be6889e041c59126cfac7091ad2a8}{trTypedefDocumentation}}()}
+\DoxyCodeLine{285     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija typedef-\/a"{}}; \}}
+\DoxyCodeLine{286     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2ec11b484592c745ecf94fe788547869}{trEnumerationTypeDocumentation}}()}
+\DoxyCodeLine{287     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija enumeracijskog tipa"{}}; \}}
+\DoxyCodeLine{288     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2e336597d19d9ea8c5df09bd7bf65937}{trFunctionDocumentation}}()}
+\DoxyCodeLine{289     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacije funkcija"{}}; \}}
+\DoxyCodeLine{290     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2ed67492cfd56be401198d8154de28b7}{trVariableDocumentation}}()}
+\DoxyCodeLine{291     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija varijable"{}}; \}}
+\DoxyCodeLine{292     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a747009dcb43c58c1d5fdf5d9949616f8}{trCompounds}}()}
+\DoxyCodeLine{293     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Strukture"{}}; \}}
+\DoxyCodeLine{294     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3f3b034d552c57bd040b3638f55b7d10}{trGeneratedAt}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&date,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&projName)}
+\DoxyCodeLine{295     \{}
+\DoxyCodeLine{296       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Napravljeno "{}}+date;}
+\DoxyCodeLine{297       \textcolor{keywordflow}{if} (!projName.\mbox{\hyperlink{classQCString_a621c4090d69ad7d05ef8e5234376c3d8}{isEmpty}}()) result+=\textcolor{stringliteral}{"{} projekt: "{}}+projName;}
+\DoxyCodeLine{298       result+=\textcolor{stringliteral}{"{} generator: "{}};}
+\DoxyCodeLine{299       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{300     \}}
+\DoxyCodeLine{301     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8de033c321d83099d449a737808e5415}{trClassDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{302     \{}
+\DoxyCodeLine{303       \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Dijagram klasa za "{}})+clName;}
+\DoxyCodeLine{304     \}}
+\DoxyCodeLine{305     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0000abe53d64eead4500194419f8f0f0}{trWarning}}()}
+\DoxyCodeLine{306     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Upozorenje"{}}; \}}
+\DoxyCodeLine{307     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa54821992f7c1f8fcbd1fd7cfac0d636}{trVersion}}()}
+\DoxyCodeLine{308     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Verzija"{}}; \}}
+\DoxyCodeLine{309     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4cd393a6fd8db1d7fc9f05352bc018c2}{trDate}}()}
+\DoxyCodeLine{310     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datum"{}}; \}}
+\DoxyCodeLine{311     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3e091ad02e26454f11da71486683e80e}{trReturns}}()}
+\DoxyCodeLine{312     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Povratne vrijednosti"{}}; \}}
+\DoxyCodeLine{313     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6b3f5448369b6df771eb6b4ace4cb563}{trSeeAlso}}()}
+\DoxyCodeLine{314     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vidi također"{}}; \}}
+\DoxyCodeLine{315     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a94220af13feb8ad40290de8ccdebbab8}{trParameters}}()}
+\DoxyCodeLine{316     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametri"{}}; \}}
+\DoxyCodeLine{317     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4fea439896fcff5996180d18b51ae32c}{trExceptions}}()}
+\DoxyCodeLine{318     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Iznimke"{}}; \}}
+\DoxyCodeLine{319     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae878281bdefd1503fe03a65ab1f65c3e}{trGeneratedBy}}()}
+\DoxyCodeLine{320     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Generirao"{}}; \}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{323 \textcolor{comment}{// new since 0.49-\/990307}}
+\DoxyCodeLine{325 \textcolor{comment}{}}
+\DoxyCodeLine{326     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a95224cf59498abd0876a5b1197ac68f8}{trNamespaceList}}()}
+\DoxyCodeLine{327     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis imenika"{}}; \}}
+\DoxyCodeLine{328     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ace23332dedd9c5eff8cbcf5c0900b50a}{trNamespaceListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{329     \{}
+\DoxyCodeLine{330       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Popis svih "{}};}
+\DoxyCodeLine{331       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{332       result+=\textcolor{stringliteral}{"{}imenika s kratkim opisom:"{}};}
+\DoxyCodeLine{333       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{334     \}}
+\DoxyCodeLine{335     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0813b171fab34d20f8ba51ac05b71d32}{trFriends}}()}
+\DoxyCodeLine{336     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Friend-\/ovi "{}}; \}}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{339 \textcolor{comment}{// new since 0.49-\/990405}}
+\DoxyCodeLine{341 \textcolor{comment}{}}
+\DoxyCodeLine{342     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a17099996311c6f1e67a5f0c843426901}{trRelatedFunctionDocumentation}}()}
+\DoxyCodeLine{343     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija povezanih funkcija"{}}; \}}
+\DoxyCodeLine{344 }
+\DoxyCodeLine{346 \textcolor{comment}{// new since 0.49-\/990425}}
+\DoxyCodeLine{348 \textcolor{comment}{}}
+\DoxyCodeLine{349     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae16b2a41f19191d01f4cb17a5d099017}{trCompoundReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{350                                     \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{351                                     \textcolor{keywordtype}{bool} \textcolor{comment}{/*isTemplate*/})}
+\DoxyCodeLine{352       \textcolor{comment}{// used as the title of the HTML page of a class/struct/union}}
+\DoxyCodeLine{353     \{}
+\DoxyCodeLine{354       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Opis "{}};}
+\DoxyCodeLine{355       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{356       \{}
+\DoxyCodeLine{357         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:  result+=\textcolor{stringliteral}{"{} klase "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{358         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}: result+=\textcolor{stringliteral}{"{} strukture "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{359         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:  result+=\textcolor{stringliteral}{"{} unije "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{360         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} sučelja (interface) "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{361         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} protokola "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{362         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} kategorije "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{363         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} iznimke (exception) "{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{364         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{365       \}}
+\DoxyCodeLine{366       result += clName;}
+\DoxyCodeLine{367       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{368     \}}
+\DoxyCodeLine{369     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae8f8735e842e565da1ab437e29198056}{trFileReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fileName)}
+\DoxyCodeLine{370       \textcolor{comment}{// used as the title of the HTML page of a file}}
+\DoxyCodeLine{371     \{}
+\DoxyCodeLine{372       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Opis datoteke "{}};}
+\DoxyCodeLine{373           result+=fileName;}
+\DoxyCodeLine{374           \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{375     \}}
+\DoxyCodeLine{376     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a129702adc165edf41b65fe450f5bee40}{trNamespaceReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{377       \textcolor{comment}{// used as the title of the HTML page of a namespace}}
+\DoxyCodeLine{378     \{}
+\DoxyCodeLine{379       \mbox{\hyperlink{classQCString}{QCString}} result =\textcolor{stringliteral}{"{}Opis imenika "{}};}
+\DoxyCodeLine{380           result+=namespaceName;}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{383     \}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385     \textcolor{comment}{// these are for the member sections of a class, struct or union}}
+\DoxyCodeLine{386     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a63d660f99f7439218f0100fcf0c2580a}{trPublicMembers}}()}
+\DoxyCodeLine{387     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public članovi"{}}; \}}
+\DoxyCodeLine{388     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aabe5bfba520e49cc4677a1c204b3c746}{trPublicSlots}}()}
+\DoxyCodeLine{389     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public slotovi"{}}; \}}
+\DoxyCodeLine{390     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a9a45e4a6cd593c10570d78dd1441a4c3}{trSignals}}()}
+\DoxyCodeLine{391     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Signali"{}}; \}}
+\DoxyCodeLine{392     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af3fec0b58d6b1a9ccf48e2d8d80a44ed}{trStaticPublicMembers}}()}
+\DoxyCodeLine{393     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static public članovi"{}}; \}}
+\DoxyCodeLine{394     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a854a181b93416af8dc079901ab6fad19}{trProtectedMembers}}()}
+\DoxyCodeLine{395     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected članovi"{}}; \}}
+\DoxyCodeLine{396     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_abfa538438928463231a23a54b4e0e1a3}{trProtectedSlots}}()}
+\DoxyCodeLine{397     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected slotovi"{}}; \}}
+\DoxyCodeLine{398     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a656d70c5d40bebcf27253283a29b3a3b}{trStaticProtectedMembers}}()}
+\DoxyCodeLine{399     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static protected članovi"{}}; \}}
+\DoxyCodeLine{400     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4c720cf92a76e5bc6f363441c2b2b2ef}{trPrivateMembers}}()}
+\DoxyCodeLine{401     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privatni članovi"{}}; \}}
+\DoxyCodeLine{402     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4bcf076bc3c637f7b85cb522151698fd}{trPrivateSlots}}()}
+\DoxyCodeLine{403     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Privatni slotovi"{}}; \}}
+\DoxyCodeLine{404     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4b5985effb669a293df613bc9f94292a}{trStaticPrivateMembers}}()}
+\DoxyCodeLine{405     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statični privatni članovi"{}}; \}}
+\DoxyCodeLine{406     \textcolor{comment}{// end of member sections}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{409     \{}
+\DoxyCodeLine{410       \textcolor{comment}{// this function is used to produce a comma-\/separated list of items.}}
+\DoxyCodeLine{411       \textcolor{comment}{// use generateMarker(i) to indicate where item i should be put.}}
+\DoxyCodeLine{412       \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{413       \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{414       \textcolor{comment}{// the inherits list contain `numEntries' classes}}
+\DoxyCodeLine{415       \textcolor{keywordflow}{for} (i=0;i<numEntries;i++)}
+\DoxyCodeLine{416       \{}
+\DoxyCodeLine{417         \textcolor{comment}{// use generateMarker to generate placeholders for the class links!}}
+\DoxyCodeLine{418         result+=\mbox{\hyperlink{util_8cpp_a5530a73bd518581ac62e4eee5bc2f6db}{generateMarker}}(i); \textcolor{comment}{// generate marker for entry i in the list}}
+\DoxyCodeLine{419                                    \textcolor{comment}{// (order is left to right)}}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421         \textcolor{keywordflow}{if} (i!=numEntries-\/1)  \textcolor{comment}{// not the last entry, so we need a separator}}
+\DoxyCodeLine{422         \{}
+\DoxyCodeLine{423           \textcolor{keywordflow}{if} (i<numEntries-\/2) \textcolor{comment}{// not the fore last entry}}
+\DoxyCodeLine{424             result+=\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{425           \textcolor{keywordflow}{else}                \textcolor{comment}{// the fore last entry}}
+\DoxyCodeLine{426             result+=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{427         \}}
+\DoxyCodeLine{428       \}}
+\DoxyCodeLine{429       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{430     \}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_abf45478f11b272774c7bdf67e0a81abc}{trInheritsList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{433       \textcolor{comment}{// used in class documentation to produce a list of base classes,}}
+\DoxyCodeLine{434       \textcolor{comment}{// if class diagrams are disabled.}}
+\DoxyCodeLine{435     \{}
+\DoxyCodeLine{436       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Naslijeđuje od "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{437     \}}
+\DoxyCodeLine{438     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a89890ce548f2717097f13385dca7094f}{trInheritedByList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{439       \textcolor{comment}{// used in class documentation to produce a list of super classes,}}
+\DoxyCodeLine{440       \textcolor{comment}{// if class diagrams are disabled.}}
+\DoxyCodeLine{441     \{}
+\DoxyCodeLine{442       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Naslijeđena u "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{443     \}}
+\DoxyCodeLine{444     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0a7effc3abc7c5d8500518e620724716}{trReimplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{445       \textcolor{comment}{// used in member documentation blocks to produce a list of}}
+\DoxyCodeLine{446       \textcolor{comment}{// members that are hidden by this one.}}
+\DoxyCodeLine{447     \{}
+\DoxyCodeLine{448       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementirano od  "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{449     \}}
+\DoxyCodeLine{450     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5ed3b5f07b411c8b570227dc712d05ea}{trReimplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{451     \{}
+\DoxyCodeLine{452       \textcolor{comment}{// used in member documentation blocks to produce a list of}}
+\DoxyCodeLine{453       \textcolor{comment}{// all member that overwrite the implementation of this member.}}
+\DoxyCodeLine{454       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reimplementacija u "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{455     \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab913f18c8d015f8a57c6296b99a2e26b}{trNamespaceMembers}}()}
+\DoxyCodeLine{458       \textcolor{comment}{// This is put above each page as a link to all members of namespaces.}}
+\DoxyCodeLine{459     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}članovi imenika"{}}; \}}
+\DoxyCodeLine{460     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8b2c5a41ee31f62d1a479a6cdadc853e}{trNamespaceMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{461       \textcolor{comment}{// This is an introduction to the page with all namespace members}}
+\DoxyCodeLine{462     \{}
+\DoxyCodeLine{463       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista svih "{}};}
+\DoxyCodeLine{464       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{465       result+=\textcolor{stringliteral}{"{}članova imenika s linkovima na "{}};}
+\DoxyCodeLine{466       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{467         result+=\textcolor{stringliteral}{"{}imeničku dokumentaciju svakog člana:"{}};}
+\DoxyCodeLine{468       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{469         result+=\textcolor{stringliteral}{"{}imenike kojima pripadaju:"{}};}
+\DoxyCodeLine{470       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{471     \}}
+\DoxyCodeLine{472     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0f1ce235cd238e9db111d369e7d9265a}{trNamespaceIndex}}()}
+\DoxyCodeLine{473       \textcolor{comment}{// This is used in LaTeX as the title of the chapter with the}}
+\DoxyCodeLine{474       \textcolor{comment}{// index of all namespaces.}}
+\DoxyCodeLine{475     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo imenika"{}}; \}}
+\DoxyCodeLine{476     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a909ee414c2739b54ce43328f8687c6af}{trNamespaceDocumentation}}()}
+\DoxyCodeLine{477       \textcolor{comment}{// This is used in LaTeX as the title of the chapter containing}}
+\DoxyCodeLine{478       \textcolor{comment}{// the documentation of all namespaces.}}
+\DoxyCodeLine{479     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija namespace-\/a"{}}; \}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{482 \textcolor{comment}{// new since 0.49-\/990522}}
+\DoxyCodeLine{484 \textcolor{comment}{}}
+\DoxyCodeLine{488     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_adc337ec4e3e306ad6159ac42c56ee436}{trNamespaces}}()}
+\DoxyCodeLine{489     \{}
+\DoxyCodeLine{490       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Imenici"{}};}
+\DoxyCodeLine{491     \}}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{494 \textcolor{comment}{// new since 0.49-\/990728}}
+\DoxyCodeLine{496 \textcolor{comment}{}}
+\DoxyCodeLine{500     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aabb6a30ea2fe31507b1c55593e206681}{trGeneratedFromFiles}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{501         \textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{502     \{ \textcolor{comment}{// here s is one of "{} Class"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{503       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{504       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentacija "{}};}
+\DoxyCodeLine{505       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{506       \{}
+\DoxyCodeLine{507         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}klase"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{508         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}strukture"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{509         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}unije"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{510         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}sučelja (interface)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{511         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokola"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{512         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorije"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{513         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}iznimke (exception)"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{514         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{515       \}}
+\DoxyCodeLine{516       result+=\textcolor{stringliteral}{"{} je napravljena iz "{}} + \mbox{\hyperlink{classTranslatorCroatian_a963510e90a33b2707c9fffc45ff7cc09}{trFile}}(\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}}, single) + \textcolor{stringliteral}{"{}: "{}};}
+\DoxyCodeLine{517       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{518     \}}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{521 \textcolor{comment}{// new since 0.49-\/990901}}
+\DoxyCodeLine{523 \textcolor{comment}{}}
+\DoxyCodeLine{525     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a37df799d71af45d282b0cb51f192eff7}{trReturnValues}}()}
+\DoxyCodeLine{526     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Povratna vrijednost"{}}; \}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{530     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3b36b638e21764633745594e5677d4e6}{trMainPage}}()}
+\DoxyCodeLine{531     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Glavna stranica"{}}; \}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{536     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aba7b83dec5ef1b4b4f2286bfe543158a}{trPageAbbreviation}}()}
+\DoxyCodeLine{537     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}str."{}}; \}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{540 \textcolor{comment}{// new since 0.49-\/991106}}
+\DoxyCodeLine{542 \textcolor{comment}{}}
+\DoxyCodeLine{543     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aeb559bb2330704a787148cae40014ada}{trDefinedAtLineInSourceFile}}()}
+\DoxyCodeLine{544     \{}
+\DoxyCodeLine{545       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definirano u liniji @0 datoteke @1."{}};}
+\DoxyCodeLine{546     \}}
+\DoxyCodeLine{547     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a7b9f8de8d63cc6230c841d4e20ae7175}{trDefinedInSourceFile}}()}
+\DoxyCodeLine{548     \{}
+\DoxyCodeLine{549       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Definirano u datoteci @0."{}};}
+\DoxyCodeLine{550     \}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{553 \textcolor{comment}{// new since 0.49-\/991205}}
+\DoxyCodeLine{555 \textcolor{comment}{}}
+\DoxyCodeLine{556     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ada45df7ee2039cd348645aeb59994378}{trDeprecated}}()}
+\DoxyCodeLine{557     \{}
+\DoxyCodeLine{558       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Zastarjelo"{}};}
+\DoxyCodeLine{559     \}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{562 \textcolor{comment}{// new since 1.0.0}}
+\DoxyCodeLine{564 \textcolor{comment}{}}
+\DoxyCodeLine{566     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3998c12bd734429a74b964ebcd514334}{trCollaborationDiagram}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName)}
+\DoxyCodeLine{567     \{}
+\DoxyCodeLine{568       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kolaboracijski dijagram za "{}}+clName+ \textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{569     \}}
+\DoxyCodeLine{571     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a830e135237325415f62a5254d3517fa6}{trInclDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&fName)}
+\DoxyCodeLine{572     \{}
+\DoxyCodeLine{573       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Graf include međuovisnosti za "{}}+fName+\textcolor{stringliteral}{"{}:"{}};}
+\DoxyCodeLine{574     \}}
+\DoxyCodeLine{576     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8dc880bee93a7c83e25afe263c61e3ec}{trConstructorDocumentation}}()}
+\DoxyCodeLine{577     \{}
+\DoxyCodeLine{578       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija konstruktora i destruktora "{}};}
+\DoxyCodeLine{579     \}}
+\DoxyCodeLine{581     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac2325fb02e0c05ec60f29aa20f03f92f}{trGotoSourceCode}}()}
+\DoxyCodeLine{582     \{}
+\DoxyCodeLine{583       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Izvorni kod"{}};}
+\DoxyCodeLine{584     \}}
+\DoxyCodeLine{586     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aabde4bac34e98b47a4eb3536d6eda47a}{trGotoDocumentation}}()}
+\DoxyCodeLine{587     \{}
+\DoxyCodeLine{588       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumenacija za ovu datoteku."{}};}
+\DoxyCodeLine{589     \}}
+\DoxyCodeLine{591     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad2097218c31987550d49fc15ea24105a}{trPrecondition}}()}
+\DoxyCodeLine{592     \{}
+\DoxyCodeLine{593       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Preduvjeti"{}};}
+\DoxyCodeLine{594     \}}
+\DoxyCodeLine{596     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a96f1eb4be405b042e408112bf8d84dfc}{trPostcondition}}()}
+\DoxyCodeLine{597     \{}
+\DoxyCodeLine{598       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Postuvjeti"{}};}
+\DoxyCodeLine{599     \}}
+\DoxyCodeLine{601     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a44c8817e5ab5c325e5d5fad24bacf312}{trInvariant}}()}
+\DoxyCodeLine{602     \{}
+\DoxyCodeLine{603       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Invarijanta"{}};}
+\DoxyCodeLine{604     \}}
+\DoxyCodeLine{606     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6a8d2d0c029a69806569389ea76e9413}{trInitialValue}}()}
+\DoxyCodeLine{607     \{}
+\DoxyCodeLine{608       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Početna vrijednost:"{}};}
+\DoxyCodeLine{609     \}}
+\DoxyCodeLine{611     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a0b048408f4559f797aff870fdd4f988f}{trCode}}()}
+\DoxyCodeLine{612     \{}
+\DoxyCodeLine{613       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}kod"{}};}
+\DoxyCodeLine{614     \}}
+\DoxyCodeLine{615     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a7f4407f7a610c708c55364a2896bab44}{trGraphicalHierarchy}}()}
+\DoxyCodeLine{616     \{}
+\DoxyCodeLine{617       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafičko stablo klasa"{}};}
+\DoxyCodeLine{618     \}}
+\DoxyCodeLine{619     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aba15ced44e628324ca89c3c5e4ac08f0}{trGotoGraphicalHierarchy}}()}
+\DoxyCodeLine{620     \{}
+\DoxyCodeLine{621       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Grafičko stablo klasa"{}};}
+\DoxyCodeLine{622     \}}
+\DoxyCodeLine{623     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8211af4e2efe3b367123770cbf98cf59}{trGotoTextualHierarchy}}()}
+\DoxyCodeLine{624     \{}
+\DoxyCodeLine{625       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tekstualno stablo klasa"{}};}
+\DoxyCodeLine{626     \}}
+\DoxyCodeLine{627     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a51177311136554e6f00ee150bd886c31}{trPageIndex}}()}
+\DoxyCodeLine{628     \{}
+\DoxyCodeLine{629       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Indeks stranice"{}};}
+\DoxyCodeLine{630     \}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{633 \textcolor{comment}{// new since 1.1.0}}
+\DoxyCodeLine{635 \textcolor{comment}{}}
+\DoxyCodeLine{636     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a56c43716af5a790349ec92dd2c91f29c}{trNote}}()}
+\DoxyCodeLine{637     \{}
+\DoxyCodeLine{638       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Primjedba"{}};}
+\DoxyCodeLine{639     \}}
+\DoxyCodeLine{640     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aab88d17a0ce59991f5c2b420dd1d9da5}{trPublicTypes}}()}
+\DoxyCodeLine{641     \{}
+\DoxyCodeLine{642       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public tipovi"{}};}
+\DoxyCodeLine{643     \}}
+\DoxyCodeLine{644     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_adc0bd2087d1e16a7de56603e3154d3c9}{trPublicAttribs}}()}
+\DoxyCodeLine{645     \{}
+\DoxyCodeLine{646       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Public atributi"{}};}
+\DoxyCodeLine{647     \}}
+\DoxyCodeLine{648     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a58cd4560321cd127b3f665df73281eea}{trStaticPublicAttribs}}()}
+\DoxyCodeLine{649     \{}
+\DoxyCodeLine{650       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static public atributi"{}};}
+\DoxyCodeLine{651     \}}
+\DoxyCodeLine{652     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad91405db0a9ef8aa98a33028e305559a}{trProtectedTypes}}()}
+\DoxyCodeLine{653     \{}
+\DoxyCodeLine{654       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected tipovi"{}};}
+\DoxyCodeLine{655     \}}
+\DoxyCodeLine{656     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a13555d2f49b08188b8d2010471d6e639}{trProtectedAttribs}}()}
+\DoxyCodeLine{657     \{}
+\DoxyCodeLine{658       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Protected atributi"{}};}
+\DoxyCodeLine{659     \}}
+\DoxyCodeLine{660     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2ee55704cd6ed2b874fb3ae0a33a5409}{trStaticProtectedAttribs}}()}
+\DoxyCodeLine{661     \{}
+\DoxyCodeLine{662       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static protected atributi"{}};}
+\DoxyCodeLine{663     \}}
+\DoxyCodeLine{664     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae69ebcd6cb7d3e5f86783b23da514f52}{trPrivateTypes}}()}
+\DoxyCodeLine{665     \{}
+\DoxyCodeLine{666       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private tipovi"{}};}
+\DoxyCodeLine{667     \}}
+\DoxyCodeLine{668     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4bce586a3326efea94eb99b01ec52c73}{trPrivateAttribs}}()}
+\DoxyCodeLine{669     \{}
+\DoxyCodeLine{670       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Private atributi"{}};}
+\DoxyCodeLine{671     \}}
+\DoxyCodeLine{672     \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2e54fa1f855382254d6f5b946f1b1a12}{trStaticPrivateAttribs}}()}
+\DoxyCodeLine{673     \{}
+\DoxyCodeLine{674       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Static private atributi"{}};}
+\DoxyCodeLine{675     \}}
+\DoxyCodeLine{677 \textcolor{comment}{// new since 1.1.3}}
+\DoxyCodeLine{679 \textcolor{comment}{}}
+\DoxyCodeLine{681     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a621cab979eb5858c3f91983c0d30d986}{trTodo}}()}
+\DoxyCodeLine{682     \{}
+\DoxyCodeLine{683       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Za uraditi"{}};}
+\DoxyCodeLine{684     \}}
+\DoxyCodeLine{686     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a2405bbb107f6f5b2b63ec014d096fdc1}{trTodoList}}()}
+\DoxyCodeLine{687     \{}
+\DoxyCodeLine{688       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ostalo za uraditi"{}};}
+\DoxyCodeLine{689     \}}
+\DoxyCodeLine{690 }
+\DoxyCodeLine{692 \textcolor{comment}{// new since 1.1.4}}
+\DoxyCodeLine{694 \textcolor{comment}{}}
+\DoxyCodeLine{695     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5b32ebbdd47c24385e792daac18a887f}{trReferencedBy}}()}
+\DoxyCodeLine{696     \{}
+\DoxyCodeLine{697       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Referencirano od"{}};}
+\DoxyCodeLine{698     \}}
+\DoxyCodeLine{699     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa8d697e6c6ada926116252faedd7265d}{trRemarks}}()}
+\DoxyCodeLine{700     \{}
+\DoxyCodeLine{701       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Napomene"{}};}
+\DoxyCodeLine{702     \}}
+\DoxyCodeLine{703     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af61eeea9d0b404e5570510a3d8e37be0}{trAttention}}()}
+\DoxyCodeLine{704     \{}
+\DoxyCodeLine{705         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pažnja"{}};}
+\DoxyCodeLine{706     \}}
+\DoxyCodeLine{707     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a33cc71bf3593e9b780a4c240247579c8}{trInclByDepGraph}}()}
+\DoxyCodeLine{708     \{}
+\DoxyCodeLine{709       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ovaj graf pokazuje koje datoteke izravno "{}}}
+\DoxyCodeLine{710              \textcolor{stringliteral}{"{}ili neizravno uključuju ovu datoteku:"{}};}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad612ba457e11a6681090c2522d518693}{trSince}}()}
+\DoxyCodeLine{713     \{}
+\DoxyCodeLine{714       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Od"{}};}
+\DoxyCodeLine{715     \}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{718 \textcolor{comment}{// new since 1.1.5}}
+\DoxyCodeLine{720 \textcolor{comment}{}}
+\DoxyCodeLine{722     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3250a15c3aca1451a0c2b3e83a56be4f}{trLegendTitle}}()}
+\DoxyCodeLine{723     \{}
+\DoxyCodeLine{724       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Legenda"{}};}
+\DoxyCodeLine{725     \}}
+\DoxyCodeLine{727     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a85c56c6c507a473df17c1e1c0f66cd1e}{trLegendDocs}}()}
+\DoxyCodeLine{728     \{}
+\DoxyCodeLine{729       \textcolor{keywordflow}{return}}
+\DoxyCodeLine{730         \textcolor{stringliteral}{"{}Ova stranica objašnjava kako interpretirati grafikone koje je generirao "{}}}
+\DoxyCodeLine{731         \textcolor{stringliteral}{"{}doxygen.<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{732         \textcolor{stringliteral}{"{}Na primjer:\(\backslash\)n"{}}}
+\DoxyCodeLine{733         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)code\(\backslash\)n"{}}}
+\DoxyCodeLine{734         \textcolor{stringliteral}{"{}/*! Nevidljiva klasa (neće stati na graf date visine) */\(\backslash\)n"{}}}
+\DoxyCodeLine{735         \textcolor{stringliteral}{"{}class Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{736         \textcolor{stringliteral}{"{}/*! Odrezana klasa, inheritance je skriven (klase se vidi na grafu, ali ne i sve bazne klase) */\(\backslash\)n"{}}}
+\DoxyCodeLine{737         \textcolor{stringliteral}{"{}class Truncated : public Invisible \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{738         \textcolor{stringliteral}{"{}/* Nedokumentirana klasa */\(\backslash\)n"{}}}
+\DoxyCodeLine{739         \textcolor{stringliteral}{"{}class Undocumented \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{740         \textcolor{stringliteral}{"{}/*! Klasa koja je naslijeđena public  */\(\backslash\)n"{}}}
+\DoxyCodeLine{741         \textcolor{stringliteral}{"{}class PublicBase : public Truncated \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{742         \textcolor{stringliteral}{"{}/*! A template class */\(\backslash\)n"{}}}
+\DoxyCodeLine{743         \textcolor{stringliteral}{"{}template<class T> class Templ \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{744         \textcolor{stringliteral}{"{}/*! Klasa koje je naslijeđena protected */\(\backslash\)n"{}}}
+\DoxyCodeLine{745         \textcolor{stringliteral}{"{}class ProtectedBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{746         \textcolor{stringliteral}{"{}/*! Klasa koje je naslijeđena private */\(\backslash\)n"{}}}
+\DoxyCodeLine{747         \textcolor{stringliteral}{"{}class PrivateBase \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{748         \textcolor{stringliteral}{"{}/*! Klasa koja se koristi agregacijom  */\(\backslash\)n"{}}}
+\DoxyCodeLine{749         \textcolor{stringliteral}{"{}class Used \{ \};\(\backslash\)n\(\backslash\)n"{}}}
+\DoxyCodeLine{750         \textcolor{stringliteral}{"{}/*! Super klasa koja naslijeđuje/koristi ostale */\(\backslash\)n"{}}}
+\DoxyCodeLine{751         \textcolor{stringliteral}{"{}class Inherited : public PublicBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{752         \textcolor{stringliteral}{"{}                  protected ProtectedBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{753         \textcolor{stringliteral}{"{}                  private PrivateBase,\(\backslash\)n"{}}}
+\DoxyCodeLine{754         \textcolor{stringliteral}{"{}                  public Undocumented,\(\backslash\)n"{}}}
+\DoxyCodeLine{755         \textcolor{stringliteral}{"{}                  public Templ<int>\(\backslash\)n"{}}}
+\DoxyCodeLine{756         \textcolor{stringliteral}{"{}\{\(\backslash\)n"{}}}
+\DoxyCodeLine{757         \textcolor{stringliteral}{"{}  private:\(\backslash\)n"{}}}
+\DoxyCodeLine{758         \textcolor{stringliteral}{"{}    Used *m\_usedClass;\(\backslash\)n"{}}}
+\DoxyCodeLine{759         \textcolor{stringliteral}{"{}\};\(\backslash\)n"{}}}
+\DoxyCodeLine{760         \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)endcode\(\backslash\)n"{}}}
+\DoxyCodeLine{761         \textcolor{stringliteral}{"{}To će rezultirati grafikonom:"{}}}
+\DoxyCodeLine{762         \textcolor{stringliteral}{"{}<p><center><img src=\(\backslash\)"{}graph\_legend."{}}+\mbox{\hyperlink{util_8cpp_ab1cc08326518f249ccae693a16f6a10d}{getDotImageExtension}}()+\textcolor{stringliteral}{"{}\(\backslash\)"{}></center>\(\backslash\)n"{}}}
+\DoxyCodeLine{763         \textcolor{stringliteral}{"{}<p>\(\backslash\)n"{}}}
+\DoxyCodeLine{764         \textcolor{stringliteral}{"{}Pravokutnici imaju slijedeće značenje:\(\backslash\)n"{}}}
+\DoxyCodeLine{765         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{766         \textcolor{stringliteral}{"{}<li>Puni crni predstavlja klasu za koji je napravljen graf.\(\backslash\)n"{}}}
+\DoxyCodeLine{767         \textcolor{stringliteral}{"{}<li>Pravokutnik s crnim rubom predstavlja dokumentiranu klasu.\(\backslash\)n"{}}}
+\DoxyCodeLine{768         \textcolor{stringliteral}{"{}<li>Pravokutnik s sivim rubom predstavlja nedokumentiranu klasu.\(\backslash\)n"{}}}
+\DoxyCodeLine{769         \textcolor{stringliteral}{"{}<li>Pravokutnik s crvenim rubom predstavlja dokumentiranu klasu\(\backslash\)n"{}}}
+\DoxyCodeLine{770         \textcolor{stringliteral}{"{}Za koju nije prikazan graf naslijeđivanja. Graf je odrezan "{}}}
+\DoxyCodeLine{771         \textcolor{stringliteral}{"{}ako ne stane unutar određenih granica."{}}}
+\DoxyCodeLine{772         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{773         \textcolor{stringliteral}{"{}Strelice imaju slijedeće značenje:\(\backslash\)n"{}}}
+\DoxyCodeLine{774         \textcolor{stringliteral}{"{}<ul>\(\backslash\)n"{}}}
+\DoxyCodeLine{775         \textcolor{stringliteral}{"{}<li>Tamnoplava strelica označava public naslijeđivanje.\(\backslash\)n"{}}}
+\DoxyCodeLine{776         \textcolor{stringliteral}{"{}<li>Tamnozelena strelica označava protected naslijeđivanje.\(\backslash\)n"{}}}
+\DoxyCodeLine{777         \textcolor{stringliteral}{"{}<li>Tamnocrvena strelica označava private naslijeđivanje.\(\backslash\)n"{}}}
+\DoxyCodeLine{778         \textcolor{stringliteral}{"{}<li>Ljubičasta isprekidana strelica se koristi ako je klasa dio "{}}}
+\DoxyCodeLine{779         \textcolor{stringliteral}{"{}druge klase ili ako se klasa koristi u drugoj klasi. Natpis na "{}}}
+\DoxyCodeLine{780         \textcolor{stringliteral}{"{}strelici je ime varijable u drugoj klasi\(\backslash\)n"{}}}
+\DoxyCodeLine{781         \textcolor{stringliteral}{"{}Strelica je označena imenom varijable.\(\backslash\)n"{}}}
+\DoxyCodeLine{782         \textcolor{stringliteral}{"{}<li>Žuta isprekidana strelica označava relaciju između template instance "{}}}
+\DoxyCodeLine{783         \textcolor{stringliteral}{"{}i template klase. Označena je imenom template parametra\(\backslash\)n"{}}}
+\DoxyCodeLine{784         \textcolor{stringliteral}{"{}</ul>\(\backslash\)n"{}};}
+\DoxyCodeLine{785     \}}
+\DoxyCodeLine{787     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae5663c0e12e544f6e4f769496eaada6d}{trLegend}}()}
+\DoxyCodeLine{788     \{}
+\DoxyCodeLine{789       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}legenda"{}};}
+\DoxyCodeLine{790     \}}
+\DoxyCodeLine{792 \textcolor{comment}{// new since 1.2.0}}
+\DoxyCodeLine{794 \textcolor{comment}{}}
+\DoxyCodeLine{796     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_abde32277d4a372a6b4de6aea3b84ce76}{trTest}}()}
+\DoxyCodeLine{797     \{}
+\DoxyCodeLine{798       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test"{}};}
+\DoxyCodeLine{799     \}}
+\DoxyCodeLine{801     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aca1bdb7de19fc5f7ded7b96309f0e86a}{trTestList}}()}
+\DoxyCodeLine{802     \{}
+\DoxyCodeLine{803       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Test lista"{}};}
+\DoxyCodeLine{804     \}}
+\DoxyCodeLine{805 }
+\DoxyCodeLine{807 \textcolor{comment}{// new since 1.2.2}}
+\DoxyCodeLine{809 \textcolor{comment}{}}
+\DoxyCodeLine{811     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3a1b1d5789a54bcf391e4c68a9566b96}{trProperties}}()}
+\DoxyCodeLine{812     \{}
+\DoxyCodeLine{813       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Svojstva (property)"{}};}
+\DoxyCodeLine{814     \}}
+\DoxyCodeLine{816     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac8e4063363ae2bac4f2defe0d8f369c1}{trPropertyDocumentation}}()}
+\DoxyCodeLine{817     \{}
+\DoxyCodeLine{818       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija svojstava"{}};}
+\DoxyCodeLine{819     \}}
+\DoxyCodeLine{820 }
+\DoxyCodeLine{822 \textcolor{comment}{// new since 1.2.4}}
+\DoxyCodeLine{824 \textcolor{comment}{}}
+\DoxyCodeLine{826     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_adf4e675c440e0f5215b77ce4fe211fa7}{trClasses}}()}
+\DoxyCodeLine{827     \{}
+\DoxyCodeLine{828       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Klase"{}};}
+\DoxyCodeLine{829     \}}
+\DoxyCodeLine{831     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a43aa2ebff94504f1d138d3623363cdc8}{trPackage}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{832     \{}
+\DoxyCodeLine{833       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paket "{}}+name;}
+\DoxyCodeLine{834     \}}
+\DoxyCodeLine{836     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_adb6bcb67f2e75e9d2471cd26fe0027dc}{trPackageListDescription}}()}
+\DoxyCodeLine{837     \{}
+\DoxyCodeLine{838       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketi s kratkim opisom (ukoliko postoji):"{}};}
+\DoxyCodeLine{839     \}}
+\DoxyCodeLine{841     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a30ab02a12a1ff7ec6f1b92b9e68ea3b2}{trPackages}}()}
+\DoxyCodeLine{842     \{}
+\DoxyCodeLine{843       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Paketi"{}};}
+\DoxyCodeLine{844     \}}
+\DoxyCodeLine{846     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5d68bbda24085c02918a1cd967a6d4cd}{trDefineValue}}()}
+\DoxyCodeLine{847     \{}
+\DoxyCodeLine{848       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Vrijednost:"{}};}
+\DoxyCodeLine{849     \}}
+\DoxyCodeLine{850 }
+\DoxyCodeLine{852 \textcolor{comment}{// new since 1.2.5}}
+\DoxyCodeLine{854 \textcolor{comment}{}}
+\DoxyCodeLine{856     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a75fb4c2b60df30469878834f02dae136}{trBug}}()}
+\DoxyCodeLine{857     \{}
+\DoxyCodeLine{858       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Greška"{}};}
+\DoxyCodeLine{859     \}}
+\DoxyCodeLine{861     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a95d42281050b16f36d7e7b260c53f8e3}{trBugList}}()}
+\DoxyCodeLine{862     \{}
+\DoxyCodeLine{863       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis grešaka"{}};}
+\DoxyCodeLine{864     \}}
+\DoxyCodeLine{865 }
+\DoxyCodeLine{867 \textcolor{comment}{// new since 1.2.6}}
+\DoxyCodeLine{869 \textcolor{comment}{}}
+\DoxyCodeLine{870     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac17499fef00a33227b0b863cb3794ffa}{trRTFansicp}}()}
+\DoxyCodeLine{871     \{}
+\DoxyCodeLine{872       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}1252"{}};}
+\DoxyCodeLine{873     \}}
+\DoxyCodeLine{875     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a1d7d6ab4fe3d62e5eaf1060da020cca2}{trRTFCharSet}}()}
+\DoxyCodeLine{876     \{}
+\DoxyCodeLine{877       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}238"{}};}
+\DoxyCodeLine{878     \}}
+\DoxyCodeLine{880     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad6f887a03290a0f091c66dce049629c0}{trRTFGeneralIndex}}()}
+\DoxyCodeLine{881     \{}
+\DoxyCodeLine{882       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sadržaj"{}};}
+\DoxyCodeLine{883     \}}
+\DoxyCodeLine{884 }
+\DoxyCodeLine{889     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a152e3ac2d8c5f9fe28436d323d15bf8f}{trClass}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{890     \{}
+\DoxyCodeLine{891       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Klas"{}} : \textcolor{stringliteral}{"{}klas"{}}));}
+\DoxyCodeLine{892       result+= (singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{893       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{894     \}}
+\DoxyCodeLine{895 }
+\DoxyCodeLine{900     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a963510e90a33b2707c9fffc45ff7cc09}{trFile}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{901     \{}
+\DoxyCodeLine{902       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Datotek"{}} : \textcolor{stringliteral}{"{}datotek"{}}));}
+\DoxyCodeLine{903       result+= (singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{904       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{905     \}}
+\DoxyCodeLine{906 }
+\DoxyCodeLine{911     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab74e2ae74b6acaec10f1cb15f6bb5c4f}{trNamespace}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{912     \{}
+\DoxyCodeLine{913         \mbox{\hyperlink{classQCString}{QCString}} result;}
+\DoxyCodeLine{914         \textcolor{keywordflow}{if} (singular)}
+\DoxyCodeLine{915             result = ((first\_capital ? \textcolor{stringliteral}{"{}Imenik"{}} : \textcolor{stringliteral}{"{}imenik"{}}));}
+\DoxyCodeLine{916         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{917             result = ((first\_capital ? \textcolor{stringliteral}{"{}Imenici"{}} : \textcolor{stringliteral}{"{}imenici"{}}));}
+\DoxyCodeLine{918       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{919     \}}
+\DoxyCodeLine{920 }
+\DoxyCodeLine{925     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae2e59a38e3ee83ff4e28a89bc9ec7291}{trGroup}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{926     \{}
+\DoxyCodeLine{927       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Grup"{}} : \textcolor{stringliteral}{"{}grup"{}}));}
+\DoxyCodeLine{928       result+= (singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{929       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{930     \}}
+\DoxyCodeLine{931 }
+\DoxyCodeLine{936     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae4121bb290db310efb73193303ae09b3}{trPage}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{937     \{}
+\DoxyCodeLine{938       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Stranic"{}} : \textcolor{stringliteral}{"{}stranic"{}}));}
+\DoxyCodeLine{939       result+= (singular ? \textcolor{stringliteral}{"{}a"{}} : \textcolor{stringliteral}{"{}e"{}});}
+\DoxyCodeLine{940       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{941     \}}
+\DoxyCodeLine{942 }
+\DoxyCodeLine{947     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a1926acbe443abf154a47de6138890b03}{trMember}}(\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{948     \{}
+\DoxyCodeLine{949       \mbox{\hyperlink{classQCString}{QCString}} result(\textcolor{stringliteral}{"{}član"{}});}
+\DoxyCodeLine{950       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ovi"{}};}
+\DoxyCodeLine{951       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{952     \}}
+\DoxyCodeLine{953 }
+\DoxyCodeLine{958     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac79f4973d82c456a82fbc39585350c3d}{trGlobal}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{959     \{}
+\DoxyCodeLine{960       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}G"{}} : \textcolor{stringliteral}{"{}g"{}}));}
+\DoxyCodeLine{961       \textcolor{keywordflow}{if}( singular )}
+\DoxyCodeLine{962           result += \textcolor{stringliteral}{"{}lobalna varijabla"{}};}
+\DoxyCodeLine{963       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{964           result += \textcolor{stringliteral}{"{}lobalne varijable"{}};}
+\DoxyCodeLine{965 }
+\DoxyCodeLine{966       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{967     \}}
+\DoxyCodeLine{968 }
+\DoxyCodeLine{970 \textcolor{comment}{// new since 1.2.7}}
+\DoxyCodeLine{972 \textcolor{comment}{}}
+\DoxyCodeLine{975     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a17dc924e63b5b71a766b57e706b7ddac}{trAuthor}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{976     \{}
+\DoxyCodeLine{977       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Autor"{}} : \textcolor{stringliteral}{"{}autor"{}}));}
+\DoxyCodeLine{978       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{979       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{980     \}}
+\DoxyCodeLine{981 }
+\DoxyCodeLine{983 \textcolor{comment}{// new since 1.2.11}}
+\DoxyCodeLine{985 \textcolor{comment}{}}
+\DoxyCodeLine{988     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a1504ced62753533e0ed158a2fb441b0d}{trReferences}}()}
+\DoxyCodeLine{989     \{}
+\DoxyCodeLine{990       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Reference"{}};}
+\DoxyCodeLine{991     \}}
+\DoxyCodeLine{993 \textcolor{comment}{// new since 1.2.13}}
+\DoxyCodeLine{995 \textcolor{comment}{}}
+\DoxyCodeLine{999     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a9387908f11cf090eceeb2da2665e1a35}{trImplementedFromList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1000     \{}
+\DoxyCodeLine{1001       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementira "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1002     \}}
+\DoxyCodeLine{1003 }
+\DoxyCodeLine{1007     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a51487cd62929b05a2fae49c8aadc4ffb}{trImplementedInList}}(\textcolor{keywordtype}{int} numEntries)}
+\DoxyCodeLine{1008     \{}
+\DoxyCodeLine{1009       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Implementirano u "{}}+\mbox{\hyperlink{classTranslatorCroatian_a0e2f9c53ce33d8e65a36e3203d1ec0f0}{trWriteList}}(numEntries)+\textcolor{stringliteral}{"{}."{}};}
+\DoxyCodeLine{1010     \}}
+\DoxyCodeLine{1012 \textcolor{comment}{// new since 1.2.16}}
+\DoxyCodeLine{1014 \textcolor{comment}{}}
+\DoxyCodeLine{1018     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab6959dccc3e12d855f27ee6f3fd1488e}{trRTFTableOfContents}}()}
+\DoxyCodeLine{1019     \{}
+\DoxyCodeLine{1020       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sadržaj"{}};}
+\DoxyCodeLine{1021     \}}
+\DoxyCodeLine{1023 \textcolor{comment}{// new since 1.2.17}}
+\DoxyCodeLine{1025 \textcolor{comment}{}}
+\DoxyCodeLine{1029     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af7cd6d83c8594fcee8e0f337ba51138a}{trDeprecatedList}}()}
+\DoxyCodeLine{1030     \{}
+\DoxyCodeLine{1031       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis zastarjelih metoda"{}};}
+\DoxyCodeLine{1032     \}}
+\DoxyCodeLine{1034 \textcolor{comment}{// new since 1.2.18}}
+\DoxyCodeLine{1036 \textcolor{comment}{}}
+\DoxyCodeLine{1040     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_abc08e45d3be4d63c9a26f5b91f247d4b}{trEvents}}()}
+\DoxyCodeLine{1041     \{}
+\DoxyCodeLine{1042       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Događaji"{}};}
+\DoxyCodeLine{1043     \}}
+\DoxyCodeLine{1045     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a9e35b757b69a0d6879f6abd64d8f91ca}{trEventDocumentation}}()}
+\DoxyCodeLine{1046     \{}
+\DoxyCodeLine{1047       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija događaja"{}};}
+\DoxyCodeLine{1048     \}}
+\DoxyCodeLine{1050 \textcolor{comment}{// new since 1.3}}
+\DoxyCodeLine{1052 \textcolor{comment}{}}
+\DoxyCodeLine{1055     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4ce8a6d0ef5cc97fc5df8527e7aa4a3b}{trPackageTypes}}()}
+\DoxyCodeLine{1056     \{}
+\DoxyCodeLine{1057       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipovi u paketu"{}};}
+\DoxyCodeLine{1058     \}}
+\DoxyCodeLine{1062     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_afde0642a985aac7833caf035dd7a4cb6}{trPackageFunctions}}()}
+\DoxyCodeLine{1063     \{}
+\DoxyCodeLine{1064       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcije u paketu"{}};}
+\DoxyCodeLine{1065     \}}
+\DoxyCodeLine{1066     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab2c5735f9ad7d480f81ca53583f8be4b}{trPackageMembers}}()}
+\DoxyCodeLine{1067     \{}
+\DoxyCodeLine{1068       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}članovi u paketu"{}};}
+\DoxyCodeLine{1069     \}}
+\DoxyCodeLine{1073     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a17b1fb9cbad68b211f65849d2cfe26eb}{trStaticPackageFunctions}}()}
+\DoxyCodeLine{1074     \{}
+\DoxyCodeLine{1075       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statičke funkcije u paketu"{}};}
+\DoxyCodeLine{1076     \}}
+\DoxyCodeLine{1080     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aab3bd717048978cc268622ce5cce1675}{trPackageAttribs}}()}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Atributi u paketu"{}};}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1087     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6c742527cc027b554c1614b41d89f9c5}{trStaticPackageAttribs}}()}
+\DoxyCodeLine{1088     \{}
+\DoxyCodeLine{1089       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Statički atributi u paketu"{}};}
+\DoxyCodeLine{1090     \}}
+\DoxyCodeLine{1092     \textcolor{comment}{// new since 1.3.1}}
+\DoxyCodeLine{1094 \textcolor{comment}{}}
+\DoxyCodeLine{1098     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac1eae452db2fbba201451b76e80c827d}{trAll}}()}
+\DoxyCodeLine{1099     \{}
+\DoxyCodeLine{1100         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Sve"{}};}
+\DoxyCodeLine{1101     \}}
+\DoxyCodeLine{1103     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a723e2ef503d3a4da00dcb34b19178c20}{trCallGraph}}()}
+\DoxyCodeLine{1104     \{}
+\DoxyCodeLine{1105         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ovo je dijagram poziva za ovu funkciju:"{}};}
+\DoxyCodeLine{1106     \}}
+\DoxyCodeLine{1107 }
+\DoxyCodeLine{1109     \textcolor{comment}{// new since 1.3.3}}
+\DoxyCodeLine{1111 \textcolor{comment}{}}
+\DoxyCodeLine{1115     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ace8f65acf8eb74d456c987d6d63b4a7d}{trSearchResultsTitle}}()}
+\DoxyCodeLine{1116     \{}
+\DoxyCodeLine{1117         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Rezultati pretrage"{}};}
+\DoxyCodeLine{1118     \}}
+\DoxyCodeLine{1127     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5ee45a6e21d78cdc53e6ed2e36ba8285}{trSearchResults}}(\textcolor{keywordtype}{int} numDocuments)}
+\DoxyCodeLine{1128     \{}
+\DoxyCodeLine{1129         \textcolor{keywordflow}{if} (numDocuments==0)}
+\DoxyCodeLine{1130         \{}
+\DoxyCodeLine{1131             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nema dokumenta koji odgovaraju vašem upitu"{}};}
+\DoxyCodeLine{1132         \}}
+\DoxyCodeLine{1133         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments==1)}
+\DoxyCodeLine{1134         \{}
+\DoxyCodeLine{1135             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nađen <b>1</b> dokument koji odgovara vašem upitu."{}};}
+\DoxyCodeLine{1136         \}}
+\DoxyCodeLine{1137         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (numDocuments<5)}
+\DoxyCodeLine{1138         \{}
+\DoxyCodeLine{1139             \textcolor{comment}{// Croatian (AFAIK all Slavic languages except Macedonian and Bulgarian)}}
+\DoxyCodeLine{1140             \textcolor{comment}{// have different plural form for 2,3,4.}}
+\DoxyCodeLine{1141             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nađena <b>\$num</b> dokumenta koji odgovaraju vašem upitu."{}}}
+\DoxyCodeLine{1142                 \textcolor{stringliteral}{"{}Najbolji su prikazani prvi."{}};}
+\DoxyCodeLine{1143         \}}
+\DoxyCodeLine{1144         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1145         \{}
+\DoxyCodeLine{1146             \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nađeno <b>\$num</b> dokumenata koji odgovaraju vašem upitu."{}}}
+\DoxyCodeLine{1147                 \textcolor{stringliteral}{"{}Najbolji su prikazani prvi."{}};}
+\DoxyCodeLine{1148         \}}
+\DoxyCodeLine{1149     \}}
+\DoxyCodeLine{1153     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a7f376084ac5b3f34dcd423e046a8b4c4}{trSearchMatches}}()}
+\DoxyCodeLine{1154     \{}
+\DoxyCodeLine{1155         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Pronađeno:"{}};}
+\DoxyCodeLine{1156     \}}
+\DoxyCodeLine{1157 }
+\DoxyCodeLine{1159 \textcolor{comment}{// new since 1.3.8}}
+\DoxyCodeLine{1161 \textcolor{comment}{}}
+\DoxyCodeLine{1164     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a442c63c810383f3dbab7f874bf6d248e}{trSourceFile}}(\mbox{\hyperlink{classQCString}{QCString}}\& filename)}
+\DoxyCodeLine{1165     \{}
+\DoxyCodeLine{1166       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Izvorni kod datoteke "{}} + filename;}
+\DoxyCodeLine{1167     \}}
+\DoxyCodeLine{1168 }
+\DoxyCodeLine{1170 \textcolor{comment}{// new since 1.3.9}}
+\DoxyCodeLine{1172 \textcolor{comment}{}}
+\DoxyCodeLine{1176     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad8c5567eeebfd21c08cb853e31f66a5d}{trDirIndex}}()}
+\DoxyCodeLine{1177     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Stablo direktorija"{}}; \}}
+\DoxyCodeLine{1178 }
+\DoxyCodeLine{1182     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a885f3f4960c83f070ac69639df98eadf}{trDirDocumentation}}()}
+\DoxyCodeLine{1183     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija direktorija"{}}; \}}
+\DoxyCodeLine{1184 }
+\DoxyCodeLine{1188     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6812879b0f7ebb41731785f8fc241487}{trDirectories}}()}
+\DoxyCodeLine{1189     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Direktoriji"{}}; \}}
+\DoxyCodeLine{1190 }
+\DoxyCodeLine{1194     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a1af60957390de7d12dd12d3dfca45033}{trDirReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&dirName)}
+\DoxyCodeLine{1195     \{ \mbox{\hyperlink{classQCString}{QCString}} result= \textcolor{stringliteral}{"{}Opis direktorija "{}}; result += dirName; \textcolor{keywordflow}{return} result; \}}
+\DoxyCodeLine{1196 }
+\DoxyCodeLine{1200     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a10a3224ece15bbb3004ae9ec02fc2335}{trDir}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1201     \{}
+\DoxyCodeLine{1202       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Direktorij"{}} : \textcolor{stringliteral}{"{}direktorij"{}}));}
+\DoxyCodeLine{1203       \textcolor{keywordflow}{if} (!singular) result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1204       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1205     \}}
+\DoxyCodeLine{1207 \textcolor{comment}{// new since 1.4.1}}
+\DoxyCodeLine{1209 \textcolor{comment}{}}
+\DoxyCodeLine{1213     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a129d80bf2481e1195a1dcb2e44299b8d}{trOverloadText}}()}
+\DoxyCodeLine{1214     \{}
+\DoxyCodeLine{1215        \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ovo je preopterećena funkcija (overload). "{}}}
+\DoxyCodeLine{1216               \textcolor{stringliteral}{"{}Razlikuje se od navedene metode "{}}}
+\DoxyCodeLine{1217               \textcolor{stringliteral}{"{}samo po vrsti argumenata koje prihvaća."{}};}
+\DoxyCodeLine{1218     \}}
+\DoxyCodeLine{1219 }
+\DoxyCodeLine{1221 \textcolor{comment}{// new since 1.4.6}}
+\DoxyCodeLine{1223 \textcolor{comment}{}}
+\DoxyCodeLine{1225     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad00aca202061f70b8c307335009491d9}{trCallerGraph}}()}
+\DoxyCodeLine{1226     \{}
+\DoxyCodeLine{1227       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ovo je graf funkcija koje pozivaju ovu funkciju:"{}};}
+\DoxyCodeLine{1228     \}}
+\DoxyCodeLine{1229 }
+\DoxyCodeLine{1233     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a570d826f15efb5bda206077852bb439b}{trEnumerationValueDocumentation}}()}
+\DoxyCodeLine{1234     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija enumeracija"{}}; \}}
+\DoxyCodeLine{1236 \textcolor{comment}{// new since 1.5.4 (mainly for Fortran)}}
+\DoxyCodeLine{1238 \textcolor{comment}{}}
+\DoxyCodeLine{1240     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a35efefe1960664105587cb5521828c15}{trMemberFunctionDocumentationFortran}}()}
+\DoxyCodeLine{1241     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija member funkcija/subrutina"{}}; \}}
+\DoxyCodeLine{1242 }
+\DoxyCodeLine{1244     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aabd4494644ea85368800b6c746cb5c40}{trCompoundListFortran}}()}
+\DoxyCodeLine{1245     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Lista tipova podataka"{}}; \}}
+\DoxyCodeLine{1246 }
+\DoxyCodeLine{1248     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac363f07c47837a9ca20179b9fd164c35}{trCompoundMembersFortran}}()}
+\DoxyCodeLine{1249     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Polja"{}}; \}}
+\DoxyCodeLine{1250 }
+\DoxyCodeLine{1252     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a4e11f2481581e629cf456830eb73e5fe}{trCompoundListDescriptionFortran}}()}
+\DoxyCodeLine{1253     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipovi podataka s kratkim opisom:"{}}; \}}
+\DoxyCodeLine{1254 }
+\DoxyCodeLine{1256     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a49a09bde699d280d7c20502bfc906ca9}{trCompoundMembersDescriptionFortran}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1257     \{}
+\DoxyCodeLine{1258       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista svih "{}};}
+\DoxyCodeLine{1259       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1260       \{}
+\DoxyCodeLine{1261         result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{1262       \}}
+\DoxyCodeLine{1263       result+=\textcolor{stringliteral}{"{}polja"{}};}
+\DoxyCodeLine{1264       result+=\textcolor{stringliteral}{"{} s linkovima na "{}};}
+\DoxyCodeLine{1265       \textcolor{keywordflow}{if} (!extractAll)}
+\DoxyCodeLine{1266       \{}
+\DoxyCodeLine{1267         result+=\textcolor{stringliteral}{"{}dokumentaciju struktura podataka za svako polje"{}};}
+\DoxyCodeLine{1268       \}}
+\DoxyCodeLine{1269       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1270       \{}
+\DoxyCodeLine{1271         result+=\textcolor{stringliteral}{"{}strukture kojima pripadaju:"{}};}
+\DoxyCodeLine{1272       \}}
+\DoxyCodeLine{1273       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1274     \}}
+\DoxyCodeLine{1275 }
+\DoxyCodeLine{1279     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a72bacf57e2216baa5c7952f805b68003}{trCompoundIndexFortran}}()}
+\DoxyCodeLine{1280     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo data tipova"{}}; \}}
+\DoxyCodeLine{1281 }
+\DoxyCodeLine{1285     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a00d80d36c26b46e2c01cba0e9c07d189}{trTypeDocumentation}}()}
+\DoxyCodeLine{1286     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dokumentacija tipova podataka"{}}; \}}
+\DoxyCodeLine{1287 }
+\DoxyCodeLine{1291     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af5a1ef3be00c4213e9f98f1064233407}{trSubprograms}}()}
+\DoxyCodeLine{1292     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Funkcije/Subrutine"{}}; \}}
+\DoxyCodeLine{1293 }
+\DoxyCodeLine{1297     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab4fa9162851c02e3b7332bd6e6ce75b7}{trSubprogramDocumentation}}()}
+\DoxyCodeLine{1298     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Documentacija funkcija/subrutina"{}}; \}}
+\DoxyCodeLine{1299 }
+\DoxyCodeLine{1303     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae56de72f5f2b9fca50e762a1c09006c9}{trDataTypes}}()}
+\DoxyCodeLine{1304     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tipovi podataka"{}}; \}}
+\DoxyCodeLine{1305 }
+\DoxyCodeLine{1307     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa2eb500fb2597d7b76330e30ee455e74}{trModulesList}}()}
+\DoxyCodeLine{1308     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Popis modula"{}}; \}}
+\DoxyCodeLine{1309 }
+\DoxyCodeLine{1311     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a64ef6563dc8cdbb23826799c396542b8}{trModulesListDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1312     \{}
+\DoxyCodeLine{1313       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista svih "{}};}
+\DoxyCodeLine{1314       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{1315       result+=\textcolor{stringliteral}{"{}modula s kratkim opisom:"{}};}
+\DoxyCodeLine{1316       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1317     \}}
+\DoxyCodeLine{1318 }
+\DoxyCodeLine{1320     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a572147fea971bc56a1d9119ae2aee3d6}{trCompoundReferenceFortran}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&clName,}
+\DoxyCodeLine{1321       \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1322       \textcolor{keywordtype}{bool} isTemplate)}
+\DoxyCodeLine{1323     \{}
+\DoxyCodeLine{1324       \mbox{\hyperlink{classQCString}{QCString}} result=clName;}
+\DoxyCodeLine{1325       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1326       \{}
+\DoxyCodeLine{1327         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{} Modul"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1328         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{} Tip"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1329         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{} Unija"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1330         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{} Sučelje"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1331         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{} Protokol"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1332         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{} Kategorija"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1333         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{} Iznimka"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1334         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1335       \}}
+\DoxyCodeLine{1336       \textcolor{keywordflow}{if} (isTemplate) result+=\textcolor{stringliteral}{"{} Predložak"{}};}
+\DoxyCodeLine{1337       result+=\textcolor{stringliteral}{"{} Referenca"{}};}
+\DoxyCodeLine{1338       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1339     \}}
+\DoxyCodeLine{1341     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a502e5f5c3fe869fd8f0db063e7756be4}{trModuleReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&namespaceName)}
+\DoxyCodeLine{1342     \{}
+\DoxyCodeLine{1343       \mbox{\hyperlink{classQCString}{QCString}} result=namespaceName;}
+\DoxyCodeLine{1344       result+=\textcolor{stringliteral}{"{} -\/ Sadržaj modula"{}};}
+\DoxyCodeLine{1345       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1346     \}}
+\DoxyCodeLine{1347 }
+\DoxyCodeLine{1349     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_affc180feb6c2ba141af784532b38dad7}{trModulesMembers}}()}
+\DoxyCodeLine{1350     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}članovi modula"{}}; \}}
+\DoxyCodeLine{1351 }
+\DoxyCodeLine{1353     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6b48597f47640e0cadd1a6c4f551cc49}{trModulesMemberDescription}}(\textcolor{keywordtype}{bool} extractAll)}
+\DoxyCodeLine{1354     \{}
+\DoxyCodeLine{1355       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Lista svih "{}};}
+\DoxyCodeLine{1356       \textcolor{keywordflow}{if} (!extractAll) result+=\textcolor{stringliteral}{"{}dokumentiranih "{}};}
+\DoxyCodeLine{1357       result+=\textcolor{stringliteral}{"{}članova modula s linkovima na "{}};}
+\DoxyCodeLine{1358       \textcolor{keywordflow}{if} (extractAll)}
+\DoxyCodeLine{1359       \{}
+\DoxyCodeLine{1360         result+=\textcolor{stringliteral}{"{}dokumentaciju modula za svaki član:"{}};}
+\DoxyCodeLine{1361       \}}
+\DoxyCodeLine{1362       \textcolor{keywordflow}{else}}
+\DoxyCodeLine{1363       \{}
+\DoxyCodeLine{1364         result+=\textcolor{stringliteral}{"{}modul kojem pripadaju:"{}};}
+\DoxyCodeLine{1365       \}}
+\DoxyCodeLine{1366       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1367     \}}
+\DoxyCodeLine{1368 }
+\DoxyCodeLine{1372     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a9964e73c7bb1aceae539df16ca9de1e5}{trModulesIndex}}()}
+\DoxyCodeLine{1373     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Kazalo modula"{}}; \}}
+\DoxyCodeLine{1374 }
+\DoxyCodeLine{1379     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ad68309492bd413275f9056ff5f2ef5aa}{trModule}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1380     \{}
+\DoxyCodeLine{1381       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Modul"{}} : \textcolor{stringliteral}{"{}modul"{}}));}
+\DoxyCodeLine{1382       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1383       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1384     \}}
+\DoxyCodeLine{1388     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_afd13c496f152991572102637abdd0a66}{trGeneratedFromFilesFortran}}(\mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939}{ClassDef::CompoundType}} compType,}
+\DoxyCodeLine{1389       \textcolor{keywordtype}{bool})}
+\DoxyCodeLine{1390     \{ \textcolor{comment}{// here s is one of "{} Module"{}, "{} Struct"{} or "{} Union"{}}}
+\DoxyCodeLine{1391       \textcolor{comment}{// single is true implies a single file}}
+\DoxyCodeLine{1392       \mbox{\hyperlink{classQCString}{QCString}} result=\textcolor{stringliteral}{"{}Dokumentacija ovog "{}};}
+\DoxyCodeLine{1393       \textcolor{keywordflow}{switch}(compType)}
+\DoxyCodeLine{1394       \{}
+\DoxyCodeLine{1395         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a5261cde79065c9b6af97195e43e8073b}{ClassDef::Class}}:      result+=\textcolor{stringliteral}{"{}modula"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1396         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939adbed80de6b389027e03afb5abb06f2c9}{ClassDef::Struct}}:     result+=\textcolor{stringliteral}{"{}tipa"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1397         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a07fb8df6b10c0140665c0421b6f64c09}{ClassDef::Union}}:      result+=\textcolor{stringliteral}{"{}unije"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1398         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a6ff6e3b1bbf7e59a752826880e148528}{ClassDef::Interface}}:  result+=\textcolor{stringliteral}{"{}sučelja"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1399         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a16feb88dead0850cea552a51ad9d26b5}{ClassDef::Protocol}}:   result+=\textcolor{stringliteral}{"{}protokola"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1400         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939a937d0378cd8fb4b49efe215cc6c00469}{ClassDef::Category}}:   result+=\textcolor{stringliteral}{"{}kategorije"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1401         \textcolor{keywordflow}{case} \mbox{\hyperlink{classClassDef_ae70cf86d35fe954a94c566fbcfc87939ad14369c9a6f5e3977c0e02714a4beba8}{ClassDef::Exception}}:  result+=\textcolor{stringliteral}{"{}iznimke"{}}; \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1402         \textcolor{keywordflow}{default}: \textcolor{keywordflow}{break};}
+\DoxyCodeLine{1403       \}}
+\DoxyCodeLine{1404       result+=\textcolor{stringliteral}{"{} je napravljena iz :"{}};}
+\DoxyCodeLine{1405       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1406     \}}
+\DoxyCodeLine{1411     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac2d6cc18fc740ca01b2ad50d747c9935}{trType}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1412     \{}
+\DoxyCodeLine{1413       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Tip"{}} : \textcolor{stringliteral}{"{}tip"{}}));}
+\DoxyCodeLine{1414       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}ovi"{}};}
+\DoxyCodeLine{1415       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1416     \}}
+\DoxyCodeLine{1421     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab5ccf8dd56048e10158a0ad5c528087c}{trSubprogram}}(\textcolor{keywordtype}{bool} first\_capital, \textcolor{keywordtype}{bool} singular)}
+\DoxyCodeLine{1422     \{}
+\DoxyCodeLine{1423       \mbox{\hyperlink{classQCString}{QCString}} result((first\_capital ? \textcolor{stringliteral}{"{}Subprogram"{}} : \textcolor{stringliteral}{"{}subprogram"{}}));}
+\DoxyCodeLine{1424       \textcolor{keywordflow}{if} (!singular)  result+=\textcolor{stringliteral}{"{}i"{}};}
+\DoxyCodeLine{1425       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1426     \}}
+\DoxyCodeLine{1427 }
+\DoxyCodeLine{1429     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af81d5be2e3456c26a74b2680e37a51b0}{trTypeConstraints}}()}
+\DoxyCodeLine{1430     \{}
+\DoxyCodeLine{1431       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Ograničenja tipova (Type Constraints)"{}};}
+\DoxyCodeLine{1432     \}}
+\DoxyCodeLine{1434     \textcolor{comment}{// new since 1.6.0 (mainly for the new search engine)}}
+\DoxyCodeLine{1436 \textcolor{comment}{}}
+\DoxyCodeLine{1438     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a5406091554b7aaff2455d6e41465f983}{trDirRelation}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1439     \{}
+\DoxyCodeLine{1440         \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Relacije "{}}) + \mbox{\hyperlink{classQCString}{QCString}}(name);}
+\DoxyCodeLine{1441     \}}
+\DoxyCodeLine{1442 }
+\DoxyCodeLine{1444     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8132d4a84802c0fa136e950b12519919}{trLoading}}()}
+\DoxyCodeLine{1445     \{}
+\DoxyCodeLine{1446         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Učitavam..."{}};}
+\DoxyCodeLine{1447     \}}
+\DoxyCodeLine{1448 }
+\DoxyCodeLine{1450     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6ab170ee62500c65bdee276622b99e25}{trGlobalNamespace}}()}
+\DoxyCodeLine{1451     \{}
+\DoxyCodeLine{1452         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Globalni namespace"{}};}
+\DoxyCodeLine{1453     \}}
+\DoxyCodeLine{1454 }
+\DoxyCodeLine{1456     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a243180cf0268eaad696f4fc0373465a6}{trSearching}}()}
+\DoxyCodeLine{1457     \{}
+\DoxyCodeLine{1458         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Tražim..."{}};}
+\DoxyCodeLine{1459     \}}
+\DoxyCodeLine{1460 }
+\DoxyCodeLine{1462     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a829bcd344be0a07c509a7828f7cca3d9}{trNoMatches}}()}
+\DoxyCodeLine{1463     \{}
+\DoxyCodeLine{1464         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Nema traženih podataka"{}};}
+\DoxyCodeLine{1465     \}}
+\DoxyCodeLine{1466 }
+\DoxyCodeLine{1468 \textcolor{comment}{// new since 1.6.3 (missing items for the directory pages)}}
+\DoxyCodeLine{1470 \textcolor{comment}{}}
+\DoxyCodeLine{1475     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a6c5c32a63a92f646afae702fd90d92fc}{trFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1476     \{}
+\DoxyCodeLine{1477       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Datoteka u "{}}+name;}
+\DoxyCodeLine{1478     \}}
+\DoxyCodeLine{1479 }
+\DoxyCodeLine{1484     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab9de77d9392b1bb6a50c94c370bd24fb}{trIncludesFileIn}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1485     \{}
+\DoxyCodeLine{1486       \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Uključuje datotake u "{}}+name;}
+\DoxyCodeLine{1487     \}}
+\DoxyCodeLine{1488 }
+\DoxyCodeLine{1499     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ab0b72227f89c1eacf7add3ddb4af4dc9}{trDateTime}}(\textcolor{keywordtype}{int} year,\textcolor{keywordtype}{int} month,\textcolor{keywordtype}{int} day,\textcolor{keywordtype}{int} dayOfWeek,}
+\DoxyCodeLine{1500                                 \textcolor{keywordtype}{int} hour,\textcolor{keywordtype}{int} minutes,\textcolor{keywordtype}{int} seconds,}
+\DoxyCodeLine{1501                                 \textcolor{keywordtype}{bool} includeTime)}
+\DoxyCodeLine{1502     \{}
+\DoxyCodeLine{1503       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *days[]   = \{ \textcolor{stringliteral}{"{}Pon"{}},\textcolor{stringliteral}{"{}Uto"{}},\textcolor{stringliteral}{"{}Sri"{}},\textcolor{stringliteral}{"{}Čet"{}},\textcolor{stringliteral}{"{}Pet"{}},\textcolor{stringliteral}{"{}Sub"{}},\textcolor{stringliteral}{"{}Ned"{}} \};}
+\DoxyCodeLine{1504       \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *months[] = \{ \textcolor{stringliteral}{"{}Sje"{}},\textcolor{stringliteral}{"{}Velj"{}},\textcolor{stringliteral}{"{}Ožu"{}},\textcolor{stringliteral}{"{}Tra"{}},\textcolor{stringliteral}{"{}Svi"{}},\textcolor{stringliteral}{"{}Lip"{}},\textcolor{stringliteral}{"{}Srp"{}},\textcolor{stringliteral}{"{}Kol"{}},\textcolor{stringliteral}{"{}Ruj"{}},\textcolor{stringliteral}{"{}Lis"{}},\textcolor{stringliteral}{"{}Stu"{}},\textcolor{stringliteral}{"{}Pro"{}} \};}
+\DoxyCodeLine{1505       \mbox{\hyperlink{classQCString}{QCString}} sdate;}
+\DoxyCodeLine{1506       sdate.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{}\%s \%s \%d \%d"{}},days[dayOfWeek-\/1],months[month-\/1],day,year);}
+\DoxyCodeLine{1507       \textcolor{keywordflow}{if} (includeTime)}
+\DoxyCodeLine{1508       \{}
+\DoxyCodeLine{1509         \mbox{\hyperlink{classQCString}{QCString}} stime;}
+\DoxyCodeLine{1510         stime.\mbox{\hyperlink{classQCString_aa2dccf89cb25346c3ee81d75aa5859da}{sprintf}}(\textcolor{stringliteral}{"{} \%.2d:\%.2d:\%.2d"{}},hour,minutes,seconds);}
+\DoxyCodeLine{1511         sdate+=stime;}
+\DoxyCodeLine{1512       \}}
+\DoxyCodeLine{1513       \textcolor{keywordflow}{return} sdate;}
+\DoxyCodeLine{1514     \}}
+\DoxyCodeLine{1516 \textcolor{comment}{// new since 1.7.5}}
+\DoxyCodeLine{1518 \textcolor{comment}{}}
+\DoxyCodeLine{1520     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ac1c1497f155e733a23d30ce572300759}{trCiteReferences}}()}
+\DoxyCodeLine{1521     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Bibliografija"{}}; \}}
+\DoxyCodeLine{1522 }
+\DoxyCodeLine{1524     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a3551539c8ac3b746f1c771870b984587}{trCopyright}}()}
+\DoxyCodeLine{1525     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Copyright"{}}; \}}
+\DoxyCodeLine{1526 }
+\DoxyCodeLine{1528     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_ae2605dc73d53f5468fdfb8a3f38ed293}{trDirDepGraph}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1529     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(\textcolor{stringliteral}{"{}Direktoriji o kojima ovisi "{}})+name+\textcolor{stringliteral}{"{}:"{}}; \}}
+\DoxyCodeLine{1530 }
+\DoxyCodeLine{1532 \textcolor{comment}{// new since 1.8.0}}
+\DoxyCodeLine{1534 \textcolor{comment}{}}
+\DoxyCodeLine{1536     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a8c51d43d261f6bdac4ad89305a51439e}{trDetailLevel}}()}
+\DoxyCodeLine{1537     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}razina detalja"{}}; \}}
+\DoxyCodeLine{1538 }
+\DoxyCodeLine{1540     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aeab4867516f03a2920bb07afa909403b}{trTemplateParameters}}()}
+\DoxyCodeLine{1541     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Parametri predloška"{}}; \}}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1544     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aef0e197da4aafbb941a5ba5a43ebcd21}{trAndMore}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&number)}
+\DoxyCodeLine{1545     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}i još "{}}+number+\textcolor{stringliteral}{"{} ..."{}}; \}}
+\DoxyCodeLine{1546 }
+\DoxyCodeLine{1548     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_a48747300f884a8e745a45eebb4b70a20}{trEnumGeneratedFromFiles}}(\textcolor{keywordtype}{bool} single)}
+\DoxyCodeLine{1549     \{ \mbox{\hyperlink{classQCString}{QCString}} result = \textcolor{stringliteral}{"{}Dokumatacija za ovu enumeraciju je generirana iz "{}};}
+\DoxyCodeLine{1550       \textcolor{keywordflow}{if} (!single) result += \textcolor{stringliteral}{"{}datoteka:"{}};}
+\DoxyCodeLine{1551       \textcolor{keywordflow}{else} result += \textcolor{stringliteral}{"{}datoteke:"{}};}
+\DoxyCodeLine{1552       \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{1553     \}}
+\DoxyCodeLine{1554 }
+\DoxyCodeLine{1556     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa369bf0551c68066f11b8e46a30feba8}{trEnumReference}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&name)}
+\DoxyCodeLine{1557     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Opis enumeracije "{}} + \mbox{\hyperlink{classQCString}{QCString}}(name); \}}
+\DoxyCodeLine{1558 }
+\DoxyCodeLine{1560     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_aa294e184348294ee49a521cfb4e3be78}{trInheritedFrom}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&members,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&what)}
+\DoxyCodeLine{1561     \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classQCString}{QCString}}(members)+\textcolor{stringliteral}{"{} naslijeđeni od "{}}+what; \}}
+\DoxyCodeLine{1562 }
+\DoxyCodeLine{1566     \textcolor{keyword}{virtual} \mbox{\hyperlink{classQCString}{QCString}} \mbox{\hyperlink{classTranslatorCroatian_af21178f49ef1c7763b9505365cc95510}{trAdditionalInheritedMembers}}()}
+\DoxyCodeLine{1567     \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Dodatni naslijeđeni članovi"{}}; \}}
+\DoxyCodeLine{1568 }
+\DoxyCodeLine{1569 \};}
+\DoxyCodeLine{1570 }
+\DoxyCodeLine{1571 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1572 }
+\DoxyCodeLine{1573 }
+
+\end{DoxyCode}

@@ -1,0 +1,79 @@
+\hypertarget{dotfilepatcher_8h_source}{}\doxysection{dotfilepatcher.\+h}
+\label{dotfilepatcher_8h_source}\index{/mnt/c/projects/doxygen/src/dotfilepatcher.h@{/mnt/c/projects/doxygen/src/dotfilepatcher.h}}
+\mbox{\hyperlink{dotfilepatcher_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{*}}
+\DoxyCodeLine{3 \textcolor{comment}{* Copyright (C) 1997-\/2019 by Dimitri van Heesch.}}
+\DoxyCodeLine{4 \textcolor{comment}{*}}
+\DoxyCodeLine{5 \textcolor{comment}{* Permission to use, copy, modify, and distribute this software and its}}
+\DoxyCodeLine{6 \textcolor{comment}{* documentation under the terms of the GNU General Public License is hereby}}
+\DoxyCodeLine{7 \textcolor{comment}{* granted. No representations are made about the suitability of this software}}
+\DoxyCodeLine{8 \textcolor{comment}{* for any purpose. It is provided "{}as is"{} without express or implied warranty.}}
+\DoxyCodeLine{9 \textcolor{comment}{* See the GNU General Public License for more details.}}
+\DoxyCodeLine{10 \textcolor{comment}{*}}
+\DoxyCodeLine{11 \textcolor{comment}{* Documents produced by Doxygen are derivative works derived from the}}
+\DoxyCodeLine{12 \textcolor{comment}{* input used in their production; they are not affected by this license.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{*/}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DOTFILEPATCHER\_H}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DOTFILEPATCHER\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{qcstring_8h}{qcstring.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classTextStream}{TextStream}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classDotFilePatcher}{DotFilePatcher}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28   \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{classDotFilePatcher_a4993d9e9855116cd4fee5bd950c19bb8}{DotFilePatcher}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&patchFile);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotFilePatcher_aa53ad66e5d0c6a04f6d198aa030b63f3}{addMap}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&mapFile,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{31                \textcolor{keywordtype}{bool} urlOnly,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&context,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&label);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotFilePatcher_af67aa4441f3e872f6d3c69667572c052}{addFigure}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&baseName,}
+\DoxyCodeLine{34                   \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&figureName,\textcolor{keywordtype}{bool} heightCheck);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotFilePatcher_aac97171a3985fd07e09fef2a25819a16}{addSVGConversion}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,\textcolor{keywordtype}{bool} urlOnly,}
+\DoxyCodeLine{37                          \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&context,\textcolor{keywordtype}{bool} zoomable,\textcolor{keywordtype}{int} graphId);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{classDotFilePatcher_a8a0183f93570ac3b1a8df3e0f7229a2b}{addSVGObject}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&baseName, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&figureName,}
+\DoxyCodeLine{40                      \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath);}
+\DoxyCodeLine{41     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotFilePatcher_a02cd92c7c61a35c61c601ff6b409c5e5}{run}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotFilePatcher_a36fcbf6fe68086f734c114a2d30c5516}{isSVGFile}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotFilePatcher_a28f0ce1e173d0f12f0a4425af69958a5}{convertMapFile}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&t,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&mapName,}
+\DoxyCodeLine{45                                \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath, \textcolor{keywordtype}{bool} urlOnly=\mbox{\hyperlink{qcstring_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}},}
+\DoxyCodeLine{46                                \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&context=\mbox{\hyperlink{classQCString}{QCString}}());}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotFilePatcher_ae41b4e8b1817e1d1de1732e4c4f9069c}{writeSVGFigureLink}}(\mbox{\hyperlink{classTextStream}{TextStream}} \&out,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&relPath,}
+\DoxyCodeLine{49                                    \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&baseName,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&absImgName);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classDotFilePatcher_a1e56aa086c8135c76d84de764845c20e}{writeVecGfxFigure}}(\mbox{\hyperlink{classTextStream}{TextStream}}\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& baseName,}
+\DoxyCodeLine{52                                   \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}}\& figureName);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54   \textcolor{keyword}{private}:}
+\DoxyCodeLine{55     \textcolor{keyword}{struct }Map}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57       Map(\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&mf,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&rp,\textcolor{keywordtype}{bool} uo,\textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&ctx,}
+\DoxyCodeLine{58           \textcolor{keyword}{const} \mbox{\hyperlink{classQCString}{QCString}} \&lab,\textcolor{keywordtype}{bool} zoom=\textcolor{keyword}{false},\textcolor{keywordtype}{int} gId=-\/1) :}
+\DoxyCodeLine{59         mapFile(mf), relPath(rp), urlOnly(uo), context(ctx),}
+\DoxyCodeLine{60         label(lab), zoomable(zoom), graphId(gId) \{\}}
+\DoxyCodeLine{61       \mbox{\hyperlink{classQCString}{QCString}} mapFile;}
+\DoxyCodeLine{62       \mbox{\hyperlink{classQCString}{QCString}} relPath;}
+\DoxyCodeLine{63       \textcolor{keywordtype}{bool}     urlOnly;}
+\DoxyCodeLine{64       \mbox{\hyperlink{classQCString}{QCString}} context;}
+\DoxyCodeLine{65       \mbox{\hyperlink{classQCString}{QCString}} label;}
+\DoxyCodeLine{66       \textcolor{keywordtype}{bool}     zoomable;}
+\DoxyCodeLine{67       \textcolor{keywordtype}{int}      graphId;}
+\DoxyCodeLine{68     \};}
+\DoxyCodeLine{69     std::vector<Map> m\_maps;}
+\DoxyCodeLine{70     \mbox{\hyperlink{classQCString}{QCString}} m\_patchFile;}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

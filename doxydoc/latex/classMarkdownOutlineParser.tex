@@ -1,0 +1,104 @@
+\hypertarget{classMarkdownOutlineParser}{}\doxysection{Markdown\+Outline\+Parser Class Reference}
+\label{classMarkdownOutlineParser}\index{MarkdownOutlineParser@{MarkdownOutlineParser}}
+
+
+{\ttfamily \#include $<$markdown.\+h$>$}
+
+
+
+Inheritance diagram for Markdown\+Outline\+Parser\+:
+% FIG 0
+
+
+Collaboration diagram for Markdown\+Outline\+Parser\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMarkdownOutlineParser_1_1Private}{Private}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMarkdownOutlineParser_a8fb5ef90db1a3302c0bc0e06e684d880}{Markdown\+Outline\+Parser}} ()
+\item 
+virtual \mbox{\hyperlink{classMarkdownOutlineParser_a46ee966ea78ed5c76eb608e2af1f0dd4}{$\sim$\+Markdown\+Outline\+Parser}} ()
+\item 
+void \mbox{\hyperlink{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}{parse\+Input}} (const \mbox{\hyperlink{classQCString}{QCString}} \&file\+Name, const char $\ast$file\+Buf, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&root, \mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$clang\+Parser)
+\item 
+bool \mbox{\hyperlink{classMarkdownOutlineParser_a5bc6a6ff0b95dec00d1dd81ab7278252}{needs\+Preprocessing}} (const \mbox{\hyperlink{classQCString}{QCString}} \&) const
+\item 
+void \mbox{\hyperlink{classMarkdownOutlineParser_aa01f3200563b06e0f9a6364f522685c8}{parse\+Prototype}} (const \mbox{\hyperlink{classQCString}{QCString}} \&text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMarkdownOutlineParser_a8fb5ef90db1a3302c0bc0e06e684d880}\label{classMarkdownOutlineParser_a8fb5ef90db1a3302c0bc0e06e684d880}} 
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\doxysubsubsection{\texorpdfstring{MarkdownOutlineParser()}{MarkdownOutlineParser()}}
+{\footnotesize\ttfamily Markdown\+Outline\+Parser\+::\+Markdown\+Outline\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMarkdownOutlineParser_a46ee966ea78ed5c76eb608e2af1f0dd4}\label{classMarkdownOutlineParser_a46ee966ea78ed5c76eb608e2af1f0dd4}} 
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!````~MarkdownOutlineParser@{$\sim$MarkdownOutlineParser}}
+\index{````~MarkdownOutlineParser@{$\sim$MarkdownOutlineParser}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\doxysubsubsection{\texorpdfstring{$\sim$MarkdownOutlineParser()}{~MarkdownOutlineParser()}}
+{\footnotesize\ttfamily Markdown\+Outline\+Parser\+::$\sim$\+Markdown\+Outline\+Parser (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMarkdownOutlineParser_a5bc6a6ff0b95dec00d1dd81ab7278252}\label{classMarkdownOutlineParser_a5bc6a6ff0b95dec00d1dd81ab7278252}} 
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!needsPreprocessing@{needsPreprocessing}}
+\index{needsPreprocessing@{needsPreprocessing}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\doxysubsubsection{\texorpdfstring{needsPreprocessing()}{needsPreprocessing()}}
+{\footnotesize\ttfamily bool Markdown\+Outline\+Parser\+::needs\+Preprocessing (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{extension }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Returns TRUE if the language identified by {\itshape extension} needs the C preprocessor to be run before feed the result to the input parser. \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}{parse\+Input()}} 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a0df8efc6ad67956cf54b7dec68c932b4}{Outline\+Parser\+Interface}}.
+
+\mbox{\Hypertarget{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}\label{classMarkdownOutlineParser_ae79ada0ff9463982c79972d65e3328e3}} 
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!parseInput@{parseInput}}
+\index{parseInput@{parseInput}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\doxysubsubsection{\texorpdfstring{parseInput()}{parseInput()}}
+{\footnotesize\ttfamily void Markdown\+Outline\+Parser\+::parse\+Input (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{file\+Name,  }\item[{const char $\ast$}]{file\+Buf,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classEntry}{Entry}} $>$ \&}]{root,  }\item[{\mbox{\hyperlink{classClangTUParser}{Clang\+TUParser}} $\ast$}]{clang\+Parser }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Parses a single input file with the goal to build an \mbox{\hyperlink{classEntry}{Entry}} tree. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em file\+Name} & The full name of the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em file\+Buf} & The contents of the file (zero terminated). \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em root} & The root of the tree of \mbox{\hyperlink{classEntry}{Entry}} $\ast$nodes representing the information extracted from the file. \\
+\hline
+\mbox{\texttt{ in}}  & {\em clang\+Parser} & The clang translation unit parser object or nullptr if disabled. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a40c002cf93d56d617f3ca92ff9b0a210}{Outline\+Parser\+Interface}}.
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classMarkdownOutlineParser_aa01f3200563b06e0f9a6364f522685c8}\label{classMarkdownOutlineParser_aa01f3200563b06e0f9a6364f522685c8}} 
+\index{MarkdownOutlineParser@{MarkdownOutlineParser}!parsePrototype@{parsePrototype}}
+\index{parsePrototype@{parsePrototype}!MarkdownOutlineParser@{MarkdownOutlineParser}}
+\doxysubsubsection{\texorpdfstring{parsePrototype()}{parsePrototype()}}
+{\footnotesize\ttfamily void Markdown\+Outline\+Parser\+::parse\+Prototype (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQCString}{QCString}} \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Callback function called by the comment block scanner. It provides a string {\itshape text} containing the prototype of a function or variable. The parser should parse this and store the information in the \mbox{\hyperlink{classEntry}{Entry}} node that corresponds with the node for which the comment block parser was invoked. 
+
+Implements \mbox{\hyperlink{classOutlineParserInterface_a69a5b6af5318cae09594b6a48d6b0d99}{Outline\+Parser\+Interface}}.
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{markdown_8h}{markdown.\+h}}\item 
+/mnt/c/projects/doxygen/src/\mbox{\hyperlink{markdown_8cpp}{markdown.\+cpp}}\end{DoxyCompactItemize}
