@@ -29,12 +29,13 @@ class Metal: public  Material
 {
     public:
     
-    Metal(color a): albedo(a){}
+    Metal(color a,double f): albedo(a), fuzz(f < 1 ? f : 1) {}
 
     virtual bool scatter( Ray& rIn ,hitRecord& rec, color& attenuation, Ray& scattered) override;
 
     public:
     color albedo;
+    double fuzz;
 
 };
 

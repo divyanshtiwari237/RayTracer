@@ -31,7 +31,7 @@ color ray_color( Ray r, HittableLists& world,int depth)
 
 int main()
 {
-    std::ofstream obj("../../Images/metal.ppm");
+    std::ofstream obj("../../Images/metalwithfuzz.ppm");
     //image
     const auto aspect_ratio =16.0/9.0;
     const int image_width = 400;
@@ -44,8 +44,8 @@ int main()
     
     auto materialGround = make_shared<Lambertian>(color(0.8, 0.8, 0.0));
     auto materialCenter = make_shared<Lambertian>(color(0.7, 0.3, 0.3));
-    auto materialLeft   = make_shared<Metal>(color(0.8, 0.8, 0.8));
-    auto materialRight  = make_shared<Metal>(color(0.8, 0.6, 0.2));
+    auto materialLeft   = make_shared<Metal>(color(0.8, 0.8, 0.8),0.3);
+    auto materialRight  = make_shared<Metal>(color(0.8, 0.6, 0.2),1.0);
 
     world.add(make_shared<Sphere>(point3( 0.0, -100.5, -1.0), 100.0, materialGround));
     world.add(make_shared<Sphere>(point3( 0.0,    0.0, -1.0),   0.5, materialCenter));
