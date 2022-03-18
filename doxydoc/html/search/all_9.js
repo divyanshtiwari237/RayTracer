@@ -7,5 +7,5 @@ var searchData=
   ['material_2ehpp_4',['material.hpp',['../material_8hpp.html',1,'']]],
   ['maths_2ehpp_5',['maths.hpp',['../maths_8hpp.html',1,'']]],
   ['matptr_6',['matPtr',['../structhitRecord.html#a1319408eaa58b1da56e2db91a49ca95c',1,'hitRecord::matPtr()'],['../classSphere.html#a5d918c0ec3abd42c90a928766056f24b',1,'Sphere::matPtr()']]],
-  ['metal_7',['Metal',['../classMetal.html',1,'Metal'],['../classMetal.html#a8a4360e60f185a082182c48e622a6a3f',1,'Metal::Metal()']]]
+  ['metal_7',['Metal',['../classMetal.html',1,'Metal'],['../classMetal.html#a5016855edddadc4b2b502e10c083c244',1,'Metal::Metal()']]]
 ];
