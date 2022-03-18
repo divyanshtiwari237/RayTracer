@@ -15,7 +15,7 @@ bool Lambertian:: scatter(Ray& rIn ,hitRecord& rec, color& attenuation, Ray& sca
 bool Metal::scatter(Ray& rIn ,hitRecord& rec, color& attenuation, Ray& scattered)
 {
     vec3 reflected = vec3::reflect(vec3::unit_vector(rIn.getDir()), rec.normal);
-    scattered = Ray(rec.p, reflected);
+    scattered = Ray(rec.p, reflected +fuzz*vec3::randominunitSphere());
     attenuation = albedo;
     return (vec3::dot(scattered.getDir(), rec.normal) > 0);
 }
