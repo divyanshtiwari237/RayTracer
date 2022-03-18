@@ -39,4 +39,18 @@ class Metal: public  Material
 
 };
 
+class Dielectric : public Material
+{
+    public:
+    
+    Dielectric(double indexofRefraction): ir(indexofRefraction) {}
+
+    virtual bool scatter(Ray& rIn ,hitRecord& rec, color& attenuation, Ray& scattered) override;
+
+
+
+    public:
+    double ir;
+};
+
 #endif

@@ -31,7 +31,7 @@ color ray_color( Ray r, HittableLists& world,int depth)
 
 int main()
 {
-    std::ofstream obj("../../Images/metalwithfuzz.ppm");
+    std::ofstream obj("../../Images/dielectric.ppm");
     //image
     const auto aspect_ratio =16.0/9.0;
     const int image_width = 400;
@@ -43,8 +43,8 @@ int main()
     HittableLists world;
     
     auto materialGround = make_shared<Lambertian>(color(0.8, 0.8, 0.0));
-    auto materialCenter = make_shared<Lambertian>(color(0.7, 0.3, 0.3));
-    auto materialLeft   = make_shared<Metal>(color(0.8, 0.8, 0.8),0.3);
+    auto materialCenter = make_shared<Dielectric>(1.5);
+    auto materialLeft   = make_shared<Dielectric>(1.5);
     auto materialRight  = make_shared<Metal>(color(0.8, 0.6, 0.2),1.0);
 
     world.add(make_shared<Sphere>(point3( 0.0, -100.5, -1.0), 100.0, materialGround));

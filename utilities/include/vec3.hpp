@@ -188,6 +188,14 @@ class vec3
         return v-2*vec3::dot(v,n)*n;
     }
 
+    inline static vec3 refract(vec3 uv, vec3 n, double etaioveretat)
+    {
+        auto cosTheta =fmin(vec3::dot(-uv,n),1.0);
+        vec3 routPerp = etaioveretat * (uv + cosTheta*n);
+        vec3 routParallel = -sqrt(fabs(1.0 - routPerp.length_squared()))*n;
+        return routPerp + routParallel ;
+    }
+
 
 
 };
